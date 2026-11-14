@@ -62,7 +62,7 @@ export const EventCard: React.FC<EventCardProps> = ({
       )}
 
       <div style={{ fontWeight: 600, marginBottom: '0.75rem', color: '#fff', fontSize: '0.95rem' }}>
-        AVAILABLE ACTIONS & DIRECTIVES:
+        INCIDENT RESPONSES:
       </div>
 
       <div className="choices-list">
@@ -101,7 +101,6 @@ export const EventCard: React.FC<EventCardProps> = ({
               </div>
 
               <div style={{ fontSize: '0.85rem', color: 'var(--text-muted)' }}>
-                {choice.action_type === 'research' && <p><strong>Planned research task</strong></p>}
                 {choice.description}
                 {choice.objective_rewards.map((reward) => <p key={reward.objective_id} style={{ color: 'var(--color-cyan)' }}>
                   On success: +{reward.amount} toward {reward.title}.

@@ -6,15 +6,17 @@ from dataclasses import asdict
 from math import isfinite
 
 from app.game.events import (
+    MAINTENANCE_CHOICES,
     apply_effects,
     choice_reasons,
+    choice_views,
     event_view,
     get_event,
     resolve_choice,
     select_event,
 )
 from app.game.models import Definitions, GameError, GameState, Ration
-from app.game.research import objective_rewards, science_view
+from app.game.research import objective_rewards, research_choices, science_view
 from app.game.rules import DEFAULT_RULES, RATION_MULTIPLIERS, Rules
 from app.game.survival import permits_depletion, ration_cost, ration_requirements, simulate_week
 
@@ -105,6 +107,8 @@ class GameEngine:
         rations: dict[str, Ration],
         event_choice_id: str,
         selected_crew_id: str | None = None,
+        support_crew_ids: list[str] | None = None,
+        assignments: list[dict] | None = None,
     ) -> tuple[GameState, dict]:
         if original.status != "running":
             raise GameError("The mission has already finished.", 409)
@@ -121,20 +125,100 @@ class GameEngine:
         reasons = choice_reasons(original, choice, self.definitions, selected)
         if reasons:
             raise GameError(" ".join(reasons))
+        support = support_crew_ids or []
+        orders = assignments or []
+        required_support = max(0, choice.minimum_crew - 1) if choice.requires_crew else 0
+        if len(support) != required_support:
+            raise GameError(f"This response requires {required_support} support astronauts.")
+        occupied = ([selected_crew_id] if choice.requires_crew else []) + support
+        living_ids = {crew.id for crew in original.crew if crew.alive}
+        activities = {activity.id: activity for activity in self.assignment_choices(original)}
+        planned = []
+        for order in orders:
+            actor = next((crew for crew in original.crew if crew.id == order["crew_id"]), None)
+            activity = activities.get(order["activity_id"])
+            if activity is None:
+                raise GameError("Unknown or completed assignment activity.")
+            reasons = choice_reasons(original, activity, self.definitions, actor)
+            if reasons:
+                raise GameError(" ".join(reasons))
+            occupied.append(order["crew_id"])
+            planned.append((activity, order["crew_id"]))
+        if any(crew_id not in living_ids for crew_id in occupied):
+            raise GameError("Only living astronauts can be assigned.")
+        if len(set(occupied)) != len(occupied):
+            raise GameError("An astronaut cannot be booked for more than one job.")
+        action_costs = choice.costs.copy()
+        for activity, _ in planned:
+            for resource, amount in activity.costs.items():
+                action_costs[resource] = action_costs.get(resource, 0) + amount
         for resource in original.resources:
-            required = costs.get(resource, 0) + choice.costs.get(resource, 0)
+            required = costs.get(resource, 0) + action_costs.get(resource, 0)
             if original.resources[resource] + 1e-6 < required:
-                if resource not in ("food", "water") or not permits_depletion(rations, resource):
+                if (
+                    original.resources[resource] < action_costs.get(resource, 0)
+                    or resource not in ("food", "water")
+                    or not permits_depletion(rations, resource)
+                ):
                     raise GameError(
-                        f"Insufficient {resource} for rations and event costs combined."
+                        f"Insufficient {resource} for rations and all weekly actions combined."
                     )
 
         state = deepcopy(original)
+        # Reserve every action's base cost before any outcome can consume supplies.
+        for resource, amount in action_costs.items():
+            state.resources[resource] = max(0.0, round(state.resources[resource] - amount, 6))
         selected = next((crew for crew in state.crew if crew.id == selected_crew_id), None)
-        event_result = resolve_choice(state, choice, selected)
-        event_result["objective_progress"] = (
+        event_result = resolve_choice(state, choice, selected, charge_costs=False)
+        event_result["support_crew_ids"] = support.copy()
+        gains = (
             objective_rewards(state, self.definitions, choice.id) if event_result["success"] else []
         )
+        event_result["objective_progress"] = gains.copy()
+        assignment_results = []
+        # Canonical crew order makes results independent of request-list ordering.
+        planned.sort(
+            key=lambda plan: next(i for i, crew in enumerate(state.crew) if crew.id == plan[1])
+        )
+        for activity, crew_id in planned:
+            actor = next(crew for crew in state.crew if crew.id == crew_id)
+            if not actor.alive:
+                for resource, amount in activity.costs.items():
+                    state.resources[resource] += amount
+                assignment_results.append(
+                    {
+                        "crew_id": crew_id,
+                        "activity_id": activity.id,
+                        "status": "cancelled",
+                        "outcome": None,
+                        "reason": "Astronaut died before work began; reserved supplies returned.",
+                    }
+                )
+                continue
+            outcome = resolve_choice(
+                state,
+                activity,
+                actor,
+                purpose=f"outcome:assignment:{crew_id}:{activity.id}",
+                charge_costs=False,
+            )
+            credit = (
+                objective_rewards(state, self.definitions, activity.id, gains)
+                if outcome["success"]
+                else []
+            )
+            outcome["objective_progress"] = credit
+            outcome["support_crew_ids"] = []
+            gains.extend(credit)
+            assignment_results.append(
+                {
+                    "crew_id": crew_id,
+                    "activity_id": activity.id,
+                    "status": "completed",
+                    "outcome": outcome,
+                    "reason": None,
+                }
+            )
         state, survival = simulate_week(
             state, self.definitions.stations[state.station_id], rations, self.rules
         )
@@ -143,6 +227,8 @@ class GameEngine:
         report = {
             "week": state.current_week,
             "event": event_result,
+            "assignments": assignment_results,
+            "science_gains": gains,
             "rations": {crew_id: asdict(ration) for crew_id, ration in rations.items()},
             "survival": survival,
             "resource_changes": {
@@ -234,6 +320,9 @@ class GameEngine:
             "balance_note": "All values are fictional gameplay units, not NASA measurements.",
         }
 
+    def assignment_choices(self, state: GameState):
+        return [*MAINTENANCE_CHOICES, *research_choices(state, self.definitions)]
+
     def state_view(self, state: GameState) -> dict:
         mission = self.definitions.missions[state.mission_id]
         science = science_view(state, self.definitions)
@@ -273,6 +362,11 @@ class GameEngine:
                 "end": state.current_week * 7,
             },
             "current_event": event_view(state, self.definitions),
+            "assignment_options": choice_views(
+                state, self.definitions, self.assignment_choices(state)
+            )
+            if state.status == "running"
+            else [],
             "science": science,
             "emergency_ration_requirements": minimum_rations,
             "depleted_provisions": [

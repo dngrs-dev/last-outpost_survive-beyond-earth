@@ -56,17 +56,13 @@ or extra research, rather than being required to advance.
 
 Every event has an authored response with no material cost and no assigned crew,
 so unavailable equipment cannot block a turn. These responses may accept losses;
-they do not guarantee survival. Existing weekly maintenance remains an alternative
-action. Only one event, maintenance, or planned research action resolves per week,
-alongside rations.
-Initial discovery damage is applied once before the player decides.
-
-Planned research tasks are another alternative to incident response, available
-for unfinished objectives regardless of the selected event. Each requires a field
-science kit, a living astronaut, and the displayed supplies. Completing research
-leaves discovery damage in place. Successful qualifying event choices also count
-toward the same targets. Archiving a seismic signal earns data but is not a
-detailed analysis and gives no objective credit.
+they do not guarantee survival. Maintenance and planned research are separate
+one-week crew assignments, available
+alongside the incident response. Each assigned astronaut, including explicit
+incident support crew, occupies one main job. See [weekly assignments](assignments.md).
+Initial discovery damage is applied once before planning. Successful qualifying
+responses and assignments share capped research-objective credit. Archiving a
+seismic signal still earns data without completing a detailed analysis.
 
 The selector prioritizes unseen eligible events, then uses weighted selection.
 The previous two events remain excluded; a quiet week is the fallback if no event
@@ -75,5 +71,5 @@ longer missions can see all fifteen before repeats. Seeded outcomes, atomic
 validation, and retried-request handling are unchanged.
 
 The backend validates item requirements, role and crew-count requirements,
-combined ration/event spending, effects, and resource accounting. Science equipment
+combined ration/response/assignment spending, effects, and resource accounting. Science equipment
 is checked rather than consumed. All health and system effects remain bounded.

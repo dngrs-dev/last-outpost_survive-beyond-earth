@@ -28,12 +28,13 @@ describe('Mission research with real API fixtures', () => {
     render(<MemoryRouter initialEntries={['/game/fixture-game']}><Routes>
       <Route path="/game/:gameId" element={<GamePage />} />
     </Routes></MemoryRouter>);
-    fireEvent.click(await screen.findByText(/Survey a geological sample/));
-    fireEvent.click(screen.getByRole('button', { name: /Astronaut LIN/ }));
+    fireEvent.change(await screen.findByRole('combobox', { name: 'Assignment for Lin Park' }), { target: { value: 'research_geology' } });
+    const response = researchGame.state.current_event!.choices.find(c => !c.requires_crew)!;
+    fireEvent.click(screen.getByText(new RegExp(response.text)));
     fireEvent.click(screen.getByRole('button', { name: /SUBMIT WEEK 1 DECISIONS/ }));
     expect(await screen.findByText('Research objective: Baseline sample collection +1.')).toBeInTheDocument();
     expect(send).toHaveBeenCalledWith('fixture-game', expect.objectContaining({
-      event_choice_id: 'research_geology', selected_crew_id: 'lin', expected_week: 1,
+      assignments: [{ crew_id: 'lin', activity_id: 'research_geology' }], expected_week: 1,
     }));
     expect(screen.getByRole('progressbar', { name: 'Baseline sample collection progress' })).toHaveAttribute('value', '1');
   });

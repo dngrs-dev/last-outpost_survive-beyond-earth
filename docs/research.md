@@ -55,12 +55,12 @@ submission. The field kit is not consumed. Research data retains its role as a
 separate total for additional scientific output; it cannot substitute for any
 specific objective.
 
-Each task is the week's main action, replacing the current incident response or
-maintenance. Its initial discovery damage remains. Crew still consume provisions
-and the normal weekly survival simulation runs. The player must budget time and
-supplies between survival and science. Completed objectives stop offering their
-planned task; subsequent matching events can still earn research data but cannot
-increase the completed objective's progress.
+Each task occupies one astronaut for one week alongside the incident response.
+Incident responders and support crew cannot also take assignments. Initial
+incident damage remains until repaired. Multiple astronauts may work on research,
+but total objective credit cannot exceed the target. Completed objectives stop
+offering their planned task; later matching events can still earn research data.
+See [weekly assignments](assignments.md) for costs and resolution rules.
 
 ## Assessment and integrity
 
@@ -79,10 +79,8 @@ credit, and the availability of a planned task. Progress is derived from committ
 turn-history gains. Failed actions, rejected decisions, reads, stale submissions,
 and request replay cannot add credit. There is no client-submitted progress field.
 
-Verification includes success and failure paths for all planned tasks, matching
-event credit, equipment rejection, capped progress, request replay, and both
-combinations of survival and scientific achievement. An additional manual batch
-of 120 seeded campaigns across the six real event pools, using two crew and a
-159 kg / 206 L research loadout, reached survival handover in all runs and full
-science completion in 117. This is a check of reachability, not a guarantee of
-balance for every crew and loadout.
+Verification covers success/failure, concurrent event and assignment credit,
+equipment rejection, support crew, double-booking, combined costs, death before
+work begins, deterministic ordering, capped progress, and exact replay. Campaign
+balance measurements from the earlier single-action prototype are superseded by
+the assignment system.

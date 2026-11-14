@@ -28,12 +28,13 @@ def checked(response):
 
 
 def decision(state, request_id, ignore=False, choice_id=None):
+    activity = next((a for a in state["assignment_options"] if a["id"] == choice_id), None)
     choice = next(
         c
         for c in state["current_event"]["choices"]
         if c["available"]
-        and (not ignore or not c["requires_crew"])
-        and (choice_id is None or c["id"] == choice_id)
+        and (not (ignore or activity) or not c["requires_crew"])
+        and (choice_id is None or activity or c["id"] == choice_id)
     )
     living = [c for c in state["crew"] if c["alive"]]
     levels = {
@@ -49,7 +50,23 @@ def decision(state, request_id, ignore=False, choice_id=None):
         key=lambda c: c["success_probability"],
         default=None,
     )
+    support = (
+        [c["id"] for c in living if not selected or c["id"] != selected["crew_id"]][
+            : max(0, choice["minimum_crew"] - 1)
+        ]
+        if choice["requires_crew"]
+        else []
+    )
+    work = []
+    if activity:
+        actor = max(
+            (c for c in activity["eligible_crew"] if c["available"]),
+            key=lambda c: c["success_probability"],
+        )
+        work = [{"crew_id": actor["crew_id"], "activity_id": activity["id"]}]
     return {
+        "support_crew_ids": support,
+        "assignments": work,
         "expected_week": state["current_week"],
         "request_id": request_id,
         "rations": {c["id"]: levels.copy() for c in living},
@@ -118,7 +135,7 @@ def generate(check: bool = False) -> None:
             result = turn(
                 initial, decision(initial["state"], "fixture-science", choice_id="research_geology")
             )
-            if result["turn_outcome"]["event"]["success"]:
+            if result["turn_outcome"]["assignments"][0]["outcome"]["success"]:
                 fixtures["researchGame"] = ("GameResponse", initial)
                 fixtures["researchTurn"] = ("TurnResponse", result)
                 break
@@ -126,7 +143,7 @@ def generate(check: bool = False) -> None:
             raise RuntimeError("No successful research fixture found")
         while result["state"]["status"] == "running":
             state = result["state"]
-            choices = state["current_event"]["choices"]
+            choices = state["assignment_options"]
             work = next((c for c in choices if c["available"] and c["objective_rewards"]), None)
             result = turn(
                 result,
@@ -141,6 +158,40 @@ def generate(check: bool = False) -> None:
             "GameResponse",
             {"game_id": result["game_id"], "state": result["state"]},
         )
+
+        for seed in range(100):
+            initial = create(seed, ["alex", "lin", "sam", "maya"], research_cargo)
+            next_week = turn(
+                initial, decision(initial["state"], "fixture-support-discovery", ignore=True)
+            )
+            response = next(
+                (
+                    c
+                    for c in next_week["state"]["current_event"]["choices"]
+                    if c["minimum_crew"] == 2
+                ),
+                None,
+            )
+            if response:
+                fixtures["supportGame"] = (
+                    "GameResponse",
+                    {"game_id": next_week["game_id"], "state": next_week["state"]},
+                )
+                body = decision(next_week["state"], "fixture-parallel", choice_id=response["id"])
+                occupied = [body["selected_crew_id"], *body["support_crew_ids"]]
+                free = [
+                    c["id"]
+                    for c in next_week["state"]["crew"]
+                    if c["alive"] and c["id"] not in occupied
+                ]
+                body["assignments"] = [
+                    {"crew_id": free[0], "activity_id": "research_geology"},
+                    {"crew_id": free[1], "activity_id": "research_instrument"},
+                ]
+                fixtures["parallelTurn"] = ("TurnResponse", turn(next_week, body))
+                break
+        else:
+            raise RuntimeError("No support crew fixture found")
 
         for name, crew, cargo in (
             ("completed", ["alex", "maya"], CARGO),

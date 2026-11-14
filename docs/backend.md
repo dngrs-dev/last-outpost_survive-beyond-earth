@@ -11,12 +11,12 @@ includes `science_objectives` for preparation. Game states expose `science`
 and terminal `results.science` records the same assessment separately from the
 survival ending. Status is `not_started`, `partial`, or `complete`.
 
-Choice responses include `action_type` (`event`, `maintenance`, or `research`)
-and potential `objective_rewards`. Committed event outcomes include the actual
-`objective_progress` gains, awarded only on success. Progress is derived from
-committed history; reads, failures, rejections, and request replay cannot duplicate
-credit. Planned research uses the existing `event_choice_id`/`selected_crew_id`
-turn contract and consumes the week's one action. It does not repair the incident.
+Weekly turns contain one incident response plus independent one-week crew assignments.
+Each astronaut has one main job. See [weekly assignments](assignments.md) for the
+request contract, support-crew rules, supply reservations, resolution order, and
+cancellation policy. Research credit from both paths is combined in the turn's
+`science_gains`, with per-action gains retained for debriefing. Science remains
+independent of survival.
 
 Requires Python 3.11 or later. From the repository root on Windows PowerShell:
 
@@ -97,7 +97,7 @@ ration costs, emergency provision requirements, depleted provisions, and every
 event choice's requirements, costs, risk effects, eligible crew, success
 probabilities, and reasons for unavailability. Choice affordability is checked
 against current supplies; the submitted turn additionally validates combined
-ration and event costs.
+ration, response, and assignment costs.
 
 Turn order and prototype rules:
 
@@ -106,7 +106,7 @@ Turn order and prototype rules:
   selection within that group. Do not repeat either of the previous two events;
   use a quiet week when nothing is eligible.
 - Validate the entire decision before resolving it on a copy. Charge event costs,
-  resolve success/injury, feed surviving crew, generate/use electricity, then
+  resolve the incident and assignments, feed surviving crew, generate/use electricity, then
   generate/use oxygen. Apply ration and oxygen health penalties and check endings.
   Event casualties consume no weekly provisions. A surviving crew then advances
   to the next event. The journal records both the turn and next event's discovery.

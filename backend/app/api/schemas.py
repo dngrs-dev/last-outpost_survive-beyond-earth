@@ -26,12 +26,19 @@ class RationRequest(RequestModel):
     water: RationLevel
 
 
+class AssignmentRequest(RequestModel):
+    crew_id: Identifier
+    activity_id: Identifier
+
+
 class SubmitTurnRequest(RequestModel):
     expected_week: Annotated[int, Field(strict=True, ge=1)]
     request_id: Identifier
     rations: dict[Identifier, RationRequest]
     event_choice_id: Identifier
     selected_crew_id: Identifier | None = None
+    support_crew_ids: list[Identifier] = Field(default_factory=list, max_length=7)
+    assignments: list[AssignmentRequest] = Field(default_factory=list, max_length=8)
 
 
 class ErrorResponse(BaseModel):
@@ -165,6 +172,7 @@ class AppliedEffectsResponse(BaseModel):
 
 
 class EventOutcomeResponse(BaseModel):
+    support_crew_ids: list[str]
     event_id: str
     choice_id: str
     choice_text: str
@@ -204,7 +212,17 @@ class NextEventResponse(BaseModel):
     effects: AppliedEffectsResponse
 
 
+class AssignmentOutcomeResponse(BaseModel):
+    crew_id: str
+    activity_id: str
+    status: Literal["completed", "cancelled"]
+    outcome: EventOutcomeResponse | None
+    reason: str | None
+
+
 class TurnOutcomeResponse(BaseModel):
+    assignments: list[AssignmentOutcomeResponse]
+    science_gains: list[ObjectiveGainResponse]
     week: int
     event: EventOutcomeResponse
     rations: dict[str, RationRequest]
@@ -245,6 +263,7 @@ class GameStateResponse(BaseModel):
     ending: str | None
     results: ResultsResponse | None
     science: ScienceResponse
+    assignment_options: list[ChoiceResponse]
 
 
 class GameResponse(BaseModel):

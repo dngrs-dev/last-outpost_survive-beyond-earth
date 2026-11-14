@@ -68,6 +68,12 @@ def main() -> None:
                 "rations": {crew["id"]: levels for crew in living},
                 "event_choice_id": choice["id"],
                 "selected_crew_id": selected,
+                "support_crew_ids": [c["id"] for c in living if c["id"] != selected][
+                    : max(0, choice["minimum_crew"] - 1)
+                ]
+                if choice["requires_crew"]
+                else [],
+                "assignments": [],
             },
         )
         outcome = response["turn_outcome"]

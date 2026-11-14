@@ -53,21 +53,39 @@ def test_maintenance_consumes_equipment_once_and_persists(
 ):
     state = quiet_engine.create_game("alpha", ["jules"], {resource: 1}, 42)
     setattr(state, system, 0.5)
-    after, outcome = quiet_engine.advance_week(state, 1, rations(state), choice_id, "jules")
-    assert outcome["event"]["success"]
+    after, outcome = quiet_engine.advance_week(
+        state,
+        1,
+        rations(state),
+        "continue",
+        assignments=[{"crew_id": "jules", "activity_id": choice_id}],
+    )
+    assert outcome["assignments"][0]["outcome"]["success"]
     assert getattr(after, system) == 0.7
     assert after.resources[resource] == 0
     assert state.resources[resource] == 1
     before = deepcopy(after)
     with pytest.raises(GameError, match=resource):
-        quiet_engine.advance_week(after, 2, rations(after), choice_id, "jules")
+        quiet_engine.advance_week(
+            after,
+            2,
+            rations(after),
+            "continue",
+            assignments=[{"crew_id": "jules", "activity_id": choice_id}],
+        )
     assert after == before
 
 
 def test_cannot_spend_maintenance_supplies_on_a_fully_working_system(quiet_engine):
     state = quiet_engine.create_game("alpha", ["alex"], {"dust_kits": 1}, 42)
     with pytest.raises(GameError, match="full condition"):
-        quiet_engine.advance_week(state, 1, rations(state), "clean_array", "alex")
+        quiet_engine.advance_week(
+            state,
+            1,
+            rations(state),
+            "continue",
+            assignments=[{"crew_id": "alex", "activity_id": "clean_array"}],
+        )
     assert state.resources["dust_kits"] == 1
 
 

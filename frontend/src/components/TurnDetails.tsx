@@ -30,6 +30,11 @@ export function TurnDetails({ outcome, crewNames }: Props) {
     </p>)}
     <SystemChanges effects={outcome.event.effects} />
     <HealthChanges changes={outcome.event.effects.health_changes} names={crewNames} />
+    <h3>Crew assignments</h3>
+    {outcome.assignments.map(assignment => <div key={assignment.crew_id}>
+      <p>{crewNames[assignment.crew_id] || assignment.crew_id}: {assignment.outcome?.choice_text || assignment.activity_id} - {assignment.status === 'cancelled' ? assignment.reason : assignment.outcome?.success ? 'Success' : 'Failed'}</p>
+      {assignment.outcome && <><SystemChanges effects={assignment.outcome.effects} /><HealthChanges changes={assignment.outcome.effects.health_changes} names={crewNames} />{assignment.outcome.objective_progress.map(g => <p key={g.objective_id}>Research objective: {g.title} +{g.amount}.</p>)}</>}
+    </div>)}
     <h3>Weekly survival</h3>
     {outcome.survival.health_changes.map((change) => <div key={change.crew_id}>
       <HealthChanges changes={[change]} names={crewNames} />

@@ -122,6 +122,8 @@ export interface SubmitTurnRequest {
   rations: Record<string, RationRequest>;
   event_choice_id: string;
   selected_crew_id?: string | null;
+  support_crew_ids?: string[];
+  assignments?: { crew_id: string; activity_id: string }[];
 }
 
 export interface RationCost {
@@ -233,6 +235,8 @@ export interface SurvivalHealthChange extends HealthChange {
 }
 
 export interface TurnOutcome {
+  science_gains: ObjectiveGain[];
+  assignments: { crew_id: string; activity_id: string; status: "completed" | "cancelled"; outcome: TurnOutcome["event"] | null; reason: string | null }[];
   week: number;
   event: {
     event_id: string;
@@ -244,6 +248,7 @@ export interface TurnOutcome {
     costs: Record<string, number>;
     effects: AppliedEffects;
     objective_progress: ObjectiveGain[];
+    support_crew_ids: string[];
   };
   rations: Record<string, RationRequest>;
   survival: {
@@ -302,6 +307,7 @@ export interface GameStateResponse {
   ending: string | null;
   results: ResultsResponse | null;
   science: ScienceResponse;
+  assignment_options: ChoiceResponse[];
 }
 
 export interface GameResponse {

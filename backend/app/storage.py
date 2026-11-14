@@ -56,6 +56,8 @@ class GameStore:
                 rations={key: Ration(**value) for key, value in decision["rations"].items()},
                 event_choice_id=decision["event_choice_id"],
                 selected_crew_id=decision["selected_crew_id"],
+                support_crew_ids=decision.get("support_crew_ids", []),
+                assignments=decision.get("assignments", []),
             )
             response = {
                 "game_id": game_id,

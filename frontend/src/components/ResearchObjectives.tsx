@@ -24,7 +24,7 @@ export function ResearchObjectives({ objectives, science, final = false }: Props
     <p style={{ fontSize: '0.85rem', color: 'var(--text-muted)' }}>
       {science
         ? 'Science is assessed separately from survival. Successful matching event actions also count; research points alone do not complete objectives.'
-        : 'Pack a field science kit, EVA packs, and repair kits for planned research. Each task replaces the week’s incident response. Survival is assessed separately.'}
+        : 'Pack a field science kit, EVA packs, and repair kits for planned research. Each task occupies one astronaut for a week alongside incident response. Survival is assessed separately.'}
     </p>
     <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(220px, 1fr))', gap: '1rem' }}>
       {objectives.map((objective) => {

@@ -33,6 +33,8 @@ export const GamePage: React.FC = () => {
   const [rations, setRations] = useState<Record<string, RationRequest>>({});
   const [selectedChoiceId, setSelectedChoiceId] = useState<string>('');
   const [selectedCrewId, setSelectedCrewId] = useState<string | null>(null);
+  const [supportCrew, setSupportCrew] = useState<string[]>([]);
+  const [assignments, setAssignments] = useState<Record<string, string>>({});
 
   // Modal debrief state
   const [latestOutcome, setLatestOutcome] = useState<TurnOutcome | null>(null);
@@ -87,6 +89,8 @@ export const GamePage: React.FC = () => {
       };
     });
     setRations(initialRations);
+    setSupportCrew([]);
+    setAssignments({});
     setSelectedChoiceId('');
     setSelectedCrewId(null);
 
@@ -98,6 +102,7 @@ export const GamePage: React.FC = () => {
         if (availableChoice.requires_crew) {
           const firstEligible = availableChoice.eligible_crew.find((c) => c.available);
           setSelectedCrewId(firstEligible ? firstEligible.crew_id : null);
+          setSupportCrew(living.filter(c => c.id !== firstEligible?.crew_id).slice(0, Math.max(0, availableChoice.minimum_crew - 1)).map(c => c.id));
         } else {
           setSelectedCrewId(null);
         }
@@ -131,6 +136,7 @@ export const GamePage: React.FC = () => {
 
   const handleSelectChoice = (choiceId: string) => {
     setSelectedChoiceId(choiceId);
+    setSupportCrew([]);
     const choice = state?.current_event?.choices.find((c) => c.id === choiceId);
     if (choice?.requires_crew) {
       // Auto-select candidate with highest probability
@@ -162,6 +168,8 @@ export const GamePage: React.FC = () => {
       rations: Object.fromEntries(Object.entries(rations).map(([id, ration]) => [id, { ...ration }])),
       event_choice_id: selectedChoiceId,
       selected_crew_id: choice?.requires_crew ? selectedCrewId : null,
+      support_crew_ids: supportCrew.slice(),
+      assignments: Object.entries(assignments).filter(([, activity]) => activity).map(([crew_id, activity_id]) => ({crew_id, activity_id})),
     };
     submissionInFlight.current = true;
     setPendingTurn(decision);
@@ -256,6 +264,26 @@ export const GamePage: React.FC = () => {
     return acc + (c.ration_options?.[level]?.water ?? 0);
   }, 0);
 
+  const requiredSupport = activeChoice?.requires_crew ? Math.max(0, activeChoice.minimum_crew - 1) : 0;
+  const incidentCrew = [...(activeChoice?.requires_crew && selectedCrewId ? [selectedCrewId] : []), ...supportCrew];
+  const weeklyCosts: Record<string, number> = { food: totalFoodNeeded, water: totalWaterNeeded };
+  const actionCosts: Record<string, number> = {};
+  const orderedActivities = Object.entries(assignments).filter(([, id]) => id).map(([crewId, id]) => ({crewId, activity: state.assignment_options.find(a => a.id === id)!}));
+  for (const action of [activeChoice, ...orderedActivities.map(order => order.activity)]) {
+    for (const [resource, amount] of Object.entries(action?.costs || {})) {
+      weeklyCosts[resource] = (weeklyCosts[resource] || 0) + amount;
+      actionCosts[resource] = (actionCosts[resource] || 0) + amount;
+    }
+  }
+  const planIssues: string[] = [];
+  if (supportCrew.length !== requiredSupport) planIssues.push(`Select exactly ${requiredSupport} support astronauts for this response.`);
+  if (new Set(incidentCrew).size !== incidentCrew.length || orderedActivities.some(order => incidentCrew.includes(order.crewId))) planIssues.push('Each astronaut can perform only one main job this week.');
+  for (const order of orderedActivities) if (!order.activity?.eligible_crew.find(c => c.crew_id === order.crewId)?.available) planIssues.push('An assignment is unavailable for its astronaut.');
+  for (const [resource, cost] of Object.entries(weeklyCosts)) {
+    const emergency = (resource === 'food' || resource === 'water') && livingCrew.every(c => rations[c.id]?.[resource] === 'emergency');
+    if (cost > state.resources[resource] + 0.000001 && (!emergency || (actionCosts[resource] || 0) > state.resources[resource] + 0.000001)) planIssues.push(`Combined plan exceeds available ${resource.replace(/_/g, ' ')}.`);
+  }
+
   return (
     <div className="app-container">
       <Header
@@ -349,7 +377,7 @@ export const GamePage: React.FC = () => {
           selectedChoiceId={selectedChoiceId}
           selectedCrewId={selectedCrewId}
           onSelectChoice={handleSelectChoice}
-          onSelectCrew={(crewId) => setSelectedCrewId(crewId)}
+          onSelectCrew={(crewId) => { setSelectedCrewId(crewId); setSupportCrew([]); }}
           disabled={decisionLocked}
         />
       ) : (
@@ -362,6 +390,34 @@ export const GamePage: React.FC = () => {
           </p>
         </div>
       )}
+
+      <section className="card" aria-label="Crew assignments" style={{ marginBottom: '1.5rem' }}>
+        <h2>Crew assignments</h2>
+        <p>One main job per astronaut. Assignments take one week; unassigned crew perform routine duties. Incident crew cannot take another assignment.</p>
+        {activeChoice?.requires_crew && requiredSupport > 0 && <fieldset disabled={decisionLocked}>
+          <legend>Incident support crew: {supportCrew.length} / {requiredSupport}</legend>
+          {livingCrew.filter(c => c.id !== selectedCrewId).map(c => <label key={c.id} style={{ marginRight: '1rem' }}>
+            <input type="checkbox" checked={supportCrew.includes(c.id)} onChange={e => setSupportCrew(prev => e.target.checked ? [...prev, c.id] : prev.filter(id => id !== c.id))} /> {c.name}
+          </label>)}
+        </fieldset>}
+        {livingCrew.map(crew => <div key={crew.id} style={{ margin: '0.75rem 0' }}>
+          <label htmlFor={`work-${crew.id}`}>{crew.name} - {incidentCrew.includes(crew.id) ? 'Incident response' : 'Available for work'}</label>{' '}
+          <select id={`work-${crew.id}`} aria-label={`Assignment for ${crew.name}`} disabled={decisionLocked} value={assignments[crew.id] || ''} onChange={e => setAssignments(prev => ({...prev, [crew.id]: e.target.value}))}>
+            <option value="">Routine duties</option>
+            {state.assignment_options.map(activity => {
+              const candidate = activity.eligible_crew.find(c => c.crew_id === crew.id);
+              return <option key={activity.id} value={activity.id} disabled={!candidate?.available || incidentCrew.includes(crew.id)}>
+                {activity.text} - {Math.round((candidate?.success_probability || 0) * 100)}%{!candidate?.available ? ` (${candidate?.unavailable_reasons.join(' ')})` : ''}
+              </option>;
+            })}
+          </select>
+        </div>)}
+        <details><summary>Assignment requirements and costs</summary>
+          {state.assignment_options.map(activity => <div key={activity.id}><h3>{activity.text}</h3><p>{activity.description}</p><p>Costs: {Object.entries(activity.costs).map(([id, value]) => `${value} ${id.replace(/_/g, ' ')}`).join(', ')}. Equipment retained: {Object.entries(activity.required_items).map(([id, value]) => `${value} ${id.replace(/_/g, ' ')}`).join(', ') || 'none'}.</p>{activity.objective_rewards.map(g => <p key={g.objective_id}>On success: +{g.amount} toward {g.title} (capped at target).</p>)}</div>)}
+        </details>
+        <p>Projected spending (rations and all actions): {Object.entries(weeklyCosts).map(([id, amount]) => `${amount.toFixed(1)} ${id.replace(/_/g, ' ')}`).join(' | ')}. Generation and outcome effects apply afterward.</p>
+        {planIssues.map(issue => <p key={issue} role="alert">{issue}</p>)}
+      </section>
 
       {/* Crew Health & Rationing Section */}
       <div className="card" style={{ marginBottom: '1.5rem' }}>
@@ -436,7 +492,7 @@ export const GamePage: React.FC = () => {
             type="button"
             className="btn btn-primary btn-lg"
             onClick={handleSubmitTurn}
-            disabled={submitting || state.status !== 'running' || (!pendingTurn && (!activeChoice?.available || (activeChoice.requires_crew && !selectedCrewId)))}
+            disabled={submitting || state.status !== 'running' || (!pendingTurn && (planIssues.length > 0 || !activeChoice?.available || (activeChoice.requires_crew && !selectedCrewId)))}
           >
             {submitting ? 'PROCESSING WEEK...' : pendingTurn ? `Retry week ${pendingTurn.expected_week} submission` : `SUBMIT WEEK ${state.current_week} DECISIONS →`}
           </button>

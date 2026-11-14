@@ -73,9 +73,9 @@ The [research brief](research.md) now gives that work explicit mission targets.
 Pack a science kit for planned tasks; successful qualifying event actions can also
 earn credit. Generic points alone do not complete a research objective.
 
-Maintenance is available as an alternative weekly choice, including quiet weeks.
-It requires a living astronaut and skips the incident's normal response: discovery
-damage already happened and remains unless maintenance repairs that system.
+Maintenance is a one-week crew assignment, including quiet weeks. It requires
+a living astronaut who is not committed to the incident response. Discovery damage
+already happened and remains unless repaired.
 Maintenance on an already healthy system is rejected without spending supplies.
 Efficiencies and health remain capped. The scanner offers reliability in exchange
 for cargo capacity and a smaller healing amount than ordinary successful treatment.

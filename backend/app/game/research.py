@@ -4,7 +4,7 @@ from dataclasses import asdict
 
 from app.game.models import Definitions, Effects, EventChoice, GameState
 
-# Alternatives to the current incident response, using the same atomic turn path.
+# One-week crew activities, resolved alongside the incident response.
 # Each corresponds to one unit of work, not an entire mission objective.
 RESEARCH_CHOICES = [
     EventChoice(
@@ -13,7 +13,7 @@ RESEARCH_CHOICES = [
         description=(
             "Use the science kit to collect one sample and 2 research data on success. "
             "Scientists improve the odds; failure costs the worker 8 health. "
-            "Uses this week's action; the incident's initial damage remains."
+            "One-week crew assignment; incident response is separate."
         ),
         costs={"eva_batteries": 1, "oxygen": 2},
         required_items={"scientific_tools": 1},
@@ -29,7 +29,7 @@ RESEARCH_CHOICES = [
         description=(
             "Use the science kit to complete one analysis and earn 2 research data on success. "
             "Scientists improve the odds; failure wastes 2 additional power. "
-            "Uses this week's action; the incident's initial damage remains."
+            "One-week crew assignment; incident response is separate."
         ),
         costs={"electricity": 2},
         required_items={"scientific_tools": 1},
@@ -45,7 +45,7 @@ RESEARCH_CHOICES = [
         description=(
             "Use a repair kit and science kit to restore one instrument and earn 2 research data "
             "on success. Engineers and technicians improve the odds; failure costs the worker "
-            "6 health. Uses this week's action; the incident's initial damage remains."
+            "6 health. One-week crew assignment; incident response is separate."
         ),
         costs={"repair_kits": 1, "electricity": 2},
         required_items={"scientific_tools": 1},
@@ -63,7 +63,7 @@ def science_view(state: GameState, definitions: Definitions) -> dict:
     """Derive progress from committed turns; reads never grant credit."""
     totals: dict[str, int] = {}
     for turn in state.history:
-        for gain in turn["event"].get("objective_progress", []):
+        for gain in turn.get("science_gains", turn["event"].get("objective_progress", [])):
             key = gain["objective_id"]
             totals[key] = totals.get(key, 0) + gain["amount"]
     objectives = []
@@ -93,12 +93,17 @@ def science_view(state: GameState, definitions: Definitions) -> dict:
     }
 
 
-def objective_rewards(state: GameState, definitions: Definitions, choice_id: str) -> list[dict]:
+def objective_rewards(
+    state: GameState, definitions: Definitions, choice_id: str, pending=()
+) -> list[dict]:
     """Potential credit for one successful action, capped at each mission target."""
     return [
         {"objective_id": objective["id"], "title": objective["title"], "amount": 1}
         for objective in science_view(state, definitions)["objectives"]
-        if choice_id in objective["qualifying_choices"] and not objective["completed"]
+        if choice_id in objective["qualifying_choices"]
+        and objective["progress"]
+        + sum(g["amount"] for g in pending if g["objective_id"] == objective["id"])
+        < objective["target"]
     ]
 
 

@@ -1,7 +1,7 @@
 """Seeded selection and a small, explicit vocabulary of event effects."""
 
 import random
-from dataclasses import asdict, replace
+from dataclasses import asdict
 
 from app.game.models import (
     CrewMember,
@@ -12,7 +12,7 @@ from app.game.models import (
     GameError,
     GameState,
 )
-from app.game.research import RESEARCH_CHOICE_IDS, objective_rewards, research_choices
+from app.game.research import RESEARCH_CHOICE_IDS, objective_rewards
 from app.game.rules import Rules
 from app.game.survival import change_health
 
@@ -45,7 +45,7 @@ MAINTENANCE_CHOICES = [
         text="Clean the solar array",
         description=(
             "Guaranteed +20 percentage points solar condition. Uses a dust kit and EVA supplies; "
-            "the week's incident remains unresolved."
+            "One-week crew assignment; incident response is separate."
         ),
         costs={"dust_kits": 1, "eva_batteries": 1, "oxygen": 2},
         required_items={},
@@ -60,7 +60,7 @@ MAINTENANCE_CHOICES = [
         text="Install an oxygen regulator",
         description=(
             "Guaranteed +20 percentage points oxygen condition. Uses a regulator and 2 power; "
-            "the week's incident remains unresolved."
+            "One-week crew assignment; incident response is separate."
         ),
         costs={"oxygen_regulators": 1, "electricity": 2},
         required_items={},
@@ -109,10 +109,7 @@ def get_event(state: GameState, definitions: Definitions) -> Event:
         event = definitions.events[state.current_event_id]
     else:
         raise GameError("There is no active event.", 409)
-    return replace(
-        event,
-        choices=[*event.choices, *MAINTENANCE_CHOICES, *research_choices(state, definitions)],
-    )
+    return event
 
 
 def apply_effects(state: GameState, effects: Effects, selected: CrewMember | None) -> dict:
@@ -201,12 +198,11 @@ def success_probability(
     return round(min(0.95, max(0.05, choice.success_chance + bonus)), 6)
 
 
-def event_view(state: GameState, definitions: Definitions) -> dict | None:
-    if state.status != "running":
-        return None
-    event = get_event(state, definitions)
+def choice_views(
+    state: GameState, definitions: Definitions, actions: list[EventChoice]
+) -> list[dict]:
     choices = []
-    for choice in event.choices:
+    for choice in actions:
         candidates = []
         if choice.requires_crew:
             for crew in state.crew:
@@ -247,6 +243,13 @@ def event_view(state: GameState, definitions: Definitions) -> dict | None:
                 ),
             }
         )
+    return choices
+
+
+def event_view(state: GameState, definitions: Definitions) -> dict | None:
+    if state.status != "running":
+        return None
+    event = get_event(state, definitions)
     return {
         "id": event.id,
         "title": event.title,
@@ -255,16 +258,25 @@ def event_view(state: GameState, definitions: Definitions) -> dict | None:
         "science_context": event.science_context,
         "source_url": event.source_url,
         "on_start": asdict(event.on_start),
-        "choices": choices,
+        "choices": choice_views(state, definitions, event.choices),
     }
 
 
-def resolve_choice(state: GameState, choice: EventChoice, selected: CrewMember | None) -> dict:
+def resolve_choice(
+    state: GameState,
+    choice: EventChoice,
+    selected: CrewMember | None,
+    purpose: str | None = None,
+    charge_costs: bool = True,
+) -> dict:
     """Mutate a validated working copy only. Costs apply on either outcome."""
     probability = success_probability(state, choice, selected)
-    succeeded = seeded_rng(state, f"outcome:{state.current_event_id}").random() < probability
-    for resource, amount in choice.costs.items():
-        state.resources[resource] = max(0.0, round(state.resources[resource] - amount, 6))
+    succeeded = (
+        seeded_rng(state, purpose or f"outcome:{state.current_event_id}").random() < probability
+    )
+    if charge_costs:
+        for resource, amount in choice.costs.items():
+            state.resources[resource] = max(0.0, round(state.resources[resource] - amount, 6))
     changes = apply_effects(
         state, choice.success_effects if succeeded else choice.failure_effects, selected
     )

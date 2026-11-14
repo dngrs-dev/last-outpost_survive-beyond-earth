@@ -31,7 +31,8 @@
 > Research objectives update: each outpost now has explicit sample, seismic, or
 > instrument targets. Successful event actions and planned research tasks earn
 > progress; science is assessed separately from the four survival endings. Planned
-> work replaces the weekly incident response. See `research.md` for current rules.
+> work now runs through independent one-week crew assignments alongside incident
+> response. Each astronaut has one main job. See `assignments.md` and `research.md`.
 
 **Project name:** LAST OUTPOST  
 **Subtitle:** Lunar Survival  

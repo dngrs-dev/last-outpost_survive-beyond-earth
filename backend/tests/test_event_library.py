@@ -73,6 +73,11 @@ def test_every_authored_choice_resolves_atomically_with_valid_supplies(
         {crew.id: Ration("normal", "normal") for crew in state.crew},
         choice_id,
         actor.id if actor else None,
+        support_crew_ids=[crew.id for crew in state.crew if crew != actor][
+            : choice.minimum_crew - 1
+        ]
+        if choice.requires_crew
+        else [],
     )
     assert state == original
     assert report["event"]["event_id"] == event_id

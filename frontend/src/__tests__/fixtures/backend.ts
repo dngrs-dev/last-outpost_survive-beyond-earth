@@ -1329,326 +1329,6 @@ export const game: GameResponse = {
           "unavailable_reasons": [],
           "eligible_crew": [],
           "success_probability": 1.0
-        },
-        {
-          "id": "clean_array",
-          "action_type": "maintenance",
-          "objective_rewards": [],
-          "text": "Clean the solar array",
-          "description": "Guaranteed +20 percentage points solar condition. Uses a dust kit and EVA supplies; the week's incident remains unresolved.",
-          "costs": {
-            "dust_kits": 1.0,
-            "eva_batteries": 1.0,
-            "oxygen": 2.0
-          },
-          "required_items": {},
-          "requires_crew": true,
-          "role_bonus": {},
-          "crew_role_bonus": {},
-          "success_chance": 1.0,
-          "success_effects": {
-            "resources": {},
-            "solar_efficiency": 0.2,
-            "oxygen_efficiency": 0.0,
-            "crew_health": 0,
-            "target": "selected"
-          },
-          "failure_effects": {
-            "resources": {},
-            "solar_efficiency": 0.0,
-            "oxygen_efficiency": 0.0,
-            "crew_health": 0,
-            "target": "selected"
-          },
-          "required_role": null,
-          "minimum_crew": 1,
-          "available": false,
-          "unavailable_reasons": [
-            "Requires 1 dust_kits; available 0."
-          ],
-          "eligible_crew": [
-            {
-              "crew_id": "alex",
-              "available": false,
-              "unavailable_reasons": [
-                "Requires 1 dust_kits; available 0."
-              ],
-              "success_probability": 1.0
-            },
-            {
-              "crew_id": "maya",
-              "available": false,
-              "unavailable_reasons": [
-                "Requires 1 dust_kits; available 0."
-              ],
-              "success_probability": 1.0
-            }
-          ],
-          "success_probability": null
-        },
-        {
-          "id": "install_regulator",
-          "action_type": "maintenance",
-          "objective_rewards": [],
-          "text": "Install an oxygen regulator",
-          "description": "Guaranteed +20 percentage points oxygen condition. Uses a regulator and 2 power; the week's incident remains unresolved.",
-          "costs": {
-            "oxygen_regulators": 1.0,
-            "electricity": 2.0
-          },
-          "required_items": {},
-          "requires_crew": true,
-          "role_bonus": {},
-          "crew_role_bonus": {},
-          "success_chance": 1.0,
-          "success_effects": {
-            "resources": {},
-            "solar_efficiency": 0.0,
-            "oxygen_efficiency": 0.2,
-            "crew_health": 0,
-            "target": "selected"
-          },
-          "failure_effects": {
-            "resources": {},
-            "solar_efficiency": 0.0,
-            "oxygen_efficiency": 0.0,
-            "crew_health": 0,
-            "target": "selected"
-          },
-          "required_role": null,
-          "minimum_crew": 1,
-          "available": false,
-          "unavailable_reasons": [
-            "Requires 1 oxygen_regulators; available 0.",
-            "The oxygen system is already at full condition."
-          ],
-          "eligible_crew": [
-            {
-              "crew_id": "alex",
-              "available": false,
-              "unavailable_reasons": [
-                "Requires 1 oxygen_regulators; available 0.",
-                "The oxygen system is already at full condition."
-              ],
-              "success_probability": 1.0
-            },
-            {
-              "crew_id": "maya",
-              "available": false,
-              "unavailable_reasons": [
-                "Requires 1 oxygen_regulators; available 0.",
-                "The oxygen system is already at full condition."
-              ],
-              "success_probability": 1.0
-            }
-          ],
-          "success_probability": null
-        },
-        {
-          "id": "research_geology",
-          "action_type": "research",
-          "objective_rewards": [
-            {
-              "objective_id": "geology",
-              "title": "Baseline sample collection",
-              "amount": 1
-            }
-          ],
-          "text": "Survey a geological sample",
-          "description": "Use the science kit to collect one sample and 2 research data on success. Scientists improve the odds; failure costs the worker 8 health. Uses this week's action; the incident's initial damage remains.",
-          "costs": {
-            "eva_batteries": 1.0,
-            "oxygen": 2.0
-          },
-          "required_items": {
-            "scientific_tools": 1
-          },
-          "requires_crew": true,
-          "role_bonus": {
-            "scientist": 0.2,
-            "technician": 0.1
-          },
-          "crew_role_bonus": {},
-          "success_chance": 0.75,
-          "success_effects": {
-            "resources": {
-              "research_data": 2.0
-            },
-            "solar_efficiency": 0.0,
-            "oxygen_efficiency": 0.0,
-            "crew_health": 0,
-            "target": "selected"
-          },
-          "failure_effects": {
-            "resources": {},
-            "solar_efficiency": 0.0,
-            "oxygen_efficiency": 0.0,
-            "crew_health": -8,
-            "target": "selected"
-          },
-          "required_role": null,
-          "minimum_crew": 1,
-          "available": false,
-          "unavailable_reasons": [
-            "Requires 1 Field science kit (not consumed)."
-          ],
-          "eligible_crew": [
-            {
-              "crew_id": "alex",
-              "available": false,
-              "unavailable_reasons": [
-                "Requires 1 Field science kit (not consumed)."
-              ],
-              "success_probability": 0.8
-            },
-            {
-              "crew_id": "maya",
-              "available": false,
-              "unavailable_reasons": [
-                "Requires 1 Field science kit (not consumed)."
-              ],
-              "success_probability": 0.75
-            }
-          ],
-          "success_probability": null
-        },
-        {
-          "id": "research_seismic",
-          "action_type": "research",
-          "objective_rewards": [
-            {
-              "objective_id": "seismology",
-              "title": "Seismic baseline",
-              "amount": 1
-            }
-          ],
-          "text": "Analyze a seismic record",
-          "description": "Use the science kit to complete one analysis and earn 2 research data on success. Scientists improve the odds; failure wastes 2 additional power. Uses this week's action; the incident's initial damage remains.",
-          "costs": {
-            "electricity": 2.0
-          },
-          "required_items": {
-            "scientific_tools": 1
-          },
-          "requires_crew": true,
-          "role_bonus": {
-            "scientist": 0.2,
-            "technician": 0.1
-          },
-          "crew_role_bonus": {},
-          "success_chance": 0.75,
-          "success_effects": {
-            "resources": {
-              "research_data": 2.0
-            },
-            "solar_efficiency": 0.0,
-            "oxygen_efficiency": 0.0,
-            "crew_health": 0,
-            "target": "selected"
-          },
-          "failure_effects": {
-            "resources": {
-              "electricity": -2.0
-            },
-            "solar_efficiency": 0.0,
-            "oxygen_efficiency": 0.0,
-            "crew_health": 0,
-            "target": "selected"
-          },
-          "required_role": null,
-          "minimum_crew": 1,
-          "available": false,
-          "unavailable_reasons": [
-            "Requires 1 Field science kit (not consumed)."
-          ],
-          "eligible_crew": [
-            {
-              "crew_id": "alex",
-              "available": false,
-              "unavailable_reasons": [
-                "Requires 1 Field science kit (not consumed)."
-              ],
-              "success_probability": 0.8
-            },
-            {
-              "crew_id": "maya",
-              "available": false,
-              "unavailable_reasons": [
-                "Requires 1 Field science kit (not consumed)."
-              ],
-              "success_probability": 0.75
-            }
-          ],
-          "success_probability": null
-        },
-        {
-          "id": "research_instrument",
-          "action_type": "research",
-          "objective_rewards": [
-            {
-              "objective_id": "instruments",
-              "title": "Restore a research instrument",
-              "amount": 1
-            }
-          ],
-          "text": "Restore the next research instrument",
-          "description": "Use a repair kit and science kit to restore one instrument and earn 2 research data on success. Engineers and technicians improve the odds; failure costs the worker 6 health. Uses this week's action; the incident's initial damage remains.",
-          "costs": {
-            "repair_kits": 1.0,
-            "electricity": 2.0
-          },
-          "required_items": {
-            "scientific_tools": 1
-          },
-          "requires_crew": true,
-          "role_bonus": {
-            "engineer": 0.2,
-            "technician": 0.2,
-            "scientist": 0.1
-          },
-          "crew_role_bonus": {},
-          "success_chance": 0.7,
-          "success_effects": {
-            "resources": {
-              "research_data": 2.0
-            },
-            "solar_efficiency": 0.0,
-            "oxygen_efficiency": 0.0,
-            "crew_health": 0,
-            "target": "selected"
-          },
-          "failure_effects": {
-            "resources": {},
-            "solar_efficiency": 0.0,
-            "oxygen_efficiency": 0.0,
-            "crew_health": -6,
-            "target": "selected"
-          },
-          "required_role": null,
-          "minimum_crew": 1,
-          "available": false,
-          "unavailable_reasons": [
-            "Requires 1 Field science kit (not consumed)."
-          ],
-          "eligible_crew": [
-            {
-              "crew_id": "alex",
-              "available": false,
-              "unavailable_reasons": [
-                "Requires 1 Field science kit (not consumed)."
-              ],
-              "success_probability": 0.95
-            },
-            {
-              "crew_id": "maya",
-              "available": false,
-              "unavailable_reasons": [
-                "Requires 1 Field science kit (not consumed)."
-              ],
-              "success_probability": 0.7
-            }
-          ],
-          "success_probability": null
         }
       ]
     },
@@ -1714,7 +1394,329 @@ export const game: GameResponse = {
           "completed": false
         }
       ]
-    }
+    },
+    "assignment_options": [
+      {
+        "id": "clean_array",
+        "action_type": "maintenance",
+        "objective_rewards": [],
+        "text": "Clean the solar array",
+        "description": "Guaranteed +20 percentage points solar condition. Uses a dust kit and EVA supplies; One-week crew assignment; incident response is separate.",
+        "costs": {
+          "dust_kits": 1.0,
+          "eva_batteries": 1.0,
+          "oxygen": 2.0
+        },
+        "required_items": {},
+        "requires_crew": true,
+        "role_bonus": {},
+        "crew_role_bonus": {},
+        "success_chance": 1.0,
+        "success_effects": {
+          "resources": {},
+          "solar_efficiency": 0.2,
+          "oxygen_efficiency": 0.0,
+          "crew_health": 0,
+          "target": "selected"
+        },
+        "failure_effects": {
+          "resources": {},
+          "solar_efficiency": 0.0,
+          "oxygen_efficiency": 0.0,
+          "crew_health": 0,
+          "target": "selected"
+        },
+        "required_role": null,
+        "minimum_crew": 1,
+        "available": false,
+        "unavailable_reasons": [
+          "Requires 1 dust_kits; available 0."
+        ],
+        "eligible_crew": [
+          {
+            "crew_id": "alex",
+            "available": false,
+            "unavailable_reasons": [
+              "Requires 1 dust_kits; available 0."
+            ],
+            "success_probability": 1.0
+          },
+          {
+            "crew_id": "maya",
+            "available": false,
+            "unavailable_reasons": [
+              "Requires 1 dust_kits; available 0."
+            ],
+            "success_probability": 1.0
+          }
+        ],
+        "success_probability": null
+      },
+      {
+        "id": "install_regulator",
+        "action_type": "maintenance",
+        "objective_rewards": [],
+        "text": "Install an oxygen regulator",
+        "description": "Guaranteed +20 percentage points oxygen condition. Uses a regulator and 2 power; One-week crew assignment; incident response is separate.",
+        "costs": {
+          "oxygen_regulators": 1.0,
+          "electricity": 2.0
+        },
+        "required_items": {},
+        "requires_crew": true,
+        "role_bonus": {},
+        "crew_role_bonus": {},
+        "success_chance": 1.0,
+        "success_effects": {
+          "resources": {},
+          "solar_efficiency": 0.0,
+          "oxygen_efficiency": 0.2,
+          "crew_health": 0,
+          "target": "selected"
+        },
+        "failure_effects": {
+          "resources": {},
+          "solar_efficiency": 0.0,
+          "oxygen_efficiency": 0.0,
+          "crew_health": 0,
+          "target": "selected"
+        },
+        "required_role": null,
+        "minimum_crew": 1,
+        "available": false,
+        "unavailable_reasons": [
+          "Requires 1 oxygen_regulators; available 0.",
+          "The oxygen system is already at full condition."
+        ],
+        "eligible_crew": [
+          {
+            "crew_id": "alex",
+            "available": false,
+            "unavailable_reasons": [
+              "Requires 1 oxygen_regulators; available 0.",
+              "The oxygen system is already at full condition."
+            ],
+            "success_probability": 1.0
+          },
+          {
+            "crew_id": "maya",
+            "available": false,
+            "unavailable_reasons": [
+              "Requires 1 oxygen_regulators; available 0.",
+              "The oxygen system is already at full condition."
+            ],
+            "success_probability": 1.0
+          }
+        ],
+        "success_probability": null
+      },
+      {
+        "id": "research_geology",
+        "action_type": "research",
+        "objective_rewards": [
+          {
+            "objective_id": "geology",
+            "title": "Baseline sample collection",
+            "amount": 1
+          }
+        ],
+        "text": "Survey a geological sample",
+        "description": "Use the science kit to collect one sample and 2 research data on success. Scientists improve the odds; failure costs the worker 8 health. One-week crew assignment; incident response is separate.",
+        "costs": {
+          "eva_batteries": 1.0,
+          "oxygen": 2.0
+        },
+        "required_items": {
+          "scientific_tools": 1
+        },
+        "requires_crew": true,
+        "role_bonus": {
+          "scientist": 0.2,
+          "technician": 0.1
+        },
+        "crew_role_bonus": {},
+        "success_chance": 0.75,
+        "success_effects": {
+          "resources": {
+            "research_data": 2.0
+          },
+          "solar_efficiency": 0.0,
+          "oxygen_efficiency": 0.0,
+          "crew_health": 0,
+          "target": "selected"
+        },
+        "failure_effects": {
+          "resources": {},
+          "solar_efficiency": 0.0,
+          "oxygen_efficiency": 0.0,
+          "crew_health": -8,
+          "target": "selected"
+        },
+        "required_role": null,
+        "minimum_crew": 1,
+        "available": false,
+        "unavailable_reasons": [
+          "Requires 1 Field science kit (not consumed)."
+        ],
+        "eligible_crew": [
+          {
+            "crew_id": "alex",
+            "available": false,
+            "unavailable_reasons": [
+              "Requires 1 Field science kit (not consumed)."
+            ],
+            "success_probability": 0.8
+          },
+          {
+            "crew_id": "maya",
+            "available": false,
+            "unavailable_reasons": [
+              "Requires 1 Field science kit (not consumed)."
+            ],
+            "success_probability": 0.75
+          }
+        ],
+        "success_probability": null
+      },
+      {
+        "id": "research_seismic",
+        "action_type": "research",
+        "objective_rewards": [
+          {
+            "objective_id": "seismology",
+            "title": "Seismic baseline",
+            "amount": 1
+          }
+        ],
+        "text": "Analyze a seismic record",
+        "description": "Use the science kit to complete one analysis and earn 2 research data on success. Scientists improve the odds; failure wastes 2 additional power. One-week crew assignment; incident response is separate.",
+        "costs": {
+          "electricity": 2.0
+        },
+        "required_items": {
+          "scientific_tools": 1
+        },
+        "requires_crew": true,
+        "role_bonus": {
+          "scientist": 0.2,
+          "technician": 0.1
+        },
+        "crew_role_bonus": {},
+        "success_chance": 0.75,
+        "success_effects": {
+          "resources": {
+            "research_data": 2.0
+          },
+          "solar_efficiency": 0.0,
+          "oxygen_efficiency": 0.0,
+          "crew_health": 0,
+          "target": "selected"
+        },
+        "failure_effects": {
+          "resources": {
+            "electricity": -2.0
+          },
+          "solar_efficiency": 0.0,
+          "oxygen_efficiency": 0.0,
+          "crew_health": 0,
+          "target": "selected"
+        },
+        "required_role": null,
+        "minimum_crew": 1,
+        "available": false,
+        "unavailable_reasons": [
+          "Requires 1 Field science kit (not consumed)."
+        ],
+        "eligible_crew": [
+          {
+            "crew_id": "alex",
+            "available": false,
+            "unavailable_reasons": [
+              "Requires 1 Field science kit (not consumed)."
+            ],
+            "success_probability": 0.8
+          },
+          {
+            "crew_id": "maya",
+            "available": false,
+            "unavailable_reasons": [
+              "Requires 1 Field science kit (not consumed)."
+            ],
+            "success_probability": 0.75
+          }
+        ],
+        "success_probability": null
+      },
+      {
+        "id": "research_instrument",
+        "action_type": "research",
+        "objective_rewards": [
+          {
+            "objective_id": "instruments",
+            "title": "Restore a research instrument",
+            "amount": 1
+          }
+        ],
+        "text": "Restore the next research instrument",
+        "description": "Use a repair kit and science kit to restore one instrument and earn 2 research data on success. Engineers and technicians improve the odds; failure costs the worker 6 health. One-week crew assignment; incident response is separate.",
+        "costs": {
+          "repair_kits": 1.0,
+          "electricity": 2.0
+        },
+        "required_items": {
+          "scientific_tools": 1
+        },
+        "requires_crew": true,
+        "role_bonus": {
+          "engineer": 0.2,
+          "technician": 0.2,
+          "scientist": 0.1
+        },
+        "crew_role_bonus": {},
+        "success_chance": 0.7,
+        "success_effects": {
+          "resources": {
+            "research_data": 2.0
+          },
+          "solar_efficiency": 0.0,
+          "oxygen_efficiency": 0.0,
+          "crew_health": 0,
+          "target": "selected"
+        },
+        "failure_effects": {
+          "resources": {},
+          "solar_efficiency": 0.0,
+          "oxygen_efficiency": 0.0,
+          "crew_health": -6,
+          "target": "selected"
+        },
+        "required_role": null,
+        "minimum_crew": 1,
+        "available": false,
+        "unavailable_reasons": [
+          "Requires 1 Field science kit (not consumed)."
+        ],
+        "eligible_crew": [
+          {
+            "crew_id": "alex",
+            "available": false,
+            "unavailable_reasons": [
+              "Requires 1 Field science kit (not consumed)."
+            ],
+            "success_probability": 0.95
+          },
+          {
+            "crew_id": "maya",
+            "available": false,
+            "unavailable_reasons": [
+              "Requires 1 Field science kit (not consumed)."
+            ],
+            "success_probability": 0.7
+          }
+        ],
+        "success_probability": null
+      }
+    ]
   }
 };
 
@@ -2024,326 +2026,6 @@ export const turn: TurnResponse = {
           "unavailable_reasons": [],
           "eligible_crew": [],
           "success_probability": 1.0
-        },
-        {
-          "id": "clean_array",
-          "action_type": "maintenance",
-          "objective_rewards": [],
-          "text": "Clean the solar array",
-          "description": "Guaranteed +20 percentage points solar condition. Uses a dust kit and EVA supplies; the week's incident remains unresolved.",
-          "costs": {
-            "dust_kits": 1.0,
-            "eva_batteries": 1.0,
-            "oxygen": 2.0
-          },
-          "required_items": {},
-          "requires_crew": true,
-          "role_bonus": {},
-          "crew_role_bonus": {},
-          "success_chance": 1.0,
-          "success_effects": {
-            "resources": {},
-            "solar_efficiency": 0.2,
-            "oxygen_efficiency": 0.0,
-            "crew_health": 0,
-            "target": "selected"
-          },
-          "failure_effects": {
-            "resources": {},
-            "solar_efficiency": 0.0,
-            "oxygen_efficiency": 0.0,
-            "crew_health": 0,
-            "target": "selected"
-          },
-          "required_role": null,
-          "minimum_crew": 1,
-          "available": false,
-          "unavailable_reasons": [
-            "Requires 1 dust_kits; available 0."
-          ],
-          "eligible_crew": [
-            {
-              "crew_id": "alex",
-              "available": false,
-              "unavailable_reasons": [
-                "Requires 1 dust_kits; available 0."
-              ],
-              "success_probability": 1.0
-            },
-            {
-              "crew_id": "maya",
-              "available": false,
-              "unavailable_reasons": [
-                "Requires 1 dust_kits; available 0."
-              ],
-              "success_probability": 1.0
-            }
-          ],
-          "success_probability": null
-        },
-        {
-          "id": "install_regulator",
-          "action_type": "maintenance",
-          "objective_rewards": [],
-          "text": "Install an oxygen regulator",
-          "description": "Guaranteed +20 percentage points oxygen condition. Uses a regulator and 2 power; the week's incident remains unresolved.",
-          "costs": {
-            "oxygen_regulators": 1.0,
-            "electricity": 2.0
-          },
-          "required_items": {},
-          "requires_crew": true,
-          "role_bonus": {},
-          "crew_role_bonus": {},
-          "success_chance": 1.0,
-          "success_effects": {
-            "resources": {},
-            "solar_efficiency": 0.0,
-            "oxygen_efficiency": 0.2,
-            "crew_health": 0,
-            "target": "selected"
-          },
-          "failure_effects": {
-            "resources": {},
-            "solar_efficiency": 0.0,
-            "oxygen_efficiency": 0.0,
-            "crew_health": 0,
-            "target": "selected"
-          },
-          "required_role": null,
-          "minimum_crew": 1,
-          "available": false,
-          "unavailable_reasons": [
-            "Requires 1 oxygen_regulators; available 0.",
-            "The oxygen system is already at full condition."
-          ],
-          "eligible_crew": [
-            {
-              "crew_id": "alex",
-              "available": false,
-              "unavailable_reasons": [
-                "Requires 1 oxygen_regulators; available 0.",
-                "The oxygen system is already at full condition."
-              ],
-              "success_probability": 1.0
-            },
-            {
-              "crew_id": "maya",
-              "available": false,
-              "unavailable_reasons": [
-                "Requires 1 oxygen_regulators; available 0.",
-                "The oxygen system is already at full condition."
-              ],
-              "success_probability": 1.0
-            }
-          ],
-          "success_probability": null
-        },
-        {
-          "id": "research_geology",
-          "action_type": "research",
-          "objective_rewards": [
-            {
-              "objective_id": "geology",
-              "title": "Baseline sample collection",
-              "amount": 1
-            }
-          ],
-          "text": "Survey a geological sample",
-          "description": "Use the science kit to collect one sample and 2 research data on success. Scientists improve the odds; failure costs the worker 8 health. Uses this week's action; the incident's initial damage remains.",
-          "costs": {
-            "eva_batteries": 1.0,
-            "oxygen": 2.0
-          },
-          "required_items": {
-            "scientific_tools": 1
-          },
-          "requires_crew": true,
-          "role_bonus": {
-            "scientist": 0.2,
-            "technician": 0.1
-          },
-          "crew_role_bonus": {},
-          "success_chance": 0.75,
-          "success_effects": {
-            "resources": {
-              "research_data": 2.0
-            },
-            "solar_efficiency": 0.0,
-            "oxygen_efficiency": 0.0,
-            "crew_health": 0,
-            "target": "selected"
-          },
-          "failure_effects": {
-            "resources": {},
-            "solar_efficiency": 0.0,
-            "oxygen_efficiency": 0.0,
-            "crew_health": -8,
-            "target": "selected"
-          },
-          "required_role": null,
-          "minimum_crew": 1,
-          "available": false,
-          "unavailable_reasons": [
-            "Requires 1 Field science kit (not consumed)."
-          ],
-          "eligible_crew": [
-            {
-              "crew_id": "alex",
-              "available": false,
-              "unavailable_reasons": [
-                "Requires 1 Field science kit (not consumed)."
-              ],
-              "success_probability": 0.8
-            },
-            {
-              "crew_id": "maya",
-              "available": false,
-              "unavailable_reasons": [
-                "Requires 1 Field science kit (not consumed)."
-              ],
-              "success_probability": 0.75
-            }
-          ],
-          "success_probability": null
-        },
-        {
-          "id": "research_seismic",
-          "action_type": "research",
-          "objective_rewards": [
-            {
-              "objective_id": "seismology",
-              "title": "Seismic baseline",
-              "amount": 1
-            }
-          ],
-          "text": "Analyze a seismic record",
-          "description": "Use the science kit to complete one analysis and earn 2 research data on success. Scientists improve the odds; failure wastes 2 additional power. Uses this week's action; the incident's initial damage remains.",
-          "costs": {
-            "electricity": 2.0
-          },
-          "required_items": {
-            "scientific_tools": 1
-          },
-          "requires_crew": true,
-          "role_bonus": {
-            "scientist": 0.2,
-            "technician": 0.1
-          },
-          "crew_role_bonus": {},
-          "success_chance": 0.75,
-          "success_effects": {
-            "resources": {
-              "research_data": 2.0
-            },
-            "solar_efficiency": 0.0,
-            "oxygen_efficiency": 0.0,
-            "crew_health": 0,
-            "target": "selected"
-          },
-          "failure_effects": {
-            "resources": {
-              "electricity": -2.0
-            },
-            "solar_efficiency": 0.0,
-            "oxygen_efficiency": 0.0,
-            "crew_health": 0,
-            "target": "selected"
-          },
-          "required_role": null,
-          "minimum_crew": 1,
-          "available": false,
-          "unavailable_reasons": [
-            "Requires 1 Field science kit (not consumed)."
-          ],
-          "eligible_crew": [
-            {
-              "crew_id": "alex",
-              "available": false,
-              "unavailable_reasons": [
-                "Requires 1 Field science kit (not consumed)."
-              ],
-              "success_probability": 0.8
-            },
-            {
-              "crew_id": "maya",
-              "available": false,
-              "unavailable_reasons": [
-                "Requires 1 Field science kit (not consumed)."
-              ],
-              "success_probability": 0.75
-            }
-          ],
-          "success_probability": null
-        },
-        {
-          "id": "research_instrument",
-          "action_type": "research",
-          "objective_rewards": [
-            {
-              "objective_id": "instruments",
-              "title": "Restore a research instrument",
-              "amount": 1
-            }
-          ],
-          "text": "Restore the next research instrument",
-          "description": "Use a repair kit and science kit to restore one instrument and earn 2 research data on success. Engineers and technicians improve the odds; failure costs the worker 6 health. Uses this week's action; the incident's initial damage remains.",
-          "costs": {
-            "repair_kits": 1.0,
-            "electricity": 2.0
-          },
-          "required_items": {
-            "scientific_tools": 1
-          },
-          "requires_crew": true,
-          "role_bonus": {
-            "engineer": 0.2,
-            "technician": 0.2,
-            "scientist": 0.1
-          },
-          "crew_role_bonus": {},
-          "success_chance": 0.7,
-          "success_effects": {
-            "resources": {
-              "research_data": 2.0
-            },
-            "solar_efficiency": 0.0,
-            "oxygen_efficiency": 0.0,
-            "crew_health": 0,
-            "target": "selected"
-          },
-          "failure_effects": {
-            "resources": {},
-            "solar_efficiency": 0.0,
-            "oxygen_efficiency": 0.0,
-            "crew_health": -6,
-            "target": "selected"
-          },
-          "required_role": null,
-          "minimum_crew": 1,
-          "available": false,
-          "unavailable_reasons": [
-            "Requires 1 Field science kit (not consumed)."
-          ],
-          "eligible_crew": [
-            {
-              "crew_id": "alex",
-              "available": false,
-              "unavailable_reasons": [
-                "Requires 1 Field science kit (not consumed)."
-              ],
-              "success_probability": 0.95
-            },
-            {
-              "crew_id": "maya",
-              "available": false,
-              "unavailable_reasons": [
-                "Requires 1 Field science kit (not consumed)."
-              ],
-              "success_probability": 0.7
-            }
-          ],
-          "success_probability": null
         }
       ]
     },
@@ -2358,8 +2040,11 @@ export const turn: TurnResponse = {
     "flags": {},
     "history": [
       {
+        "assignments": [],
+        "science_gains": [],
         "week": 1,
         "event": {
+          "support_crew_ids": [],
           "event_id": "solar_failure",
           "choice_id": "engineer_repair",
           "choice_text": "Send the engineer outside",
@@ -2531,11 +2216,336 @@ export const turn: TurnResponse = {
           "completed": false
         }
       ]
-    }
+    },
+    "assignment_options": [
+      {
+        "id": "clean_array",
+        "action_type": "maintenance",
+        "objective_rewards": [],
+        "text": "Clean the solar array",
+        "description": "Guaranteed +20 percentage points solar condition. Uses a dust kit and EVA supplies; One-week crew assignment; incident response is separate.",
+        "costs": {
+          "dust_kits": 1.0,
+          "eva_batteries": 1.0,
+          "oxygen": 2.0
+        },
+        "required_items": {},
+        "requires_crew": true,
+        "role_bonus": {},
+        "crew_role_bonus": {},
+        "success_chance": 1.0,
+        "success_effects": {
+          "resources": {},
+          "solar_efficiency": 0.2,
+          "oxygen_efficiency": 0.0,
+          "crew_health": 0,
+          "target": "selected"
+        },
+        "failure_effects": {
+          "resources": {},
+          "solar_efficiency": 0.0,
+          "oxygen_efficiency": 0.0,
+          "crew_health": 0,
+          "target": "selected"
+        },
+        "required_role": null,
+        "minimum_crew": 1,
+        "available": false,
+        "unavailable_reasons": [
+          "Requires 1 dust_kits; available 0."
+        ],
+        "eligible_crew": [
+          {
+            "crew_id": "alex",
+            "available": false,
+            "unavailable_reasons": [
+              "Requires 1 dust_kits; available 0."
+            ],
+            "success_probability": 1.0
+          },
+          {
+            "crew_id": "maya",
+            "available": false,
+            "unavailable_reasons": [
+              "Requires 1 dust_kits; available 0."
+            ],
+            "success_probability": 1.0
+          }
+        ],
+        "success_probability": null
+      },
+      {
+        "id": "install_regulator",
+        "action_type": "maintenance",
+        "objective_rewards": [],
+        "text": "Install an oxygen regulator",
+        "description": "Guaranteed +20 percentage points oxygen condition. Uses a regulator and 2 power; One-week crew assignment; incident response is separate.",
+        "costs": {
+          "oxygen_regulators": 1.0,
+          "electricity": 2.0
+        },
+        "required_items": {},
+        "requires_crew": true,
+        "role_bonus": {},
+        "crew_role_bonus": {},
+        "success_chance": 1.0,
+        "success_effects": {
+          "resources": {},
+          "solar_efficiency": 0.0,
+          "oxygen_efficiency": 0.2,
+          "crew_health": 0,
+          "target": "selected"
+        },
+        "failure_effects": {
+          "resources": {},
+          "solar_efficiency": 0.0,
+          "oxygen_efficiency": 0.0,
+          "crew_health": 0,
+          "target": "selected"
+        },
+        "required_role": null,
+        "minimum_crew": 1,
+        "available": false,
+        "unavailable_reasons": [
+          "Requires 1 oxygen_regulators; available 0.",
+          "The oxygen system is already at full condition."
+        ],
+        "eligible_crew": [
+          {
+            "crew_id": "alex",
+            "available": false,
+            "unavailable_reasons": [
+              "Requires 1 oxygen_regulators; available 0.",
+              "The oxygen system is already at full condition."
+            ],
+            "success_probability": 1.0
+          },
+          {
+            "crew_id": "maya",
+            "available": false,
+            "unavailable_reasons": [
+              "Requires 1 oxygen_regulators; available 0.",
+              "The oxygen system is already at full condition."
+            ],
+            "success_probability": 1.0
+          }
+        ],
+        "success_probability": null
+      },
+      {
+        "id": "research_geology",
+        "action_type": "research",
+        "objective_rewards": [
+          {
+            "objective_id": "geology",
+            "title": "Baseline sample collection",
+            "amount": 1
+          }
+        ],
+        "text": "Survey a geological sample",
+        "description": "Use the science kit to collect one sample and 2 research data on success. Scientists improve the odds; failure costs the worker 8 health. One-week crew assignment; incident response is separate.",
+        "costs": {
+          "eva_batteries": 1.0,
+          "oxygen": 2.0
+        },
+        "required_items": {
+          "scientific_tools": 1
+        },
+        "requires_crew": true,
+        "role_bonus": {
+          "scientist": 0.2,
+          "technician": 0.1
+        },
+        "crew_role_bonus": {},
+        "success_chance": 0.75,
+        "success_effects": {
+          "resources": {
+            "research_data": 2.0
+          },
+          "solar_efficiency": 0.0,
+          "oxygen_efficiency": 0.0,
+          "crew_health": 0,
+          "target": "selected"
+        },
+        "failure_effects": {
+          "resources": {},
+          "solar_efficiency": 0.0,
+          "oxygen_efficiency": 0.0,
+          "crew_health": -8,
+          "target": "selected"
+        },
+        "required_role": null,
+        "minimum_crew": 1,
+        "available": false,
+        "unavailable_reasons": [
+          "Requires 1 Field science kit (not consumed)."
+        ],
+        "eligible_crew": [
+          {
+            "crew_id": "alex",
+            "available": false,
+            "unavailable_reasons": [
+              "Requires 1 Field science kit (not consumed)."
+            ],
+            "success_probability": 0.8
+          },
+          {
+            "crew_id": "maya",
+            "available": false,
+            "unavailable_reasons": [
+              "Requires 1 Field science kit (not consumed)."
+            ],
+            "success_probability": 0.75
+          }
+        ],
+        "success_probability": null
+      },
+      {
+        "id": "research_seismic",
+        "action_type": "research",
+        "objective_rewards": [
+          {
+            "objective_id": "seismology",
+            "title": "Seismic baseline",
+            "amount": 1
+          }
+        ],
+        "text": "Analyze a seismic record",
+        "description": "Use the science kit to complete one analysis and earn 2 research data on success. Scientists improve the odds; failure wastes 2 additional power. One-week crew assignment; incident response is separate.",
+        "costs": {
+          "electricity": 2.0
+        },
+        "required_items": {
+          "scientific_tools": 1
+        },
+        "requires_crew": true,
+        "role_bonus": {
+          "scientist": 0.2,
+          "technician": 0.1
+        },
+        "crew_role_bonus": {},
+        "success_chance": 0.75,
+        "success_effects": {
+          "resources": {
+            "research_data": 2.0
+          },
+          "solar_efficiency": 0.0,
+          "oxygen_efficiency": 0.0,
+          "crew_health": 0,
+          "target": "selected"
+        },
+        "failure_effects": {
+          "resources": {
+            "electricity": -2.0
+          },
+          "solar_efficiency": 0.0,
+          "oxygen_efficiency": 0.0,
+          "crew_health": 0,
+          "target": "selected"
+        },
+        "required_role": null,
+        "minimum_crew": 1,
+        "available": false,
+        "unavailable_reasons": [
+          "Requires 1 Field science kit (not consumed)."
+        ],
+        "eligible_crew": [
+          {
+            "crew_id": "alex",
+            "available": false,
+            "unavailable_reasons": [
+              "Requires 1 Field science kit (not consumed)."
+            ],
+            "success_probability": 0.8
+          },
+          {
+            "crew_id": "maya",
+            "available": false,
+            "unavailable_reasons": [
+              "Requires 1 Field science kit (not consumed)."
+            ],
+            "success_probability": 0.75
+          }
+        ],
+        "success_probability": null
+      },
+      {
+        "id": "research_instrument",
+        "action_type": "research",
+        "objective_rewards": [
+          {
+            "objective_id": "instruments",
+            "title": "Restore a research instrument",
+            "amount": 1
+          }
+        ],
+        "text": "Restore the next research instrument",
+        "description": "Use a repair kit and science kit to restore one instrument and earn 2 research data on success. Engineers and technicians improve the odds; failure costs the worker 6 health. One-week crew assignment; incident response is separate.",
+        "costs": {
+          "repair_kits": 1.0,
+          "electricity": 2.0
+        },
+        "required_items": {
+          "scientific_tools": 1
+        },
+        "requires_crew": true,
+        "role_bonus": {
+          "engineer": 0.2,
+          "technician": 0.2,
+          "scientist": 0.1
+        },
+        "crew_role_bonus": {},
+        "success_chance": 0.7,
+        "success_effects": {
+          "resources": {
+            "research_data": 2.0
+          },
+          "solar_efficiency": 0.0,
+          "oxygen_efficiency": 0.0,
+          "crew_health": 0,
+          "target": "selected"
+        },
+        "failure_effects": {
+          "resources": {},
+          "solar_efficiency": 0.0,
+          "oxygen_efficiency": 0.0,
+          "crew_health": -6,
+          "target": "selected"
+        },
+        "required_role": null,
+        "minimum_crew": 1,
+        "available": false,
+        "unavailable_reasons": [
+          "Requires 1 Field science kit (not consumed)."
+        ],
+        "eligible_crew": [
+          {
+            "crew_id": "alex",
+            "available": false,
+            "unavailable_reasons": [
+              "Requires 1 Field science kit (not consumed)."
+            ],
+            "success_probability": 0.95
+          },
+          {
+            "crew_id": "maya",
+            "available": false,
+            "unavailable_reasons": [
+              "Requires 1 Field science kit (not consumed)."
+            ],
+            "success_probability": 0.7
+          }
+        ],
+        "success_probability": null
+      }
+    ]
   },
   "turn_outcome": {
+    "assignments": [],
+    "science_gains": [],
     "week": 1,
     "event": {
+      "support_crew_ids": [],
       "event_id": "solar_failure",
       "choice_id": "engineer_repair",
       "choice_text": "Send the engineer outside",
@@ -2960,329 +2970,6 @@ export const medicalGame: GameResponse = {
           "unavailable_reasons": [],
           "eligible_crew": [],
           "success_probability": 1.0
-        },
-        {
-          "id": "clean_array",
-          "action_type": "maintenance",
-          "objective_rewards": [],
-          "text": "Clean the solar array",
-          "description": "Guaranteed +20 percentage points solar condition. Uses a dust kit and EVA supplies; the week's incident remains unresolved.",
-          "costs": {
-            "dust_kits": 1.0,
-            "eva_batteries": 1.0,
-            "oxygen": 2.0
-          },
-          "required_items": {},
-          "requires_crew": true,
-          "role_bonus": {},
-          "crew_role_bonus": {},
-          "success_chance": 1.0,
-          "success_effects": {
-            "resources": {},
-            "solar_efficiency": 0.2,
-            "oxygen_efficiency": 0.0,
-            "crew_health": 0,
-            "target": "selected"
-          },
-          "failure_effects": {
-            "resources": {},
-            "solar_efficiency": 0.0,
-            "oxygen_efficiency": 0.0,
-            "crew_health": 0,
-            "target": "selected"
-          },
-          "required_role": null,
-          "minimum_crew": 1,
-          "available": false,
-          "unavailable_reasons": [
-            "Requires 1 dust_kits; available 0.",
-            "The solar array is already at full condition."
-          ],
-          "eligible_crew": [
-            {
-              "crew_id": "alex",
-              "available": false,
-              "unavailable_reasons": [
-                "Requires 1 dust_kits; available 0.",
-                "The solar array is already at full condition."
-              ],
-              "success_probability": 1.0
-            },
-            {
-              "crew_id": "maya",
-              "available": false,
-              "unavailable_reasons": [
-                "Requires 1 dust_kits; available 0.",
-                "The solar array is already at full condition."
-              ],
-              "success_probability": 1.0
-            }
-          ],
-          "success_probability": null
-        },
-        {
-          "id": "install_regulator",
-          "action_type": "maintenance",
-          "objective_rewards": [],
-          "text": "Install an oxygen regulator",
-          "description": "Guaranteed +20 percentage points oxygen condition. Uses a regulator and 2 power; the week's incident remains unresolved.",
-          "costs": {
-            "oxygen_regulators": 1.0,
-            "electricity": 2.0
-          },
-          "required_items": {},
-          "requires_crew": true,
-          "role_bonus": {},
-          "crew_role_bonus": {},
-          "success_chance": 1.0,
-          "success_effects": {
-            "resources": {},
-            "solar_efficiency": 0.0,
-            "oxygen_efficiency": 0.2,
-            "crew_health": 0,
-            "target": "selected"
-          },
-          "failure_effects": {
-            "resources": {},
-            "solar_efficiency": 0.0,
-            "oxygen_efficiency": 0.0,
-            "crew_health": 0,
-            "target": "selected"
-          },
-          "required_role": null,
-          "minimum_crew": 1,
-          "available": false,
-          "unavailable_reasons": [
-            "Requires 1 oxygen_regulators; available 0.",
-            "The oxygen system is already at full condition."
-          ],
-          "eligible_crew": [
-            {
-              "crew_id": "alex",
-              "available": false,
-              "unavailable_reasons": [
-                "Requires 1 oxygen_regulators; available 0.",
-                "The oxygen system is already at full condition."
-              ],
-              "success_probability": 1.0
-            },
-            {
-              "crew_id": "maya",
-              "available": false,
-              "unavailable_reasons": [
-                "Requires 1 oxygen_regulators; available 0.",
-                "The oxygen system is already at full condition."
-              ],
-              "success_probability": 1.0
-            }
-          ],
-          "success_probability": null
-        },
-        {
-          "id": "research_geology",
-          "action_type": "research",
-          "objective_rewards": [
-            {
-              "objective_id": "geology",
-              "title": "Baseline sample collection",
-              "amount": 1
-            }
-          ],
-          "text": "Survey a geological sample",
-          "description": "Use the science kit to collect one sample and 2 research data on success. Scientists improve the odds; failure costs the worker 8 health. Uses this week's action; the incident's initial damage remains.",
-          "costs": {
-            "eva_batteries": 1.0,
-            "oxygen": 2.0
-          },
-          "required_items": {
-            "scientific_tools": 1
-          },
-          "requires_crew": true,
-          "role_bonus": {
-            "scientist": 0.2,
-            "technician": 0.1
-          },
-          "crew_role_bonus": {},
-          "success_chance": 0.75,
-          "success_effects": {
-            "resources": {
-              "research_data": 2.0
-            },
-            "solar_efficiency": 0.0,
-            "oxygen_efficiency": 0.0,
-            "crew_health": 0,
-            "target": "selected"
-          },
-          "failure_effects": {
-            "resources": {},
-            "solar_efficiency": 0.0,
-            "oxygen_efficiency": 0.0,
-            "crew_health": -8,
-            "target": "selected"
-          },
-          "required_role": null,
-          "minimum_crew": 1,
-          "available": false,
-          "unavailable_reasons": [
-            "Requires 1 Field science kit (not consumed)."
-          ],
-          "eligible_crew": [
-            {
-              "crew_id": "alex",
-              "available": false,
-              "unavailable_reasons": [
-                "Requires 1 Field science kit (not consumed)."
-              ],
-              "success_probability": 0.8
-            },
-            {
-              "crew_id": "maya",
-              "available": false,
-              "unavailable_reasons": [
-                "Requires 1 Field science kit (not consumed)."
-              ],
-              "success_probability": 0.75
-            }
-          ],
-          "success_probability": null
-        },
-        {
-          "id": "research_seismic",
-          "action_type": "research",
-          "objective_rewards": [
-            {
-              "objective_id": "seismology",
-              "title": "Seismic baseline",
-              "amount": 1
-            }
-          ],
-          "text": "Analyze a seismic record",
-          "description": "Use the science kit to complete one analysis and earn 2 research data on success. Scientists improve the odds; failure wastes 2 additional power. Uses this week's action; the incident's initial damage remains.",
-          "costs": {
-            "electricity": 2.0
-          },
-          "required_items": {
-            "scientific_tools": 1
-          },
-          "requires_crew": true,
-          "role_bonus": {
-            "scientist": 0.2,
-            "technician": 0.1
-          },
-          "crew_role_bonus": {},
-          "success_chance": 0.75,
-          "success_effects": {
-            "resources": {
-              "research_data": 2.0
-            },
-            "solar_efficiency": 0.0,
-            "oxygen_efficiency": 0.0,
-            "crew_health": 0,
-            "target": "selected"
-          },
-          "failure_effects": {
-            "resources": {
-              "electricity": -2.0
-            },
-            "solar_efficiency": 0.0,
-            "oxygen_efficiency": 0.0,
-            "crew_health": 0,
-            "target": "selected"
-          },
-          "required_role": null,
-          "minimum_crew": 1,
-          "available": false,
-          "unavailable_reasons": [
-            "Requires 1 Field science kit (not consumed)."
-          ],
-          "eligible_crew": [
-            {
-              "crew_id": "alex",
-              "available": false,
-              "unavailable_reasons": [
-                "Requires 1 Field science kit (not consumed)."
-              ],
-              "success_probability": 0.8
-            },
-            {
-              "crew_id": "maya",
-              "available": false,
-              "unavailable_reasons": [
-                "Requires 1 Field science kit (not consumed)."
-              ],
-              "success_probability": 0.75
-            }
-          ],
-          "success_probability": null
-        },
-        {
-          "id": "research_instrument",
-          "action_type": "research",
-          "objective_rewards": [
-            {
-              "objective_id": "instruments",
-              "title": "Restore a research instrument",
-              "amount": 1
-            }
-          ],
-          "text": "Restore the next research instrument",
-          "description": "Use a repair kit and science kit to restore one instrument and earn 2 research data on success. Engineers and technicians improve the odds; failure costs the worker 6 health. Uses this week's action; the incident's initial damage remains.",
-          "costs": {
-            "repair_kits": 1.0,
-            "electricity": 2.0
-          },
-          "required_items": {
-            "scientific_tools": 1
-          },
-          "requires_crew": true,
-          "role_bonus": {
-            "engineer": 0.2,
-            "technician": 0.2,
-            "scientist": 0.1
-          },
-          "crew_role_bonus": {},
-          "success_chance": 0.7,
-          "success_effects": {
-            "resources": {
-              "research_data": 2.0
-            },
-            "solar_efficiency": 0.0,
-            "oxygen_efficiency": 0.0,
-            "crew_health": 0,
-            "target": "selected"
-          },
-          "failure_effects": {
-            "resources": {},
-            "solar_efficiency": 0.0,
-            "oxygen_efficiency": 0.0,
-            "crew_health": -6,
-            "target": "selected"
-          },
-          "required_role": null,
-          "minimum_crew": 1,
-          "available": false,
-          "unavailable_reasons": [
-            "Requires 1 Field science kit (not consumed)."
-          ],
-          "eligible_crew": [
-            {
-              "crew_id": "alex",
-              "available": false,
-              "unavailable_reasons": [
-                "Requires 1 Field science kit (not consumed)."
-              ],
-              "success_probability": 0.95
-            },
-            {
-              "crew_id": "maya",
-              "available": false,
-              "unavailable_reasons": [
-                "Requires 1 Field science kit (not consumed)."
-              ],
-              "success_probability": 0.7
-            }
-          ],
-          "success_probability": null
         }
       ]
     },
@@ -3348,7 +3035,332 @@ export const medicalGame: GameResponse = {
           "completed": false
         }
       ]
-    }
+    },
+    "assignment_options": [
+      {
+        "id": "clean_array",
+        "action_type": "maintenance",
+        "objective_rewards": [],
+        "text": "Clean the solar array",
+        "description": "Guaranteed +20 percentage points solar condition. Uses a dust kit and EVA supplies; One-week crew assignment; incident response is separate.",
+        "costs": {
+          "dust_kits": 1.0,
+          "eva_batteries": 1.0,
+          "oxygen": 2.0
+        },
+        "required_items": {},
+        "requires_crew": true,
+        "role_bonus": {},
+        "crew_role_bonus": {},
+        "success_chance": 1.0,
+        "success_effects": {
+          "resources": {},
+          "solar_efficiency": 0.2,
+          "oxygen_efficiency": 0.0,
+          "crew_health": 0,
+          "target": "selected"
+        },
+        "failure_effects": {
+          "resources": {},
+          "solar_efficiency": 0.0,
+          "oxygen_efficiency": 0.0,
+          "crew_health": 0,
+          "target": "selected"
+        },
+        "required_role": null,
+        "minimum_crew": 1,
+        "available": false,
+        "unavailable_reasons": [
+          "Requires 1 dust_kits; available 0.",
+          "The solar array is already at full condition."
+        ],
+        "eligible_crew": [
+          {
+            "crew_id": "alex",
+            "available": false,
+            "unavailable_reasons": [
+              "Requires 1 dust_kits; available 0.",
+              "The solar array is already at full condition."
+            ],
+            "success_probability": 1.0
+          },
+          {
+            "crew_id": "maya",
+            "available": false,
+            "unavailable_reasons": [
+              "Requires 1 dust_kits; available 0.",
+              "The solar array is already at full condition."
+            ],
+            "success_probability": 1.0
+          }
+        ],
+        "success_probability": null
+      },
+      {
+        "id": "install_regulator",
+        "action_type": "maintenance",
+        "objective_rewards": [],
+        "text": "Install an oxygen regulator",
+        "description": "Guaranteed +20 percentage points oxygen condition. Uses a regulator and 2 power; One-week crew assignment; incident response is separate.",
+        "costs": {
+          "oxygen_regulators": 1.0,
+          "electricity": 2.0
+        },
+        "required_items": {},
+        "requires_crew": true,
+        "role_bonus": {},
+        "crew_role_bonus": {},
+        "success_chance": 1.0,
+        "success_effects": {
+          "resources": {},
+          "solar_efficiency": 0.0,
+          "oxygen_efficiency": 0.2,
+          "crew_health": 0,
+          "target": "selected"
+        },
+        "failure_effects": {
+          "resources": {},
+          "solar_efficiency": 0.0,
+          "oxygen_efficiency": 0.0,
+          "crew_health": 0,
+          "target": "selected"
+        },
+        "required_role": null,
+        "minimum_crew": 1,
+        "available": false,
+        "unavailable_reasons": [
+          "Requires 1 oxygen_regulators; available 0.",
+          "The oxygen system is already at full condition."
+        ],
+        "eligible_crew": [
+          {
+            "crew_id": "alex",
+            "available": false,
+            "unavailable_reasons": [
+              "Requires 1 oxygen_regulators; available 0.",
+              "The oxygen system is already at full condition."
+            ],
+            "success_probability": 1.0
+          },
+          {
+            "crew_id": "maya",
+            "available": false,
+            "unavailable_reasons": [
+              "Requires 1 oxygen_regulators; available 0.",
+              "The oxygen system is already at full condition."
+            ],
+            "success_probability": 1.0
+          }
+        ],
+        "success_probability": null
+      },
+      {
+        "id": "research_geology",
+        "action_type": "research",
+        "objective_rewards": [
+          {
+            "objective_id": "geology",
+            "title": "Baseline sample collection",
+            "amount": 1
+          }
+        ],
+        "text": "Survey a geological sample",
+        "description": "Use the science kit to collect one sample and 2 research data on success. Scientists improve the odds; failure costs the worker 8 health. One-week crew assignment; incident response is separate.",
+        "costs": {
+          "eva_batteries": 1.0,
+          "oxygen": 2.0
+        },
+        "required_items": {
+          "scientific_tools": 1
+        },
+        "requires_crew": true,
+        "role_bonus": {
+          "scientist": 0.2,
+          "technician": 0.1
+        },
+        "crew_role_bonus": {},
+        "success_chance": 0.75,
+        "success_effects": {
+          "resources": {
+            "research_data": 2.0
+          },
+          "solar_efficiency": 0.0,
+          "oxygen_efficiency": 0.0,
+          "crew_health": 0,
+          "target": "selected"
+        },
+        "failure_effects": {
+          "resources": {},
+          "solar_efficiency": 0.0,
+          "oxygen_efficiency": 0.0,
+          "crew_health": -8,
+          "target": "selected"
+        },
+        "required_role": null,
+        "minimum_crew": 1,
+        "available": false,
+        "unavailable_reasons": [
+          "Requires 1 Field science kit (not consumed)."
+        ],
+        "eligible_crew": [
+          {
+            "crew_id": "alex",
+            "available": false,
+            "unavailable_reasons": [
+              "Requires 1 Field science kit (not consumed)."
+            ],
+            "success_probability": 0.8
+          },
+          {
+            "crew_id": "maya",
+            "available": false,
+            "unavailable_reasons": [
+              "Requires 1 Field science kit (not consumed)."
+            ],
+            "success_probability": 0.75
+          }
+        ],
+        "success_probability": null
+      },
+      {
+        "id": "research_seismic",
+        "action_type": "research",
+        "objective_rewards": [
+          {
+            "objective_id": "seismology",
+            "title": "Seismic baseline",
+            "amount": 1
+          }
+        ],
+        "text": "Analyze a seismic record",
+        "description": "Use the science kit to complete one analysis and earn 2 research data on success. Scientists improve the odds; failure wastes 2 additional power. One-week crew assignment; incident response is separate.",
+        "costs": {
+          "electricity": 2.0
+        },
+        "required_items": {
+          "scientific_tools": 1
+        },
+        "requires_crew": true,
+        "role_bonus": {
+          "scientist": 0.2,
+          "technician": 0.1
+        },
+        "crew_role_bonus": {},
+        "success_chance": 0.75,
+        "success_effects": {
+          "resources": {
+            "research_data": 2.0
+          },
+          "solar_efficiency": 0.0,
+          "oxygen_efficiency": 0.0,
+          "crew_health": 0,
+          "target": "selected"
+        },
+        "failure_effects": {
+          "resources": {
+            "electricity": -2.0
+          },
+          "solar_efficiency": 0.0,
+          "oxygen_efficiency": 0.0,
+          "crew_health": 0,
+          "target": "selected"
+        },
+        "required_role": null,
+        "minimum_crew": 1,
+        "available": false,
+        "unavailable_reasons": [
+          "Requires 1 Field science kit (not consumed)."
+        ],
+        "eligible_crew": [
+          {
+            "crew_id": "alex",
+            "available": false,
+            "unavailable_reasons": [
+              "Requires 1 Field science kit (not consumed)."
+            ],
+            "success_probability": 0.8
+          },
+          {
+            "crew_id": "maya",
+            "available": false,
+            "unavailable_reasons": [
+              "Requires 1 Field science kit (not consumed)."
+            ],
+            "success_probability": 0.75
+          }
+        ],
+        "success_probability": null
+      },
+      {
+        "id": "research_instrument",
+        "action_type": "research",
+        "objective_rewards": [
+          {
+            "objective_id": "instruments",
+            "title": "Restore a research instrument",
+            "amount": 1
+          }
+        ],
+        "text": "Restore the next research instrument",
+        "description": "Use a repair kit and science kit to restore one instrument and earn 2 research data on success. Engineers and technicians improve the odds; failure costs the worker 6 health. One-week crew assignment; incident response is separate.",
+        "costs": {
+          "repair_kits": 1.0,
+          "electricity": 2.0
+        },
+        "required_items": {
+          "scientific_tools": 1
+        },
+        "requires_crew": true,
+        "role_bonus": {
+          "engineer": 0.2,
+          "technician": 0.2,
+          "scientist": 0.1
+        },
+        "crew_role_bonus": {},
+        "success_chance": 0.7,
+        "success_effects": {
+          "resources": {
+            "research_data": 2.0
+          },
+          "solar_efficiency": 0.0,
+          "oxygen_efficiency": 0.0,
+          "crew_health": 0,
+          "target": "selected"
+        },
+        "failure_effects": {
+          "resources": {},
+          "solar_efficiency": 0.0,
+          "oxygen_efficiency": 0.0,
+          "crew_health": -6,
+          "target": "selected"
+        },
+        "required_role": null,
+        "minimum_crew": 1,
+        "available": false,
+        "unavailable_reasons": [
+          "Requires 1 Field science kit (not consumed)."
+        ],
+        "eligible_crew": [
+          {
+            "crew_id": "alex",
+            "available": false,
+            "unavailable_reasons": [
+              "Requires 1 Field science kit (not consumed)."
+            ],
+            "success_probability": 0.95
+          },
+          {
+            "crew_id": "maya",
+            "available": false,
+            "unavailable_reasons": [
+              "Requires 1 Field science kit (not consumed)."
+            ],
+            "success_probability": 0.7
+          }
+        ],
+        "success_probability": null
+      }
+    ]
   }
 };
 
@@ -3586,329 +3598,6 @@ export const treatment: TurnResponse = {
           "unavailable_reasons": [],
           "eligible_crew": [],
           "success_probability": 1.0
-        },
-        {
-          "id": "clean_array",
-          "action_type": "maintenance",
-          "objective_rewards": [],
-          "text": "Clean the solar array",
-          "description": "Guaranteed +20 percentage points solar condition. Uses a dust kit and EVA supplies; the week's incident remains unresolved.",
-          "costs": {
-            "dust_kits": 1.0,
-            "eva_batteries": 1.0,
-            "oxygen": 2.0
-          },
-          "required_items": {},
-          "requires_crew": true,
-          "role_bonus": {},
-          "crew_role_bonus": {},
-          "success_chance": 1.0,
-          "success_effects": {
-            "resources": {},
-            "solar_efficiency": 0.2,
-            "oxygen_efficiency": 0.0,
-            "crew_health": 0,
-            "target": "selected"
-          },
-          "failure_effects": {
-            "resources": {},
-            "solar_efficiency": 0.0,
-            "oxygen_efficiency": 0.0,
-            "crew_health": 0,
-            "target": "selected"
-          },
-          "required_role": null,
-          "minimum_crew": 1,
-          "available": false,
-          "unavailable_reasons": [
-            "Requires 1 dust_kits; available 0.",
-            "The solar array is already at full condition."
-          ],
-          "eligible_crew": [
-            {
-              "crew_id": "alex",
-              "available": false,
-              "unavailable_reasons": [
-                "Requires 1 dust_kits; available 0.",
-                "The solar array is already at full condition."
-              ],
-              "success_probability": 1.0
-            },
-            {
-              "crew_id": "maya",
-              "available": false,
-              "unavailable_reasons": [
-                "Requires 1 dust_kits; available 0.",
-                "The solar array is already at full condition."
-              ],
-              "success_probability": 1.0
-            }
-          ],
-          "success_probability": null
-        },
-        {
-          "id": "install_regulator",
-          "action_type": "maintenance",
-          "objective_rewards": [],
-          "text": "Install an oxygen regulator",
-          "description": "Guaranteed +20 percentage points oxygen condition. Uses a regulator and 2 power; the week's incident remains unresolved.",
-          "costs": {
-            "oxygen_regulators": 1.0,
-            "electricity": 2.0
-          },
-          "required_items": {},
-          "requires_crew": true,
-          "role_bonus": {},
-          "crew_role_bonus": {},
-          "success_chance": 1.0,
-          "success_effects": {
-            "resources": {},
-            "solar_efficiency": 0.0,
-            "oxygen_efficiency": 0.2,
-            "crew_health": 0,
-            "target": "selected"
-          },
-          "failure_effects": {
-            "resources": {},
-            "solar_efficiency": 0.0,
-            "oxygen_efficiency": 0.0,
-            "crew_health": 0,
-            "target": "selected"
-          },
-          "required_role": null,
-          "minimum_crew": 1,
-          "available": false,
-          "unavailable_reasons": [
-            "Requires 1 oxygen_regulators; available 0.",
-            "The oxygen system is already at full condition."
-          ],
-          "eligible_crew": [
-            {
-              "crew_id": "alex",
-              "available": false,
-              "unavailable_reasons": [
-                "Requires 1 oxygen_regulators; available 0.",
-                "The oxygen system is already at full condition."
-              ],
-              "success_probability": 1.0
-            },
-            {
-              "crew_id": "maya",
-              "available": false,
-              "unavailable_reasons": [
-                "Requires 1 oxygen_regulators; available 0.",
-                "The oxygen system is already at full condition."
-              ],
-              "success_probability": 1.0
-            }
-          ],
-          "success_probability": null
-        },
-        {
-          "id": "research_geology",
-          "action_type": "research",
-          "objective_rewards": [
-            {
-              "objective_id": "geology",
-              "title": "Baseline sample collection",
-              "amount": 1
-            }
-          ],
-          "text": "Survey a geological sample",
-          "description": "Use the science kit to collect one sample and 2 research data on success. Scientists improve the odds; failure costs the worker 8 health. Uses this week's action; the incident's initial damage remains.",
-          "costs": {
-            "eva_batteries": 1.0,
-            "oxygen": 2.0
-          },
-          "required_items": {
-            "scientific_tools": 1
-          },
-          "requires_crew": true,
-          "role_bonus": {
-            "scientist": 0.2,
-            "technician": 0.1
-          },
-          "crew_role_bonus": {},
-          "success_chance": 0.75,
-          "success_effects": {
-            "resources": {
-              "research_data": 2.0
-            },
-            "solar_efficiency": 0.0,
-            "oxygen_efficiency": 0.0,
-            "crew_health": 0,
-            "target": "selected"
-          },
-          "failure_effects": {
-            "resources": {},
-            "solar_efficiency": 0.0,
-            "oxygen_efficiency": 0.0,
-            "crew_health": -8,
-            "target": "selected"
-          },
-          "required_role": null,
-          "minimum_crew": 1,
-          "available": false,
-          "unavailable_reasons": [
-            "Requires 1 Field science kit (not consumed)."
-          ],
-          "eligible_crew": [
-            {
-              "crew_id": "alex",
-              "available": false,
-              "unavailable_reasons": [
-                "Requires 1 Field science kit (not consumed)."
-              ],
-              "success_probability": 0.8
-            },
-            {
-              "crew_id": "maya",
-              "available": false,
-              "unavailable_reasons": [
-                "Requires 1 Field science kit (not consumed)."
-              ],
-              "success_probability": 0.75
-            }
-          ],
-          "success_probability": null
-        },
-        {
-          "id": "research_seismic",
-          "action_type": "research",
-          "objective_rewards": [
-            {
-              "objective_id": "seismology",
-              "title": "Seismic baseline",
-              "amount": 1
-            }
-          ],
-          "text": "Analyze a seismic record",
-          "description": "Use the science kit to complete one analysis and earn 2 research data on success. Scientists improve the odds; failure wastes 2 additional power. Uses this week's action; the incident's initial damage remains.",
-          "costs": {
-            "electricity": 2.0
-          },
-          "required_items": {
-            "scientific_tools": 1
-          },
-          "requires_crew": true,
-          "role_bonus": {
-            "scientist": 0.2,
-            "technician": 0.1
-          },
-          "crew_role_bonus": {},
-          "success_chance": 0.75,
-          "success_effects": {
-            "resources": {
-              "research_data": 2.0
-            },
-            "solar_efficiency": 0.0,
-            "oxygen_efficiency": 0.0,
-            "crew_health": 0,
-            "target": "selected"
-          },
-          "failure_effects": {
-            "resources": {
-              "electricity": -2.0
-            },
-            "solar_efficiency": 0.0,
-            "oxygen_efficiency": 0.0,
-            "crew_health": 0,
-            "target": "selected"
-          },
-          "required_role": null,
-          "minimum_crew": 1,
-          "available": false,
-          "unavailable_reasons": [
-            "Requires 1 Field science kit (not consumed)."
-          ],
-          "eligible_crew": [
-            {
-              "crew_id": "alex",
-              "available": false,
-              "unavailable_reasons": [
-                "Requires 1 Field science kit (not consumed)."
-              ],
-              "success_probability": 0.8
-            },
-            {
-              "crew_id": "maya",
-              "available": false,
-              "unavailable_reasons": [
-                "Requires 1 Field science kit (not consumed)."
-              ],
-              "success_probability": 0.75
-            }
-          ],
-          "success_probability": null
-        },
-        {
-          "id": "research_instrument",
-          "action_type": "research",
-          "objective_rewards": [
-            {
-              "objective_id": "instruments",
-              "title": "Restore a research instrument",
-              "amount": 1
-            }
-          ],
-          "text": "Restore the next research instrument",
-          "description": "Use a repair kit and science kit to restore one instrument and earn 2 research data on success. Engineers and technicians improve the odds; failure costs the worker 6 health. Uses this week's action; the incident's initial damage remains.",
-          "costs": {
-            "repair_kits": 1.0,
-            "electricity": 2.0
-          },
-          "required_items": {
-            "scientific_tools": 1
-          },
-          "requires_crew": true,
-          "role_bonus": {
-            "engineer": 0.2,
-            "technician": 0.2,
-            "scientist": 0.1
-          },
-          "crew_role_bonus": {},
-          "success_chance": 0.7,
-          "success_effects": {
-            "resources": {
-              "research_data": 2.0
-            },
-            "solar_efficiency": 0.0,
-            "oxygen_efficiency": 0.0,
-            "crew_health": 0,
-            "target": "selected"
-          },
-          "failure_effects": {
-            "resources": {},
-            "solar_efficiency": 0.0,
-            "oxygen_efficiency": 0.0,
-            "crew_health": -6,
-            "target": "selected"
-          },
-          "required_role": null,
-          "minimum_crew": 1,
-          "available": false,
-          "unavailable_reasons": [
-            "Requires 1 Field science kit (not consumed)."
-          ],
-          "eligible_crew": [
-            {
-              "crew_id": "alex",
-              "available": false,
-              "unavailable_reasons": [
-                "Requires 1 Field science kit (not consumed)."
-              ],
-              "success_probability": 0.95
-            },
-            {
-              "crew_id": "maya",
-              "available": false,
-              "unavailable_reasons": [
-                "Requires 1 Field science kit (not consumed)."
-              ],
-              "success_probability": 0.7
-            }
-          ],
-          "success_probability": null
         }
       ]
     },
@@ -3923,8 +3612,11 @@ export const treatment: TurnResponse = {
     "flags": {},
     "history": [
       {
+        "assignments": [],
+        "science_gains": [],
         "week": 1,
         "event": {
+          "support_crew_ids": [],
           "event_id": "medical_emergency",
           "choice_id": "treat",
           "choice_text": "Treat an affected astronaut",
@@ -4083,11 +3775,339 @@ export const treatment: TurnResponse = {
           "completed": false
         }
       ]
-    }
+    },
+    "assignment_options": [
+      {
+        "id": "clean_array",
+        "action_type": "maintenance",
+        "objective_rewards": [],
+        "text": "Clean the solar array",
+        "description": "Guaranteed +20 percentage points solar condition. Uses a dust kit and EVA supplies; One-week crew assignment; incident response is separate.",
+        "costs": {
+          "dust_kits": 1.0,
+          "eva_batteries": 1.0,
+          "oxygen": 2.0
+        },
+        "required_items": {},
+        "requires_crew": true,
+        "role_bonus": {},
+        "crew_role_bonus": {},
+        "success_chance": 1.0,
+        "success_effects": {
+          "resources": {},
+          "solar_efficiency": 0.2,
+          "oxygen_efficiency": 0.0,
+          "crew_health": 0,
+          "target": "selected"
+        },
+        "failure_effects": {
+          "resources": {},
+          "solar_efficiency": 0.0,
+          "oxygen_efficiency": 0.0,
+          "crew_health": 0,
+          "target": "selected"
+        },
+        "required_role": null,
+        "minimum_crew": 1,
+        "available": false,
+        "unavailable_reasons": [
+          "Requires 1 dust_kits; available 0.",
+          "The solar array is already at full condition."
+        ],
+        "eligible_crew": [
+          {
+            "crew_id": "alex",
+            "available": false,
+            "unavailable_reasons": [
+              "Requires 1 dust_kits; available 0.",
+              "The solar array is already at full condition."
+            ],
+            "success_probability": 1.0
+          },
+          {
+            "crew_id": "maya",
+            "available": false,
+            "unavailable_reasons": [
+              "Requires 1 dust_kits; available 0.",
+              "The solar array is already at full condition."
+            ],
+            "success_probability": 1.0
+          }
+        ],
+        "success_probability": null
+      },
+      {
+        "id": "install_regulator",
+        "action_type": "maintenance",
+        "objective_rewards": [],
+        "text": "Install an oxygen regulator",
+        "description": "Guaranteed +20 percentage points oxygen condition. Uses a regulator and 2 power; One-week crew assignment; incident response is separate.",
+        "costs": {
+          "oxygen_regulators": 1.0,
+          "electricity": 2.0
+        },
+        "required_items": {},
+        "requires_crew": true,
+        "role_bonus": {},
+        "crew_role_bonus": {},
+        "success_chance": 1.0,
+        "success_effects": {
+          "resources": {},
+          "solar_efficiency": 0.0,
+          "oxygen_efficiency": 0.2,
+          "crew_health": 0,
+          "target": "selected"
+        },
+        "failure_effects": {
+          "resources": {},
+          "solar_efficiency": 0.0,
+          "oxygen_efficiency": 0.0,
+          "crew_health": 0,
+          "target": "selected"
+        },
+        "required_role": null,
+        "minimum_crew": 1,
+        "available": false,
+        "unavailable_reasons": [
+          "Requires 1 oxygen_regulators; available 0.",
+          "The oxygen system is already at full condition."
+        ],
+        "eligible_crew": [
+          {
+            "crew_id": "alex",
+            "available": false,
+            "unavailable_reasons": [
+              "Requires 1 oxygen_regulators; available 0.",
+              "The oxygen system is already at full condition."
+            ],
+            "success_probability": 1.0
+          },
+          {
+            "crew_id": "maya",
+            "available": false,
+            "unavailable_reasons": [
+              "Requires 1 oxygen_regulators; available 0.",
+              "The oxygen system is already at full condition."
+            ],
+            "success_probability": 1.0
+          }
+        ],
+        "success_probability": null
+      },
+      {
+        "id": "research_geology",
+        "action_type": "research",
+        "objective_rewards": [
+          {
+            "objective_id": "geology",
+            "title": "Baseline sample collection",
+            "amount": 1
+          }
+        ],
+        "text": "Survey a geological sample",
+        "description": "Use the science kit to collect one sample and 2 research data on success. Scientists improve the odds; failure costs the worker 8 health. One-week crew assignment; incident response is separate.",
+        "costs": {
+          "eva_batteries": 1.0,
+          "oxygen": 2.0
+        },
+        "required_items": {
+          "scientific_tools": 1
+        },
+        "requires_crew": true,
+        "role_bonus": {
+          "scientist": 0.2,
+          "technician": 0.1
+        },
+        "crew_role_bonus": {},
+        "success_chance": 0.75,
+        "success_effects": {
+          "resources": {
+            "research_data": 2.0
+          },
+          "solar_efficiency": 0.0,
+          "oxygen_efficiency": 0.0,
+          "crew_health": 0,
+          "target": "selected"
+        },
+        "failure_effects": {
+          "resources": {},
+          "solar_efficiency": 0.0,
+          "oxygen_efficiency": 0.0,
+          "crew_health": -8,
+          "target": "selected"
+        },
+        "required_role": null,
+        "minimum_crew": 1,
+        "available": false,
+        "unavailable_reasons": [
+          "Requires 1 Field science kit (not consumed)."
+        ],
+        "eligible_crew": [
+          {
+            "crew_id": "alex",
+            "available": false,
+            "unavailable_reasons": [
+              "Requires 1 Field science kit (not consumed)."
+            ],
+            "success_probability": 0.8
+          },
+          {
+            "crew_id": "maya",
+            "available": false,
+            "unavailable_reasons": [
+              "Requires 1 Field science kit (not consumed)."
+            ],
+            "success_probability": 0.75
+          }
+        ],
+        "success_probability": null
+      },
+      {
+        "id": "research_seismic",
+        "action_type": "research",
+        "objective_rewards": [
+          {
+            "objective_id": "seismology",
+            "title": "Seismic baseline",
+            "amount": 1
+          }
+        ],
+        "text": "Analyze a seismic record",
+        "description": "Use the science kit to complete one analysis and earn 2 research data on success. Scientists improve the odds; failure wastes 2 additional power. One-week crew assignment; incident response is separate.",
+        "costs": {
+          "electricity": 2.0
+        },
+        "required_items": {
+          "scientific_tools": 1
+        },
+        "requires_crew": true,
+        "role_bonus": {
+          "scientist": 0.2,
+          "technician": 0.1
+        },
+        "crew_role_bonus": {},
+        "success_chance": 0.75,
+        "success_effects": {
+          "resources": {
+            "research_data": 2.0
+          },
+          "solar_efficiency": 0.0,
+          "oxygen_efficiency": 0.0,
+          "crew_health": 0,
+          "target": "selected"
+        },
+        "failure_effects": {
+          "resources": {
+            "electricity": -2.0
+          },
+          "solar_efficiency": 0.0,
+          "oxygen_efficiency": 0.0,
+          "crew_health": 0,
+          "target": "selected"
+        },
+        "required_role": null,
+        "minimum_crew": 1,
+        "available": false,
+        "unavailable_reasons": [
+          "Requires 1 Field science kit (not consumed)."
+        ],
+        "eligible_crew": [
+          {
+            "crew_id": "alex",
+            "available": false,
+            "unavailable_reasons": [
+              "Requires 1 Field science kit (not consumed)."
+            ],
+            "success_probability": 0.8
+          },
+          {
+            "crew_id": "maya",
+            "available": false,
+            "unavailable_reasons": [
+              "Requires 1 Field science kit (not consumed)."
+            ],
+            "success_probability": 0.75
+          }
+        ],
+        "success_probability": null
+      },
+      {
+        "id": "research_instrument",
+        "action_type": "research",
+        "objective_rewards": [
+          {
+            "objective_id": "instruments",
+            "title": "Restore a research instrument",
+            "amount": 1
+          }
+        ],
+        "text": "Restore the next research instrument",
+        "description": "Use a repair kit and science kit to restore one instrument and earn 2 research data on success. Engineers and technicians improve the odds; failure costs the worker 6 health. One-week crew assignment; incident response is separate.",
+        "costs": {
+          "repair_kits": 1.0,
+          "electricity": 2.0
+        },
+        "required_items": {
+          "scientific_tools": 1
+        },
+        "requires_crew": true,
+        "role_bonus": {
+          "engineer": 0.2,
+          "technician": 0.2,
+          "scientist": 0.1
+        },
+        "crew_role_bonus": {},
+        "success_chance": 0.7,
+        "success_effects": {
+          "resources": {
+            "research_data": 2.0
+          },
+          "solar_efficiency": 0.0,
+          "oxygen_efficiency": 0.0,
+          "crew_health": 0,
+          "target": "selected"
+        },
+        "failure_effects": {
+          "resources": {},
+          "solar_efficiency": 0.0,
+          "oxygen_efficiency": 0.0,
+          "crew_health": -6,
+          "target": "selected"
+        },
+        "required_role": null,
+        "minimum_crew": 1,
+        "available": false,
+        "unavailable_reasons": [
+          "Requires 1 Field science kit (not consumed)."
+        ],
+        "eligible_crew": [
+          {
+            "crew_id": "alex",
+            "available": false,
+            "unavailable_reasons": [
+              "Requires 1 Field science kit (not consumed)."
+            ],
+            "success_probability": 0.95
+          },
+          {
+            "crew_id": "maya",
+            "available": false,
+            "unavailable_reasons": [
+              "Requires 1 Field science kit (not consumed)."
+            ],
+            "success_probability": 0.7
+          }
+        ],
+        "success_probability": null
+      }
+    ]
   },
   "turn_outcome": {
+    "assignments": [],
+    "science_gains": [],
     "week": 1,
     "event": {
+      "support_crew_ids": [],
       "event_id": "medical_emergency",
       "choice_id": "treat",
       "choice_text": "Treat an affected astronaut",
@@ -4454,329 +4474,6 @@ export const opportunityGame: GameResponse = {
           "unavailable_reasons": [],
           "eligible_crew": [],
           "success_probability": 1.0
-        },
-        {
-          "id": "clean_array",
-          "action_type": "maintenance",
-          "objective_rewards": [],
-          "text": "Clean the solar array",
-          "description": "Guaranteed +20 percentage points solar condition. Uses a dust kit and EVA supplies; the week's incident remains unresolved.",
-          "costs": {
-            "dust_kits": 1.0,
-            "eva_batteries": 1.0,
-            "oxygen": 2.0
-          },
-          "required_items": {},
-          "requires_crew": true,
-          "role_bonus": {},
-          "crew_role_bonus": {},
-          "success_chance": 1.0,
-          "success_effects": {
-            "resources": {},
-            "solar_efficiency": 0.2,
-            "oxygen_efficiency": 0.0,
-            "crew_health": 0,
-            "target": "selected"
-          },
-          "failure_effects": {
-            "resources": {},
-            "solar_efficiency": 0.0,
-            "oxygen_efficiency": 0.0,
-            "crew_health": 0,
-            "target": "selected"
-          },
-          "required_role": null,
-          "minimum_crew": 1,
-          "available": false,
-          "unavailable_reasons": [
-            "Requires 1 dust_kits; available 0.",
-            "The solar array is already at full condition."
-          ],
-          "eligible_crew": [
-            {
-              "crew_id": "alex",
-              "available": false,
-              "unavailable_reasons": [
-                "Requires 1 dust_kits; available 0.",
-                "The solar array is already at full condition."
-              ],
-              "success_probability": 1.0
-            },
-            {
-              "crew_id": "maya",
-              "available": false,
-              "unavailable_reasons": [
-                "Requires 1 dust_kits; available 0.",
-                "The solar array is already at full condition."
-              ],
-              "success_probability": 1.0
-            }
-          ],
-          "success_probability": null
-        },
-        {
-          "id": "install_regulator",
-          "action_type": "maintenance",
-          "objective_rewards": [],
-          "text": "Install an oxygen regulator",
-          "description": "Guaranteed +20 percentage points oxygen condition. Uses a regulator and 2 power; the week's incident remains unresolved.",
-          "costs": {
-            "oxygen_regulators": 1.0,
-            "electricity": 2.0
-          },
-          "required_items": {},
-          "requires_crew": true,
-          "role_bonus": {},
-          "crew_role_bonus": {},
-          "success_chance": 1.0,
-          "success_effects": {
-            "resources": {},
-            "solar_efficiency": 0.0,
-            "oxygen_efficiency": 0.2,
-            "crew_health": 0,
-            "target": "selected"
-          },
-          "failure_effects": {
-            "resources": {},
-            "solar_efficiency": 0.0,
-            "oxygen_efficiency": 0.0,
-            "crew_health": 0,
-            "target": "selected"
-          },
-          "required_role": null,
-          "minimum_crew": 1,
-          "available": false,
-          "unavailable_reasons": [
-            "Requires 1 oxygen_regulators; available 0.",
-            "The oxygen system is already at full condition."
-          ],
-          "eligible_crew": [
-            {
-              "crew_id": "alex",
-              "available": false,
-              "unavailable_reasons": [
-                "Requires 1 oxygen_regulators; available 0.",
-                "The oxygen system is already at full condition."
-              ],
-              "success_probability": 1.0
-            },
-            {
-              "crew_id": "maya",
-              "available": false,
-              "unavailable_reasons": [
-                "Requires 1 oxygen_regulators; available 0.",
-                "The oxygen system is already at full condition."
-              ],
-              "success_probability": 1.0
-            }
-          ],
-          "success_probability": null
-        },
-        {
-          "id": "research_geology",
-          "action_type": "research",
-          "objective_rewards": [
-            {
-              "objective_id": "geology",
-              "title": "Baseline sample collection",
-              "amount": 1
-            }
-          ],
-          "text": "Survey a geological sample",
-          "description": "Use the science kit to collect one sample and 2 research data on success. Scientists improve the odds; failure costs the worker 8 health. Uses this week's action; the incident's initial damage remains.",
-          "costs": {
-            "eva_batteries": 1.0,
-            "oxygen": 2.0
-          },
-          "required_items": {
-            "scientific_tools": 1
-          },
-          "requires_crew": true,
-          "role_bonus": {
-            "scientist": 0.2,
-            "technician": 0.1
-          },
-          "crew_role_bonus": {},
-          "success_chance": 0.75,
-          "success_effects": {
-            "resources": {
-              "research_data": 2.0
-            },
-            "solar_efficiency": 0.0,
-            "oxygen_efficiency": 0.0,
-            "crew_health": 0,
-            "target": "selected"
-          },
-          "failure_effects": {
-            "resources": {},
-            "solar_efficiency": 0.0,
-            "oxygen_efficiency": 0.0,
-            "crew_health": -8,
-            "target": "selected"
-          },
-          "required_role": null,
-          "minimum_crew": 1,
-          "available": false,
-          "unavailable_reasons": [
-            "Requires 1 Field science kit (not consumed)."
-          ],
-          "eligible_crew": [
-            {
-              "crew_id": "alex",
-              "available": false,
-              "unavailable_reasons": [
-                "Requires 1 Field science kit (not consumed)."
-              ],
-              "success_probability": 0.8
-            },
-            {
-              "crew_id": "maya",
-              "available": false,
-              "unavailable_reasons": [
-                "Requires 1 Field science kit (not consumed)."
-              ],
-              "success_probability": 0.75
-            }
-          ],
-          "success_probability": null
-        },
-        {
-          "id": "research_seismic",
-          "action_type": "research",
-          "objective_rewards": [
-            {
-              "objective_id": "seismology",
-              "title": "Seismic baseline",
-              "amount": 1
-            }
-          ],
-          "text": "Analyze a seismic record",
-          "description": "Use the science kit to complete one analysis and earn 2 research data on success. Scientists improve the odds; failure wastes 2 additional power. Uses this week's action; the incident's initial damage remains.",
-          "costs": {
-            "electricity": 2.0
-          },
-          "required_items": {
-            "scientific_tools": 1
-          },
-          "requires_crew": true,
-          "role_bonus": {
-            "scientist": 0.2,
-            "technician": 0.1
-          },
-          "crew_role_bonus": {},
-          "success_chance": 0.75,
-          "success_effects": {
-            "resources": {
-              "research_data": 2.0
-            },
-            "solar_efficiency": 0.0,
-            "oxygen_efficiency": 0.0,
-            "crew_health": 0,
-            "target": "selected"
-          },
-          "failure_effects": {
-            "resources": {
-              "electricity": -2.0
-            },
-            "solar_efficiency": 0.0,
-            "oxygen_efficiency": 0.0,
-            "crew_health": 0,
-            "target": "selected"
-          },
-          "required_role": null,
-          "minimum_crew": 1,
-          "available": false,
-          "unavailable_reasons": [
-            "Requires 1 Field science kit (not consumed)."
-          ],
-          "eligible_crew": [
-            {
-              "crew_id": "alex",
-              "available": false,
-              "unavailable_reasons": [
-                "Requires 1 Field science kit (not consumed)."
-              ],
-              "success_probability": 0.8
-            },
-            {
-              "crew_id": "maya",
-              "available": false,
-              "unavailable_reasons": [
-                "Requires 1 Field science kit (not consumed)."
-              ],
-              "success_probability": 0.75
-            }
-          ],
-          "success_probability": null
-        },
-        {
-          "id": "research_instrument",
-          "action_type": "research",
-          "objective_rewards": [
-            {
-              "objective_id": "instruments",
-              "title": "Restore a research instrument",
-              "amount": 1
-            }
-          ],
-          "text": "Restore the next research instrument",
-          "description": "Use a repair kit and science kit to restore one instrument and earn 2 research data on success. Engineers and technicians improve the odds; failure costs the worker 6 health. Uses this week's action; the incident's initial damage remains.",
-          "costs": {
-            "repair_kits": 1.0,
-            "electricity": 2.0
-          },
-          "required_items": {
-            "scientific_tools": 1
-          },
-          "requires_crew": true,
-          "role_bonus": {
-            "engineer": 0.2,
-            "technician": 0.2,
-            "scientist": 0.1
-          },
-          "crew_role_bonus": {},
-          "success_chance": 0.7,
-          "success_effects": {
-            "resources": {
-              "research_data": 2.0
-            },
-            "solar_efficiency": 0.0,
-            "oxygen_efficiency": 0.0,
-            "crew_health": 0,
-            "target": "selected"
-          },
-          "failure_effects": {
-            "resources": {},
-            "solar_efficiency": 0.0,
-            "oxygen_efficiency": 0.0,
-            "crew_health": -6,
-            "target": "selected"
-          },
-          "required_role": null,
-          "minimum_crew": 1,
-          "available": false,
-          "unavailable_reasons": [
-            "Requires 1 Field science kit (not consumed)."
-          ],
-          "eligible_crew": [
-            {
-              "crew_id": "alex",
-              "available": false,
-              "unavailable_reasons": [
-                "Requires 1 Field science kit (not consumed)."
-              ],
-              "success_probability": 0.95
-            },
-            {
-              "crew_id": "maya",
-              "available": false,
-              "unavailable_reasons": [
-                "Requires 1 Field science kit (not consumed)."
-              ],
-              "success_probability": 0.7
-            }
-          ],
-          "success_probability": null
         }
       ]
     },
@@ -4791,8 +4488,11 @@ export const opportunityGame: GameResponse = {
     "flags": {},
     "history": [
       {
+        "assignments": [],
+        "science_gains": [],
         "week": 1,
         "event": {
+          "support_crew_ids": [],
           "event_id": "medical_emergency",
           "choice_id": "rest",
           "choice_text": "Isolate the filter and rest",
@@ -4954,7 +4654,332 @@ export const opportunityGame: GameResponse = {
           "completed": false
         }
       ]
-    }
+    },
+    "assignment_options": [
+      {
+        "id": "clean_array",
+        "action_type": "maintenance",
+        "objective_rewards": [],
+        "text": "Clean the solar array",
+        "description": "Guaranteed +20 percentage points solar condition. Uses a dust kit and EVA supplies; One-week crew assignment; incident response is separate.",
+        "costs": {
+          "dust_kits": 1.0,
+          "eva_batteries": 1.0,
+          "oxygen": 2.0
+        },
+        "required_items": {},
+        "requires_crew": true,
+        "role_bonus": {},
+        "crew_role_bonus": {},
+        "success_chance": 1.0,
+        "success_effects": {
+          "resources": {},
+          "solar_efficiency": 0.2,
+          "oxygen_efficiency": 0.0,
+          "crew_health": 0,
+          "target": "selected"
+        },
+        "failure_effects": {
+          "resources": {},
+          "solar_efficiency": 0.0,
+          "oxygen_efficiency": 0.0,
+          "crew_health": 0,
+          "target": "selected"
+        },
+        "required_role": null,
+        "minimum_crew": 1,
+        "available": false,
+        "unavailable_reasons": [
+          "Requires 1 dust_kits; available 0.",
+          "The solar array is already at full condition."
+        ],
+        "eligible_crew": [
+          {
+            "crew_id": "alex",
+            "available": false,
+            "unavailable_reasons": [
+              "Requires 1 dust_kits; available 0.",
+              "The solar array is already at full condition."
+            ],
+            "success_probability": 1.0
+          },
+          {
+            "crew_id": "maya",
+            "available": false,
+            "unavailable_reasons": [
+              "Requires 1 dust_kits; available 0.",
+              "The solar array is already at full condition."
+            ],
+            "success_probability": 1.0
+          }
+        ],
+        "success_probability": null
+      },
+      {
+        "id": "install_regulator",
+        "action_type": "maintenance",
+        "objective_rewards": [],
+        "text": "Install an oxygen regulator",
+        "description": "Guaranteed +20 percentage points oxygen condition. Uses a regulator and 2 power; One-week crew assignment; incident response is separate.",
+        "costs": {
+          "oxygen_regulators": 1.0,
+          "electricity": 2.0
+        },
+        "required_items": {},
+        "requires_crew": true,
+        "role_bonus": {},
+        "crew_role_bonus": {},
+        "success_chance": 1.0,
+        "success_effects": {
+          "resources": {},
+          "solar_efficiency": 0.0,
+          "oxygen_efficiency": 0.2,
+          "crew_health": 0,
+          "target": "selected"
+        },
+        "failure_effects": {
+          "resources": {},
+          "solar_efficiency": 0.0,
+          "oxygen_efficiency": 0.0,
+          "crew_health": 0,
+          "target": "selected"
+        },
+        "required_role": null,
+        "minimum_crew": 1,
+        "available": false,
+        "unavailable_reasons": [
+          "Requires 1 oxygen_regulators; available 0.",
+          "The oxygen system is already at full condition."
+        ],
+        "eligible_crew": [
+          {
+            "crew_id": "alex",
+            "available": false,
+            "unavailable_reasons": [
+              "Requires 1 oxygen_regulators; available 0.",
+              "The oxygen system is already at full condition."
+            ],
+            "success_probability": 1.0
+          },
+          {
+            "crew_id": "maya",
+            "available": false,
+            "unavailable_reasons": [
+              "Requires 1 oxygen_regulators; available 0.",
+              "The oxygen system is already at full condition."
+            ],
+            "success_probability": 1.0
+          }
+        ],
+        "success_probability": null
+      },
+      {
+        "id": "research_geology",
+        "action_type": "research",
+        "objective_rewards": [
+          {
+            "objective_id": "geology",
+            "title": "Baseline sample collection",
+            "amount": 1
+          }
+        ],
+        "text": "Survey a geological sample",
+        "description": "Use the science kit to collect one sample and 2 research data on success. Scientists improve the odds; failure costs the worker 8 health. One-week crew assignment; incident response is separate.",
+        "costs": {
+          "eva_batteries": 1.0,
+          "oxygen": 2.0
+        },
+        "required_items": {
+          "scientific_tools": 1
+        },
+        "requires_crew": true,
+        "role_bonus": {
+          "scientist": 0.2,
+          "technician": 0.1
+        },
+        "crew_role_bonus": {},
+        "success_chance": 0.75,
+        "success_effects": {
+          "resources": {
+            "research_data": 2.0
+          },
+          "solar_efficiency": 0.0,
+          "oxygen_efficiency": 0.0,
+          "crew_health": 0,
+          "target": "selected"
+        },
+        "failure_effects": {
+          "resources": {},
+          "solar_efficiency": 0.0,
+          "oxygen_efficiency": 0.0,
+          "crew_health": -8,
+          "target": "selected"
+        },
+        "required_role": null,
+        "minimum_crew": 1,
+        "available": false,
+        "unavailable_reasons": [
+          "Requires 1 Field science kit (not consumed)."
+        ],
+        "eligible_crew": [
+          {
+            "crew_id": "alex",
+            "available": false,
+            "unavailable_reasons": [
+              "Requires 1 Field science kit (not consumed)."
+            ],
+            "success_probability": 0.8
+          },
+          {
+            "crew_id": "maya",
+            "available": false,
+            "unavailable_reasons": [
+              "Requires 1 Field science kit (not consumed)."
+            ],
+            "success_probability": 0.75
+          }
+        ],
+        "success_probability": null
+      },
+      {
+        "id": "research_seismic",
+        "action_type": "research",
+        "objective_rewards": [
+          {
+            "objective_id": "seismology",
+            "title": "Seismic baseline",
+            "amount": 1
+          }
+        ],
+        "text": "Analyze a seismic record",
+        "description": "Use the science kit to complete one analysis and earn 2 research data on success. Scientists improve the odds; failure wastes 2 additional power. One-week crew assignment; incident response is separate.",
+        "costs": {
+          "electricity": 2.0
+        },
+        "required_items": {
+          "scientific_tools": 1
+        },
+        "requires_crew": true,
+        "role_bonus": {
+          "scientist": 0.2,
+          "technician": 0.1
+        },
+        "crew_role_bonus": {},
+        "success_chance": 0.75,
+        "success_effects": {
+          "resources": {
+            "research_data": 2.0
+          },
+          "solar_efficiency": 0.0,
+          "oxygen_efficiency": 0.0,
+          "crew_health": 0,
+          "target": "selected"
+        },
+        "failure_effects": {
+          "resources": {
+            "electricity": -2.0
+          },
+          "solar_efficiency": 0.0,
+          "oxygen_efficiency": 0.0,
+          "crew_health": 0,
+          "target": "selected"
+        },
+        "required_role": null,
+        "minimum_crew": 1,
+        "available": false,
+        "unavailable_reasons": [
+          "Requires 1 Field science kit (not consumed)."
+        ],
+        "eligible_crew": [
+          {
+            "crew_id": "alex",
+            "available": false,
+            "unavailable_reasons": [
+              "Requires 1 Field science kit (not consumed)."
+            ],
+            "success_probability": 0.8
+          },
+          {
+            "crew_id": "maya",
+            "available": false,
+            "unavailable_reasons": [
+              "Requires 1 Field science kit (not consumed)."
+            ],
+            "success_probability": 0.75
+          }
+        ],
+        "success_probability": null
+      },
+      {
+        "id": "research_instrument",
+        "action_type": "research",
+        "objective_rewards": [
+          {
+            "objective_id": "instruments",
+            "title": "Restore a research instrument",
+            "amount": 1
+          }
+        ],
+        "text": "Restore the next research instrument",
+        "description": "Use a repair kit and science kit to restore one instrument and earn 2 research data on success. Engineers and technicians improve the odds; failure costs the worker 6 health. One-week crew assignment; incident response is separate.",
+        "costs": {
+          "repair_kits": 1.0,
+          "electricity": 2.0
+        },
+        "required_items": {
+          "scientific_tools": 1
+        },
+        "requires_crew": true,
+        "role_bonus": {
+          "engineer": 0.2,
+          "technician": 0.2,
+          "scientist": 0.1
+        },
+        "crew_role_bonus": {},
+        "success_chance": 0.7,
+        "success_effects": {
+          "resources": {
+            "research_data": 2.0
+          },
+          "solar_efficiency": 0.0,
+          "oxygen_efficiency": 0.0,
+          "crew_health": 0,
+          "target": "selected"
+        },
+        "failure_effects": {
+          "resources": {},
+          "solar_efficiency": 0.0,
+          "oxygen_efficiency": 0.0,
+          "crew_health": -6,
+          "target": "selected"
+        },
+        "required_role": null,
+        "minimum_crew": 1,
+        "available": false,
+        "unavailable_reasons": [
+          "Requires 1 Field science kit (not consumed)."
+        ],
+        "eligible_crew": [
+          {
+            "crew_id": "alex",
+            "available": false,
+            "unavailable_reasons": [
+              "Requires 1 Field science kit (not consumed)."
+            ],
+            "success_probability": 0.95
+          },
+          {
+            "crew_id": "maya",
+            "available": false,
+            "unavailable_reasons": [
+              "Requires 1 Field science kit (not consumed)."
+            ],
+            "success_probability": 0.7
+          }
+        ],
+        "success_probability": null
+      }
+    ]
   }
 };
 
@@ -5213,308 +5238,6 @@ export const researchGame: GameResponse = {
           "unavailable_reasons": [],
           "eligible_crew": [],
           "success_probability": 1.0
-        },
-        {
-          "id": "clean_array",
-          "action_type": "maintenance",
-          "objective_rewards": [],
-          "text": "Clean the solar array",
-          "description": "Guaranteed +20 percentage points solar condition. Uses a dust kit and EVA supplies; the week's incident remains unresolved.",
-          "costs": {
-            "dust_kits": 1.0,
-            "eva_batteries": 1.0,
-            "oxygen": 2.0
-          },
-          "required_items": {},
-          "requires_crew": true,
-          "role_bonus": {},
-          "crew_role_bonus": {},
-          "success_chance": 1.0,
-          "success_effects": {
-            "resources": {},
-            "solar_efficiency": 0.2,
-            "oxygen_efficiency": 0.0,
-            "crew_health": 0,
-            "target": "selected"
-          },
-          "failure_effects": {
-            "resources": {},
-            "solar_efficiency": 0.0,
-            "oxygen_efficiency": 0.0,
-            "crew_health": 0,
-            "target": "selected"
-          },
-          "required_role": null,
-          "minimum_crew": 1,
-          "available": false,
-          "unavailable_reasons": [
-            "Requires 1 dust_kits; available 0."
-          ],
-          "eligible_crew": [
-            {
-              "crew_id": "alex",
-              "available": false,
-              "unavailable_reasons": [
-                "Requires 1 dust_kits; available 0."
-              ],
-              "success_probability": 1.0
-            },
-            {
-              "crew_id": "lin",
-              "available": false,
-              "unavailable_reasons": [
-                "Requires 1 dust_kits; available 0."
-              ],
-              "success_probability": 1.0
-            }
-          ],
-          "success_probability": null
-        },
-        {
-          "id": "install_regulator",
-          "action_type": "maintenance",
-          "objective_rewards": [],
-          "text": "Install an oxygen regulator",
-          "description": "Guaranteed +20 percentage points oxygen condition. Uses a regulator and 2 power; the week's incident remains unresolved.",
-          "costs": {
-            "oxygen_regulators": 1.0,
-            "electricity": 2.0
-          },
-          "required_items": {},
-          "requires_crew": true,
-          "role_bonus": {},
-          "crew_role_bonus": {},
-          "success_chance": 1.0,
-          "success_effects": {
-            "resources": {},
-            "solar_efficiency": 0.0,
-            "oxygen_efficiency": 0.2,
-            "crew_health": 0,
-            "target": "selected"
-          },
-          "failure_effects": {
-            "resources": {},
-            "solar_efficiency": 0.0,
-            "oxygen_efficiency": 0.0,
-            "crew_health": 0,
-            "target": "selected"
-          },
-          "required_role": null,
-          "minimum_crew": 1,
-          "available": false,
-          "unavailable_reasons": [
-            "Requires 1 oxygen_regulators; available 0.",
-            "The oxygen system is already at full condition."
-          ],
-          "eligible_crew": [
-            {
-              "crew_id": "alex",
-              "available": false,
-              "unavailable_reasons": [
-                "Requires 1 oxygen_regulators; available 0.",
-                "The oxygen system is already at full condition."
-              ],
-              "success_probability": 1.0
-            },
-            {
-              "crew_id": "lin",
-              "available": false,
-              "unavailable_reasons": [
-                "Requires 1 oxygen_regulators; available 0.",
-                "The oxygen system is already at full condition."
-              ],
-              "success_probability": 1.0
-            }
-          ],
-          "success_probability": null
-        },
-        {
-          "id": "research_geology",
-          "action_type": "research",
-          "objective_rewards": [
-            {
-              "objective_id": "geology",
-              "title": "Baseline sample collection",
-              "amount": 1
-            }
-          ],
-          "text": "Survey a geological sample",
-          "description": "Use the science kit to collect one sample and 2 research data on success. Scientists improve the odds; failure costs the worker 8 health. Uses this week's action; the incident's initial damage remains.",
-          "costs": {
-            "eva_batteries": 1.0,
-            "oxygen": 2.0
-          },
-          "required_items": {
-            "scientific_tools": 1
-          },
-          "requires_crew": true,
-          "role_bonus": {
-            "scientist": 0.2,
-            "technician": 0.1
-          },
-          "crew_role_bonus": {},
-          "success_chance": 0.75,
-          "success_effects": {
-            "resources": {
-              "research_data": 2.0
-            },
-            "solar_efficiency": 0.0,
-            "oxygen_efficiency": 0.0,
-            "crew_health": 0,
-            "target": "selected"
-          },
-          "failure_effects": {
-            "resources": {},
-            "solar_efficiency": 0.0,
-            "oxygen_efficiency": 0.0,
-            "crew_health": -8,
-            "target": "selected"
-          },
-          "required_role": null,
-          "minimum_crew": 1,
-          "available": true,
-          "unavailable_reasons": [],
-          "eligible_crew": [
-            {
-              "crew_id": "alex",
-              "available": true,
-              "unavailable_reasons": [],
-              "success_probability": 0.8
-            },
-            {
-              "crew_id": "lin",
-              "available": true,
-              "unavailable_reasons": [],
-              "success_probability": 0.95
-            }
-          ],
-          "success_probability": null
-        },
-        {
-          "id": "research_seismic",
-          "action_type": "research",
-          "objective_rewards": [
-            {
-              "objective_id": "seismology",
-              "title": "Seismic baseline",
-              "amount": 1
-            }
-          ],
-          "text": "Analyze a seismic record",
-          "description": "Use the science kit to complete one analysis and earn 2 research data on success. Scientists improve the odds; failure wastes 2 additional power. Uses this week's action; the incident's initial damage remains.",
-          "costs": {
-            "electricity": 2.0
-          },
-          "required_items": {
-            "scientific_tools": 1
-          },
-          "requires_crew": true,
-          "role_bonus": {
-            "scientist": 0.2,
-            "technician": 0.1
-          },
-          "crew_role_bonus": {},
-          "success_chance": 0.75,
-          "success_effects": {
-            "resources": {
-              "research_data": 2.0
-            },
-            "solar_efficiency": 0.0,
-            "oxygen_efficiency": 0.0,
-            "crew_health": 0,
-            "target": "selected"
-          },
-          "failure_effects": {
-            "resources": {
-              "electricity": -2.0
-            },
-            "solar_efficiency": 0.0,
-            "oxygen_efficiency": 0.0,
-            "crew_health": 0,
-            "target": "selected"
-          },
-          "required_role": null,
-          "minimum_crew": 1,
-          "available": true,
-          "unavailable_reasons": [],
-          "eligible_crew": [
-            {
-              "crew_id": "alex",
-              "available": true,
-              "unavailable_reasons": [],
-              "success_probability": 0.8
-            },
-            {
-              "crew_id": "lin",
-              "available": true,
-              "unavailable_reasons": [],
-              "success_probability": 0.95
-            }
-          ],
-          "success_probability": null
-        },
-        {
-          "id": "research_instrument",
-          "action_type": "research",
-          "objective_rewards": [
-            {
-              "objective_id": "instruments",
-              "title": "Restore a research instrument",
-              "amount": 1
-            }
-          ],
-          "text": "Restore the next research instrument",
-          "description": "Use a repair kit and science kit to restore one instrument and earn 2 research data on success. Engineers and technicians improve the odds; failure costs the worker 6 health. Uses this week's action; the incident's initial damage remains.",
-          "costs": {
-            "repair_kits": 1.0,
-            "electricity": 2.0
-          },
-          "required_items": {
-            "scientific_tools": 1
-          },
-          "requires_crew": true,
-          "role_bonus": {
-            "engineer": 0.2,
-            "technician": 0.2,
-            "scientist": 0.1
-          },
-          "crew_role_bonus": {},
-          "success_chance": 0.7,
-          "success_effects": {
-            "resources": {
-              "research_data": 2.0
-            },
-            "solar_efficiency": 0.0,
-            "oxygen_efficiency": 0.0,
-            "crew_health": 0,
-            "target": "selected"
-          },
-          "failure_effects": {
-            "resources": {},
-            "solar_efficiency": 0.0,
-            "oxygen_efficiency": 0.0,
-            "crew_health": -6,
-            "target": "selected"
-          },
-          "required_role": null,
-          "minimum_crew": 1,
-          "available": true,
-          "unavailable_reasons": [],
-          "eligible_crew": [
-            {
-              "crew_id": "alex",
-              "available": true,
-              "unavailable_reasons": [],
-              "success_probability": 0.95
-            },
-            {
-              "crew_id": "lin",
-              "available": true,
-              "unavailable_reasons": [],
-              "success_probability": 0.8
-            }
-          ],
-          "success_probability": null
         }
       ]
     },
@@ -5580,7 +5303,311 @@ export const researchGame: GameResponse = {
           "completed": false
         }
       ]
-    }
+    },
+    "assignment_options": [
+      {
+        "id": "clean_array",
+        "action_type": "maintenance",
+        "objective_rewards": [],
+        "text": "Clean the solar array",
+        "description": "Guaranteed +20 percentage points solar condition. Uses a dust kit and EVA supplies; One-week crew assignment; incident response is separate.",
+        "costs": {
+          "dust_kits": 1.0,
+          "eva_batteries": 1.0,
+          "oxygen": 2.0
+        },
+        "required_items": {},
+        "requires_crew": true,
+        "role_bonus": {},
+        "crew_role_bonus": {},
+        "success_chance": 1.0,
+        "success_effects": {
+          "resources": {},
+          "solar_efficiency": 0.2,
+          "oxygen_efficiency": 0.0,
+          "crew_health": 0,
+          "target": "selected"
+        },
+        "failure_effects": {
+          "resources": {},
+          "solar_efficiency": 0.0,
+          "oxygen_efficiency": 0.0,
+          "crew_health": 0,
+          "target": "selected"
+        },
+        "required_role": null,
+        "minimum_crew": 1,
+        "available": false,
+        "unavailable_reasons": [
+          "Requires 1 dust_kits; available 0."
+        ],
+        "eligible_crew": [
+          {
+            "crew_id": "alex",
+            "available": false,
+            "unavailable_reasons": [
+              "Requires 1 dust_kits; available 0."
+            ],
+            "success_probability": 1.0
+          },
+          {
+            "crew_id": "lin",
+            "available": false,
+            "unavailable_reasons": [
+              "Requires 1 dust_kits; available 0."
+            ],
+            "success_probability": 1.0
+          }
+        ],
+        "success_probability": null
+      },
+      {
+        "id": "install_regulator",
+        "action_type": "maintenance",
+        "objective_rewards": [],
+        "text": "Install an oxygen regulator",
+        "description": "Guaranteed +20 percentage points oxygen condition. Uses a regulator and 2 power; One-week crew assignment; incident response is separate.",
+        "costs": {
+          "oxygen_regulators": 1.0,
+          "electricity": 2.0
+        },
+        "required_items": {},
+        "requires_crew": true,
+        "role_bonus": {},
+        "crew_role_bonus": {},
+        "success_chance": 1.0,
+        "success_effects": {
+          "resources": {},
+          "solar_efficiency": 0.0,
+          "oxygen_efficiency": 0.2,
+          "crew_health": 0,
+          "target": "selected"
+        },
+        "failure_effects": {
+          "resources": {},
+          "solar_efficiency": 0.0,
+          "oxygen_efficiency": 0.0,
+          "crew_health": 0,
+          "target": "selected"
+        },
+        "required_role": null,
+        "minimum_crew": 1,
+        "available": false,
+        "unavailable_reasons": [
+          "Requires 1 oxygen_regulators; available 0.",
+          "The oxygen system is already at full condition."
+        ],
+        "eligible_crew": [
+          {
+            "crew_id": "alex",
+            "available": false,
+            "unavailable_reasons": [
+              "Requires 1 oxygen_regulators; available 0.",
+              "The oxygen system is already at full condition."
+            ],
+            "success_probability": 1.0
+          },
+          {
+            "crew_id": "lin",
+            "available": false,
+            "unavailable_reasons": [
+              "Requires 1 oxygen_regulators; available 0.",
+              "The oxygen system is already at full condition."
+            ],
+            "success_probability": 1.0
+          }
+        ],
+        "success_probability": null
+      },
+      {
+        "id": "research_geology",
+        "action_type": "research",
+        "objective_rewards": [
+          {
+            "objective_id": "geology",
+            "title": "Baseline sample collection",
+            "amount": 1
+          }
+        ],
+        "text": "Survey a geological sample",
+        "description": "Use the science kit to collect one sample and 2 research data on success. Scientists improve the odds; failure costs the worker 8 health. One-week crew assignment; incident response is separate.",
+        "costs": {
+          "eva_batteries": 1.0,
+          "oxygen": 2.0
+        },
+        "required_items": {
+          "scientific_tools": 1
+        },
+        "requires_crew": true,
+        "role_bonus": {
+          "scientist": 0.2,
+          "technician": 0.1
+        },
+        "crew_role_bonus": {},
+        "success_chance": 0.75,
+        "success_effects": {
+          "resources": {
+            "research_data": 2.0
+          },
+          "solar_efficiency": 0.0,
+          "oxygen_efficiency": 0.0,
+          "crew_health": 0,
+          "target": "selected"
+        },
+        "failure_effects": {
+          "resources": {},
+          "solar_efficiency": 0.0,
+          "oxygen_efficiency": 0.0,
+          "crew_health": -8,
+          "target": "selected"
+        },
+        "required_role": null,
+        "minimum_crew": 1,
+        "available": true,
+        "unavailable_reasons": [],
+        "eligible_crew": [
+          {
+            "crew_id": "alex",
+            "available": true,
+            "unavailable_reasons": [],
+            "success_probability": 0.8
+          },
+          {
+            "crew_id": "lin",
+            "available": true,
+            "unavailable_reasons": [],
+            "success_probability": 0.95
+          }
+        ],
+        "success_probability": null
+      },
+      {
+        "id": "research_seismic",
+        "action_type": "research",
+        "objective_rewards": [
+          {
+            "objective_id": "seismology",
+            "title": "Seismic baseline",
+            "amount": 1
+          }
+        ],
+        "text": "Analyze a seismic record",
+        "description": "Use the science kit to complete one analysis and earn 2 research data on success. Scientists improve the odds; failure wastes 2 additional power. One-week crew assignment; incident response is separate.",
+        "costs": {
+          "electricity": 2.0
+        },
+        "required_items": {
+          "scientific_tools": 1
+        },
+        "requires_crew": true,
+        "role_bonus": {
+          "scientist": 0.2,
+          "technician": 0.1
+        },
+        "crew_role_bonus": {},
+        "success_chance": 0.75,
+        "success_effects": {
+          "resources": {
+            "research_data": 2.0
+          },
+          "solar_efficiency": 0.0,
+          "oxygen_efficiency": 0.0,
+          "crew_health": 0,
+          "target": "selected"
+        },
+        "failure_effects": {
+          "resources": {
+            "electricity": -2.0
+          },
+          "solar_efficiency": 0.0,
+          "oxygen_efficiency": 0.0,
+          "crew_health": 0,
+          "target": "selected"
+        },
+        "required_role": null,
+        "minimum_crew": 1,
+        "available": true,
+        "unavailable_reasons": [],
+        "eligible_crew": [
+          {
+            "crew_id": "alex",
+            "available": true,
+            "unavailable_reasons": [],
+            "success_probability": 0.8
+          },
+          {
+            "crew_id": "lin",
+            "available": true,
+            "unavailable_reasons": [],
+            "success_probability": 0.95
+          }
+        ],
+        "success_probability": null
+      },
+      {
+        "id": "research_instrument",
+        "action_type": "research",
+        "objective_rewards": [
+          {
+            "objective_id": "instruments",
+            "title": "Restore a research instrument",
+            "amount": 1
+          }
+        ],
+        "text": "Restore the next research instrument",
+        "description": "Use a repair kit and science kit to restore one instrument and earn 2 research data on success. Engineers and technicians improve the odds; failure costs the worker 6 health. One-week crew assignment; incident response is separate.",
+        "costs": {
+          "repair_kits": 1.0,
+          "electricity": 2.0
+        },
+        "required_items": {
+          "scientific_tools": 1
+        },
+        "requires_crew": true,
+        "role_bonus": {
+          "engineer": 0.2,
+          "technician": 0.2,
+          "scientist": 0.1
+        },
+        "crew_role_bonus": {},
+        "success_chance": 0.7,
+        "success_effects": {
+          "resources": {
+            "research_data": 2.0
+          },
+          "solar_efficiency": 0.0,
+          "oxygen_efficiency": 0.0,
+          "crew_health": 0,
+          "target": "selected"
+        },
+        "failure_effects": {
+          "resources": {},
+          "solar_efficiency": 0.0,
+          "oxygen_efficiency": 0.0,
+          "crew_health": -6,
+          "target": "selected"
+        },
+        "required_role": null,
+        "minimum_crew": 1,
+        "available": true,
+        "unavailable_reasons": [],
+        "eligible_crew": [
+          {
+            "crew_id": "alex",
+            "available": true,
+            "unavailable_reasons": [],
+            "success_probability": 0.95
+          },
+          {
+            "crew_id": "lin",
+            "available": true,
+            "unavailable_reasons": [],
+            "success_probability": 0.8
+          }
+        ],
+        "success_probability": null
+      }
+    ]
   }
 };
 
@@ -5834,305 +5861,6 @@ export const researchTurn: TurnResponse = {
           "unavailable_reasons": [],
           "eligible_crew": [],
           "success_probability": 1.0
-        },
-        {
-          "id": "clean_array",
-          "action_type": "maintenance",
-          "objective_rewards": [],
-          "text": "Clean the solar array",
-          "description": "Guaranteed +20 percentage points solar condition. Uses a dust kit and EVA supplies; the week's incident remains unresolved.",
-          "costs": {
-            "dust_kits": 1.0,
-            "eva_batteries": 1.0,
-            "oxygen": 2.0
-          },
-          "required_items": {},
-          "requires_crew": true,
-          "role_bonus": {},
-          "crew_role_bonus": {},
-          "success_chance": 1.0,
-          "success_effects": {
-            "resources": {},
-            "solar_efficiency": 0.2,
-            "oxygen_efficiency": 0.0,
-            "crew_health": 0,
-            "target": "selected"
-          },
-          "failure_effects": {
-            "resources": {},
-            "solar_efficiency": 0.0,
-            "oxygen_efficiency": 0.0,
-            "crew_health": 0,
-            "target": "selected"
-          },
-          "required_role": null,
-          "minimum_crew": 1,
-          "available": false,
-          "unavailable_reasons": [
-            "Requires 1 dust_kits; available 0."
-          ],
-          "eligible_crew": [
-            {
-              "crew_id": "alex",
-              "available": false,
-              "unavailable_reasons": [
-                "Requires 1 dust_kits; available 0."
-              ],
-              "success_probability": 1.0
-            },
-            {
-              "crew_id": "lin",
-              "available": false,
-              "unavailable_reasons": [
-                "Requires 1 dust_kits; available 0."
-              ],
-              "success_probability": 1.0
-            }
-          ],
-          "success_probability": null
-        },
-        {
-          "id": "install_regulator",
-          "action_type": "maintenance",
-          "objective_rewards": [],
-          "text": "Install an oxygen regulator",
-          "description": "Guaranteed +20 percentage points oxygen condition. Uses a regulator and 2 power; the week's incident remains unresolved.",
-          "costs": {
-            "oxygen_regulators": 1.0,
-            "electricity": 2.0
-          },
-          "required_items": {},
-          "requires_crew": true,
-          "role_bonus": {},
-          "crew_role_bonus": {},
-          "success_chance": 1.0,
-          "success_effects": {
-            "resources": {},
-            "solar_efficiency": 0.0,
-            "oxygen_efficiency": 0.2,
-            "crew_health": 0,
-            "target": "selected"
-          },
-          "failure_effects": {
-            "resources": {},
-            "solar_efficiency": 0.0,
-            "oxygen_efficiency": 0.0,
-            "crew_health": 0,
-            "target": "selected"
-          },
-          "required_role": null,
-          "minimum_crew": 1,
-          "available": false,
-          "unavailable_reasons": [
-            "Requires 1 oxygen_regulators; available 0."
-          ],
-          "eligible_crew": [
-            {
-              "crew_id": "alex",
-              "available": false,
-              "unavailable_reasons": [
-                "Requires 1 oxygen_regulators; available 0."
-              ],
-              "success_probability": 1.0
-            },
-            {
-              "crew_id": "lin",
-              "available": false,
-              "unavailable_reasons": [
-                "Requires 1 oxygen_regulators; available 0."
-              ],
-              "success_probability": 1.0
-            }
-          ],
-          "success_probability": null
-        },
-        {
-          "id": "research_geology",
-          "action_type": "research",
-          "objective_rewards": [
-            {
-              "objective_id": "geology",
-              "title": "Baseline sample collection",
-              "amount": 1
-            }
-          ],
-          "text": "Survey a geological sample",
-          "description": "Use the science kit to collect one sample and 2 research data on success. Scientists improve the odds; failure costs the worker 8 health. Uses this week's action; the incident's initial damage remains.",
-          "costs": {
-            "eva_batteries": 1.0,
-            "oxygen": 2.0
-          },
-          "required_items": {
-            "scientific_tools": 1
-          },
-          "requires_crew": true,
-          "role_bonus": {
-            "scientist": 0.2,
-            "technician": 0.1
-          },
-          "crew_role_bonus": {},
-          "success_chance": 0.75,
-          "success_effects": {
-            "resources": {
-              "research_data": 2.0
-            },
-            "solar_efficiency": 0.0,
-            "oxygen_efficiency": 0.0,
-            "crew_health": 0,
-            "target": "selected"
-          },
-          "failure_effects": {
-            "resources": {},
-            "solar_efficiency": 0.0,
-            "oxygen_efficiency": 0.0,
-            "crew_health": -8,
-            "target": "selected"
-          },
-          "required_role": null,
-          "minimum_crew": 1,
-          "available": true,
-          "unavailable_reasons": [],
-          "eligible_crew": [
-            {
-              "crew_id": "alex",
-              "available": true,
-              "unavailable_reasons": [],
-              "success_probability": 0.8
-            },
-            {
-              "crew_id": "lin",
-              "available": true,
-              "unavailable_reasons": [],
-              "success_probability": 0.95
-            }
-          ],
-          "success_probability": null
-        },
-        {
-          "id": "research_seismic",
-          "action_type": "research",
-          "objective_rewards": [
-            {
-              "objective_id": "seismology",
-              "title": "Seismic baseline",
-              "amount": 1
-            }
-          ],
-          "text": "Analyze a seismic record",
-          "description": "Use the science kit to complete one analysis and earn 2 research data on success. Scientists improve the odds; failure wastes 2 additional power. Uses this week's action; the incident's initial damage remains.",
-          "costs": {
-            "electricity": 2.0
-          },
-          "required_items": {
-            "scientific_tools": 1
-          },
-          "requires_crew": true,
-          "role_bonus": {
-            "scientist": 0.2,
-            "technician": 0.1
-          },
-          "crew_role_bonus": {},
-          "success_chance": 0.75,
-          "success_effects": {
-            "resources": {
-              "research_data": 2.0
-            },
-            "solar_efficiency": 0.0,
-            "oxygen_efficiency": 0.0,
-            "crew_health": 0,
-            "target": "selected"
-          },
-          "failure_effects": {
-            "resources": {
-              "electricity": -2.0
-            },
-            "solar_efficiency": 0.0,
-            "oxygen_efficiency": 0.0,
-            "crew_health": 0,
-            "target": "selected"
-          },
-          "required_role": null,
-          "minimum_crew": 1,
-          "available": true,
-          "unavailable_reasons": [],
-          "eligible_crew": [
-            {
-              "crew_id": "alex",
-              "available": true,
-              "unavailable_reasons": [],
-              "success_probability": 0.8
-            },
-            {
-              "crew_id": "lin",
-              "available": true,
-              "unavailable_reasons": [],
-              "success_probability": 0.95
-            }
-          ],
-          "success_probability": null
-        },
-        {
-          "id": "research_instrument",
-          "action_type": "research",
-          "objective_rewards": [
-            {
-              "objective_id": "instruments",
-              "title": "Restore a research instrument",
-              "amount": 1
-            }
-          ],
-          "text": "Restore the next research instrument",
-          "description": "Use a repair kit and science kit to restore one instrument and earn 2 research data on success. Engineers and technicians improve the odds; failure costs the worker 6 health. Uses this week's action; the incident's initial damage remains.",
-          "costs": {
-            "repair_kits": 1.0,
-            "electricity": 2.0
-          },
-          "required_items": {
-            "scientific_tools": 1
-          },
-          "requires_crew": true,
-          "role_bonus": {
-            "engineer": 0.2,
-            "technician": 0.2,
-            "scientist": 0.1
-          },
-          "crew_role_bonus": {},
-          "success_chance": 0.7,
-          "success_effects": {
-            "resources": {
-              "research_data": 2.0
-            },
-            "solar_efficiency": 0.0,
-            "oxygen_efficiency": 0.0,
-            "crew_health": 0,
-            "target": "selected"
-          },
-          "failure_effects": {
-            "resources": {},
-            "solar_efficiency": 0.0,
-            "oxygen_efficiency": 0.0,
-            "crew_health": -6,
-            "target": "selected"
-          },
-          "required_role": null,
-          "minimum_crew": 1,
-          "available": true,
-          "unavailable_reasons": [],
-          "eligible_crew": [
-            {
-              "crew_id": "alex",
-              "available": true,
-              "unavailable_reasons": [],
-              "success_probability": 0.95
-            },
-            {
-              "crew_id": "lin",
-              "available": true,
-              "unavailable_reasons": [],
-              "success_probability": 0.8
-            }
-          ],
-          "success_probability": null
         }
       ]
     },
@@ -6147,33 +5875,66 @@ export const researchTurn: TurnResponse = {
     "flags": {},
     "history": [
       {
+        "assignments": [
+          {
+            "crew_id": "lin",
+            "activity_id": "research_geology",
+            "status": "completed",
+            "outcome": {
+              "support_crew_ids": [],
+              "event_id": "solar_failure",
+              "choice_id": "research_geology",
+              "choice_text": "Survey a geological sample",
+              "selected_crew_id": "lin",
+              "success": true,
+              "success_probability": 0.95,
+              "costs": {
+                "eva_batteries": 1.0,
+                "oxygen": 2.0
+              },
+              "effects": {
+                "resources": {
+                  "research_data": 2.0
+                },
+                "solar_efficiency": 0.0,
+                "oxygen_efficiency": 0.0,
+                "health_changes": []
+              },
+              "objective_progress": [
+                {
+                  "objective_id": "geology",
+                  "title": "Baseline sample collection",
+                  "amount": 1
+                }
+              ]
+            },
+            "reason": null
+          }
+        ],
+        "science_gains": [
+          {
+            "objective_id": "geology",
+            "title": "Baseline sample collection",
+            "amount": 1
+          }
+        ],
         "week": 1,
         "event": {
+          "support_crew_ids": [],
           "event_id": "solar_failure",
-          "choice_id": "research_geology",
-          "choice_text": "Survey a geological sample",
-          "selected_crew_id": "lin",
+          "choice_id": "ignore",
+          "choice_text": "Conserve supplies and accept reduced output",
+          "selected_crew_id": null,
           "success": true,
-          "success_probability": 0.95,
-          "costs": {
-            "eva_batteries": 1.0,
-            "oxygen": 2.0
-          },
+          "success_probability": 1.0,
+          "costs": {},
           "effects": {
-            "resources": {
-              "research_data": 2.0
-            },
+            "resources": {},
             "solar_efficiency": 0.0,
             "oxygen_efficiency": 0.0,
             "health_changes": []
           },
-          "objective_progress": [
-            {
-              "objective_id": "geology",
-              "title": "Baseline sample collection",
-              "amount": 1
-            }
-          ]
+          "objective_progress": []
         },
         "rations": {
           "alex": {
@@ -6310,36 +6071,370 @@ export const researchTurn: TurnResponse = {
           "completed": false
         }
       ]
-    }
+    },
+    "assignment_options": [
+      {
+        "id": "clean_array",
+        "action_type": "maintenance",
+        "objective_rewards": [],
+        "text": "Clean the solar array",
+        "description": "Guaranteed +20 percentage points solar condition. Uses a dust kit and EVA supplies; One-week crew assignment; incident response is separate.",
+        "costs": {
+          "dust_kits": 1.0,
+          "eva_batteries": 1.0,
+          "oxygen": 2.0
+        },
+        "required_items": {},
+        "requires_crew": true,
+        "role_bonus": {},
+        "crew_role_bonus": {},
+        "success_chance": 1.0,
+        "success_effects": {
+          "resources": {},
+          "solar_efficiency": 0.2,
+          "oxygen_efficiency": 0.0,
+          "crew_health": 0,
+          "target": "selected"
+        },
+        "failure_effects": {
+          "resources": {},
+          "solar_efficiency": 0.0,
+          "oxygen_efficiency": 0.0,
+          "crew_health": 0,
+          "target": "selected"
+        },
+        "required_role": null,
+        "minimum_crew": 1,
+        "available": false,
+        "unavailable_reasons": [
+          "Requires 1 dust_kits; available 0."
+        ],
+        "eligible_crew": [
+          {
+            "crew_id": "alex",
+            "available": false,
+            "unavailable_reasons": [
+              "Requires 1 dust_kits; available 0."
+            ],
+            "success_probability": 1.0
+          },
+          {
+            "crew_id": "lin",
+            "available": false,
+            "unavailable_reasons": [
+              "Requires 1 dust_kits; available 0."
+            ],
+            "success_probability": 1.0
+          }
+        ],
+        "success_probability": null
+      },
+      {
+        "id": "install_regulator",
+        "action_type": "maintenance",
+        "objective_rewards": [],
+        "text": "Install an oxygen regulator",
+        "description": "Guaranteed +20 percentage points oxygen condition. Uses a regulator and 2 power; One-week crew assignment; incident response is separate.",
+        "costs": {
+          "oxygen_regulators": 1.0,
+          "electricity": 2.0
+        },
+        "required_items": {},
+        "requires_crew": true,
+        "role_bonus": {},
+        "crew_role_bonus": {},
+        "success_chance": 1.0,
+        "success_effects": {
+          "resources": {},
+          "solar_efficiency": 0.0,
+          "oxygen_efficiency": 0.2,
+          "crew_health": 0,
+          "target": "selected"
+        },
+        "failure_effects": {
+          "resources": {},
+          "solar_efficiency": 0.0,
+          "oxygen_efficiency": 0.0,
+          "crew_health": 0,
+          "target": "selected"
+        },
+        "required_role": null,
+        "minimum_crew": 1,
+        "available": false,
+        "unavailable_reasons": [
+          "Requires 1 oxygen_regulators; available 0."
+        ],
+        "eligible_crew": [
+          {
+            "crew_id": "alex",
+            "available": false,
+            "unavailable_reasons": [
+              "Requires 1 oxygen_regulators; available 0."
+            ],
+            "success_probability": 1.0
+          },
+          {
+            "crew_id": "lin",
+            "available": false,
+            "unavailable_reasons": [
+              "Requires 1 oxygen_regulators; available 0."
+            ],
+            "success_probability": 1.0
+          }
+        ],
+        "success_probability": null
+      },
+      {
+        "id": "research_geology",
+        "action_type": "research",
+        "objective_rewards": [
+          {
+            "objective_id": "geology",
+            "title": "Baseline sample collection",
+            "amount": 1
+          }
+        ],
+        "text": "Survey a geological sample",
+        "description": "Use the science kit to collect one sample and 2 research data on success. Scientists improve the odds; failure costs the worker 8 health. One-week crew assignment; incident response is separate.",
+        "costs": {
+          "eva_batteries": 1.0,
+          "oxygen": 2.0
+        },
+        "required_items": {
+          "scientific_tools": 1
+        },
+        "requires_crew": true,
+        "role_bonus": {
+          "scientist": 0.2,
+          "technician": 0.1
+        },
+        "crew_role_bonus": {},
+        "success_chance": 0.75,
+        "success_effects": {
+          "resources": {
+            "research_data": 2.0
+          },
+          "solar_efficiency": 0.0,
+          "oxygen_efficiency": 0.0,
+          "crew_health": 0,
+          "target": "selected"
+        },
+        "failure_effects": {
+          "resources": {},
+          "solar_efficiency": 0.0,
+          "oxygen_efficiency": 0.0,
+          "crew_health": -8,
+          "target": "selected"
+        },
+        "required_role": null,
+        "minimum_crew": 1,
+        "available": true,
+        "unavailable_reasons": [],
+        "eligible_crew": [
+          {
+            "crew_id": "alex",
+            "available": true,
+            "unavailable_reasons": [],
+            "success_probability": 0.8
+          },
+          {
+            "crew_id": "lin",
+            "available": true,
+            "unavailable_reasons": [],
+            "success_probability": 0.95
+          }
+        ],
+        "success_probability": null
+      },
+      {
+        "id": "research_seismic",
+        "action_type": "research",
+        "objective_rewards": [
+          {
+            "objective_id": "seismology",
+            "title": "Seismic baseline",
+            "amount": 1
+          }
+        ],
+        "text": "Analyze a seismic record",
+        "description": "Use the science kit to complete one analysis and earn 2 research data on success. Scientists improve the odds; failure wastes 2 additional power. One-week crew assignment; incident response is separate.",
+        "costs": {
+          "electricity": 2.0
+        },
+        "required_items": {
+          "scientific_tools": 1
+        },
+        "requires_crew": true,
+        "role_bonus": {
+          "scientist": 0.2,
+          "technician": 0.1
+        },
+        "crew_role_bonus": {},
+        "success_chance": 0.75,
+        "success_effects": {
+          "resources": {
+            "research_data": 2.0
+          },
+          "solar_efficiency": 0.0,
+          "oxygen_efficiency": 0.0,
+          "crew_health": 0,
+          "target": "selected"
+        },
+        "failure_effects": {
+          "resources": {
+            "electricity": -2.0
+          },
+          "solar_efficiency": 0.0,
+          "oxygen_efficiency": 0.0,
+          "crew_health": 0,
+          "target": "selected"
+        },
+        "required_role": null,
+        "minimum_crew": 1,
+        "available": true,
+        "unavailable_reasons": [],
+        "eligible_crew": [
+          {
+            "crew_id": "alex",
+            "available": true,
+            "unavailable_reasons": [],
+            "success_probability": 0.8
+          },
+          {
+            "crew_id": "lin",
+            "available": true,
+            "unavailable_reasons": [],
+            "success_probability": 0.95
+          }
+        ],
+        "success_probability": null
+      },
+      {
+        "id": "research_instrument",
+        "action_type": "research",
+        "objective_rewards": [
+          {
+            "objective_id": "instruments",
+            "title": "Restore a research instrument",
+            "amount": 1
+          }
+        ],
+        "text": "Restore the next research instrument",
+        "description": "Use a repair kit and science kit to restore one instrument and earn 2 research data on success. Engineers and technicians improve the odds; failure costs the worker 6 health. One-week crew assignment; incident response is separate.",
+        "costs": {
+          "repair_kits": 1.0,
+          "electricity": 2.0
+        },
+        "required_items": {
+          "scientific_tools": 1
+        },
+        "requires_crew": true,
+        "role_bonus": {
+          "engineer": 0.2,
+          "technician": 0.2,
+          "scientist": 0.1
+        },
+        "crew_role_bonus": {},
+        "success_chance": 0.7,
+        "success_effects": {
+          "resources": {
+            "research_data": 2.0
+          },
+          "solar_efficiency": 0.0,
+          "oxygen_efficiency": 0.0,
+          "crew_health": 0,
+          "target": "selected"
+        },
+        "failure_effects": {
+          "resources": {},
+          "solar_efficiency": 0.0,
+          "oxygen_efficiency": 0.0,
+          "crew_health": -6,
+          "target": "selected"
+        },
+        "required_role": null,
+        "minimum_crew": 1,
+        "available": true,
+        "unavailable_reasons": [],
+        "eligible_crew": [
+          {
+            "crew_id": "alex",
+            "available": true,
+            "unavailable_reasons": [],
+            "success_probability": 0.95
+          },
+          {
+            "crew_id": "lin",
+            "available": true,
+            "unavailable_reasons": [],
+            "success_probability": 0.8
+          }
+        ],
+        "success_probability": null
+      }
+    ]
   },
   "turn_outcome": {
+    "assignments": [
+      {
+        "crew_id": "lin",
+        "activity_id": "research_geology",
+        "status": "completed",
+        "outcome": {
+          "support_crew_ids": [],
+          "event_id": "solar_failure",
+          "choice_id": "research_geology",
+          "choice_text": "Survey a geological sample",
+          "selected_crew_id": "lin",
+          "success": true,
+          "success_probability": 0.95,
+          "costs": {
+            "eva_batteries": 1.0,
+            "oxygen": 2.0
+          },
+          "effects": {
+            "resources": {
+              "research_data": 2.0
+            },
+            "solar_efficiency": 0.0,
+            "oxygen_efficiency": 0.0,
+            "health_changes": []
+          },
+          "objective_progress": [
+            {
+              "objective_id": "geology",
+              "title": "Baseline sample collection",
+              "amount": 1
+            }
+          ]
+        },
+        "reason": null
+      }
+    ],
+    "science_gains": [
+      {
+        "objective_id": "geology",
+        "title": "Baseline sample collection",
+        "amount": 1
+      }
+    ],
     "week": 1,
     "event": {
+      "support_crew_ids": [],
       "event_id": "solar_failure",
-      "choice_id": "research_geology",
-      "choice_text": "Survey a geological sample",
-      "selected_crew_id": "lin",
+      "choice_id": "ignore",
+      "choice_text": "Conserve supplies and accept reduced output",
+      "selected_crew_id": null,
       "success": true,
-      "success_probability": 0.95,
-      "costs": {
-        "eva_batteries": 1.0,
-        "oxygen": 2.0
-      },
+      "success_probability": 1.0,
+      "costs": {},
       "effects": {
-        "resources": {
-          "research_data": 2.0
-        },
+        "resources": {},
         "solar_efficiency": 0.0,
         "oxygen_efficiency": 0.0,
         "health_changes": []
       },
-      "objective_progress": [
-        {
-          "objective_id": "geology",
-          "title": "Baseline sample collection",
-          "amount": 1
-        }
-      ]
+      "objective_progress": []
     },
     "rations": {
       "alex": {
@@ -6445,7 +6540,7 @@ export const researchCompleted: GameResponse = {
         "id": "alex",
         "name": "Alex Vega",
         "role": "engineer",
-        "health": 88,
+        "health": 83,
         "positive_trait": "Steady hands: +5 percentage points on assigned event actions.",
         "negative_trait": "Large appetite: consumes 10% more food.",
         "food_multiplier": 1.1,
@@ -6477,7 +6572,7 @@ export const researchCompleted: GameResponse = {
         "id": "lin",
         "name": "Lin Park",
         "role": "scientist",
-        "health": 96,
+        "health": 80,
         "positive_trait": "Water conscious: consumes 10% less water.",
         "negative_trait": "Fragile: event injuries cause 20% more damage.",
         "food_multiplier": 1.0,
@@ -6509,11 +6604,11 @@ export const researchCompleted: GameResponse = {
     "resources": {
       "food": 25.8,
       "water": 62.4,
-      "oxygen": 79.5,
+      "oxygen": 77.5,
       "electricity": 43.0,
       "medicine": 8.0,
       "repair_kits": 4.0,
-      "eva_batteries": 8.0,
+      "eva_batteries": 7.0,
       "dust_kits": 0.0,
       "oxygen_regulators": 0.0,
       "diagnostic_tools": 0.0,
@@ -6547,33 +6642,66 @@ export const researchCompleted: GameResponse = {
     "flags": {},
     "history": [
       {
+        "assignments": [
+          {
+            "crew_id": "lin",
+            "activity_id": "research_geology",
+            "status": "completed",
+            "outcome": {
+              "support_crew_ids": [],
+              "event_id": "solar_failure",
+              "choice_id": "research_geology",
+              "choice_text": "Survey a geological sample",
+              "selected_crew_id": "lin",
+              "success": true,
+              "success_probability": 0.95,
+              "costs": {
+                "eva_batteries": 1.0,
+                "oxygen": 2.0
+              },
+              "effects": {
+                "resources": {
+                  "research_data": 2.0
+                },
+                "solar_efficiency": 0.0,
+                "oxygen_efficiency": 0.0,
+                "health_changes": []
+              },
+              "objective_progress": [
+                {
+                  "objective_id": "geology",
+                  "title": "Baseline sample collection",
+                  "amount": 1
+                }
+              ]
+            },
+            "reason": null
+          }
+        ],
+        "science_gains": [
+          {
+            "objective_id": "geology",
+            "title": "Baseline sample collection",
+            "amount": 1
+          }
+        ],
         "week": 1,
         "event": {
+          "support_crew_ids": [],
           "event_id": "solar_failure",
-          "choice_id": "research_geology",
-          "choice_text": "Survey a geological sample",
-          "selected_crew_id": "lin",
+          "choice_id": "ignore",
+          "choice_text": "Conserve supplies and accept reduced output",
+          "selected_crew_id": null,
           "success": true,
-          "success_probability": 0.95,
-          "costs": {
-            "eva_batteries": 1.0,
-            "oxygen": 2.0
-          },
+          "success_probability": 1.0,
+          "costs": {},
           "effects": {
-            "resources": {
-              "research_data": 2.0
-            },
+            "resources": {},
             "solar_efficiency": 0.0,
             "oxygen_efficiency": 0.0,
             "health_changes": []
           },
-          "objective_progress": [
-            {
-              "objective_id": "geology",
-              "title": "Baseline sample collection",
-              "amount": 1
-            }
-          ]
+          "objective_progress": []
         },
         "rations": {
           "alex": {
@@ -6656,33 +6784,58 @@ export const researchCompleted: GameResponse = {
         "ending": null
       },
       {
+        "assignments": [
+          {
+            "crew_id": "lin",
+            "activity_id": "research_geology",
+            "status": "completed",
+            "outcome": {
+              "support_crew_ids": [],
+              "event_id": "oxygen_fault",
+              "choice_id": "research_geology",
+              "choice_text": "Survey a geological sample",
+              "selected_crew_id": "lin",
+              "success": false,
+              "success_probability": 0.95,
+              "costs": {
+                "eva_batteries": 1.0,
+                "oxygen": 2.0
+              },
+              "effects": {
+                "resources": {},
+                "solar_efficiency": 0.0,
+                "oxygen_efficiency": 0.0,
+                "health_changes": [
+                  {
+                    "crew_id": "lin",
+                    "before": 100,
+                    "after": 90
+                  }
+                ]
+              },
+              "objective_progress": []
+            },
+            "reason": null
+          }
+        ],
+        "science_gains": [],
         "week": 2,
         "event": {
+          "support_crew_ids": [],
           "event_id": "oxygen_fault",
-          "choice_id": "research_geology",
-          "choice_text": "Survey a geological sample",
-          "selected_crew_id": "lin",
+          "choice_id": "ignore",
+          "choice_text": "Rely on oxygen reserves",
+          "selected_crew_id": null,
           "success": true,
-          "success_probability": 0.95,
-          "costs": {
-            "eva_batteries": 1.0,
-            "oxygen": 2.0
-          },
+          "success_probability": 1.0,
+          "costs": {},
           "effects": {
-            "resources": {
-              "research_data": 2.0
-            },
+            "resources": {},
             "solar_efficiency": 0.0,
             "oxygen_efficiency": 0.0,
             "health_changes": []
           },
-          "objective_progress": [
-            {
-              "objective_id": "geology",
-              "title": "Baseline sample collection",
-              "amount": 1
-            }
-          ]
+          "objective_progress": []
         },
         "rations": {
           "alex": {
@@ -6727,8 +6880,8 @@ export const researchCompleted: GameResponse = {
             },
             {
               "crew_id": "lin",
-              "before": 100,
-              "after": 100,
+              "before": 90,
+              "after": 90,
               "food_penalty": 0,
               "water_penalty": 0,
               "oxygen_penalty": 0,
@@ -6749,7 +6902,7 @@ export const researchCompleted: GameResponse = {
           "diagnostic_tools": 0.0,
           "sealant_packs": 0.0,
           "scientific_tools": 0.0,
-          "research_data": 2.0
+          "research_data": 0.0
         },
         "deaths": [],
         "next_event": {
@@ -6767,8 +6920,8 @@ export const researchCompleted: GameResponse = {
               },
               {
                 "crew_id": "lin",
-                "before": 100,
-                "after": 90
+                "before": 90,
+                "after": 80
               }
             ]
           }
@@ -6776,235 +6929,59 @@ export const researchCompleted: GameResponse = {
         "ending": null
       },
       {
+        "assignments": [
+          {
+            "crew_id": "lin",
+            "activity_id": "research_geology",
+            "status": "completed",
+            "outcome": {
+              "support_crew_ids": [],
+              "event_id": "medical_emergency",
+              "choice_id": "research_geology",
+              "choice_text": "Survey a geological sample",
+              "selected_crew_id": "lin",
+              "success": true,
+              "success_probability": 0.95,
+              "costs": {
+                "eva_batteries": 1.0,
+                "oxygen": 2.0
+              },
+              "effects": {
+                "resources": {
+                  "research_data": 2.0
+                },
+                "solar_efficiency": 0.0,
+                "oxygen_efficiency": 0.0,
+                "health_changes": []
+              },
+              "objective_progress": [
+                {
+                  "objective_id": "geology",
+                  "title": "Baseline sample collection",
+                  "amount": 1
+                }
+              ]
+            },
+            "reason": null
+          }
+        ],
+        "science_gains": [
+          {
+            "objective_id": "geology",
+            "title": "Baseline sample collection",
+            "amount": 1
+          }
+        ],
         "week": 3,
         "event": {
+          "support_crew_ids": [],
           "event_id": "medical_emergency",
-          "choice_id": "research_seismic",
-          "choice_text": "Analyze a seismic record",
-          "selected_crew_id": "lin",
-          "success": true,
-          "success_probability": 0.95,
-          "costs": {
-            "electricity": 2.0
-          },
-          "effects": {
-            "resources": {
-              "research_data": 2.0
-            },
-            "solar_efficiency": 0.0,
-            "oxygen_efficiency": 0.0,
-            "health_changes": []
-          },
-          "objective_progress": [
-            {
-              "objective_id": "seismology",
-              "title": "Seismic baseline",
-              "amount": 1
-            }
-          ]
-        },
-        "rations": {
-          "alex": {
-            "food": "normal",
-            "water": "normal"
-          },
-          "lin": {
-            "food": "normal",
-            "water": "normal"
-          }
-        },
-        "survival": {
-          "ration_requirements": {
-            "food": 2.1,
-            "water": 3.8
-          },
-          "ration_costs": {
-            "food": 2.1,
-            "water": 3.8
-          },
-          "ration_depletion_fractions": {
-            "food": 0.0,
-            "water": 0.0
-          },
-          "electricity_generated": 18.0,
-          "electricity_required": 16.0,
-          "electricity_used": 16.0,
-          "life_support_power_fraction": 1.0,
-          "oxygen_generated": 10.5,
-          "oxygen_required": 6.0,
-          "oxygen_used": 6.0,
-          "oxygen_shortage": 0.0,
-          "health_changes": [
-            {
-              "crew_id": "alex",
-              "before": 92,
-              "after": 92,
-              "food_penalty": 0,
-              "water_penalty": 0,
-              "oxygen_penalty": 0,
-              "died": false
-            },
-            {
-              "crew_id": "lin",
-              "before": 90,
-              "after": 90,
-              "food_penalty": 0,
-              "water_penalty": 0,
-              "oxygen_penalty": 0,
-              "died": false
-            }
-          ]
-        },
-        "resource_changes": {
-          "food": -2.1,
-          "water": -3.8,
-          "oxygen": 4.5,
-          "electricity": 0.0,
-          "medicine": 0.0,
-          "repair_kits": 0.0,
-          "eva_batteries": 0.0,
-          "dust_kits": 0.0,
-          "oxygen_regulators": 0.0,
-          "diagnostic_tools": 0.0,
-          "sealant_packs": 0.0,
-          "scientific_tools": 0.0,
-          "research_data": 2.0
-        },
-        "deaths": [],
-        "next_event": {
-          "event_id": "inventory_audit",
-          "title": "A Crate in the Ledger",
-          "effects": {
-            "resources": {},
-            "solar_efficiency": 0.0,
-            "oxygen_efficiency": 0.0,
-            "health_changes": []
-          }
-        },
-        "ending": null
-      },
-      {
-        "week": 4,
-        "event": {
-          "event_id": "inventory_audit",
-          "choice_id": "research_instrument",
-          "choice_text": "Restore the next research instrument",
-          "selected_crew_id": "alex",
-          "success": true,
-          "success_probability": 0.95,
-          "costs": {
-            "repair_kits": 1.0,
-            "electricity": 2.0
-          },
-          "effects": {
-            "resources": {
-              "research_data": 2.0
-            },
-            "solar_efficiency": 0.0,
-            "oxygen_efficiency": 0.0,
-            "health_changes": []
-          },
-          "objective_progress": [
-            {
-              "objective_id": "instruments",
-              "title": "Restore a research instrument",
-              "amount": 1
-            }
-          ]
-        },
-        "rations": {
-          "alex": {
-            "food": "normal",
-            "water": "normal"
-          },
-          "lin": {
-            "food": "normal",
-            "water": "normal"
-          }
-        },
-        "survival": {
-          "ration_requirements": {
-            "food": 2.1,
-            "water": 3.8
-          },
-          "ration_costs": {
-            "food": 2.1,
-            "water": 3.8
-          },
-          "ration_depletion_fractions": {
-            "food": 0.0,
-            "water": 0.0
-          },
-          "electricity_generated": 18.0,
-          "electricity_required": 16.0,
-          "electricity_used": 16.0,
-          "life_support_power_fraction": 1.0,
-          "oxygen_generated": 10.5,
-          "oxygen_required": 6.0,
-          "oxygen_used": 6.0,
-          "oxygen_shortage": 0.0,
-          "health_changes": [
-            {
-              "crew_id": "alex",
-              "before": 92,
-              "after": 92,
-              "food_penalty": 0,
-              "water_penalty": 0,
-              "oxygen_penalty": 0,
-              "died": false
-            },
-            {
-              "crew_id": "lin",
-              "before": 90,
-              "after": 90,
-              "food_penalty": 0,
-              "water_penalty": 0,
-              "oxygen_penalty": 0,
-              "died": false
-            }
-          ]
-        },
-        "resource_changes": {
-          "food": -2.1,
-          "water": -3.8,
-          "oxygen": 4.5,
-          "electricity": 0.0,
-          "medicine": 0.0,
-          "repair_kits": -1.0,
-          "eva_batteries": 0.0,
-          "dust_kits": 0.0,
-          "oxygen_regulators": 0.0,
-          "diagnostic_tools": 0.0,
-          "sealant_packs": 0.0,
-          "scientific_tools": 0.0,
-          "research_data": 2.0
-        },
-        "deaths": [],
-        "next_event": {
-          "event_id": "crew_recovery",
-          "title": "A Week for Recovery",
-          "effects": {
-            "resources": {},
-            "solar_efficiency": 0.0,
-            "oxygen_efficiency": 0.0,
-            "health_changes": []
-          }
-        },
-        "ending": null
-      },
-      {
-        "week": 5,
-        "event": {
-          "event_id": "crew_recovery",
-          "choice_id": "structured_recovery",
-          "choice_text": "Follow a structured recovery schedule",
+          "choice_id": "rest",
+          "choice_text": "Isolate the filter and rest",
           "selected_crew_id": null,
           "success": true,
           "success_probability": 1.0,
-          "costs": {
-            "food": 1.0,
-            "water": 1.0
-          },
+          "costs": {},
           "effects": {
             "resources": {},
             "solar_efficiency": 0.0,
@@ -7013,12 +6990,12 @@ export const researchCompleted: GameResponse = {
               {
                 "crew_id": "alex",
                 "before": 92,
-                "after": 98
+                "after": 87
               },
               {
                 "crew_id": "lin",
-                "before": 90,
-                "after": 96
+                "before": 80,
+                "after": 74
               }
             ]
           },
@@ -7058,8 +7035,8 @@ export const researchCompleted: GameResponse = {
           "health_changes": [
             {
               "crew_id": "alex",
-              "before": 98,
-              "after": 98,
+              "before": 87,
+              "after": 87,
               "food_penalty": 0,
               "water_penalty": 0,
               "oxygen_penalty": 0,
@@ -7067,8 +7044,305 @@ export const researchCompleted: GameResponse = {
             },
             {
               "crew_id": "lin",
-              "before": 96,
-              "after": 96,
+              "before": 74,
+              "after": 74,
+              "food_penalty": 0,
+              "water_penalty": 0,
+              "oxygen_penalty": 0,
+              "died": false
+            }
+          ]
+        },
+        "resource_changes": {
+          "food": -2.1,
+          "water": -3.8,
+          "oxygen": 2.5,
+          "electricity": 2.0,
+          "medicine": 0.0,
+          "repair_kits": 0.0,
+          "eva_batteries": -1.0,
+          "dust_kits": 0.0,
+          "oxygen_regulators": 0.0,
+          "diagnostic_tools": 0.0,
+          "sealant_packs": 0.0,
+          "scientific_tools": 0.0,
+          "research_data": 2.0
+        },
+        "deaths": [],
+        "next_event": {
+          "event_id": "inventory_audit",
+          "title": "A Crate in the Ledger",
+          "effects": {
+            "resources": {},
+            "solar_efficiency": 0.0,
+            "oxygen_efficiency": 0.0,
+            "health_changes": []
+          }
+        },
+        "ending": null
+      },
+      {
+        "assignments": [
+          {
+            "crew_id": "lin",
+            "activity_id": "research_seismic",
+            "status": "completed",
+            "outcome": {
+              "support_crew_ids": [],
+              "event_id": "inventory_audit",
+              "choice_id": "research_seismic",
+              "choice_text": "Analyze a seismic record",
+              "selected_crew_id": "lin",
+              "success": true,
+              "success_probability": 0.95,
+              "costs": {
+                "electricity": 2.0
+              },
+              "effects": {
+                "resources": {
+                  "research_data": 2.0
+                },
+                "solar_efficiency": 0.0,
+                "oxygen_efficiency": 0.0,
+                "health_changes": []
+              },
+              "objective_progress": [
+                {
+                  "objective_id": "seismology",
+                  "title": "Seismic baseline",
+                  "amount": 1
+                }
+              ]
+            },
+            "reason": null
+          }
+        ],
+        "science_gains": [
+          {
+            "objective_id": "seismology",
+            "title": "Seismic baseline",
+            "amount": 1
+          }
+        ],
+        "week": 4,
+        "event": {
+          "support_crew_ids": [],
+          "event_id": "inventory_audit",
+          "choice_id": "quarantine_crate",
+          "choice_text": "Leave the unverified crate quarantined",
+          "selected_crew_id": null,
+          "success": true,
+          "success_probability": 1.0,
+          "costs": {},
+          "effects": {
+            "resources": {},
+            "solar_efficiency": 0.0,
+            "oxygen_efficiency": 0.0,
+            "health_changes": []
+          },
+          "objective_progress": []
+        },
+        "rations": {
+          "alex": {
+            "food": "normal",
+            "water": "normal"
+          },
+          "lin": {
+            "food": "normal",
+            "water": "normal"
+          }
+        },
+        "survival": {
+          "ration_requirements": {
+            "food": 2.1,
+            "water": 3.8
+          },
+          "ration_costs": {
+            "food": 2.1,
+            "water": 3.8
+          },
+          "ration_depletion_fractions": {
+            "food": 0.0,
+            "water": 0.0
+          },
+          "electricity_generated": 18.0,
+          "electricity_required": 16.0,
+          "electricity_used": 16.0,
+          "life_support_power_fraction": 1.0,
+          "oxygen_generated": 10.5,
+          "oxygen_required": 6.0,
+          "oxygen_used": 6.0,
+          "oxygen_shortage": 0.0,
+          "health_changes": [
+            {
+              "crew_id": "alex",
+              "before": 87,
+              "after": 87,
+              "food_penalty": 0,
+              "water_penalty": 0,
+              "oxygen_penalty": 0,
+              "died": false
+            },
+            {
+              "crew_id": "lin",
+              "before": 74,
+              "after": 74,
+              "food_penalty": 0,
+              "water_penalty": 0,
+              "oxygen_penalty": 0,
+              "died": false
+            }
+          ]
+        },
+        "resource_changes": {
+          "food": -2.1,
+          "water": -3.8,
+          "oxygen": 4.5,
+          "electricity": 0.0,
+          "medicine": 0.0,
+          "repair_kits": 0.0,
+          "eva_batteries": 0.0,
+          "dust_kits": 0.0,
+          "oxygen_regulators": 0.0,
+          "diagnostic_tools": 0.0,
+          "sealant_packs": 0.0,
+          "scientific_tools": 0.0,
+          "research_data": 2.0
+        },
+        "deaths": [],
+        "next_event": {
+          "event_id": "crew_recovery",
+          "title": "A Week for Recovery",
+          "effects": {
+            "resources": {},
+            "solar_efficiency": 0.0,
+            "oxygen_efficiency": 0.0,
+            "health_changes": []
+          }
+        },
+        "ending": null
+      },
+      {
+        "assignments": [
+          {
+            "crew_id": "alex",
+            "activity_id": "research_instrument",
+            "status": "completed",
+            "outcome": {
+              "support_crew_ids": [],
+              "event_id": "crew_recovery",
+              "choice_id": "research_instrument",
+              "choice_text": "Restore the next research instrument",
+              "selected_crew_id": "alex",
+              "success": true,
+              "success_probability": 0.95,
+              "costs": {
+                "repair_kits": 1.0,
+                "electricity": 2.0
+              },
+              "effects": {
+                "resources": {
+                  "research_data": 2.0
+                },
+                "solar_efficiency": 0.0,
+                "oxygen_efficiency": 0.0,
+                "health_changes": []
+              },
+              "objective_progress": [
+                {
+                  "objective_id": "instruments",
+                  "title": "Restore a research instrument",
+                  "amount": 1
+                }
+              ]
+            },
+            "reason": null
+          }
+        ],
+        "science_gains": [
+          {
+            "objective_id": "instruments",
+            "title": "Restore a research instrument",
+            "amount": 1
+          }
+        ],
+        "week": 5,
+        "event": {
+          "support_crew_ids": [],
+          "event_id": "crew_recovery",
+          "choice_id": "structured_recovery",
+          "choice_text": "Follow a structured recovery schedule",
+          "selected_crew_id": null,
+          "success": true,
+          "success_probability": 1.0,
+          "costs": {
+            "food": 1.0,
+            "water": 1.0
+          },
+          "effects": {
+            "resources": {},
+            "solar_efficiency": 0.0,
+            "oxygen_efficiency": 0.0,
+            "health_changes": [
+              {
+                "crew_id": "alex",
+                "before": 87,
+                "after": 93
+              },
+              {
+                "crew_id": "lin",
+                "before": 74,
+                "after": 80
+              }
+            ]
+          },
+          "objective_progress": []
+        },
+        "rations": {
+          "alex": {
+            "food": "normal",
+            "water": "normal"
+          },
+          "lin": {
+            "food": "normal",
+            "water": "normal"
+          }
+        },
+        "survival": {
+          "ration_requirements": {
+            "food": 2.1,
+            "water": 3.8
+          },
+          "ration_costs": {
+            "food": 2.1,
+            "water": 3.8
+          },
+          "ration_depletion_fractions": {
+            "food": 0.0,
+            "water": 0.0
+          },
+          "electricity_generated": 18.0,
+          "electricity_required": 16.0,
+          "electricity_used": 16.0,
+          "life_support_power_fraction": 1.0,
+          "oxygen_generated": 10.5,
+          "oxygen_required": 6.0,
+          "oxygen_used": 6.0,
+          "oxygen_shortage": 0.0,
+          "health_changes": [
+            {
+              "crew_id": "alex",
+              "before": 93,
+              "after": 93,
+              "food_penalty": 0,
+              "water_penalty": 0,
+              "oxygen_penalty": 0,
+              "died": false
+            },
+            {
+              "crew_id": "lin",
+              "before": 80,
+              "after": 80,
               "food_penalty": 0,
               "water_penalty": 0,
               "oxygen_penalty": 0,
@@ -7080,16 +7354,16 @@ export const researchCompleted: GameResponse = {
           "food": -3.1,
           "water": -4.8,
           "oxygen": 4.5,
-          "electricity": 2.0,
+          "electricity": 0.0,
           "medicine": 0.0,
-          "repair_kits": 0.0,
+          "repair_kits": -1.0,
           "eva_batteries": 0.0,
           "dust_kits": 0.0,
           "oxygen_regulators": 0.0,
           "diagnostic_tools": 0.0,
           "sealant_packs": 0.0,
           "scientific_tools": 0.0,
-          "research_data": 0.0
+          "research_data": 2.0
         },
         "deaths": [],
         "next_event": {
@@ -7105,8 +7379,13 @@ export const researchCompleted: GameResponse = {
         "ending": null
       },
       {
+        "assignments": [],
+        "science_gains": [],
         "week": 6,
         "event": {
+          "support_crew_ids": [
+            "alex"
+          ],
           "event_id": "seismic_signal",
           "choice_id": "analyze_seismic",
           "choice_text": "Calibrate and analyze the signal",
@@ -7160,8 +7439,8 @@ export const researchCompleted: GameResponse = {
           "health_changes": [
             {
               "crew_id": "alex",
-              "before": 98,
-              "after": 98,
+              "before": 93,
+              "after": 93,
               "food_penalty": 0,
               "water_penalty": 0,
               "oxygen_penalty": 0,
@@ -7169,8 +7448,8 @@ export const researchCompleted: GameResponse = {
             },
             {
               "crew_id": "lin",
-              "before": 96,
-              "after": 96,
+              "before": 80,
+              "after": 80,
               "food_penalty": 0,
               "water_penalty": 0,
               "oxygen_penalty": 0,
@@ -7209,8 +7488,11 @@ export const researchCompleted: GameResponse = {
         "ending": null
       },
       {
+        "assignments": [],
+        "science_gains": [],
         "week": 7,
         "event": {
+          "support_crew_ids": [],
           "event_id": "battery_isolation",
           "choice_id": "battery_diagnosis",
           "choice_text": "Diagnose and restore the string",
@@ -7264,8 +7546,8 @@ export const researchCompleted: GameResponse = {
           "health_changes": [
             {
               "crew_id": "alex",
-              "before": 98,
-              "after": 98,
+              "before": 93,
+              "after": 93,
               "food_penalty": 0,
               "water_penalty": 0,
               "oxygen_penalty": 0,
@@ -7273,8 +7555,8 @@ export const researchCompleted: GameResponse = {
             },
             {
               "crew_id": "lin",
-              "before": 96,
-              "after": 96,
+              "before": 80,
+              "after": 80,
               "food_penalty": 0,
               "water_penalty": 0,
               "oxygen_penalty": 0,
@@ -7313,8 +7595,11 @@ export const researchCompleted: GameResponse = {
         "ending": null
       },
       {
+        "assignments": [],
+        "science_gains": [],
         "week": 8,
         "event": {
+          "support_crew_ids": [],
           "event_id": "thermal_control",
           "choice_id": "radiator_service",
           "choice_text": "Service the controller",
@@ -7331,8 +7616,8 @@ export const researchCompleted: GameResponse = {
             "health_changes": [
               {
                 "crew_id": "alex",
-                "before": 98,
-                "after": 88
+                "before": 93,
+                "after": 83
               }
             ]
           },
@@ -7372,8 +7657,8 @@ export const researchCompleted: GameResponse = {
           "health_changes": [
             {
               "crew_id": "alex",
-              "before": 88,
-              "after": 88,
+              "before": 83,
+              "after": 83,
               "food_penalty": 0,
               "water_penalty": 0,
               "oxygen_penalty": 0,
@@ -7381,8 +7666,8 @@ export const researchCompleted: GameResponse = {
             },
             {
               "crew_id": "lin",
-              "before": 96,
-              "after": 96,
+              "before": 80,
+              "after": 80,
               "food_penalty": 0,
               "water_penalty": 0,
               "oxygen_penalty": 0,
@@ -7421,8 +7706,11 @@ export const researchCompleted: GameResponse = {
         "ending": null
       },
       {
+        "assignments": [],
+        "science_gains": [],
         "week": 9,
         "event": {
+          "support_crew_ids": [],
           "event_id": "water_line_leak",
           "choice_id": "repair_water",
           "choice_text": "Replace the coupling",
@@ -7476,8 +7764,8 @@ export const researchCompleted: GameResponse = {
           "health_changes": [
             {
               "crew_id": "alex",
-              "before": 88,
-              "after": 88,
+              "before": 83,
+              "after": 83,
               "food_penalty": 0,
               "water_penalty": 0,
               "oxygen_penalty": 0,
@@ -7485,8 +7773,8 @@ export const researchCompleted: GameResponse = {
             },
             {
               "crew_id": "lin",
-              "before": 96,
-              "after": 96,
+              "before": 80,
+              "after": 80,
               "food_penalty": 0,
               "water_penalty": 0,
               "oxygen_penalty": 0,
@@ -7523,8 +7811,11 @@ export const researchCompleted: GameResponse = {
         "ending": null
       },
       {
+        "assignments": [],
+        "science_gains": [],
         "week": 10,
         "event": {
+          "support_crew_ids": [],
           "event_id": "solar_particle_alert",
           "choice_id": "shelter",
           "choice_text": "Move into the shielded compartment",
@@ -7577,8 +7868,8 @@ export const researchCompleted: GameResponse = {
           "health_changes": [
             {
               "crew_id": "alex",
-              "before": 88,
-              "after": 88,
+              "before": 83,
+              "after": 83,
               "food_penalty": 0,
               "water_penalty": 0,
               "oxygen_penalty": 0,
@@ -7586,8 +7877,8 @@ export const researchCompleted: GameResponse = {
             },
             {
               "crew_id": "lin",
-              "before": 96,
-              "after": 96,
+              "before": 80,
+              "after": 80,
               "food_penalty": 0,
               "water_penalty": 0,
               "oxygen_penalty": 0,
@@ -7626,8 +7917,11 @@ export const researchCompleted: GameResponse = {
         "ending": null
       },
       {
+        "assignments": [],
+        "science_gains": [],
         "week": 11,
         "event": {
+          "support_crew_ids": [],
           "event_id": "impact_puncture",
           "choice_id": "clamp_pressure",
           "choice_text": "Fit a repair clamp",
@@ -7679,8 +7973,8 @@ export const researchCompleted: GameResponse = {
           "health_changes": [
             {
               "crew_id": "alex",
-              "before": 88,
-              "after": 88,
+              "before": 83,
+              "after": 83,
               "food_penalty": 0,
               "water_penalty": 0,
               "oxygen_penalty": 0,
@@ -7688,8 +7982,8 @@ export const researchCompleted: GameResponse = {
             },
             {
               "crew_id": "lin",
-              "before": 96,
-              "after": 96,
+              "before": 80,
+              "after": 80,
               "food_penalty": 0,
               "water_penalty": 0,
               "oxygen_penalty": 0,
@@ -7726,8 +8020,11 @@ export const researchCompleted: GameResponse = {
         "ending": null
       },
       {
+        "assignments": [],
+        "science_gains": [],
         "week": 12,
         "event": {
+          "support_crew_ids": [],
           "event_id": "scrubber_load",
           "choice_id": "service_scrubber",
           "choice_text": "Service the scrubber",
@@ -7779,8 +8076,8 @@ export const researchCompleted: GameResponse = {
           "health_changes": [
             {
               "crew_id": "alex",
-              "before": 88,
-              "after": 88,
+              "before": 83,
+              "after": 83,
               "food_penalty": 0,
               "water_penalty": 0,
               "oxygen_penalty": 0,
@@ -7788,8 +8085,8 @@ export const researchCompleted: GameResponse = {
             },
             {
               "crew_id": "lin",
-              "before": 96,
-              "after": 96,
+              "before": 80,
+              "after": 80,
               "food_penalty": 0,
               "water_penalty": 0,
               "oxygen_penalty": 0,
@@ -7930,7 +8227,2286 @@ export const researchCompleted: GameResponse = {
           "completed": true
         }
       ]
-    }
+    },
+    "assignment_options": []
+  }
+};
+
+export const supportGame: GameResponse = {
+  "game_id": "fixture-game",
+  "state": {
+    "station_id": "alpha",
+    "station_name": "Station Alpha \u2014 Research Base",
+    "difficulty": "standard",
+    "difficulty_rank": 2,
+    "mission_id": "alpha_rotation",
+    "mission_name": "Hold Until Rotation",
+    "current_week": 2,
+    "duration_weeks": 12,
+    "minimum_survivors": 1,
+    "weeks_remaining": 11,
+    "mission_days": {
+      "start": 8,
+      "end": 14
+    },
+    "crew": [
+      {
+        "id": "alex",
+        "name": "Alex Vega",
+        "role": "engineer",
+        "health": 100,
+        "positive_trait": "Steady hands: +5 percentage points on assigned event actions.",
+        "negative_trait": "Large appetite: consumes 10% more food.",
+        "food_multiplier": 1.1,
+        "water_multiplier": 1.0,
+        "event_bonus": 0.05,
+        "injury_multiplier": 1.0,
+        "specialty": "Mechanical repair",
+        "training_source": "https://www.nasa.gov/reference/jsc-crew-operations-training/",
+        "action_bonuses": {},
+        "food_shortage_weeks": 0,
+        "water_shortage_weeks": 0,
+        "alive": true,
+        "ration_options": {
+          "normal": {
+            "food": 1.1,
+            "water": 2.0
+          },
+          "reduced": {
+            "food": 0.77,
+            "water": 1.4
+          },
+          "emergency": {
+            "food": 0.44,
+            "water": 0.8
+          }
+        }
+      },
+      {
+        "id": "lin",
+        "name": "Lin Park",
+        "role": "scientist",
+        "health": 100,
+        "positive_trait": "Water conscious: consumes 10% less water.",
+        "negative_trait": "Fragile: event injuries cause 20% more damage.",
+        "food_multiplier": 1.0,
+        "water_multiplier": 0.9,
+        "event_bonus": 0.0,
+        "injury_multiplier": 1.2,
+        "specialty": "Field science and calibration",
+        "training_source": "https://www.nasa.gov/missions/artemis/nasa-field-geology-training-prepares-artemis-mission-support-teams/",
+        "action_bonuses": {},
+        "food_shortage_weeks": 0,
+        "water_shortage_weeks": 0,
+        "alive": true,
+        "ration_options": {
+          "normal": {
+            "food": 1.0,
+            "water": 1.8
+          },
+          "reduced": {
+            "food": 0.7,
+            "water": 1.26
+          },
+          "emergency": {
+            "food": 0.4,
+            "water": 0.72
+          }
+        }
+      },
+      {
+        "id": "sam",
+        "name": "Sam Nowak",
+        "role": "technician",
+        "health": 100,
+        "positive_trait": "Resilient: event injuries cause 20% less damage.",
+        "negative_trait": "Impulsive: -5 percentage points on assigned event actions.",
+        "food_multiplier": 1.0,
+        "water_multiplier": 1.0,
+        "event_bonus": -0.05,
+        "injury_multiplier": 0.8,
+        "specialty": "EVA maintenance",
+        "training_source": "https://www.nasa.gov/reference/jsc-crew-operations-training/",
+        "action_bonuses": {},
+        "food_shortage_weeks": 0,
+        "water_shortage_weeks": 0,
+        "alive": true,
+        "ration_options": {
+          "normal": {
+            "food": 1.0,
+            "water": 2.0
+          },
+          "reduced": {
+            "food": 0.7,
+            "water": 1.4
+          },
+          "emergency": {
+            "food": 0.4,
+            "water": 0.8
+          }
+        }
+      },
+      {
+        "id": "maya",
+        "name": "Maya Okafor",
+        "role": "medic",
+        "health": 100,
+        "positive_trait": "Efficient metabolism: consumes 10% less food.",
+        "negative_trait": "Thirsty: consumes 10% more water.",
+        "food_multiplier": 0.9,
+        "water_multiplier": 1.1,
+        "event_bonus": 0.0,
+        "injury_multiplier": 1.0,
+        "specialty": "Crew medical officer",
+        "training_source": "https://www.nasa.gov/reference/5-0-training/",
+        "action_bonuses": {},
+        "food_shortage_weeks": 0,
+        "water_shortage_weeks": 0,
+        "alive": true,
+        "ration_options": {
+          "normal": {
+            "food": 0.9,
+            "water": 2.2
+          },
+          "reduced": {
+            "food": 0.63,
+            "water": 1.54
+          },
+          "emergency": {
+            "food": 0.36,
+            "water": 0.88
+          }
+        }
+      }
+    ],
+    "resources": {
+      "food": 48.0,
+      "water": 104.0,
+      "oxygen": 32.0,
+      "electricity": 28.0,
+      "medicine": 8.0,
+      "repair_kits": 10.0,
+      "eva_batteries": 10.0,
+      "dust_kits": 0.0,
+      "oxygen_regulators": 0.0,
+      "diagnostic_tools": 0.0,
+      "sealant_packs": 0.0,
+      "scientific_tools": 1.0,
+      "research_data": 0.0
+    },
+    "solar_efficiency": 0.75,
+    "oxygen_efficiency": 0.75,
+    "current_event_id": "oxygen_fault",
+    "current_event": {
+      "id": "oxygen_fault",
+      "title": "Life Support Alarm",
+      "description": "A pressure regulator sticks. Oxygen system efficiency falls by 25 percentage points.",
+      "category": "hazard",
+      "science_context": "Spacecraft life-support equipment needs maintenance. This regulator failure is a fictional training scenario.",
+      "source_url": "https://www.nasa.gov/reference/9-0-hardware-and-equipment-vol-2/",
+      "on_start": {
+        "resources": {},
+        "solar_efficiency": 0.0,
+        "oxygen_efficiency": -0.25,
+        "crew_health": 0,
+        "target": "selected"
+      },
+      "choices": [
+        {
+          "id": "replace_regulator",
+          "action_type": "event",
+          "objective_rewards": [],
+          "text": "Replace the regulator",
+          "description": "Requires a repair kit. Technical professions improve the odds; failure injures the worker.",
+          "costs": {
+            "repair_kits": 1.0
+          },
+          "required_items": {},
+          "requires_crew": true,
+          "role_bonus": {
+            "engineer": 0.25,
+            "technician": 0.25
+          },
+          "crew_role_bonus": {},
+          "success_chance": 0.65,
+          "success_effects": {
+            "resources": {},
+            "solar_efficiency": 0.0,
+            "oxygen_efficiency": 0.25,
+            "crew_health": 0,
+            "target": "selected"
+          },
+          "failure_effects": {
+            "resources": {},
+            "solar_efficiency": 0.0,
+            "oxygen_efficiency": 0.0,
+            "crew_health": -15,
+            "target": "selected"
+          },
+          "required_role": null,
+          "minimum_crew": 1,
+          "available": true,
+          "unavailable_reasons": [],
+          "eligible_crew": [
+            {
+              "crew_id": "alex",
+              "available": true,
+              "unavailable_reasons": [],
+              "success_probability": 0.95
+            },
+            {
+              "crew_id": "lin",
+              "available": true,
+              "unavailable_reasons": [],
+              "success_probability": 0.65
+            },
+            {
+              "crew_id": "sam",
+              "available": true,
+              "unavailable_reasons": [],
+              "success_probability": 0.85
+            },
+            {
+              "crew_id": "maya",
+              "available": true,
+              "unavailable_reasons": [],
+              "success_probability": 0.65
+            }
+          ],
+          "success_probability": null
+        },
+        {
+          "id": "recalibrate",
+          "action_type": "event",
+          "objective_rewards": [],
+          "text": "Recalibrate with a second crew member",
+          "description": "Requires two living astronauts. A scientist improves the odds. Failure causes further damage.",
+          "costs": {
+            "electricity": 3.0
+          },
+          "required_items": {},
+          "requires_crew": true,
+          "role_bonus": {
+            "scientist": 0.3,
+            "technician": 0.15
+          },
+          "crew_role_bonus": {},
+          "success_chance": 0.55,
+          "success_effects": {
+            "resources": {},
+            "solar_efficiency": 0.0,
+            "oxygen_efficiency": 0.2,
+            "crew_health": 0,
+            "target": "selected"
+          },
+          "failure_effects": {
+            "resources": {},
+            "solar_efficiency": 0.0,
+            "oxygen_efficiency": -0.1,
+            "crew_health": 0,
+            "target": "selected"
+          },
+          "required_role": null,
+          "minimum_crew": 2,
+          "available": true,
+          "unavailable_reasons": [],
+          "eligible_crew": [
+            {
+              "crew_id": "alex",
+              "available": true,
+              "unavailable_reasons": [],
+              "success_probability": 0.6
+            },
+            {
+              "crew_id": "lin",
+              "available": true,
+              "unavailable_reasons": [],
+              "success_probability": 0.85
+            },
+            {
+              "crew_id": "sam",
+              "available": true,
+              "unavailable_reasons": [],
+              "success_probability": 0.65
+            },
+            {
+              "crew_id": "maya",
+              "available": true,
+              "unavailable_reasons": [],
+              "success_probability": 0.55
+            }
+          ],
+          "success_probability": null
+        },
+        {
+          "id": "ignore",
+          "action_type": "event",
+          "objective_rewards": [],
+          "text": "Rely on oxygen reserves",
+          "description": "No immediate cost, but oxygen production stays reduced.",
+          "costs": {},
+          "required_items": {},
+          "requires_crew": false,
+          "role_bonus": {},
+          "crew_role_bonus": {},
+          "success_chance": 1.0,
+          "success_effects": {
+            "resources": {},
+            "solar_efficiency": 0.0,
+            "oxygen_efficiency": 0.0,
+            "crew_health": 0,
+            "target": "selected"
+          },
+          "failure_effects": {
+            "resources": {},
+            "solar_efficiency": 0.0,
+            "oxygen_efficiency": 0.0,
+            "crew_health": 0,
+            "target": "selected"
+          },
+          "required_role": null,
+          "minimum_crew": 1,
+          "available": true,
+          "unavailable_reasons": [],
+          "eligible_crew": [],
+          "success_probability": 1.0
+        }
+      ]
+    },
+    "emergency_ration_requirements": {
+      "food": 1.6,
+      "water": 3.2
+    },
+    "depleted_provisions": [],
+    "used_event_ids": [
+      "solar_failure"
+    ],
+    "flags": {},
+    "history": [
+      {
+        "assignments": [],
+        "science_gains": [],
+        "week": 1,
+        "event": {
+          "support_crew_ids": [],
+          "event_id": "solar_failure",
+          "choice_id": "ignore",
+          "choice_text": "Conserve supplies and accept reduced output",
+          "selected_crew_id": null,
+          "success": true,
+          "success_probability": 1.0,
+          "costs": {},
+          "effects": {
+            "resources": {},
+            "solar_efficiency": 0.0,
+            "oxygen_efficiency": 0.0,
+            "health_changes": []
+          },
+          "objective_progress": []
+        },
+        "rations": {
+          "alex": {
+            "food": "normal",
+            "water": "normal"
+          },
+          "lin": {
+            "food": "normal",
+            "water": "normal"
+          },
+          "sam": {
+            "food": "normal",
+            "water": "normal"
+          },
+          "maya": {
+            "food": "normal",
+            "water": "normal"
+          }
+        },
+        "survival": {
+          "ration_requirements": {
+            "food": 4.0,
+            "water": 8.0
+          },
+          "ration_costs": {
+            "food": 4.0,
+            "water": 8.0
+          },
+          "ration_depletion_fractions": {
+            "food": 0.0,
+            "water": 0.0
+          },
+          "electricity_generated": 18.0,
+          "electricity_required": 20.0,
+          "electricity_used": 20.0,
+          "life_support_power_fraction": 1.0,
+          "oxygen_generated": 14.0,
+          "oxygen_required": 12.0,
+          "oxygen_used": 12.0,
+          "oxygen_shortage": 0.0,
+          "health_changes": [
+            {
+              "crew_id": "alex",
+              "before": 100,
+              "after": 100,
+              "food_penalty": 0,
+              "water_penalty": 0,
+              "oxygen_penalty": 0,
+              "died": false
+            },
+            {
+              "crew_id": "lin",
+              "before": 100,
+              "after": 100,
+              "food_penalty": 0,
+              "water_penalty": 0,
+              "oxygen_penalty": 0,
+              "died": false
+            },
+            {
+              "crew_id": "sam",
+              "before": 100,
+              "after": 100,
+              "food_penalty": 0,
+              "water_penalty": 0,
+              "oxygen_penalty": 0,
+              "died": false
+            },
+            {
+              "crew_id": "maya",
+              "before": 100,
+              "after": 100,
+              "food_penalty": 0,
+              "water_penalty": 0,
+              "oxygen_penalty": 0,
+              "died": false
+            }
+          ]
+        },
+        "resource_changes": {
+          "food": -4.0,
+          "water": -8.0,
+          "oxygen": 2.0,
+          "electricity": -2.0,
+          "medicine": 0.0,
+          "repair_kits": 0.0,
+          "eva_batteries": 0.0,
+          "dust_kits": 0.0,
+          "oxygen_regulators": 0.0,
+          "diagnostic_tools": 0.0,
+          "sealant_packs": 0.0,
+          "scientific_tools": 0.0,
+          "research_data": 0.0
+        },
+        "deaths": [],
+        "next_event": {
+          "event_id": "oxygen_fault",
+          "title": "Life Support Alarm",
+          "effects": {
+            "resources": {},
+            "solar_efficiency": 0.0,
+            "oxygen_efficiency": -0.25,
+            "health_changes": []
+          }
+        },
+        "ending": null
+      }
+    ],
+    "status": "running",
+    "random_seed": 0,
+    "initial_crew_size": 4,
+    "weeks_completed": 1,
+    "ending": null,
+    "results": null,
+    "science": {
+      "status": "not_started",
+      "completed_objectives": 0,
+      "total_objectives": 3,
+      "research_data": 0.0,
+      "objectives": [
+        {
+          "id": "geology",
+          "title": "Baseline sample collection",
+          "description": "Collect separate geological samples. Successful field sampling counts; generic research points do not.",
+          "target": 2,
+          "qualifying_choices": [
+            "kit_sampling",
+            "basic_sampling",
+            "research_geology"
+          ],
+          "source_url": "https://www.nasa.gov/missions/artemis/nasa-field-geology-training-prepares-artemis-mission-support-teams/",
+          "progress": 0,
+          "completed": false
+        },
+        {
+          "id": "seismology",
+          "title": "Seismic baseline",
+          "description": "Complete detailed analyses of separate seismic records. Simply archiving a signal does not count.",
+          "target": 1,
+          "qualifying_choices": [
+            "analyze_seismic",
+            "research_seismic"
+          ],
+          "source_url": "https://science.nasa.gov/moon/moonquakes/",
+          "progress": 0,
+          "completed": false
+        },
+        {
+          "id": "instruments",
+          "title": "Restore a research instrument",
+          "description": "Restore a research instrument or the research communications link. Routine life-support maintenance does not count.",
+          "target": 1,
+          "qualifying_choices": [
+            "align_antenna",
+            "remote_antenna",
+            "research_instrument"
+          ],
+          "source_url": "https://www.nasa.gov/reference/9-0-hardware-and-equipment-vol-2/",
+          "progress": 0,
+          "completed": false
+        }
+      ]
+    },
+    "assignment_options": [
+      {
+        "id": "clean_array",
+        "action_type": "maintenance",
+        "objective_rewards": [],
+        "text": "Clean the solar array",
+        "description": "Guaranteed +20 percentage points solar condition. Uses a dust kit and EVA supplies; One-week crew assignment; incident response is separate.",
+        "costs": {
+          "dust_kits": 1.0,
+          "eva_batteries": 1.0,
+          "oxygen": 2.0
+        },
+        "required_items": {},
+        "requires_crew": true,
+        "role_bonus": {},
+        "crew_role_bonus": {},
+        "success_chance": 1.0,
+        "success_effects": {
+          "resources": {},
+          "solar_efficiency": 0.2,
+          "oxygen_efficiency": 0.0,
+          "crew_health": 0,
+          "target": "selected"
+        },
+        "failure_effects": {
+          "resources": {},
+          "solar_efficiency": 0.0,
+          "oxygen_efficiency": 0.0,
+          "crew_health": 0,
+          "target": "selected"
+        },
+        "required_role": null,
+        "minimum_crew": 1,
+        "available": false,
+        "unavailable_reasons": [
+          "Requires 1 dust_kits; available 0."
+        ],
+        "eligible_crew": [
+          {
+            "crew_id": "alex",
+            "available": false,
+            "unavailable_reasons": [
+              "Requires 1 dust_kits; available 0."
+            ],
+            "success_probability": 1.0
+          },
+          {
+            "crew_id": "lin",
+            "available": false,
+            "unavailable_reasons": [
+              "Requires 1 dust_kits; available 0."
+            ],
+            "success_probability": 1.0
+          },
+          {
+            "crew_id": "sam",
+            "available": false,
+            "unavailable_reasons": [
+              "Requires 1 dust_kits; available 0."
+            ],
+            "success_probability": 1.0
+          },
+          {
+            "crew_id": "maya",
+            "available": false,
+            "unavailable_reasons": [
+              "Requires 1 dust_kits; available 0."
+            ],
+            "success_probability": 1.0
+          }
+        ],
+        "success_probability": null
+      },
+      {
+        "id": "install_regulator",
+        "action_type": "maintenance",
+        "objective_rewards": [],
+        "text": "Install an oxygen regulator",
+        "description": "Guaranteed +20 percentage points oxygen condition. Uses a regulator and 2 power; One-week crew assignment; incident response is separate.",
+        "costs": {
+          "oxygen_regulators": 1.0,
+          "electricity": 2.0
+        },
+        "required_items": {},
+        "requires_crew": true,
+        "role_bonus": {},
+        "crew_role_bonus": {},
+        "success_chance": 1.0,
+        "success_effects": {
+          "resources": {},
+          "solar_efficiency": 0.0,
+          "oxygen_efficiency": 0.2,
+          "crew_health": 0,
+          "target": "selected"
+        },
+        "failure_effects": {
+          "resources": {},
+          "solar_efficiency": 0.0,
+          "oxygen_efficiency": 0.0,
+          "crew_health": 0,
+          "target": "selected"
+        },
+        "required_role": null,
+        "minimum_crew": 1,
+        "available": false,
+        "unavailable_reasons": [
+          "Requires 1 oxygen_regulators; available 0."
+        ],
+        "eligible_crew": [
+          {
+            "crew_id": "alex",
+            "available": false,
+            "unavailable_reasons": [
+              "Requires 1 oxygen_regulators; available 0."
+            ],
+            "success_probability": 1.0
+          },
+          {
+            "crew_id": "lin",
+            "available": false,
+            "unavailable_reasons": [
+              "Requires 1 oxygen_regulators; available 0."
+            ],
+            "success_probability": 1.0
+          },
+          {
+            "crew_id": "sam",
+            "available": false,
+            "unavailable_reasons": [
+              "Requires 1 oxygen_regulators; available 0."
+            ],
+            "success_probability": 1.0
+          },
+          {
+            "crew_id": "maya",
+            "available": false,
+            "unavailable_reasons": [
+              "Requires 1 oxygen_regulators; available 0."
+            ],
+            "success_probability": 1.0
+          }
+        ],
+        "success_probability": null
+      },
+      {
+        "id": "research_geology",
+        "action_type": "research",
+        "objective_rewards": [
+          {
+            "objective_id": "geology",
+            "title": "Baseline sample collection",
+            "amount": 1
+          }
+        ],
+        "text": "Survey a geological sample",
+        "description": "Use the science kit to collect one sample and 2 research data on success. Scientists improve the odds; failure costs the worker 8 health. One-week crew assignment; incident response is separate.",
+        "costs": {
+          "eva_batteries": 1.0,
+          "oxygen": 2.0
+        },
+        "required_items": {
+          "scientific_tools": 1
+        },
+        "requires_crew": true,
+        "role_bonus": {
+          "scientist": 0.2,
+          "technician": 0.1
+        },
+        "crew_role_bonus": {},
+        "success_chance": 0.75,
+        "success_effects": {
+          "resources": {
+            "research_data": 2.0
+          },
+          "solar_efficiency": 0.0,
+          "oxygen_efficiency": 0.0,
+          "crew_health": 0,
+          "target": "selected"
+        },
+        "failure_effects": {
+          "resources": {},
+          "solar_efficiency": 0.0,
+          "oxygen_efficiency": 0.0,
+          "crew_health": -8,
+          "target": "selected"
+        },
+        "required_role": null,
+        "minimum_crew": 1,
+        "available": true,
+        "unavailable_reasons": [],
+        "eligible_crew": [
+          {
+            "crew_id": "alex",
+            "available": true,
+            "unavailable_reasons": [],
+            "success_probability": 0.8
+          },
+          {
+            "crew_id": "lin",
+            "available": true,
+            "unavailable_reasons": [],
+            "success_probability": 0.95
+          },
+          {
+            "crew_id": "sam",
+            "available": true,
+            "unavailable_reasons": [],
+            "success_probability": 0.8
+          },
+          {
+            "crew_id": "maya",
+            "available": true,
+            "unavailable_reasons": [],
+            "success_probability": 0.75
+          }
+        ],
+        "success_probability": null
+      },
+      {
+        "id": "research_seismic",
+        "action_type": "research",
+        "objective_rewards": [
+          {
+            "objective_id": "seismology",
+            "title": "Seismic baseline",
+            "amount": 1
+          }
+        ],
+        "text": "Analyze a seismic record",
+        "description": "Use the science kit to complete one analysis and earn 2 research data on success. Scientists improve the odds; failure wastes 2 additional power. One-week crew assignment; incident response is separate.",
+        "costs": {
+          "electricity": 2.0
+        },
+        "required_items": {
+          "scientific_tools": 1
+        },
+        "requires_crew": true,
+        "role_bonus": {
+          "scientist": 0.2,
+          "technician": 0.1
+        },
+        "crew_role_bonus": {},
+        "success_chance": 0.75,
+        "success_effects": {
+          "resources": {
+            "research_data": 2.0
+          },
+          "solar_efficiency": 0.0,
+          "oxygen_efficiency": 0.0,
+          "crew_health": 0,
+          "target": "selected"
+        },
+        "failure_effects": {
+          "resources": {
+            "electricity": -2.0
+          },
+          "solar_efficiency": 0.0,
+          "oxygen_efficiency": 0.0,
+          "crew_health": 0,
+          "target": "selected"
+        },
+        "required_role": null,
+        "minimum_crew": 1,
+        "available": true,
+        "unavailable_reasons": [],
+        "eligible_crew": [
+          {
+            "crew_id": "alex",
+            "available": true,
+            "unavailable_reasons": [],
+            "success_probability": 0.8
+          },
+          {
+            "crew_id": "lin",
+            "available": true,
+            "unavailable_reasons": [],
+            "success_probability": 0.95
+          },
+          {
+            "crew_id": "sam",
+            "available": true,
+            "unavailable_reasons": [],
+            "success_probability": 0.8
+          },
+          {
+            "crew_id": "maya",
+            "available": true,
+            "unavailable_reasons": [],
+            "success_probability": 0.75
+          }
+        ],
+        "success_probability": null
+      },
+      {
+        "id": "research_instrument",
+        "action_type": "research",
+        "objective_rewards": [
+          {
+            "objective_id": "instruments",
+            "title": "Restore a research instrument",
+            "amount": 1
+          }
+        ],
+        "text": "Restore the next research instrument",
+        "description": "Use a repair kit and science kit to restore one instrument and earn 2 research data on success. Engineers and technicians improve the odds; failure costs the worker 6 health. One-week crew assignment; incident response is separate.",
+        "costs": {
+          "repair_kits": 1.0,
+          "electricity": 2.0
+        },
+        "required_items": {
+          "scientific_tools": 1
+        },
+        "requires_crew": true,
+        "role_bonus": {
+          "engineer": 0.2,
+          "technician": 0.2,
+          "scientist": 0.1
+        },
+        "crew_role_bonus": {},
+        "success_chance": 0.7,
+        "success_effects": {
+          "resources": {
+            "research_data": 2.0
+          },
+          "solar_efficiency": 0.0,
+          "oxygen_efficiency": 0.0,
+          "crew_health": 0,
+          "target": "selected"
+        },
+        "failure_effects": {
+          "resources": {},
+          "solar_efficiency": 0.0,
+          "oxygen_efficiency": 0.0,
+          "crew_health": -6,
+          "target": "selected"
+        },
+        "required_role": null,
+        "minimum_crew": 1,
+        "available": true,
+        "unavailable_reasons": [],
+        "eligible_crew": [
+          {
+            "crew_id": "alex",
+            "available": true,
+            "unavailable_reasons": [],
+            "success_probability": 0.95
+          },
+          {
+            "crew_id": "lin",
+            "available": true,
+            "unavailable_reasons": [],
+            "success_probability": 0.8
+          },
+          {
+            "crew_id": "sam",
+            "available": true,
+            "unavailable_reasons": [],
+            "success_probability": 0.85
+          },
+          {
+            "crew_id": "maya",
+            "available": true,
+            "unavailable_reasons": [],
+            "success_probability": 0.7
+          }
+        ],
+        "success_probability": null
+      }
+    ]
+  }
+};
+
+export const parallelTurn: TurnResponse = {
+  "game_id": "fixture-game",
+  "state": {
+    "station_id": "alpha",
+    "station_name": "Station Alpha \u2014 Research Base",
+    "difficulty": "standard",
+    "difficulty_rank": 2,
+    "mission_id": "alpha_rotation",
+    "mission_name": "Hold Until Rotation",
+    "current_week": 3,
+    "duration_weeks": 12,
+    "minimum_survivors": 1,
+    "weeks_remaining": 10,
+    "mission_days": {
+      "start": 15,
+      "end": 21
+    },
+    "crew": [
+      {
+        "id": "alex",
+        "name": "Alex Vega",
+        "role": "engineer",
+        "health": 92,
+        "positive_trait": "Steady hands: +5 percentage points on assigned event actions.",
+        "negative_trait": "Large appetite: consumes 10% more food.",
+        "food_multiplier": 1.1,
+        "water_multiplier": 1.0,
+        "event_bonus": 0.05,
+        "injury_multiplier": 1.0,
+        "specialty": "Mechanical repair",
+        "training_source": "https://www.nasa.gov/reference/jsc-crew-operations-training/",
+        "action_bonuses": {},
+        "food_shortage_weeks": 0,
+        "water_shortage_weeks": 0,
+        "alive": true,
+        "ration_options": {
+          "normal": {
+            "food": 1.1,
+            "water": 2.0
+          },
+          "reduced": {
+            "food": 0.77,
+            "water": 1.4
+          },
+          "emergency": {
+            "food": 0.44,
+            "water": 0.8
+          }
+        }
+      },
+      {
+        "id": "lin",
+        "name": "Lin Park",
+        "role": "scientist",
+        "health": 90,
+        "positive_trait": "Water conscious: consumes 10% less water.",
+        "negative_trait": "Fragile: event injuries cause 20% more damage.",
+        "food_multiplier": 1.0,
+        "water_multiplier": 0.9,
+        "event_bonus": 0.0,
+        "injury_multiplier": 1.2,
+        "specialty": "Field science and calibration",
+        "training_source": "https://www.nasa.gov/missions/artemis/nasa-field-geology-training-prepares-artemis-mission-support-teams/",
+        "action_bonuses": {},
+        "food_shortage_weeks": 0,
+        "water_shortage_weeks": 0,
+        "alive": true,
+        "ration_options": {
+          "normal": {
+            "food": 1.0,
+            "water": 1.8
+          },
+          "reduced": {
+            "food": 0.7,
+            "water": 1.26
+          },
+          "emergency": {
+            "food": 0.4,
+            "water": 0.72
+          }
+        }
+      },
+      {
+        "id": "sam",
+        "name": "Sam Nowak",
+        "role": "technician",
+        "health": 93,
+        "positive_trait": "Resilient: event injuries cause 20% less damage.",
+        "negative_trait": "Impulsive: -5 percentage points on assigned event actions.",
+        "food_multiplier": 1.0,
+        "water_multiplier": 1.0,
+        "event_bonus": -0.05,
+        "injury_multiplier": 0.8,
+        "specialty": "EVA maintenance",
+        "training_source": "https://www.nasa.gov/reference/jsc-crew-operations-training/",
+        "action_bonuses": {},
+        "food_shortage_weeks": 0,
+        "water_shortage_weeks": 0,
+        "alive": true,
+        "ration_options": {
+          "normal": {
+            "food": 1.0,
+            "water": 2.0
+          },
+          "reduced": {
+            "food": 0.7,
+            "water": 1.4
+          },
+          "emergency": {
+            "food": 0.4,
+            "water": 0.8
+          }
+        }
+      },
+      {
+        "id": "maya",
+        "name": "Maya Okafor",
+        "role": "medic",
+        "health": 92,
+        "positive_trait": "Efficient metabolism: consumes 10% less food.",
+        "negative_trait": "Thirsty: consumes 10% more water.",
+        "food_multiplier": 0.9,
+        "water_multiplier": 1.1,
+        "event_bonus": 0.0,
+        "injury_multiplier": 1.0,
+        "specialty": "Crew medical officer",
+        "training_source": "https://www.nasa.gov/reference/5-0-training/",
+        "action_bonuses": {},
+        "food_shortage_weeks": 0,
+        "water_shortage_weeks": 0,
+        "alive": true,
+        "ration_options": {
+          "normal": {
+            "food": 0.9,
+            "water": 2.2
+          },
+          "reduced": {
+            "food": 0.63,
+            "water": 1.54
+          },
+          "emergency": {
+            "food": 0.36,
+            "water": 0.88
+          }
+        }
+      }
+    ],
+    "resources": {
+      "food": 44.0,
+      "water": 96.0,
+      "oxygen": 31.3,
+      "electricity": 21.0,
+      "medicine": 8.0,
+      "repair_kits": 9.0,
+      "eva_batteries": 9.0,
+      "dust_kits": 0.0,
+      "oxygen_regulators": 0.0,
+      "diagnostic_tools": 0.0,
+      "sealant_packs": 0.0,
+      "scientific_tools": 1.0,
+      "research_data": 4.0
+    },
+    "solar_efficiency": 0.75,
+    "oxygen_efficiency": 0.95,
+    "current_event_id": "medical_emergency",
+    "current_event": {
+      "id": "medical_emergency",
+      "title": "Contaminated Air Filter",
+      "description": "An irritant escapes a filter. Every living astronaut loses 8 health on discovery.",
+      "category": "hazard",
+      "science_context": "Dust management matters for cabin cleanliness. The irritant incident and health changes here are fictional.",
+      "source_url": "https://www.nasa.gov/reference/jsc-dust/",
+      "on_start": {
+        "resources": {},
+        "solar_efficiency": 0.0,
+        "oxygen_efficiency": 0.0,
+        "crew_health": -8,
+        "target": "all"
+      },
+      "choices": [
+        {
+          "id": "treat",
+          "action_type": "event",
+          "objective_rewards": [],
+          "text": "Treat an affected astronaut",
+          "description": "Select a patient. A living medic improves treatment. Failed treatment does not restore health.",
+          "costs": {
+            "medicine": 1.0
+          },
+          "required_items": {},
+          "requires_crew": true,
+          "role_bonus": {},
+          "crew_role_bonus": {
+            "medic": 0.2
+          },
+          "success_chance": 0.7,
+          "success_effects": {
+            "resources": {},
+            "solar_efficiency": 0.0,
+            "oxygen_efficiency": 0.0,
+            "crew_health": 30,
+            "target": "selected"
+          },
+          "failure_effects": {
+            "resources": {},
+            "solar_efficiency": 0.0,
+            "oxygen_efficiency": 0.0,
+            "crew_health": -5,
+            "target": "selected"
+          },
+          "required_role": null,
+          "minimum_crew": 1,
+          "available": true,
+          "unavailable_reasons": [],
+          "eligible_crew": [
+            {
+              "crew_id": "alex",
+              "available": true,
+              "unavailable_reasons": [],
+              "success_probability": 0.95
+            },
+            {
+              "crew_id": "lin",
+              "available": true,
+              "unavailable_reasons": [],
+              "success_probability": 0.9
+            },
+            {
+              "crew_id": "sam",
+              "available": true,
+              "unavailable_reasons": [],
+              "success_probability": 0.85
+            },
+            {
+              "crew_id": "maya",
+              "available": true,
+              "unavailable_reasons": [],
+              "success_probability": 0.9
+            }
+          ],
+          "success_probability": null
+        },
+        {
+          "id": "team_treatment",
+          "action_type": "event",
+          "objective_rewards": [],
+          "text": "Let the medic coordinate treatment",
+          "description": "Requires a medic, at least two living crew, and two medicine units. Helps the whole crew.",
+          "costs": {
+            "medicine": 2.0
+          },
+          "required_items": {},
+          "requires_crew": true,
+          "role_bonus": {
+            "medic": 0.2
+          },
+          "crew_role_bonus": {},
+          "success_chance": 0.75,
+          "success_effects": {
+            "resources": {},
+            "solar_efficiency": 0.0,
+            "oxygen_efficiency": 0.0,
+            "crew_health": 15,
+            "target": "all"
+          },
+          "failure_effects": {
+            "resources": {},
+            "solar_efficiency": 0.0,
+            "oxygen_efficiency": 0.0,
+            "crew_health": -5,
+            "target": "all"
+          },
+          "required_role": "medic",
+          "minimum_crew": 2,
+          "available": true,
+          "unavailable_reasons": [],
+          "eligible_crew": [
+            {
+              "crew_id": "alex",
+              "available": false,
+              "unavailable_reasons": [
+                "Requires a living medic."
+              ],
+              "success_probability": 0.8
+            },
+            {
+              "crew_id": "lin",
+              "available": false,
+              "unavailable_reasons": [
+                "Requires a living medic."
+              ],
+              "success_probability": 0.75
+            },
+            {
+              "crew_id": "sam",
+              "available": false,
+              "unavailable_reasons": [
+                "Requires a living medic."
+              ],
+              "success_probability": 0.7
+            },
+            {
+              "crew_id": "maya",
+              "available": true,
+              "unavailable_reasons": [],
+              "success_probability": 0.95
+            }
+          ],
+          "success_probability": null
+        },
+        {
+          "id": "guided_treatment",
+          "action_type": "event",
+          "objective_rewards": [],
+          "text": "Use scanner-guided treatment",
+          "description": "Guaranteed 20-health recovery for the selected patient. Consumes medicine; the scanner is retained.",
+          "costs": {
+            "medicine": 1.0
+          },
+          "required_items": {
+            "diagnostic_tools": 1
+          },
+          "requires_crew": true,
+          "role_bonus": {},
+          "crew_role_bonus": {},
+          "success_chance": 1.0,
+          "success_effects": {
+            "resources": {},
+            "solar_efficiency": 0.0,
+            "oxygen_efficiency": 0.0,
+            "crew_health": 20,
+            "target": "selected"
+          },
+          "failure_effects": {
+            "resources": {},
+            "solar_efficiency": 0.0,
+            "oxygen_efficiency": 0.0,
+            "crew_health": 0,
+            "target": "selected"
+          },
+          "required_role": null,
+          "minimum_crew": 1,
+          "available": false,
+          "unavailable_reasons": [
+            "Requires 1 Medical diagnostic scanner (not consumed)."
+          ],
+          "eligible_crew": [
+            {
+              "crew_id": "alex",
+              "available": false,
+              "unavailable_reasons": [
+                "Requires 1 Medical diagnostic scanner (not consumed)."
+              ],
+              "success_probability": 1.0
+            },
+            {
+              "crew_id": "lin",
+              "available": false,
+              "unavailable_reasons": [
+                "Requires 1 Medical diagnostic scanner (not consumed)."
+              ],
+              "success_probability": 1.0
+            },
+            {
+              "crew_id": "sam",
+              "available": false,
+              "unavailable_reasons": [
+                "Requires 1 Medical diagnostic scanner (not consumed)."
+              ],
+              "success_probability": 1.0
+            },
+            {
+              "crew_id": "maya",
+              "available": false,
+              "unavailable_reasons": [
+                "Requires 1 Medical diagnostic scanner (not consumed)."
+              ],
+              "success_probability": 1.0
+            }
+          ],
+          "success_probability": null
+        },
+        {
+          "id": "rest",
+          "action_type": "event",
+          "objective_rewards": [],
+          "text": "Isolate the filter and rest",
+          "description": "No supplies spent. The crew takes another 5 health damage.",
+          "costs": {},
+          "required_items": {},
+          "requires_crew": false,
+          "role_bonus": {},
+          "crew_role_bonus": {},
+          "success_chance": 1.0,
+          "success_effects": {
+            "resources": {},
+            "solar_efficiency": 0.0,
+            "oxygen_efficiency": 0.0,
+            "crew_health": -5,
+            "target": "all"
+          },
+          "failure_effects": {
+            "resources": {},
+            "solar_efficiency": 0.0,
+            "oxygen_efficiency": 0.0,
+            "crew_health": 0,
+            "target": "selected"
+          },
+          "required_role": null,
+          "minimum_crew": 1,
+          "available": true,
+          "unavailable_reasons": [],
+          "eligible_crew": [],
+          "success_probability": 1.0
+        }
+      ]
+    },
+    "emergency_ration_requirements": {
+      "food": 1.6,
+      "water": 3.2
+    },
+    "depleted_provisions": [],
+    "used_event_ids": [
+      "solar_failure",
+      "oxygen_fault"
+    ],
+    "flags": {},
+    "history": [
+      {
+        "assignments": [],
+        "science_gains": [],
+        "week": 1,
+        "event": {
+          "support_crew_ids": [],
+          "event_id": "solar_failure",
+          "choice_id": "ignore",
+          "choice_text": "Conserve supplies and accept reduced output",
+          "selected_crew_id": null,
+          "success": true,
+          "success_probability": 1.0,
+          "costs": {},
+          "effects": {
+            "resources": {},
+            "solar_efficiency": 0.0,
+            "oxygen_efficiency": 0.0,
+            "health_changes": []
+          },
+          "objective_progress": []
+        },
+        "rations": {
+          "alex": {
+            "food": "normal",
+            "water": "normal"
+          },
+          "lin": {
+            "food": "normal",
+            "water": "normal"
+          },
+          "sam": {
+            "food": "normal",
+            "water": "normal"
+          },
+          "maya": {
+            "food": "normal",
+            "water": "normal"
+          }
+        },
+        "survival": {
+          "ration_requirements": {
+            "food": 4.0,
+            "water": 8.0
+          },
+          "ration_costs": {
+            "food": 4.0,
+            "water": 8.0
+          },
+          "ration_depletion_fractions": {
+            "food": 0.0,
+            "water": 0.0
+          },
+          "electricity_generated": 18.0,
+          "electricity_required": 20.0,
+          "electricity_used": 20.0,
+          "life_support_power_fraction": 1.0,
+          "oxygen_generated": 14.0,
+          "oxygen_required": 12.0,
+          "oxygen_used": 12.0,
+          "oxygen_shortage": 0.0,
+          "health_changes": [
+            {
+              "crew_id": "alex",
+              "before": 100,
+              "after": 100,
+              "food_penalty": 0,
+              "water_penalty": 0,
+              "oxygen_penalty": 0,
+              "died": false
+            },
+            {
+              "crew_id": "lin",
+              "before": 100,
+              "after": 100,
+              "food_penalty": 0,
+              "water_penalty": 0,
+              "oxygen_penalty": 0,
+              "died": false
+            },
+            {
+              "crew_id": "sam",
+              "before": 100,
+              "after": 100,
+              "food_penalty": 0,
+              "water_penalty": 0,
+              "oxygen_penalty": 0,
+              "died": false
+            },
+            {
+              "crew_id": "maya",
+              "before": 100,
+              "after": 100,
+              "food_penalty": 0,
+              "water_penalty": 0,
+              "oxygen_penalty": 0,
+              "died": false
+            }
+          ]
+        },
+        "resource_changes": {
+          "food": -4.0,
+          "water": -8.0,
+          "oxygen": 2.0,
+          "electricity": -2.0,
+          "medicine": 0.0,
+          "repair_kits": 0.0,
+          "eva_batteries": 0.0,
+          "dust_kits": 0.0,
+          "oxygen_regulators": 0.0,
+          "diagnostic_tools": 0.0,
+          "sealant_packs": 0.0,
+          "scientific_tools": 0.0,
+          "research_data": 0.0
+        },
+        "deaths": [],
+        "next_event": {
+          "event_id": "oxygen_fault",
+          "title": "Life Support Alarm",
+          "effects": {
+            "resources": {},
+            "solar_efficiency": 0.0,
+            "oxygen_efficiency": -0.25,
+            "health_changes": []
+          }
+        },
+        "ending": null
+      },
+      {
+        "assignments": [
+          {
+            "crew_id": "sam",
+            "activity_id": "research_geology",
+            "status": "completed",
+            "outcome": {
+              "support_crew_ids": [],
+              "event_id": "oxygen_fault",
+              "choice_id": "research_geology",
+              "choice_text": "Survey a geological sample",
+              "selected_crew_id": "sam",
+              "success": true,
+              "success_probability": 0.8,
+              "costs": {
+                "eva_batteries": 1.0,
+                "oxygen": 2.0
+              },
+              "effects": {
+                "resources": {
+                  "research_data": 2.0
+                },
+                "solar_efficiency": 0.0,
+                "oxygen_efficiency": 0.0,
+                "health_changes": []
+              },
+              "objective_progress": [
+                {
+                  "objective_id": "geology",
+                  "title": "Baseline sample collection",
+                  "amount": 1
+                }
+              ]
+            },
+            "reason": null
+          },
+          {
+            "crew_id": "maya",
+            "activity_id": "research_instrument",
+            "status": "completed",
+            "outcome": {
+              "support_crew_ids": [],
+              "event_id": "oxygen_fault",
+              "choice_id": "research_instrument",
+              "choice_text": "Restore the next research instrument",
+              "selected_crew_id": "maya",
+              "success": true,
+              "success_probability": 0.7,
+              "costs": {
+                "repair_kits": 1.0,
+                "electricity": 2.0
+              },
+              "effects": {
+                "resources": {
+                  "research_data": 2.0
+                },
+                "solar_efficiency": 0.0,
+                "oxygen_efficiency": 0.0,
+                "health_changes": []
+              },
+              "objective_progress": [
+                {
+                  "objective_id": "instruments",
+                  "title": "Restore a research instrument",
+                  "amount": 1
+                }
+              ]
+            },
+            "reason": null
+          }
+        ],
+        "science_gains": [
+          {
+            "objective_id": "geology",
+            "title": "Baseline sample collection",
+            "amount": 1
+          },
+          {
+            "objective_id": "instruments",
+            "title": "Restore a research instrument",
+            "amount": 1
+          }
+        ],
+        "week": 2,
+        "event": {
+          "support_crew_ids": [
+            "alex"
+          ],
+          "event_id": "oxygen_fault",
+          "choice_id": "recalibrate",
+          "choice_text": "Recalibrate with a second crew member",
+          "selected_crew_id": "lin",
+          "success": true,
+          "success_probability": 0.85,
+          "costs": {
+            "electricity": 3.0
+          },
+          "effects": {
+            "resources": {},
+            "solar_efficiency": 0.0,
+            "oxygen_efficiency": 0.2,
+            "health_changes": []
+          },
+          "objective_progress": []
+        },
+        "rations": {
+          "alex": {
+            "food": "normal",
+            "water": "normal"
+          },
+          "lin": {
+            "food": "normal",
+            "water": "normal"
+          },
+          "sam": {
+            "food": "normal",
+            "water": "normal"
+          },
+          "maya": {
+            "food": "normal",
+            "water": "normal"
+          }
+        },
+        "survival": {
+          "ration_requirements": {
+            "food": 4.0,
+            "water": 8.0
+          },
+          "ration_costs": {
+            "food": 4.0,
+            "water": 8.0
+          },
+          "ration_depletion_fractions": {
+            "food": 0.0,
+            "water": 0.0
+          },
+          "electricity_generated": 18.0,
+          "electricity_required": 20.0,
+          "electricity_used": 20.0,
+          "life_support_power_fraction": 1.0,
+          "oxygen_generated": 13.3,
+          "oxygen_required": 12.0,
+          "oxygen_used": 12.0,
+          "oxygen_shortage": 0.0,
+          "health_changes": [
+            {
+              "crew_id": "alex",
+              "before": 100,
+              "after": 100,
+              "food_penalty": 0,
+              "water_penalty": 0,
+              "oxygen_penalty": 0,
+              "died": false
+            },
+            {
+              "crew_id": "lin",
+              "before": 100,
+              "after": 100,
+              "food_penalty": 0,
+              "water_penalty": 0,
+              "oxygen_penalty": 0,
+              "died": false
+            },
+            {
+              "crew_id": "sam",
+              "before": 100,
+              "after": 100,
+              "food_penalty": 0,
+              "water_penalty": 0,
+              "oxygen_penalty": 0,
+              "died": false
+            },
+            {
+              "crew_id": "maya",
+              "before": 100,
+              "after": 100,
+              "food_penalty": 0,
+              "water_penalty": 0,
+              "oxygen_penalty": 0,
+              "died": false
+            }
+          ]
+        },
+        "resource_changes": {
+          "food": -4.0,
+          "water": -8.0,
+          "oxygen": -0.7,
+          "electricity": -7.0,
+          "medicine": 0.0,
+          "repair_kits": -1.0,
+          "eva_batteries": -1.0,
+          "dust_kits": 0.0,
+          "oxygen_regulators": 0.0,
+          "diagnostic_tools": 0.0,
+          "sealant_packs": 0.0,
+          "scientific_tools": 0.0,
+          "research_data": 4.0
+        },
+        "deaths": [],
+        "next_event": {
+          "event_id": "medical_emergency",
+          "title": "Contaminated Air Filter",
+          "effects": {
+            "resources": {},
+            "solar_efficiency": 0.0,
+            "oxygen_efficiency": 0.0,
+            "health_changes": [
+              {
+                "crew_id": "alex",
+                "before": 100,
+                "after": 92
+              },
+              {
+                "crew_id": "lin",
+                "before": 100,
+                "after": 90
+              },
+              {
+                "crew_id": "sam",
+                "before": 100,
+                "after": 93
+              },
+              {
+                "crew_id": "maya",
+                "before": 100,
+                "after": 92
+              }
+            ]
+          }
+        },
+        "ending": null
+      }
+    ],
+    "status": "running",
+    "random_seed": 0,
+    "initial_crew_size": 4,
+    "weeks_completed": 2,
+    "ending": null,
+    "results": null,
+    "science": {
+      "status": "partial",
+      "completed_objectives": 1,
+      "total_objectives": 3,
+      "research_data": 4.0,
+      "objectives": [
+        {
+          "id": "geology",
+          "title": "Baseline sample collection",
+          "description": "Collect separate geological samples. Successful field sampling counts; generic research points do not.",
+          "target": 2,
+          "qualifying_choices": [
+            "kit_sampling",
+            "basic_sampling",
+            "research_geology"
+          ],
+          "source_url": "https://www.nasa.gov/missions/artemis/nasa-field-geology-training-prepares-artemis-mission-support-teams/",
+          "progress": 1,
+          "completed": false
+        },
+        {
+          "id": "seismology",
+          "title": "Seismic baseline",
+          "description": "Complete detailed analyses of separate seismic records. Simply archiving a signal does not count.",
+          "target": 1,
+          "qualifying_choices": [
+            "analyze_seismic",
+            "research_seismic"
+          ],
+          "source_url": "https://science.nasa.gov/moon/moonquakes/",
+          "progress": 0,
+          "completed": false
+        },
+        {
+          "id": "instruments",
+          "title": "Restore a research instrument",
+          "description": "Restore a research instrument or the research communications link. Routine life-support maintenance does not count.",
+          "target": 1,
+          "qualifying_choices": [
+            "align_antenna",
+            "remote_antenna",
+            "research_instrument"
+          ],
+          "source_url": "https://www.nasa.gov/reference/9-0-hardware-and-equipment-vol-2/",
+          "progress": 1,
+          "completed": true
+        }
+      ]
+    },
+    "assignment_options": [
+      {
+        "id": "clean_array",
+        "action_type": "maintenance",
+        "objective_rewards": [],
+        "text": "Clean the solar array",
+        "description": "Guaranteed +20 percentage points solar condition. Uses a dust kit and EVA supplies; One-week crew assignment; incident response is separate.",
+        "costs": {
+          "dust_kits": 1.0,
+          "eva_batteries": 1.0,
+          "oxygen": 2.0
+        },
+        "required_items": {},
+        "requires_crew": true,
+        "role_bonus": {},
+        "crew_role_bonus": {},
+        "success_chance": 1.0,
+        "success_effects": {
+          "resources": {},
+          "solar_efficiency": 0.2,
+          "oxygen_efficiency": 0.0,
+          "crew_health": 0,
+          "target": "selected"
+        },
+        "failure_effects": {
+          "resources": {},
+          "solar_efficiency": 0.0,
+          "oxygen_efficiency": 0.0,
+          "crew_health": 0,
+          "target": "selected"
+        },
+        "required_role": null,
+        "minimum_crew": 1,
+        "available": false,
+        "unavailable_reasons": [
+          "Requires 1 dust_kits; available 0."
+        ],
+        "eligible_crew": [
+          {
+            "crew_id": "alex",
+            "available": false,
+            "unavailable_reasons": [
+              "Requires 1 dust_kits; available 0."
+            ],
+            "success_probability": 1.0
+          },
+          {
+            "crew_id": "lin",
+            "available": false,
+            "unavailable_reasons": [
+              "Requires 1 dust_kits; available 0."
+            ],
+            "success_probability": 1.0
+          },
+          {
+            "crew_id": "sam",
+            "available": false,
+            "unavailable_reasons": [
+              "Requires 1 dust_kits; available 0."
+            ],
+            "success_probability": 1.0
+          },
+          {
+            "crew_id": "maya",
+            "available": false,
+            "unavailable_reasons": [
+              "Requires 1 dust_kits; available 0."
+            ],
+            "success_probability": 1.0
+          }
+        ],
+        "success_probability": null
+      },
+      {
+        "id": "install_regulator",
+        "action_type": "maintenance",
+        "objective_rewards": [],
+        "text": "Install an oxygen regulator",
+        "description": "Guaranteed +20 percentage points oxygen condition. Uses a regulator and 2 power; One-week crew assignment; incident response is separate.",
+        "costs": {
+          "oxygen_regulators": 1.0,
+          "electricity": 2.0
+        },
+        "required_items": {},
+        "requires_crew": true,
+        "role_bonus": {},
+        "crew_role_bonus": {},
+        "success_chance": 1.0,
+        "success_effects": {
+          "resources": {},
+          "solar_efficiency": 0.0,
+          "oxygen_efficiency": 0.2,
+          "crew_health": 0,
+          "target": "selected"
+        },
+        "failure_effects": {
+          "resources": {},
+          "solar_efficiency": 0.0,
+          "oxygen_efficiency": 0.0,
+          "crew_health": 0,
+          "target": "selected"
+        },
+        "required_role": null,
+        "minimum_crew": 1,
+        "available": false,
+        "unavailable_reasons": [
+          "Requires 1 oxygen_regulators; available 0."
+        ],
+        "eligible_crew": [
+          {
+            "crew_id": "alex",
+            "available": false,
+            "unavailable_reasons": [
+              "Requires 1 oxygen_regulators; available 0."
+            ],
+            "success_probability": 1.0
+          },
+          {
+            "crew_id": "lin",
+            "available": false,
+            "unavailable_reasons": [
+              "Requires 1 oxygen_regulators; available 0."
+            ],
+            "success_probability": 1.0
+          },
+          {
+            "crew_id": "sam",
+            "available": false,
+            "unavailable_reasons": [
+              "Requires 1 oxygen_regulators; available 0."
+            ],
+            "success_probability": 1.0
+          },
+          {
+            "crew_id": "maya",
+            "available": false,
+            "unavailable_reasons": [
+              "Requires 1 oxygen_regulators; available 0."
+            ],
+            "success_probability": 1.0
+          }
+        ],
+        "success_probability": null
+      },
+      {
+        "id": "research_geology",
+        "action_type": "research",
+        "objective_rewards": [
+          {
+            "objective_id": "geology",
+            "title": "Baseline sample collection",
+            "amount": 1
+          }
+        ],
+        "text": "Survey a geological sample",
+        "description": "Use the science kit to collect one sample and 2 research data on success. Scientists improve the odds; failure costs the worker 8 health. One-week crew assignment; incident response is separate.",
+        "costs": {
+          "eva_batteries": 1.0,
+          "oxygen": 2.0
+        },
+        "required_items": {
+          "scientific_tools": 1
+        },
+        "requires_crew": true,
+        "role_bonus": {
+          "scientist": 0.2,
+          "technician": 0.1
+        },
+        "crew_role_bonus": {},
+        "success_chance": 0.75,
+        "success_effects": {
+          "resources": {
+            "research_data": 2.0
+          },
+          "solar_efficiency": 0.0,
+          "oxygen_efficiency": 0.0,
+          "crew_health": 0,
+          "target": "selected"
+        },
+        "failure_effects": {
+          "resources": {},
+          "solar_efficiency": 0.0,
+          "oxygen_efficiency": 0.0,
+          "crew_health": -8,
+          "target": "selected"
+        },
+        "required_role": null,
+        "minimum_crew": 1,
+        "available": true,
+        "unavailable_reasons": [],
+        "eligible_crew": [
+          {
+            "crew_id": "alex",
+            "available": true,
+            "unavailable_reasons": [],
+            "success_probability": 0.8
+          },
+          {
+            "crew_id": "lin",
+            "available": true,
+            "unavailable_reasons": [],
+            "success_probability": 0.95
+          },
+          {
+            "crew_id": "sam",
+            "available": true,
+            "unavailable_reasons": [],
+            "success_probability": 0.8
+          },
+          {
+            "crew_id": "maya",
+            "available": true,
+            "unavailable_reasons": [],
+            "success_probability": 0.75
+          }
+        ],
+        "success_probability": null
+      },
+      {
+        "id": "research_seismic",
+        "action_type": "research",
+        "objective_rewards": [
+          {
+            "objective_id": "seismology",
+            "title": "Seismic baseline",
+            "amount": 1
+          }
+        ],
+        "text": "Analyze a seismic record",
+        "description": "Use the science kit to complete one analysis and earn 2 research data on success. Scientists improve the odds; failure wastes 2 additional power. One-week crew assignment; incident response is separate.",
+        "costs": {
+          "electricity": 2.0
+        },
+        "required_items": {
+          "scientific_tools": 1
+        },
+        "requires_crew": true,
+        "role_bonus": {
+          "scientist": 0.2,
+          "technician": 0.1
+        },
+        "crew_role_bonus": {},
+        "success_chance": 0.75,
+        "success_effects": {
+          "resources": {
+            "research_data": 2.0
+          },
+          "solar_efficiency": 0.0,
+          "oxygen_efficiency": 0.0,
+          "crew_health": 0,
+          "target": "selected"
+        },
+        "failure_effects": {
+          "resources": {
+            "electricity": -2.0
+          },
+          "solar_efficiency": 0.0,
+          "oxygen_efficiency": 0.0,
+          "crew_health": 0,
+          "target": "selected"
+        },
+        "required_role": null,
+        "minimum_crew": 1,
+        "available": true,
+        "unavailable_reasons": [],
+        "eligible_crew": [
+          {
+            "crew_id": "alex",
+            "available": true,
+            "unavailable_reasons": [],
+            "success_probability": 0.8
+          },
+          {
+            "crew_id": "lin",
+            "available": true,
+            "unavailable_reasons": [],
+            "success_probability": 0.95
+          },
+          {
+            "crew_id": "sam",
+            "available": true,
+            "unavailable_reasons": [],
+            "success_probability": 0.8
+          },
+          {
+            "crew_id": "maya",
+            "available": true,
+            "unavailable_reasons": [],
+            "success_probability": 0.75
+          }
+        ],
+        "success_probability": null
+      }
+    ]
+  },
+  "turn_outcome": {
+    "assignments": [
+      {
+        "crew_id": "sam",
+        "activity_id": "research_geology",
+        "status": "completed",
+        "outcome": {
+          "support_crew_ids": [],
+          "event_id": "oxygen_fault",
+          "choice_id": "research_geology",
+          "choice_text": "Survey a geological sample",
+          "selected_crew_id": "sam",
+          "success": true,
+          "success_probability": 0.8,
+          "costs": {
+            "eva_batteries": 1.0,
+            "oxygen": 2.0
+          },
+          "effects": {
+            "resources": {
+              "research_data": 2.0
+            },
+            "solar_efficiency": 0.0,
+            "oxygen_efficiency": 0.0,
+            "health_changes": []
+          },
+          "objective_progress": [
+            {
+              "objective_id": "geology",
+              "title": "Baseline sample collection",
+              "amount": 1
+            }
+          ]
+        },
+        "reason": null
+      },
+      {
+        "crew_id": "maya",
+        "activity_id": "research_instrument",
+        "status": "completed",
+        "outcome": {
+          "support_crew_ids": [],
+          "event_id": "oxygen_fault",
+          "choice_id": "research_instrument",
+          "choice_text": "Restore the next research instrument",
+          "selected_crew_id": "maya",
+          "success": true,
+          "success_probability": 0.7,
+          "costs": {
+            "repair_kits": 1.0,
+            "electricity": 2.0
+          },
+          "effects": {
+            "resources": {
+              "research_data": 2.0
+            },
+            "solar_efficiency": 0.0,
+            "oxygen_efficiency": 0.0,
+            "health_changes": []
+          },
+          "objective_progress": [
+            {
+              "objective_id": "instruments",
+              "title": "Restore a research instrument",
+              "amount": 1
+            }
+          ]
+        },
+        "reason": null
+      }
+    ],
+    "science_gains": [
+      {
+        "objective_id": "geology",
+        "title": "Baseline sample collection",
+        "amount": 1
+      },
+      {
+        "objective_id": "instruments",
+        "title": "Restore a research instrument",
+        "amount": 1
+      }
+    ],
+    "week": 2,
+    "event": {
+      "support_crew_ids": [
+        "alex"
+      ],
+      "event_id": "oxygen_fault",
+      "choice_id": "recalibrate",
+      "choice_text": "Recalibrate with a second crew member",
+      "selected_crew_id": "lin",
+      "success": true,
+      "success_probability": 0.85,
+      "costs": {
+        "electricity": 3.0
+      },
+      "effects": {
+        "resources": {},
+        "solar_efficiency": 0.0,
+        "oxygen_efficiency": 0.2,
+        "health_changes": []
+      },
+      "objective_progress": []
+    },
+    "rations": {
+      "alex": {
+        "food": "normal",
+        "water": "normal"
+      },
+      "lin": {
+        "food": "normal",
+        "water": "normal"
+      },
+      "sam": {
+        "food": "normal",
+        "water": "normal"
+      },
+      "maya": {
+        "food": "normal",
+        "water": "normal"
+      }
+    },
+    "survival": {
+      "ration_requirements": {
+        "food": 4.0,
+        "water": 8.0
+      },
+      "ration_costs": {
+        "food": 4.0,
+        "water": 8.0
+      },
+      "ration_depletion_fractions": {
+        "food": 0.0,
+        "water": 0.0
+      },
+      "electricity_generated": 18.0,
+      "electricity_required": 20.0,
+      "electricity_used": 20.0,
+      "life_support_power_fraction": 1.0,
+      "oxygen_generated": 13.3,
+      "oxygen_required": 12.0,
+      "oxygen_used": 12.0,
+      "oxygen_shortage": 0.0,
+      "health_changes": [
+        {
+          "crew_id": "alex",
+          "before": 100,
+          "after": 100,
+          "food_penalty": 0,
+          "water_penalty": 0,
+          "oxygen_penalty": 0,
+          "died": false
+        },
+        {
+          "crew_id": "lin",
+          "before": 100,
+          "after": 100,
+          "food_penalty": 0,
+          "water_penalty": 0,
+          "oxygen_penalty": 0,
+          "died": false
+        },
+        {
+          "crew_id": "sam",
+          "before": 100,
+          "after": 100,
+          "food_penalty": 0,
+          "water_penalty": 0,
+          "oxygen_penalty": 0,
+          "died": false
+        },
+        {
+          "crew_id": "maya",
+          "before": 100,
+          "after": 100,
+          "food_penalty": 0,
+          "water_penalty": 0,
+          "oxygen_penalty": 0,
+          "died": false
+        }
+      ]
+    },
+    "resource_changes": {
+      "food": -4.0,
+      "water": -8.0,
+      "oxygen": -0.7,
+      "electricity": -7.0,
+      "medicine": 0.0,
+      "repair_kits": -1.0,
+      "eva_batteries": -1.0,
+      "dust_kits": 0.0,
+      "oxygen_regulators": 0.0,
+      "diagnostic_tools": 0.0,
+      "sealant_packs": 0.0,
+      "scientific_tools": 0.0,
+      "research_data": 4.0
+    },
+    "deaths": [],
+    "next_event": {
+      "event_id": "medical_emergency",
+      "title": "Contaminated Air Filter",
+      "effects": {
+        "resources": {},
+        "solar_efficiency": 0.0,
+        "oxygen_efficiency": 0.0,
+        "health_changes": [
+          {
+            "crew_id": "alex",
+            "before": 100,
+            "after": 92
+          },
+          {
+            "crew_id": "lin",
+            "before": 100,
+            "after": 90
+          },
+          {
+            "crew_id": "sam",
+            "before": 100,
+            "after": 93
+          },
+          {
+            "crew_id": "maya",
+            "before": 100,
+            "after": 92
+          }
+        ]
+      }
+    },
+    "ending": null
   }
 };
 
@@ -8058,8 +10634,11 @@ export const completed: GameResponse = {
     "flags": {},
     "history": [
       {
+        "assignments": [],
+        "science_gains": [],
         "week": 1,
         "event": {
+          "support_crew_ids": [],
           "event_id": "medical_emergency",
           "choice_id": "treat",
           "choice_text": "Treat an affected astronaut",
@@ -8164,8 +10743,11 @@ export const completed: GameResponse = {
         "ending": null
       },
       {
+        "assignments": [],
+        "science_gains": [],
         "week": 2,
         "event": {
+          "support_crew_ids": [],
           "event_id": "crew_recovery",
           "choice_id": "structured_recovery",
           "choice_text": "Follow a structured recovery schedule",
@@ -8271,8 +10853,11 @@ export const completed: GameResponse = {
         "ending": null
       },
       {
+        "assignments": [],
+        "science_gains": [],
         "week": 3,
         "event": {
+          "support_crew_ids": [],
           "event_id": "oxygen_fault",
           "choice_id": "replace_regulator",
           "choice_text": "Replace the regulator",
@@ -8371,8 +10956,17 @@ export const completed: GameResponse = {
         "ending": null
       },
       {
+        "assignments": [],
+        "science_gains": [
+          {
+            "objective_id": "instruments",
+            "title": "Restore a research instrument",
+            "amount": 1
+          }
+        ],
         "week": 4,
         "event": {
+          "support_crew_ids": [],
           "event_id": "antenna_drift",
           "choice_id": "align_antenna",
           "choice_text": "Realign the dish outside",
@@ -8480,8 +11074,11 @@ export const completed: GameResponse = {
         "ending": null
       },
       {
+        "assignments": [],
+        "science_gains": [],
         "week": 5,
         "event": {
+          "support_crew_ids": [],
           "event_id": "solar_failure",
           "choice_id": "engineer_repair",
           "choice_text": "Send the engineer outside",
@@ -8584,8 +11181,11 @@ export const completed: GameResponse = {
         "ending": null
       },
       {
+        "assignments": [],
+        "science_gains": [],
         "week": 6,
         "event": {
+          "support_crew_ids": [],
           "event_id": "water_line_leak",
           "choice_id": "repair_water",
           "choice_text": "Replace the coupling",
@@ -8686,8 +11286,11 @@ export const completed: GameResponse = {
         "ending": null
       },
       {
+        "assignments": [],
+        "science_gains": [],
         "week": 7,
         "event": {
+          "support_crew_ids": [],
           "event_id": "solar_particle_alert",
           "choice_id": "shelter",
           "choice_text": "Move into the shielded compartment",
@@ -8789,8 +11392,11 @@ export const completed: GameResponse = {
         "ending": null
       },
       {
+        "assignments": [],
+        "science_gains": [],
         "week": 8,
         "event": {
+          "support_crew_ids": [],
           "event_id": "impact_puncture",
           "choice_id": "clamp_pressure",
           "choice_text": "Fit a repair clamp",
@@ -8889,8 +11495,11 @@ export const completed: GameResponse = {
         "ending": null
       },
       {
+        "assignments": [],
+        "science_gains": [],
         "week": 9,
         "event": {
+          "support_crew_ids": [],
           "event_id": "inventory_audit",
           "choice_id": "audit_crate",
           "choice_text": "Inspect and reconcile the manifest",
@@ -8989,8 +11598,11 @@ export const completed: GameResponse = {
         "ending": null
       },
       {
+        "assignments": [],
+        "science_gains": [],
         "week": 10,
         "event": {
+          "support_crew_ids": [],
           "event_id": "scrubber_load",
           "choice_id": "service_scrubber",
           "choice_text": "Service the scrubber",
@@ -9089,8 +11701,11 @@ export const completed: GameResponse = {
         "ending": null
       },
       {
+        "assignments": [],
+        "science_gains": [],
         "week": 11,
         "event": {
+          "support_crew_ids": [],
           "event_id": "seismic_signal",
           "choice_id": "archive_seismic",
           "choice_text": "Archive the raw signal",
@@ -9191,8 +11806,11 @@ export const completed: GameResponse = {
         "ending": null
       },
       {
+        "assignments": [],
+        "science_gains": [],
         "week": 12,
         "event": {
+          "support_crew_ids": [],
           "event_id": "battery_isolation",
           "choice_id": "battery_diagnosis",
           "choice_text": "Diagnose and restore the string",
@@ -9397,7 +12015,8 @@ export const completed: GameResponse = {
           "completed": true
         }
       ]
-    }
+    },
+    "assignment_options": []
   }
 };
 
@@ -9534,8 +12153,11 @@ export const failed: GameResponse = {
     },
     "history": [
       {
+        "assignments": [],
+        "science_gains": [],
         "week": 1,
         "event": {
+          "support_crew_ids": [],
           "event_id": "medical_emergency",
           "choice_id": "rest",
           "choice_text": "Isolate the filter and rest",
@@ -9679,8 +12301,11 @@ export const failed: GameResponse = {
         "ending": null
       },
       {
+        "assignments": [],
+        "science_gains": [],
         "week": 2,
         "event": {
+          "support_crew_ids": [],
           "event_id": "crew_recovery",
           "choice_id": "structured_recovery",
           "choice_text": "Follow a structured recovery schedule",
@@ -9827,8 +12452,11 @@ export const failed: GameResponse = {
         "ending": null
       },
       {
+        "assignments": [],
+        "science_gains": [],
         "week": 3,
         "event": {
+          "support_crew_ids": [],
           "event_id": "oxygen_fault",
           "choice_id": "ignore",
           "choice_text": "Rely on oxygen reserves",
@@ -9951,8 +12579,11 @@ export const failed: GameResponse = {
         "ending": null
       },
       {
+        "assignments": [],
+        "science_gains": [],
         "week": 4,
         "event": {
+          "support_crew_ids": [],
           "event_id": "antenna_drift",
           "choice_id": "offline_procedures",
           "choice_text": "Use stored procedures",
@@ -10075,8 +12706,11 @@ export const failed: GameResponse = {
         "ending": null
       },
       {
+        "assignments": [],
+        "science_gains": [],
         "week": 5,
         "event": {
+          "support_crew_ids": [],
           "event_id": "solar_failure",
           "choice_id": "ignore",
           "choice_text": "Conserve supplies and accept reduced output",
@@ -10201,8 +12835,11 @@ export const failed: GameResponse = {
         "ending": null
       },
       {
+        "assignments": [],
+        "science_gains": [],
         "week": 6,
         "event": {
+          "support_crew_ids": [],
           "event_id": "water_line_leak",
           "choice_id": "isolate_water",
           "choice_text": "Isolate the service reservoir",
@@ -10325,8 +12962,11 @@ export const failed: GameResponse = {
         "ending": null
       },
       {
+        "assignments": [],
+        "science_gains": [],
         "week": 7,
         "event": {
+          "support_crew_ids": [],
           "event_id": "solar_particle_alert",
           "choice_id": "storm_wait",
           "choice_text": "Use existing shielding",
@@ -10544,6 +13184,7 @@ export const failed: GameResponse = {
           "completed": false
         }
       ]
-    }
+    },
+    "assignment_options": []
   }
 };

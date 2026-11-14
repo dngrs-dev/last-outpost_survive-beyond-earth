@@ -10,7 +10,8 @@ ten selectable specialists in four crew slots, twelve cargo types, fifteen share
 oxygen and electricity simulation, crew health/death, and four mission endings.
 Each mission also has a separate research brief: collect samples, analyze seismic
 records, or restore research equipment. Science progress and the final assessment
-are reported independently of survival.
+are reported independently of survival. Each week combines an incident response
+with separate research or maintenance assignments for available crew.
 The game is playable through both the FastAPI REST backend and the React frontend.
 All balancing values are fictional gameplay units.
 
@@ -91,6 +92,8 @@ npm run build
   character profiles, cargo tradeoffs, and maintenance actions.
 - [Event library](docs/events.md): all fifteen scenarios, NASA references, equipment,
   research rewards, and gameplay boundaries.
+- [Weekly assignments](docs/assignments.md): crew capacity, support roles, costs,
+  and atomic weekly resolution.
 - [Research objectives](docs/research.md): mission targets, planned research work,
   progress rules, and the separate scientific assessment.
 - [Third-party notices](THIRD_PARTY_NOTICES.md): attribution and reuse terms for the
