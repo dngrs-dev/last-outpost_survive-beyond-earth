@@ -1,11 +1,13 @@
 import React from 'react';
 import type { TurnOutcome } from '../types/game';
+import { TurnDetails } from './TurnDetails';
 
 interface TurnOutcomeModalProps {
   outcome: TurnOutcome;
   onClose: () => void;
   isMissionEnded: boolean;
   onNavigateToResults: () => void;
+  crewNames: Record<string, string>;
 }
 
 export const TurnOutcomeModal: React.FC<TurnOutcomeModalProps> = ({
@@ -13,6 +15,7 @@ export const TurnOutcomeModal: React.FC<TurnOutcomeModalProps> = ({
   onClose,
   isMissionEnded,
   onNavigateToResults,
+  crewNames,
 }) => {
   const isEventSuccess = outcome.event?.success;
 
@@ -54,7 +57,8 @@ export const TurnOutcomeModal: React.FC<TurnOutcomeModalProps> = ({
           </div>
 
           <p style={{ fontSize: '0.9rem', color: '#fff' }}>
-            {outcome.event?.description}
+            {outcome.event.selected_crew_id && `Assigned: ${crewNames[outcome.event.selected_crew_id] || outcome.event.selected_crew_id}. `}
+            Success probability: {Math.round(outcome.event.success_probability * 100)}%.
           </p>
         </div>
 
@@ -97,21 +101,7 @@ export const TurnOutcomeModal: React.FC<TurnOutcomeModalProps> = ({
             })}
           </div>
 
-          {/* Health Changes */}
-          {outcome.survival?.health_changes && Object.keys(outcome.survival.health_changes).length > 0 && (
-            <div style={{ marginTop: '0.5rem', borderTop: '1px solid rgba(255,255,255,0.06)', paddingTop: '0.5rem' }}>
-              <span style={{ color: 'var(--text-muted)' }}>Health changes: </span>
-              {Object.entries(outcome.survival.health_changes).map(([crewId, delta]) => {
-                const formatted = delta > 0 ? `+${delta}` : `${delta}`;
-                const color = delta > 0 ? '#34d399' : '#f87171';
-                return (
-                  <span key={crewId} style={{ marginRight: '0.75rem' }}>
-                    {crewId.toUpperCase()}: <strong style={{ color }}>{formatted} HP</strong>
-                  </span>
-                );
-              })}
-            </div>
-          )}
+          <TurnDetails outcome={outcome} crewNames={crewNames} />
         </div>
 
         {/* Action Button */}

@@ -1,0 +1,44 @@
+import type { AppliedEffects, HealthChange, TurnOutcome } from '../types/game';
+
+interface Props {
+  outcome: TurnOutcome;
+  crewNames: Record<string, string>;
+}
+
+function HealthChanges({ changes, names }: { changes: HealthChange[]; names: Record<string, string> }) {
+  return <ul>{changes.map((change) => {
+    const delta = change.after - change.before;
+    return <li key={change.crew_id}>
+      {names[change.crew_id] || change.crew_id}: {change.before} → {change.after} HP
+      {' '}({delta > 0 ? '+' : ''}{delta} HP)
+    </li>;
+  })}</ul>;
+}
+
+function SystemChanges({ effects }: { effects: AppliedEffects }) {
+  return <>
+    {effects.solar_efficiency !== 0 && <p>Solar efficiency: {effects.solar_efficiency > 0 ? '+' : ''}{Math.round(effects.solar_efficiency * 100)} percentage points.</p>}
+    {effects.oxygen_efficiency !== 0 && <p>Oxygen efficiency: {effects.oxygen_efficiency > 0 ? '+' : ''}{Math.round(effects.oxygen_efficiency * 100)} percentage points.</p>}
+  </>;
+}
+
+export function TurnDetails({ outcome, crewNames }: Props) {
+  return <div style={{ fontSize: '0.9rem', lineHeight: 1.7 }}>
+    <h3>Event consequences</h3>
+    <SystemChanges effects={outcome.event.effects} />
+    <HealthChanges changes={outcome.event.effects.health_changes} names={crewNames} />
+    <h3>Weekly survival</h3>
+    {outcome.survival.health_changes.map((change) => <div key={change.crew_id}>
+      <HealthChanges changes={[change]} names={crewNames} />
+      <p>Health penalties: food {change.food_penalty}, water {change.water_penalty}, oxygen {change.oxygen_penalty}.</p>
+    </div>)}
+    <p>Electricity: generated {outcome.survival.electricity_generated}, used {outcome.survival.electricity_used}.</p>
+    <p>Oxygen: generated {outcome.survival.oxygen_generated}, used {outcome.survival.oxygen_used}; shortage {outcome.survival.oxygen_shortage}.</p>
+    {outcome.next_event && <div>
+      <h3>Next week's discovery: {outcome.next_event.title}</h3>
+      <p>These effects are already included in the current crew and station status.</p>
+      <SystemChanges effects={outcome.next_event.effects} />
+      <HealthChanges changes={outcome.next_event.effects.health_changes} names={crewNames} />
+    </div>}
+  </div>;
+}

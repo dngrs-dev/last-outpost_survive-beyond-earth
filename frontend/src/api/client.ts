@@ -24,12 +24,23 @@ export async function request<T>(path: string, options?: RequestInit): Promise<T
   });
 
   if (!response.ok) {
-    let detail = '';
+    const text = await response.text();
+    let detail = text;
     try {
-      const data = await response.json();
-      detail = data.detail || JSON.stringify(data);
+      const data = JSON.parse(text);
+      const value: unknown = data.detail ?? data;
+      if (typeof value === 'string') {
+        detail = value;
+      } else if (Array.isArray(value)) {
+        detail = value.map((entry) => {
+          const location = Array.isArray(entry.loc) ? entry.loc.filter((part: unknown) => part !== 'body').join('.') : '';
+          return `${location ? `${location}: ` : ''}${entry.msg || 'Invalid input'}`;
+        }).join('; ');
+      } else {
+        detail = JSON.stringify(value);
+      }
     } catch {
-      detail = await response.text();
+      // The response body has already been read; retain plain-text server errors.
     }
     throw new ApiError(
       response.status,

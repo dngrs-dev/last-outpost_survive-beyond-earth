@@ -117,6 +117,69 @@ class ResultsResponse(BaseModel):
     failure_reason: str | None
 
 
+class HealthChangeResponse(BaseModel):
+    crew_id: str
+    before: int
+    after: int
+
+
+class AppliedEffectsResponse(BaseModel):
+    resources: dict[str, float]
+    solar_efficiency: float
+    oxygen_efficiency: float
+    health_changes: list[HealthChangeResponse]
+
+
+class EventOutcomeResponse(BaseModel):
+    event_id: str
+    choice_id: str
+    choice_text: str
+    selected_crew_id: str | None
+    success: bool
+    success_probability: float
+    costs: dict[str, float]
+    effects: AppliedEffectsResponse
+
+
+class SurvivalHealthResponse(HealthChangeResponse):
+    food_penalty: int
+    water_penalty: int
+    oxygen_penalty: int
+    died: bool
+
+
+class SurvivalResponse(BaseModel):
+    ration_requirements: RationCost
+    ration_costs: RationCost
+    ration_depletion_fractions: RationCost
+    electricity_generated: float
+    electricity_required: float
+    electricity_used: float
+    life_support_power_fraction: float
+    oxygen_generated: float
+    oxygen_required: float
+    oxygen_used: float
+    oxygen_shortage: float
+    health_changes: list[SurvivalHealthResponse]
+
+
+class NextEventResponse(BaseModel):
+    event_id: str
+    title: str
+    effects: AppliedEffectsResponse
+
+
+class TurnOutcomeResponse(BaseModel):
+    week: int
+    event: EventOutcomeResponse
+    rations: dict[str, RationRequest]
+    survival: SurvivalResponse
+    resource_changes: dict[str, float]
+    deaths: list[str]
+    next_event: NextEventResponse | None = None
+    ending: str | None = None
+
+
 class GameStateResponse(BaseModel):
     station_id: str
     station_name: str
@@ -137,7 +200,7 @@ class GameStateResponse(BaseModel):
     depleted_provisions: list[str]
     used_event_ids: list[str]
     flags: dict[str, str]
-    history: list[dict[str, Any]]
+    history: list[TurnOutcomeResponse]
     status: Literal["running", "completed", "failed"]
     random_seed: int
     initial_crew_size: int
@@ -152,7 +215,7 @@ class GameResponse(BaseModel):
 
 
 class TurnResponse(GameResponse):
-    turn_outcome: dict[str, Any]
+    turn_outcome: TurnOutcomeResponse
 
 
 class CatalogResponse(BaseModel):

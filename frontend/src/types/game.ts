@@ -15,6 +15,7 @@ export interface MissionDefinition {
   name: string;
   description: string;
   duration_weeks: number;
+  event_ids: string[];
   minimum_survivors: number;
 }
 
@@ -22,7 +23,6 @@ export interface CrewDefinition {
   id: string;
   name: string;
   role: string;
-  description: string;
   health: number;
   positive_trait: string;
   negative_trait: string;
@@ -30,6 +30,8 @@ export interface CrewDefinition {
   water_multiplier: number;
   event_bonus: number;
   injury_multiplier: number;
+  food_shortage_weeks: number;
+  water_shortage_weeks: number;
 }
 
 export interface ItemDefinition {
@@ -40,6 +42,8 @@ export interface ItemDefinition {
   resource_amount: number;
   weight_kg: number;
   volume_l: number;
+  unit: string;
+  category: string;
 }
 
 export interface CatalogLimits {
@@ -98,7 +102,7 @@ export interface CrewResponse {
   food_shortage_weeks: number;
   water_shortage_weeks: number;
   alive: boolean;
-  ration_options: Record<RationLevel, RationCost>;
+  ration_options: Partial<Record<RationLevel, RationCost>>;
 }
 
 export interface EffectsResponse {
@@ -158,49 +162,64 @@ export interface ResultsResponse {
   failure_reason: string | null;
 }
 
+export interface HealthChange {
+  crew_id: string;
+  before: number;
+  after: number;
+}
+
+export interface AppliedEffects {
+  resources: Record<string, number>;
+  solar_efficiency: number;
+  oxygen_efficiency: number;
+  health_changes: HealthChange[];
+}
+
+export interface SurvivalHealthChange extends HealthChange {
+  food_penalty: number;
+  water_penalty: number;
+  oxygen_penalty: number;
+  died: boolean;
+}
+
 export interface TurnOutcome {
   week: number;
   event: {
+    event_id: string;
     choice_id: string;
     choice_text: string;
-    astronaut_id: string | null;
+    selected_crew_id: string | null;
     success: boolean;
-    description: string;
-    changes: {
-      resources: Record<string, number>;
-      solar_efficiency: number;
-      oxygen_efficiency: number;
-      crew_health: Record<string, number>;
-    };
+    success_probability: number;
+    costs: Record<string, number>;
+    effects: AppliedEffects;
   };
   rations: Record<string, RationRequest>;
   survival: {
-    health_changes: Record<string, number>;
-    resources_used: Record<string, number>;
-    resources_generated: Record<string, number>;
-    notes?: string[];
-    [key: string]: unknown;
+    ration_requirements: RationCost;
+    ration_costs: RationCost;
+    ration_depletion_fractions: RationCost;
+    electricity_generated: number;
+    electricity_required: number;
+    electricity_used: number;
+    life_support_power_fraction: number;
+    oxygen_generated: number;
+    oxygen_required: number;
+    oxygen_used: number;
+    oxygen_shortage: number;
+    health_changes: SurvivalHealthChange[];
   };
   resource_changes: Record<string, number>;
   deaths: string[];
   next_event?: {
     event_id: string;
     title: string;
-    effects: unknown;
-  };
-  ending?: string | null;
+    effects: AppliedEffects;
+  } | null;
+  ending: string | null;
 }
 
-export interface TurnHistoryEntry {
-  week: number;
-  event: TurnOutcome['event'];
-  rations: Record<string, RationRequest>;
-  survival: TurnOutcome['survival'];
-  resource_changes: Record<string, number>;
-  deaths: string[];
-  ending?: string | null;
-  next_event?: TurnOutcome['next_event'];
-}
+export type TurnHistoryEntry = TurnOutcome;
 
 export interface GameStateResponse {
   station_id: string;

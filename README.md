@@ -76,6 +76,6 @@ npm run build
   configuration, and prototype limitations.
 - [Agent instructions](AGENTS.md): workflow for coding agents working in this repository.
 
-The backend uses Python and FastAPI. The planned frontend uses React, TypeScript,
+The backend uses Python and FastAPI. The frontend uses React, TypeScript,
 and Vite. See the game specification for future work; planned features are not
 necessarily implemented.

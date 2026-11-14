@@ -1,6 +1,7 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
 import { fetchGameState, submitTurn } from '../api/game';
+import { ApiError } from '../api/client';
 import { Header } from '../components/Header';
 import { ResourceCard } from '../components/ResourceCard';
 import { StationOverview } from '../components/StationOverview';
@@ -12,6 +13,7 @@ import type {
   RationLevel,
   RationRequest,
   TurnOutcome,
+  SubmitTurnRequest,
 } from '../types/game';
 
 export const GamePage: React.FC = () => {
@@ -22,6 +24,9 @@ export const GamePage: React.FC = () => {
   const [loading, setLoading] = useState<boolean>(true);
   const [submitting, setSubmitting] = useState<boolean>(false);
   const [error, setError] = useState<string | null>(null);
+  const [loadAttempt, setLoadAttempt] = useState(0);
+  const [pendingTurn, setPendingTurn] = useState<SubmitTurnRequest | null>(null);
+  const submissionInFlight = useRef(false);
 
   // Turn decision state
   const [rations, setRations] = useState<Record<string, RationRequest>>({});
@@ -36,6 +41,10 @@ export const GamePage: React.FC = () => {
   useEffect(() => {
     if (!gameId) return;
     let mounted = true;
+    setLoading(true);
+    setError(null);
+    setState(null);
+    setPendingTurn(null);
 
     fetchGameState(gameId)
       .then((game) => {
@@ -47,7 +56,7 @@ export const GamePage: React.FC = () => {
 
         // If game already ended, redirect to results
         if (current.status !== 'running') {
-          navigate(`/results/${gameId}`);
+          navigate(`/results/${gameId}`, { replace: true });
         }
       })
       .catch((err) => {
@@ -59,7 +68,7 @@ export const GamePage: React.FC = () => {
     return () => {
       mounted = false;
     };
-  }, [gameId, navigate]);
+  }, [gameId, navigate, loadAttempt]);
 
   // Initialize form when state changes or turn advances
   const initializeTurnForm = (gameState: GameStateResponse) => {
@@ -77,6 +86,8 @@ export const GamePage: React.FC = () => {
       };
     });
     setRations(initialRations);
+    setSelectedChoiceId('');
+    setSelectedCrewId(null);
 
     // Default select the first available choice
     if (gameState.current_event) {
@@ -133,38 +144,74 @@ export const GamePage: React.FC = () => {
 
   // Submit complete weekly turn
   const handleSubmitTurn = async () => {
-    if (!state || !gameId || submitting) return;
+    if (!state || !gameId || submissionInFlight.current || state.status !== 'running') return;
 
     // Check choice requires crew
     const choice = state.current_event?.choices.find((c) => c.id === selectedChoiceId);
-    if (choice?.requires_crew && !selectedCrewId) {
+    if (!pendingTurn && (!choice?.available || (choice.requires_crew && !selectedCrewId))) {
       setError('This action requires an astronaut assignment.');
       return;
     }
 
+    const decision = pendingTurn ?? {
+      expected_week: state.current_week,
+      request_id: typeof crypto !== 'undefined' && crypto.randomUUID
+        ? crypto.randomUUID()
+        : `turn-${state.current_week}-${Date.now()}`,
+      rations: Object.fromEntries(Object.entries(rations).map(([id, ration]) => [id, { ...ration }])),
+      event_choice_id: selectedChoiceId,
+      selected_crew_id: choice?.requires_crew ? selectedCrewId : null,
+    };
+    submissionInFlight.current = true;
+    setPendingTurn(decision);
     setSubmitting(true);
     setError(null);
 
     try {
-      const requestId = typeof crypto !== 'undefined' && crypto.randomUUID
-        ? crypto.randomUUID()
-        : `turn-${state.current_week}-${Date.now()}`;
+      const response = await submitTurn(gameId, decision);
 
-      const response = await submitTurn(gameId, {
-        expected_week: state.current_week,
-        request_id: requestId,
-        rations,
-        event_choice_id: selectedChoiceId,
-        selected_crew_id: choice?.requires_crew ? selectedCrewId : null,
-      });
-
+      // A replay is an historical receipt. Another tab may already be further ahead.
+      if (pendingTurn) {
+        const latest = await fetchGameState(gameId);
+        if (latest.state.weeks_completed > response.state.weeks_completed) {
+          setPendingTurn(null);
+          setState(latest.state);
+          initializeTurnForm(latest.state);
+          setError('Your saved turn was confirmed. The mission has advanced in another session; the current state has been refreshed.');
+          if (latest.state.status !== 'running') {
+            navigate(`/results/${gameId}`, { replace: true });
+          }
+          return;
+        }
+      }
+      setPendingTurn(null);
       setLatestOutcome(response.turn_outcome);
       setShowOutcomeModal(true);
       setState(response.state);
       initializeTurnForm(response.state);
-    } catch (err: any) {
-      setError(err.message || 'Turn execution failed. Check resource availability.');
+    } catch (err: unknown) {
+      const message = err instanceof Error ? err.message : 'Turn submission failed.';
+      if (err instanceof ApiError && err.status === 409) {
+        try {
+          const current = await fetchGameState(gameId);
+          setPendingTurn(null);
+          setState(current.state);
+          initializeTurnForm(current.state);
+          setError(`${message} The current mission state has been refreshed. Review your decisions before submitting again.`);
+          if (current.state.status !== 'running') {
+            navigate(`/results/${gameId}`, { replace: true });
+          }
+        } catch {
+          setError('Could not refresh the mission after a turn conflict. Retry the saved submission to recover.');
+        }
+      } else if (err instanceof ApiError && err.status >= 400 && err.status < 500 && err.status !== 408) {
+        setPendingTurn(null);
+        setError(message);
+      } else {
+        setError(`${message} The server may have processed this week. Retry the saved submission; it will not charge supplies twice.`);
+      }
     } finally {
+      submissionInFlight.current = false;
       setSubmitting(false);
     }
   };
@@ -185,13 +232,17 @@ export const GamePage: React.FC = () => {
     return (
       <div className="app-container">
         <Header />
-        <div className="alert alert-danger">Mission telemetry unavailable.</div>
+        <div className="alert alert-danger">{error || 'Mission telemetry unavailable.'}</div>
+        <button type="button" className="btn btn-secondary" onClick={() => setLoadAttempt((attempt) => attempt + 1)}>
+          Retry connection
+        </button>
       </div>
     );
   }
 
   const livingCrew = state.crew.filter((c) => c.alive);
   const activeChoice = state.current_event?.choices.find((c) => c.id === selectedChoiceId);
+  const decisionLocked = submitting || pendingTurn !== null || state.status !== 'running';
 
   // Compute estimated food and water consumption
   const totalFoodNeeded = livingCrew.reduce((acc, c) => {
@@ -214,6 +265,9 @@ export const GamePage: React.FC = () => {
       />
 
       {error && <div className="alert alert-danger">{error}</div>}
+      {pendingTurn && !submitting && <div className="alert alert-warning">
+        Week {pendingTurn.expected_week} has an unresolved submission. Your original decisions are saved and locked until retry resolves it.
+      </div>}
 
       {/* Depletion or Emergency Alerts */}
       {state.depleted_provisions.length > 0 && (
@@ -289,7 +343,7 @@ export const GamePage: React.FC = () => {
           selectedCrewId={selectedCrewId}
           onSelectChoice={handleSelectChoice}
           onSelectCrew={(crewId) => setSelectedCrewId(crewId)}
-          disabled={submitting}
+          disabled={decisionLocked}
         />
       ) : (
         <div className="card" style={{ marginBottom: '1.5rem', textAlign: 'center', padding: '2rem' }}>
@@ -311,7 +365,7 @@ export const GamePage: React.FC = () => {
               type="button"
               className="btn btn-secondary btn-sm"
               onClick={() => setAllRations('normal')}
-              disabled={submitting}
+              disabled={decisionLocked}
             >
               ALL NORMAL
             </button>
@@ -319,7 +373,7 @@ export const GamePage: React.FC = () => {
               type="button"
               className="btn btn-secondary btn-sm"
               onClick={() => setAllRations('reduced')}
-              disabled={submitting}
+              disabled={decisionLocked}
             >
               ALL REDUCED
             </button>
@@ -327,7 +381,7 @@ export const GamePage: React.FC = () => {
               type="button"
               className="btn btn-secondary btn-sm"
               onClick={() => setAllRations('emergency')}
-              disabled={submitting}
+              disabled={decisionLocked}
             >
               ALL EMERGENCY
             </button>
@@ -341,7 +395,7 @@ export const GamePage: React.FC = () => {
               crew={crew}
               rations={rations[crew.id]}
               onRationChange={handleRationChange}
-              disabled={submitting}
+              disabled={decisionLocked}
             />
           ))}
         </div>
@@ -375,9 +429,9 @@ export const GamePage: React.FC = () => {
             type="button"
             className="btn btn-primary btn-lg"
             onClick={handleSubmitTurn}
-            disabled={submitting || (activeChoice?.requires_crew && !selectedCrewId)}
+            disabled={submitting || state.status !== 'running' || (!pendingTurn && (!activeChoice?.available || (activeChoice.requires_crew && !selectedCrewId)))}
           >
-            {submitting ? 'PROCESSING WEEK...' : `SUBMIT WEEK ${state.current_week} DECISIONS →`}
+            {submitting ? 'PROCESSING WEEK...' : pendingTurn ? `Retry week ${pendingTurn.expected_week} submission` : `SUBMIT WEEK ${state.current_week} DECISIONS →`}
           </button>
         </div>
       </div>
@@ -389,6 +443,7 @@ export const GamePage: React.FC = () => {
           onClose={() => setShowOutcomeModal(false)}
           isMissionEnded={state.status !== 'running'}
           onNavigateToResults={() => navigate(`/results/${gameId}`)}
+          crewNames={Object.fromEntries(state.crew.map((crew) => [crew.id, crew.name]))}
         />
       )}
 

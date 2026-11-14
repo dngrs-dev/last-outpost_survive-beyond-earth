@@ -1,250 +1,157 @@
 import { describe, it, expect, vi, beforeEach } from 'vitest';
-import { render, screen, fireEvent, waitFor } from '@testing-library/react';
+import { act, render, screen, fireEvent } from '@testing-library/react';
 import { MemoryRouter, Route, Routes } from 'react-router-dom';
 import { GamePage } from '../pages/GamePage';
 import * as gameApi from '../api/game';
-import type { GameStateResponse, TurnResponse } from '../types/game';
+import { ApiError } from '../api/client';
+import { game, turn, treatment, completed, medicalGame } from './fixtures/backend';
 
-const mockGameState: GameStateResponse = {
-  station_id: 'alpha',
-  station_name: 'Station Alpha — Research Base',
-  mission_id: 'alpha_rotation',
-  mission_name: 'Hold Until Rotation',
-  current_week: 1,
-  duration_weeks: 12,
-  minimum_survivors: 1,
-  weeks_remaining: 11,
-  mission_days: { start: 1, end: 7 },
-  crew: [
-    {
-      id: 'alex',
-      name: 'Alex Vega',
-      role: 'engineer',
-      health: 100,
-      positive_trait: 'Steady hands',
-      negative_trait: 'Large appetite',
-      food_multiplier: 1.1,
-      water_multiplier: 1.0,
-      event_bonus: 0.05,
-      injury_multiplier: 1.0,
-      food_shortage_weeks: 0,
-      water_shortage_weeks: 0,
-      alive: true,
-      ration_options: {
-        normal: { food: 1.1, water: 1.0 },
-        reduced: { food: 0.55, water: 0.5 },
-        emergency: { food: 0.0, water: 0.0 },
-      },
-    },
-  ],
-  resources: {
-    food: 20,
-    water: 32,
-    oxygen: 30,
-    electricity: 30,
-    medicine: 1,
-    repair_kits: 2,
-    eva_batteries: 2,
-  },
-  solar_efficiency: 1.0,
-  oxygen_efficiency: 1.0,
-  current_event_id: 'solar_failure',
-  current_event: {
-    id: 'solar_failure',
-    title: 'Dust on the Array',
-    description: 'An actuator has jammed in lunar dust.',
-    on_start: {
-      solar_efficiency: -0.25,
-      oxygen_efficiency: 0,
-      crew_health: 0,
-      resources: {},
-      target: 'all',
-    },
-    choices: [
-      {
-        id: 'engineer_repair',
-        text: 'Send the engineer outside',
-        description: 'Requires an engineer. A failed EVA causes injury.',
-        costs: { repair_kits: 1, eva_batteries: 1, oxygen: 2 },
-        required_items: {},
-        requires_crew: true,
-        role_bonus: { engineer: 0.3 },
-        crew_role_bonus: {},
-        success_chance: 0.6,
-        success_effects: {
-          solar_efficiency: 0.25,
-          oxygen_efficiency: 0,
-          crew_health: 0,
-          resources: {},
-          target: 'all',
-        },
-        failure_effects: {
-          crew_health: -25,
-          solar_efficiency: 0,
-          oxygen_efficiency: 0,
-          resources: {},
-          target: 'selected',
-        },
-        required_role: 'engineer',
-        minimum_crew: 1,
-        available: true,
-        unavailable_reasons: [],
-        eligible_crew: [
-          {
-            crew_id: 'alex',
-            available: true,
-            unavailable_reasons: [],
-            success_probability: 0.95,
-          },
-        ],
-        success_probability: 0.95,
-      },
-      {
-        id: 'ignore',
-        text: 'Conserve supplies',
-        description: 'Accept reduced output.',
-        costs: {},
-        required_items: {},
-        requires_crew: false,
-        role_bonus: {},
-        crew_role_bonus: {},
-        success_chance: 1.0,
-        success_effects: {
-          solar_efficiency: 0,
-          oxygen_efficiency: 0,
-          crew_health: 0,
-          resources: {},
-          target: 'all',
-        },
-        failure_effects: {
-          solar_efficiency: 0,
-          oxygen_efficiency: 0,
-          crew_health: 0,
-          resources: {},
-          target: 'all',
-        },
-        required_role: null,
-        minimum_crew: 1,
-        available: true,
-        unavailable_reasons: [],
-        eligible_crew: [],
-        success_probability: 1.0,
-      },
-    ],
-  },
-  emergency_ration_requirements: { food: 0, water: 0 },
-  depleted_provisions: [],
-  used_event_ids: [],
-  flags: {},
-  history: [],
-  status: 'running',
-  random_seed: 42,
-  initial_crew_size: 1,
-  weeks_completed: 0,
-  ending: null,
-  results: null,
-};
+function renderGame() {
+  render(<MemoryRouter initialEntries={['/game/fixture-game']}><Routes>
+    <Route path="/game/:gameId" element={<GamePage />} />
+    <Route path="/results/:gameId" element={<p>Final results route</p>} />
+  </Routes></MemoryRouter>);
+}
 
-describe('GamePage', () => {
+async function submit() {
+  const button = await screen.findByRole('button', { name: /SUBMIT WEEK 1 DECISIONS/ });
+  await act(async () => { fireEvent.click(button); });
+}
+
+describe('GamePage with real API fixtures', () => {
   beforeEach(() => {
     vi.restoreAllMocks();
-    vi.spyOn(gameApi, 'fetchGameState').mockResolvedValue({
-      game_id: 'game-123',
-      state: mockGameState,
-    });
+    vi.spyOn(gameApi, 'fetchGameState').mockResolvedValue(structuredClone(game));
   });
 
-  it('renders week telemetry, resources, systems, and event dilemma', async () => {
-    render(
-      <MemoryRouter initialEntries={['/game/game-123']}>
-        <Routes>
-          <Route path="/game/:gameId" element={<GamePage />} />
-        </Routes>
-      </MemoryRouter>
-    );
-
-    await waitFor(() => {
-      expect(screen.getByText('WEEK 1 / 12')).toBeInTheDocument();
-    });
-
-    expect(screen.getByText('MISSION DAYS 1–7')).toBeInTheDocument();
-    expect(screen.getByText(/Dust on the Array/i)).toBeInTheDocument();
-    expect(screen.getAllByText(/Send the engineer outside/i).length).toBeGreaterThan(0);
+  it('renders actual ration costs and applies ration changes', async () => {
+    renderGame();
+    expect(await screen.findByText('WEEK 1 / 12')).toBeInTheDocument();
     expect(screen.getByText('Alex Vega')).toBeInTheDocument();
+    expect(screen.getAllByRole('option', { name: 'Emergency (0.44u)' })).toHaveLength(1);
+    fireEvent.click(screen.getByRole('button', { name: 'ALL REDUCED' }));
+    expect(screen.getAllByRole('combobox').every((select) => (select as HTMLSelectElement).value === 'reduced')).toBe(true);
   });
 
-  it('allows changing all rations to reduced or emergency', async () => {
-    render(
-      <MemoryRouter initialEntries={['/game/game-123']}>
-        <Routes>
-          <Route path="/game/:gameId" element={<GamePage />} />
-        </Routes>
-      </MemoryRouter>
-    );
-
-    await waitFor(() => {
-      expect(screen.getByText('ALL REDUCED')).toBeInTheDocument();
-    });
-
-    fireEvent.click(screen.getByText('ALL REDUCED'));
-    expect(screen.getByText(/Weekly Consumption:/i)).toBeInTheDocument();
+  it('renders event injuries, survival penalties, and next-event discovery', async () => {
+    vi.spyOn(gameApi, 'submitTurn').mockResolvedValue(structuredClone(turn));
+    renderGame();
+    await submit();
+    expect(await screen.findByText('WEEK 1 DEBRIEF')).toBeInTheDocument();
+    expect(screen.getByText(/Alex Vega: 100.*75 HP/)).toBeInTheDocument();
+    expect(screen.getByText(/Alex Vega: 75.*73 HP/)).toBeInTheDocument();
+    expect(screen.getByText('Health penalties: food 2, water 0, oxygen 0.')).toBeInTheDocument();
+    expect(screen.getByText(/Next week's discovery:/)).toBeInTheDocument();
+    expect(screen.queryByText(/\[object Object\]/)).not.toBeInTheDocument();
   });
 
-  it('submits turn and presents the turn outcome modal', async () => {
-    const mockOutcome: TurnResponse = {
-      game_id: 'game-123',
-      state: {
-        ...mockGameState,
-        current_week: 2,
-        weeks_completed: 1,
-      },
-      turn_outcome: {
-        week: 1,
-        event: {
-          choice_id: 'engineer_repair',
-          choice_text: 'Send the engineer outside',
-          astronaut_id: 'alex',
-          success: true,
-          description: 'Alex Vega completed outside repairs successfully.',
-          changes: {
-            resources: { repair_kits: -1, eva_batteries: -1, oxygen: -2 },
-            solar_efficiency: 0.25,
-            oxygen_efficiency: 0,
-            crew_health: {},
-          },
-        },
-        rations: { alex: { food: 'normal', water: 'normal' } },
-        survival: {
-          health_changes: {},
-          resources_used: { food: 1.1, water: 1.0 },
-          resources_generated: { electricity: 24, oxygen: 14 },
-        },
-        resource_changes: { food: -1.1, water: -1.0, repair_kits: -1 },
-        deaths: [],
-      },
-    };
+  it('renders actual treatment health gains', async () => {
+    vi.mocked(gameApi.fetchGameState).mockResolvedValue(structuredClone(medicalGame));
+    vi.spyOn(gameApi, 'submitTurn').mockResolvedValue(structuredClone(treatment));
+    renderGame();
+    await submit();
+    expect(await screen.findByText(/Alex Vega: 92.*100 HP/)).toBeInTheDocument();
+  });
 
-    const submitTurnMock = vi.spyOn(gameApi, 'submitTurn').mockResolvedValue(mockOutcome);
+  it.each([new TypeError('Connection lost'), new ApiError(503, 'Temporarily unavailable'), new ApiError(408, 'Request timed out')])(
+    'retries the exact saved decision after an uncertain failure: %s', async (error) => {
+      const send = vi.spyOn(gameApi, 'submitTurn').mockRejectedValueOnce(error)
+        .mockResolvedValueOnce(structuredClone(turn));
+      vi.mocked(gameApi.fetchGameState).mockResolvedValueOnce(structuredClone(game))
+        .mockResolvedValueOnce({ game_id: turn.game_id, state: structuredClone(turn.state) });
+      renderGame();
+      await submit();
+      const retry = await screen.findByRole('button', { name: /Retry week 1 submission/ });
+      expect(screen.getByRole('button', { name: 'ALL EMERGENCY' })).toBeDisabled();
+      expect(screen.getAllByRole('combobox').every((select) => (select as HTMLSelectElement).disabled)).toBe(true);
+      const original = structuredClone(send.mock.calls[0][1]);
+      await act(async () => { fireEvent.click(retry); });
+      await screen.findByText('WEEK 1 DEBRIEF');
+      expect(send.mock.calls[1][1]).toEqual(original);
+      fireEvent.click(screen.getByRole('button', { name: /PROCEED TO WEEK 2/ }));
+      expect(screen.getByRole('button', { name: 'ALL NORMAL' })).not.toBeDisabled();
+    }
+  );
 
-    render(
-      <MemoryRouter initialEntries={['/game/game-123']}>
-        <Routes>
-          <Route path="/game/:gameId" element={<GamePage />} />
-        </Routes>
-      </MemoryRouter>
-    );
+  it('unlocks editing after a definite validation failure', async () => {
+    const send = vi.spyOn(gameApi, 'submitTurn')
+      .mockRejectedValueOnce(new ApiError(422, 'Insufficient water for rations.'))
+      .mockResolvedValueOnce(structuredClone(turn));
+    renderGame();
+    await submit();
+    await screen.findByText('Insufficient water for rations.');
+    fireEvent.click(screen.getByRole('button', { name: 'ALL REDUCED' }));
+    await submit();
+    await screen.findByText('WEEK 1 DEBRIEF');
+    expect(send.mock.calls[1][1].rations.alex.water).toBe('reduced');
+    expect(send.mock.calls[1][1].request_id).not.toBe(send.mock.calls[0][1].request_id);
+  });
 
-    await waitFor(() => {
-      expect(screen.getByText(/SUBMIT WEEK 1 DECISIONS/i)).toBeInTheDocument();
-    });
+  it('refreshes stale state without automatically submitting another turn', async () => {
+    vi.mocked(gameApi.fetchGameState).mockResolvedValueOnce(structuredClone(game))
+      .mockResolvedValueOnce({ game_id: turn.game_id, state: structuredClone(turn.state) });
+    const send = vi.spyOn(gameApi, 'submitTurn').mockRejectedValue(new ApiError(409, 'Outdated turn.'));
+    renderGame();
+    await submit();
+    expect(await screen.findByText('WEEK 2 / 12')).toBeInTheDocument();
+    expect(screen.getByText(/current mission state has been refreshed/)).toBeInTheDocument();
+    expect(send).toHaveBeenCalledTimes(1);
+    expect(screen.getByRole('button', { name: 'ALL NORMAL' })).not.toBeDisabled();
+  });
 
-    fireEvent.click(screen.getByText(/SUBMIT WEEK 1 DECISIONS/i));
+  it('preserves the saved decision if conflict recovery also fails', async () => {
+    vi.mocked(gameApi.fetchGameState).mockResolvedValueOnce(structuredClone(game))
+      .mockRejectedValueOnce(new TypeError('Offline'));
+    const send = vi.spyOn(gameApi, 'submitTurn').mockRejectedValueOnce(new ApiError(409, 'Outdated turn.'))
+      .mockResolvedValueOnce(structuredClone(turn));
+    renderGame();
+    await submit();
+    const retry = await screen.findByRole('button', { name: /Retry week 1 submission/ });
+    await act(async () => { fireEvent.click(retry); });
+    await screen.findByText('WEEK 1 DEBRIEF');
+    expect(send.mock.calls[1][1]).toEqual(send.mock.calls[0][1]);
+  });
 
-    await waitFor(() => {
-      expect(submitTurnMock).toHaveBeenCalled();
-      expect(screen.getByText(/WEEK 1 DEBRIEF/i)).toBeInTheDocument();
-      expect(screen.getByText(/ACTION SUCCESSFUL/i)).toBeInTheDocument();
-      expect(screen.getByText(/PROCEED TO WEEK 2/i)).toBeInTheDocument();
-    });
+  it('routes to results when conflict recovery finds a finished mission', async () => {
+    vi.mocked(gameApi.fetchGameState).mockResolvedValueOnce(structuredClone(game))
+      .mockResolvedValueOnce(structuredClone(completed));
+    vi.spyOn(gameApi, 'submitTurn').mockRejectedValue(new ApiError(409, 'Mission finished.'));
+    renderGame();
+    await submit();
+    expect(await screen.findByText('Final results route')).toBeInTheDocument();
+  });
+
+  it('does not replace a newer mission state with an old retry receipt', async () => {
+    vi.mocked(gameApi.fetchGameState).mockResolvedValueOnce(structuredClone(game))
+      .mockResolvedValueOnce(structuredClone(completed));
+    const send = vi.spyOn(gameApi, 'submitTurn').mockRejectedValueOnce(new TypeError('Response lost'))
+      .mockResolvedValueOnce(structuredClone(turn));
+    renderGame();
+    await submit();
+    const retry = await screen.findByRole('button', { name: /Retry week 1 submission/ });
+    await act(async () => { fireEvent.click(retry); });
+    expect(await screen.findByText('Final results route')).toBeInTheDocument();
+    expect(send.mock.calls[1][1]).toEqual(send.mock.calls[0][1]);
+  });
+
+  it('prevents duplicate clicks while a submission is in flight', async () => {
+    let resolve!: (value: typeof turn) => void;
+    const send = vi.spyOn(gameApi, 'submitTurn').mockImplementation(() => new Promise((done) => { resolve = done; }));
+    renderGame();
+    const button = await screen.findByRole('button', { name: /SUBMIT WEEK 1 DECISIONS/ });
+    fireEvent.click(button);
+    fireEvent.click(button);
+    expect(send).toHaveBeenCalledTimes(1);
+    await act(async () => { resolve(structuredClone(turn)); });
+    await screen.findByText('WEEK 1 DEBRIEF');
+  });
+
+  it('shows fetch errors and allows retrying the initial connection', async () => {
+    vi.mocked(gameApi.fetchGameState).mockRejectedValueOnce(new ApiError(404, 'Game not found.'))
+      .mockResolvedValueOnce(structuredClone(game));
+    renderGame();
+    await screen.findByText('Game not found.');
+    fireEvent.click(screen.getByRole('button', { name: 'Retry connection' }));
+    expect(await screen.findByText('WEEK 1 / 12')).toBeInTheDocument();
   });
 });

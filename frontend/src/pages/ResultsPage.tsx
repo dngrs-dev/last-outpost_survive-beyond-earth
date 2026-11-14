@@ -4,6 +4,7 @@ import { fetchGameState } from '../api/game';
 import { Header } from '../components/Header';
 import { ResourceCard } from '../components/ResourceCard';
 import { StationOverview } from '../components/StationOverview';
+import { TurnDetails } from '../components/TurnDetails';
 import type { GameStateResponse } from '../types/game';
 
 export const ResultsPage: React.FC = () => {
@@ -17,10 +18,17 @@ export const ResultsPage: React.FC = () => {
   useEffect(() => {
     if (!gameId) return;
     let mounted = true;
+    setLoading(true);
+    setState(null);
+    setError(null);
 
     fetchGameState(gameId)
       .then((game) => {
         if (!mounted) return;
+        if (game.state.status === 'running') {
+          navigate(`/game/${gameId}`, { replace: true });
+          return;
+        }
         setState(game.state);
         setLoading(false);
       })
@@ -33,7 +41,7 @@ export const ResultsPage: React.FC = () => {
     return () => {
       mounted = false;
     };
-  }, [gameId]);
+  }, [gameId, navigate]);
 
   if (loading) {
     return (
@@ -51,12 +59,15 @@ export const ResultsPage: React.FC = () => {
     return (
       <div className="app-container">
         <Header />
-        <div className="alert alert-danger">Debrief telemetry unavailable.</div>
+        <div className="alert alert-danger">{error || 'Debrief telemetry unavailable.'}</div>
+        <button type="button" className="btn btn-secondary" onClick={() => navigate('/')}>
+          Return to mission preparation
+        </button>
       </div>
     );
   }
 
-  const ending = state.ending || (state.status === 'failed' ? 'mission_failure' : 'successful_handover');
+  const ending = state.ending;
   const livingCrew = state.crew.filter((c) => c.alive);
 
   const getEndingDetails = () => {
@@ -263,9 +274,10 @@ export const ResultsPage: React.FC = () => {
                     </span>
                   </div>
 
-                  <p style={{ fontSize: '0.85rem', color: 'var(--text-muted)', marginBottom: '0.4rem' }}>
-                    {entry.event?.description}
-                  </p>
+                  <details>
+                    <summary>View consequences</summary>
+                    <TurnDetails outcome={entry} crewNames={Object.fromEntries(state.crew.map((c) => [c.id, c.name]))} />
+                  </details>
 
                   {entry.deaths && entry.deaths.length > 0 && (
                     <div style={{ fontSize: '0.8rem', color: 'var(--color-red)' }}>

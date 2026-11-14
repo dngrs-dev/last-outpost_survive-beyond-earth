@@ -1,90 +1,65 @@
 import { describe, it, expect, vi, beforeEach } from 'vitest';
 import { fetchCatalog, createGame, fetchGameState, submitTurn } from '../api/game';
 import { ApiError } from '../api/client';
+import { catalog, game, turn } from './fixtures/backend';
 
-describe('API Service', () => {
-  beforeEach(() => {
-    vi.restoreAllMocks();
+function mockResponse(data: unknown, status = 200) {
+  const fetch = vi.fn().mockResolvedValue(new Response(JSON.stringify(data), {
+    status, headers: { 'Content-Type': 'application/json' },
+  }));
+  vi.stubGlobal('fetch', fetch);
+  return fetch;
+}
+
+describe('API service', () => {
+  beforeEach(() => { vi.restoreAllMocks(); vi.unstubAllGlobals(); });
+
+  it('fetches the real catalog shape', async () => {
+    const fetch = mockResponse(catalog);
+    expect(await fetchCatalog()).toEqual(catalog);
+    expect(fetch).toHaveBeenCalledWith('/api/catalog', expect.anything());
   });
 
-  it('fetchCatalog calls /api/catalog and returns data', async () => {
-    const mockCatalog = { stations: [], missions: [], crew: [], items: [], limits: {} };
-    globalThis.fetch = vi.fn().mockResolvedValue({
-      ok: true,
-      json: async () => mockCatalog,
-    } as any);
-
-    const result = await fetchCatalog();
-    expect(globalThis.fetch).toHaveBeenCalledWith('/api/catalog', expect.objectContaining({
-      headers: expect.objectContaining({ 'Content-Type': 'application/json' }),
-    }));
-    expect(result).toEqual(mockCatalog);
+  it('creates games with the given setup', async () => {
+    const fetch = mockResponse(game);
+    const body = { station_id: 'alpha', crew_ids: ['alex'], cargo: { food_packs: 5 } };
+    expect(await createGame(body)).toEqual(game);
+    expect(fetch).toHaveBeenCalledWith('/api/games', expect.objectContaining({ method: 'POST', body: JSON.stringify(body) }));
   });
 
-  it('createGame posts to /api/games with json payload', async () => {
-    const mockResponse = { game_id: 'test-123', state: {} };
-    globalThis.fetch = vi.fn().mockResolvedValue({
-      ok: true,
-      json: async () => mockResponse,
-    } as any);
-
-    const payload = {
-      station_id: 'alpha',
-      crew_ids: ['alex', 'maya'],
-      cargo: { food_packs: 5 },
-    };
-
-    const result = await createGame(payload);
-    expect(globalThis.fetch).toHaveBeenCalledWith('/api/games', expect.objectContaining({
-      method: 'POST',
-      body: JSON.stringify(payload),
-    }));
-    expect(result).toEqual(mockResponse);
+  it('fetches authoritative game state', async () => {
+    const fetch = mockResponse(game);
+    expect(await fetchGameState(game.game_id)).toEqual(game);
+    expect(fetch).toHaveBeenCalledWith(`/api/games/${game.game_id}`, expect.anything());
   });
 
-  it('fetchGameState gets /api/games/:gameId', async () => {
-    const mockState = { game_id: 'g-42', state: { current_week: 1 } };
-    globalThis.fetch = vi.fn().mockResolvedValue({
-      ok: true,
-      json: async () => mockState,
-    } as any);
-
-    const result = await fetchGameState('g-42');
-    expect(globalThis.fetch).toHaveBeenCalledWith('/api/games/g-42', expect.anything());
-    expect(result).toEqual(mockState);
+  it('submits a decision and returns actual turn details', async () => {
+    const fetch = mockResponse(turn);
+    const body = { expected_week: 1, request_id: 'req-1', rations: turn.turn_outcome.rations,
+      event_choice_id: turn.turn_outcome.event.choice_id, selected_crew_id: 'alex' };
+    expect(await submitTurn(game.game_id, body)).toEqual(turn);
+    expect(fetch).toHaveBeenCalledWith(`/api/games/${game.game_id}/turn`, expect.objectContaining({ method: 'POST', body: JSON.stringify(body) }));
   });
 
-  it('submitTurn posts turn decision to /api/games/:gameId/turn', async () => {
-    const mockTurnResult = { game_id: 'g-42', state: {}, turn_outcome: {} };
-    globalThis.fetch = vi.fn().mockResolvedValue({
-      ok: true,
-      json: async () => mockTurnResult,
-    } as any);
-
-    const turnPayload = {
-      expected_week: 1,
-      request_id: 'req-1',
-      rations: { alex: { food: 'normal' as const, water: 'normal' as const } },
-      event_choice_id: 'engineer_repair',
-      selected_crew_id: 'alex',
-    };
-
-    const result = await submitTurn('g-42', turnPayload);
-    expect(globalThis.fetch).toHaveBeenCalledWith('/api/games/g-42/turn', expect.objectContaining({
-      method: 'POST',
-      body: JSON.stringify(turnPayload),
-    }));
-    expect(result).toEqual(mockTurnResult);
+  it('preserves HTTP status and readable domain errors', async () => {
+    mockResponse({ detail: 'Outdated turn: current week is 2.' }, 409);
+    await expect(fetchGameState('old')).rejects.toMatchObject({
+      name: 'ApiError', status: 409, message: 'Outdated turn: current week is 2.',
+    });
   });
 
-  it('throws ApiError with detail on HTTP error status', async () => {
-    globalThis.fetch = vi.fn().mockResolvedValue({
-      ok: false,
-      status: 409,
-      json: async () => ({ detail: 'Outdated turn: current week is 2.' }),
-    } as any);
+  it('formats FastAPI validation errors with the affected fields', async () => {
+    mockResponse({ detail: [{ loc: ['body', 'rations', 'alex', 'food'], msg: 'Invalid ration level', type: 'literal_error' }] }, 422);
+    await expect(fetchGameState('bad')).rejects.toThrow('rations.alex.food: Invalid ration level');
+  });
 
-    await expect(fetchGameState('old-game')).rejects.toThrow(ApiError);
-    await expect(fetchGameState('old-game')).rejects.toThrow('Outdated turn: current week is 2.');
+  it('reads a non-JSON error body only once', async () => {
+    vi.stubGlobal('fetch', vi.fn().mockResolvedValue(new Response('Service unavailable', { status: 503 })));
+    await expect(fetchGameState('bad')).rejects.toMatchObject({ status: 503, message: 'Service unavailable' });
+  });
+
+  it('retains the status when a server returns an empty error body', async () => {
+    vi.stubGlobal('fetch', vi.fn().mockResolvedValue(new Response('', { status: 500 })));
+    await expect(fetchGameState('bad')).rejects.toThrow(ApiError);
   });
 });

@@ -2,7 +2,7 @@
 
 The backend implements Stages 1–5 in [the game specification](game-design.md): Station Alpha, four selectable astronauts,
 six cargo types, twelve weekly turns, three JSON events, rationing, health, and all
-four endings. The React frontend is not implemented yet. All balancing values are
+four endings. A React frontend consumes this API. All balancing values are
 fictional gameplay units.
 
 Requires Python 3.11 or later. From the repository root on Windows PowerShell:
@@ -125,5 +125,31 @@ within the process. No authentication or persistent saves are included.
 
 Local CORS defaults to `http://localhost:5173` and `http://127.0.0.1:5173`.
 Override it with the comma-separated `LAST_OUTPOST_CORS_ORIGINS` environment
-variable; see `backend/.env.example`. No frontend installation/run command applies
-yet; Stage 6 in [the game specification](game-design.md) describes that future work.
+variable; see `backend/.env.example`. See the root README for frontend run commands.
+
+## Frontend contract verification
+
+Turn outcomes and journal entries have explicit Pydantic response schemas exposed
+in OpenAPI. They include event costs and applied effects, per-astronaut health
+records (`crew_id`, `before`, `after`), survival penalty breakdowns, and the next
+event's discovery effects. The UI displays these separate stages rather than
+assuming health changes are a dictionary of numeric deltas.
+
+Frontend tests use committed fixtures generated through the real FastAPI endpoints.
+From `backend/`, regenerate them after an intentional contract or content change:
+
+```powershell
+.venv/Scripts/python.exe export_frontend_fixtures.py
+```
+
+Do not edit `frontend/src/__tests__/fixtures/backend.ts` manually. Backend tests
+check that the fixtures still match the API; the frontend build type-checks their
+contents against the TypeScript response interfaces. Run both suites after
+regeneration.
+
+The frontend keeps an unresolved turn's exact payload and request ID in page
+memory after a network error, timeout, or server error. Editing is locked until
+retry resolves that submission. A definite validation rejection unlocks editing;
+a `409` triggers a fresh game-state fetch. Reloading the page fetches current
+server state, but does not preserve unsent form edits. Active missions opened
+through a results URL redirect to gameplay.

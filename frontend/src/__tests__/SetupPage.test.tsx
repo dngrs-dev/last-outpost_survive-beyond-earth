@@ -3,89 +3,7 @@ import { render, screen, fireEvent, waitFor } from '@testing-library/react';
 import { BrowserRouter } from 'react-router-dom';
 import { SetupPage } from '../pages/SetupPage';
 import * as gameApi from '../api/game';
-import type { CatalogResponse } from '../types/game';
-
-const mockCatalog: CatalogResponse = {
-  stations: [
-    {
-      id: 'alpha',
-      name: 'Station Alpha — Research Base',
-      description: 'A fictional lunar research outpost.',
-      mission_id: 'alpha_rotation',
-      starting_resources: { food: 20, water: 32, oxygen: 30, electricity: 30 },
-      energy_per_week: 24,
-      oxygen_per_week: 14,
-    },
-  ],
-  missions: [
-    {
-      id: 'alpha_rotation',
-      name: 'Hold Until Rotation',
-      description: 'Survive 84 Earth days.',
-      duration_weeks: 12,
-      minimum_survivors: 1,
-    },
-  ],
-  crew: [
-    {
-      id: 'alex',
-      name: 'Alex Vega',
-      role: 'engineer',
-      description: 'Chief engineer.',
-      health: 100,
-      positive_trait: 'Steady hands',
-      negative_trait: 'Large appetite',
-      food_multiplier: 1.1,
-      water_multiplier: 1.0,
-      event_bonus: 0.05,
-      injury_multiplier: 1.0,
-    },
-    {
-      id: 'maya',
-      name: 'Maya Patel',
-      role: 'medic',
-      description: 'Medical officer.',
-      health: 100,
-      positive_trait: 'Efficient metabolism',
-      negative_trait: 'Thirsty',
-      food_multiplier: 0.9,
-      water_multiplier: 1.1,
-      event_bonus: 0.0,
-      injury_multiplier: 1.0,
-    },
-  ],
-  items: [
-    {
-      id: 'food_packs',
-      name: 'Food packs',
-      description: 'Four weekly food units.',
-      resource: 'food',
-      resource_amount: 4,
-      weight_kg: 2,
-      volume_l: 4,
-    },
-    {
-      id: 'water_containers',
-      name: 'Water containers',
-      description: 'Five water units.',
-      resource: 'water',
-      resource_amount: 5,
-      weight_kg: 5,
-      volume_l: 5,
-    },
-  ],
-  limits: {
-    max_crew: 4,
-    max_cargo_mass_kg: 500,
-    max_cargo_volume_l: 450,
-  },
-  ration_multipliers: {
-    normal: 1.0,
-    reduced: 0.5,
-    emergency: 0.0,
-  },
-  balance_note: 'Fictional gameplay values.',
-};
+import { catalog as mockCatalog, game } from './fixtures/backend';
 
 describe('SetupPage', () => {
   beforeEach(() => {
@@ -107,7 +25,7 @@ describe('SetupPage', () => {
     });
 
     expect(screen.getByText('Alex Vega')).toBeInTheDocument();
-    expect(screen.getByText('Maya Patel')).toBeInTheDocument();
+    expect(screen.getByText('Maya Okafor')).toBeInTheDocument();
     expect(screen.getByText('Food packs')).toBeInTheDocument();
     expect(screen.getByText('Water containers')).toBeInTheDocument();
   });
@@ -165,7 +83,7 @@ describe('SetupPage', () => {
   it('submits valid mission setup and calls createGame', async () => {
     const createGameMock = vi.spyOn(gameApi, 'createGame').mockResolvedValue({
       game_id: 'test-game-xyz',
-      state: {} as any,
+      state: game.state,
     });
 
     render(
