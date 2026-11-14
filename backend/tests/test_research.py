@@ -36,7 +36,9 @@ def advance_work(engine, state, week, rations, choice_id, actor=None):
 
 @pytest.fixture
 def research_state(state):
-    state.resources.update(scientific_tools=1, eva_batteries=10, repair_kits=10, electricity=100)
+    state.resources.update(
+        scientific_tools=1, eva_batteries=10, repair_kits=10, electricity=100, food=100, water=200
+    )
     return state
 
 
@@ -65,11 +67,12 @@ def test_planned_work_credits_only_success_and_spends_real_supplies(
     assert report["event"]["success"] == succeeded
     assert report["event"]["costs"] == choice.costs
     assert after.resources["scientific_tools"] == 1
-    assert after.resources["research_data"] == (2 if succeeded else 0)
+    credited = succeeded and choice.id != "research_seismic"
+    assert after.resources["research_data"] == (2 if credited else 0)
     assert science_view(after, quiet_engine.definitions)["status"] == (
-        "partial" if succeeded else "not_started"
+        "partial" if credited else "not_started"
     )
-    assert sum(gain["amount"] for gain in report["event"]["objective_progress"]) == int(succeeded)
+    assert sum(gain["amount"] for gain in report["event"]["objective_progress"]) == int(credited)
     assert after.weeks_completed == 1
     assert len(after.history) == 1
 
@@ -180,6 +183,18 @@ def test_science_can_be_complete_even_when_survival_fails(
         state, _ = advance_work(
             quiet_engine, state, state.current_week, normal_rations(state), choice_id, "alex"
         )
+    # Instrument work already supplied the first automatic recording week.
+    for _ in range(2):
+        state, _ = quiet_engine.advance_week(
+            state, state.current_week, normal_rations(state), "continue"
+        )
+    state, _ = quiet_engine.advance_week(
+        state,
+        state.current_week,
+        normal_rations(state),
+        "continue",
+        assignments=[{"crew_id": "alex", "activity_id": f"project:{state.projects[0].id}"}],
+    )
     assert science_view(state, quiet_engine.definitions)["status"] == "complete"
     for crew in state.crew:
         crew.health = 1

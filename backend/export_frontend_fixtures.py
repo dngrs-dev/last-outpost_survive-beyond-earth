@@ -144,7 +144,19 @@ def generate(check: bool = False) -> None:
         while result["state"]["status"] == "running":
             state = result["state"]
             choices = state["assignment_options"]
-            work = next((c for c in choices if c["available"] and c["objective_rewards"]), None)
+            work = next(
+                (
+                    c
+                    for c in choices
+                    if c["available"]
+                    and (
+                        c["objective_rewards"]
+                        or c["id"] == "research_seismic"
+                        or c["id"].startswith("project:")
+                    )
+                ),
+                None,
+            )
             result = turn(
                 result,
                 decision(
@@ -192,6 +204,45 @@ def generate(check: bool = False) -> None:
                 break
         else:
             raise RuntimeError("No support crew fixture found")
+
+        for seed in range(50):
+            initial = create(seed, ["alex", "lin"], research_cargo)
+            deployed = turn(
+                initial, decision(initial["state"], "project-deploy", choice_id="research_seismic")
+            )
+            if not deployed["turn_outcome"]["assignments"][0]["outcome"]["success"]:
+                continue
+            pid = deployed["state"]["research_projects"][0]["id"]
+            pause_body = decision(deployed["state"], "project-pause", ignore=True)
+            pause_body["project_orders"] = [{"project_id": pid, "action": "pause"}]
+            paused = turn(deployed, pause_body)
+            resume_body = decision(paused["state"], "project-resume", ignore=True)
+            resume_body["project_orders"] = [{"project_id": pid, "action": "resume"}]
+            recording = turn(paused, resume_body)
+            for count in range(2):
+                recording = turn(
+                    recording, decision(recording["state"], f"project-record-{count}", ignore=True)
+                )
+            finished = turn(
+                recording,
+                decision(recording["state"], "project-analyze", choice_id=f"project:{pid}"),
+            )
+            if finished["state"]["research_projects"][0]["status"] != "completed":
+                continue
+            for name, response in (
+                ("projectRecording", deployed),
+                ("projectPaused", paused),
+                ("projectAnalysis", recording),
+                ("projectCompleted", finished),
+            ):
+                fixtures[name] = (
+                    "GameResponse",
+                    {"game_id": response["game_id"], "state": response["state"]},
+                )
+            fixtures["projectPauseTurn"] = ("TurnResponse", paused)
+            break
+        else:
+            raise RuntimeError("No complete phased project fixture found")
 
         for name, crew, cargo in (
             ("completed", ["alex", "maya"], CARGO),

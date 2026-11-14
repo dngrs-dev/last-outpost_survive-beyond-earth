@@ -34,6 +34,11 @@
 > work now runs through independent one-week crew assignments alongside incident
 > response. Each astronaut has one main job. See `assignments.md` and `research.md`.
 
+> Project lifecycle update: seismic assignments now deploy sensors, record for
+> three powered weeks without occupying crew, and finish with crew analysis.
+> Pauses and interruptions retain progress. See `projects.md`; other research
+> assignments still take one week, and science remains separate from survival.
+
 **Project name:** LAST OUTPOST  
 **Subtitle:** Lunar Survival  
 **Genre:** Turn-based survival, strategy, resource management, decision-making  

@@ -220,7 +220,8 @@ def load_definitions(data_dir: Path = DEFAULT_DATA) -> Definitions:
         for choice in event.choices:
             context = f"{event.id}/{choice.id}"
             _require(
-                choice.id not in {"clean_array", "install_regulator"} | RESEARCH_CHOICE_IDS,
+                choice.id not in {"clean_array", "install_regulator"} | RESEARCH_CHOICE_IDS
+                and not choice.id.startswith("project:"),
                 f"{context}: reserved weekly action ID",
             )
             _resources(choice.costs, context)

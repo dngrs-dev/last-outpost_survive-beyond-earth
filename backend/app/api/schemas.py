@@ -31,6 +31,11 @@ class AssignmentRequest(RequestModel):
     activity_id: Identifier
 
 
+class ProjectOrderRequest(RequestModel):
+    project_id: Identifier
+    action: Literal["pause", "resume", "interrupt"]
+
+
 class SubmitTurnRequest(RequestModel):
     expected_week: Annotated[int, Field(strict=True, ge=1)]
     request_id: Identifier
@@ -39,6 +44,7 @@ class SubmitTurnRequest(RequestModel):
     selected_crew_id: Identifier | None = None
     support_crew_ids: list[Identifier] = Field(default_factory=list, max_length=7)
     assignments: list[AssignmentRequest] = Field(default_factory=list, max_length=8)
+    project_orders: list[ProjectOrderRequest] = Field(default_factory=list, max_length=8)
 
 
 class ErrorResponse(BaseModel):
@@ -220,7 +226,14 @@ class AssignmentOutcomeResponse(BaseModel):
     reason: str | None
 
 
+class ProjectUpdateResponse(BaseModel):
+    project_id: str
+    message: str
+    electricity_used: float
+
+
 class TurnOutcomeResponse(BaseModel):
+    project_updates: list[ProjectUpdateResponse]
     assignments: list[AssignmentOutcomeResponse]
     science_gains: list[ObjectiveGainResponse]
     week: int
@@ -233,7 +246,26 @@ class TurnOutcomeResponse(BaseModel):
     ending: str | None = None
 
 
+class ProjectResponse(BaseModel):
+    id: str
+    kind: str
+    status: Literal["active", "paused", "completed"]
+    phase: str
+    phase_index: int
+    phase_progress: int
+    phase_weeks: int
+    remaining_weeks: int
+    estimated_completion_week: int | None
+    within_rotation: bool
+    crew_required: int
+    costs: dict[str, float]
+    required_items: dict[str, int]
+    assigned_crew_id: str | None
+    message: str
+
+
 class GameStateResponse(BaseModel):
+    research_projects: list[ProjectResponse]
     station_id: str
     station_name: str
     difficulty: str

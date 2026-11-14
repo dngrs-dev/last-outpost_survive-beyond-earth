@@ -44,7 +44,7 @@ to appear before an objective becomes possible.
 | Planned task | Supplies spent on either outcome | Success | Failure | Role bonuses |
 |---|---|---|---|---|
 | Survey a geological sample | 1 EVA pack, 2 oxygen | 1 sample, 2 research data | Worker loses 8 health before traits | Scientist +20 points; technician +10 |
-| Analyze a seismic record | 2 electricity | 1 analysis, 2 research data | Lose 2 additional electricity | Scientist +20 points; technician +10 |
+| Start a seismic project | 1 EVA pack, 2 oxygen, 2 electricity | Deploy sensors; no immediate credit | Worker loses 8 health before traits | Scientist +20 points; technician +10 |
 | Restore the next research instrument | 1 repair kit, 2 electricity | 1 restoration, 2 research data | Worker loses 6 health before traits | Engineer/technician +20 points; scientist +10 |
 
 All three require a living assigned astronaut and the reusable field science kit.
@@ -55,7 +55,11 @@ submission. The field kit is not consumed. Research data retains its role as a
 separate total for additional scientific output; it cannot substitute for any
 specific objective.
 
-Each task occupies one astronaut for one week alongside the incident response.
+Geology and instrument tasks occupy one astronaut for one week alongside the
+incident response. Seismic deployment starts a [phased project](projects.md):
+three automatic powered recording weeks follow, then one assigned analysis week.
+Only successful final analysis earns its objective credit. Existing detailed
+seismic event analysis remains another route to the target.
 Incident responders and support crew cannot also take assignments. Initial
 incident damage remains until repaired. Multiple astronauts may work on research,
 but total objective credit cannot exceed the target. Completed objectives stop

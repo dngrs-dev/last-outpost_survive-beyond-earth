@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
 import { fetchGameState } from '../api/game';
+import { ResearchProjects } from '../components/ResearchProjects';
 import { Header } from '../components/Header';
 import { ResearchObjectives } from '../components/ResearchObjectives';
 import { ResourceCard } from '../components/ResourceCard';
@@ -188,6 +189,8 @@ export const ResultsPage: React.FC = () => {
       </div>
 
       <ResearchObjectives objectives={state.results!.science.objectives} science={state.results!.science} final />
+
+      <ResearchProjects projects={state.research_projects} />
 
       {/* Final Outpost Status */}
       <StationOverview

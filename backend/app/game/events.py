@@ -12,6 +12,7 @@ from app.game.models import (
     GameError,
     GameState,
 )
+from app.game.projects import potential_project_credit
 from app.game.research import RESEARCH_CHOICE_IDS, objective_rewards
 from app.game.rules import Rules
 from app.game.survival import change_health
@@ -229,12 +230,16 @@ def choice_views(
                 **asdict(choice),
                 "action_type": (
                     "research"
-                    if choice.id in RESEARCH_CHOICE_IDS
+                    if choice.id in RESEARCH_CHOICE_IDS or choice.id.startswith("project:")
                     else "maintenance"
                     if choice in MAINTENANCE_CHOICES
                     else "event"
                 ),
-                "objective_rewards": objective_rewards(state, definitions, choice.id),
+                "objective_rewards": objective_rewards(
+                    state, definitions, potential_project_credit(state, choice.id)
+                )
+                if potential_project_credit(state, choice.id)
+                else [],
                 "available": available,
                 "unavailable_reasons": reasons,
                 "eligible_crew": candidates,

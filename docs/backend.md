@@ -11,7 +11,12 @@ includes `science_objectives` for preparation. Game states expose `science`
 and terminal `results.science` records the same assessment separately from the
 survival ending. Status is `not_started`, `partial`, or `complete`.
 
-Weekly turns contain one incident response plus independent one-week crew assignments.
+Weekly turns contain one incident response plus independent crew assignments.
+[Seismic projects](projects.md) persist across turns: manual phases use assignments,
+automatic recording uses stored power without crew, and controls use optional
+`project_orders` (project ID plus pause/resume/interrupt). States expose
+`research_projects`; turn outcomes expose `project_updates`. Only successful final
+analysis grants project seismic credit.
 Each astronaut has one main job. See [weekly assignments](assignments.md) for the
 request contract, support-crew rules, supply reservations, resolution order, and
 cancellation policy. Research credit from both paths is combined in the turn's

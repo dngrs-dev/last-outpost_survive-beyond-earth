@@ -61,6 +61,7 @@ def test_invalid_configuration(data_dir, filename, field, value):
 @pytest.mark.parametrize(
     "field,value",
     [
+        ("id", "project:seismic-1"),
         ("success_chance", 1.5),
         ("costs", {"food": -1}),
         ("costs", {"medicine": 0.5}),

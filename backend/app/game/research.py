@@ -25,19 +25,19 @@ RESEARCH_CHOICES = [
     ),
     EventChoice(
         id="research_seismic",
-        text="Analyze a seismic record",
+        text="Deploy seismic sensors",
         description=(
-            "Use the science kit to complete one analysis and earn 2 research data on success. "
-            "Scientists improve the odds; failure wastes 2 additional power. "
-            "One-week crew assignment; incident response is separate."
+            "Start a seismic project: 1 deployment week, 3 automatic recording weeks at 2 power "
+            "each, then 1 crew analysis week. No objective credit until analysis succeeds. "
+            "Failure costs 8 worker health and deployment supplies; the phase can be retried."
         ),
-        costs={"electricity": 2},
+        costs={"electricity": 2, "eva_batteries": 1, "oxygen": 2},
         required_items={"scientific_tools": 1},
         requires_crew=True,
         role_bonus={"scientist": 0.2, "technician": 0.1},
         success_chance=0.75,
-        success_effects=Effects(resources={"research_data": 2}),
-        failure_effects=Effects(resources={"electricity": -2}),
+        success_effects=Effects(),
+        failure_effects=Effects(crew_health=-8),
     ),
     EventChoice(
         id="research_instrument",
@@ -114,4 +114,12 @@ def research_choices(state: GameState, definitions: Definitions) -> list[EventCh
         if not objective["completed"]
         for choice_id in objective["qualifying_choices"]
     }
-    return [choice for choice in RESEARCH_CHOICES if choice.id in pending_choices]
+    return [
+        choice
+        for choice in RESEARCH_CHOICES
+        if choice.id in pending_choices
+        and (
+            choice.id != "research_seismic"
+            or not any(p.kind == "seismic" and p.status != "completed" for p in state.projects)
+        )
+    ]

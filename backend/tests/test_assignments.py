@@ -51,8 +51,8 @@ def test_incident_and_three_assignments_resolve_together(quiet_engine, work_stat
     )
     assert after.solar_efficiency == 1
     assert len(report["assignments"]) == 3
-    assert sum(g["amount"] for g in report["science_gains"]) == 3
-    assert after.resources["eva_batteries"] == state.resources["eva_batteries"] - 3
+    assert sum(g["amount"] for g in report["science_gains"]) == 2
+    assert after.resources["eva_batteries"] == state.resources["eva_batteries"] - 4
     assert after.weeks_completed == 1
     assert quiet_engine.state_view(after)["science"]["objectives"][0]["progress"] == 2
     assert all(

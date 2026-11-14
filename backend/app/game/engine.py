@@ -16,6 +16,14 @@ from app.game.events import (
     select_event,
 )
 from app.game.models import Definitions, GameError, GameState, Ration
+from app.game.projects import (
+    advance_recording,
+    apply_project_orders,
+    clear_dead_workers,
+    finish_manual_work,
+    project_choices,
+    project_views,
+)
 from app.game.research import objective_rewards, research_choices, science_view
 from app.game.rules import DEFAULT_RULES, RATION_MULTIPLIERS, Rules
 from app.game.survival import permits_depletion, ration_cost, ration_requirements, simulate_week
@@ -109,11 +117,14 @@ class GameEngine:
         selected_crew_id: str | None = None,
         support_crew_ids: list[str] | None = None,
         assignments: list[dict] | None = None,
+        project_orders: list[dict] | None = None,
     ) -> tuple[GameState, dict]:
         if original.status != "running":
             raise GameError("The mission has already finished.", 409)
         if expected_week != original.current_week:
             raise GameError(f"Outdated turn: current week is {original.current_week}.", 409)
+        planning = deepcopy(original)
+        apply_project_orders(planning, project_orders or [])
         costs = ration_requirements(original, rations, self.rules)
         event = get_event(original, self.definitions)
         choice = next((choice for choice in event.choices if choice.id == event_choice_id), None)
@@ -132,7 +143,7 @@ class GameEngine:
             raise GameError(f"This response requires {required_support} support astronauts.")
         occupied = ([selected_crew_id] if choice.requires_crew else []) + support
         living_ids = {crew.id for crew in original.crew if crew.alive}
-        activities = {activity.id: activity for activity in self.assignment_choices(original)}
+        activities = {activity.id: activity for activity in self.assignment_choices(planning)}
         planned = []
         for order in orders:
             actor = next((crew for crew in original.crew if crew.id == order["crew_id"]), None)
@@ -144,6 +155,16 @@ class GameEngine:
                 raise GameError(" ".join(reasons))
             occupied.append(order["crew_id"])
             planned.append((activity, order["crew_id"]))
+        project_work = [
+            a.id for a, _ in planned if a.id == "research_seismic" or a.id.startswith("project:")
+        ]
+        if len(set(project_work)) != len(project_work):
+            raise GameError("Only one worker may advance each project per week.")
+        paused = {
+            o["project_id"] for o in project_orders or [] if o["action"] in {"pause", "interrupt"}
+        }
+        if any(a.removeprefix("project:") in paused for a in project_work):
+            raise GameError("Cannot assign work to a project paused or interrupted this week.")
         if any(crew_id not in living_ids for crew_id in occupied):
             raise GameError("Only living astronauts can be assigned.")
         if len(set(occupied)) != len(occupied):
@@ -164,7 +185,15 @@ class GameEngine:
                         f"Insufficient {resource} for rations and all weekly actions combined."
                     )
 
-        state = deepcopy(original)
+        state = planning
+        project_log = [
+            {
+                "project_id": order["project_id"],
+                "message": next(p.message for p in state.projects if p.id == order["project_id"]),
+                "electricity_used": 0,
+            }
+            for order in project_orders or []
+        ]
         # Reserve every action's base cost before any outcome can consume supplies.
         for resource, amount in action_costs.items():
             state.resources[resource] = max(0.0, round(state.resources[resource] - amount, 6))
@@ -202,11 +231,31 @@ class GameEngine:
                 purpose=f"outcome:assignment:{crew_id}:{activity.id}",
                 charge_costs=False,
             )
+            project_activity = activity.id == "research_seismic" or activity.id.startswith(
+                "project:"
+            )
+            completed_project = finish_manual_work(state, activity.id, crew_id, outcome["success"])
             credit = (
-                objective_rewards(state, self.definitions, activity.id, gains)
-                if outcome["success"]
+                objective_rewards(
+                    state,
+                    self.definitions,
+                    completed_project if project_activity else activity.id,
+                    gains,
+                )
+                if outcome["success"] and (not project_activity or completed_project)
                 else []
             )
+            if project_activity:
+                project = (
+                    state.projects[-1]
+                    if activity.id == "research_seismic"
+                    else next(
+                        p for p in state.projects if p.id == activity.id.removeprefix("project:")
+                    )
+                )
+                project_log.append(
+                    {"project_id": project.id, "message": project.message, "electricity_used": 0}
+                )
             outcome["objective_progress"] = credit
             outcome["support_crew_ids"] = []
             gains.extend(credit)
@@ -219,15 +268,18 @@ class GameEngine:
                     "reason": None,
                 }
             )
+        advance_recording(state, original, project_log)
         state, survival = simulate_week(
             state, self.definitions.stations[state.station_id], rations, self.rules
         )
+        clear_dead_workers(state, project_log)
         state.weeks_completed += 1
         state.used_event_ids.append(event.id)
         report = {
             "week": state.current_week,
             "event": event_result,
             "assignments": assignment_results,
+            "project_updates": project_log,
             "science_gains": gains,
             "rations": {crew_id: asdict(ration) for crew_id, ration in rations.items()},
             "survival": survival,
@@ -321,7 +373,11 @@ class GameEngine:
         }
 
     def assignment_choices(self, state: GameState):
-        return [*MAINTENANCE_CHOICES, *research_choices(state, self.definitions)]
+        return [
+            *MAINTENANCE_CHOICES,
+            *research_choices(state, self.definitions),
+            *project_choices(state),
+        ]
 
     def state_view(self, state: GameState) -> dict:
         mission = self.definitions.missions[state.mission_id]
@@ -348,7 +404,7 @@ class GameEngine:
             self.rules,
         )
         return {
-            **asdict(state),
+            **{key: value for key, value in asdict(state).items() if key != "projects"},
             "crew": crew_views,
             "station_name": self.definitions.stations[state.station_id].name,
             "difficulty": self.definitions.stations[state.station_id].difficulty,
@@ -361,6 +417,7 @@ class GameEngine:
                 "start": (state.current_week - 1) * 7 + 1,
                 "end": state.current_week * 7,
             },
+            "research_projects": project_views(state, self.definitions),
             "current_event": event_view(state, self.definitions),
             "assignment_options": choice_views(
                 state, self.definitions, self.assignment_choices(state)

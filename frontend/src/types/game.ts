@@ -124,6 +124,7 @@ export interface SubmitTurnRequest {
   selected_crew_id?: string | null;
   support_crew_ids?: string[];
   assignments?: { crew_id: string; activity_id: string }[];
+  project_orders?: { project_id: string; action: "pause" | "resume" | "interrupt" }[];
 }
 
 export interface RationCost {
@@ -235,6 +236,7 @@ export interface SurvivalHealthChange extends HealthChange {
 }
 
 export interface TurnOutcome {
+  project_updates: { project_id: string; message: string; electricity_used: number }[];
   science_gains: ObjectiveGain[];
   assignments: { crew_id: string; activity_id: string; status: "completed" | "cancelled"; outcome: TurnOutcome["event"] | null; reason: string | null }[];
   week: number;
@@ -277,7 +279,26 @@ export interface TurnOutcome {
 
 export type TurnHistoryEntry = TurnOutcome;
 
+export interface ResearchProject {
+  id: string;
+  kind: string;
+  status: 'active' | 'paused' | 'completed';
+  phase: string;
+  phase_index: number;
+  phase_progress: number;
+  phase_weeks: number;
+  remaining_weeks: number;
+  estimated_completion_week: number | null;
+  within_rotation: boolean;
+  crew_required: number;
+  costs: Record<string, number>;
+  required_items: Record<string, number>;
+  assigned_crew_id: string | null;
+  message: string;
+}
+
 export interface GameStateResponse {
+  research_projects: ResearchProject[];
   station_id: string;
   station_name: string;
   difficulty: string;

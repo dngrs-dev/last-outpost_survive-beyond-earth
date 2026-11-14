@@ -2,6 +2,7 @@ import React, { useEffect, useRef, useState } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
 import { fetchGameState, submitTurn } from '../api/game';
 import { ApiError } from '../api/client';
+import { ResearchProjects } from '../components/ResearchProjects';
 import { Header } from '../components/Header';
 import { ResearchObjectives } from '../components/ResearchObjectives';
 import { ResourceCard } from '../components/ResourceCard';
@@ -34,6 +35,7 @@ export const GamePage: React.FC = () => {
   const [selectedChoiceId, setSelectedChoiceId] = useState<string>('');
   const [selectedCrewId, setSelectedCrewId] = useState<string | null>(null);
   const [supportCrew, setSupportCrew] = useState<string[]>([]);
+  const [projectOrders, setProjectOrders] = useState<Record<string, "pause" | "resume" | "interrupt">>({});
   const [assignments, setAssignments] = useState<Record<string, string>>({});
 
   // Modal debrief state
@@ -91,6 +93,7 @@ export const GamePage: React.FC = () => {
     setRations(initialRations);
     setSupportCrew([]);
     setAssignments({});
+    setProjectOrders({});
     setSelectedChoiceId('');
     setSelectedCrewId(null);
 
@@ -169,6 +172,7 @@ export const GamePage: React.FC = () => {
       event_choice_id: selectedChoiceId,
       selected_crew_id: choice?.requires_crew ? selectedCrewId : null,
       support_crew_ids: supportCrew.slice(),
+      project_orders: Object.entries(projectOrders).map(([project_id, action]) => ({project_id, action})),
       assignments: Object.entries(assignments).filter(([, activity]) => activity).map(([crew_id, activity_id]) => ({crew_id, activity_id})),
     };
     submissionInFlight.current = true;
@@ -264,6 +268,11 @@ export const GamePage: React.FC = () => {
     return acc + (c.ration_options?.[level]?.water ?? 0);
   }, 0);
 
+  const automaticProjectPower = state.research_projects
+    .filter(p => p.status !== 'completed' && p.crew_required === 0
+      && !['pause', 'interrupt'].includes(projectOrders[p.id])
+      && (p.status === 'active' || projectOrders[p.id] === 'resume'))
+    .reduce((sum, p) => sum + (p.costs.electricity || 0), 0);
   const requiredSupport = activeChoice?.requires_crew ? Math.max(0, activeChoice.minimum_crew - 1) : 0;
   const incidentCrew = [...(activeChoice?.requires_crew && selectedCrewId ? [selectedCrewId] : []), ...supportCrew];
   const weeklyCosts: Record<string, number> = { food: totalFoodNeeded, water: totalWaterNeeded };
@@ -276,6 +285,9 @@ export const GamePage: React.FC = () => {
     }
   }
   const planIssues: string[] = [];
+  const projectWork = orderedActivities.filter(o => o.activity?.id === 'research_seismic' || o.activity?.id.startsWith('project:'));
+  if (new Set(projectWork.map(o => o.activity.id)).size !== projectWork.length) planIssues.push('Only one worker may advance each project this week.');
+  if (projectWork.some(o => ['pause', 'interrupt'].includes(projectOrders[o.activity.id.replace('project:', '')]))) planIssues.push('Remove the assignment before pausing or interrupting its project.');
   if (supportCrew.length !== requiredSupport) planIssues.push(`Select exactly ${requiredSupport} support astronauts for this response.`);
   if (new Set(incidentCrew).size !== incidentCrew.length || orderedActivities.some(order => incidentCrew.includes(order.crewId))) planIssues.push('Each astronaut can perform only one main job this week.');
   for (const order of orderedActivities) if (!order.activity?.eligible_crew.find(c => c.crew_id === order.crewId)?.available) planIssues.push('An assignment is unavailable for its astronaut.');
@@ -391,9 +403,11 @@ export const GamePage: React.FC = () => {
         </div>
       )}
 
+      <ResearchProjects projects={state.research_projects} orders={projectOrders} disabled={decisionLocked} onChange={setProjectOrders} />
+
       <section className="card" aria-label="Crew assignments" style={{ marginBottom: '1.5rem' }}>
         <h2>Crew assignments</h2>
-        <p>One main job per astronaut. Assignments take one week; unassigned crew perform routine duties. Incident crew cannot take another assignment.</p>
+        <p>One main job per astronaut. Manual assignments take one week; unassigned crew perform routine duties. Incident crew cannot take another assignment.</p>
         {activeChoice?.requires_crew && requiredSupport > 0 && <fieldset disabled={decisionLocked}>
           <legend>Incident support crew: {supportCrew.length} / {requiredSupport}</legend>
           {livingCrew.filter(c => c.id !== selectedCrewId).map(c => <label key={c.id} style={{ marginRight: '1rem' }}>
@@ -415,6 +429,7 @@ export const GamePage: React.FC = () => {
         <details><summary>Assignment requirements and costs</summary>
           {state.assignment_options.map(activity => <div key={activity.id}><h3>{activity.text}</h3><p>{activity.description}</p><p>Costs: {Object.entries(activity.costs).map(([id, value]) => `${value} ${id.replace(/_/g, ' ')}`).join(', ')}. Equipment retained: {Object.entries(activity.required_items).map(([id, value]) => `${value} ${id.replace(/_/g, ' ')}`).join(', ') || 'none'}.</p>{activity.objective_rewards.map(g => <p key={g.objective_id}>On success: +{g.amount} toward {g.title} (capped at target).</p>)}</div>)}
         </details>
+        <p>Automatic recording may additionally use {automaticProjectPower} stored power after action effects. Shortages skip recording without charging.</p>
         <p>Projected spending (rations and all actions): {Object.entries(weeklyCosts).map(([id, amount]) => `${amount.toFixed(1)} ${id.replace(/_/g, ' ')}`).join(' | ')}. Generation and outcome effects apply afterward.</p>
         {planIssues.map(issue => <p key={issue} role="alert">{issue}</p>)}
       </section>

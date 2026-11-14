@@ -40,8 +40,9 @@ An incident requiring two crew must name one living lead and exactly one other
 living support astronaut. No astronaut can be lead, support, and/or assignment
 worker more than once. Support does not add another role bonus; the existing
 lead and living-crew probability rules remain in effect. Responses needing no
-lead require an empty support list. All assignments currently take one week and
-require one astronaut; multi-week projects remain future work.
+lead require an empty support list. Manual assignments take one week and
+require one astronaut. [Seismic projects](projects.md) retain phase progress across
+weeks and record automatically without crew.
 
 Empty assignments and support lists default to `[]`, preserving simple one-person
 responses. Old requests that relied on an implicit second incident astronaut
@@ -91,7 +92,9 @@ The interface separates incident choices from the crew-work module and shows
 support selection, occupied crew, probabilities, requirements, costs, combined
 projected spending, and conflicts before submission. The debrief and final journal
 include successful, failed, and cancelled work. Medical assignments, new fatality
-mechanics, fatigue, and lasting projects are outside this implementation.
+mechanics and fatigue remain future work. Lasting seismic projects now use the
+[project lifecycle](projects.md), including optional `project_orders`, automatic
+power spending after action effects, and `project_updates` in weekly reports.
 
 Validation also exercised 120 seeded campaigns across all six outposts with
 two- and four-person crews. Every run resolved to an ending without blocked

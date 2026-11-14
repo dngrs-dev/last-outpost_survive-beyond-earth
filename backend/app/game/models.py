@@ -136,6 +136,18 @@ class Ration:
 
 
 @dataclass
+class ResearchProject:
+    id: str
+    kind: str
+    phase_index: int = 0
+    progress: int = 0
+    status: Literal["active", "paused", "completed"] = "active"
+    assigned_crew_id: str | None = None
+    message: str = "Awaiting deployment."
+    completed_week: int | None = None
+
+
+@dataclass
 class GameState:
     station_id: str
     mission_id: str
@@ -153,6 +165,7 @@ class GameState:
     initial_crew_size: int
     weeks_completed: int = 0
     ending: str | None = None
+    projects: list[ResearchProject] = field(default_factory=list)
 
 
 @dataclass(frozen=True)
