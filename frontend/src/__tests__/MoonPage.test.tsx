@@ -77,11 +77,11 @@ describe('Outpost deployment console', () => {
   it('requires two crew for the long mission during preparation', async () => {
     renderMoon('/?station=taurus&lunar_site=apollo-17');
     await screen.findByRole('region', { name: 'Selected lunar mission' });
-    for (const name of ['Maya Okafor', 'Lin Park', 'Sam Nowak']) {
-      fireEvent.click(screen.getByText(name).closest('.crew-card')!);
+    for (const index of [2, 3, 4]) {
+      fireEvent.change(screen.getByRole('combobox', { name: `Crew slot ${index}` }), { target: { value: '' } });
     }
     expect(screen.getByRole('button', { name: /LAUNCH EXPEDITION TO MOON/ })).toBeDisabled();
-    fireEvent.click(screen.getByText('Maya Okafor').closest('.crew-card')!);
+    fireEvent.change(screen.getByRole('combobox', { name: 'Crew slot 2' }), { target: { value: 'maya' } });
     expect(screen.getByRole('button', { name: /LAUNCH EXPEDITION TO MOON/ })).not.toBeDisabled();
   });
 

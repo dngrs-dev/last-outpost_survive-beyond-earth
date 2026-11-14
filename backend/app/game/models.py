@@ -52,6 +52,9 @@ class CrewMember(Definition):
     injury_multiplier: float = 1.0
     food_shortage_weeks: int = 0
     water_shortage_weeks: int = 0
+    specialty: str = "Mission operations"
+    training_source: str = "https://www.nasa.gov/reference/jsc-crew-operations-training/"
+    action_bonuses: dict[str, float] = field(default_factory=dict)
 
     @property
     def alive(self) -> bool:
@@ -69,6 +72,10 @@ class Item(Definition):
     category: str
     resource: str
     resource_amount: float
+    max_quantity: int = 1000000
+    inspiration_source: str = (
+        "https://www.nasa.gov/centers-and-facilities/johnson/spacewalk-spacesuit-basics/"
+    )
 
 
 @dataclass(frozen=True)

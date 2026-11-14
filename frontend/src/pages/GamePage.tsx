@@ -337,6 +337,10 @@ export const GamePage: React.FC = () => {
       </div>
 
       {/* Weekly Narrative Event Dilemma */}
+      <div className="resources-grid" aria-label="Maintenance equipment">
+        {[['dust_kits', 'Dust kits'], ['oxygen_regulators', 'Oxygen regulators'], ['diagnostic_tools', 'Diagnostic scanners']].map(([id, name]) =>
+          <ResourceCard key={id} id={id} name={name} value={state.resources[id] || 0} unit="units" />)}
+      </div>
       {state.current_event ? (
         <EventCard
           event={state.current_event}

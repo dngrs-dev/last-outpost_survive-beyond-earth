@@ -1,91 +1,229 @@
 [
   {
-    "id": "solar_failure", "title": "Dust on the Array",
+    "id": "solar_failure",
+    "title": "Dust on the Array",
     "description": "An actuator has jammed in lunar dust. Solar output falls by 25 percentage points until repaired.",
-    "weight": 3, "min_week": 1, "on_start": {"solar_efficiency": -0.25},
+    "weight": 3,
+    "min_week": 1,
+    "on_start": {
+      "solar_efficiency": -0.25
+    },
     "choices": [
       {
-        "id": "engineer_repair", "text": "Send the engineer outside",
+        "id": "engineer_repair",
+        "text": "Send the engineer outside",
         "description": "Requires an engineer. A failed EVA causes injury; supplies are spent either way.",
-        "costs": {"repair_kits": 1, "eva_batteries": 1, "oxygen": 2},
-        "required_items": {}, "requires_crew": true, "required_role": "engineer",
-        "role_bonus": {"engineer": 0.3}, "success_chance": 0.6,
-        "success_effects": {"solar_efficiency": 0.25},
-        "failure_effects": {"crew_health": -25}
+        "costs": {
+          "repair_kits": 1,
+          "eva_batteries": 1,
+          "oxygen": 2
+        },
+        "required_items": {},
+        "requires_crew": true,
+        "required_role": "engineer",
+        "role_bonus": {
+          "engineer": 0.3
+        },
+        "success_chance": 0.6,
+        "success_effects": {
+          "solar_efficiency": 0.25
+        },
+        "failure_effects": {
+          "crew_health": -25
+        }
       },
       {
-        "id": "crew_repair", "text": "Attempt a general repair",
+        "id": "crew_repair",
+        "text": "Attempt a general repair",
         "description": "Any living astronaut can try. Failure causes a serious EVA injury.",
-        "costs": {"repair_kits": 1, "eva_batteries": 1, "oxygen": 2},
-        "required_items": {}, "requires_crew": true,
-        "role_bonus": {"engineer": 0.25, "technician": 0.15}, "success_chance": 0.5,
-        "success_effects": {"solar_efficiency": 0.25},
-        "failure_effects": {"crew_health": -40}
+        "costs": {
+          "repair_kits": 1,
+          "eva_batteries": 1,
+          "oxygen": 2
+        },
+        "required_items": {},
+        "requires_crew": true,
+        "role_bonus": {
+          "engineer": 0.25,
+          "technician": 0.15
+        },
+        "success_chance": 0.5,
+        "success_effects": {
+          "solar_efficiency": 0.25
+        },
+        "failure_effects": {
+          "crew_health": -40
+        }
       },
       {
-        "id": "ignore", "text": "Conserve supplies and accept reduced output",
+        "id": "ignore",
+        "text": "Conserve supplies and accept reduced output",
         "description": "The damage persists and may eventually limit oxygen production.",
-        "costs": {}, "required_items": {}, "requires_crew": false,
-        "role_bonus": {}, "success_chance": 1,
-        "success_effects": {}, "failure_effects": {}
+        "costs": {},
+        "required_items": {},
+        "requires_crew": false,
+        "role_bonus": {},
+        "success_chance": 1,
+        "success_effects": {},
+        "failure_effects": {}
       }
     ]
   },
   {
-    "id": "oxygen_fault", "title": "Life Support Alarm",
+    "id": "oxygen_fault",
+    "title": "Life Support Alarm",
     "description": "A pressure regulator sticks. Oxygen system efficiency falls by 25 percentage points.",
-    "weight": 2, "min_week": 2, "on_start": {"oxygen_efficiency": -0.25},
+    "weight": 2,
+    "min_week": 2,
+    "on_start": {
+      "oxygen_efficiency": -0.25
+    },
     "choices": [
       {
-        "id": "replace_regulator", "text": "Replace the regulator",
+        "id": "replace_regulator",
+        "text": "Replace the regulator",
         "description": "Requires a repair kit. Technical professions improve the odds; failure injures the worker.",
-        "costs": {"repair_kits": 1}, "required_items": {}, "requires_crew": true,
-        "role_bonus": {"engineer": 0.25, "technician": 0.25}, "success_chance": 0.65,
-        "success_effects": {"oxygen_efficiency": 0.25}, "failure_effects": {"crew_health": -15}
+        "costs": {
+          "repair_kits": 1
+        },
+        "required_items": {},
+        "requires_crew": true,
+        "role_bonus": {
+          "engineer": 0.25,
+          "technician": 0.25
+        },
+        "success_chance": 0.65,
+        "success_effects": {
+          "oxygen_efficiency": 0.25
+        },
+        "failure_effects": {
+          "crew_health": -15
+        }
       },
       {
-        "id": "recalibrate", "text": "Recalibrate with a second crew member",
+        "id": "recalibrate",
+        "text": "Recalibrate with a second crew member",
         "description": "Requires two living astronauts. A scientist improves the odds. Failure causes further damage.",
-        "costs": {"electricity": 3}, "required_items": {}, "requires_crew": true,
-        "minimum_crew": 2, "role_bonus": {"scientist": 0.3, "technician": 0.15},
-        "success_chance": 0.55, "success_effects": {"oxygen_efficiency": 0.2},
-        "failure_effects": {"oxygen_efficiency": -0.1}
+        "costs": {
+          "electricity": 3
+        },
+        "required_items": {},
+        "requires_crew": true,
+        "minimum_crew": 2,
+        "role_bonus": {
+          "scientist": 0.3,
+          "technician": 0.15
+        },
+        "success_chance": 0.55,
+        "success_effects": {
+          "oxygen_efficiency": 0.2
+        },
+        "failure_effects": {
+          "oxygen_efficiency": -0.1
+        }
       },
       {
-        "id": "ignore", "text": "Rely on oxygen reserves",
+        "id": "ignore",
+        "text": "Rely on oxygen reserves",
         "description": "No immediate cost, but oxygen production stays reduced.",
-        "costs": {}, "required_items": {}, "requires_crew": false,
-        "role_bonus": {}, "success_chance": 1, "success_effects": {}, "failure_effects": {}
+        "costs": {},
+        "required_items": {},
+        "requires_crew": false,
+        "role_bonus": {},
+        "success_chance": 1,
+        "success_effects": {},
+        "failure_effects": {}
       }
     ]
   },
   {
-    "id": "medical_emergency", "title": "Contaminated Air Filter",
+    "id": "medical_emergency",
+    "title": "Contaminated Air Filter",
     "description": "An irritant escapes a filter. Every living astronaut loses 8 health on discovery.",
-    "weight": 2, "min_week": 1, "on_start": {"crew_health": -8, "target": "all"},
+    "weight": 2,
+    "min_week": 1,
+    "on_start": {
+      "crew_health": -8,
+      "target": "all"
+    },
     "choices": [
       {
-        "id": "treat", "text": "Treat an affected astronaut",
+        "id": "treat",
+        "text": "Treat an affected astronaut",
         "description": "Select a patient. A living medic improves treatment. Failed treatment does not restore health.",
-        "costs": {"medicine": 1}, "required_items": {}, "requires_crew": true,
-        "role_bonus": {}, "crew_role_bonus": {"medic": 0.2}, "success_chance": 0.7,
-        "success_effects": {"crew_health": 30}, "failure_effects": {"crew_health": -5}
+        "costs": {
+          "medicine": 1
+        },
+        "required_items": {},
+        "requires_crew": true,
+        "role_bonus": {},
+        "crew_role_bonus": {
+          "medic": 0.2
+        },
+        "success_chance": 0.7,
+        "success_effects": {
+          "crew_health": 30
+        },
+        "failure_effects": {
+          "crew_health": -5
+        }
       },
       {
-        "id": "team_treatment", "text": "Let the medic coordinate treatment",
+        "id": "team_treatment",
+        "text": "Let the medic coordinate treatment",
         "description": "Requires a medic, at least two living crew, and two medicine units. Helps the whole crew.",
-        "costs": {"medicine": 2}, "required_items": {}, "requires_crew": true,
-        "required_role": "medic", "minimum_crew": 2,
-        "role_bonus": {"medic": 0.2}, "success_chance": 0.75,
-        "success_effects": {"crew_health": 15, "target": "all"},
-        "failure_effects": {"crew_health": -5, "target": "all"}
+        "costs": {
+          "medicine": 2
+        },
+        "required_items": {},
+        "requires_crew": true,
+        "required_role": "medic",
+        "minimum_crew": 2,
+        "role_bonus": {
+          "medic": 0.2
+        },
+        "success_chance": 0.75,
+        "success_effects": {
+          "crew_health": 15,
+          "target": "all"
+        },
+        "failure_effects": {
+          "crew_health": -5,
+          "target": "all"
+        }
       },
       {
-        "id": "rest", "text": "Isolate the filter and rest",
+        "id": "guided_treatment",
+        "text": "Use scanner-guided treatment",
+        "description": "Guaranteed 20-health recovery for the selected patient. Consumes medicine; the scanner is retained.",
+        "costs": {
+          "medicine": 1
+        },
+        "required_items": {
+          "diagnostic_tools": 1
+        },
+        "requires_crew": true,
+        "role_bonus": {},
+        "success_chance": 1,
+        "success_effects": {
+          "crew_health": 20
+        },
+        "failure_effects": {}
+      },
+      {
+        "id": "rest",
+        "text": "Isolate the filter and rest",
         "description": "No supplies spent. The crew takes another 5 health damage.",
-        "costs": {}, "required_items": {}, "requires_crew": false,
-        "role_bonus": {}, "success_chance": 1,
-        "success_effects": {"crew_health": -5, "target": "all"}, "failure_effects": {}
+        "costs": {},
+        "required_items": {},
+        "requires_crew": false,
+        "role_bonus": {},
+        "success_chance": 1,
+        "success_effects": {
+          "crew_health": -5,
+          "target": "all"
+        },
+        "failure_effects": {}
       }
     ]
   }

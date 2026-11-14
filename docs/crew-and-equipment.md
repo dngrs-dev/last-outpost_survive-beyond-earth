@@ -1,0 +1,74 @@
+# Crew and equipment design
+
+All ten characters are fictional. Names, traits, consumption, injuries, success
+bonuses, equipment dimensions, and resource yields are original game design.
+They are not measurements of real astronauts or specifications of flight hardware.
+No astronaut photographs, biographies, or NASA logos are copied into the game.
+
+## Research basis
+
+- [NASA crew operations training](https://www.nasa.gov/reference/jsc-crew-operations-training/)
+  supports the systems-operation and EVA training context.
+- [NASA medical training requirements](https://www.nasa.gov/reference/5-0-training/)
+  provide context for crew medical officers and diagnostic procedures.
+- [NASA Artemis field geology training](https://www.nasa.gov/missions/artemis/nasa-field-geology-training-prepares-artemis-mission-support-teams/)
+  informs the field-science specialties.
+- [NASA spacesuit basics](https://www.nasa.gov/centers-and-facilities/johnson/spacewalk-spacesuit-basics/)
+  provides context for portable life-support supplies.
+- [NASA hardware and equipment guidance](https://www.nasa.gov/reference/9-0-hardware-and-equipment-vol-2/)
+  discusses maintenance and lunar-dust mitigation.
+- [NASA Space Food Systems](https://www.nasa.gov/directorates/esdmd/hhp/space-food-systems/)
+  provides context for packaged provisions.
+
+These sources inspire concepts, not the fictional numerical rules. References are
+also included in the catalog and linked from the preparation UI. No API calls are
+made for character or equipment data.
+
+## Roster
+
+| Character | Profession | Specialty and tradeoff |
+|---|---|---|
+| Alex Vega | Engineer | Broad action bonus; extra food |
+| Maya Okafor | Medic | Lower food demand; extra water |
+| Lin Park | Scientist | Lower water demand; greater event injury damage |
+| Sam Nowak | Technician | Reduced event injury damage; lower action probability |
+| Nora Haddad | Engineer | Regulator repair bonus; extra water |
+| Omar Reyes | Engineer | Solar repair bonus and injury resistance; extra food |
+| Elena Rossi | Medic | Improves crew treatment while alive; greater injury damage |
+| Daria Sokol | Scientist | Calibration bonus; extra food |
+| Inez Costa | Technician | General EVA repair bonus; extra water |
+| Jules Mensah | Technician | Regulator diagnosis bonus; extra food |
+
+Players assign up to four unique people to explicit slots. Empty slots are allowed
+subject to the selected mission's minimum crew. Slot order determines the selected
+crew order in the request; only occupied seats are sent as `crew_ids`. The backend
+still validates IDs, duplicates, and limits. Normal ration costs in the catalog
+are calculated by the backend and summed for preparation feedback.
+
+Specialty bonuses affect named actions and remain subject to the existing 5%-95%
+probability bounds. For individual treatment, the selected person is the patient:
+Elena's bonus comes from a living medic rather than from selecting Elena as a patient.
+Dead crew contribute no medical bonuses and cannot be assigned actions.
+
+## Cargo changes
+
+The six existing cargo IDs remain compatible. Medicine descriptions now distinguish
+consumable supply from equipment. Cargo limits are clearly labeled fictional.
+
+| Added item | Fictional cost | Effect |
+|---|---|---|
+| Emergency power cell | 6 kg / 5 L | Adds 12 electricity on arrival; no generation increase |
+| Dust-cleaning kit | 1.5 kg / 3 L | Consumed for guaranteed +20 solar percentage points; also costs one EVA pack and 2 oxygen |
+| Spare oxygen regulator | 2.5 kg / 3 L | Consumed for guaranteed +20 oxygen percentage points; also costs 2 electricity |
+| Diagnostic scanner | 4 kg / 5 L, maximum one | Retained; unlocks guaranteed 20-health treatment during medical incidents, consuming one medicine |
+
+Maintenance is available as an alternative weekly choice, including quiet weeks.
+It requires a living astronaut and skips the incident's normal response: discovery
+damage already happened and remains unless maintenance repairs that system.
+Maintenance on an already healthy system is rejected without spending supplies.
+Efficiencies and health remain capped. The scanner offers reliability in exchange
+for cargo capacity and a smaller healing amount than ordinary successful treatment.
+
+All equipment costs, eligibility checks, outcomes, and resource accounting remain
+authoritative in the backend. Repeated requests use the existing atomic/idempotent
+turn operation. Regenerate the frontend fixtures after intentional content changes.

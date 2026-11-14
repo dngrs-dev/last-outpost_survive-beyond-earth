@@ -13,6 +13,11 @@
 > Taurus; older roadmap names are historical plans. No new station-specific
 > crafting or simulation subsystems are included.
 
+> Roster update: ten fictional specialists can now fill up to four explicit crew
+> slots. Four additional cargo types support power reserves, solar cleaning, oxygen
+> maintenance, and scanner-guided treatment. See `crew-and-equipment.md` for the
+> NASA training references and the distinction between inspiration and game values.
+
 ## 1. Project Overview
 
 **Project name:** LAST OUTPOST  

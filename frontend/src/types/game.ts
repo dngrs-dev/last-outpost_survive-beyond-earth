@@ -26,6 +26,7 @@ export interface MissionDefinition {
 }
 
 export interface CrewDefinition {
+  normal_ration_cost: RationCost;
   id: string;
   name: string;
   role: string;
@@ -36,11 +37,16 @@ export interface CrewDefinition {
   water_multiplier: number;
   event_bonus: number;
   injury_multiplier: number;
+  specialty: string;
+  training_source: string;
+  action_bonuses: Record<string, number>;
   food_shortage_weeks: number;
   water_shortage_weeks: number;
 }
 
 export interface ItemDefinition {
+  max_quantity: number;
+  inspiration_source: string;
   id: string;
   name: string;
   description: string;
@@ -105,6 +111,9 @@ export interface CrewResponse {
   water_multiplier: number;
   event_bonus: number;
   injury_multiplier: number;
+  specialty: string;
+  training_source: string;
+  action_bonuses: Record<string, number>;
   food_shortage_weeks: number;
   water_shortage_weeks: number;
   alive: boolean;

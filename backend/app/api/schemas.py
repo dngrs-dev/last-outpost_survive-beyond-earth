@@ -54,6 +54,9 @@ class CrewResponse(BaseModel):
     water_multiplier: float
     event_bonus: float
     injury_multiplier: float
+    specialty: str
+    training_source: str
+    action_bonuses: dict[str, float]
     food_shortage_weeks: int
     water_shortage_weeks: int
     alive: bool

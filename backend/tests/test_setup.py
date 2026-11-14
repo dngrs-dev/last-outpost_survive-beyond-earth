@@ -87,4 +87,4 @@ def test_architecture_supports_eight_crew(quiet_engine):
         crew = replace(definitions.crew["alex"], id=f"extra-{index}")
         definitions.crew[crew.id] = crew
     expanded = GameEngine(definitions, replace(quiet_engine.rules, max_crew=8))
-    assert len(expanded.create_game("alpha", list(definitions.crew), {}).crew) == 8
+    assert len(expanded.create_game("alpha", list(definitions.crew)[:8], {}).crew) == 8

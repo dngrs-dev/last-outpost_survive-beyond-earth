@@ -163,7 +163,7 @@ def test_unavailable_choices_explain_why(engine, state):
     view = event_view(state, engine.definitions)
     assert not view["choices"][0]["available"]
     assert "repair_kits" in " ".join(view["choices"][0]["unavailable_reasons"])
-    assert view["choices"][-1]["available"]
+    assert next(choice for choice in view["choices"] if choice["id"] == "ignore")["available"]
 
 
 def test_invalid_decision_atomic(engine, state):

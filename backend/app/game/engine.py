@@ -33,6 +33,8 @@ class GameEngine:
             if type(quantity) is not int or not 0 <= quantity <= 1_000_000:
                 raise GameError("Cargo quantities must be whole numbers between 0 and 1000000.")
             item = self.definitions.items[item_id]
+            if quantity > item.max_quantity:
+                raise GameError(f"At most {item.max_quantity} {item.name} may be packed.")
             mass += item.weight_kg * quantity
             volume += item.volume_l * quantity
         if not isfinite(mass) or mass > self.rules.max_cargo_mass_kg:
@@ -210,7 +212,13 @@ class GameEngine:
         return {
             "stations": [asdict(item) for item in self.definitions.stations.values()],
             "missions": [asdict(item) for item in self.definitions.missions.values()],
-            "crew": [asdict(item) for item in self.definitions.crew.values()],
+            "crew": [
+                {
+                    **asdict(item),
+                    "normal_ration_cost": ration_cost(item, Ration("normal", "normal"), self.rules),
+                }
+                for item in self.definitions.crew.values()
+            ],
             "items": [asdict(item) for item in self.definitions.items.values()],
             "limits": {
                 "min_crew": 1,

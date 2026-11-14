@@ -1,8 +1,119 @@
 [
-  {"id":"food_packs","name":"Food packs","description":"Four weekly food units.","weight_kg":2,"volume_l":4,"unit":"pack","category":"provisions","resource":"food","resource_amount":4},
-  {"id":"water_containers","name":"Water containers","description":"Five water units.","weight_kg":5,"volume_l":5,"unit":"container","category":"provisions","resource":"water","resource_amount":5},
-  {"id":"medicine_kits","name":"Medicine kits","description":"One medical treatment supply.","weight_kg":1,"volume_l":2,"unit":"kit","category":"equipment","resource":"medicine","resource_amount":1},
-  {"id":"repair_kits","name":"Repair kits","description":"One equipment repair supply.","weight_kg":3,"volume_l":4,"unit":"kit","category":"equipment","resource":"repair_kits","resource_amount":1},
-  {"id":"eva_batteries","name":"EVA battery packs","description":"Power for one outside activity.","weight_kg":2,"volume_l":3,"unit":"pack","category":"equipment","resource":"eva_batteries","resource_amount":1},
-  {"id":"oxygen_tanks","name":"Emergency oxygen tanks","description":"Twelve oxygen units, transferred to station reserves on arrival.","weight_kg":4,"volume_l":12,"unit":"tank","category":"provisions","resource":"oxygen","resource_amount":12}
+  {
+    "id": "food_packs",
+    "name": "Food packs",
+    "description": "Four weekly food units.",
+    "weight_kg": 2,
+    "volume_l": 4,
+    "unit": "pack",
+    "category": "provisions",
+    "resource": "food",
+    "resource_amount": 4,
+    "inspiration_source": "https://www.nasa.gov/directorates/esdmd/hhp/space-food-systems/"
+  },
+  {
+    "id": "water_containers",
+    "name": "Water containers",
+    "description": "Five water units.",
+    "weight_kg": 5,
+    "volume_l": 5,
+    "unit": "container",
+    "category": "provisions",
+    "resource": "water",
+    "resource_amount": 5,
+    "inspiration_source": "https://www.nasa.gov/directorates/esdmd/hhp/space-food-systems/"
+  },
+  {
+    "id": "medicine_kits",
+    "name": "Medicine kits",
+    "description": "One consumable medical supply. Treatment still needs an event decision; a scanner can improve reliability.",
+    "weight_kg": 1,
+    "volume_l": 2,
+    "unit": "kit",
+    "category": "equipment",
+    "resource": "medicine",
+    "resource_amount": 1,
+    "inspiration_source": "https://www.nasa.gov/reference/5-0-training/"
+  },
+  {
+    "id": "repair_kits",
+    "name": "Repair kits",
+    "description": "One equipment repair supply.",
+    "weight_kg": 3,
+    "volume_l": 4,
+    "unit": "kit",
+    "category": "equipment",
+    "resource": "repair_kits",
+    "resource_amount": 1,
+    "inspiration_source": "https://www.nasa.gov/reference/9-0-hardware-and-equipment-vol-2/"
+  },
+  {
+    "id": "eva_batteries",
+    "name": "EVA battery packs",
+    "description": "Power for one outside activity.",
+    "weight_kg": 2,
+    "volume_l": 3,
+    "unit": "pack",
+    "category": "equipment",
+    "resource": "eva_batteries",
+    "resource_amount": 1
+  },
+  {
+    "id": "oxygen_tanks",
+    "name": "Emergency oxygen tanks",
+    "description": "Twelve oxygen units, transferred to station reserves on arrival.",
+    "weight_kg": 4,
+    "volume_l": 12,
+    "unit": "tank",
+    "category": "provisions",
+    "resource": "oxygen",
+    "resource_amount": 12
+  },
+  {
+    "id": "power_cells",
+    "name": "Emergency power cells",
+    "description": "Adds 12 electricity on arrival. Heavy temporary relief; does not improve solar generation.",
+    "weight_kg": 6,
+    "volume_l": 5,
+    "unit": "cell",
+    "category": "provisions",
+    "resource": "electricity",
+    "resource_amount": 12
+  },
+  {
+    "id": "dust_kits",
+    "name": "Dust-cleaning kits",
+    "description": "One guaranteed +20-point solar maintenance action. Also requires an astronaut, EVA pack, and 2 oxygen.",
+    "weight_kg": 1.5,
+    "volume_l": 3,
+    "unit": "kit",
+    "category": "maintenance",
+    "resource": "dust_kits",
+    "resource_amount": 1,
+    "inspiration_source": "https://www.nasa.gov/reference/9-0-hardware-and-equipment-vol-2/"
+  },
+  {
+    "id": "oxygen_regulators",
+    "name": "Spare oxygen regulators",
+    "description": "One guaranteed +20-point oxygen-system maintenance action; costs 2 electricity.",
+    "weight_kg": 2.5,
+    "volume_l": 3,
+    "unit": "regulator",
+    "category": "maintenance",
+    "resource": "oxygen_regulators",
+    "resource_amount": 1
+  },
+  {
+    "id": "diagnostic_tools",
+    "name": "Medical diagnostic scanner",
+    "description": "Reusable: unlocks guaranteed 20-health treatment during medical events; still consumes one medicine. Maximum one.",
+    "weight_kg": 4,
+    "volume_l": 5,
+    "unit": "scanner",
+    "category": "equipment",
+    "resource": "diagnostic_tools",
+    "resource_amount": 1,
+    "max_quantity": 1,
+    "inspiration_source": "https://www.nasa.gov/reference/5-0-training/"
+  }
 ]

@@ -1,7 +1,7 @@
 # Backend guide
 
 The backend implements Stages 1–5 in [the game specification](game-design.md): Station Alpha, four selectable astronauts,
-six cargo types, configurable weekly missions, three JSON events, rationing, health, and all
+ten cargo types, configurable weekly missions, three JSON events, rationing, health, and all
 four endings. A React frontend consumes this API. All balancing values are
 fictional gameplay units.
 

@@ -39,7 +39,7 @@ export const CargoSelector: React.FC<CargoSelectorProps> = ({
       <div className="card-title">
         <span>📦 SPACECRAFT CARGO MANIFEST</span>
         <span style={{ fontSize: '0.8rem', color: 'var(--text-muted)' }}>
-          NASA Payload Restrictions Apply
+          Fictional gameplay cargo limits
         </span>
       </div>
 
@@ -112,6 +112,7 @@ export const CargoSelector: React.FC<CargoSelectorProps> = ({
                 <div style={{ fontSize: '0.75rem', color: 'var(--text-muted)' }}>
                   {item.description}
                 </div>
+                <a href={item.inspiration_source} target="_blank" rel="noreferrer" style={{ fontSize: '0.7rem', color: 'var(--color-cyan)' }}>Equipment inspiration ↗</a>
                 <div style={{ fontSize: '0.7rem', color: 'var(--text-dim)', fontFamily: 'var(--font-mono)', marginTop: '0.2rem' }}>
                   {item.weight_kg} kg | {item.volume_l} L each
                 </div>
@@ -131,12 +132,12 @@ export const CargoSelector: React.FC<CargoSelectorProps> = ({
                 <input
                   type="number"
                   min="0"
-                  max="1000"
+                  max={item.max_quantity}
                   value={qty}
                   disabled={disabled}
                   onChange={(e) => {
                     const val = parseInt(e.target.value, 10);
-                    onChangeCargo(item.id, isNaN(val) ? 0 : Math.max(0, val));
+                    onChangeCargo(item.id, isNaN(val) ? 0 : Math.min(item.max_quantity, Math.max(0, val)));
                   }}
                   style={{ width: '50px', textAlign: 'center', padding: '0.3rem' }}
                   aria-label={`${item.name} quantity`}
@@ -144,8 +145,8 @@ export const CargoSelector: React.FC<CargoSelectorProps> = ({
                 <button
                   type="button"
                   className="btn btn-secondary btn-sm"
-                  disabled={disabled}
-                  onClick={() => onChangeCargo(item.id, qty + 1)}
+                  disabled={disabled || qty >= item.max_quantity}
+                  onClick={() => onChangeCargo(item.id, Math.min(item.max_quantity, qty + 1))}
                   style={{ width: '32px', height: '32px', padding: 0 }}
                   aria-label={`Increase ${item.name}`}
                 >

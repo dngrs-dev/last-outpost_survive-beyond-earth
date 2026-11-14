@@ -24,8 +24,8 @@ describe('SetupPage', () => {
       expect(screen.getByRole('combobox', { name: 'Outpost' })).toHaveValue('alpha');
     });
 
-    expect(screen.getByText('Alex Vega')).toBeInTheDocument();
-    expect(screen.getByText('Maya Okafor')).toBeInTheDocument();
+    expect(screen.getByRole('heading', { name: 'Alex Vega' })).toBeInTheDocument();
+    expect(screen.getByRole('heading', { name: 'Maya Okafor' })).toBeInTheDocument();
     expect(screen.getByText('Food packs')).toBeInTheDocument();
     expect(screen.getByText('Water containers')).toBeInTheDocument();
   });
@@ -38,21 +38,15 @@ describe('SetupPage', () => {
     );
 
     await waitFor(() => {
-      expect(screen.getByText('Alex Vega')).toBeInTheDocument();
+      expect(screen.getByRole('heading', { name: 'Alex Vega' })).toBeInTheDocument();
     });
 
-    // Both Alex and Maya are in the crew grid
-    const alexCard = screen.getByText('Alex Vega').closest('.crew-card');
-    expect(alexCard).toBeInTheDocument();
+    const slot = screen.getByRole('combobox', { name: 'Crew slot 1' });
+    fireEvent.change(slot, { target: { value: '' } });
+    expect(slot).toHaveValue('');
+    fireEvent.change(slot, { target: { value: 'nora' } });
+    expect(screen.getByRole('heading', { name: 'Nora Haddad' })).toBeInTheDocument();
 
-    // Toggle Alex
-    fireEvent.click(alexCard!);
-    // Deselected
-    expect(alexCard).not.toHaveClass('selected');
-
-    // Click again to reselect
-    fireEvent.click(alexCard!);
-    expect(alexCard).toHaveClass('selected');
   });
 
   it('increments and decrements cargo quantities', async () => {

@@ -40,7 +40,14 @@ def _resources(values: dict[str, float], context: str, signed: bool = False) -> 
         all(_number(n, -math.inf if signed else 0) for n in values.values()),
         f"{context}: invalid resource amount",
     )
-    for name in ("medicine", "repair_kits", "eva_batteries"):
+    for name in (
+        "medicine",
+        "repair_kits",
+        "eva_batteries",
+        "dust_kits",
+        "oxygen_regulators",
+        "diagnostic_tools",
+    ):
         if name in values:
             _require(values[name].is_integer(), f"{context}: {name} must be whole units")
 
@@ -111,6 +118,18 @@ def load_definitions(data_dir: Path = DEFAULT_DATA) -> Definitions:
     for crew in definitions.crew.values():
         _require(0 < crew.health <= 100, f"{crew.id}: invalid starting health")
         _require(crew.role in ROLES, f"{crew.id}: unknown profession")
+        choice_ids = {
+            choice.id for event in definitions.events.values() for choice in event.choices
+        }
+        _require(
+            not (crew.action_bonuses.keys() - choice_ids)
+            and all(_number(value, -0.3, 0.3) for value in crew.action_bonuses.values()),
+            f"{crew.id}: invalid specialty action bonus",
+        )
+        _require(
+            crew.training_source.startswith("https://www.nasa.gov/"),
+            f"{crew.id}: training source must be an official NASA reference",
+        )
         _require(_number(crew.event_bonus, -1, 1), f"{crew.id}: invalid event bonus")
         for name in ("food_multiplier", "water_multiplier", "injury_multiplier"):
             _require(_number(getattr(crew, name), 0.1, 3), f"{crew.id}: invalid {name}")
@@ -119,6 +138,11 @@ def load_definitions(data_dir: Path = DEFAULT_DATA) -> Definitions:
             f"{crew.id}: starting ration streak must be zero",
         )
     for item in definitions.items.values():
+        _require(item.max_quantity > 0, f"{item.id}: invalid cargo quantity limit")
+        _require(
+            item.inspiration_source.startswith("https://www.nasa.gov/"),
+            f"{item.id}: equipment source must be an official NASA reference",
+        )
         _require(item.resource in RESOURCE_NAMES, f"{item.id}: unknown resource")
         for name in ("weight_kg", "volume_l", "resource_amount"):
             _require(_number(getattr(item, name), 0.001), f"{item.id}: invalid {name}")
@@ -133,6 +157,10 @@ def load_definitions(data_dir: Path = DEFAULT_DATA) -> Definitions:
         _effects(event.on_start, event.id, requires_crew=False)
         for choice in event.choices:
             context = f"{event.id}/{choice.id}"
+            _require(
+                choice.id not in {"clean_array", "install_regulator"},
+                f"{context}: reserved maintenance choice ID",
+            )
             _resources(choice.costs, context)
             _require(_number(choice.success_chance, 0, 1), f"{context}: invalid probability")
             _require(

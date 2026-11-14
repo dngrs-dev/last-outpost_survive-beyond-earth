@@ -6,7 +6,7 @@ and manage a fictional research station until the next crew rotation.
 ## Current status
 
 Six fictional lunar outposts are playable, with missions lasting 8 to 18 weeks,
-four selectable astronauts, six cargo types, three shared narrative events, individual rationing,
+ten selectable specialists in four crew slots, ten cargo types, three shared narrative events, individual rationing,
 oxygen and electricity simulation, crew health/death, and four mission endings.
 The game is playable through both the FastAPI REST backend and the React frontend.
 All balancing values are fictional gameplay units.
@@ -84,6 +84,8 @@ npm run build
   configuration, and prototype limitations.
 - [Lunar data guide](docs/lunar-data.md): sources, cached downloads, coordinate
   conventions, and manual refresh instructions.
+- [Crew and equipment](docs/crew-and-equipment.md): research inspiration, fictional
+  character profiles, cargo tradeoffs, and maintenance actions.
 - [Third-party notices](THIRD_PARTY_NOTICES.md): attribution and reuse terms for the
   committed NASA texture and factual data.
 - [Agent instructions](AGENTS.md): workflow for coding agents working in this repository.

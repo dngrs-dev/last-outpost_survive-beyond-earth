@@ -5,7 +5,18 @@ from typing import Literal
 
 RationLevel = Literal["normal", "reduced", "emergency"]
 RESOURCE_NAMES = frozenset(
-    {"food", "water", "oxygen", "electricity", "medicine", "repair_kits", "eva_batteries"}
+    {
+        "food",
+        "water",
+        "oxygen",
+        "electricity",
+        "medicine",
+        "repair_kits",
+        "eva_batteries",
+        "dust_kits",
+        "oxygen_regulators",
+        "diagnostic_tools",
+    }
 )
 ROLES = frozenset({"engineer", "medic", "scientist", "technician"})
 RATION_MULTIPLIERS = {"normal": 1.0, "reduced": 0.7, "emergency": 0.4}

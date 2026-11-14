@@ -21,8 +21,8 @@ def test_catalog(client):
     catalog = response.json()
     assert len(catalog["stations"]) == 6
     assert len({station["lunar_site_id"] for station in catalog["stations"]}) == 6
-    assert len(catalog["crew"]) == 4
-    assert len(catalog["items"]) == 6
+    assert len(catalog["crew"]) == 10
+    assert len(catalog["items"]) == 10
     assert catalog["limits"]["max_crew"] == 4
     assert catalog["missions"][0]["duration_weeks"] == 12
 

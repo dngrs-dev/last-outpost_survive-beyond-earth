@@ -1,26 +1,133 @@
 [
   {
-    "id": "alex", "name": "Alex Vega", "role": "engineer", "health": 100,
+    "id": "alex",
+    "name": "Alex Vega",
+    "role": "engineer",
+    "health": 100,
     "positive_trait": "Steady hands: +5 percentage points on assigned event actions.",
     "negative_trait": "Large appetite: consumes 10% more food.",
-    "event_bonus": 0.05, "food_multiplier": 1.1
+    "event_bonus": 0.05,
+    "food_multiplier": 1.1,
+    "specialty": "Mechanical repair"
   },
   {
-    "id": "maya", "name": "Maya Okafor", "role": "medic", "health": 100,
+    "id": "maya",
+    "name": "Maya Okafor",
+    "role": "medic",
+    "health": 100,
     "positive_trait": "Efficient metabolism: consumes 10% less food.",
     "negative_trait": "Thirsty: consumes 10% more water.",
-    "food_multiplier": 0.9, "water_multiplier": 1.1
+    "food_multiplier": 0.9,
+    "water_multiplier": 1.1,
+    "specialty": "Crew medical officer",
+    "training_source": "https://www.nasa.gov/reference/5-0-training/"
   },
   {
-    "id": "lin", "name": "Lin Park", "role": "scientist", "health": 100,
+    "id": "lin",
+    "name": "Lin Park",
+    "role": "scientist",
+    "health": 100,
     "positive_trait": "Water conscious: consumes 10% less water.",
     "negative_trait": "Fragile: event injuries cause 20% more damage.",
-    "water_multiplier": 0.9, "injury_multiplier": 1.2
+    "water_multiplier": 0.9,
+    "injury_multiplier": 1.2,
+    "specialty": "Field science and calibration",
+    "training_source": "https://www.nasa.gov/missions/artemis/nasa-field-geology-training-prepares-artemis-mission-support-teams/"
   },
   {
-    "id": "sam", "name": "Sam Nowak", "role": "technician", "health": 100,
+    "id": "sam",
+    "name": "Sam Nowak",
+    "role": "technician",
+    "health": 100,
     "positive_trait": "Resilient: event injuries cause 20% less damage.",
     "negative_trait": "Impulsive: -5 percentage points on assigned event actions.",
-    "injury_multiplier": 0.8, "event_bonus": -0.05
+    "injury_multiplier": 0.8,
+    "event_bonus": -0.05,
+    "specialty": "EVA maintenance"
+  },
+  {
+    "id": "nora",
+    "name": "Nora Haddad",
+    "role": "engineer",
+    "specialty": "Life-support engineering",
+    "positive_trait": "Regulator specialist: +15 points when replacing a regulator.",
+    "negative_trait": "Thirsty: uses 15% more water.",
+    "water_multiplier": 1.15,
+    "action_bonuses": {
+      "replace_regulator": 0.15
+    },
+    "health": 100,
+    "training_source": "https://www.nasa.gov/reference/jsc-crew-operations-training/"
+  },
+  {
+    "id": "omar",
+    "name": "Omar Reyes",
+    "role": "engineer",
+    "specialty": "Power systems",
+    "positive_trait": "Robust EVA operator: 20% less event injury damage and +10 points for engineer repairs.",
+    "negative_trait": "Large appetite: uses 15% more food.",
+    "food_multiplier": 1.15,
+    "action_bonuses": {
+      "engineer_repair": 0.1
+    },
+    "health": 100,
+    "training_source": "https://www.nasa.gov/reference/jsc-crew-operations-training/",
+    "injury_multiplier": 0.8
+  },
+  {
+    "id": "elena",
+    "name": "Elena Rossi",
+    "role": "medic",
+    "specialty": "Emergency medicine",
+    "positive_trait": "Medical lead: +10 points on individual crew treatment while alive.",
+    "negative_trait": "Sensitive to injury: event damage is 20% greater.",
+    "injury_multiplier": 1.2,
+    "action_bonuses": {
+      "treat": 0.1
+    },
+    "health": 100,
+    "training_source": "https://www.nasa.gov/reference/5-0-training/"
+  },
+  {
+    "id": "daria",
+    "name": "Daria Sokol",
+    "role": "scientist",
+    "specialty": "Geology and instrument calibration",
+    "positive_trait": "Instrument specialist: +10 points for recalibration.",
+    "negative_trait": "Field appetite: uses 15% more food.",
+    "food_multiplier": 1.15,
+    "action_bonuses": {
+      "recalibrate": 0.1
+    },
+    "health": 100,
+    "training_source": "https://www.nasa.gov/missions/artemis/nasa-field-geology-training-prepares-artemis-mission-support-teams/"
+  },
+  {
+    "id": "inez",
+    "name": "Inez Costa",
+    "role": "technician",
+    "specialty": "EVA tools and procedures",
+    "positive_trait": "Outside specialist: +20 points for general solar repairs.",
+    "negative_trait": "Thirsty: uses 15% more water.",
+    "water_multiplier": 1.15,
+    "action_bonuses": {
+      "crew_repair": 0.2
+    },
+    "health": 100,
+    "training_source": "https://www.nasa.gov/reference/jsc-crew-operations-training/"
+  },
+  {
+    "id": "jules",
+    "name": "Jules Mensah",
+    "role": "technician",
+    "specialty": "Fault diagnosis",
+    "positive_trait": "Diagnostic specialist: +15 points for regulator replacement.",
+    "negative_trait": "Large appetite: uses 10% more food.",
+    "food_multiplier": 1.1,
+    "action_bonuses": {
+      "replace_regulator": 0.15
+    },
+    "health": 100,
+    "training_source": "https://www.nasa.gov/reference/jsc-crew-operations-training/"
   }
 ]

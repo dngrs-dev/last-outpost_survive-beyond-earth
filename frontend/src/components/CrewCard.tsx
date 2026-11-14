@@ -64,6 +64,7 @@ export const CrewCard: React.FC<CrewCardProps> = ({
             {getHealthBadge(crew.health, crew.alive)}
           </div>
           <div className="crew-role">{crew.role}</div>
+          <div style={{ fontSize: '0.72rem', color: 'var(--text-muted)' }}>{crew.specialty}</div>
         </div>
       </div>
 

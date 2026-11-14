@@ -1,7 +1,7 @@
 """Seeded selection and a small, explicit vocabulary of event effects."""
 
 import random
-from dataclasses import asdict
+from dataclasses import asdict, replace
 
 from app.game.models import (
     CrewMember,
@@ -37,6 +37,39 @@ QUIET_WEEK = Event(
     ],
 )
 
+MAINTENANCE_CHOICES = [
+    EventChoice(
+        id="clean_array",
+        text="Clean the solar array",
+        description=(
+            "Guaranteed +20 percentage points solar condition. Uses a dust kit and EVA supplies; "
+            "the week's incident remains unresolved."
+        ),
+        costs={"dust_kits": 1, "eva_batteries": 1, "oxygen": 2},
+        required_items={},
+        requires_crew=True,
+        role_bonus={},
+        success_chance=1,
+        success_effects=Effects(solar_efficiency=0.2),
+        failure_effects=Effects(),
+    ),
+    EventChoice(
+        id="install_regulator",
+        text="Install an oxygen regulator",
+        description=(
+            "Guaranteed +20 percentage points oxygen condition. Uses a regulator and 2 power; "
+            "the week's incident remains unresolved."
+        ),
+        costs={"oxygen_regulators": 1, "electricity": 2},
+        required_items={},
+        requires_crew=True,
+        role_bonus={},
+        success_chance=1,
+        success_effects=Effects(oxygen_efficiency=0.2),
+        failure_effects=Effects(),
+    ),
+]
+
 
 def seeded_rng(state: GameState, purpose: str) -> random.Random:
     # Separate streams ensure reads and failed requests never consume randomness.
@@ -65,10 +98,12 @@ def select_event(state: GameState, definitions: Definitions, rules: Rules) -> Ev
 
 def get_event(state: GameState, definitions: Definitions) -> Event:
     if state.current_event_id == QUIET_WEEK.id:
-        return QUIET_WEEK
-    if state.current_event_id not in definitions.events:
+        event = QUIET_WEEK
+    elif state.current_event_id in definitions.events:
+        event = definitions.events[state.current_event_id]
+    else:
         raise GameError("There is no active event.", 409)
-    return definitions.events[state.current_event_id]
+    return replace(event, choices=[*event.choices, *MAINTENANCE_CHOICES])
 
 
 def apply_effects(state: GameState, effects: Effects, selected: CrewMember | None) -> dict:
@@ -126,6 +161,10 @@ def choice_reasons(
         required = quantity * item.resource_amount
         if state.resources[item.resource] + 1e-6 < required:
             reasons.append(f"Requires {quantity} {item.name} (not consumed).")
+    if choice.id == "clean_array" and state.solar_efficiency >= 1:
+        reasons.append("The solar array is already at full condition.")
+    if choice.id == "install_regulator" and state.oxygen_efficiency >= 1:
+        reasons.append("The oxygen system is already at full condition.")
     return reasons
 
 
@@ -136,6 +175,18 @@ def success_probability(
     if choice.success_chance in (0, 1):
         return choice.success_chance
     bonus = choice.role_bonus.get(selected.role, 0) + selected.event_bonus if selected else 0
+    if choice.id == "treat":
+        # The selected astronaut is the patient, not necessarily the medical officer.
+        bonus += max(
+            (
+                crew.action_bonuses.get("treat", 0)
+                for crew in state.crew
+                if crew.alive and crew.role == "medic"
+            ),
+            default=0,
+        )
+    elif selected:
+        bonus += selected.action_bonuses.get(choice.id, 0)
     living_roles = {crew.role for crew in state.crew if crew.alive}
     bonus += sum(choice.crew_role_bonus.get(role, 0) for role in living_roles)
     return round(min(0.95, max(0.05, choice.success_chance + bonus)), 6)

@@ -2,9 +2,9 @@ import React, { useEffect, useState } from 'react';
 import { Link, useNavigate, useSearchParams } from 'react-router-dom';
 import { fetchCatalog, createGame } from '../api/game';
 import { Header } from '../components/Header';
-import { CrewCard } from '../components/CrewCard';
+import { CrewSlots } from '../components/CrewSlots';
 import { CargoSelector } from '../components/CargoSelector';
-import type { CatalogResponse, CrewDefinition } from '../types/game';
+import type { CatalogResponse } from '../types/game';
 
 export const SetupPage: React.FC = () => {
   const navigate = useNavigate();
@@ -18,7 +18,8 @@ export const SetupPage: React.FC = () => {
 
   // Form state
   const [selectedStationId, setSelectedStationId] = useState<string>('alpha');
-  const [selectedCrewIds, setSelectedCrewIds] = useState<string[]>(['alex', 'maya', 'lin', 'sam']);
+  const [crewSlots, setCrewSlots] = useState<string[]>(['alex', 'maya', 'lin', 'sam']);
+  const selectedCrewIds = crewSlots.filter(Boolean);
   const [cargo, setCargo] = useState<Record<string, number>>({
     food_packs: 8,
     water_containers: 16,
@@ -56,18 +57,6 @@ export const SetupPage: React.FC = () => {
       mounted = false;
     };
   }, [lunarSiteId, requestedStationId]);
-
-  const handleToggleCrew = (id: string) => {
-    setSelectedCrewIds((prev) => {
-      if (prev.includes(id)) {
-        return prev.filter((c) => c !== id);
-      } else {
-        const maxCrew = catalog?.limits.max_crew || 4;
-        if (prev.length >= maxCrew) return prev;
-        return [...prev, id];
-      }
-    });
-  };
 
   const handleCargoChange = (itemId: string, qty: number) => {
     setCargo((prev) => ({
@@ -224,57 +213,8 @@ export const SetupPage: React.FC = () => {
           </div>
         </div>
 
-        {/* Crew Selection Card */}
-        <div className="card" style={{ marginBottom: '1.5rem' }}>
-          <div className="card-title">
-            <span>👨‍🚀 SELECT EXPEDITION CREW</span>
-            <div style={{ display: 'flex', gap: '0.5rem', alignItems: 'center' }}>
-              <span className={`badge ${isCrewInvalid ? 'badge-red' : 'badge-green'}`}>
-                {selectedCrewIds.length} / {maxCrew} ASTRONAUTS
-              </span>
-              <button
-                type="button"
-                className="btn btn-secondary btn-sm"
-                onClick={() => setSelectedCrewIds((catalog?.crew || []).map((c) => c.id))}
-              >
-                SELECT ALL
-              </button>
-            </div>
-          </div>
-
-          <p style={{ fontSize: '0.85rem', color: 'var(--text-muted)', marginBottom: '1rem' }}>
-            Choose between {minCrew} and {maxCrew} astronauts. More crew members provide specialized skills for critical station repairs,
-            but significantly increase weekly food and water consumption.
-          </p>
-
-          <div className="crew-grid">
-            {(catalog?.crew || []).map((member: CrewDefinition) => {
-              const isSelected = selectedCrewIds.includes(member.id);
-              // Map to CrewResponse shape for UI card
-              const crewShape = {
-                ...member,
-                food_shortage_weeks: 0,
-                water_shortage_weeks: 0,
-                alive: true,
-                ration_options: {
-                  normal: { food: 1, water: 1 },
-                  reduced: { food: 0.5, water: 0.5 },
-                  emergency: { food: 0, water: 0 },
-                },
-              };
-
-              return (
-                <CrewCard
-                  key={member.id}
-                  crew={crewShape}
-                  isInteractive
-                  isSelected={isSelected}
-                  onToggleSelect={handleToggleCrew}
-                />
-              );
-            })}
-          </div>
-        </div>
+        {catalog && <CrewSlots crew={catalog.crew} slots={crewSlots} minCrew={minCrew}
+          maxCrew={maxCrew} onChange={setCrewSlots} disabled={submitting} />}
 
         {/* Cargo Selection Component */}
         {catalog && (

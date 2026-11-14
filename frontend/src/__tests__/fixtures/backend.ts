@@ -16,7 +16,10 @@ export const catalog: CatalogResponse = {
         "electricity": 30.0,
         "medicine": 1.0,
         "repair_kits": 1.0,
-        "eva_batteries": 1.0
+        "eva_batteries": 1.0,
+        "dust_kits": 0.0,
+        "oxygen_regulators": 0.0,
+        "diagnostic_tools": 0.0
       },
       "energy_per_week": 24.0,
       "oxygen_per_week": 14.0,
@@ -39,7 +42,10 @@ export const catalog: CatalogResponse = {
         "electricity": 40.0,
         "medicine": 2.0,
         "repair_kits": 2.0,
-        "eva_batteries": 2.0
+        "eva_batteries": 2.0,
+        "dust_kits": 0.0,
+        "oxygen_regulators": 0.0,
+        "diagnostic_tools": 0.0
       },
       "energy_per_week": 28.0,
       "oxygen_per_week": 16.0,
@@ -62,7 +68,10 @@ export const catalog: CatalogResponse = {
         "electricity": 22.0,
         "medicine": 2.0,
         "repair_kits": 2.0,
-        "eva_batteries": 2.0
+        "eva_batteries": 2.0,
+        "dust_kits": 0.0,
+        "oxygen_regulators": 0.0,
+        "diagnostic_tools": 0.0
       },
       "energy_per_week": 24.0,
       "oxygen_per_week": 15.0,
@@ -85,7 +94,10 @@ export const catalog: CatalogResponse = {
         "electricity": 24.0,
         "medicine": 1.0,
         "repair_kits": 1.0,
-        "eva_batteries": 1.0
+        "eva_batteries": 1.0,
+        "dust_kits": 0.0,
+        "oxygen_regulators": 0.0,
+        "diagnostic_tools": 0.0
       },
       "energy_per_week": 26.0,
       "oxygen_per_week": 15.0,
@@ -108,7 +120,10 @@ export const catalog: CatalogResponse = {
         "electricity": 20.0,
         "medicine": 1.0,
         "repair_kits": 1.0,
-        "eva_batteries": 1.0
+        "eva_batteries": 1.0,
+        "dust_kits": 0.0,
+        "oxygen_regulators": 0.0,
+        "diagnostic_tools": 0.0
       },
       "energy_per_week": 24.0,
       "oxygen_per_week": 16.0,
@@ -131,7 +146,10 @@ export const catalog: CatalogResponse = {
         "electricity": 18.0,
         "medicine": 1.0,
         "repair_kits": 1.0,
-        "eva_batteries": 1.0
+        "eva_batteries": 1.0,
+        "dust_kits": 0.0,
+        "oxygen_regulators": 0.0,
+        "diagnostic_tools": 0.0
       },
       "energy_per_week": 25.0,
       "oxygen_per_week": 15.0,
@@ -230,7 +248,14 @@ export const catalog: CatalogResponse = {
       "event_bonus": 0.05,
       "injury_multiplier": 1.0,
       "food_shortage_weeks": 0,
-      "water_shortage_weeks": 0
+      "water_shortage_weeks": 0,
+      "specialty": "Mechanical repair",
+      "training_source": "https://www.nasa.gov/reference/jsc-crew-operations-training/",
+      "action_bonuses": {},
+      "normal_ration_cost": {
+        "food": 1.1,
+        "water": 2.0
+      }
     },
     {
       "id": "maya",
@@ -244,7 +269,14 @@ export const catalog: CatalogResponse = {
       "event_bonus": 0.0,
       "injury_multiplier": 1.0,
       "food_shortage_weeks": 0,
-      "water_shortage_weeks": 0
+      "water_shortage_weeks": 0,
+      "specialty": "Crew medical officer",
+      "training_source": "https://www.nasa.gov/reference/5-0-training/",
+      "action_bonuses": {},
+      "normal_ration_cost": {
+        "food": 0.9,
+        "water": 2.2
+      }
     },
     {
       "id": "lin",
@@ -258,7 +290,14 @@ export const catalog: CatalogResponse = {
       "event_bonus": 0.0,
       "injury_multiplier": 1.2,
       "food_shortage_weeks": 0,
-      "water_shortage_weeks": 0
+      "water_shortage_weeks": 0,
+      "specialty": "Field science and calibration",
+      "training_source": "https://www.nasa.gov/missions/artemis/nasa-field-geology-training-prepares-artemis-mission-support-teams/",
+      "action_bonuses": {},
+      "normal_ration_cost": {
+        "food": 1.0,
+        "water": 1.8
+      }
     },
     {
       "id": "sam",
@@ -272,7 +311,152 @@ export const catalog: CatalogResponse = {
       "event_bonus": -0.05,
       "injury_multiplier": 0.8,
       "food_shortage_weeks": 0,
-      "water_shortage_weeks": 0
+      "water_shortage_weeks": 0,
+      "specialty": "EVA maintenance",
+      "training_source": "https://www.nasa.gov/reference/jsc-crew-operations-training/",
+      "action_bonuses": {},
+      "normal_ration_cost": {
+        "food": 1.0,
+        "water": 2.0
+      }
+    },
+    {
+      "id": "nora",
+      "name": "Nora Haddad",
+      "role": "engineer",
+      "health": 100,
+      "positive_trait": "Regulator specialist: +15 points when replacing a regulator.",
+      "negative_trait": "Thirsty: uses 15% more water.",
+      "food_multiplier": 1.0,
+      "water_multiplier": 1.15,
+      "event_bonus": 0.0,
+      "injury_multiplier": 1.0,
+      "food_shortage_weeks": 0,
+      "water_shortage_weeks": 0,
+      "specialty": "Life-support engineering",
+      "training_source": "https://www.nasa.gov/reference/jsc-crew-operations-training/",
+      "action_bonuses": {
+        "replace_regulator": 0.15
+      },
+      "normal_ration_cost": {
+        "food": 1.0,
+        "water": 2.3
+      }
+    },
+    {
+      "id": "omar",
+      "name": "Omar Reyes",
+      "role": "engineer",
+      "health": 100,
+      "positive_trait": "Robust EVA operator: 20% less event injury damage and +10 points for engineer repairs.",
+      "negative_trait": "Large appetite: uses 15% more food.",
+      "food_multiplier": 1.15,
+      "water_multiplier": 1.0,
+      "event_bonus": 0.0,
+      "injury_multiplier": 0.8,
+      "food_shortage_weeks": 0,
+      "water_shortage_weeks": 0,
+      "specialty": "Power systems",
+      "training_source": "https://www.nasa.gov/reference/jsc-crew-operations-training/",
+      "action_bonuses": {
+        "engineer_repair": 0.1
+      },
+      "normal_ration_cost": {
+        "food": 1.15,
+        "water": 2.0
+      }
+    },
+    {
+      "id": "elena",
+      "name": "Elena Rossi",
+      "role": "medic",
+      "health": 100,
+      "positive_trait": "Medical lead: +10 points on individual crew treatment while alive.",
+      "negative_trait": "Sensitive to injury: event damage is 20% greater.",
+      "food_multiplier": 1.0,
+      "water_multiplier": 1.0,
+      "event_bonus": 0.0,
+      "injury_multiplier": 1.2,
+      "food_shortage_weeks": 0,
+      "water_shortage_weeks": 0,
+      "specialty": "Emergency medicine",
+      "training_source": "https://www.nasa.gov/reference/5-0-training/",
+      "action_bonuses": {
+        "treat": 0.1
+      },
+      "normal_ration_cost": {
+        "food": 1.0,
+        "water": 2.0
+      }
+    },
+    {
+      "id": "daria",
+      "name": "Daria Sokol",
+      "role": "scientist",
+      "health": 100,
+      "positive_trait": "Instrument specialist: +10 points for recalibration.",
+      "negative_trait": "Field appetite: uses 15% more food.",
+      "food_multiplier": 1.15,
+      "water_multiplier": 1.0,
+      "event_bonus": 0.0,
+      "injury_multiplier": 1.0,
+      "food_shortage_weeks": 0,
+      "water_shortage_weeks": 0,
+      "specialty": "Geology and instrument calibration",
+      "training_source": "https://www.nasa.gov/missions/artemis/nasa-field-geology-training-prepares-artemis-mission-support-teams/",
+      "action_bonuses": {
+        "recalibrate": 0.1
+      },
+      "normal_ration_cost": {
+        "food": 1.15,
+        "water": 2.0
+      }
+    },
+    {
+      "id": "inez",
+      "name": "Inez Costa",
+      "role": "technician",
+      "health": 100,
+      "positive_trait": "Outside specialist: +20 points for general solar repairs.",
+      "negative_trait": "Thirsty: uses 15% more water.",
+      "food_multiplier": 1.0,
+      "water_multiplier": 1.15,
+      "event_bonus": 0.0,
+      "injury_multiplier": 1.0,
+      "food_shortage_weeks": 0,
+      "water_shortage_weeks": 0,
+      "specialty": "EVA tools and procedures",
+      "training_source": "https://www.nasa.gov/reference/jsc-crew-operations-training/",
+      "action_bonuses": {
+        "crew_repair": 0.2
+      },
+      "normal_ration_cost": {
+        "food": 1.0,
+        "water": 2.3
+      }
+    },
+    {
+      "id": "jules",
+      "name": "Jules Mensah",
+      "role": "technician",
+      "health": 100,
+      "positive_trait": "Diagnostic specialist: +15 points for regulator replacement.",
+      "negative_trait": "Large appetite: uses 10% more food.",
+      "food_multiplier": 1.1,
+      "water_multiplier": 1.0,
+      "event_bonus": 0.0,
+      "injury_multiplier": 1.0,
+      "food_shortage_weeks": 0,
+      "water_shortage_weeks": 0,
+      "specialty": "Fault diagnosis",
+      "training_source": "https://www.nasa.gov/reference/jsc-crew-operations-training/",
+      "action_bonuses": {
+        "replace_regulator": 0.15
+      },
+      "normal_ration_cost": {
+        "food": 1.1,
+        "water": 2.0
+      }
     }
   ],
   "items": [
@@ -285,7 +469,9 @@ export const catalog: CatalogResponse = {
       "unit": "pack",
       "category": "provisions",
       "resource": "food",
-      "resource_amount": 4.0
+      "resource_amount": 4.0,
+      "max_quantity": 1000000,
+      "inspiration_source": "https://www.nasa.gov/directorates/esdmd/hhp/space-food-systems/"
     },
     {
       "id": "water_containers",
@@ -296,18 +482,22 @@ export const catalog: CatalogResponse = {
       "unit": "container",
       "category": "provisions",
       "resource": "water",
-      "resource_amount": 5.0
+      "resource_amount": 5.0,
+      "max_quantity": 1000000,
+      "inspiration_source": "https://www.nasa.gov/directorates/esdmd/hhp/space-food-systems/"
     },
     {
       "id": "medicine_kits",
       "name": "Medicine kits",
-      "description": "One medical treatment supply.",
+      "description": "One consumable medical supply. Treatment still needs an event decision; a scanner can improve reliability.",
       "weight_kg": 1.0,
       "volume_l": 2.0,
       "unit": "kit",
       "category": "equipment",
       "resource": "medicine",
-      "resource_amount": 1.0
+      "resource_amount": 1.0,
+      "max_quantity": 1000000,
+      "inspiration_source": "https://www.nasa.gov/reference/5-0-training/"
     },
     {
       "id": "repair_kits",
@@ -318,7 +508,9 @@ export const catalog: CatalogResponse = {
       "unit": "kit",
       "category": "equipment",
       "resource": "repair_kits",
-      "resource_amount": 1.0
+      "resource_amount": 1.0,
+      "max_quantity": 1000000,
+      "inspiration_source": "https://www.nasa.gov/reference/9-0-hardware-and-equipment-vol-2/"
     },
     {
       "id": "eva_batteries",
@@ -329,7 +521,9 @@ export const catalog: CatalogResponse = {
       "unit": "pack",
       "category": "equipment",
       "resource": "eva_batteries",
-      "resource_amount": 1.0
+      "resource_amount": 1.0,
+      "max_quantity": 1000000,
+      "inspiration_source": "https://www.nasa.gov/centers-and-facilities/johnson/spacewalk-spacesuit-basics/"
     },
     {
       "id": "oxygen_tanks",
@@ -340,7 +534,61 @@ export const catalog: CatalogResponse = {
       "unit": "tank",
       "category": "provisions",
       "resource": "oxygen",
-      "resource_amount": 12.0
+      "resource_amount": 12.0,
+      "max_quantity": 1000000,
+      "inspiration_source": "https://www.nasa.gov/centers-and-facilities/johnson/spacewalk-spacesuit-basics/"
+    },
+    {
+      "id": "power_cells",
+      "name": "Emergency power cells",
+      "description": "Adds 12 electricity on arrival. Heavy temporary relief; does not improve solar generation.",
+      "weight_kg": 6.0,
+      "volume_l": 5.0,
+      "unit": "cell",
+      "category": "provisions",
+      "resource": "electricity",
+      "resource_amount": 12.0,
+      "max_quantity": 1000000,
+      "inspiration_source": "https://www.nasa.gov/centers-and-facilities/johnson/spacewalk-spacesuit-basics/"
+    },
+    {
+      "id": "dust_kits",
+      "name": "Dust-cleaning kits",
+      "description": "One guaranteed +20-point solar maintenance action. Also requires an astronaut, EVA pack, and 2 oxygen.",
+      "weight_kg": 1.5,
+      "volume_l": 3.0,
+      "unit": "kit",
+      "category": "maintenance",
+      "resource": "dust_kits",
+      "resource_amount": 1.0,
+      "max_quantity": 1000000,
+      "inspiration_source": "https://www.nasa.gov/reference/9-0-hardware-and-equipment-vol-2/"
+    },
+    {
+      "id": "oxygen_regulators",
+      "name": "Spare oxygen regulators",
+      "description": "One guaranteed +20-point oxygen-system maintenance action; costs 2 electricity.",
+      "weight_kg": 2.5,
+      "volume_l": 3.0,
+      "unit": "regulator",
+      "category": "maintenance",
+      "resource": "oxygen_regulators",
+      "resource_amount": 1.0,
+      "max_quantity": 1000000,
+      "inspiration_source": "https://www.nasa.gov/centers-and-facilities/johnson/spacewalk-spacesuit-basics/"
+    },
+    {
+      "id": "diagnostic_tools",
+      "name": "Medical diagnostic scanner",
+      "description": "Reusable: unlocks guaranteed 20-health treatment during medical events; still consumes one medicine. Maximum one.",
+      "weight_kg": 4.0,
+      "volume_l": 5.0,
+      "unit": "scanner",
+      "category": "equipment",
+      "resource": "diagnostic_tools",
+      "resource_amount": 1.0,
+      "max_quantity": 1,
+      "inspiration_source": "https://www.nasa.gov/reference/5-0-training/"
     }
   ],
   "limits": {
@@ -539,6 +787,9 @@ export const game: GameResponse = {
         "water_multiplier": 1.0,
         "event_bonus": 0.05,
         "injury_multiplier": 1.0,
+        "specialty": "Mechanical repair",
+        "training_source": "https://www.nasa.gov/reference/jsc-crew-operations-training/",
+        "action_bonuses": {},
         "food_shortage_weeks": 0,
         "water_shortage_weeks": 0,
         "alive": true,
@@ -568,6 +819,9 @@ export const game: GameResponse = {
         "water_multiplier": 1.1,
         "event_bonus": 0.0,
         "injury_multiplier": 1.0,
+        "specialty": "Crew medical officer",
+        "training_source": "https://www.nasa.gov/reference/5-0-training/",
+        "action_bonuses": {},
         "food_shortage_weeks": 0,
         "water_shortage_weeks": 0,
         "alive": true,
@@ -594,7 +848,10 @@ export const game: GameResponse = {
       "electricity": 30.0,
       "medicine": 8.0,
       "repair_kits": 8.0,
-      "eva_batteries": 8.0
+      "eva_batteries": 8.0,
+      "dust_kits": 0.0,
+      "oxygen_regulators": 0.0,
+      "diagnostic_tools": 0.0
     },
     "solar_efficiency": 0.75,
     "oxygen_efficiency": 1.0,
@@ -744,6 +1001,116 @@ export const game: GameResponse = {
           "unavailable_reasons": [],
           "eligible_crew": [],
           "success_probability": 1.0
+        },
+        {
+          "id": "clean_array",
+          "text": "Clean the solar array",
+          "description": "Guaranteed +20 percentage points solar condition. Uses a dust kit and EVA supplies; the week's incident remains unresolved.",
+          "costs": {
+            "dust_kits": 1.0,
+            "eva_batteries": 1.0,
+            "oxygen": 2.0
+          },
+          "required_items": {},
+          "requires_crew": true,
+          "role_bonus": {},
+          "crew_role_bonus": {},
+          "success_chance": 1.0,
+          "success_effects": {
+            "resources": {},
+            "solar_efficiency": 0.2,
+            "oxygen_efficiency": 0.0,
+            "crew_health": 0,
+            "target": "selected"
+          },
+          "failure_effects": {
+            "resources": {},
+            "solar_efficiency": 0.0,
+            "oxygen_efficiency": 0.0,
+            "crew_health": 0,
+            "target": "selected"
+          },
+          "required_role": null,
+          "minimum_crew": 1,
+          "available": false,
+          "unavailable_reasons": [
+            "Requires 1 dust_kits; available 0."
+          ],
+          "eligible_crew": [
+            {
+              "crew_id": "alex",
+              "available": false,
+              "unavailable_reasons": [
+                "Requires 1 dust_kits; available 0."
+              ],
+              "success_probability": 1.0
+            },
+            {
+              "crew_id": "maya",
+              "available": false,
+              "unavailable_reasons": [
+                "Requires 1 dust_kits; available 0."
+              ],
+              "success_probability": 1.0
+            }
+          ],
+          "success_probability": null
+        },
+        {
+          "id": "install_regulator",
+          "text": "Install an oxygen regulator",
+          "description": "Guaranteed +20 percentage points oxygen condition. Uses a regulator and 2 power; the week's incident remains unresolved.",
+          "costs": {
+            "oxygen_regulators": 1.0,
+            "electricity": 2.0
+          },
+          "required_items": {},
+          "requires_crew": true,
+          "role_bonus": {},
+          "crew_role_bonus": {},
+          "success_chance": 1.0,
+          "success_effects": {
+            "resources": {},
+            "solar_efficiency": 0.0,
+            "oxygen_efficiency": 0.2,
+            "crew_health": 0,
+            "target": "selected"
+          },
+          "failure_effects": {
+            "resources": {},
+            "solar_efficiency": 0.0,
+            "oxygen_efficiency": 0.0,
+            "crew_health": 0,
+            "target": "selected"
+          },
+          "required_role": null,
+          "minimum_crew": 1,
+          "available": false,
+          "unavailable_reasons": [
+            "Requires 1 oxygen_regulators; available 0.",
+            "The oxygen system is already at full condition."
+          ],
+          "eligible_crew": [
+            {
+              "crew_id": "alex",
+              "available": false,
+              "unavailable_reasons": [
+                "Requires 1 oxygen_regulators; available 0.",
+                "The oxygen system is already at full condition."
+              ],
+              "success_probability": 1.0
+            },
+            {
+              "crew_id": "maya",
+              "available": false,
+              "unavailable_reasons": [
+                "Requires 1 oxygen_regulators; available 0.",
+                "The oxygen system is already at full condition."
+              ],
+              "success_probability": 1.0
+            }
+          ],
+          "success_probability": null
         }
       ]
     },
@@ -793,6 +1160,9 @@ export const turn: TurnResponse = {
         "water_multiplier": 1.0,
         "event_bonus": 0.05,
         "injury_multiplier": 1.0,
+        "specialty": "Mechanical repair",
+        "training_source": "https://www.nasa.gov/reference/jsc-crew-operations-training/",
+        "action_bonuses": {},
         "food_shortage_weeks": 1,
         "water_shortage_weeks": 0,
         "alive": true,
@@ -822,6 +1192,9 @@ export const turn: TurnResponse = {
         "water_multiplier": 1.1,
         "event_bonus": 0.0,
         "injury_multiplier": 1.0,
+        "specialty": "Crew medical officer",
+        "training_source": "https://www.nasa.gov/reference/5-0-training/",
+        "action_bonuses": {},
         "food_shortage_weeks": 0,
         "water_shortage_weeks": 0,
         "alive": true,
@@ -848,7 +1221,10 @@ export const turn: TurnResponse = {
       "electricity": 32.0,
       "medicine": 8.0,
       "repair_kits": 7.0,
-      "eva_batteries": 7.0
+      "eva_batteries": 7.0,
+      "dust_kits": 0.0,
+      "oxygen_regulators": 0.0,
+      "diagnostic_tools": 0.0
     },
     "solar_efficiency": 0.75,
     "oxygen_efficiency": 0.75,
@@ -993,6 +1369,113 @@ export const turn: TurnResponse = {
           "unavailable_reasons": [],
           "eligible_crew": [],
           "success_probability": 1.0
+        },
+        {
+          "id": "clean_array",
+          "text": "Clean the solar array",
+          "description": "Guaranteed +20 percentage points solar condition. Uses a dust kit and EVA supplies; the week's incident remains unresolved.",
+          "costs": {
+            "dust_kits": 1.0,
+            "eva_batteries": 1.0,
+            "oxygen": 2.0
+          },
+          "required_items": {},
+          "requires_crew": true,
+          "role_bonus": {},
+          "crew_role_bonus": {},
+          "success_chance": 1.0,
+          "success_effects": {
+            "resources": {},
+            "solar_efficiency": 0.2,
+            "oxygen_efficiency": 0.0,
+            "crew_health": 0,
+            "target": "selected"
+          },
+          "failure_effects": {
+            "resources": {},
+            "solar_efficiency": 0.0,
+            "oxygen_efficiency": 0.0,
+            "crew_health": 0,
+            "target": "selected"
+          },
+          "required_role": null,
+          "minimum_crew": 1,
+          "available": false,
+          "unavailable_reasons": [
+            "Requires 1 dust_kits; available 0."
+          ],
+          "eligible_crew": [
+            {
+              "crew_id": "alex",
+              "available": false,
+              "unavailable_reasons": [
+                "Requires 1 dust_kits; available 0."
+              ],
+              "success_probability": 1.0
+            },
+            {
+              "crew_id": "maya",
+              "available": false,
+              "unavailable_reasons": [
+                "Requires 1 dust_kits; available 0."
+              ],
+              "success_probability": 1.0
+            }
+          ],
+          "success_probability": null
+        },
+        {
+          "id": "install_regulator",
+          "text": "Install an oxygen regulator",
+          "description": "Guaranteed +20 percentage points oxygen condition. Uses a regulator and 2 power; the week's incident remains unresolved.",
+          "costs": {
+            "oxygen_regulators": 1.0,
+            "electricity": 2.0
+          },
+          "required_items": {},
+          "requires_crew": true,
+          "role_bonus": {},
+          "crew_role_bonus": {},
+          "success_chance": 1.0,
+          "success_effects": {
+            "resources": {},
+            "solar_efficiency": 0.0,
+            "oxygen_efficiency": 0.2,
+            "crew_health": 0,
+            "target": "selected"
+          },
+          "failure_effects": {
+            "resources": {},
+            "solar_efficiency": 0.0,
+            "oxygen_efficiency": 0.0,
+            "crew_health": 0,
+            "target": "selected"
+          },
+          "required_role": null,
+          "minimum_crew": 1,
+          "available": false,
+          "unavailable_reasons": [
+            "Requires 1 oxygen_regulators; available 0."
+          ],
+          "eligible_crew": [
+            {
+              "crew_id": "alex",
+              "available": false,
+              "unavailable_reasons": [
+                "Requires 1 oxygen_regulators; available 0."
+              ],
+              "success_probability": 1.0
+            },
+            {
+              "crew_id": "maya",
+              "available": false,
+              "unavailable_reasons": [
+                "Requires 1 oxygen_regulators; available 0."
+              ],
+              "success_probability": 1.0
+            }
+          ],
+          "success_probability": null
         }
       ]
     },
@@ -1092,7 +1575,10 @@ export const turn: TurnResponse = {
           "electricity": 2.0,
           "medicine": 0.0,
           "repair_kits": -1.0,
-          "eva_batteries": -1.0
+          "eva_batteries": -1.0,
+          "dust_kits": 0.0,
+          "oxygen_regulators": 0.0,
+          "diagnostic_tools": 0.0
         },
         "deaths": [],
         "next_event": {
@@ -1201,7 +1687,10 @@ export const turn: TurnResponse = {
       "electricity": 2.0,
       "medicine": 0.0,
       "repair_kits": -1.0,
-      "eva_batteries": -1.0
+      "eva_batteries": -1.0,
+      "dust_kits": 0.0,
+      "oxygen_regulators": 0.0,
+      "diagnostic_tools": 0.0
     },
     "deaths": [],
     "next_event": {
@@ -1247,6 +1736,9 @@ export const medicalGame: GameResponse = {
         "water_multiplier": 1.0,
         "event_bonus": 0.05,
         "injury_multiplier": 1.0,
+        "specialty": "Mechanical repair",
+        "training_source": "https://www.nasa.gov/reference/jsc-crew-operations-training/",
+        "action_bonuses": {},
         "food_shortage_weeks": 0,
         "water_shortage_weeks": 0,
         "alive": true,
@@ -1276,6 +1768,9 @@ export const medicalGame: GameResponse = {
         "water_multiplier": 1.1,
         "event_bonus": 0.0,
         "injury_multiplier": 1.0,
+        "specialty": "Crew medical officer",
+        "training_source": "https://www.nasa.gov/reference/5-0-training/",
+        "action_bonuses": {},
         "food_shortage_weeks": 0,
         "water_shortage_weeks": 0,
         "alive": true,
@@ -1302,7 +1797,10 @@ export const medicalGame: GameResponse = {
       "electricity": 30.0,
       "medicine": 8.0,
       "repair_kits": 8.0,
-      "eva_batteries": 8.0
+      "eva_batteries": 8.0,
+      "dust_kits": 0.0,
+      "oxygen_regulators": 0.0,
+      "diagnostic_tools": 0.0
     },
     "solar_efficiency": 1.0,
     "oxygen_efficiency": 1.0,
@@ -1418,6 +1916,60 @@ export const medicalGame: GameResponse = {
           "success_probability": null
         },
         {
+          "id": "guided_treatment",
+          "text": "Use scanner-guided treatment",
+          "description": "Guaranteed 20-health recovery for the selected patient. Consumes medicine; the scanner is retained.",
+          "costs": {
+            "medicine": 1.0
+          },
+          "required_items": {
+            "diagnostic_tools": 1
+          },
+          "requires_crew": true,
+          "role_bonus": {},
+          "crew_role_bonus": {},
+          "success_chance": 1.0,
+          "success_effects": {
+            "resources": {},
+            "solar_efficiency": 0.0,
+            "oxygen_efficiency": 0.0,
+            "crew_health": 20,
+            "target": "selected"
+          },
+          "failure_effects": {
+            "resources": {},
+            "solar_efficiency": 0.0,
+            "oxygen_efficiency": 0.0,
+            "crew_health": 0,
+            "target": "selected"
+          },
+          "required_role": null,
+          "minimum_crew": 1,
+          "available": false,
+          "unavailable_reasons": [
+            "Requires 1 Medical diagnostic scanner (not consumed)."
+          ],
+          "eligible_crew": [
+            {
+              "crew_id": "alex",
+              "available": false,
+              "unavailable_reasons": [
+                "Requires 1 Medical diagnostic scanner (not consumed)."
+              ],
+              "success_probability": 1.0
+            },
+            {
+              "crew_id": "maya",
+              "available": false,
+              "unavailable_reasons": [
+                "Requires 1 Medical diagnostic scanner (not consumed)."
+              ],
+              "success_probability": 1.0
+            }
+          ],
+          "success_probability": null
+        },
+        {
           "id": "rest",
           "text": "Isolate the filter and rest",
           "description": "No supplies spent. The crew takes another 5 health damage.",
@@ -1447,6 +1999,119 @@ export const medicalGame: GameResponse = {
           "unavailable_reasons": [],
           "eligible_crew": [],
           "success_probability": 1.0
+        },
+        {
+          "id": "clean_array",
+          "text": "Clean the solar array",
+          "description": "Guaranteed +20 percentage points solar condition. Uses a dust kit and EVA supplies; the week's incident remains unresolved.",
+          "costs": {
+            "dust_kits": 1.0,
+            "eva_batteries": 1.0,
+            "oxygen": 2.0
+          },
+          "required_items": {},
+          "requires_crew": true,
+          "role_bonus": {},
+          "crew_role_bonus": {},
+          "success_chance": 1.0,
+          "success_effects": {
+            "resources": {},
+            "solar_efficiency": 0.2,
+            "oxygen_efficiency": 0.0,
+            "crew_health": 0,
+            "target": "selected"
+          },
+          "failure_effects": {
+            "resources": {},
+            "solar_efficiency": 0.0,
+            "oxygen_efficiency": 0.0,
+            "crew_health": 0,
+            "target": "selected"
+          },
+          "required_role": null,
+          "minimum_crew": 1,
+          "available": false,
+          "unavailable_reasons": [
+            "Requires 1 dust_kits; available 0.",
+            "The solar array is already at full condition."
+          ],
+          "eligible_crew": [
+            {
+              "crew_id": "alex",
+              "available": false,
+              "unavailable_reasons": [
+                "Requires 1 dust_kits; available 0.",
+                "The solar array is already at full condition."
+              ],
+              "success_probability": 1.0
+            },
+            {
+              "crew_id": "maya",
+              "available": false,
+              "unavailable_reasons": [
+                "Requires 1 dust_kits; available 0.",
+                "The solar array is already at full condition."
+              ],
+              "success_probability": 1.0
+            }
+          ],
+          "success_probability": null
+        },
+        {
+          "id": "install_regulator",
+          "text": "Install an oxygen regulator",
+          "description": "Guaranteed +20 percentage points oxygen condition. Uses a regulator and 2 power; the week's incident remains unresolved.",
+          "costs": {
+            "oxygen_regulators": 1.0,
+            "electricity": 2.0
+          },
+          "required_items": {},
+          "requires_crew": true,
+          "role_bonus": {},
+          "crew_role_bonus": {},
+          "success_chance": 1.0,
+          "success_effects": {
+            "resources": {},
+            "solar_efficiency": 0.0,
+            "oxygen_efficiency": 0.2,
+            "crew_health": 0,
+            "target": "selected"
+          },
+          "failure_effects": {
+            "resources": {},
+            "solar_efficiency": 0.0,
+            "oxygen_efficiency": 0.0,
+            "crew_health": 0,
+            "target": "selected"
+          },
+          "required_role": null,
+          "minimum_crew": 1,
+          "available": false,
+          "unavailable_reasons": [
+            "Requires 1 oxygen_regulators; available 0.",
+            "The oxygen system is already at full condition."
+          ],
+          "eligible_crew": [
+            {
+              "crew_id": "alex",
+              "available": false,
+              "unavailable_reasons": [
+                "Requires 1 oxygen_regulators; available 0.",
+                "The oxygen system is already at full condition."
+              ],
+              "success_probability": 1.0
+            },
+            {
+              "crew_id": "maya",
+              "available": false,
+              "unavailable_reasons": [
+                "Requires 1 oxygen_regulators; available 0.",
+                "The oxygen system is already at full condition."
+              ],
+              "success_probability": 1.0
+            }
+          ],
+          "success_probability": null
         }
       ]
     },
@@ -1496,6 +2161,9 @@ export const treatment: TurnResponse = {
         "water_multiplier": 1.0,
         "event_bonus": 0.05,
         "injury_multiplier": 1.0,
+        "specialty": "Mechanical repair",
+        "training_source": "https://www.nasa.gov/reference/jsc-crew-operations-training/",
+        "action_bonuses": {},
         "food_shortage_weeks": 0,
         "water_shortage_weeks": 0,
         "alive": true,
@@ -1525,6 +2193,9 @@ export const treatment: TurnResponse = {
         "water_multiplier": 1.1,
         "event_bonus": 0.0,
         "injury_multiplier": 1.0,
+        "specialty": "Crew medical officer",
+        "training_source": "https://www.nasa.gov/reference/5-0-training/",
+        "action_bonuses": {},
         "food_shortage_weeks": 0,
         "water_shortage_weeks": 0,
         "alive": true,
@@ -1551,7 +2222,10 @@ export const treatment: TurnResponse = {
       "electricity": 38.0,
       "medicine": 7.0,
       "repair_kits": 8.0,
-      "eva_batteries": 8.0
+      "eva_batteries": 8.0,
+      "dust_kits": 0.0,
+      "oxygen_regulators": 0.0,
+      "diagnostic_tools": 0.0
     },
     "solar_efficiency": 1.0,
     "oxygen_efficiency": 0.75,
@@ -1696,6 +2370,116 @@ export const treatment: TurnResponse = {
           "unavailable_reasons": [],
           "eligible_crew": [],
           "success_probability": 1.0
+        },
+        {
+          "id": "clean_array",
+          "text": "Clean the solar array",
+          "description": "Guaranteed +20 percentage points solar condition. Uses a dust kit and EVA supplies; the week's incident remains unresolved.",
+          "costs": {
+            "dust_kits": 1.0,
+            "eva_batteries": 1.0,
+            "oxygen": 2.0
+          },
+          "required_items": {},
+          "requires_crew": true,
+          "role_bonus": {},
+          "crew_role_bonus": {},
+          "success_chance": 1.0,
+          "success_effects": {
+            "resources": {},
+            "solar_efficiency": 0.2,
+            "oxygen_efficiency": 0.0,
+            "crew_health": 0,
+            "target": "selected"
+          },
+          "failure_effects": {
+            "resources": {},
+            "solar_efficiency": 0.0,
+            "oxygen_efficiency": 0.0,
+            "crew_health": 0,
+            "target": "selected"
+          },
+          "required_role": null,
+          "minimum_crew": 1,
+          "available": false,
+          "unavailable_reasons": [
+            "Requires 1 dust_kits; available 0.",
+            "The solar array is already at full condition."
+          ],
+          "eligible_crew": [
+            {
+              "crew_id": "alex",
+              "available": false,
+              "unavailable_reasons": [
+                "Requires 1 dust_kits; available 0.",
+                "The solar array is already at full condition."
+              ],
+              "success_probability": 1.0
+            },
+            {
+              "crew_id": "maya",
+              "available": false,
+              "unavailable_reasons": [
+                "Requires 1 dust_kits; available 0.",
+                "The solar array is already at full condition."
+              ],
+              "success_probability": 1.0
+            }
+          ],
+          "success_probability": null
+        },
+        {
+          "id": "install_regulator",
+          "text": "Install an oxygen regulator",
+          "description": "Guaranteed +20 percentage points oxygen condition. Uses a regulator and 2 power; the week's incident remains unresolved.",
+          "costs": {
+            "oxygen_regulators": 1.0,
+            "electricity": 2.0
+          },
+          "required_items": {},
+          "requires_crew": true,
+          "role_bonus": {},
+          "crew_role_bonus": {},
+          "success_chance": 1.0,
+          "success_effects": {
+            "resources": {},
+            "solar_efficiency": 0.0,
+            "oxygen_efficiency": 0.2,
+            "crew_health": 0,
+            "target": "selected"
+          },
+          "failure_effects": {
+            "resources": {},
+            "solar_efficiency": 0.0,
+            "oxygen_efficiency": 0.0,
+            "crew_health": 0,
+            "target": "selected"
+          },
+          "required_role": null,
+          "minimum_crew": 1,
+          "available": false,
+          "unavailable_reasons": [
+            "Requires 1 oxygen_regulators; available 0."
+          ],
+          "eligible_crew": [
+            {
+              "crew_id": "alex",
+              "available": false,
+              "unavailable_reasons": [
+                "Requires 1 oxygen_regulators; available 0."
+              ],
+              "success_probability": 1.0
+            },
+            {
+              "crew_id": "maya",
+              "available": false,
+              "unavailable_reasons": [
+                "Requires 1 oxygen_regulators; available 0."
+              ],
+              "success_probability": 1.0
+            }
+          ],
+          "success_probability": null
         }
       ]
     },
@@ -1793,7 +2577,10 @@ export const treatment: TurnResponse = {
           "electricity": 8.0,
           "medicine": -1.0,
           "repair_kits": 0.0,
-          "eva_batteries": 0.0
+          "eva_batteries": 0.0,
+          "dust_kits": 0.0,
+          "oxygen_regulators": 0.0,
+          "diagnostic_tools": 0.0
         },
         "deaths": [],
         "next_event": {
@@ -1900,7 +2687,10 @@ export const treatment: TurnResponse = {
       "electricity": 8.0,
       "medicine": -1.0,
       "repair_kits": 0.0,
-      "eva_batteries": 0.0
+      "eva_batteries": 0.0,
+      "dust_kits": 0.0,
+      "oxygen_regulators": 0.0,
+      "diagnostic_tools": 0.0
     },
     "deaths": [],
     "next_event": {
@@ -1946,6 +2736,9 @@ export const completed: GameResponse = {
         "water_multiplier": 1.0,
         "event_bonus": 0.05,
         "injury_multiplier": 1.0,
+        "specialty": "Mechanical repair",
+        "training_source": "https://www.nasa.gov/reference/jsc-crew-operations-training/",
+        "action_bonuses": {},
         "food_shortage_weeks": 0,
         "water_shortage_weeks": 0,
         "alive": true,
@@ -1975,6 +2768,9 @@ export const completed: GameResponse = {
         "water_multiplier": 1.1,
         "event_bonus": 0.0,
         "injury_multiplier": 1.0,
+        "specialty": "Crew medical officer",
+        "training_source": "https://www.nasa.gov/reference/5-0-training/",
+        "action_bonuses": {},
         "food_shortage_weeks": 0,
         "water_shortage_weeks": 0,
         "alive": true,
@@ -2001,7 +2797,10 @@ export const completed: GameResponse = {
       "electricity": 126.0,
       "medicine": 4.0,
       "repair_kits": 0.0,
-      "eva_batteries": 4.0
+      "eva_batteries": 4.0,
+      "dust_kits": 0.0,
+      "oxygen_regulators": 0.0,
+      "diagnostic_tools": 0.0
     },
     "solar_efficiency": 1.0,
     "oxygen_efficiency": 0.75,
@@ -2112,7 +2911,10 @@ export const completed: GameResponse = {
           "electricity": 8.0,
           "medicine": -1.0,
           "repair_kits": 0.0,
-          "eva_batteries": 0.0
+          "eva_batteries": 0.0,
+          "dust_kits": 0.0,
+          "oxygen_regulators": 0.0,
+          "diagnostic_tools": 0.0
         },
         "deaths": [],
         "next_event": {
@@ -2211,7 +3013,10 @@ export const completed: GameResponse = {
           "electricity": 8.0,
           "medicine": 0.0,
           "repair_kits": -1.0,
-          "eva_batteries": 0.0
+          "eva_batteries": 0.0,
+          "dust_kits": 0.0,
+          "oxygen_regulators": 0.0,
+          "diagnostic_tools": 0.0
         },
         "deaths": [],
         "next_event": {
@@ -2306,7 +3111,10 @@ export const completed: GameResponse = {
           "electricity": 8.0,
           "medicine": 0.0,
           "repair_kits": -1.0,
-          "eva_batteries": -1.0
+          "eva_batteries": -1.0,
+          "dust_kits": 0.0,
+          "oxygen_regulators": 0.0,
+          "diagnostic_tools": 0.0
         },
         "deaths": [],
         "next_event": {
@@ -2416,7 +3224,10 @@ export const completed: GameResponse = {
           "electricity": 8.0,
           "medicine": -1.0,
           "repair_kits": 0.0,
-          "eva_batteries": 0.0
+          "eva_batteries": 0.0,
+          "dust_kits": 0.0,
+          "oxygen_regulators": 0.0,
+          "diagnostic_tools": 0.0
         },
         "deaths": [],
         "next_event": {
@@ -2509,7 +3320,10 @@ export const completed: GameResponse = {
           "electricity": 8.0,
           "medicine": 0.0,
           "repair_kits": -1.0,
-          "eva_batteries": 0.0
+          "eva_batteries": 0.0,
+          "dust_kits": 0.0,
+          "oxygen_regulators": 0.0,
+          "diagnostic_tools": 0.0
         },
         "deaths": [],
         "next_event": {
@@ -2604,7 +3418,10 @@ export const completed: GameResponse = {
           "electricity": 8.0,
           "medicine": 0.0,
           "repair_kits": -1.0,
-          "eva_batteries": -1.0
+          "eva_batteries": -1.0,
+          "dust_kits": 0.0,
+          "oxygen_regulators": 0.0,
+          "diagnostic_tools": 0.0
         },
         "deaths": [],
         "next_event": {
@@ -2714,7 +3531,10 @@ export const completed: GameResponse = {
           "electricity": 8.0,
           "medicine": -1.0,
           "repair_kits": 0.0,
-          "eva_batteries": 0.0
+          "eva_batteries": 0.0,
+          "dust_kits": 0.0,
+          "oxygen_regulators": 0.0,
+          "diagnostic_tools": 0.0
         },
         "deaths": [],
         "next_event": {
@@ -2807,7 +3627,10 @@ export const completed: GameResponse = {
           "electricity": 8.0,
           "medicine": 0.0,
           "repair_kits": -1.0,
-          "eva_batteries": 0.0
+          "eva_batteries": 0.0,
+          "dust_kits": 0.0,
+          "oxygen_regulators": 0.0,
+          "diagnostic_tools": 0.0
         },
         "deaths": [],
         "next_event": {
@@ -2902,7 +3725,10 @@ export const completed: GameResponse = {
           "electricity": 8.0,
           "medicine": 0.0,
           "repair_kits": -1.0,
-          "eva_batteries": -1.0
+          "eva_batteries": -1.0,
+          "dust_kits": 0.0,
+          "oxygen_regulators": 0.0,
+          "diagnostic_tools": 0.0
         },
         "deaths": [],
         "next_event": {
@@ -3012,7 +3838,10 @@ export const completed: GameResponse = {
           "electricity": 8.0,
           "medicine": -1.0,
           "repair_kits": 0.0,
-          "eva_batteries": 0.0
+          "eva_batteries": 0.0,
+          "dust_kits": 0.0,
+          "oxygen_regulators": 0.0,
+          "diagnostic_tools": 0.0
         },
         "deaths": [],
         "next_event": {
@@ -3105,7 +3934,10 @@ export const completed: GameResponse = {
           "electricity": 8.0,
           "medicine": 0.0,
           "repair_kits": -1.0,
-          "eva_batteries": 0.0
+          "eva_batteries": 0.0,
+          "dust_kits": 0.0,
+          "oxygen_regulators": 0.0,
+          "diagnostic_tools": 0.0
         },
         "deaths": [],
         "next_event": {
@@ -3200,7 +4032,10 @@ export const completed: GameResponse = {
           "electricity": 8.0,
           "medicine": 0.0,
           "repair_kits": -1.0,
-          "eva_batteries": -1.0
+          "eva_batteries": -1.0,
+          "dust_kits": 0.0,
+          "oxygen_regulators": 0.0,
+          "diagnostic_tools": 0.0
         },
         "deaths": [],
         "next_event": null,
@@ -3255,6 +4090,9 @@ export const failed: GameResponse = {
         "water_multiplier": 1.0,
         "event_bonus": 0.05,
         "injury_multiplier": 1.0,
+        "specialty": "Mechanical repair",
+        "training_source": "https://www.nasa.gov/reference/jsc-crew-operations-training/",
+        "action_bonuses": {},
         "food_shortage_weeks": 1,
         "water_shortage_weeks": 2,
         "alive": false,
@@ -3271,6 +4109,9 @@ export const failed: GameResponse = {
         "water_multiplier": 1.1,
         "event_bonus": 0.0,
         "injury_multiplier": 1.0,
+        "specialty": "Crew medical officer",
+        "training_source": "https://www.nasa.gov/reference/5-0-training/",
+        "action_bonuses": {},
         "food_shortage_weeks": 1,
         "water_shortage_weeks": 2,
         "alive": false,
@@ -3287,6 +4128,9 @@ export const failed: GameResponse = {
         "water_multiplier": 0.9,
         "event_bonus": 0.0,
         "injury_multiplier": 1.2,
+        "specialty": "Field science and calibration",
+        "training_source": "https://www.nasa.gov/missions/artemis/nasa-field-geology-training-prepares-artemis-mission-support-teams/",
+        "action_bonuses": {},
         "food_shortage_weeks": 1,
         "water_shortage_weeks": 2,
         "alive": false,
@@ -3303,6 +4147,9 @@ export const failed: GameResponse = {
         "water_multiplier": 1.0,
         "event_bonus": -0.05,
         "injury_multiplier": 0.8,
+        "specialty": "EVA maintenance",
+        "training_source": "https://www.nasa.gov/reference/jsc-crew-operations-training/",
+        "action_bonuses": {},
         "food_shortage_weeks": 1,
         "water_shortage_weeks": 2,
         "alive": false,
@@ -3316,7 +4163,10 @@ export const failed: GameResponse = {
       "electricity": 24.0,
       "medicine": 1.0,
       "repair_kits": 1.0,
-      "eva_batteries": 1.0
+      "eva_batteries": 1.0,
+      "dust_kits": 0.0,
+      "oxygen_regulators": 0.0,
+      "diagnostic_tools": 0.0
     },
     "solar_efficiency": 0.5,
     "oxygen_efficiency": 0.5,
@@ -3462,7 +4312,10 @@ export const failed: GameResponse = {
           "electricity": 4.0,
           "medicine": 0.0,
           "repair_kits": 0.0,
-          "eva_batteries": 0.0
+          "eva_batteries": 0.0,
+          "dust_kits": 0.0,
+          "oxygen_regulators": 0.0,
+          "diagnostic_tools": 0.0
         },
         "deaths": [],
         "next_event": {
@@ -3579,7 +4432,10 @@ export const failed: GameResponse = {
           "electricity": 4.0,
           "medicine": 0.0,
           "repair_kits": 0.0,
-          "eva_batteries": 0.0
+          "eva_batteries": 0.0,
+          "dust_kits": 0.0,
+          "oxygen_regulators": 0.0,
+          "diagnostic_tools": 0.0
         },
         "deaths": [],
         "next_event": {
@@ -3696,7 +4552,10 @@ export const failed: GameResponse = {
           "electricity": -2.0,
           "medicine": 0.0,
           "repair_kits": 0.0,
-          "eva_batteries": 0.0
+          "eva_batteries": 0.0,
+          "dust_kits": 0.0,
+          "oxygen_regulators": 0.0,
+          "diagnostic_tools": 0.0
         },
         "deaths": [],
         "next_event": {
@@ -3855,7 +4714,10 @@ export const failed: GameResponse = {
           "electricity": -2.0,
           "medicine": 0.0,
           "repair_kits": 0.0,
-          "eva_batteries": 0.0
+          "eva_batteries": 0.0,
+          "dust_kits": 0.0,
+          "oxygen_regulators": 0.0,
+          "diagnostic_tools": 0.0
         },
         "deaths": [],
         "next_event": {
@@ -3972,7 +4834,10 @@ export const failed: GameResponse = {
           "electricity": -2.0,
           "medicine": 0.0,
           "repair_kits": 0.0,
-          "eva_batteries": 0.0
+          "eva_batteries": 0.0,
+          "dust_kits": 0.0,
+          "oxygen_regulators": 0.0,
+          "diagnostic_tools": 0.0
         },
         "deaths": [],
         "next_event": {
@@ -4089,7 +4954,10 @@ export const failed: GameResponse = {
           "electricity": -8.0,
           "medicine": 0.0,
           "repair_kits": 0.0,
-          "eva_batteries": 0.0
+          "eva_batteries": 0.0,
+          "dust_kits": 0.0,
+          "oxygen_regulators": 0.0,
+          "diagnostic_tools": 0.0
         },
         "deaths": [
           "alex",

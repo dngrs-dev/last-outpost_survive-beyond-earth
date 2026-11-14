@@ -141,7 +141,7 @@ def test_event_mission_reproducible_and_winnable(engine):
     def play():
         state = engine.create_game(
             "alpha",
-            list(engine.definitions.crew),
+            list(engine.definitions.crew)[:4],
             {
                 "food_packs": 8,
                 "water_containers": 16,
