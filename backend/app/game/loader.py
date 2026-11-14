@@ -47,6 +47,9 @@ def _resources(values: dict[str, float], context: str, signed: bool = False) -> 
         "dust_kits",
         "oxygen_regulators",
         "diagnostic_tools",
+        "sealant_packs",
+        "scientific_tools",
+        "research_data",
     ):
         if name in values:
             _require(values[name].is_integer(), f"{context}: {name} must be whole units")
@@ -140,7 +143,9 @@ def load_definitions(data_dir: Path = DEFAULT_DATA) -> Definitions:
     for item in definitions.items.values():
         _require(item.max_quantity > 0, f"{item.id}: invalid cargo quantity limit")
         _require(
-            item.inspiration_source.startswith("https://www.nasa.gov/"),
+            item.inspiration_source.startswith(
+                ("https://www.nasa.gov/", "https://history.nasa.gov/")
+            ),
             f"{item.id}: equipment source must be an official NASA reference",
         )
         _require(item.resource in RESOURCE_NAMES, f"{item.id}: unknown resource")
@@ -148,6 +153,13 @@ def load_definitions(data_dir: Path = DEFAULT_DATA) -> Definitions:
             _require(_number(getattr(item, name), 0.001), f"{item.id}: invalid {name}")
         _resources({item.resource: item.resource_amount}, item.id)
     for event in definitions.events.values():
+        _require(
+            event.source_url.startswith(
+                ("https://www.nasa.gov/", "https://science.nasa.gov/", "https://history.nasa.gov/")
+            ),
+            f"{event.id}: expected an official NASA source",
+        )
+        _require(bool(event.science_context.strip()), f"{event.id}: missing science context")
         _require(event.id != "quiet_week", "quiet_week is reserved for the neutral fallback")
         _require(_number(event.weight, 0.001), f"{event.id}: invalid weight")
         _require(event.min_week > 0, f"{event.id}: invalid earliest week")

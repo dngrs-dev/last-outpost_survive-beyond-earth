@@ -115,5 +115,30 @@
     "resource_amount": 1,
     "max_quantity": 1,
     "inspiration_source": "https://www.nasa.gov/reference/5-0-training/"
+  },
+  {
+    "id": "sealant_packs",
+    "name": "Multipurpose sealant packs",
+    "description": "Consumed by pressure-line, water-coupling, thermal-patch, or improvised-cover repairs. Each choice states its other costs.",
+    "weight_kg": 0.8,
+    "volume_l": 2,
+    "unit": "pack",
+    "category": "maintenance",
+    "resource": "sealant_packs",
+    "resource_amount": 1,
+    "inspiration_source": "https://history.nasa.gov/wp-content/uploads/static/history/alsj/WOTM/WOTM-DuctTape.html"
+  },
+  {
+    "id": "scientific_tools",
+    "name": "Field science kit",
+    "description": "Reusable sampling tools, sensors, and a diagnostic meter unlock instrumented research, battery measurements, and reserve inspection. Maximum one; does not generate survival supplies.",
+    "weight_kg": 3,
+    "volume_l": 5,
+    "unit": "kit",
+    "category": "equipment",
+    "resource": "scientific_tools",
+    "resource_amount": 1,
+    "max_quantity": 1,
+    "inspiration_source": "https://www.nasa.gov/missions/artemis/nasa-field-geology-training-prepares-artemis-mission-support-teams/"
   }
 ]

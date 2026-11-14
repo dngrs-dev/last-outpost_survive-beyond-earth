@@ -20,6 +20,14 @@
 
 ## 1. Project Overview
 
+> Event expansion: fifteen authored events now replace the original three-event
+> prototype pool across all six outposts. Hazards, science opportunities, and
+> recovery share the existing weekly decision system. Two further cargo types
+> support sealing and field science; optional research data is shown in the
+> mission and debrief. Selection prioritizes unseen eligible events before
+> repeating them. See `events.md` for sources and fictional balancing boundaries.
+> Later references to three events describe the original implementation stages.
+
 **Project name:** LAST OUTPOST  
 **Subtitle:** Lunar Survival  
 **Genre:** Turn-based survival, strategy, resource management, decision-making  

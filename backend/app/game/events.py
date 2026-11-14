@@ -21,6 +21,7 @@ QUIET_WEEK = Event(
     description="No major incident this week. Review supplies and maintain the station.",
     weight=1,
     min_week=1,
+    category="recovery",
     choices=[
         EventChoice(
             id="continue",
@@ -91,6 +92,10 @@ def select_event(state: GameState, definitions: Definitions, rules: Rules) -> Ev
     candidates = eligible_events(state, definitions, rules)
     if not candidates:
         return QUIET_WEEK
+    # With the larger collection, see every eligible incident before repeating one.
+    unseen = [event for event in candidates if event.id not in state.used_event_ids]
+    if unseen:
+        candidates = unseen
     return seeded_rng(state, "event").choices(
         candidates, weights=[event.weight for event in candidates], k=1
     )[0]
@@ -234,6 +239,9 @@ def event_view(state: GameState, definitions: Definitions) -> dict | None:
         "id": event.id,
         "title": event.title,
         "description": event.description,
+        "category": event.category,
+        "science_context": event.science_context,
+        "source_url": event.source_url,
         "on_start": asdict(event.on_start),
         "choices": choices,
     }

@@ -14,7 +14,10 @@
       "eva_batteries": 1,
       "dust_kits": 0,
       "oxygen_regulators": 0,
-      "diagnostic_tools": 0
+      "diagnostic_tools": 0,
+      "sealant_packs": 0,
+      "scientific_tools": 0,
+      "research_data": 0
     },
     "energy_per_week": 24,
     "oxygen_per_week": 14,
@@ -40,7 +43,10 @@
       "eva_batteries": 2,
       "dust_kits": 0,
       "oxygen_regulators": 0,
-      "diagnostic_tools": 0
+      "diagnostic_tools": 0,
+      "sealant_packs": 0,
+      "scientific_tools": 0,
+      "research_data": 0
     },
     "energy_per_week": 28,
     "oxygen_per_week": 16,
@@ -66,7 +72,10 @@
       "eva_batteries": 2,
       "dust_kits": 0,
       "oxygen_regulators": 0,
-      "diagnostic_tools": 0
+      "diagnostic_tools": 0,
+      "sealant_packs": 0,
+      "scientific_tools": 0,
+      "research_data": 0
     },
     "energy_per_week": 24,
     "oxygen_per_week": 15,
@@ -92,7 +101,10 @@
       "eva_batteries": 1,
       "dust_kits": 0,
       "oxygen_regulators": 0,
-      "diagnostic_tools": 0
+      "diagnostic_tools": 0,
+      "sealant_packs": 0,
+      "scientific_tools": 0,
+      "research_data": 0
     },
     "energy_per_week": 26,
     "oxygen_per_week": 15,
@@ -118,7 +130,10 @@
       "eva_batteries": 1,
       "dust_kits": 0,
       "oxygen_regulators": 0,
-      "diagnostic_tools": 0
+      "diagnostic_tools": 0,
+      "sealant_packs": 0,
+      "scientific_tools": 0,
+      "research_data": 0
     },
     "energy_per_week": 24,
     "oxygen_per_week": 16,
@@ -144,7 +159,10 @@
       "eva_batteries": 1,
       "dust_kits": 0,
       "oxygen_regulators": 0,
-      "diagnostic_tools": 0
+      "diagnostic_tools": 0,
+      "sealant_packs": 0,
+      "scientific_tools": 0,
+      "research_data": 0
     },
     "energy_per_week": 25,
     "oxygen_per_week": 15,

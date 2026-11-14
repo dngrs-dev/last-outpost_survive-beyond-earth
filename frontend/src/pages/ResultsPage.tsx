@@ -197,6 +197,7 @@ export const ResultsPage: React.FC = () => {
           <span>📦 FINAL OUTPOST RESERVES</span>
         </div>
         <div className="resources-grid" style={{ marginBottom: 0 }}>
+          <ResourceCard id="research_data" name="Research data" value={state.resources.research_data || 0} unit="points" />
           <ResourceCard id="food" name="Food" value={state.resources.food || 0} unit="u" />
           <ResourceCard id="water" name="Water" value={state.resources.water || 0} unit="u" />
           <ResourceCard id="oxygen" name="Oxygen" value={state.resources.oxygen || 0} unit="u" />

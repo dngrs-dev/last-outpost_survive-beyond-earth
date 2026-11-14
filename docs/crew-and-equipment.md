@@ -61,6 +61,14 @@ consumable supply from equipment. Cargo limits are clearly labeled fictional.
 | Dust-cleaning kit | 1.5 kg / 3 L | Consumed for guaranteed +20 solar percentage points; also costs one EVA pack and 2 oxygen |
 | Spare oxygen regulator | 2.5 kg / 3 L | Consumed for guaranteed +20 oxygen percentage points; also costs 2 electricity |
 | Diagnostic scanner | 4 kg / 5 L, maximum one | Retained; unlocks guaranteed 20-health treatment during medical incidents, consuming one medicine |
+| Multipurpose sealant pack | 0.8 kg / 2 L | Consumed for guaranteed line, coupling, thermal-patch, or dust-cover repairs |
+| Field science kit | 3 kg / 5 L, maximum one | Retained; unlocks instrumented science, battery measurements, and reserve inspection |
+
+The latest two items support the [fifteen-event library](events.md). Sealant adapts
+the improvised-repair lesson from Apollo 17; it is not a real universal pressure
+repair specification. The field kit combines fictional sampling and diagnostic
+tools. Research data is earned in play, cannot be packed, and does not replace
+survival supplies or change handover requirements.
 
 Maintenance is available as an alternative weekly choice, including quiet weeks.
 It requires a living astronaut and skips the incident's normal response: discovery

@@ -1,7 +1,7 @@
 # Backend guide
 
-The backend implements Stages 1–5 in [the game specification](game-design.md): Station Alpha, four selectable astronauts,
-ten cargo types, configurable weekly missions, three JSON events, rationing, health, and all
+The backend implements Stages 1–5 and later expansions in [the game specification](game-design.md): six outposts, ten selectable astronauts,
+twelve cargo types, configurable weekly missions, fifteen JSON events, rationing, health, and all
 four endings. A React frontend consumes this API. All balancing values are
 fictional gameplay units.
 
@@ -89,7 +89,8 @@ ration and event costs.
 Turn order and prototype rules:
 
 - At the beginning of a week, select a weighted event and apply its announced
-  discovery effects once. Do not repeat either of the previous two events;
+  discovery effects once. Prioritize unseen eligible events, preserving weighted
+  selection within that group. Do not repeat either of the previous two events;
   use a quiet week when nothing is eligible.
 - Validate the entire decision before resolving it on a copy. Charge event costs,
   resolve success/injury, feed surviving crew, generate/use electricity, then

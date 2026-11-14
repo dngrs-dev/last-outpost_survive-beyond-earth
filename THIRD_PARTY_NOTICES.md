@@ -20,6 +20,15 @@ and [Apollo landing table](https://nssdc.gsfc.nasa.gov/planetary/lunar/apollolan
 Credit: NASA NSSDCA / Goddard Space Flight Center. Short descriptions are original
 project summaries; individual mission references are included with each record.
 
+## Event and equipment research
+
+`backend/data/events.json` and the additional equipment definitions contain
+original fictional scenarios and short original summaries of NASA research.
+Each includes a source link; [the event guide](docs/events.md) lists the references
+and explains the gameplay abstractions. No article text, photographs, logos, or
+additional NASA assets were downloaded for this expansion. These research links
+do not imply NASA endorsement or validation of the game rules.
+
 ## Conditions and scope
 
 The selected dataset and map may be included in this repository with these notices.

@@ -7,7 +7,19 @@
     "event_ids": [
       "solar_failure",
       "oxygen_fault",
-      "medical_emergency"
+      "medical_emergency",
+      "solar_particle_alert",
+      "impact_puncture",
+      "thermal_control",
+      "water_line_leak",
+      "scrubber_load",
+      "antenna_drift",
+      "battery_isolation",
+      "improvised_shield",
+      "geology_window",
+      "seismic_signal",
+      "inventory_audit",
+      "crew_recovery"
     ],
     "minimum_survivors": 1
   },
@@ -19,7 +31,19 @@
     "event_ids": [
       "solar_failure",
       "oxygen_fault",
-      "medical_emergency"
+      "medical_emergency",
+      "solar_particle_alert",
+      "impact_puncture",
+      "thermal_control",
+      "water_line_leak",
+      "scrubber_load",
+      "antenna_drift",
+      "battery_isolation",
+      "improvised_shield",
+      "geology_window",
+      "seismic_signal",
+      "inventory_audit",
+      "crew_recovery"
     ],
     "minimum_survivors": 1
   },
@@ -31,7 +55,19 @@
     "event_ids": [
       "solar_failure",
       "oxygen_fault",
-      "medical_emergency"
+      "medical_emergency",
+      "solar_particle_alert",
+      "impact_puncture",
+      "thermal_control",
+      "water_line_leak",
+      "scrubber_load",
+      "antenna_drift",
+      "battery_isolation",
+      "improvised_shield",
+      "geology_window",
+      "seismic_signal",
+      "inventory_audit",
+      "crew_recovery"
     ],
     "minimum_survivors": 1
   },
@@ -43,7 +79,19 @@
     "event_ids": [
       "solar_failure",
       "oxygen_fault",
-      "medical_emergency"
+      "medical_emergency",
+      "solar_particle_alert",
+      "impact_puncture",
+      "thermal_control",
+      "water_line_leak",
+      "scrubber_load",
+      "antenna_drift",
+      "battery_isolation",
+      "improvised_shield",
+      "geology_window",
+      "seismic_signal",
+      "inventory_audit",
+      "crew_recovery"
     ],
     "minimum_survivors": 2
   },
@@ -55,7 +103,19 @@
     "event_ids": [
       "solar_failure",
       "oxygen_fault",
-      "medical_emergency"
+      "medical_emergency",
+      "solar_particle_alert",
+      "impact_puncture",
+      "thermal_control",
+      "water_line_leak",
+      "scrubber_load",
+      "antenna_drift",
+      "battery_isolation",
+      "improvised_shield",
+      "geology_window",
+      "seismic_signal",
+      "inventory_audit",
+      "crew_recovery"
     ],
     "minimum_survivors": 2
   },
@@ -67,7 +127,19 @@
     "event_ids": [
       "solar_failure",
       "oxygen_fault",
-      "medical_emergency"
+      "medical_emergency",
+      "solar_particle_alert",
+      "impact_puncture",
+      "thermal_control",
+      "water_line_leak",
+      "scrubber_load",
+      "antenna_drift",
+      "battery_isolation",
+      "improvised_shield",
+      "geology_window",
+      "seismic_signal",
+      "inventory_audit",
+      "crew_recovery"
     ],
     "minimum_survivors": 2
   }

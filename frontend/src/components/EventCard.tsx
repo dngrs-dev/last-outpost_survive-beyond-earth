@@ -22,17 +22,24 @@ export const EventCard: React.FC<EventCardProps> = ({
     <div className="event-section">
       <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
         <h2 className="event-title">🚨 {event.title}</h2>
-        <span className="badge badge-amber">CRITICAL EVENT</span>
+        <span className={`badge ${event.category === 'hazard' ? 'badge-amber' : 'badge-green'}`}>{event.category.toUpperCase()}</span>
       </div>
 
       <p className="event-desc">{event.description}</p>
+      <details style={{ marginBottom: '1rem', fontSize: '0.8rem', color: 'var(--text-muted)' }}>
+        <summary>Science behind this scenario</summary>
+        <p>{event.science_context}</p>
+        <a href={event.source_url} target="_blank" rel="noreferrer">NASA reference ↗</a>
+        <p>Scenario, frequency, costs, probabilities, and effects are fictional gameplay values.</p>
+      </details>
 
       {/* Initial discovery effects */}
-      {(event.on_start.solar_efficiency !== 0 ||
+      {(Object.keys(event.on_start.resources).length > 0 || event.on_start.solar_efficiency !== 0 ||
         event.on_start.oxygen_efficiency !== 0 ||
         event.on_start.crew_health !== 0) && (
         <div className="alert alert-warning" style={{ marginBottom: '1rem' }}>
           <strong>Initial Impact:</strong>{' '}
+          {Object.entries(event.on_start.resources).map(([resource, value]) => <span key={resource}>{resource.replace(/_/g, ' ')} {value > 0 ? '+' : ''}{value}. </span>)}
           {event.on_start.solar_efficiency !== 0 && (
             <span>
               Solar output {event.on_start.solar_efficiency > 0 ? '+' : ''}

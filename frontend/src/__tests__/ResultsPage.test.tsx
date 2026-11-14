@@ -21,7 +21,7 @@ describe('ResultsPage with real API fixtures', () => {
 
   it('renders the actual final ending and crew statistics', async () => {
     renderResults();
-    expect(await screen.findByText('SUCCESSFUL HANDOVER')).toBeInTheDocument();
+    expect(await screen.findByText(completed.state.ending!.replace(/_/g, ' ').toUpperCase())).toBeInTheDocument();
     expect(screen.getByText('12 / 12')).toBeInTheDocument();
     expect(screen.getByText('2 / 2')).toBeInTheDocument();
     expect(screen.getByText('Alex Vega')).toBeInTheDocument();

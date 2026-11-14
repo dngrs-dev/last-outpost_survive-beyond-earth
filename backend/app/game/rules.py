@@ -16,6 +16,9 @@ RESOURCE_NAMES = frozenset(
         "dust_kits",
         "oxygen_regulators",
         "diagnostic_tools",
+        "sealant_packs",
+        "scientific_tools",
+        "research_data",
     }
 )
 ROLES = frozenset({"engineer", "medic", "scientist", "technician"})

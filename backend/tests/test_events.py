@@ -22,9 +22,8 @@ def test_event_eligibility_and_cooldown(engine, state):
     assert first == {"solar_failure", "medical_emergency"}
     state.current_week = 3
     state.used_event_ids = ["solar_failure", "medical_emergency"]
-    assert [e.id for e in eligible_events(state, engine.definitions, engine.rules)] == [
-        "oxygen_fault"
-    ]
+    eligible = {e.id for e in eligible_events(state, engine.definitions, engine.rules)}
+    assert eligible == set(engine.definitions.events) - {"solar_failure", "medical_emergency"}
 
 
 def test_neutral_fallback(engine, state):

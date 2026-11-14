@@ -159,6 +159,9 @@ export interface EventResponse {
   id: string;
   title: string;
   description: string;
+  category: 'hazard' | 'opportunity' | 'recovery';
+  science_context: string;
+  source_url: string;
   on_start: EffectsResponse;
   choices: ChoiceResponse[];
 }

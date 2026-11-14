@@ -19,7 +19,10 @@ export const catalog: CatalogResponse = {
         "eva_batteries": 1.0,
         "dust_kits": 0.0,
         "oxygen_regulators": 0.0,
-        "diagnostic_tools": 0.0
+        "diagnostic_tools": 0.0,
+        "sealant_packs": 0.0,
+        "scientific_tools": 0.0,
+        "research_data": 0.0
       },
       "energy_per_week": 24.0,
       "oxygen_per_week": 14.0,
@@ -45,7 +48,10 @@ export const catalog: CatalogResponse = {
         "eva_batteries": 2.0,
         "dust_kits": 0.0,
         "oxygen_regulators": 0.0,
-        "diagnostic_tools": 0.0
+        "diagnostic_tools": 0.0,
+        "sealant_packs": 0.0,
+        "scientific_tools": 0.0,
+        "research_data": 0.0
       },
       "energy_per_week": 28.0,
       "oxygen_per_week": 16.0,
@@ -71,7 +77,10 @@ export const catalog: CatalogResponse = {
         "eva_batteries": 2.0,
         "dust_kits": 0.0,
         "oxygen_regulators": 0.0,
-        "diagnostic_tools": 0.0
+        "diagnostic_tools": 0.0,
+        "sealant_packs": 0.0,
+        "scientific_tools": 0.0,
+        "research_data": 0.0
       },
       "energy_per_week": 24.0,
       "oxygen_per_week": 15.0,
@@ -97,7 +106,10 @@ export const catalog: CatalogResponse = {
         "eva_batteries": 1.0,
         "dust_kits": 0.0,
         "oxygen_regulators": 0.0,
-        "diagnostic_tools": 0.0
+        "diagnostic_tools": 0.0,
+        "sealant_packs": 0.0,
+        "scientific_tools": 0.0,
+        "research_data": 0.0
       },
       "energy_per_week": 26.0,
       "oxygen_per_week": 15.0,
@@ -123,7 +135,10 @@ export const catalog: CatalogResponse = {
         "eva_batteries": 1.0,
         "dust_kits": 0.0,
         "oxygen_regulators": 0.0,
-        "diagnostic_tools": 0.0
+        "diagnostic_tools": 0.0,
+        "sealant_packs": 0.0,
+        "scientific_tools": 0.0,
+        "research_data": 0.0
       },
       "energy_per_week": 24.0,
       "oxygen_per_week": 16.0,
@@ -149,7 +164,10 @@ export const catalog: CatalogResponse = {
         "eva_batteries": 1.0,
         "dust_kits": 0.0,
         "oxygen_regulators": 0.0,
-        "diagnostic_tools": 0.0
+        "diagnostic_tools": 0.0,
+        "sealant_packs": 0.0,
+        "scientific_tools": 0.0,
+        "research_data": 0.0
       },
       "energy_per_week": 25.0,
       "oxygen_per_week": 15.0,
@@ -170,7 +188,19 @@ export const catalog: CatalogResponse = {
       "event_ids": [
         "solar_failure",
         "oxygen_fault",
-        "medical_emergency"
+        "medical_emergency",
+        "solar_particle_alert",
+        "impact_puncture",
+        "thermal_control",
+        "water_line_leak",
+        "scrubber_load",
+        "antenna_drift",
+        "battery_isolation",
+        "improvised_shield",
+        "geology_window",
+        "seismic_signal",
+        "inventory_audit",
+        "crew_recovery"
       ],
       "minimum_survivors": 1
     },
@@ -182,7 +212,19 @@ export const catalog: CatalogResponse = {
       "event_ids": [
         "solar_failure",
         "oxygen_fault",
-        "medical_emergency"
+        "medical_emergency",
+        "solar_particle_alert",
+        "impact_puncture",
+        "thermal_control",
+        "water_line_leak",
+        "scrubber_load",
+        "antenna_drift",
+        "battery_isolation",
+        "improvised_shield",
+        "geology_window",
+        "seismic_signal",
+        "inventory_audit",
+        "crew_recovery"
       ],
       "minimum_survivors": 1
     },
@@ -194,7 +236,19 @@ export const catalog: CatalogResponse = {
       "event_ids": [
         "solar_failure",
         "oxygen_fault",
-        "medical_emergency"
+        "medical_emergency",
+        "solar_particle_alert",
+        "impact_puncture",
+        "thermal_control",
+        "water_line_leak",
+        "scrubber_load",
+        "antenna_drift",
+        "battery_isolation",
+        "improvised_shield",
+        "geology_window",
+        "seismic_signal",
+        "inventory_audit",
+        "crew_recovery"
       ],
       "minimum_survivors": 1
     },
@@ -206,7 +260,19 @@ export const catalog: CatalogResponse = {
       "event_ids": [
         "solar_failure",
         "oxygen_fault",
-        "medical_emergency"
+        "medical_emergency",
+        "solar_particle_alert",
+        "impact_puncture",
+        "thermal_control",
+        "water_line_leak",
+        "scrubber_load",
+        "antenna_drift",
+        "battery_isolation",
+        "improvised_shield",
+        "geology_window",
+        "seismic_signal",
+        "inventory_audit",
+        "crew_recovery"
       ],
       "minimum_survivors": 2
     },
@@ -218,7 +284,19 @@ export const catalog: CatalogResponse = {
       "event_ids": [
         "solar_failure",
         "oxygen_fault",
-        "medical_emergency"
+        "medical_emergency",
+        "solar_particle_alert",
+        "impact_puncture",
+        "thermal_control",
+        "water_line_leak",
+        "scrubber_load",
+        "antenna_drift",
+        "battery_isolation",
+        "improvised_shield",
+        "geology_window",
+        "seismic_signal",
+        "inventory_audit",
+        "crew_recovery"
       ],
       "minimum_survivors": 2
     },
@@ -230,7 +308,19 @@ export const catalog: CatalogResponse = {
       "event_ids": [
         "solar_failure",
         "oxygen_fault",
-        "medical_emergency"
+        "medical_emergency",
+        "solar_particle_alert",
+        "impact_puncture",
+        "thermal_control",
+        "water_line_leak",
+        "scrubber_load",
+        "antenna_drift",
+        "battery_isolation",
+        "improvised_shield",
+        "geology_window",
+        "seismic_signal",
+        "inventory_audit",
+        "crew_recovery"
       ],
       "minimum_survivors": 2
     }
@@ -589,6 +679,32 @@ export const catalog: CatalogResponse = {
       "resource_amount": 1.0,
       "max_quantity": 1,
       "inspiration_source": "https://www.nasa.gov/reference/5-0-training/"
+    },
+    {
+      "id": "sealant_packs",
+      "name": "Multipurpose sealant packs",
+      "description": "Consumed by pressure-line, water-coupling, thermal-patch, or improvised-cover repairs. Each choice states its other costs.",
+      "weight_kg": 0.8,
+      "volume_l": 2.0,
+      "unit": "pack",
+      "category": "maintenance",
+      "resource": "sealant_packs",
+      "resource_amount": 1.0,
+      "max_quantity": 1000000,
+      "inspiration_source": "https://history.nasa.gov/wp-content/uploads/static/history/alsj/WOTM/WOTM-DuctTape.html"
+    },
+    {
+      "id": "scientific_tools",
+      "name": "Field science kit",
+      "description": "Reusable sampling tools, sensors, and a diagnostic meter unlock instrumented research, battery measurements, and reserve inspection. Maximum one; does not generate survival supplies.",
+      "weight_kg": 3.0,
+      "volume_l": 5.0,
+      "unit": "kit",
+      "category": "equipment",
+      "resource": "scientific_tools",
+      "resource_amount": 1.0,
+      "max_quantity": 1,
+      "inspiration_source": "https://www.nasa.gov/missions/artemis/nasa-field-geology-training-prepares-artemis-mission-support-teams/"
     }
   ],
   "limits": {
@@ -851,7 +967,10 @@ export const game: GameResponse = {
       "eva_batteries": 8.0,
       "dust_kits": 0.0,
       "oxygen_regulators": 0.0,
-      "diagnostic_tools": 0.0
+      "diagnostic_tools": 0.0,
+      "sealant_packs": 0.0,
+      "scientific_tools": 0.0,
+      "research_data": 0.0
     },
     "solar_efficiency": 0.75,
     "oxygen_efficiency": 1.0,
@@ -860,6 +979,9 @@ export const game: GameResponse = {
       "id": "solar_failure",
       "title": "Dust on the Array",
       "description": "An actuator has jammed in lunar dust. Solar output falls by 25 percentage points until repaired.",
+      "category": "hazard",
+      "science_context": "Lunar dust can contaminate equipment and complicate surface maintenance.",
+      "source_url": "https://www.nasa.gov/reference/jsc-dust/",
       "on_start": {
         "resources": {},
         "solar_efficiency": -0.25,
@@ -1153,7 +1275,7 @@ export const turn: TurnResponse = {
         "id": "alex",
         "name": "Alex Vega",
         "role": "engineer",
-        "health": 73,
+        "health": 65,
         "positive_trait": "Steady hands: +5 percentage points on assigned event actions.",
         "negative_trait": "Large appetite: consumes 10% more food.",
         "food_multiplier": 1.1,
@@ -1185,7 +1307,7 @@ export const turn: TurnResponse = {
         "id": "maya",
         "name": "Maya Okafor",
         "role": "medic",
-        "health": 100,
+        "health": 92,
         "positive_trait": "Efficient metabolism: consumes 10% less food.",
         "negative_trait": "Thirsty: consumes 10% more water.",
         "food_multiplier": 0.9,
@@ -1224,50 +1346,55 @@ export const turn: TurnResponse = {
       "eva_batteries": 7.0,
       "dust_kits": 0.0,
       "oxygen_regulators": 0.0,
-      "diagnostic_tools": 0.0
+      "diagnostic_tools": 0.0,
+      "sealant_packs": 0.0,
+      "scientific_tools": 0.0,
+      "research_data": 0.0
     },
     "solar_efficiency": 0.75,
-    "oxygen_efficiency": 0.75,
-    "current_event_id": "oxygen_fault",
+    "oxygen_efficiency": 1.0,
+    "current_event_id": "medical_emergency",
     "current_event": {
-      "id": "oxygen_fault",
-      "title": "Life Support Alarm",
-      "description": "A pressure regulator sticks. Oxygen system efficiency falls by 25 percentage points.",
+      "id": "medical_emergency",
+      "title": "Contaminated Air Filter",
+      "description": "An irritant escapes a filter. Every living astronaut loses 8 health on discovery.",
+      "category": "hazard",
+      "science_context": "Dust management matters for cabin cleanliness. The irritant incident and health changes here are fictional.",
+      "source_url": "https://www.nasa.gov/reference/jsc-dust/",
       "on_start": {
         "resources": {},
         "solar_efficiency": 0.0,
-        "oxygen_efficiency": -0.25,
-        "crew_health": 0,
-        "target": "selected"
+        "oxygen_efficiency": 0.0,
+        "crew_health": -8,
+        "target": "all"
       },
       "choices": [
         {
-          "id": "replace_regulator",
-          "text": "Replace the regulator",
-          "description": "Requires a repair kit. Technical professions improve the odds; failure injures the worker.",
+          "id": "treat",
+          "text": "Treat an affected astronaut",
+          "description": "Select a patient. A living medic improves treatment. Failed treatment does not restore health.",
           "costs": {
-            "repair_kits": 1.0
+            "medicine": 1.0
           },
           "required_items": {},
           "requires_crew": true,
-          "role_bonus": {
-            "engineer": 0.25,
-            "technician": 0.25
+          "role_bonus": {},
+          "crew_role_bonus": {
+            "medic": 0.2
           },
-          "crew_role_bonus": {},
-          "success_chance": 0.65,
+          "success_chance": 0.7,
           "success_effects": {
             "resources": {},
             "solar_efficiency": 0.0,
-            "oxygen_efficiency": 0.25,
-            "crew_health": 0,
+            "oxygen_efficiency": 0.0,
+            "crew_health": 30,
             "target": "selected"
           },
           "failure_effects": {
             "resources": {},
             "solar_efficiency": 0.0,
             "oxygen_efficiency": 0.0,
-            "crew_health": -15,
+            "crew_health": -5,
             "target": "selected"
           },
           "required_role": null,
@@ -1285,64 +1412,119 @@ export const turn: TurnResponse = {
               "crew_id": "maya",
               "available": true,
               "unavailable_reasons": [],
-              "success_probability": 0.65
+              "success_probability": 0.9
             }
           ],
           "success_probability": null
         },
         {
-          "id": "recalibrate",
-          "text": "Recalibrate with a second crew member",
-          "description": "Requires two living astronauts. A scientist improves the odds. Failure causes further damage.",
+          "id": "team_treatment",
+          "text": "Let the medic coordinate treatment",
+          "description": "Requires a medic, at least two living crew, and two medicine units. Helps the whole crew.",
           "costs": {
-            "electricity": 3.0
+            "medicine": 2.0
           },
           "required_items": {},
           "requires_crew": true,
           "role_bonus": {
-            "scientist": 0.3,
-            "technician": 0.15
+            "medic": 0.2
           },
           "crew_role_bonus": {},
-          "success_chance": 0.55,
+          "success_chance": 0.75,
           "success_effects": {
             "resources": {},
             "solar_efficiency": 0.0,
-            "oxygen_efficiency": 0.2,
-            "crew_health": 0,
-            "target": "selected"
+            "oxygen_efficiency": 0.0,
+            "crew_health": 15,
+            "target": "all"
           },
           "failure_effects": {
             "resources": {},
             "solar_efficiency": 0.0,
-            "oxygen_efficiency": -0.1,
-            "crew_health": 0,
-            "target": "selected"
+            "oxygen_efficiency": 0.0,
+            "crew_health": -5,
+            "target": "all"
           },
-          "required_role": null,
+          "required_role": "medic",
           "minimum_crew": 2,
           "available": true,
           "unavailable_reasons": [],
           "eligible_crew": [
             {
               "crew_id": "alex",
-              "available": true,
-              "unavailable_reasons": [],
-              "success_probability": 0.6
+              "available": false,
+              "unavailable_reasons": [
+                "Requires a living medic."
+              ],
+              "success_probability": 0.8
             },
             {
               "crew_id": "maya",
               "available": true,
               "unavailable_reasons": [],
-              "success_probability": 0.55
+              "success_probability": 0.95
             }
           ],
           "success_probability": null
         },
         {
-          "id": "ignore",
-          "text": "Rely on oxygen reserves",
-          "description": "No immediate cost, but oxygen production stays reduced.",
+          "id": "guided_treatment",
+          "text": "Use scanner-guided treatment",
+          "description": "Guaranteed 20-health recovery for the selected patient. Consumes medicine; the scanner is retained.",
+          "costs": {
+            "medicine": 1.0
+          },
+          "required_items": {
+            "diagnostic_tools": 1
+          },
+          "requires_crew": true,
+          "role_bonus": {},
+          "crew_role_bonus": {},
+          "success_chance": 1.0,
+          "success_effects": {
+            "resources": {},
+            "solar_efficiency": 0.0,
+            "oxygen_efficiency": 0.0,
+            "crew_health": 20,
+            "target": "selected"
+          },
+          "failure_effects": {
+            "resources": {},
+            "solar_efficiency": 0.0,
+            "oxygen_efficiency": 0.0,
+            "crew_health": 0,
+            "target": "selected"
+          },
+          "required_role": null,
+          "minimum_crew": 1,
+          "available": false,
+          "unavailable_reasons": [
+            "Requires 1 Medical diagnostic scanner (not consumed)."
+          ],
+          "eligible_crew": [
+            {
+              "crew_id": "alex",
+              "available": false,
+              "unavailable_reasons": [
+                "Requires 1 Medical diagnostic scanner (not consumed)."
+              ],
+              "success_probability": 1.0
+            },
+            {
+              "crew_id": "maya",
+              "available": false,
+              "unavailable_reasons": [
+                "Requires 1 Medical diagnostic scanner (not consumed)."
+              ],
+              "success_probability": 1.0
+            }
+          ],
+          "success_probability": null
+        },
+        {
+          "id": "rest",
+          "text": "Isolate the filter and rest",
+          "description": "No supplies spent. The crew takes another 5 health damage.",
           "costs": {},
           "required_items": {},
           "requires_crew": false,
@@ -1353,8 +1535,8 @@ export const turn: TurnResponse = {
             "resources": {},
             "solar_efficiency": 0.0,
             "oxygen_efficiency": 0.0,
-            "crew_health": 0,
-            "target": "selected"
+            "crew_health": -5,
+            "target": "all"
           },
           "failure_effects": {
             "resources": {},
@@ -1455,14 +1637,16 @@ export const turn: TurnResponse = {
           "minimum_crew": 1,
           "available": false,
           "unavailable_reasons": [
-            "Requires 1 oxygen_regulators; available 0."
+            "Requires 1 oxygen_regulators; available 0.",
+            "The oxygen system is already at full condition."
           ],
           "eligible_crew": [
             {
               "crew_id": "alex",
               "available": false,
               "unavailable_reasons": [
-                "Requires 1 oxygen_regulators; available 0."
+                "Requires 1 oxygen_regulators; available 0.",
+                "The oxygen system is already at full condition."
               ],
               "success_probability": 1.0
             },
@@ -1470,7 +1654,8 @@ export const turn: TurnResponse = {
               "crew_id": "maya",
               "available": false,
               "unavailable_reasons": [
-                "Requires 1 oxygen_regulators; available 0."
+                "Requires 1 oxygen_regulators; available 0.",
+                "The oxygen system is already at full condition."
               ],
               "success_probability": 1.0
             }
@@ -1578,17 +1763,31 @@ export const turn: TurnResponse = {
           "eva_batteries": -1.0,
           "dust_kits": 0.0,
           "oxygen_regulators": 0.0,
-          "diagnostic_tools": 0.0
+          "diagnostic_tools": 0.0,
+          "sealant_packs": 0.0,
+          "scientific_tools": 0.0,
+          "research_data": 0.0
         },
         "deaths": [],
         "next_event": {
-          "event_id": "oxygen_fault",
-          "title": "Life Support Alarm",
+          "event_id": "medical_emergency",
+          "title": "Contaminated Air Filter",
           "effects": {
             "resources": {},
             "solar_efficiency": 0.0,
-            "oxygen_efficiency": -0.25,
-            "health_changes": []
+            "oxygen_efficiency": 0.0,
+            "health_changes": [
+              {
+                "crew_id": "alex",
+                "before": 73,
+                "after": 65
+              },
+              {
+                "crew_id": "maya",
+                "before": 100,
+                "after": 92
+              }
+            ]
           }
         },
         "ending": null
@@ -1690,17 +1889,31 @@ export const turn: TurnResponse = {
       "eva_batteries": -1.0,
       "dust_kits": 0.0,
       "oxygen_regulators": 0.0,
-      "diagnostic_tools": 0.0
+      "diagnostic_tools": 0.0,
+      "sealant_packs": 0.0,
+      "scientific_tools": 0.0,
+      "research_data": 0.0
     },
     "deaths": [],
     "next_event": {
-      "event_id": "oxygen_fault",
-      "title": "Life Support Alarm",
+      "event_id": "medical_emergency",
+      "title": "Contaminated Air Filter",
       "effects": {
         "resources": {},
         "solar_efficiency": 0.0,
-        "oxygen_efficiency": -0.25,
-        "health_changes": []
+        "oxygen_efficiency": 0.0,
+        "health_changes": [
+          {
+            "crew_id": "alex",
+            "before": 73,
+            "after": 65
+          },
+          {
+            "crew_id": "maya",
+            "before": 100,
+            "after": 92
+          }
+        ]
       }
     },
     "ending": null
@@ -1800,7 +2013,10 @@ export const medicalGame: GameResponse = {
       "eva_batteries": 8.0,
       "dust_kits": 0.0,
       "oxygen_regulators": 0.0,
-      "diagnostic_tools": 0.0
+      "diagnostic_tools": 0.0,
+      "sealant_packs": 0.0,
+      "scientific_tools": 0.0,
+      "research_data": 0.0
     },
     "solar_efficiency": 1.0,
     "oxygen_efficiency": 1.0,
@@ -1809,6 +2025,9 @@ export const medicalGame: GameResponse = {
       "id": "medical_emergency",
       "title": "Contaminated Air Filter",
       "description": "An irritant escapes a filter. Every living astronaut loses 8 health on discovery.",
+      "category": "hazard",
+      "science_context": "Dust management matters for cabin cleanliness. The irritant incident and health changes here are fictional.",
+      "source_url": "https://www.nasa.gov/reference/jsc-dust/",
       "on_start": {
         "resources": {},
         "solar_efficiency": 0.0,
@@ -2225,50 +2444,89 @@ export const treatment: TurnResponse = {
       "eva_batteries": 8.0,
       "dust_kits": 0.0,
       "oxygen_regulators": 0.0,
-      "diagnostic_tools": 0.0
+      "diagnostic_tools": 0.0,
+      "sealant_packs": 0.0,
+      "scientific_tools": 0.0,
+      "research_data": 0.0
     },
     "solar_efficiency": 1.0,
-    "oxygen_efficiency": 0.75,
-    "current_event_id": "oxygen_fault",
+    "oxygen_efficiency": 1.0,
+    "current_event_id": "crew_recovery",
     "current_event": {
-      "id": "oxygen_fault",
-      "title": "Life Support Alarm",
-      "description": "A pressure regulator sticks. Oxygen system efficiency falls by 25 percentage points.",
+      "id": "crew_recovery",
+      "title": "A Week for Recovery",
+      "description": "No major equipment emergency is scheduled. Use the breathing space to support crew health.",
+      "category": "recovery",
+      "science_context": "NASA develops exercise countermeasures for spaceflight. These immediate health gains are fictional; exercise does not instantly reverse injuries.",
+      "source_url": "https://www.nasa.gov/directorates/esdmd/hhp/exercise-physiology-and-countermeasures/",
       "on_start": {
         "resources": {},
         "solar_efficiency": 0.0,
-        "oxygen_efficiency": -0.25,
+        "oxygen_efficiency": 0.0,
         "crew_health": 0,
         "target": "selected"
       },
       "choices": [
         {
-          "id": "replace_regulator",
-          "text": "Replace the regulator",
-          "description": "Requires a repair kit. Technical professions improve the odds; failure injures the worker.",
+          "id": "structured_recovery",
+          "text": "Follow a structured recovery schedule",
+          "description": "Additional food and water support a guaranteed 6-health gain for each survivor.",
           "costs": {
-            "repair_kits": 1.0
+            "food": 1.0,
+            "water": 1.0
           },
           "required_items": {},
-          "requires_crew": true,
-          "role_bonus": {
-            "engineer": 0.25,
-            "technician": 0.25
-          },
+          "requires_crew": false,
+          "role_bonus": {},
           "crew_role_bonus": {},
-          "success_chance": 0.65,
+          "success_chance": 1.0,
           "success_effects": {
             "resources": {},
             "solar_efficiency": 0.0,
-            "oxygen_efficiency": 0.25,
+            "oxygen_efficiency": 0.0,
+            "crew_health": 6,
+            "target": "all"
+          },
+          "failure_effects": {
+            "resources": {},
+            "solar_efficiency": 0.0,
+            "oxygen_efficiency": 0.0,
             "crew_health": 0,
+            "target": "selected"
+          },
+          "required_role": null,
+          "minimum_crew": 1,
+          "available": true,
+          "unavailable_reasons": [],
+          "eligible_crew": [],
+          "success_probability": 1.0
+        },
+        {
+          "id": "medical_recovery",
+          "text": "Treat one recovering astronaut",
+          "description": "Choose a patient and spend 1 medicine. Success restores 20 health; failure gives no healing. A living medic improves the odds.",
+          "costs": {
+            "medicine": 1.0
+          },
+          "required_items": {},
+          "requires_crew": true,
+          "role_bonus": {},
+          "crew_role_bonus": {
+            "medic": 0.15
+          },
+          "success_chance": 0.75,
+          "success_effects": {
+            "resources": {},
+            "solar_efficiency": 0.0,
+            "oxygen_efficiency": 0.0,
+            "crew_health": 20,
             "target": "selected"
           },
           "failure_effects": {
             "resources": {},
             "solar_efficiency": 0.0,
             "oxygen_efficiency": 0.0,
-            "crew_health": -15,
+            "crew_health": 0,
             "target": "selected"
           },
           "required_role": null,
@@ -2286,26 +2544,112 @@ export const treatment: TurnResponse = {
               "crew_id": "maya",
               "available": true,
               "unavailable_reasons": [],
-              "success_probability": 0.65
+              "success_probability": 0.9
             }
           ],
           "success_probability": null
         },
         {
-          "id": "recalibrate",
-          "text": "Recalibrate with a second crew member",
-          "description": "Requires two living astronauts. A scientist improves the odds. Failure causes further damage.",
+          "id": "routine_recovery",
+          "text": "Keep a light routine",
+          "description": "A small guaranteed 2-health gain for every survivor, with no extra supplies.",
+          "costs": {},
+          "required_items": {},
+          "requires_crew": false,
+          "role_bonus": {},
+          "crew_role_bonus": {},
+          "success_chance": 1.0,
+          "success_effects": {
+            "resources": {},
+            "solar_efficiency": 0.0,
+            "oxygen_efficiency": 0.0,
+            "crew_health": 2,
+            "target": "all"
+          },
+          "failure_effects": {
+            "resources": {},
+            "solar_efficiency": 0.0,
+            "oxygen_efficiency": 0.0,
+            "crew_health": 0,
+            "target": "selected"
+          },
+          "required_role": null,
+          "minimum_crew": 1,
+          "available": true,
+          "unavailable_reasons": [],
+          "eligible_crew": [],
+          "success_probability": 1.0
+        },
+        {
+          "id": "clean_array",
+          "text": "Clean the solar array",
+          "description": "Guaranteed +20 percentage points solar condition. Uses a dust kit and EVA supplies; the week's incident remains unresolved.",
           "costs": {
-            "electricity": 3.0
+            "dust_kits": 1.0,
+            "eva_batteries": 1.0,
+            "oxygen": 2.0
           },
           "required_items": {},
           "requires_crew": true,
-          "role_bonus": {
-            "scientist": 0.3,
-            "technician": 0.15
-          },
+          "role_bonus": {},
           "crew_role_bonus": {},
-          "success_chance": 0.55,
+          "success_chance": 1.0,
+          "success_effects": {
+            "resources": {},
+            "solar_efficiency": 0.2,
+            "oxygen_efficiency": 0.0,
+            "crew_health": 0,
+            "target": "selected"
+          },
+          "failure_effects": {
+            "resources": {},
+            "solar_efficiency": 0.0,
+            "oxygen_efficiency": 0.0,
+            "crew_health": 0,
+            "target": "selected"
+          },
+          "required_role": null,
+          "minimum_crew": 1,
+          "available": false,
+          "unavailable_reasons": [
+            "Requires 1 dust_kits; available 0.",
+            "The solar array is already at full condition."
+          ],
+          "eligible_crew": [
+            {
+              "crew_id": "alex",
+              "available": false,
+              "unavailable_reasons": [
+                "Requires 1 dust_kits; available 0.",
+                "The solar array is already at full condition."
+              ],
+              "success_probability": 1.0
+            },
+            {
+              "crew_id": "maya",
+              "available": false,
+              "unavailable_reasons": [
+                "Requires 1 dust_kits; available 0.",
+                "The solar array is already at full condition."
+              ],
+              "success_probability": 1.0
+            }
+          ],
+          "success_probability": null
+        },
+        {
+          "id": "install_regulator",
+          "text": "Install an oxygen regulator",
+          "description": "Guaranteed +20 percentage points oxygen condition. Uses a regulator and 2 power; the week's incident remains unresolved.",
+          "costs": {
+            "oxygen_regulators": 1.0,
+            "electricity": 2.0
+          },
+          "required_items": {},
+          "requires_crew": true,
+          "role_bonus": {},
+          "crew_role_bonus": {},
+          "success_chance": 1.0,
           "success_effects": {
             "resources": {},
             "solar_efficiency": 0.0,
@@ -2316,12 +2660,421 @@ export const treatment: TurnResponse = {
           "failure_effects": {
             "resources": {},
             "solar_efficiency": 0.0,
-            "oxygen_efficiency": -0.1,
+            "oxygen_efficiency": 0.0,
             "crew_health": 0,
             "target": "selected"
           },
           "required_role": null,
-          "minimum_crew": 2,
+          "minimum_crew": 1,
+          "available": false,
+          "unavailable_reasons": [
+            "Requires 1 oxygen_regulators; available 0.",
+            "The oxygen system is already at full condition."
+          ],
+          "eligible_crew": [
+            {
+              "crew_id": "alex",
+              "available": false,
+              "unavailable_reasons": [
+                "Requires 1 oxygen_regulators; available 0.",
+                "The oxygen system is already at full condition."
+              ],
+              "success_probability": 1.0
+            },
+            {
+              "crew_id": "maya",
+              "available": false,
+              "unavailable_reasons": [
+                "Requires 1 oxygen_regulators; available 0.",
+                "The oxygen system is already at full condition."
+              ],
+              "success_probability": 1.0
+            }
+          ],
+          "success_probability": null
+        }
+      ]
+    },
+    "emergency_ration_requirements": {
+      "food": 0.8,
+      "water": 1.68
+    },
+    "depleted_provisions": [],
+    "used_event_ids": [
+      "medical_emergency"
+    ],
+    "flags": {},
+    "history": [
+      {
+        "week": 1,
+        "event": {
+          "event_id": "medical_emergency",
+          "choice_id": "treat",
+          "choice_text": "Treat an affected astronaut",
+          "selected_crew_id": "alex",
+          "success": true,
+          "success_probability": 0.95,
+          "costs": {
+            "medicine": 1.0
+          },
+          "effects": {
+            "resources": {},
+            "solar_efficiency": 0.0,
+            "oxygen_efficiency": 0.0,
+            "health_changes": [
+              {
+                "crew_id": "alex",
+                "before": 92,
+                "after": 100
+              }
+            ]
+          }
+        },
+        "rations": {
+          "alex": {
+            "food": "normal",
+            "water": "normal"
+          },
+          "maya": {
+            "food": "normal",
+            "water": "normal"
+          }
+        },
+        "survival": {
+          "ration_requirements": {
+            "food": 2.0,
+            "water": 4.2
+          },
+          "ration_costs": {
+            "food": 2.0,
+            "water": 4.2
+          },
+          "ration_depletion_fractions": {
+            "food": 0.0,
+            "water": 0.0
+          },
+          "electricity_generated": 24.0,
+          "electricity_required": 16.0,
+          "electricity_used": 16.0,
+          "life_support_power_fraction": 1.0,
+          "oxygen_generated": 14.0,
+          "oxygen_required": 6.0,
+          "oxygen_used": 6.0,
+          "oxygen_shortage": 0.0,
+          "health_changes": [
+            {
+              "crew_id": "alex",
+              "before": 100,
+              "after": 100,
+              "food_penalty": 0,
+              "water_penalty": 0,
+              "oxygen_penalty": 0,
+              "died": false
+            },
+            {
+              "crew_id": "maya",
+              "before": 92,
+              "after": 92,
+              "food_penalty": 0,
+              "water_penalty": 0,
+              "oxygen_penalty": 0,
+              "died": false
+            }
+          ]
+        },
+        "resource_changes": {
+          "food": -2.0,
+          "water": -4.2,
+          "oxygen": 8.0,
+          "electricity": 8.0,
+          "medicine": -1.0,
+          "repair_kits": 0.0,
+          "eva_batteries": 0.0,
+          "dust_kits": 0.0,
+          "oxygen_regulators": 0.0,
+          "diagnostic_tools": 0.0,
+          "sealant_packs": 0.0,
+          "scientific_tools": 0.0,
+          "research_data": 0.0
+        },
+        "deaths": [],
+        "next_event": {
+          "event_id": "crew_recovery",
+          "title": "A Week for Recovery",
+          "effects": {
+            "resources": {},
+            "solar_efficiency": 0.0,
+            "oxygen_efficiency": 0.0,
+            "health_changes": []
+          }
+        },
+        "ending": null
+      }
+    ],
+    "status": "running",
+    "random_seed": 42,
+    "initial_crew_size": 2,
+    "weeks_completed": 1,
+    "ending": null,
+    "results": null
+  },
+  "turn_outcome": {
+    "week": 1,
+    "event": {
+      "event_id": "medical_emergency",
+      "choice_id": "treat",
+      "choice_text": "Treat an affected astronaut",
+      "selected_crew_id": "alex",
+      "success": true,
+      "success_probability": 0.95,
+      "costs": {
+        "medicine": 1.0
+      },
+      "effects": {
+        "resources": {},
+        "solar_efficiency": 0.0,
+        "oxygen_efficiency": 0.0,
+        "health_changes": [
+          {
+            "crew_id": "alex",
+            "before": 92,
+            "after": 100
+          }
+        ]
+      }
+    },
+    "rations": {
+      "alex": {
+        "food": "normal",
+        "water": "normal"
+      },
+      "maya": {
+        "food": "normal",
+        "water": "normal"
+      }
+    },
+    "survival": {
+      "ration_requirements": {
+        "food": 2.0,
+        "water": 4.2
+      },
+      "ration_costs": {
+        "food": 2.0,
+        "water": 4.2
+      },
+      "ration_depletion_fractions": {
+        "food": 0.0,
+        "water": 0.0
+      },
+      "electricity_generated": 24.0,
+      "electricity_required": 16.0,
+      "electricity_used": 16.0,
+      "life_support_power_fraction": 1.0,
+      "oxygen_generated": 14.0,
+      "oxygen_required": 6.0,
+      "oxygen_used": 6.0,
+      "oxygen_shortage": 0.0,
+      "health_changes": [
+        {
+          "crew_id": "alex",
+          "before": 100,
+          "after": 100,
+          "food_penalty": 0,
+          "water_penalty": 0,
+          "oxygen_penalty": 0,
+          "died": false
+        },
+        {
+          "crew_id": "maya",
+          "before": 92,
+          "after": 92,
+          "food_penalty": 0,
+          "water_penalty": 0,
+          "oxygen_penalty": 0,
+          "died": false
+        }
+      ]
+    },
+    "resource_changes": {
+      "food": -2.0,
+      "water": -4.2,
+      "oxygen": 8.0,
+      "electricity": 8.0,
+      "medicine": -1.0,
+      "repair_kits": 0.0,
+      "eva_batteries": 0.0,
+      "dust_kits": 0.0,
+      "oxygen_regulators": 0.0,
+      "diagnostic_tools": 0.0,
+      "sealant_packs": 0.0,
+      "scientific_tools": 0.0,
+      "research_data": 0.0
+    },
+    "deaths": [],
+    "next_event": {
+      "event_id": "crew_recovery",
+      "title": "A Week for Recovery",
+      "effects": {
+        "resources": {},
+        "solar_efficiency": 0.0,
+        "oxygen_efficiency": 0.0,
+        "health_changes": []
+      }
+    },
+    "ending": null
+  }
+};
+
+export const opportunityGame: GameResponse = {
+  "game_id": "fixture-game",
+  "state": {
+    "station_id": "alpha",
+    "station_name": "Station Alpha \u2014 Research Base",
+    "difficulty": "standard",
+    "difficulty_rank": 2,
+    "mission_id": "alpha_rotation",
+    "mission_name": "Hold Until Rotation",
+    "current_week": 2,
+    "duration_weeks": 12,
+    "minimum_survivors": 1,
+    "weeks_remaining": 11,
+    "mission_days": {
+      "start": 8,
+      "end": 14
+    },
+    "crew": [
+      {
+        "id": "alex",
+        "name": "Alex Vega",
+        "role": "engineer",
+        "health": 87,
+        "positive_trait": "Steady hands: +5 percentage points on assigned event actions.",
+        "negative_trait": "Large appetite: consumes 10% more food.",
+        "food_multiplier": 1.1,
+        "water_multiplier": 1.0,
+        "event_bonus": 0.05,
+        "injury_multiplier": 1.0,
+        "specialty": "Mechanical repair",
+        "training_source": "https://www.nasa.gov/reference/jsc-crew-operations-training/",
+        "action_bonuses": {},
+        "food_shortage_weeks": 0,
+        "water_shortage_weeks": 0,
+        "alive": true,
+        "ration_options": {
+          "normal": {
+            "food": 1.1,
+            "water": 2.0
+          },
+          "reduced": {
+            "food": 0.77,
+            "water": 1.4
+          },
+          "emergency": {
+            "food": 0.44,
+            "water": 0.8
+          }
+        }
+      },
+      {
+        "id": "maya",
+        "name": "Maya Okafor",
+        "role": "medic",
+        "health": 87,
+        "positive_trait": "Efficient metabolism: consumes 10% less food.",
+        "negative_trait": "Thirsty: consumes 10% more water.",
+        "food_multiplier": 0.9,
+        "water_multiplier": 1.1,
+        "event_bonus": 0.0,
+        "injury_multiplier": 1.0,
+        "specialty": "Crew medical officer",
+        "training_source": "https://www.nasa.gov/reference/5-0-training/",
+        "action_bonuses": {},
+        "food_shortage_weeks": 0,
+        "water_shortage_weeks": 0,
+        "alive": true,
+        "ration_options": {
+          "normal": {
+            "food": 0.9,
+            "water": 2.2
+          },
+          "reduced": {
+            "food": 0.63,
+            "water": 1.54
+          },
+          "emergency": {
+            "food": 0.36,
+            "water": 0.88
+          }
+        }
+      }
+    ],
+    "resources": {
+      "food": 50.0,
+      "water": 107.8,
+      "oxygen": 38.0,
+      "electricity": 38.0,
+      "medicine": 8.0,
+      "repair_kits": 8.0,
+      "eva_batteries": 8.0,
+      "dust_kits": 0.0,
+      "oxygen_regulators": 0.0,
+      "diagnostic_tools": 0.0,
+      "sealant_packs": 0.0,
+      "scientific_tools": 0.0,
+      "research_data": 0.0
+    },
+    "solar_efficiency": 1.0,
+    "oxygen_efficiency": 1.0,
+    "current_event_id": "inventory_audit",
+    "current_event": {
+      "id": "inventory_audit",
+      "title": "A Crate in the Ledger",
+      "description": "The outgoing crew ledger lists a small reserve crate. Verify its contents before adding them to usable supplies.",
+      "category": "opportunity",
+      "science_context": "Space food systems include packaging and provisioning. This reserve crate is a fictional opportunity, not a real lunar cache.",
+      "source_url": "https://www.nasa.gov/directorates/esdmd/hhp/space-food-systems/",
+      "on_start": {
+        "resources": {},
+        "solar_efficiency": 0.0,
+        "oxygen_efficiency": 0.0,
+        "crew_health": 0,
+        "target": "selected"
+      },
+      "choices": [
+        {
+          "id": "audit_crate",
+          "text": "Inspect and reconcile the manifest",
+          "description": "Spend power on inspection. Recover 3 food and 4 water on success; no supplies recovered on failure. Technicians and scientists improve the odds.",
+          "costs": {
+            "electricity": 1.0
+          },
+          "required_items": {},
+          "requires_crew": true,
+          "role_bonus": {
+            "technician": 0.15,
+            "scientist": 0.1
+          },
+          "crew_role_bonus": {},
+          "success_chance": 0.75,
+          "success_effects": {
+            "resources": {
+              "food": 3.0,
+              "water": 4.0
+            },
+            "solar_efficiency": 0.0,
+            "oxygen_efficiency": 0.0,
+            "crew_health": 0,
+            "target": "selected"
+          },
+          "failure_effects": {
+            "resources": {},
+            "solar_efficiency": 0.0,
+            "oxygen_efficiency": 0.0,
+            "crew_health": 0,
+            "target": "selected"
+          },
+          "required_role": null,
+          "minimum_crew": 1,
           "available": true,
           "unavailable_reasons": [],
           "eligible_crew": [
@@ -2329,21 +3082,78 @@ export const treatment: TurnResponse = {
               "crew_id": "alex",
               "available": true,
               "unavailable_reasons": [],
-              "success_probability": 0.6
+              "success_probability": 0.8
             },
             {
               "crew_id": "maya",
               "available": true,
               "unavailable_reasons": [],
-              "success_probability": 0.55
+              "success_probability": 0.75
             }
           ],
           "success_probability": null
         },
         {
-          "id": "ignore",
-          "text": "Rely on oxygen reserves",
-          "description": "No immediate cost, but oxygen production stays reduced.",
+          "id": "audit_scanner",
+          "text": "Check packaging with environmental sensors",
+          "description": "Use the science kit to inspect packaging and release 2 food and 2 water from the fictional reserve; guaranteed.",
+          "costs": {
+            "electricity": 1.0
+          },
+          "required_items": {
+            "scientific_tools": 1
+          },
+          "requires_crew": true,
+          "role_bonus": {},
+          "crew_role_bonus": {},
+          "success_chance": 1.0,
+          "success_effects": {
+            "resources": {
+              "food": 2.0,
+              "water": 2.0
+            },
+            "solar_efficiency": 0.0,
+            "oxygen_efficiency": 0.0,
+            "crew_health": 0,
+            "target": "selected"
+          },
+          "failure_effects": {
+            "resources": {},
+            "solar_efficiency": 0.0,
+            "oxygen_efficiency": 0.0,
+            "crew_health": 0,
+            "target": "selected"
+          },
+          "required_role": null,
+          "minimum_crew": 1,
+          "available": false,
+          "unavailable_reasons": [
+            "Requires 1 Field science kit (not consumed)."
+          ],
+          "eligible_crew": [
+            {
+              "crew_id": "alex",
+              "available": false,
+              "unavailable_reasons": [
+                "Requires 1 Field science kit (not consumed)."
+              ],
+              "success_probability": 1.0
+            },
+            {
+              "crew_id": "maya",
+              "available": false,
+              "unavailable_reasons": [
+                "Requires 1 Field science kit (not consumed)."
+              ],
+              "success_probability": 1.0
+            }
+          ],
+          "success_probability": null
+        },
+        {
+          "id": "quarantine_crate",
+          "text": "Leave the unverified crate quarantined",
+          "description": "No spending or new supplies.",
           "costs": {},
           "required_items": {},
           "requires_crew": false,
@@ -2459,14 +3269,16 @@ export const treatment: TurnResponse = {
           "minimum_crew": 1,
           "available": false,
           "unavailable_reasons": [
-            "Requires 1 oxygen_regulators; available 0."
+            "Requires 1 oxygen_regulators; available 0.",
+            "The oxygen system is already at full condition."
           ],
           "eligible_crew": [
             {
               "crew_id": "alex",
               "available": false,
               "unavailable_reasons": [
-                "Requires 1 oxygen_regulators; available 0."
+                "Requires 1 oxygen_regulators; available 0.",
+                "The oxygen system is already at full condition."
               ],
               "success_probability": 1.0
             },
@@ -2474,7 +3286,8 @@ export const treatment: TurnResponse = {
               "crew_id": "maya",
               "available": false,
               "unavailable_reasons": [
-                "Requires 1 oxygen_regulators; available 0."
+                "Requires 1 oxygen_regulators; available 0.",
+                "The oxygen system is already at full condition."
               ],
               "success_probability": 1.0
             }
@@ -2497,14 +3310,12 @@ export const treatment: TurnResponse = {
         "week": 1,
         "event": {
           "event_id": "medical_emergency",
-          "choice_id": "treat",
-          "choice_text": "Treat an affected astronaut",
-          "selected_crew_id": "alex",
+          "choice_id": "rest",
+          "choice_text": "Isolate the filter and rest",
+          "selected_crew_id": null,
           "success": true,
-          "success_probability": 0.95,
-          "costs": {
-            "medicine": 1.0
-          },
+          "success_probability": 1.0,
+          "costs": {},
           "effects": {
             "resources": {},
             "solar_efficiency": 0.0,
@@ -2513,7 +3324,12 @@ export const treatment: TurnResponse = {
               {
                 "crew_id": "alex",
                 "before": 92,
-                "after": 100
+                "after": 87
+              },
+              {
+                "crew_id": "maya",
+                "before": 92,
+                "after": 87
               }
             ]
           }
@@ -2552,8 +3368,8 @@ export const treatment: TurnResponse = {
           "health_changes": [
             {
               "crew_id": "alex",
-              "before": 100,
-              "after": 100,
+              "before": 87,
+              "after": 87,
               "food_penalty": 0,
               "water_penalty": 0,
               "oxygen_penalty": 0,
@@ -2561,8 +3377,8 @@ export const treatment: TurnResponse = {
             },
             {
               "crew_id": "maya",
-              "before": 92,
-              "after": 92,
+              "before": 87,
+              "after": 87,
               "food_penalty": 0,
               "water_penalty": 0,
               "oxygen_penalty": 0,
@@ -2575,21 +3391,24 @@ export const treatment: TurnResponse = {
           "water": -4.2,
           "oxygen": 8.0,
           "electricity": 8.0,
-          "medicine": -1.0,
+          "medicine": 0.0,
           "repair_kits": 0.0,
           "eva_batteries": 0.0,
           "dust_kits": 0.0,
           "oxygen_regulators": 0.0,
-          "diagnostic_tools": 0.0
+          "diagnostic_tools": 0.0,
+          "sealant_packs": 0.0,
+          "scientific_tools": 0.0,
+          "research_data": 0.0
         },
         "deaths": [],
         "next_event": {
-          "event_id": "oxygen_fault",
-          "title": "Life Support Alarm",
+          "event_id": "inventory_audit",
+          "title": "A Crate in the Ledger",
           "effects": {
             "resources": {},
             "solar_efficiency": 0.0,
-            "oxygen_efficiency": -0.25,
+            "oxygen_efficiency": 0.0,
             "health_changes": []
           }
         },
@@ -2597,113 +3416,11 @@ export const treatment: TurnResponse = {
       }
     ],
     "status": "running",
-    "random_seed": 42,
+    "random_seed": 7,
     "initial_crew_size": 2,
     "weeks_completed": 1,
     "ending": null,
     "results": null
-  },
-  "turn_outcome": {
-    "week": 1,
-    "event": {
-      "event_id": "medical_emergency",
-      "choice_id": "treat",
-      "choice_text": "Treat an affected astronaut",
-      "selected_crew_id": "alex",
-      "success": true,
-      "success_probability": 0.95,
-      "costs": {
-        "medicine": 1.0
-      },
-      "effects": {
-        "resources": {},
-        "solar_efficiency": 0.0,
-        "oxygen_efficiency": 0.0,
-        "health_changes": [
-          {
-            "crew_id": "alex",
-            "before": 92,
-            "after": 100
-          }
-        ]
-      }
-    },
-    "rations": {
-      "alex": {
-        "food": "normal",
-        "water": "normal"
-      },
-      "maya": {
-        "food": "normal",
-        "water": "normal"
-      }
-    },
-    "survival": {
-      "ration_requirements": {
-        "food": 2.0,
-        "water": 4.2
-      },
-      "ration_costs": {
-        "food": 2.0,
-        "water": 4.2
-      },
-      "ration_depletion_fractions": {
-        "food": 0.0,
-        "water": 0.0
-      },
-      "electricity_generated": 24.0,
-      "electricity_required": 16.0,
-      "electricity_used": 16.0,
-      "life_support_power_fraction": 1.0,
-      "oxygen_generated": 14.0,
-      "oxygen_required": 6.0,
-      "oxygen_used": 6.0,
-      "oxygen_shortage": 0.0,
-      "health_changes": [
-        {
-          "crew_id": "alex",
-          "before": 100,
-          "after": 100,
-          "food_penalty": 0,
-          "water_penalty": 0,
-          "oxygen_penalty": 0,
-          "died": false
-        },
-        {
-          "crew_id": "maya",
-          "before": 92,
-          "after": 92,
-          "food_penalty": 0,
-          "water_penalty": 0,
-          "oxygen_penalty": 0,
-          "died": false
-        }
-      ]
-    },
-    "resource_changes": {
-      "food": -2.0,
-      "water": -4.2,
-      "oxygen": 8.0,
-      "electricity": 8.0,
-      "medicine": -1.0,
-      "repair_kits": 0.0,
-      "eva_batteries": 0.0,
-      "dust_kits": 0.0,
-      "oxygen_regulators": 0.0,
-      "diagnostic_tools": 0.0
-    },
-    "deaths": [],
-    "next_event": {
-      "event_id": "oxygen_fault",
-      "title": "Life Support Alarm",
-      "effects": {
-        "resources": {},
-        "solar_efficiency": 0.0,
-        "oxygen_efficiency": -0.25,
-        "health_changes": []
-      }
-    },
-    "ending": null
   }
 };
 
@@ -2761,7 +3478,7 @@ export const completed: GameResponse = {
         "id": "maya",
         "name": "Maya Okafor",
         "role": "medic",
-        "health": 68,
+        "health": 98,
         "positive_trait": "Efficient metabolism: consumes 10% less food.",
         "negative_trait": "Thirsty: consumes 10% more water.",
         "food_multiplier": 0.9,
@@ -2791,19 +3508,22 @@ export const completed: GameResponse = {
       }
     ],
     "resources": {
-      "food": 28.0,
-      "water": 61.6,
-      "oxygen": 79.5,
-      "electricity": 126.0,
-      "medicine": 4.0,
-      "repair_kits": 0.0,
-      "eva_batteries": 4.0,
+      "food": 27.0,
+      "water": 57.6,
+      "oxygen": 118.0,
+      "electricity": 124.0,
+      "medicine": 7.0,
+      "repair_kits": 2.0,
+      "eva_batteries": 6.0,
       "dust_kits": 0.0,
       "oxygen_regulators": 0.0,
-      "diagnostic_tools": 0.0
+      "diagnostic_tools": 0.0,
+      "sealant_packs": 0.0,
+      "scientific_tools": 0.0,
+      "research_data": 3.0
     },
     "solar_efficiency": 1.0,
-    "oxygen_efficiency": 0.75,
+    "oxygen_efficiency": 1.0,
     "current_event_id": null,
     "current_event": null,
     "emergency_ration_requirements": {
@@ -2813,17 +3533,17 @@ export const completed: GameResponse = {
     "depleted_provisions": [],
     "used_event_ids": [
       "medical_emergency",
+      "crew_recovery",
       "oxygen_fault",
+      "antenna_drift",
       "solar_failure",
-      "medical_emergency",
-      "oxygen_fault",
-      "solar_failure",
-      "medical_emergency",
-      "oxygen_fault",
-      "solar_failure",
-      "medical_emergency",
-      "oxygen_fault",
-      "solar_failure"
+      "water_line_leak",
+      "solar_particle_alert",
+      "impact_puncture",
+      "inventory_audit",
+      "scrubber_load",
+      "seismic_signal",
+      "battery_isolation"
     ],
     "flags": {},
     "history": [
@@ -2914,16 +3634,19 @@ export const completed: GameResponse = {
           "eva_batteries": 0.0,
           "dust_kits": 0.0,
           "oxygen_regulators": 0.0,
-          "diagnostic_tools": 0.0
+          "diagnostic_tools": 0.0,
+          "sealant_packs": 0.0,
+          "scientific_tools": 0.0,
+          "research_data": 0.0
         },
         "deaths": [],
         "next_event": {
-          "event_id": "oxygen_fault",
-          "title": "Life Support Alarm",
+          "event_id": "crew_recovery",
+          "title": "A Week for Recovery",
           "effects": {
             "resources": {},
             "solar_efficiency": 0.0,
-            "oxygen_efficiency": -0.25,
+            "oxygen_efficiency": 0.0,
             "health_changes": []
           }
         },
@@ -2932,14 +3655,15 @@ export const completed: GameResponse = {
       {
         "week": 2,
         "event": {
-          "event_id": "oxygen_fault",
-          "choice_id": "replace_regulator",
-          "choice_text": "Replace the regulator",
-          "selected_crew_id": "alex",
-          "success": false,
-          "success_probability": 0.95,
+          "event_id": "crew_recovery",
+          "choice_id": "structured_recovery",
+          "choice_text": "Follow a structured recovery schedule",
+          "selected_crew_id": null,
+          "success": true,
+          "success_probability": 1.0,
           "costs": {
-            "repair_kits": 1.0
+            "food": 1.0,
+            "water": 1.0
           },
           "effects": {
             "resources": {},
@@ -2947,9 +3671,9 @@ export const completed: GameResponse = {
             "oxygen_efficiency": 0.0,
             "health_changes": [
               {
-                "crew_id": "alex",
-                "before": 100,
-                "after": 85
+                "crew_id": "maya",
+                "before": 92,
+                "after": 98
               }
             ]
           }
@@ -2981,15 +3705,15 @@ export const completed: GameResponse = {
           "electricity_required": 16.0,
           "electricity_used": 16.0,
           "life_support_power_fraction": 1.0,
-          "oxygen_generated": 10.5,
+          "oxygen_generated": 14.0,
           "oxygen_required": 6.0,
           "oxygen_used": 6.0,
           "oxygen_shortage": 0.0,
           "health_changes": [
             {
               "crew_id": "alex",
-              "before": 85,
-              "after": 85,
+              "before": 100,
+              "after": 100,
               "food_penalty": 0,
               "water_penalty": 0,
               "oxygen_penalty": 0,
@@ -2997,8 +3721,107 @@ export const completed: GameResponse = {
             },
             {
               "crew_id": "maya",
-              "before": 92,
-              "after": 92,
+              "before": 98,
+              "after": 98,
+              "food_penalty": 0,
+              "water_penalty": 0,
+              "oxygen_penalty": 0,
+              "died": false
+            }
+          ]
+        },
+        "resource_changes": {
+          "food": -3.0,
+          "water": -5.2,
+          "oxygen": 8.0,
+          "electricity": 8.0,
+          "medicine": 0.0,
+          "repair_kits": 0.0,
+          "eva_batteries": 0.0,
+          "dust_kits": 0.0,
+          "oxygen_regulators": 0.0,
+          "diagnostic_tools": 0.0,
+          "sealant_packs": 0.0,
+          "scientific_tools": 0.0,
+          "research_data": 0.0
+        },
+        "deaths": [],
+        "next_event": {
+          "event_id": "oxygen_fault",
+          "title": "Life Support Alarm",
+          "effects": {
+            "resources": {},
+            "solar_efficiency": 0.0,
+            "oxygen_efficiency": -0.25,
+            "health_changes": []
+          }
+        },
+        "ending": null
+      },
+      {
+        "week": 3,
+        "event": {
+          "event_id": "oxygen_fault",
+          "choice_id": "replace_regulator",
+          "choice_text": "Replace the regulator",
+          "selected_crew_id": "alex",
+          "success": true,
+          "success_probability": 0.95,
+          "costs": {
+            "repair_kits": 1.0
+          },
+          "effects": {
+            "resources": {},
+            "solar_efficiency": 0.0,
+            "oxygen_efficiency": 0.25,
+            "health_changes": []
+          }
+        },
+        "rations": {
+          "alex": {
+            "food": "normal",
+            "water": "normal"
+          },
+          "maya": {
+            "food": "normal",
+            "water": "normal"
+          }
+        },
+        "survival": {
+          "ration_requirements": {
+            "food": 2.0,
+            "water": 4.2
+          },
+          "ration_costs": {
+            "food": 2.0,
+            "water": 4.2
+          },
+          "ration_depletion_fractions": {
+            "food": 0.0,
+            "water": 0.0
+          },
+          "electricity_generated": 24.0,
+          "electricity_required": 16.0,
+          "electricity_used": 16.0,
+          "life_support_power_fraction": 1.0,
+          "oxygen_generated": 14.0,
+          "oxygen_required": 6.0,
+          "oxygen_used": 6.0,
+          "oxygen_shortage": 0.0,
+          "health_changes": [
+            {
+              "crew_id": "alex",
+              "before": 100,
+              "after": 100,
+              "food_penalty": 0,
+              "water_penalty": 0,
+              "oxygen_penalty": 0,
+              "died": false
+            },
+            {
+              "crew_id": "maya",
+              "before": 98,
+              "after": 98,
               "food_penalty": 0,
               "water_penalty": 0,
               "oxygen_penalty": 0,
@@ -3009,14 +3832,119 @@ export const completed: GameResponse = {
         "resource_changes": {
           "food": -2.0,
           "water": -4.2,
-          "oxygen": 4.5,
+          "oxygen": 8.0,
           "electricity": 8.0,
           "medicine": 0.0,
           "repair_kits": -1.0,
           "eva_batteries": 0.0,
           "dust_kits": 0.0,
           "oxygen_regulators": 0.0,
-          "diagnostic_tools": 0.0
+          "diagnostic_tools": 0.0,
+          "sealant_packs": 0.0,
+          "scientific_tools": 0.0,
+          "research_data": 0.0
+        },
+        "deaths": [],
+        "next_event": {
+          "event_id": "antenna_drift",
+          "title": "Antenna Off Target",
+          "effects": {
+            "resources": {},
+            "solar_efficiency": 0.0,
+            "oxygen_efficiency": 0.0,
+            "health_changes": []
+          }
+        },
+        "ending": null
+      },
+      {
+        "week": 4,
+        "event": {
+          "event_id": "antenna_drift",
+          "choice_id": "align_antenna",
+          "choice_text": "Realign the dish outside",
+          "selected_crew_id": "alex",
+          "success": true,
+          "success_probability": 0.9,
+          "costs": {
+            "eva_batteries": 1.0,
+            "oxygen": 2.0
+          },
+          "effects": {
+            "resources": {
+              "research_data": 2.0
+            },
+            "solar_efficiency": 0.0,
+            "oxygen_efficiency": 0.0,
+            "health_changes": []
+          }
+        },
+        "rations": {
+          "alex": {
+            "food": "normal",
+            "water": "normal"
+          },
+          "maya": {
+            "food": "normal",
+            "water": "normal"
+          }
+        },
+        "survival": {
+          "ration_requirements": {
+            "food": 2.0,
+            "water": 4.2
+          },
+          "ration_costs": {
+            "food": 2.0,
+            "water": 4.2
+          },
+          "ration_depletion_fractions": {
+            "food": 0.0,
+            "water": 0.0
+          },
+          "electricity_generated": 24.0,
+          "electricity_required": 16.0,
+          "electricity_used": 16.0,
+          "life_support_power_fraction": 1.0,
+          "oxygen_generated": 14.0,
+          "oxygen_required": 6.0,
+          "oxygen_used": 6.0,
+          "oxygen_shortage": 0.0,
+          "health_changes": [
+            {
+              "crew_id": "alex",
+              "before": 100,
+              "after": 100,
+              "food_penalty": 0,
+              "water_penalty": 0,
+              "oxygen_penalty": 0,
+              "died": false
+            },
+            {
+              "crew_id": "maya",
+              "before": 98,
+              "after": 98,
+              "food_penalty": 0,
+              "water_penalty": 0,
+              "oxygen_penalty": 0,
+              "died": false
+            }
+          ]
+        },
+        "resource_changes": {
+          "food": -2.0,
+          "water": -4.2,
+          "oxygen": 6.0,
+          "electricity": 8.0,
+          "medicine": 0.0,
+          "repair_kits": 0.0,
+          "eva_batteries": -1.0,
+          "dust_kits": 0.0,
+          "oxygen_regulators": 0.0,
+          "diagnostic_tools": 0.0,
+          "sealant_packs": 0.0,
+          "scientific_tools": 0.0,
+          "research_data": 2.0
         },
         "deaths": [],
         "next_event": {
@@ -3032,7 +3960,7 @@ export const completed: GameResponse = {
         "ending": null
       },
       {
-        "week": 3,
+        "week": 5,
         "event": {
           "event_id": "solar_failure",
           "choice_id": "engineer_repair",
@@ -3079,15 +4007,15 @@ export const completed: GameResponse = {
           "electricity_required": 16.0,
           "electricity_used": 16.0,
           "life_support_power_fraction": 1.0,
-          "oxygen_generated": 10.5,
+          "oxygen_generated": 14.0,
           "oxygen_required": 6.0,
           "oxygen_used": 6.0,
           "oxygen_shortage": 0.0,
           "health_changes": [
             {
               "crew_id": "alex",
-              "before": 85,
-              "after": 85,
+              "before": 100,
+              "after": 100,
               "food_penalty": 0,
               "water_penalty": 0,
               "oxygen_penalty": 0,
@@ -3095,8 +4023,8 @@ export const completed: GameResponse = {
             },
             {
               "crew_id": "maya",
-              "before": 92,
-              "after": 92,
+              "before": 98,
+              "after": 98,
               "food_penalty": 0,
               "water_penalty": 0,
               "oxygen_penalty": 0,
@@ -3107,231 +4035,27 @@ export const completed: GameResponse = {
         "resource_changes": {
           "food": -2.0,
           "water": -4.2,
-          "oxygen": 2.5,
+          "oxygen": 6.0,
           "electricity": 8.0,
           "medicine": 0.0,
           "repair_kits": -1.0,
           "eva_batteries": -1.0,
           "dust_kits": 0.0,
           "oxygen_regulators": 0.0,
-          "diagnostic_tools": 0.0
+          "diagnostic_tools": 0.0,
+          "sealant_packs": 0.0,
+          "scientific_tools": 0.0,
+          "research_data": 0.0
         },
         "deaths": [],
         "next_event": {
-          "event_id": "medical_emergency",
-          "title": "Contaminated Air Filter",
+          "event_id": "water_line_leak",
+          "title": "Water Under the Floor",
           "effects": {
-            "resources": {},
-            "solar_efficiency": 0.0,
-            "oxygen_efficiency": 0.0,
-            "health_changes": [
-              {
-                "crew_id": "alex",
-                "before": 85,
-                "after": 77
-              },
-              {
-                "crew_id": "maya",
-                "before": 92,
-                "after": 84
-              }
-            ]
-          }
-        },
-        "ending": null
-      },
-      {
-        "week": 4,
-        "event": {
-          "event_id": "medical_emergency",
-          "choice_id": "treat",
-          "choice_text": "Treat an affected astronaut",
-          "selected_crew_id": "alex",
-          "success": true,
-          "success_probability": 0.95,
-          "costs": {
-            "medicine": 1.0
-          },
-          "effects": {
-            "resources": {},
-            "solar_efficiency": 0.0,
-            "oxygen_efficiency": 0.0,
-            "health_changes": [
-              {
-                "crew_id": "alex",
-                "before": 77,
-                "after": 100
-              }
-            ]
-          }
-        },
-        "rations": {
-          "alex": {
-            "food": "normal",
-            "water": "normal"
-          },
-          "maya": {
-            "food": "normal",
-            "water": "normal"
-          }
-        },
-        "survival": {
-          "ration_requirements": {
-            "food": 2.0,
-            "water": 4.2
-          },
-          "ration_costs": {
-            "food": 2.0,
-            "water": 4.2
-          },
-          "ration_depletion_fractions": {
-            "food": 0.0,
-            "water": 0.0
-          },
-          "electricity_generated": 24.0,
-          "electricity_required": 16.0,
-          "electricity_used": 16.0,
-          "life_support_power_fraction": 1.0,
-          "oxygen_generated": 10.5,
-          "oxygen_required": 6.0,
-          "oxygen_used": 6.0,
-          "oxygen_shortage": 0.0,
-          "health_changes": [
-            {
-              "crew_id": "alex",
-              "before": 100,
-              "after": 100,
-              "food_penalty": 0,
-              "water_penalty": 0,
-              "oxygen_penalty": 0,
-              "died": false
+            "resources": {
+              "water": -4.0
             },
-            {
-              "crew_id": "maya",
-              "before": 84,
-              "after": 84,
-              "food_penalty": 0,
-              "water_penalty": 0,
-              "oxygen_penalty": 0,
-              "died": false
-            }
-          ]
-        },
-        "resource_changes": {
-          "food": -2.0,
-          "water": -4.2,
-          "oxygen": 4.5,
-          "electricity": 8.0,
-          "medicine": -1.0,
-          "repair_kits": 0.0,
-          "eva_batteries": 0.0,
-          "dust_kits": 0.0,
-          "oxygen_regulators": 0.0,
-          "diagnostic_tools": 0.0
-        },
-        "deaths": [],
-        "next_event": {
-          "event_id": "oxygen_fault",
-          "title": "Life Support Alarm",
-          "effects": {
-            "resources": {},
             "solar_efficiency": 0.0,
-            "oxygen_efficiency": -0.25,
-            "health_changes": []
-          }
-        },
-        "ending": null
-      },
-      {
-        "week": 5,
-        "event": {
-          "event_id": "oxygen_fault",
-          "choice_id": "replace_regulator",
-          "choice_text": "Replace the regulator",
-          "selected_crew_id": "alex",
-          "success": true,
-          "success_probability": 0.95,
-          "costs": {
-            "repair_kits": 1.0
-          },
-          "effects": {
-            "resources": {},
-            "solar_efficiency": 0.0,
-            "oxygen_efficiency": 0.25,
-            "health_changes": []
-          }
-        },
-        "rations": {
-          "alex": {
-            "food": "normal",
-            "water": "normal"
-          },
-          "maya": {
-            "food": "normal",
-            "water": "normal"
-          }
-        },
-        "survival": {
-          "ration_requirements": {
-            "food": 2.0,
-            "water": 4.2
-          },
-          "ration_costs": {
-            "food": 2.0,
-            "water": 4.2
-          },
-          "ration_depletion_fractions": {
-            "food": 0.0,
-            "water": 0.0
-          },
-          "electricity_generated": 24.0,
-          "electricity_required": 16.0,
-          "electricity_used": 16.0,
-          "life_support_power_fraction": 1.0,
-          "oxygen_generated": 10.5,
-          "oxygen_required": 6.0,
-          "oxygen_used": 6.0,
-          "oxygen_shortage": 0.0,
-          "health_changes": [
-            {
-              "crew_id": "alex",
-              "before": 100,
-              "after": 100,
-              "food_penalty": 0,
-              "water_penalty": 0,
-              "oxygen_penalty": 0,
-              "died": false
-            },
-            {
-              "crew_id": "maya",
-              "before": 84,
-              "after": 84,
-              "food_penalty": 0,
-              "water_penalty": 0,
-              "oxygen_penalty": 0,
-              "died": false
-            }
-          ]
-        },
-        "resource_changes": {
-          "food": -2.0,
-          "water": -4.2,
-          "oxygen": 4.5,
-          "electricity": 8.0,
-          "medicine": 0.0,
-          "repair_kits": -1.0,
-          "eva_batteries": 0.0,
-          "dust_kits": 0.0,
-          "oxygen_regulators": 0.0,
-          "diagnostic_tools": 0.0
-        },
-        "deaths": [],
-        "next_event": {
-          "event_id": "solar_failure",
-          "title": "Dust on the Array",
-          "effects": {
-            "resources": {},
-            "solar_efficiency": -0.25,
             "oxygen_efficiency": 0.0,
             "health_changes": []
           }
@@ -3341,20 +4065,20 @@ export const completed: GameResponse = {
       {
         "week": 6,
         "event": {
-          "event_id": "solar_failure",
-          "choice_id": "engineer_repair",
-          "choice_text": "Send the engineer outside",
+          "event_id": "water_line_leak",
+          "choice_id": "repair_water",
+          "choice_text": "Replace the coupling",
           "selected_crew_id": "alex",
           "success": true,
           "success_probability": 0.95,
           "costs": {
-            "repair_kits": 1.0,
-            "eva_batteries": 1.0,
-            "oxygen": 2.0
+            "repair_kits": 1.0
           },
           "effects": {
-            "resources": {},
-            "solar_efficiency": 0.25,
+            "resources": {
+              "water": 2.0
+            },
+            "solar_efficiency": 0.0,
             "oxygen_efficiency": 0.0,
             "health_changes": []
           }
@@ -3386,7 +4110,7 @@ export const completed: GameResponse = {
           "electricity_required": 16.0,
           "electricity_used": 16.0,
           "life_support_power_fraction": 1.0,
-          "oxygen_generated": 10.5,
+          "oxygen_generated": 14.0,
           "oxygen_required": 6.0,
           "oxygen_used": 6.0,
           "oxygen_shortage": 0.0,
@@ -3402,8 +4126,8 @@ export const completed: GameResponse = {
             },
             {
               "crew_id": "maya",
-              "before": 84,
-              "after": 84,
+              "before": 98,
+              "after": 98,
               "food_penalty": 0,
               "water_penalty": 0,
               "oxygen_penalty": 0,
@@ -3413,36 +4137,28 @@ export const completed: GameResponse = {
         },
         "resource_changes": {
           "food": -2.0,
-          "water": -4.2,
-          "oxygen": 2.5,
+          "water": -2.2,
+          "oxygen": 8.0,
           "electricity": 8.0,
           "medicine": 0.0,
           "repair_kits": -1.0,
-          "eva_batteries": -1.0,
+          "eva_batteries": 0.0,
           "dust_kits": 0.0,
           "oxygen_regulators": 0.0,
-          "diagnostic_tools": 0.0
+          "diagnostic_tools": 0.0,
+          "sealant_packs": 0.0,
+          "scientific_tools": 0.0,
+          "research_data": 0.0
         },
         "deaths": [],
         "next_event": {
-          "event_id": "medical_emergency",
-          "title": "Contaminated Air Filter",
+          "event_id": "solar_particle_alert",
+          "title": "Shelter Before the Storm",
           "effects": {
             "resources": {},
             "solar_efficiency": 0.0,
             "oxygen_efficiency": 0.0,
-            "health_changes": [
-              {
-                "crew_id": "alex",
-                "before": 100,
-                "after": 92
-              },
-              {
-                "crew_id": "maya",
-                "before": 84,
-                "after": 76
-              }
-            ]
+            "health_changes": []
           }
         },
         "ending": null
@@ -3450,26 +4166,21 @@ export const completed: GameResponse = {
       {
         "week": 7,
         "event": {
-          "event_id": "medical_emergency",
-          "choice_id": "treat",
-          "choice_text": "Treat an affected astronaut",
-          "selected_crew_id": "alex",
+          "event_id": "solar_particle_alert",
+          "choice_id": "shelter",
+          "choice_text": "Move into the shielded compartment",
+          "selected_crew_id": null,
           "success": true,
-          "success_probability": 0.95,
+          "success_probability": 1.0,
           "costs": {
-            "medicine": 1.0
+            "electricity": 4.0,
+            "water": 1.0
           },
           "effects": {
             "resources": {},
             "solar_efficiency": 0.0,
             "oxygen_efficiency": 0.0,
-            "health_changes": [
-              {
-                "crew_id": "alex",
-                "before": 92,
-                "after": 100
-              }
-            ]
+            "health_changes": []
           }
         },
         "rations": {
@@ -3499,7 +4210,7 @@ export const completed: GameResponse = {
           "electricity_required": 16.0,
           "electricity_used": 16.0,
           "life_support_power_fraction": 1.0,
-          "oxygen_generated": 10.5,
+          "oxygen_generated": 14.0,
           "oxygen_required": 6.0,
           "oxygen_used": 6.0,
           "oxygen_shortage": 0.0,
@@ -3515,8 +4226,8 @@ export const completed: GameResponse = {
             },
             {
               "crew_id": "maya",
-              "before": 76,
-              "after": 76,
+              "before": 98,
+              "after": 98,
               "food_penalty": 0,
               "water_penalty": 0,
               "oxygen_penalty": 0,
@@ -3526,24 +4237,29 @@ export const completed: GameResponse = {
         },
         "resource_changes": {
           "food": -2.0,
-          "water": -4.2,
-          "oxygen": 4.5,
-          "electricity": 8.0,
-          "medicine": -1.0,
+          "water": -5.2,
+          "oxygen": 8.0,
+          "electricity": 4.0,
+          "medicine": 0.0,
           "repair_kits": 0.0,
           "eva_batteries": 0.0,
           "dust_kits": 0.0,
           "oxygen_regulators": 0.0,
-          "diagnostic_tools": 0.0
+          "diagnostic_tools": 0.0,
+          "sealant_packs": 0.0,
+          "scientific_tools": 0.0,
+          "research_data": 0.0
         },
         "deaths": [],
         "next_event": {
-          "event_id": "oxygen_fault",
-          "title": "Life Support Alarm",
+          "event_id": "impact_puncture",
+          "title": "Pinprick in the Pressure Line",
           "effects": {
-            "resources": {},
+            "resources": {
+              "oxygen": -4.0
+            },
             "solar_efficiency": 0.0,
-            "oxygen_efficiency": -0.25,
+            "oxygen_efficiency": 0.0,
             "health_changes": []
           }
         },
@@ -3552,9 +4268,9 @@ export const completed: GameResponse = {
       {
         "week": 8,
         "event": {
-          "event_id": "oxygen_fault",
-          "choice_id": "replace_regulator",
-          "choice_text": "Replace the regulator",
+          "event_id": "impact_puncture",
+          "choice_id": "clamp_pressure",
+          "choice_text": "Fit a repair clamp",
           "selected_crew_id": "alex",
           "success": true,
           "success_probability": 0.95,
@@ -3564,7 +4280,7 @@ export const completed: GameResponse = {
           "effects": {
             "resources": {},
             "solar_efficiency": 0.0,
-            "oxygen_efficiency": 0.25,
+            "oxygen_efficiency": 0.0,
             "health_changes": []
           }
         },
@@ -3595,7 +4311,7 @@ export const completed: GameResponse = {
           "electricity_required": 16.0,
           "electricity_used": 16.0,
           "life_support_power_fraction": 1.0,
-          "oxygen_generated": 10.5,
+          "oxygen_generated": 14.0,
           "oxygen_required": 6.0,
           "oxygen_used": 6.0,
           "oxygen_shortage": 0.0,
@@ -3611,8 +4327,8 @@ export const completed: GameResponse = {
             },
             {
               "crew_id": "maya",
-              "before": 76,
-              "after": 76,
+              "before": 98,
+              "after": 98,
               "food_penalty": 0,
               "water_penalty": 0,
               "oxygen_penalty": 0,
@@ -3623,22 +4339,25 @@ export const completed: GameResponse = {
         "resource_changes": {
           "food": -2.0,
           "water": -4.2,
-          "oxygen": 4.5,
+          "oxygen": 8.0,
           "electricity": 8.0,
           "medicine": 0.0,
           "repair_kits": -1.0,
           "eva_batteries": 0.0,
           "dust_kits": 0.0,
           "oxygen_regulators": 0.0,
-          "diagnostic_tools": 0.0
+          "diagnostic_tools": 0.0,
+          "sealant_packs": 0.0,
+          "scientific_tools": 0.0,
+          "research_data": 0.0
         },
         "deaths": [],
         "next_event": {
-          "event_id": "solar_failure",
-          "title": "Dust on the Array",
+          "event_id": "inventory_audit",
+          "title": "A Crate in the Ledger",
           "effects": {
             "resources": {},
-            "solar_efficiency": -0.25,
+            "solar_efficiency": 0.0,
             "oxygen_efficiency": 0.0,
             "health_changes": []
           }
@@ -3648,20 +4367,18 @@ export const completed: GameResponse = {
       {
         "week": 9,
         "event": {
-          "event_id": "solar_failure",
-          "choice_id": "engineer_repair",
-          "choice_text": "Send the engineer outside",
+          "event_id": "inventory_audit",
+          "choice_id": "audit_crate",
+          "choice_text": "Inspect and reconcile the manifest",
           "selected_crew_id": "alex",
-          "success": true,
-          "success_probability": 0.95,
+          "success": false,
+          "success_probability": 0.8,
           "costs": {
-            "repair_kits": 1.0,
-            "eva_batteries": 1.0,
-            "oxygen": 2.0
+            "electricity": 1.0
           },
           "effects": {
             "resources": {},
-            "solar_efficiency": 0.25,
+            "solar_efficiency": 0.0,
             "oxygen_efficiency": 0.0,
             "health_changes": []
           }
@@ -3693,7 +4410,7 @@ export const completed: GameResponse = {
           "electricity_required": 16.0,
           "electricity_used": 16.0,
           "life_support_power_fraction": 1.0,
-          "oxygen_generated": 10.5,
+          "oxygen_generated": 14.0,
           "oxygen_required": 6.0,
           "oxygen_used": 6.0,
           "oxygen_shortage": 0.0,
@@ -3709,8 +4426,8 @@ export const completed: GameResponse = {
             },
             {
               "crew_id": "maya",
-              "before": 76,
-              "after": 76,
+              "before": 98,
+              "after": 98,
               "food_penalty": 0,
               "water_penalty": 0,
               "oxygen_penalty": 0,
@@ -3721,35 +4438,27 @@ export const completed: GameResponse = {
         "resource_changes": {
           "food": -2.0,
           "water": -4.2,
-          "oxygen": 2.5,
-          "electricity": 8.0,
+          "oxygen": 8.0,
+          "electricity": 7.0,
           "medicine": 0.0,
-          "repair_kits": -1.0,
-          "eva_batteries": -1.0,
+          "repair_kits": 0.0,
+          "eva_batteries": 0.0,
           "dust_kits": 0.0,
           "oxygen_regulators": 0.0,
-          "diagnostic_tools": 0.0
+          "diagnostic_tools": 0.0,
+          "sealant_packs": 0.0,
+          "scientific_tools": 0.0,
+          "research_data": 0.0
         },
         "deaths": [],
         "next_event": {
-          "event_id": "medical_emergency",
-          "title": "Contaminated Air Filter",
+          "event_id": "scrubber_load",
+          "title": "Carbon Dioxide Scrubber Load",
           "effects": {
             "resources": {},
             "solar_efficiency": 0.0,
             "oxygen_efficiency": 0.0,
-            "health_changes": [
-              {
-                "crew_id": "alex",
-                "before": 100,
-                "after": 92
-              },
-              {
-                "crew_id": "maya",
-                "before": 76,
-                "after": 68
-              }
-            ]
+            "health_changes": []
           }
         },
         "ending": null
@@ -3757,111 +4466,9 @@ export const completed: GameResponse = {
       {
         "week": 10,
         "event": {
-          "event_id": "medical_emergency",
-          "choice_id": "treat",
-          "choice_text": "Treat an affected astronaut",
-          "selected_crew_id": "alex",
-          "success": true,
-          "success_probability": 0.95,
-          "costs": {
-            "medicine": 1.0
-          },
-          "effects": {
-            "resources": {},
-            "solar_efficiency": 0.0,
-            "oxygen_efficiency": 0.0,
-            "health_changes": [
-              {
-                "crew_id": "alex",
-                "before": 92,
-                "after": 100
-              }
-            ]
-          }
-        },
-        "rations": {
-          "alex": {
-            "food": "normal",
-            "water": "normal"
-          },
-          "maya": {
-            "food": "normal",
-            "water": "normal"
-          }
-        },
-        "survival": {
-          "ration_requirements": {
-            "food": 2.0,
-            "water": 4.2
-          },
-          "ration_costs": {
-            "food": 2.0,
-            "water": 4.2
-          },
-          "ration_depletion_fractions": {
-            "food": 0.0,
-            "water": 0.0
-          },
-          "electricity_generated": 24.0,
-          "electricity_required": 16.0,
-          "electricity_used": 16.0,
-          "life_support_power_fraction": 1.0,
-          "oxygen_generated": 10.5,
-          "oxygen_required": 6.0,
-          "oxygen_used": 6.0,
-          "oxygen_shortage": 0.0,
-          "health_changes": [
-            {
-              "crew_id": "alex",
-              "before": 100,
-              "after": 100,
-              "food_penalty": 0,
-              "water_penalty": 0,
-              "oxygen_penalty": 0,
-              "died": false
-            },
-            {
-              "crew_id": "maya",
-              "before": 68,
-              "after": 68,
-              "food_penalty": 0,
-              "water_penalty": 0,
-              "oxygen_penalty": 0,
-              "died": false
-            }
-          ]
-        },
-        "resource_changes": {
-          "food": -2.0,
-          "water": -4.2,
-          "oxygen": 4.5,
-          "electricity": 8.0,
-          "medicine": -1.0,
-          "repair_kits": 0.0,
-          "eva_batteries": 0.0,
-          "dust_kits": 0.0,
-          "oxygen_regulators": 0.0,
-          "diagnostic_tools": 0.0
-        },
-        "deaths": [],
-        "next_event": {
-          "event_id": "oxygen_fault",
-          "title": "Life Support Alarm",
-          "effects": {
-            "resources": {},
-            "solar_efficiency": 0.0,
-            "oxygen_efficiency": -0.25,
-            "health_changes": []
-          }
-        },
-        "ending": null
-      },
-      {
-        "week": 11,
-        "event": {
-          "event_id": "oxygen_fault",
-          "choice_id": "replace_regulator",
-          "choice_text": "Replace the regulator",
+          "event_id": "scrubber_load",
+          "choice_id": "service_scrubber",
+          "choice_text": "Service the scrubber",
           "selected_crew_id": "alex",
           "success": true,
           "success_probability": 0.95,
@@ -3871,7 +4478,7 @@ export const completed: GameResponse = {
           "effects": {
             "resources": {},
             "solar_efficiency": 0.0,
-            "oxygen_efficiency": 0.25,
+            "oxygen_efficiency": 0.0,
             "health_changes": []
           }
         },
@@ -3902,7 +4509,7 @@ export const completed: GameResponse = {
           "electricity_required": 16.0,
           "electricity_used": 16.0,
           "life_support_power_fraction": 1.0,
-          "oxygen_generated": 10.5,
+          "oxygen_generated": 14.0,
           "oxygen_required": 6.0,
           "oxygen_used": 6.0,
           "oxygen_shortage": 0.0,
@@ -3918,8 +4525,8 @@ export const completed: GameResponse = {
             },
             {
               "crew_id": "maya",
-              "before": 68,
-              "after": 68,
+              "before": 98,
+              "after": 98,
               "food_penalty": 0,
               "water_penalty": 0,
               "oxygen_penalty": 0,
@@ -3930,22 +4537,126 @@ export const completed: GameResponse = {
         "resource_changes": {
           "food": -2.0,
           "water": -4.2,
-          "oxygen": 4.5,
+          "oxygen": 8.0,
           "electricity": 8.0,
           "medicine": 0.0,
           "repair_kits": -1.0,
           "eva_batteries": 0.0,
           "dust_kits": 0.0,
           "oxygen_regulators": 0.0,
-          "diagnostic_tools": 0.0
+          "diagnostic_tools": 0.0,
+          "sealant_packs": 0.0,
+          "scientific_tools": 0.0,
+          "research_data": 0.0
         },
         "deaths": [],
         "next_event": {
-          "event_id": "solar_failure",
-          "title": "Dust on the Array",
+          "event_id": "seismic_signal",
+          "title": "A Signal in the Seismometer",
           "effects": {
             "resources": {},
-            "solar_efficiency": -0.25,
+            "solar_efficiency": 0.0,
+            "oxygen_efficiency": 0.0,
+            "health_changes": []
+          }
+        },
+        "ending": null
+      },
+      {
+        "week": 11,
+        "event": {
+          "event_id": "seismic_signal",
+          "choice_id": "archive_seismic",
+          "choice_text": "Archive the raw signal",
+          "selected_crew_id": null,
+          "success": true,
+          "success_probability": 1.0,
+          "costs": {},
+          "effects": {
+            "resources": {
+              "research_data": 1.0
+            },
+            "solar_efficiency": 0.0,
+            "oxygen_efficiency": 0.0,
+            "health_changes": []
+          }
+        },
+        "rations": {
+          "alex": {
+            "food": "normal",
+            "water": "normal"
+          },
+          "maya": {
+            "food": "normal",
+            "water": "normal"
+          }
+        },
+        "survival": {
+          "ration_requirements": {
+            "food": 2.0,
+            "water": 4.2
+          },
+          "ration_costs": {
+            "food": 2.0,
+            "water": 4.2
+          },
+          "ration_depletion_fractions": {
+            "food": 0.0,
+            "water": 0.0
+          },
+          "electricity_generated": 24.0,
+          "electricity_required": 16.0,
+          "electricity_used": 16.0,
+          "life_support_power_fraction": 1.0,
+          "oxygen_generated": 14.0,
+          "oxygen_required": 6.0,
+          "oxygen_used": 6.0,
+          "oxygen_shortage": 0.0,
+          "health_changes": [
+            {
+              "crew_id": "alex",
+              "before": 100,
+              "after": 100,
+              "food_penalty": 0,
+              "water_penalty": 0,
+              "oxygen_penalty": 0,
+              "died": false
+            },
+            {
+              "crew_id": "maya",
+              "before": 98,
+              "after": 98,
+              "food_penalty": 0,
+              "water_penalty": 0,
+              "oxygen_penalty": 0,
+              "died": false
+            }
+          ]
+        },
+        "resource_changes": {
+          "food": -2.0,
+          "water": -4.2,
+          "oxygen": 8.0,
+          "electricity": 8.0,
+          "medicine": 0.0,
+          "repair_kits": 0.0,
+          "eva_batteries": 0.0,
+          "dust_kits": 0.0,
+          "oxygen_regulators": 0.0,
+          "diagnostic_tools": 0.0,
+          "sealant_packs": 0.0,
+          "scientific_tools": 0.0,
+          "research_data": 1.0
+        },
+        "deaths": [],
+        "next_event": {
+          "event_id": "battery_isolation",
+          "title": "Battery String Offline",
+          "effects": {
+            "resources": {
+              "electricity": -5.0
+            },
+            "solar_efficiency": 0.0,
             "oxygen_efficiency": 0.0,
             "health_changes": []
           }
@@ -3955,20 +4666,20 @@ export const completed: GameResponse = {
       {
         "week": 12,
         "event": {
-          "event_id": "solar_failure",
-          "choice_id": "engineer_repair",
-          "choice_text": "Send the engineer outside",
+          "event_id": "battery_isolation",
+          "choice_id": "battery_diagnosis",
+          "choice_text": "Diagnose and restore the string",
           "selected_crew_id": "alex",
           "success": true,
           "success_probability": 0.95,
           "costs": {
-            "repair_kits": 1.0,
-            "eva_batteries": 1.0,
-            "oxygen": 2.0
+            "repair_kits": 1.0
           },
           "effects": {
-            "resources": {},
-            "solar_efficiency": 0.25,
+            "resources": {
+              "electricity": 8.0
+            },
+            "solar_efficiency": 0.0,
             "oxygen_efficiency": 0.0,
             "health_changes": []
           }
@@ -4000,7 +4711,7 @@ export const completed: GameResponse = {
           "electricity_required": 16.0,
           "electricity_used": 16.0,
           "life_support_power_fraction": 1.0,
-          "oxygen_generated": 10.5,
+          "oxygen_generated": 14.0,
           "oxygen_required": 6.0,
           "oxygen_used": 6.0,
           "oxygen_shortage": 0.0,
@@ -4016,8 +4727,8 @@ export const completed: GameResponse = {
             },
             {
               "crew_id": "maya",
-              "before": 68,
-              "after": 68,
+              "before": 98,
+              "after": 98,
               "food_penalty": 0,
               "water_penalty": 0,
               "oxygen_penalty": 0,
@@ -4028,27 +4739,30 @@ export const completed: GameResponse = {
         "resource_changes": {
           "food": -2.0,
           "water": -4.2,
-          "oxygen": 2.5,
-          "electricity": 8.0,
+          "oxygen": 8.0,
+          "electricity": 16.0,
           "medicine": 0.0,
           "repair_kits": -1.0,
-          "eva_batteries": -1.0,
+          "eva_batteries": 0.0,
           "dust_kits": 0.0,
           "oxygen_regulators": 0.0,
-          "diagnostic_tools": 0.0
+          "diagnostic_tools": 0.0,
+          "sealant_packs": 0.0,
+          "scientific_tools": 0.0,
+          "research_data": 0.0
         },
         "deaths": [],
         "next_event": null,
-        "ending": "successful_handover"
+        "ending": "perfect_handover"
       }
     ],
     "status": "completed",
     "random_seed": 42,
     "initial_crew_size": 2,
     "weeks_completed": 12,
-    "ending": "successful_handover",
+    "ending": "perfect_handover",
     "results": {
-      "ending": "successful_handover",
+      "ending": "perfect_handover",
       "weeks_survived": 12,
       "initial_crew_size": 2,
       "surviving_crew_ids": [
@@ -4070,13 +4784,13 @@ export const failed: GameResponse = {
     "difficulty_rank": 2,
     "mission_id": "alpha_rotation",
     "mission_name": "Hold Until Rotation",
-    "current_week": 6,
+    "current_week": 7,
     "duration_weeks": 12,
     "minimum_survivors": 1,
-    "weeks_remaining": 6,
+    "weeks_remaining": 5,
     "mission_days": {
-      "start": 36,
-      "end": 42
+      "start": 43,
+      "end": 49
     },
     "crew": [
       {
@@ -4093,8 +4807,8 @@ export const failed: GameResponse = {
         "specialty": "Mechanical repair",
         "training_source": "https://www.nasa.gov/reference/jsc-crew-operations-training/",
         "action_bonuses": {},
-        "food_shortage_weeks": 1,
-        "water_shortage_weeks": 2,
+        "food_shortage_weeks": 2,
+        "water_shortage_weeks": 3,
         "alive": false,
         "ration_options": {}
       },
@@ -4112,8 +4826,8 @@ export const failed: GameResponse = {
         "specialty": "Crew medical officer",
         "training_source": "https://www.nasa.gov/reference/5-0-training/",
         "action_bonuses": {},
-        "food_shortage_weeks": 1,
-        "water_shortage_weeks": 2,
+        "food_shortage_weeks": 2,
+        "water_shortage_weeks": 3,
         "alive": false,
         "ration_options": {}
       },
@@ -4131,8 +4845,8 @@ export const failed: GameResponse = {
         "specialty": "Field science and calibration",
         "training_source": "https://www.nasa.gov/missions/artemis/nasa-field-geology-training-prepares-artemis-mission-support-teams/",
         "action_bonuses": {},
-        "food_shortage_weeks": 1,
-        "water_shortage_weeks": 2,
+        "food_shortage_weeks": 2,
+        "water_shortage_weeks": 3,
         "alive": false,
         "ration_options": {}
       },
@@ -4150,8 +4864,8 @@ export const failed: GameResponse = {
         "specialty": "EVA maintenance",
         "training_source": "https://www.nasa.gov/reference/jsc-crew-operations-training/",
         "action_bonuses": {},
-        "food_shortage_weeks": 1,
-        "water_shortage_weeks": 2,
+        "food_shortage_weeks": 2,
+        "water_shortage_weeks": 3,
         "alive": false,
         "ration_options": {}
       }
@@ -4159,17 +4873,20 @@ export const failed: GameResponse = {
     "resources": {
       "food": 0.0,
       "water": 0.0,
-      "oxygen": 17.5,
-      "electricity": 24.0,
+      "oxygen": 38.5,
+      "electricity": 48.0,
       "medicine": 1.0,
       "repair_kits": 1.0,
       "eva_batteries": 1.0,
       "dust_kits": 0.0,
       "oxygen_regulators": 0.0,
-      "diagnostic_tools": 0.0
+      "diagnostic_tools": 0.0,
+      "sealant_packs": 0.0,
+      "scientific_tools": 0.0,
+      "research_data": 0.0
     },
-    "solar_efficiency": 0.5,
-    "oxygen_efficiency": 0.5,
+    "solar_efficiency": 0.75,
+    "oxygen_efficiency": 0.75,
     "current_event_id": null,
     "current_event": null,
     "emergency_ration_requirements": {
@@ -4179,11 +4896,12 @@ export const failed: GameResponse = {
     "depleted_provisions": [],
     "used_event_ids": [
       "medical_emergency",
+      "crew_recovery",
       "oxygen_fault",
+      "antenna_drift",
       "solar_failure",
-      "medical_emergency",
-      "oxygen_fault",
-      "solar_failure"
+      "water_line_leak",
+      "solar_particle_alert"
     ],
     "flags": {
       "failure_reason": "All astronauts have died."
@@ -4315,7 +5033,157 @@ export const failed: GameResponse = {
           "eva_batteries": 0.0,
           "dust_kits": 0.0,
           "oxygen_regulators": 0.0,
-          "diagnostic_tools": 0.0
+          "diagnostic_tools": 0.0,
+          "sealant_packs": 0.0,
+          "scientific_tools": 0.0,
+          "research_data": 0.0
+        },
+        "deaths": [],
+        "next_event": {
+          "event_id": "crew_recovery",
+          "title": "A Week for Recovery",
+          "effects": {
+            "resources": {},
+            "solar_efficiency": 0.0,
+            "oxygen_efficiency": 0.0,
+            "health_changes": []
+          }
+        },
+        "ending": null
+      },
+      {
+        "week": 2,
+        "event": {
+          "event_id": "crew_recovery",
+          "choice_id": "structured_recovery",
+          "choice_text": "Follow a structured recovery schedule",
+          "selected_crew_id": null,
+          "success": true,
+          "success_probability": 1.0,
+          "costs": {
+            "food": 1.0,
+            "water": 1.0
+          },
+          "effects": {
+            "resources": {},
+            "solar_efficiency": 0.0,
+            "oxygen_efficiency": 0.0,
+            "health_changes": [
+              {
+                "crew_id": "alex",
+                "before": 87,
+                "after": 93
+              },
+              {
+                "crew_id": "maya",
+                "before": 87,
+                "after": 93
+              },
+              {
+                "crew_id": "lin",
+                "before": 84,
+                "after": 90
+              },
+              {
+                "crew_id": "sam",
+                "before": 89,
+                "after": 95
+              }
+            ]
+          }
+        },
+        "rations": {
+          "alex": {
+            "food": "normal",
+            "water": "normal"
+          },
+          "maya": {
+            "food": "normal",
+            "water": "normal"
+          },
+          "lin": {
+            "food": "normal",
+            "water": "normal"
+          },
+          "sam": {
+            "food": "normal",
+            "water": "normal"
+          }
+        },
+        "survival": {
+          "ration_requirements": {
+            "food": 4.0,
+            "water": 8.0
+          },
+          "ration_costs": {
+            "food": 4.0,
+            "water": 8.0
+          },
+          "ration_depletion_fractions": {
+            "food": 0.0,
+            "water": 0.0
+          },
+          "electricity_generated": 24.0,
+          "electricity_required": 20.0,
+          "electricity_used": 20.0,
+          "life_support_power_fraction": 1.0,
+          "oxygen_generated": 14.0,
+          "oxygen_required": 12.0,
+          "oxygen_used": 12.0,
+          "oxygen_shortage": 0.0,
+          "health_changes": [
+            {
+              "crew_id": "alex",
+              "before": 93,
+              "after": 93,
+              "food_penalty": 0,
+              "water_penalty": 0,
+              "oxygen_penalty": 0,
+              "died": false
+            },
+            {
+              "crew_id": "maya",
+              "before": 93,
+              "after": 93,
+              "food_penalty": 0,
+              "water_penalty": 0,
+              "oxygen_penalty": 0,
+              "died": false
+            },
+            {
+              "crew_id": "lin",
+              "before": 90,
+              "after": 90,
+              "food_penalty": 0,
+              "water_penalty": 0,
+              "oxygen_penalty": 0,
+              "died": false
+            },
+            {
+              "crew_id": "sam",
+              "before": 95,
+              "after": 95,
+              "food_penalty": 0,
+              "water_penalty": 0,
+              "oxygen_penalty": 0,
+              "died": false
+            }
+          ]
+        },
+        "resource_changes": {
+          "food": -5.0,
+          "water": -9.0,
+          "oxygen": 2.0,
+          "electricity": 4.0,
+          "medicine": 0.0,
+          "repair_kits": 0.0,
+          "eva_batteries": 0.0,
+          "dust_kits": 0.0,
+          "oxygen_regulators": 0.0,
+          "diagnostic_tools": 0.0,
+          "sealant_packs": 0.0,
+          "scientific_tools": 0.0,
+          "research_data": 0.0
         },
         "deaths": [],
         "next_event": {
@@ -4331,7 +5199,7 @@ export const failed: GameResponse = {
         "ending": null
       },
       {
-        "week": 2,
+        "week": 3,
         "event": {
           "event_id": "oxygen_fault",
           "choice_id": "ignore",
@@ -4389,8 +5257,8 @@ export const failed: GameResponse = {
           "health_changes": [
             {
               "crew_id": "alex",
-              "before": 87,
-              "after": 87,
+              "before": 93,
+              "after": 93,
               "food_penalty": 0,
               "water_penalty": 0,
               "oxygen_penalty": 0,
@@ -4398,8 +5266,8 @@ export const failed: GameResponse = {
             },
             {
               "crew_id": "maya",
-              "before": 87,
-              "after": 87,
+              "before": 93,
+              "after": 93,
               "food_penalty": 0,
               "water_penalty": 0,
               "oxygen_penalty": 0,
@@ -4407,8 +5275,8 @@ export const failed: GameResponse = {
             },
             {
               "crew_id": "lin",
-              "before": 84,
-              "after": 84,
+              "before": 90,
+              "after": 90,
               "food_penalty": 0,
               "water_penalty": 0,
               "oxygen_penalty": 0,
@@ -4416,8 +5284,8 @@ export const failed: GameResponse = {
             },
             {
               "crew_id": "sam",
-              "before": 89,
-              "after": 89,
+              "before": 95,
+              "after": 95,
               "food_penalty": 0,
               "water_penalty": 0,
               "oxygen_penalty": 0,
@@ -4435,158 +5303,20 @@ export const failed: GameResponse = {
           "eva_batteries": 0.0,
           "dust_kits": 0.0,
           "oxygen_regulators": 0.0,
-          "diagnostic_tools": 0.0
+          "diagnostic_tools": 0.0,
+          "sealant_packs": 0.0,
+          "scientific_tools": 0.0,
+          "research_data": 0.0
         },
         "deaths": [],
         "next_event": {
-          "event_id": "solar_failure",
-          "title": "Dust on the Array",
-          "effects": {
-            "resources": {},
-            "solar_efficiency": -0.25,
-            "oxygen_efficiency": 0.0,
-            "health_changes": []
-          }
-        },
-        "ending": null
-      },
-      {
-        "week": 3,
-        "event": {
-          "event_id": "solar_failure",
-          "choice_id": "ignore",
-          "choice_text": "Conserve supplies and accept reduced output",
-          "selected_crew_id": null,
-          "success": true,
-          "success_probability": 1.0,
-          "costs": {},
+          "event_id": "antenna_drift",
+          "title": "Antenna Off Target",
           "effects": {
             "resources": {},
             "solar_efficiency": 0.0,
             "oxygen_efficiency": 0.0,
             "health_changes": []
-          }
-        },
-        "rations": {
-          "alex": {
-            "food": "normal",
-            "water": "normal"
-          },
-          "maya": {
-            "food": "normal",
-            "water": "normal"
-          },
-          "lin": {
-            "food": "normal",
-            "water": "normal"
-          },
-          "sam": {
-            "food": "normal",
-            "water": "normal"
-          }
-        },
-        "survival": {
-          "ration_requirements": {
-            "food": 4.0,
-            "water": 8.0
-          },
-          "ration_costs": {
-            "food": 4.0,
-            "water": 8.0
-          },
-          "ration_depletion_fractions": {
-            "food": 0.0,
-            "water": 0.0
-          },
-          "electricity_generated": 18.0,
-          "electricity_required": 20.0,
-          "electricity_used": 20.0,
-          "life_support_power_fraction": 1.0,
-          "oxygen_generated": 10.5,
-          "oxygen_required": 12.0,
-          "oxygen_used": 12.0,
-          "oxygen_shortage": 0.0,
-          "health_changes": [
-            {
-              "crew_id": "alex",
-              "before": 87,
-              "after": 87,
-              "food_penalty": 0,
-              "water_penalty": 0,
-              "oxygen_penalty": 0,
-              "died": false
-            },
-            {
-              "crew_id": "maya",
-              "before": 87,
-              "after": 87,
-              "food_penalty": 0,
-              "water_penalty": 0,
-              "oxygen_penalty": 0,
-              "died": false
-            },
-            {
-              "crew_id": "lin",
-              "before": 84,
-              "after": 84,
-              "food_penalty": 0,
-              "water_penalty": 0,
-              "oxygen_penalty": 0,
-              "died": false
-            },
-            {
-              "crew_id": "sam",
-              "before": 89,
-              "after": 89,
-              "food_penalty": 0,
-              "water_penalty": 0,
-              "oxygen_penalty": 0,
-              "died": false
-            }
-          ]
-        },
-        "resource_changes": {
-          "food": -4.0,
-          "water": -8.0,
-          "oxygen": -1.5,
-          "electricity": -2.0,
-          "medicine": 0.0,
-          "repair_kits": 0.0,
-          "eva_batteries": 0.0,
-          "dust_kits": 0.0,
-          "oxygen_regulators": 0.0,
-          "diagnostic_tools": 0.0
-        },
-        "deaths": [],
-        "next_event": {
-          "event_id": "medical_emergency",
-          "title": "Contaminated Air Filter",
-          "effects": {
-            "resources": {},
-            "solar_efficiency": 0.0,
-            "oxygen_efficiency": 0.0,
-            "health_changes": [
-              {
-                "crew_id": "alex",
-                "before": 87,
-                "after": 79
-              },
-              {
-                "crew_id": "maya",
-                "before": 87,
-                "after": 79
-              },
-              {
-                "crew_id": "lin",
-                "before": 84,
-                "after": 74
-              },
-              {
-                "crew_id": "sam",
-                "before": 89,
-                "after": 82
-              }
-            ]
           }
         },
         "ending": null
@@ -4594,150 +5324,9 @@ export const failed: GameResponse = {
       {
         "week": 4,
         "event": {
-          "event_id": "medical_emergency",
-          "choice_id": "rest",
-          "choice_text": "Isolate the filter and rest",
-          "selected_crew_id": null,
-          "success": true,
-          "success_probability": 1.0,
-          "costs": {},
-          "effects": {
-            "resources": {},
-            "solar_efficiency": 0.0,
-            "oxygen_efficiency": 0.0,
-            "health_changes": [
-              {
-                "crew_id": "alex",
-                "before": 79,
-                "after": 74
-              },
-              {
-                "crew_id": "maya",
-                "before": 79,
-                "after": 74
-              },
-              {
-                "crew_id": "lin",
-                "before": 74,
-                "after": 68
-              },
-              {
-                "crew_id": "sam",
-                "before": 82,
-                "after": 78
-              }
-            ]
-          }
-        },
-        "rations": {
-          "alex": {
-            "food": "normal",
-            "water": "normal"
-          },
-          "maya": {
-            "food": "normal",
-            "water": "normal"
-          },
-          "lin": {
-            "food": "normal",
-            "water": "normal"
-          },
-          "sam": {
-            "food": "normal",
-            "water": "normal"
-          }
-        },
-        "survival": {
-          "ration_requirements": {
-            "food": 4.0,
-            "water": 8.0
-          },
-          "ration_costs": {
-            "food": 4.0,
-            "water": 8.0
-          },
-          "ration_depletion_fractions": {
-            "food": 0.0,
-            "water": 0.0
-          },
-          "electricity_generated": 18.0,
-          "electricity_required": 20.0,
-          "electricity_used": 20.0,
-          "life_support_power_fraction": 1.0,
-          "oxygen_generated": 10.5,
-          "oxygen_required": 12.0,
-          "oxygen_used": 12.0,
-          "oxygen_shortage": 0.0,
-          "health_changes": [
-            {
-              "crew_id": "alex",
-              "before": 74,
-              "after": 74,
-              "food_penalty": 0,
-              "water_penalty": 0,
-              "oxygen_penalty": 0,
-              "died": false
-            },
-            {
-              "crew_id": "maya",
-              "before": 74,
-              "after": 74,
-              "food_penalty": 0,
-              "water_penalty": 0,
-              "oxygen_penalty": 0,
-              "died": false
-            },
-            {
-              "crew_id": "lin",
-              "before": 68,
-              "after": 68,
-              "food_penalty": 0,
-              "water_penalty": 0,
-              "oxygen_penalty": 0,
-              "died": false
-            },
-            {
-              "crew_id": "sam",
-              "before": 78,
-              "after": 78,
-              "food_penalty": 0,
-              "water_penalty": 0,
-              "oxygen_penalty": 0,
-              "died": false
-            }
-          ]
-        },
-        "resource_changes": {
-          "food": -4.0,
-          "water": -8.0,
-          "oxygen": -1.5,
-          "electricity": -2.0,
-          "medicine": 0.0,
-          "repair_kits": 0.0,
-          "eva_batteries": 0.0,
-          "dust_kits": 0.0,
-          "oxygen_regulators": 0.0,
-          "diagnostic_tools": 0.0
-        },
-        "deaths": [],
-        "next_event": {
-          "event_id": "oxygen_fault",
-          "title": "Life Support Alarm",
-          "effects": {
-            "resources": {},
-            "solar_efficiency": 0.0,
-            "oxygen_efficiency": -0.25,
-            "health_changes": []
-          }
-        },
-        "ending": null
-      },
-      {
-        "week": 5,
-        "event": {
-          "event_id": "oxygen_fault",
-          "choice_id": "ignore",
-          "choice_text": "Rely on oxygen reserves",
+          "event_id": "antenna_drift",
+          "choice_id": "offline_procedures",
+          "choice_text": "Use stored procedures",
           "selected_crew_id": null,
           "success": true,
           "success_probability": 1.0,
@@ -4774,54 +5363,54 @@ export const failed: GameResponse = {
           },
           "ration_costs": {
             "food": 4.0,
-            "water": 0.0
+            "water": 3.2
           },
           "ration_depletion_fractions": {
             "food": 0.0,
-            "water": 1.0
+            "water": 0.0
           },
-          "electricity_generated": 18.0,
+          "electricity_generated": 24.0,
           "electricity_required": 20.0,
           "electricity_used": 20.0,
           "life_support_power_fraction": 1.0,
-          "oxygen_generated": 7.0,
+          "oxygen_generated": 10.5,
           "oxygen_required": 12.0,
           "oxygen_used": 12.0,
           "oxygen_shortage": 0.0,
           "health_changes": [
             {
               "crew_id": "alex",
-              "before": 74,
-              "after": 29,
+              "before": 93,
+              "after": 83,
               "food_penalty": 0,
-              "water_penalty": 45,
+              "water_penalty": 10,
               "oxygen_penalty": 0,
               "died": false
             },
             {
               "crew_id": "maya",
-              "before": 74,
-              "after": 29,
+              "before": 93,
+              "after": 83,
               "food_penalty": 0,
-              "water_penalty": 45,
+              "water_penalty": 10,
               "oxygen_penalty": 0,
               "died": false
             },
             {
               "crew_id": "lin",
-              "before": 68,
-              "after": 23,
+              "before": 90,
+              "after": 80,
               "food_penalty": 0,
-              "water_penalty": 45,
+              "water_penalty": 10,
               "oxygen_penalty": 0,
               "died": false
             },
             {
               "crew_id": "sam",
-              "before": 78,
-              "after": 33,
+              "before": 95,
+              "after": 85,
               "food_penalty": 0,
-              "water_penalty": 45,
+              "water_penalty": 10,
               "oxygen_penalty": 0,
               "died": false
             }
@@ -4829,15 +5418,18 @@ export const failed: GameResponse = {
         },
         "resource_changes": {
           "food": -4.0,
-          "water": 0.0,
-          "oxygen": -5.0,
-          "electricity": -2.0,
+          "water": -3.2,
+          "oxygen": -1.5,
+          "electricity": 4.0,
           "medicine": 0.0,
           "repair_kits": 0.0,
           "eva_batteries": 0.0,
           "dust_kits": 0.0,
           "oxygen_regulators": 0.0,
-          "diagnostic_tools": 0.0
+          "diagnostic_tools": 0.0,
+          "sealant_packs": 0.0,
+          "scientific_tools": 0.0,
+          "research_data": 0.0
         },
         "deaths": [],
         "next_event": {
@@ -4853,7 +5445,7 @@ export const failed: GameResponse = {
         "ending": null
       },
       {
-        "week": 6,
+        "week": 5,
         "event": {
           "event_id": "solar_failure",
           "choice_id": "ignore",
@@ -4893,71 +5485,306 @@ export const failed: GameResponse = {
             "water": 3.2
           },
           "ration_costs": {
+            "food": 1.6,
+            "water": 3.2
+          },
+          "ration_depletion_fractions": {
             "food": 0.0,
             "water": 0.0
           },
-          "ration_depletion_fractions": {
-            "food": 1.0,
-            "water": 1.0
-          },
-          "electricity_generated": 12.0,
+          "electricity_generated": 18.0,
           "electricity_required": 20.0,
           "electricity_used": 20.0,
           "life_support_power_fraction": 1.0,
-          "oxygen_generated": 7.0,
+          "oxygen_generated": 10.5,
           "oxygen_required": 12.0,
           "oxygen_used": 12.0,
           "oxygen_shortage": 0.0,
           "health_changes": [
             {
               "crew_id": "alex",
-              "before": 29,
-              "after": 0,
-              "food_penalty": 26,
-              "water_penalty": 47,
+              "before": 83,
+              "after": 65,
+              "food_penalty": 6,
+              "water_penalty": 12,
               "oxygen_penalty": 0,
-              "died": true
+              "died": false
             },
             {
               "crew_id": "maya",
-              "before": 29,
-              "after": 0,
-              "food_penalty": 26,
-              "water_penalty": 47,
+              "before": 83,
+              "after": 65,
+              "food_penalty": 6,
+              "water_penalty": 12,
               "oxygen_penalty": 0,
-              "died": true
+              "died": false
             },
             {
               "crew_id": "lin",
-              "before": 23,
-              "after": 0,
-              "food_penalty": 26,
-              "water_penalty": 47,
+              "before": 80,
+              "after": 62,
+              "food_penalty": 6,
+              "water_penalty": 12,
               "oxygen_penalty": 0,
-              "died": true
+              "died": false
             },
             {
               "crew_id": "sam",
-              "before": 33,
-              "after": 0,
-              "food_penalty": 26,
-              "water_penalty": 47,
+              "before": 85,
+              "after": 67,
+              "food_penalty": 6,
+              "water_penalty": 12,
               "oxygen_penalty": 0,
-              "died": true
+              "died": false
             }
           ]
         },
         "resource_changes": {
-          "food": 0.0,
-          "water": 0.0,
-          "oxygen": -5.0,
-          "electricity": -8.0,
+          "food": -1.6,
+          "water": -3.2,
+          "oxygen": -1.5,
+          "electricity": -2.0,
           "medicine": 0.0,
           "repair_kits": 0.0,
           "eva_batteries": 0.0,
           "dust_kits": 0.0,
           "oxygen_regulators": 0.0,
-          "diagnostic_tools": 0.0
+          "diagnostic_tools": 0.0,
+          "sealant_packs": 0.0,
+          "scientific_tools": 0.0,
+          "research_data": 0.0
+        },
+        "deaths": [],
+        "next_event": {
+          "event_id": "water_line_leak",
+          "title": "Water Under the Floor",
+          "effects": {
+            "resources": {
+              "water": -0.6
+            },
+            "solar_efficiency": 0.0,
+            "oxygen_efficiency": 0.0,
+            "health_changes": []
+          }
+        },
+        "ending": null
+      },
+      {
+        "week": 6,
+        "event": {
+          "event_id": "water_line_leak",
+          "choice_id": "isolate_water",
+          "choice_text": "Isolate the service reservoir",
+          "selected_crew_id": null,
+          "success": true,
+          "success_probability": 1.0,
+          "costs": {},
+          "effects": {
+            "resources": {},
+            "solar_efficiency": 0.0,
+            "oxygen_efficiency": 0.0,
+            "health_changes": []
+          }
+        },
+        "rations": {
+          "alex": {
+            "food": "emergency",
+            "water": "emergency"
+          },
+          "maya": {
+            "food": "emergency",
+            "water": "emergency"
+          },
+          "lin": {
+            "food": "emergency",
+            "water": "emergency"
+          },
+          "sam": {
+            "food": "emergency",
+            "water": "emergency"
+          }
+        },
+        "survival": {
+          "ration_requirements": {
+            "food": 1.6,
+            "water": 3.2
+          },
+          "ration_costs": {
+            "food": 1.4,
+            "water": 0.0
+          },
+          "ration_depletion_fractions": {
+            "food": 0.1250000000000001,
+            "water": 1.0
+          },
+          "electricity_generated": 18.0,
+          "electricity_required": 20.0,
+          "electricity_used": 20.0,
+          "life_support_power_fraction": 1.0,
+          "oxygen_generated": 10.5,
+          "oxygen_required": 12.0,
+          "oxygen_used": 12.0,
+          "oxygen_shortage": 0.0,
+          "health_changes": [
+            {
+              "crew_id": "alex",
+              "before": 65,
+              "after": 5,
+              "food_penalty": 11,
+              "water_penalty": 49,
+              "oxygen_penalty": 0,
+              "died": false
+            },
+            {
+              "crew_id": "maya",
+              "before": 65,
+              "after": 5,
+              "food_penalty": 11,
+              "water_penalty": 49,
+              "oxygen_penalty": 0,
+              "died": false
+            },
+            {
+              "crew_id": "lin",
+              "before": 62,
+              "after": 2,
+              "food_penalty": 11,
+              "water_penalty": 49,
+              "oxygen_penalty": 0,
+              "died": false
+            },
+            {
+              "crew_id": "sam",
+              "before": 67,
+              "after": 7,
+              "food_penalty": 11,
+              "water_penalty": 49,
+              "oxygen_penalty": 0,
+              "died": false
+            }
+          ]
+        },
+        "resource_changes": {
+          "food": -1.4,
+          "water": 0.0,
+          "oxygen": -1.5,
+          "electricity": -2.0,
+          "medicine": 0.0,
+          "repair_kits": 0.0,
+          "eva_batteries": 0.0,
+          "dust_kits": 0.0,
+          "oxygen_regulators": 0.0,
+          "diagnostic_tools": 0.0,
+          "sealant_packs": 0.0,
+          "scientific_tools": 0.0,
+          "research_data": 0.0
+        },
+        "deaths": [],
+        "next_event": {
+          "event_id": "solar_particle_alert",
+          "title": "Shelter Before the Storm",
+          "effects": {
+            "resources": {},
+            "solar_efficiency": 0.0,
+            "oxygen_efficiency": 0.0,
+            "health_changes": []
+          }
+        },
+        "ending": null
+      },
+      {
+        "week": 7,
+        "event": {
+          "event_id": "solar_particle_alert",
+          "choice_id": "storm_wait",
+          "choice_text": "Use existing shielding",
+          "selected_crew_id": null,
+          "success": true,
+          "success_probability": 1.0,
+          "costs": {},
+          "effects": {
+            "resources": {},
+            "solar_efficiency": 0.0,
+            "oxygen_efficiency": 0.0,
+            "health_changes": [
+              {
+                "crew_id": "alex",
+                "before": 5,
+                "after": 0
+              },
+              {
+                "crew_id": "maya",
+                "before": 5,
+                "after": 0
+              },
+              {
+                "crew_id": "lin",
+                "before": 2,
+                "after": 0
+              },
+              {
+                "crew_id": "sam",
+                "before": 7,
+                "after": 0
+              }
+            ]
+          }
+        },
+        "rations": {
+          "alex": {
+            "food": "emergency",
+            "water": "emergency"
+          },
+          "maya": {
+            "food": "emergency",
+            "water": "emergency"
+          },
+          "lin": {
+            "food": "emergency",
+            "water": "emergency"
+          },
+          "sam": {
+            "food": "emergency",
+            "water": "emergency"
+          }
+        },
+        "survival": {
+          "ration_requirements": {
+            "food": 0.0,
+            "water": 0.0
+          },
+          "ration_costs": {
+            "food": 0.0,
+            "water": 0.0
+          },
+          "ration_depletion_fractions": {
+            "food": 0.0,
+            "water": 0.0
+          },
+          "electricity_generated": 18.0,
+          "electricity_required": 12.0,
+          "electricity_used": 12.0,
+          "life_support_power_fraction": 1.0,
+          "oxygen_generated": 10.5,
+          "oxygen_required": 0.0,
+          "oxygen_used": 0.0,
+          "oxygen_shortage": 0.0,
+          "health_changes": []
+        },
+        "resource_changes": {
+          "food": 0.0,
+          "water": 0.0,
+          "oxygen": 10.5,
+          "electricity": 6.0,
+          "medicine": 0.0,
+          "repair_kits": 0.0,
+          "eva_batteries": 0.0,
+          "dust_kits": 0.0,
+          "oxygen_regulators": 0.0,
+          "diagnostic_tools": 0.0,
+          "sealant_packs": 0.0,
+          "scientific_tools": 0.0,
+          "research_data": 0.0
         },
         "deaths": [
           "alex",
@@ -4972,11 +5799,11 @@ export const failed: GameResponse = {
     "status": "failed",
     "random_seed": 42,
     "initial_crew_size": 4,
-    "weeks_completed": 6,
+    "weeks_completed": 7,
     "ending": "mission_failure",
     "results": {
       "ending": "mission_failure",
-      "weeks_survived": 6,
+      "weeks_survived": 7,
       "initial_crew_size": 4,
       "surviving_crew_ids": [],
       "deceased_crew_ids": [

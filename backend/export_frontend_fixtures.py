@@ -38,6 +38,7 @@ def decision(state, request_id, ignore=False):
         resource: "normal"
         if state["resources"][resource]
         >= sum(c["ration_options"]["normal"][resource] for c in living)
+        + choice["costs"].get(resource, 0)
         else "emergency"
         for resource in ("food", "water")
     }
@@ -98,6 +99,17 @@ def generate(check: bool = False) -> None:
             "TurnResponse",
             turn(medical, decision(medical["state"], "fixture-treatment")),
         )
+        for seed in range(100):
+            initial = create(seed)
+            result = turn(initial, decision(initial["state"], "fixture-opportunity", ignore=True))
+            if result["state"]["current_event"]["category"] == "opportunity":
+                fixtures["opportunityGame"] = (
+                    "GameResponse",
+                    {"game_id": result["game_id"], "state": result["state"]},
+                )
+                break
+        else:
+            raise RuntimeError("No opportunity fixture found")
         for name, crew, cargo in (
             ("completed", ["alex", "maya"], CARGO),
             ("failed", ["alex", "maya", "lin", "sam"], {}),

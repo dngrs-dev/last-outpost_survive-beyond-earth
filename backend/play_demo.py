@@ -55,7 +55,9 @@ def main() -> None:
         for resource in ("food", "water"):
             normal_cost = sum(crew["ration_options"]["normal"][resource] for crew in living)
             levels[resource] = (
-                "normal" if state["resources"][resource] >= normal_cost else "emergency"
+                "normal"
+                if state["resources"][resource] >= normal_cost + choice["costs"].get(resource, 0)
+                else "emergency"
             )
         response = api(
             base_url,

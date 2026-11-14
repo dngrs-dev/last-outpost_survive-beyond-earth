@@ -102,6 +102,9 @@ class EventResponse(BaseModel):
     id: str
     title: str
     description: str
+    category: Literal["hazard", "opportunity", "recovery"]
+    science_context: str
+    source_url: str
     on_start: EffectsResponse
     choices: list[ChoiceResponse]
 

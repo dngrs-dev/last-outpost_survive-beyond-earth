@@ -22,7 +22,7 @@ def test_catalog(client):
     assert len(catalog["stations"]) == 6
     assert len({station["lunar_site_id"] for station in catalog["stations"]}) == 6
     assert len(catalog["crew"]) == 10
-    assert len(catalog["items"]) == 10
+    assert len(catalog["items"]) == 12
     assert catalog["limits"]["max_crew"] == 4
     assert catalog["missions"][0]["duration_weeks"] == 12
 

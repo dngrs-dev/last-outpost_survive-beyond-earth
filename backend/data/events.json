@@ -67,7 +67,10 @@
         "success_effects": {},
         "failure_effects": {}
       }
-    ]
+    ],
+    "category": "hazard",
+    "source_url": "https://www.nasa.gov/reference/jsc-dust/",
+    "science_context": "Lunar dust can contaminate equipment and complicate surface maintenance."
   },
   {
     "id": "oxygen_fault",
@@ -134,7 +137,10 @@
         "success_effects": {},
         "failure_effects": {}
       }
-    ]
+    ],
+    "category": "hazard",
+    "source_url": "https://www.nasa.gov/reference/9-0-hardware-and-equipment-vol-2/",
+    "science_context": "Spacecraft life-support equipment needs maintenance. This regulator failure is a fictional training scenario."
   },
   {
     "id": "medical_emergency",
@@ -221,6 +227,862 @@
         "success_chance": 1,
         "success_effects": {
           "crew_health": -5,
+          "target": "all"
+        },
+        "failure_effects": {}
+      }
+    ],
+    "category": "hazard",
+    "source_url": "https://www.nasa.gov/reference/jsc-dust/",
+    "science_context": "Dust management matters for cabin cleanliness. The irritant incident and health changes here are fictional."
+  },
+  {
+    "id": "solar_particle_alert",
+    "title": "Shelter Before the Storm",
+    "description": "An exercise forecast warns of elevated solar-particle exposure. Choose how to protect the crew.",
+    "source_url": "https://science.nasa.gov/science-research/heliophysics/how-nasa-will-protect-astronauts-from-space-radiation-at-the-moon/",
+    "science_context": "NASA studies forecasting and shielding for solar-particle events. These health costs are fictional, not radiation-dose estimates.",
+    "category": "hazard",
+    "weight": 1,
+    "min_week": 2,
+    "on_start": {},
+    "choices": [
+      {
+        "id": "shelter",
+        "text": "Move into the shielded compartment",
+        "description": "Spend 4 power and 1 water to shelter the crew without event injury.",
+        "costs": {
+          "electricity": 4,
+          "water": 1
+        },
+        "required_items": {},
+        "requires_crew": false,
+        "role_bonus": {},
+        "minimum_crew": 1,
+        "success_chance": 1,
+        "success_effects": {},
+        "failure_effects": {}
+      },
+      {
+        "id": "shield_reconfigure",
+        "text": "Reconfigure supplies as shielding",
+        "description": "Requires two crew. Success costs everyone 2 health; failure costs 10 health each. Technical and scientific skills improve the odds.",
+        "costs": {
+          "electricity": 1
+        },
+        "required_items": {},
+        "requires_crew": true,
+        "role_bonus": {
+          "engineer": 0.2,
+          "scientist": 0.15
+        },
+        "minimum_crew": 2,
+        "success_chance": 0.7,
+        "success_effects": {
+          "crew_health": -2,
+          "target": "all"
+        },
+        "failure_effects": {
+          "crew_health": -10,
+          "target": "all"
+        }
+      },
+      {
+        "id": "storm_wait",
+        "text": "Use existing shielding",
+        "description": "Conserve supplies, accepting 12 health damage per living astronaut.",
+        "costs": {},
+        "required_items": {},
+        "requires_crew": false,
+        "role_bonus": {},
+        "minimum_crew": 1,
+        "success_chance": 1,
+        "success_effects": {
+          "crew_health": -12,
+          "target": "all"
+        },
+        "failure_effects": {}
+      }
+    ]
+  },
+  {
+    "id": "impact_puncture",
+    "title": "Pinprick in the Pressure Line",
+    "description": "A suspected particle impact has vented 4 oxygen. Seal the small line or isolate the damaged section.",
+    "source_url": "https://www.nasa.gov/meteoroid-environment-office/about-lunar-impact-monitoring/",
+    "science_context": "The Moon has little atmospheric protection from meteoroids. This small repairable puncture is an invented scenario.",
+    "category": "hazard",
+    "weight": 1,
+    "min_week": 2,
+    "on_start": {
+      "resources": {
+        "oxygen": -4
+      }
+    },
+    "choices": [
+      {
+        "id": "seal_pressure",
+        "text": "Seal the pressure line",
+        "description": "One sealant pack guarantees sealing the line.",
+        "costs": {
+          "sealant_packs": 1
+        },
+        "required_items": {},
+        "requires_crew": true,
+        "role_bonus": {},
+        "minimum_crew": 1,
+        "success_chance": 1,
+        "success_effects": {},
+        "failure_effects": {}
+      },
+      {
+        "id": "clamp_pressure",
+        "text": "Fit a repair clamp",
+        "description": "An engineer or technician improves the odds; failure vents another 4 oxygen.",
+        "costs": {
+          "repair_kits": 1
+        },
+        "required_items": {},
+        "requires_crew": true,
+        "role_bonus": {
+          "engineer": 0.25,
+          "technician": 0.2
+        },
+        "minimum_crew": 1,
+        "success_chance": 0.65,
+        "success_effects": {},
+        "failure_effects": {
+          "resources": {
+            "oxygen": -4
+          }
+        }
+      },
+      {
+        "id": "isolate_pressure",
+        "text": "Isolate the line",
+        "description": "No supplies spent; lose another 6 oxygen while isolating the section.",
+        "costs": {},
+        "required_items": {},
+        "requires_crew": false,
+        "role_bonus": {},
+        "minimum_crew": 1,
+        "success_chance": 1,
+        "success_effects": {
+          "resources": {
+            "oxygen": -6
+          }
+        },
+        "failure_effects": {}
+      }
+    ]
+  },
+  {
+    "id": "thermal_control",
+    "title": "Thermal Control Warning",
+    "description": "A faulty radiator controller has used 4 extra electricity. Protect the equipment before it overheats.",
+    "source_url": "https://science.nasa.gov/moon/weather-on-the-moon/",
+    "science_context": "Lunar surface temperatures vary sharply. This equipment fault is not a simulation of the lunar day/night cycle.",
+    "category": "hazard",
+    "weight": 1,
+    "min_week": 2,
+    "on_start": {
+      "resources": {
+        "electricity": -4
+      }
+    },
+    "choices": [
+      {
+        "id": "radiator_service",
+        "text": "Service the controller",
+        "description": "Repair the controller with a kit; failure costs the worker 10 health. Engineers and technicians improve the odds.",
+        "costs": {
+          "repair_kits": 1
+        },
+        "required_items": {},
+        "requires_crew": true,
+        "role_bonus": {
+          "engineer": 0.2,
+          "technician": 0.15
+        },
+        "minimum_crew": 1,
+        "success_chance": 0.7,
+        "success_effects": {},
+        "failure_effects": {
+          "crew_health": -10
+        }
+      },
+      {
+        "id": "radiator_patch",
+        "text": "Apply an insulating patch",
+        "description": "Sealant provides a guaranteed temporary fix.",
+        "costs": {
+          "sealant_packs": 1
+        },
+        "required_items": {},
+        "requires_crew": true,
+        "role_bonus": {},
+        "minimum_crew": 1,
+        "success_chance": 1,
+        "success_effects": {},
+        "failure_effects": {}
+      },
+      {
+        "id": "thermal_shutdown",
+        "text": "Reduce equipment activity",
+        "description": "Conserve tools but lose 10 oxygen from the temporary life-support shutdown.",
+        "costs": {},
+        "required_items": {},
+        "requires_crew": false,
+        "role_bonus": {},
+        "minimum_crew": 1,
+        "success_chance": 1,
+        "success_effects": {
+          "resources": {
+            "oxygen": -10
+          }
+        },
+        "failure_effects": {}
+      }
+    ]
+  },
+  {
+    "id": "water_line_leak",
+    "title": "Water Under the Floor",
+    "description": "A coupling leak has cost 4 water units. Some clean water remains in an isolated service reservoir.",
+    "source_url": "https://www.nasa.gov/ames/space-biosciences/water-recovery-systems/",
+    "science_context": "Reliable spacecraft water systems require careful engineering. The leak and recoverable reserve are fictional.",
+    "category": "hazard",
+    "weight": 1,
+    "min_week": 2,
+    "on_start": {
+      "resources": {
+        "water": -4
+      }
+    },
+    "choices": [
+      {
+        "id": "seal_water",
+        "text": "Seal the coupling and reclaim the reserve",
+        "description": "Spend sealant to recover 3 water units from the clean reservoir.",
+        "costs": {
+          "sealant_packs": 1
+        },
+        "required_items": {},
+        "requires_crew": true,
+        "role_bonus": {},
+        "minimum_crew": 1,
+        "success_chance": 1,
+        "success_effects": {
+          "resources": {
+            "water": 3
+          }
+        },
+        "failure_effects": {}
+      },
+      {
+        "id": "repair_water",
+        "text": "Replace the coupling",
+        "description": "A technical specialist may recover 2 water; failed work injures the worker.",
+        "costs": {
+          "repair_kits": 1
+        },
+        "required_items": {},
+        "requires_crew": true,
+        "role_bonus": {
+          "engineer": 0.2,
+          "technician": 0.15
+        },
+        "minimum_crew": 1,
+        "success_chance": 0.7,
+        "success_effects": {
+          "resources": {
+            "water": 2
+          }
+        },
+        "failure_effects": {
+          "crew_health": -6
+        }
+      },
+      {
+        "id": "isolate_water",
+        "text": "Isolate the service reservoir",
+        "description": "Accept the initial water loss and protect remaining supplies.",
+        "costs": {},
+        "required_items": {},
+        "requires_crew": false,
+        "role_bonus": {},
+        "minimum_crew": 1,
+        "success_chance": 1,
+        "success_effects": {},
+        "failure_effects": {}
+      }
+    ]
+  },
+  {
+    "id": "scrubber_load",
+    "title": "Carbon Dioxide Scrubber Load",
+    "description": "Air-quality monitoring detects an overloaded scrubber. Cabin health and equipment need attention.",
+    "source_url": "https://www.nasa.gov/ochmo-tb-004-carbon-dioxide-2/",
+    "science_context": "Removing carbon dioxide and generating oxygen are distinct life-support functions. This game compresses their effects into health and oxygen-system condition.",
+    "category": "hazard",
+    "weight": 1,
+    "min_week": 2,
+    "on_start": {},
+    "choices": [
+      {
+        "id": "service_scrubber",
+        "text": "Service the scrubber",
+        "description": "Spend a repair kit to restore air handling; failure costs every survivor 8 health. Technical skills improve the odds.",
+        "costs": {
+          "repair_kits": 1
+        },
+        "required_items": {},
+        "requires_crew": true,
+        "role_bonus": {
+          "engineer": 0.2,
+          "technician": 0.2
+        },
+        "minimum_crew": 1,
+        "success_chance": 0.7,
+        "success_effects": {},
+        "failure_effects": {
+          "crew_health": -8,
+          "target": "all"
+        }
+      },
+      {
+        "id": "vent_scrubber",
+        "text": "Vent and purge the cabin loop",
+        "description": "Spend 8 oxygen on a controlled purge to avoid event injury or lasting system damage.",
+        "costs": {
+          "oxygen": 8
+        },
+        "required_items": {},
+        "requires_crew": false,
+        "role_bonus": {},
+        "minimum_crew": 1,
+        "success_chance": 1,
+        "success_effects": {},
+        "failure_effects": {}
+      },
+      {
+        "id": "scrubber_risk",
+        "text": "Run at reduced air-processing capacity",
+        "description": "Lose 10 oxygen-system percentage points and 5 health per survivor; no supplies spent.",
+        "costs": {},
+        "required_items": {},
+        "requires_crew": false,
+        "role_bonus": {},
+        "minimum_crew": 1,
+        "success_chance": 1,
+        "success_effects": {
+          "oxygen_efficiency": -0.1,
+          "crew_health": -5,
+          "target": "all"
+        },
+        "failure_effects": {}
+      }
+    ]
+  },
+  {
+    "id": "antenna_drift",
+    "title": "Antenna Off Target",
+    "description": "A communications dish has drifted. Restore the link or operate using stored procedures.",
+    "source_url": "https://www.nasa.gov/wp-content/uploads/2023/11/scan-heo-nac-heo-2023-11-20.pdf",
+    "science_context": "Lunar communications planning accounts for line-of-sight limits. This local antenna fault is fictional.",
+    "category": "hazard",
+    "weight": 1,
+    "min_week": 2,
+    "on_start": {},
+    "choices": [
+      {
+        "id": "align_antenna",
+        "text": "Realign the dish outside",
+        "description": "Spend EVA supplies for 2 research data on success; failure costs the worker 8 health. Technical skills improve the odds.",
+        "costs": {
+          "eva_batteries": 1,
+          "oxygen": 2
+        },
+        "required_items": {},
+        "requires_crew": true,
+        "role_bonus": {
+          "technician": 0.25,
+          "engineer": 0.2
+        },
+        "minimum_crew": 1,
+        "success_chance": 0.65,
+        "success_effects": {
+          "resources": {
+            "research_data": 2
+          }
+        },
+        "failure_effects": {
+          "crew_health": -8
+        }
+      },
+      {
+        "id": "remote_antenna",
+        "text": "Run a remote pointing sweep",
+        "description": "Gain 1 research data on success; failure wastes 2 additional power. A scientist improves the odds.",
+        "costs": {
+          "electricity": 3
+        },
+        "required_items": {},
+        "requires_crew": true,
+        "role_bonus": {
+          "scientist": 0.2
+        },
+        "minimum_crew": 1,
+        "success_chance": 0.7,
+        "success_effects": {
+          "resources": {
+            "research_data": 1
+          }
+        },
+        "failure_effects": {
+          "resources": {
+            "electricity": -2
+          }
+        }
+      },
+      {
+        "id": "offline_procedures",
+        "text": "Use stored procedures",
+        "description": "No material cost or research recovery; the mission continues without an immediate link.",
+        "costs": {},
+        "required_items": {},
+        "requires_crew": false,
+        "role_bonus": {},
+        "minimum_crew": 1,
+        "success_chance": 1,
+        "success_effects": {},
+        "failure_effects": {}
+      }
+    ]
+  },
+  {
+    "id": "battery_isolation",
+    "title": "Battery String Offline",
+    "description": "A protective controller isolates a battery string, costing 5 stored electricity.",
+    "source_url": "https://www.nasa.gov/reference/9-0-hardware-and-equipment-vol-2/",
+    "science_context": "Spaceflight hardware needs inspection and fault handling. The isolated battery and energy amounts are fictional.",
+    "category": "hazard",
+    "weight": 1,
+    "min_week": 2,
+    "on_start": {
+      "resources": {
+        "electricity": -5
+      }
+    },
+    "choices": [
+      {
+        "id": "battery_diagnosis",
+        "text": "Diagnose and restore the string",
+        "description": "Recover 8 power on success; failure costs the worker 8 health. Technical specialists improve the odds.",
+        "costs": {
+          "repair_kits": 1
+        },
+        "required_items": {},
+        "requires_crew": true,
+        "role_bonus": {
+          "engineer": 0.25,
+          "technician": 0.2
+        },
+        "minimum_crew": 1,
+        "success_chance": 0.65,
+        "success_effects": {
+          "resources": {
+            "electricity": 8
+          }
+        },
+        "failure_effects": {
+          "crew_health": -8
+        }
+      },
+      {
+        "id": "battery_scan",
+        "text": "Measure the isolated string",
+        "description": "The science kit includes a diagnostic meter for a cautious, guaranteed recovery of 3 power.",
+        "costs": {
+          "electricity": 1
+        },
+        "required_items": {
+          "scientific_tools": 1
+        },
+        "requires_crew": true,
+        "role_bonus": {},
+        "minimum_crew": 1,
+        "success_chance": 1,
+        "success_effects": {
+          "resources": {
+            "electricity": 3
+          }
+        },
+        "failure_effects": {}
+      },
+      {
+        "id": "battery_accept",
+        "text": "Keep the string isolated",
+        "description": "Accept the stored-energy loss without risking repair supplies.",
+        "costs": {},
+        "required_items": {},
+        "requires_crew": false,
+        "role_bonus": {},
+        "minimum_crew": 1,
+        "success_chance": 1,
+        "success_effects": {},
+        "failure_effects": {}
+      }
+    ]
+  },
+  {
+    "id": "improvised_shield",
+    "title": "The Makeshift Dust Shield",
+    "description": "A cover near the solar service cable has broken. Make a replacement or accept recurring dust contamination.",
+    "source_url": "https://history.nasa.gov/wp-content/uploads/static/history/alsj/WOTM/WOTM-DuctTape.html",
+    "science_context": "Apollo 17 crews improvised a rover fender using maps and clamps. This stationary outpost repair adapts that lesson; no rover simulation is involved.",
+    "category": "hazard",
+    "weight": 1,
+    "min_week": 2,
+    "on_start": {
+      "solar_efficiency": -0.1
+    },
+    "choices": [
+      {
+        "id": "improvise_cover",
+        "text": "Build a replacement cover",
+        "description": "A sealant pack and EVA supplies support a guaranteed repair.",
+        "costs": {
+          "sealant_packs": 1,
+          "eva_batteries": 1,
+          "oxygen": 2
+        },
+        "required_items": {},
+        "requires_crew": true,
+        "role_bonus": {},
+        "minimum_crew": 1,
+        "success_chance": 1,
+        "success_effects": {
+          "solar_efficiency": 0.1
+        },
+        "failure_effects": {}
+      },
+      {
+        "id": "fabricate_cover",
+        "text": "Adapt spare parts",
+        "description": "Restore 10 solar percentage points on success; failure costs the worker 8 health. Technical skills improve the odds.",
+        "costs": {
+          "repair_kits": 1
+        },
+        "required_items": {},
+        "requires_crew": true,
+        "role_bonus": {
+          "engineer": 0.2,
+          "technician": 0.2
+        },
+        "minimum_crew": 1,
+        "success_chance": 0.65,
+        "success_effects": {
+          "solar_efficiency": 0.1
+        },
+        "failure_effects": {
+          "crew_health": -8
+        }
+      },
+      {
+        "id": "shield_accept",
+        "text": "Accept the exposed cable",
+        "description": "The initial solar damage persists.",
+        "costs": {},
+        "required_items": {},
+        "requires_crew": false,
+        "role_bonus": {},
+        "minimum_crew": 1,
+        "success_chance": 1,
+        "success_effects": {},
+        "failure_effects": {}
+      }
+    ]
+  },
+  {
+    "id": "geology_window",
+    "title": "Fresh Geological Exposure",
+    "description": "An exposed rock face offers a chance to collect useful field data. Scientific work costs time and supplies.",
+    "source_url": "https://www.nasa.gov/missions/artemis/nasa-field-geology-training-prepares-artemis-mission-support-teams/",
+    "science_context": "Astronaut geology training develops observation and sampling skills. This location and research reward are fictional.",
+    "category": "opportunity",
+    "weight": 1,
+    "min_week": 3,
+    "on_start": {},
+    "choices": [
+      {
+        "id": "kit_sampling",
+        "text": "Conduct an instrumented sample survey",
+        "description": "Use the reusable science kit for 6 research data on success; failure costs the worker 8 health. Scientists improve the odds.",
+        "costs": {
+          "eva_batteries": 1,
+          "oxygen": 2
+        },
+        "required_items": {
+          "scientific_tools": 1
+        },
+        "requires_crew": true,
+        "role_bonus": {
+          "scientist": 0.2
+        },
+        "minimum_crew": 1,
+        "success_chance": 0.75,
+        "success_effects": {
+          "resources": {
+            "research_data": 6
+          }
+        },
+        "failure_effects": {
+          "crew_health": -8
+        }
+      },
+      {
+        "id": "basic_sampling",
+        "text": "Make a basic field observation",
+        "description": "Gain 3 research data on success; failure costs the worker 12 health. Requires EVA supplies but no science kit.",
+        "costs": {
+          "eva_batteries": 1,
+          "oxygen": 2
+        },
+        "required_items": {},
+        "requires_crew": true,
+        "role_bonus": {
+          "scientist": 0.2
+        },
+        "minimum_crew": 1,
+        "success_chance": 0.6,
+        "success_effects": {
+          "resources": {
+            "research_data": 3
+          }
+        },
+        "failure_effects": {
+          "crew_health": -12
+        }
+      },
+      {
+        "id": "defer_geology",
+        "text": "Defer the survey",
+        "description": "Preserve supplies and take no research data.",
+        "costs": {},
+        "required_items": {},
+        "requires_crew": false,
+        "role_bonus": {},
+        "minimum_crew": 1,
+        "success_chance": 1,
+        "success_effects": {},
+        "failure_effects": {}
+      }
+    ]
+  },
+  {
+    "id": "seismic_signal",
+    "title": "A Signal in the Seismometer",
+    "description": "The station logger captures a possible moonquake. Decide how much effort to put into examining the signal.",
+    "source_url": "https://science.nasa.gov/moon/moonquakes/",
+    "science_context": "Apollo seismometers recorded moonquakes. Their origins include tidal effects, impacts, and thermal changes.",
+    "category": "opportunity",
+    "weight": 1,
+    "min_week": 3,
+    "on_start": {},
+    "choices": [
+      {
+        "id": "analyze_seismic",
+        "text": "Calibrate and analyze the signal",
+        "description": "Requires two crew and the reusable science kit. Gain 5 research data on success; failure wastes 2 additional power. Scientists improve the odds.",
+        "costs": {
+          "electricity": 2
+        },
+        "required_items": {
+          "scientific_tools": 1
+        },
+        "requires_crew": true,
+        "role_bonus": {
+          "scientist": 0.2
+        },
+        "minimum_crew": 2,
+        "success_chance": 0.7,
+        "success_effects": {
+          "resources": {
+            "research_data": 5
+          }
+        },
+        "failure_effects": {
+          "resources": {
+            "electricity": -2
+          }
+        }
+      },
+      {
+        "id": "archive_seismic",
+        "text": "Archive the raw signal",
+        "description": "Gain 1 research data without equipment or resource spending.",
+        "costs": {},
+        "required_items": {},
+        "requires_crew": false,
+        "role_bonus": {},
+        "minimum_crew": 1,
+        "success_chance": 1,
+        "success_effects": {
+          "resources": {
+            "research_data": 1
+          }
+        },
+        "failure_effects": {}
+      },
+      {
+        "id": "defer_seismic",
+        "text": "Keep the logger in standby",
+        "description": "No research gain; preserve crew attention.",
+        "costs": {},
+        "required_items": {},
+        "requires_crew": false,
+        "role_bonus": {},
+        "minimum_crew": 1,
+        "success_chance": 1,
+        "success_effects": {},
+        "failure_effects": {}
+      }
+    ]
+  },
+  {
+    "id": "inventory_audit",
+    "title": "A Crate in the Ledger",
+    "description": "The outgoing crew ledger lists a small reserve crate. Verify its contents before adding them to usable supplies.",
+    "source_url": "https://www.nasa.gov/directorates/esdmd/hhp/space-food-systems/",
+    "science_context": "Space food systems include packaging and provisioning. This reserve crate is a fictional opportunity, not a real lunar cache.",
+    "category": "opportunity",
+    "weight": 1,
+    "min_week": 2,
+    "on_start": {},
+    "choices": [
+      {
+        "id": "audit_crate",
+        "text": "Inspect and reconcile the manifest",
+        "description": "Spend power on inspection. Recover 3 food and 4 water on success; no supplies recovered on failure. Technicians and scientists improve the odds.",
+        "costs": {
+          "electricity": 1
+        },
+        "required_items": {},
+        "requires_crew": true,
+        "role_bonus": {
+          "technician": 0.15,
+          "scientist": 0.1
+        },
+        "minimum_crew": 1,
+        "success_chance": 0.75,
+        "success_effects": {
+          "resources": {
+            "food": 3,
+            "water": 4
+          }
+        },
+        "failure_effects": {}
+      },
+      {
+        "id": "audit_scanner",
+        "text": "Check packaging with environmental sensors",
+        "description": "Use the science kit to inspect packaging and release 2 food and 2 water from the fictional reserve; guaranteed.",
+        "costs": {
+          "electricity": 1
+        },
+        "required_items": {
+          "scientific_tools": 1
+        },
+        "requires_crew": true,
+        "role_bonus": {},
+        "minimum_crew": 1,
+        "success_chance": 1,
+        "success_effects": {
+          "resources": {
+            "food": 2,
+            "water": 2
+          }
+        },
+        "failure_effects": {}
+      },
+      {
+        "id": "quarantine_crate",
+        "text": "Leave the unverified crate quarantined",
+        "description": "No spending or new supplies.",
+        "costs": {},
+        "required_items": {},
+        "requires_crew": false,
+        "role_bonus": {},
+        "minimum_crew": 1,
+        "success_chance": 1,
+        "success_effects": {},
+        "failure_effects": {}
+      }
+    ]
+  },
+  {
+    "id": "crew_recovery",
+    "title": "A Week for Recovery",
+    "description": "No major equipment emergency is scheduled. Use the breathing space to support crew health.",
+    "source_url": "https://www.nasa.gov/directorates/esdmd/hhp/exercise-physiology-and-countermeasures/",
+    "science_context": "NASA develops exercise countermeasures for spaceflight. These immediate health gains are fictional; exercise does not instantly reverse injuries.",
+    "category": "recovery",
+    "weight": 1,
+    "min_week": 2,
+    "on_start": {},
+    "choices": [
+      {
+        "id": "structured_recovery",
+        "text": "Follow a structured recovery schedule",
+        "description": "Additional food and water support a guaranteed 6-health gain for each survivor.",
+        "costs": {
+          "food": 1,
+          "water": 1
+        },
+        "required_items": {},
+        "requires_crew": false,
+        "role_bonus": {},
+        "minimum_crew": 1,
+        "success_chance": 1,
+        "success_effects": {
+          "crew_health": 6,
+          "target": "all"
+        },
+        "failure_effects": {}
+      },
+      {
+        "id": "medical_recovery",
+        "text": "Treat one recovering astronaut",
+        "description": "Choose a patient and spend 1 medicine. Success restores 20 health; failure gives no healing. A living medic improves the odds.",
+        "costs": {
+          "medicine": 1
+        },
+        "required_items": {},
+        "requires_crew": true,
+        "role_bonus": {},
+        "minimum_crew": 1,
+        "success_chance": 0.75,
+        "success_effects": {
+          "crew_health": 20
+        },
+        "failure_effects": {},
+        "crew_role_bonus": {
+          "medic": 0.15
+        }
+      },
+      {
+        "id": "routine_recovery",
+        "text": "Keep a light routine",
+        "description": "A small guaranteed 2-health gain for every survivor, with no extra supplies.",
+        "costs": {},
+        "required_items": {},
+        "requires_crew": false,
+        "role_bonus": {},
+        "minimum_crew": 1,
+        "success_chance": 1,
+        "success_effects": {
+          "crew_health": 2,
           "target": "all"
         },
         "failure_effects": {}

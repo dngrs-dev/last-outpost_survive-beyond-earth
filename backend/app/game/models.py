@@ -113,6 +113,9 @@ class Event(Definition):
     weight: float
     min_week: int
     on_start: Effects = field(default_factory=Effects)
+    category: Literal["hazard", "opportunity", "recovery"] = "hazard"
+    science_context: str = "Original training scenario; numerical effects are fictional."
+    source_url: str = "https://www.nasa.gov/reference/9-0-hardware-and-equipment-vol-2/"
 
 
 @dataclass(frozen=True)
