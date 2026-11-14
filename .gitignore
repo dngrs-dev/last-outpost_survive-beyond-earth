@@ -218,3 +218,7 @@ __marimo__/
 
 # Streamlit
 .streamlit/secrets.toml
+
+# Local dependency cache and sandboxed test scratch files
+.uv-cache/
+.pytest-tmp/

@@ -1,0 +1,8 @@
+[
+  {"id":"food_packs","name":"Food packs","description":"Four weekly food units.","weight_kg":2,"volume_l":4,"unit":"pack","category":"provisions","resource":"food","resource_amount":4},
+  {"id":"water_containers","name":"Water containers","description":"Five water units.","weight_kg":5,"volume_l":5,"unit":"container","category":"provisions","resource":"water","resource_amount":5},
+  {"id":"medicine_kits","name":"Medicine kits","description":"One medical treatment supply.","weight_kg":1,"volume_l":2,"unit":"kit","category":"equipment","resource":"medicine","resource_amount":1},
+  {"id":"repair_kits","name":"Repair kits","description":"One equipment repair supply.","weight_kg":3,"volume_l":4,"unit":"kit","category":"equipment","resource":"repair_kits","resource_amount":1},
+  {"id":"eva_batteries","name":"EVA battery packs","description":"Power for one outside activity.","weight_kg":2,"volume_l":3,"unit":"pack","category":"equipment","resource":"eva_batteries","resource_amount":1},
+  {"id":"oxygen_tanks","name":"Emergency oxygen tanks","description":"Twelve oxygen units, transferred to station reserves on arrival.","weight_kg":4,"volume_l":12,"unit":"tank","category":"provisions","resource":"oxygen","resource_amount":12}
+]

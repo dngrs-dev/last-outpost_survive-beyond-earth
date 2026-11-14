@@ -1,0 +1,14 @@
+[
+  {
+    "id": "alpha",
+    "name": "Station Alpha — Research Base",
+    "description": "A fictional lunar research outpost. Keep its crew alive until rotation.",
+    "mission_id": "alpha_rotation",
+    "starting_resources": {
+      "food": 20, "water": 32, "oxygen": 30, "electricity": 30,
+      "medicine": 1, "repair_kits": 1, "eva_batteries": 1
+    },
+    "energy_per_week": 24,
+    "oxygen_per_week": 14
+  }
+]

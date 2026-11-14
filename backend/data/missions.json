@@ -1,0 +1,10 @@
+[
+  {
+    "id": "alpha_rotation",
+    "name": "Hold Until Rotation",
+    "description": "Survive 84 Earth days and hand over an operational research station.",
+    "duration_weeks": 12,
+    "event_ids": ["solar_failure", "oxygen_fault", "medical_emergency"],
+    "minimum_survivors": 1
+  }
+]

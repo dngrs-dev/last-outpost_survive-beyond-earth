@@ -1,0 +1,26 @@
+[
+  {
+    "id": "alex", "name": "Alex Vega", "role": "engineer", "health": 100,
+    "positive_trait": "Steady hands: +5 percentage points on assigned event actions.",
+    "negative_trait": "Large appetite: consumes 10% more food.",
+    "event_bonus": 0.05, "food_multiplier": 1.1
+  },
+  {
+    "id": "maya", "name": "Maya Okafor", "role": "medic", "health": 100,
+    "positive_trait": "Efficient metabolism: consumes 10% less food.",
+    "negative_trait": "Thirsty: consumes 10% more water.",
+    "food_multiplier": 0.9, "water_multiplier": 1.1
+  },
+  {
+    "id": "lin", "name": "Lin Park", "role": "scientist", "health": 100,
+    "positive_trait": "Water conscious: consumes 10% less water.",
+    "negative_trait": "Fragile: event injuries cause 20% more damage.",
+    "water_multiplier": 0.9, "injury_multiplier": 1.2
+  },
+  {
+    "id": "sam", "name": "Sam Nowak", "role": "technician", "health": 100,
+    "positive_trait": "Resilient: event injuries cause 20% less damage.",
+    "negative_trait": "Impulsive: -5 percentage points on assigned event actions.",
+    "injury_multiplier": 0.8, "event_bonus": -0.05
+  }
+]

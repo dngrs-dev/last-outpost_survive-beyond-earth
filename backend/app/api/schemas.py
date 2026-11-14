@@ -1,0 +1,165 @@
+"""Pydantic HTTP contracts. Domain objects remain independent of these models."""
+
+from typing import Annotated, Any, Literal
+
+from pydantic import BaseModel, ConfigDict, Field
+
+from app.game.rules import RationLevel
+
+Identifier = Annotated[str, Field(strict=True, min_length=1, max_length=128)]
+Quantity = Annotated[int, Field(strict=True, ge=0, le=1_000_000)]
+
+
+class RequestModel(BaseModel):
+    model_config = ConfigDict(extra="forbid")
+
+
+class CreateGameRequest(RequestModel):
+    station_id: Identifier
+    crew_ids: Annotated[list[Identifier], Field(min_length=1, max_length=8)]
+    cargo: dict[Identifier, Quantity] = Field(default_factory=dict)
+    random_seed: Annotated[int, Field(strict=True, ge=0, le=2**63 - 1)] | None = None
+
+
+class RationRequest(RequestModel):
+    food: RationLevel
+    water: RationLevel
+
+
+class SubmitTurnRequest(RequestModel):
+    expected_week: Annotated[int, Field(strict=True, ge=1)]
+    request_id: Identifier
+    rations: dict[Identifier, RationRequest]
+    event_choice_id: Identifier
+    selected_crew_id: Identifier | None = None
+
+
+class ErrorResponse(BaseModel):
+    detail: str
+
+
+class RationCost(BaseModel):
+    food: float
+    water: float
+
+
+class CrewResponse(BaseModel):
+    id: str
+    name: str
+    role: str
+    health: int
+    positive_trait: str
+    negative_trait: str
+    food_multiplier: float
+    water_multiplier: float
+    event_bonus: float
+    injury_multiplier: float
+    food_shortage_weeks: int
+    water_shortage_weeks: int
+    alive: bool
+    ration_options: dict[RationLevel, RationCost]
+
+
+class EffectsResponse(BaseModel):
+    resources: dict[str, float]
+    solar_efficiency: float
+    oxygen_efficiency: float
+    crew_health: int
+    target: Literal["selected", "all"]
+
+
+class CandidateResponse(BaseModel):
+    crew_id: str
+    available: bool
+    unavailable_reasons: list[str]
+    success_probability: float
+
+
+class ChoiceResponse(BaseModel):
+    id: str
+    text: str
+    description: str
+    costs: dict[str, float]
+    required_items: dict[str, int]
+    requires_crew: bool
+    role_bonus: dict[str, float]
+    crew_role_bonus: dict[str, float]
+    success_chance: float
+    success_effects: EffectsResponse
+    failure_effects: EffectsResponse
+    required_role: str | None
+    minimum_crew: int
+    available: bool
+    unavailable_reasons: list[str]
+    eligible_crew: list[CandidateResponse]
+    success_probability: float | None
+
+
+class EventResponse(BaseModel):
+    id: str
+    title: str
+    description: str
+    on_start: EffectsResponse
+    choices: list[ChoiceResponse]
+
+
+class MissionDays(BaseModel):
+    start: int
+    end: int
+
+
+class ResultsResponse(BaseModel):
+    ending: str
+    weeks_survived: int
+    initial_crew_size: int
+    surviving_crew_ids: list[str]
+    deceased_crew_ids: list[str]
+    failure_reason: str | None
+
+
+class GameStateResponse(BaseModel):
+    station_id: str
+    station_name: str
+    mission_id: str
+    mission_name: str
+    current_week: int
+    duration_weeks: int
+    minimum_survivors: int
+    weeks_remaining: int
+    mission_days: MissionDays
+    crew: list[CrewResponse]
+    resources: dict[str, float]
+    solar_efficiency: float
+    oxygen_efficiency: float
+    current_event_id: str | None
+    current_event: EventResponse | None
+    emergency_ration_requirements: RationCost
+    depleted_provisions: list[str]
+    used_event_ids: list[str]
+    flags: dict[str, str]
+    history: list[dict[str, Any]]
+    status: Literal["running", "completed", "failed"]
+    random_seed: int
+    initial_crew_size: int
+    weeks_completed: int
+    ending: str | None
+    results: ResultsResponse | None
+
+
+class GameResponse(BaseModel):
+    game_id: str
+    state: GameStateResponse
+
+
+class TurnResponse(GameResponse):
+    turn_outcome: dict[str, Any]
+
+
+class CatalogResponse(BaseModel):
+    stations: list[dict[str, Any]]
+    missions: list[dict[str, Any]]
+    crew: list[dict[str, Any]]
+    items: list[dict[str, Any]]
+    limits: dict[str, float | int]
+    ration_multipliers: dict[RationLevel, float]
+    balance_note: str
