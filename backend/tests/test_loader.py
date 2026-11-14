@@ -49,6 +49,8 @@ def test_duplicate_ids(data_dir, filename):
         ("items", "volume_l", -2),
         ("items", "resource_amount", 0),
         ("stations", "energy_per_week", -1),
+        ("stations", "battery_capacity", 0),
+        ("stations", "longitude_deg", 181),
         ("crew", "unexpected", True),
     ],
 )
@@ -137,4 +139,23 @@ def test_one_action_cannot_complete_two_objectives(data_dir):
 
     mutate(data_dir, "missions", overlap)
     with pytest.raises(ConfigurationError, match="qualifying choice"):
+        load_definitions(data_dir)
+
+
+@pytest.mark.parametrize(
+    "field,value",
+    [
+        ("solar_day_earth_days", 0),
+        ("solar_day_earth_days", float("nan")),
+        ("reference_longitude_deg", 181),
+        ("assumption", ""),
+        ("source_url", "https://example.com"),
+    ],
+)
+def test_invalid_lighting_model(data_dir, field, value):
+    path = data_dir / "lighting.json"
+    content = json.loads(path.read_text(encoding="utf-8"))
+    content[field] = value
+    path.write_text(json.dumps(content), encoding="utf-8")
+    with pytest.raises(ConfigurationError):
         load_definitions(data_dir)

@@ -133,7 +133,7 @@ def test_persistent_effect_and_no_read_mutations(engine, state):
     after, report = engine.advance_week(
         state, 1, {crew.id: Ration("normal", "normal") for crew in state.crew}, "ignore"
     )
-    assert report["survival"]["electricity_generated"] == 18
+    assert report["survival"]["electricity_generated"] == 36
     assert after.solar_efficiency <= 0.75
 
 

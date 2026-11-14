@@ -3,7 +3,9 @@
 from copy import deepcopy
 from math import ceil
 
-from app.game.models import CrewMember, GameError, GameState, Ration, Station
+from app.game.energy import daylight_fraction
+from app.game.models import CrewMember, GameError, GameState, LightingModel, Ration, Station
+from app.game.projects import advance_recording
 from app.game.rules import (
     FOOD_PENALTIES,
     RATION_MULTIPLIERS,
@@ -53,7 +55,14 @@ def permits_depletion(rations: dict[str, Ration], resource: str) -> bool:
 
 
 def simulate_week(
-    state: GameState, station: Station, rations: dict[str, Ration], rules: Rules
+    state: GameState,
+    station: Station,
+    rations: dict[str, Ration],
+    rules: Rules,
+    *,
+    lighting: LightingModel,
+    original: GameState | None = None,
+    project_log: list[dict] | None = None,
 ) -> tuple[GameState, dict]:
     """After event resolution: feed survivors, generate/use power, generate/use oxygen,
     then apply ration and oxygen penalties. Event casualties consume no weekly supplies.
@@ -72,12 +81,24 @@ def simulate_week(
         depletion_fractions[name] = max(0.0, 1 - available / amount) if amount else 0.0
         result.resources[name] = max(0.0, round(available - actual_costs[name], 6))
 
-    power_generated = station.energy_per_week * result.solar_efficiency
+    sunlight = daylight_fraction(station, lighting, result.current_week)
+    power_generated = station.energy_per_week * result.solar_efficiency * sunlight
     power_required = rules.base_electricity_use + rules.crew_electricity_use * len(living)
     available_power = result.resources["electricity"] + power_generated
+    project_budget = (
+        max(0, available_power - power_required)
+        if result.power_priority == "life_support"
+        else available_power
+    )
+    project_power = advance_recording(
+        result, original or state, project_log if project_log is not None else [], project_budget
+    )
+    available_power -= project_power
     power_used = min(available_power, power_required)
     power_fraction = power_used / power_required if power_required else 1.0
-    result.resources["electricity"] = round(max(0.0, available_power - power_used), 6)
+    remainder = max(0.0, available_power - power_used)
+    spilled = max(0.0, remainder - result.battery_capacity)
+    result.resources["electricity"] = round(min(result.battery_capacity, remainder), 6)
 
     oxygen_generated = station.oxygen_per_week * result.oxygen_efficiency * power_fraction
     oxygen_required = rules.oxygen_per_week * len(living)
@@ -128,6 +149,11 @@ def simulate_week(
         "ration_requirements": costs,
         "ration_costs": actual_costs,
         "ration_depletion_fractions": depletion_fractions,
+        "daylight_fraction": sunlight,
+        "battery_capacity": result.battery_capacity,
+        "electricity_curtailed": round(spilled, 6),
+        "project_electricity_used": project_power,
+        "power_priority": result.power_priority,
         "electricity_generated": round(power_generated, 6),
         "electricity_required": round(power_required, 6),
         "electricity_used": round(power_used, 6),

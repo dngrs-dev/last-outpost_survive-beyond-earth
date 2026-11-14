@@ -94,7 +94,7 @@ projected spending, and conflicts before submission. The debrief and final journ
 include successful, failed, and cancelled work. Medical assignments, new fatality
 mechanics and fatigue remain future work. Lasting seismic projects now use the
 [project lifecycle](projects.md), including optional `project_orders`, automatic
-power spending after action effects, and `project_updates` in weekly reports.
+power allocation after action effects and solar generation under the selected priority, and `project_updates` in weekly reports.
 
 Validation also exercised 120 seeded campaigns across all six outposts with
 two- and four-person crews. Every run resolved to an ending without blocked

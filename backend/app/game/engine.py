@@ -5,6 +5,7 @@ from copy import deepcopy
 from dataclasses import asdict
 from math import isfinite
 
+from app.game.energy import energy_view, sunlight_week
 from app.game.events import (
     MAINTENANCE_CHOICES,
     apply_effects,
@@ -17,7 +18,6 @@ from app.game.events import (
 )
 from app.game.models import Definitions, GameError, GameState, Ration
 from app.game.projects import (
-    advance_recording,
     apply_project_orders,
     clear_dead_workers,
     finish_manual_work,
@@ -82,6 +82,7 @@ class GameEngine:
         for item_id, quantity in cargo.items():
             item = self.definitions.items[item_id]
             resources[item.resource] += item.resource_amount * quantity
+        resources["electricity"] = min(station.battery_capacity, resources["electricity"])
         state = GameState(
             station_id=station.id,
             mission_id=station.mission_id,
@@ -97,6 +98,7 @@ class GameEngine:
             status="running",
             random_seed=random_seed if random_seed is not None else secrets.randbits(63),
             initial_crew_size=len(crew_ids),
+            battery_capacity=station.battery_capacity,
         )
         self.prepare_event(state)
         self.check_game_over(state)
@@ -118,12 +120,17 @@ class GameEngine:
         support_crew_ids: list[str] | None = None,
         assignments: list[dict] | None = None,
         project_orders: list[dict] | None = None,
+        power_priority: str | None = None,
     ) -> tuple[GameState, dict]:
         if original.status != "running":
             raise GameError("The mission has already finished.", 409)
         if expected_week != original.current_week:
             raise GameError(f"Outdated turn: current week is {original.current_week}.", 409)
+        if power_priority is not None and power_priority not in {"life_support", "research"}:
+            raise GameError("Unknown power priority.")
         planning = deepcopy(original)
+        if power_priority is not None:
+            planning.power_priority = power_priority
         apply_project_orders(planning, project_orders or [])
         costs = ration_requirements(original, rations, self.rules)
         event = get_event(original, self.definitions)
@@ -268,9 +275,14 @@ class GameEngine:
                     "reason": None,
                 }
             )
-        advance_recording(state, original, project_log)
         state, survival = simulate_week(
-            state, self.definitions.stations[state.station_id], rations, self.rules
+            state,
+            self.definitions.stations[state.station_id],
+            rations,
+            self.rules,
+            lighting=self.definitions.lighting,
+            original=original,
+            project_log=project_log,
         )
         clear_dead_workers(state, project_log)
         state.weeks_completed += 1
@@ -354,6 +366,18 @@ class GameEngine:
         return {
             "stations": [asdict(item) for item in self.definitions.stations.values()],
             "missions": [asdict(item) for item in self.definitions.missions.values()],
+            "lighting": asdict(self.definitions.lighting),
+            "sunlight_forecasts": {
+                station.id: [
+                    sunlight_week(
+                        station, self.definitions.lighting, week, station.solar_efficiency
+                    )
+                    for week in range(
+                        1, self.definitions.missions[station.mission_id].duration_weeks + 1
+                    )
+                ]
+                for station in self.definitions.stations.values()
+            },
             "crew": [
                 {
                     **asdict(item),
@@ -418,6 +442,7 @@ class GameEngine:
                 "end": state.current_week * 7,
             },
             "research_projects": project_views(state, self.definitions),
+            "energy": energy_view(state, self.definitions, self.rules),
             "current_event": event_view(state, self.definitions),
             "assignment_options": choice_views(
                 state, self.definitions, self.assignment_choices(state)

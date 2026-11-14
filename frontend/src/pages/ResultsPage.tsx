@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
 import { fetchGameState } from '../api/game';
 import { ResearchProjects } from '../components/ResearchProjects';
+import { EnergyPanel } from '../components/EnergyPanel';
 import { Header } from '../components/Header';
 import { ResearchObjectives } from '../components/ResearchObjectives';
 import { ResourceCard } from '../components/ResourceCard';
@@ -191,6 +192,9 @@ export const ResultsPage: React.FC = () => {
       <ResearchObjectives objectives={state.results!.science.objectives} science={state.results!.science} final />
 
       <ResearchProjects projects={state.research_projects} />
+
+      <EnergyPanel forecast={[]} stored={state.energy.stored} capacity={state.energy.battery_capacity}
+        solarDay={state.energy.solar_day_earth_days} sourceUrl={state.energy.source_url} assumption={state.energy.assumption} />
 
       {/* Final Outpost Status */}
       <StationOverview

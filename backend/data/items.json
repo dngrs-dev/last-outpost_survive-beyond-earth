@@ -72,7 +72,7 @@
   {
     "id": "power_cells",
     "name": "Emergency power cells",
-    "description": "Adds 12 electricity on arrival. Heavy temporary relief; does not improve solar generation.",
+    "description": "Adds 12 stored electricity on arrival, capped by the outpost battery capacity. Does not expand battery capacity or solar generation.",
     "weight_kg": 6,
     "volume_l": 5,
     "unit": "cell",

@@ -29,6 +29,16 @@ and explains the gameplay abstractions. No article text, photographs, logos, or
 additional NASA assets were downloaded for this expansion. These research links
 do not imply NASA endorsement or validation of the game rules.
 
+## Lighting constants and source references
+
+`backend/data/lighting.json` records the factual mean lunar solar-day duration
+from [NASA SVS](https://svs.gsfc.nasa.gov/12739/) and links NASA's environmental
+context. Station longitudes reuse the cached NASA NSSDCA coordinates above.
+The lighting assumptions, epoch, energy units, hardware capacities, and game rules
+are original project work, described in [the energy guide](docs/energy.md).
+No additional article text, images, video, logos, or other media were copied for
+this mechanic. Source links and numeric facts do not imply NASA endorsement.
+
 ## Conditions and scope
 
 The selected dataset and map may be included in this repository with these notices.

@@ -5,6 +5,7 @@ from fastapi.testclient import TestClient
 from test_loader import data_dir as data_dir
 from test_loader import mutate
 
+from app.game.energy import daylight_fraction
 from app.game.loader import ConfigurationError, load_definitions
 from app.game.models import GameError, Ration
 from app.main import create_app
@@ -22,7 +23,9 @@ def test_station_parameters_initialize_the_real_simulation(quiet_engine, station
     rations = {crew.id: Ration("normal", "normal") for crew in state.crew}
     after, report = quiet_engine.advance_week(state, 1, rations, "continue")
     assert report["survival"]["electricity_generated"] == pytest.approx(
-        station.energy_per_week * station.solar_efficiency
+        station.energy_per_week
+        * station.solar_efficiency
+        * daylight_fraction(station, quiet_engine.definitions.lighting, 1)
     )
     assert report["survival"]["oxygen_generated"] == pytest.approx(
         station.oxygen_per_week * station.oxygen_efficiency

@@ -41,8 +41,8 @@ describe('Outpost deployment console', () => {
     expect(screen.getByText('56 Earth days')).toBeInTheDocument();
     fireEvent.click(screen.getByRole('tab', { name: 'Systems' }));
     const panel = screen.getByRole('tabpanel', { name: 'Systems' });
-    expect(within(panel).getByText('28 u/week')).toBeInTheDocument();
-    expect(within(panel).getByText('26.6 u/week')).toBeInTheDocument();
+    expect(within(panel).getByText('56 u/week')).toBeInTheDocument();
+    expect(within(panel).getByText('53.2 u/week')).toBeInTheDocument();
     expect(within(panel).getByRole('meter', { name: 'Solar array' })).toHaveAttribute('value', '0.95');
     expect(within(panel).getByRole('meter', { name: 'Oxygen generator' })).toHaveAttribute('value', '0.95');
     expect(screen.getByRole('link', { name: /Prepare mission/ })).toHaveAttribute('href', '/?station=oceanus&lunar_site=apollo-12');

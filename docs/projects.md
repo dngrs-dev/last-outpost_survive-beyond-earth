@@ -40,12 +40,12 @@ choosing another worker reassigns the phase without erasing prior progress or
 charging earlier phases again. `assigned_crew_id` identifies the most recent
 manual worker, not a reservation of that astronaut in future weeks.
 
-Automatic recording runs after incident and assignment effects and before weekly
-survival/generation. It requires at least 2 unreserved stored power at that point.
-If power is insufficient, no recording charge or progress occurs. Normal station
-generation can replenish the stock for the next week; it cannot fund this week's
-recording retroactively. Powered recording uses the full 2 power and can reduce
-what remains for life support, so the player can pause it to conserve reserves.
+Automatic recording now shares the [sunlight and battery model](energy.md).
+After incident and assignment effects and solar generation, the selected power
+priority determines its allocation. Life support receives power first by default;
+research-first can reduce oxygen output. A recording week requires a full 2 power.
+If the allocation is insufficient, no charge or progress occurs. Pausing recording
+conserves power. Newly deployed sensors still begin recording next week.
 
 - **Continue:** automatic recording runs if active. Manual phases await a weekly
   assignment; they do not silently retry or spend supplies.
@@ -93,7 +93,8 @@ Weekly requests add optional `project_orders`, for example:
 
 Starting uses the `research_seismic` crew activity. Continuing a manual phase uses
 the state-provided `project:<id>` activity in the existing assignment list.
-Automatic weeks need no assignment. `project_updates` in the committed turn log
+Automatic weeks need no assignment. Weekly requests may also set `power_priority`
+to `life_support` or `research`; omitted priorities retain their prior setting. `project_updates` in the committed turn log
 records controls, phase work, automatic spending/waits, and lost worker references.
 The current project panel and final report show state; the debrief shows changes.
 

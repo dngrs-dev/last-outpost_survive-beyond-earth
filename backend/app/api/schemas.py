@@ -45,6 +45,7 @@ class SubmitTurnRequest(RequestModel):
     support_crew_ids: list[Identifier] = Field(default_factory=list, max_length=7)
     assignments: list[AssignmentRequest] = Field(default_factory=list, max_length=8)
     project_orders: list[ProjectOrderRequest] = Field(default_factory=list, max_length=8)
+    power_priority: Literal["life_support", "research"] | None = None
 
 
 class ErrorResponse(BaseModel):
@@ -198,6 +199,11 @@ class SurvivalHealthResponse(HealthChangeResponse):
 
 
 class SurvivalResponse(BaseModel):
+    daylight_fraction: float
+    battery_capacity: float
+    electricity_curtailed: float
+    project_electricity_used: float
+    power_priority: Literal["life_support", "research"]
     ration_requirements: RationCost
     ration_costs: RationCost
     ration_depletion_fractions: RationCost
@@ -264,7 +270,38 @@ class ProjectResponse(BaseModel):
     message: str
 
 
+class SunlightWeekResponse(BaseModel):
+    week: int
+    daylight_fraction: float
+    daylight_days: float
+    darkness_days: float
+    phase: Literal["daylight", "darkness", "mixed"]
+    electricity_generated: float
+
+
+class LightingResponse(BaseModel):
+    solar_day_earth_days: float
+    reference_longitude_deg: float
+    source_url: str
+    context_url: str
+    assumption: str
+
+
+class EnergyResponse(BaseModel):
+    battery_capacity: float
+    stored: float
+    priority: Literal["life_support", "research"]
+    life_support_required: float
+    solar_day_earth_days: float
+    source_url: str
+    assumption: str
+    forecast: list[SunlightWeekResponse]
+
+
 class GameStateResponse(BaseModel):
+    energy: EnergyResponse
+    battery_capacity: float
+    power_priority: Literal["life_support", "research"]
     research_projects: list[ProjectResponse]
     station_id: str
     station_name: str
@@ -308,6 +345,8 @@ class TurnResponse(GameResponse):
 
 
 class CatalogResponse(BaseModel):
+    lighting: LightingResponse
+    sunlight_forecasts: dict[str, list[SunlightWeekResponse]]
     stations: list[dict[str, Any]]
     missions: list[dict[str, Any]]
     crew: list[dict[str, Any]]

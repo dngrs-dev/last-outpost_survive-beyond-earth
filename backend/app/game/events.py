@@ -119,6 +119,7 @@ def apply_effects(state: GameState, effects: Effects, selected: CrewMember | Non
     before_solar, before_oxygen = state.solar_efficiency, state.oxygen_efficiency
     for resource, amount in effects.resources.items():
         state.resources[resource] = round(max(0.0, state.resources[resource] + amount), 6)
+    state.resources["electricity"] = min(state.battery_capacity, state.resources["electricity"])
     state.solar_efficiency = round(min(1.0, max(0.0, before_solar + effects.solar_efficiency)), 6)
     state.oxygen_efficiency = round(
         min(1.0, max(0.0, before_oxygen + effects.oxygen_efficiency)), 6

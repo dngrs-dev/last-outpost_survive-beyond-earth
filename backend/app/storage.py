@@ -59,6 +59,7 @@ class GameStore:
                 support_crew_ids=decision.get("support_crew_ids", []),
                 assignments=decision.get("assignments", []),
                 project_orders=decision.get("project_orders", []),
+                power_priority=decision.get("power_priority"),
             )
             response = {
                 "game_id": game_id,

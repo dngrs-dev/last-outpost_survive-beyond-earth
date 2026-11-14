@@ -7,7 +7,13 @@ from app.game.survival import ration_cost, ration_requirements, simulate_week
 
 
 def run_week(engine, state, rations):
-    return simulate_week(state, engine.definitions.stations["alpha"], rations, engine.rules)
+    return simulate_week(
+        state,
+        engine.definitions.stations["alpha"],
+        rations,
+        engine.rules,
+        lighting=engine.definitions.lighting,
+    )
 
 
 def test_normal_consumption_and_pure_calculation(quiet_engine, state, rations):
@@ -18,7 +24,7 @@ def test_normal_consumption_and_pure_calculation(quiet_engine, state, rations):
     assert after.resources["food"] == 18
     assert after.resources["water"] == pytest.approx(27.8)
     assert after.resources["oxygen"] == 38  # 30 + 14 - 6
-    assert after.resources["electricity"] == 38  # 30 + 24 - 16
+    assert after.resources["electricity"] == 62  # 30 + 48 - 16
     assert [crew.health for crew in after.crew] == [100, 100]
 
 
@@ -62,7 +68,7 @@ def test_repeated_rationing_and_recovery(quiet_engine, state):
 
 
 def test_power_shortage_reduces_oxygen(quiet_engine, state, rations):
-    state.solar_efficiency = 0.25
+    state.solar_efficiency = 0.125
     state.resources["electricity"] = 0
     after, report = run_week(quiet_engine, state, rations)
     assert report["electricity_generated"] == 6

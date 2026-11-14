@@ -12,6 +12,7 @@ from app.game.models import (
     Effects,
     Event,
     Item,
+    LightingModel,
     Mission,
     Station,
 )
@@ -86,13 +87,33 @@ def load_definitions(data_dir: Path = DEFAULT_DATA) -> Definitions:
         _require(bool(entries), f"{filename}: definitions must not be empty")
         _require(all(ids) and len(set(ids)) == len(ids), f"{filename}: duplicate or empty IDs")
         loaded[filename] = {entry.id: entry for entry in entries}
-    definitions = Definitions(**loaded)
+    try:
+        lighting = TypeAdapter(LightingModel).validate_json(
+            (data_dir / "lighting.json").read_text(encoding="utf-8"), strict=True
+        )
+    except (OSError, ValidationError) as exc:
+        raise ConfigurationError(f"Cannot load lighting.json: {exc}") from exc
+    _require(_number(lighting.solar_day_earth_days, 25, 35), "Invalid lunar solar period")
+    _require(_number(lighting.reference_longitude_deg, -180, 180), "Invalid reference longitude")
+    _require(
+        lighting.source_url.startswith("https://svs.gsfc.nasa.gov/")
+        and lighting.context_url.startswith("https://science.nasa.gov/")
+        and bool(lighting.assumption.strip()),
+        "Missing lighting provenance",
+    )
+    definitions = Definitions(**loaded, lighting=lighting)
 
     site_ids = [s.lunar_site_id for s in definitions.stations.values() if s.lunar_site_id]
     _require(len(site_ids) == len(set(site_ids)), "Stations must have unique lunar landing sites")
 
     for station in definitions.stations.values():
         _require(station.mission_id in definitions.missions, f"{station.id}: unknown mission")
+        _require(_number(station.longitude_deg, -180, 180), f"{station.id}: invalid longitude")
+        _require(_number(station.battery_capacity, 1), f"{station.id}: invalid battery capacity")
+        _require(
+            station.starting_resources.get("electricity", math.inf) <= station.battery_capacity,
+            f"{station.id}: starting battery exceeds capacity",
+        )
         _resources(station.starting_resources, station.id)
         _require(
             station.starting_resources.keys() == RESOURCE_NAMES,

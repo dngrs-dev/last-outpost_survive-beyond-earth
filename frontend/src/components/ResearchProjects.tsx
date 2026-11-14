@@ -11,7 +11,7 @@ interface Props {
 export function ResearchProjects({ projects, orders = {}, onChange, disabled }: Props) {
   return <section className="card" aria-label="Research projects" style={{ marginBottom: '1.5rem' }}>
     <h2>Research projects</h2>
-    <p>Seismic projects need one deployment week, three automatic recording weeks, and one analysis week. Durations are fictional. Recording uses 2 stored power per week after action effects; shortages retain progress without charging. Manual phases use crew assignments below.</p>
+    <p>Seismic projects need one deployment week, three automatic recording weeks, and one analysis week. Durations are fictional. Recording uses 2 power per week after action effects and solar generation, under the selected power priority; shortages retain progress without charging. Manual phases use crew assignments below.</p>
     {!projects.length && <p>No projects started. Assign a crew member to deploy seismic sensors when the mission needs seismic research.</p>}
     {projects.map(project => <article key={project.id} style={{ marginBottom: '1rem' }}>
       <h3>{project.id}: {project.phase}</h3>

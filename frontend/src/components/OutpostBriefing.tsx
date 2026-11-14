@@ -63,12 +63,13 @@ export function OutpostBriefing({ option, archive }: { option: OutpostOption; ar
       <section role="tabpanel" id="panel-Systems" aria-labelledby="outpost-Systems" hidden={tab !== 'Systems'}>
         <p className={styles.sectionLabel}>STARTING RESERVES</p>
         <dl className={styles.reserveGrid}>{reserves.map(([name, value, unit]) => <div key={name}><dt>{name}</dt><dd>{value}<small>{unit}</small></dd></div>)}</dl>
+        <p>Battery capacity: {station.battery_capacity} power units. Solar capacity applies during daylight; generation falls to zero in full darkness.</p>
         <p className={styles.sectionLabel}>SYSTEM CONDITION</p>
         <Condition label="Solar array" value={station.solar_efficiency} />
         <Condition label="Oxygen generator" value={station.oxygen_efficiency} />
         <dl className={styles.generation}>
-          <div><dt>Solar capacity</dt><dd>{station.energy_per_week} u/week</dd></div>
-          <div><dt>Starting solar output</dt><dd>{Number((station.energy_per_week * station.solar_efficiency).toFixed(2))} u/week</dd></div>
+          <div><dt>Full-daylight solar capacity</dt><dd>{station.energy_per_week} u/week</dd></div>
+          <div><dt>Full-daylight output at current condition</dt><dd>{Number((station.energy_per_week * station.solar_efficiency).toFixed(2))} u/week</dd></div>
           <div><dt>Oxygen capacity</dt><dd>{station.oxygen_per_week} u/week</dd></div>
           <div><dt>Starting oxygen output</dt><dd>up to {Number((station.oxygen_per_week * station.oxygen_efficiency).toFixed(2))} u/week</dd></div>
         </dl>

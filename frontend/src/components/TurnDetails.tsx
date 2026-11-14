@@ -41,6 +41,7 @@ export function TurnDetails({ outcome, crewNames }: Props) {
       <HealthChanges changes={[change]} names={crewNames} />
       <p>Health penalties: food {change.food_penalty}, water {change.water_penalty}, oxygen {change.oxygen_penalty}.</p>
     </div>)}
+    <p>Daylight: {Math.round(outcome.survival.daylight_fraction * 100)}% of this week. Power priority: {outcome.survival.power_priority.replace(/_/g, " ")}. Recording used {outcome.survival.project_electricity_used}; battery capacity {outcome.survival.battery_capacity}; discarded overflow {outcome.survival.electricity_curtailed}.</p>
     <p>Electricity: generated {outcome.survival.electricity_generated}, used {outcome.survival.electricity_used}.</p>
     <p>Oxygen: generated {outcome.survival.oxygen_generated}, used {outcome.survival.oxygen_used}; shortage {outcome.survival.oxygen_shortage}.</p>
     {outcome.next_event && <div>

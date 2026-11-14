@@ -17,6 +17,11 @@ automatic recording uses stored power without crew, and controls use optional
 `project_orders` (project ID plus pause/resume/interrupt). States expose
 `research_projects`; turn outcomes expose `project_updates`. Only successful final
 analysis grants project seismic credit.
+Sunlight, batteries, and power priorities now follow the [energy model](energy.md).
+Turns accept optional `power_priority` (`life_support` or `research`); omission
+retains the prior setting. State `energy` includes a forecast and storage limits.
+Catalog `lighting` and `sunlight_forecasts` support launch preparation.
+
 Each astronaut has one main job. See [weekly assignments](assignments.md) for the
 request contract, support-crew rules, supply reservations, resolution order, and
 cancellation policy. Research credit from both paths is combined in the turn's
@@ -180,16 +185,17 @@ The shared engine supports six missions. Definitions are in `stations.json` and
 configurations. Difficulty is an authored 1-5 rating, not a NASA environmental metric
 or a guarantee of outcome. Crew size, loadout, and decisions remain significant.
 
-| Outpost | Landing site | Weeks | Difficulty | Food / water | Solar / oxygen condition | Solar / oxygen capacity per week |
+| Outpost | Landing site | Weeks | Difficulty | Food / water | Solar / oxygen condition | Full-daylight solar / oxygen capacity per week |
 |---|---|---:|---|---|---|---|
-| Alpha | Apollo 11 | 12 | Standard (2) | 20 / 32 | 100% / 100% | 24 / 14 |
-| Oceanus | Apollo 12 | 8 | Easy (1) | 30 / 52 | 95% / 95% | 28 / 16 |
-| Fra Mauro | Apollo 14 | 10 | Standard (2) | 26 / 36 | 85% / 90% | 24 / 15 |
-| Hadley | Apollo 15 | 14 | Hard (3) | 32 / 46 | 80% / 80% | 26 / 15 |
-| Descartes | Apollo 16 | 16 | Severe (4) | 38 / 54 | 70% / 85% | 24 / 16 |
-| Taurus | Apollo 17 | 18 | Extreme (5) | 44 / 62 | 65% / 75% | 25 / 15 |
+| Alpha | Apollo 11 | 12 | Standard (2) | 20 / 32 | 100% / 100% | 48 / 14 |
+| Oceanus | Apollo 12 | 8 | Easy (1) | 30 / 52 | 95% / 95% | 56 / 16 |
+| Fra Mauro | Apollo 14 | 10 | Standard (2) | 26 / 36 | 85% / 90% | 48 / 15 |
+| Hadley | Apollo 15 | 14 | Hard (3) | 32 / 46 | 80% / 80% | 52 / 15 |
+| Descartes | Apollo 16 | 16 | Severe (4) | 38 / 54 | 70% / 85% | 48 / 16 |
+| Taurus | Apollo 17 | 18 | Extreme (5) | 44 / 62 | 65% / 75% | 50 / 15 |
 
-Generation capacity is multiplied by current system efficiency. Oxygen output
+Solar capacity is multiplied by current condition and weekly daylight fraction.
+Battery storage is finite; see `energy.md` for the capacities. Oxygen output
 also depends on power availability. Starting efficiencies apply before the first
 event's discovery damage. Cargo is added to the selected station's reserves.
 The three longest contracts require at least two astronauts at launch and two

@@ -14,6 +14,8 @@ export interface StationDefinition {
   difficulty_rank: number;
   challenge: string;
   lunar_site_id: string | null;
+  longitude_deg: number;
+  battery_capacity: number;
 }
 
 export interface ResearchObjectiveDefinition {
@@ -94,7 +96,35 @@ export interface CatalogLimits {
   [key: string]: number;
 }
 
+export interface SunlightWeek {
+  week: number;
+  daylight_fraction: number;
+  daylight_days: number;
+  darkness_days: number;
+  phase: 'daylight' | 'darkness' | 'mixed';
+  electricity_generated: number;
+}
+export interface LightingModel {
+  solar_day_earth_days: number;
+  reference_longitude_deg: number;
+  source_url: string;
+  context_url: string;
+  assumption: string;
+}
+export interface EnergyState {
+  battery_capacity: number;
+  stored: number;
+  priority: 'life_support' | 'research';
+  life_support_required: number;
+  solar_day_earth_days: number;
+  source_url: string;
+  assumption: string;
+  forecast: SunlightWeek[];
+}
+
 export interface CatalogResponse {
+  lighting: LightingModel;
+  sunlight_forecasts: Record<string, SunlightWeek[]>;
   stations: StationDefinition[];
   missions: MissionDefinition[];
   crew: CrewDefinition[];
@@ -117,6 +147,7 @@ export interface RationRequest {
 }
 
 export interface SubmitTurnRequest {
+  power_priority?: "life_support" | "research";
   expected_week: number;
   request_id: string;
   rations: Record<string, RationRequest>;
@@ -254,6 +285,11 @@ export interface TurnOutcome {
   };
   rations: Record<string, RationRequest>;
   survival: {
+    daylight_fraction: number;
+    battery_capacity: number;
+    electricity_curtailed: number;
+    project_electricity_used: number;
+    power_priority: "life_support" | "research";
     ration_requirements: RationCost;
     ration_costs: RationCost;
     ration_depletion_fractions: RationCost;
@@ -298,6 +334,9 @@ export interface ResearchProject {
 }
 
 export interface GameStateResponse {
+  energy: EnergyState;
+  battery_capacity: number;
+  power_priority: "life_support" | "research";
   research_projects: ResearchProject[];
   station_id: string;
   station_name: string;

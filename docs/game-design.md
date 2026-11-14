@@ -39,6 +39,11 @@
 > Pauses and interruptions retain progress. See `projects.md`; other research
 > assignments still take one week, and science remains separate from survival.
 
+> Energy update: weekly sunlight now follows a sourced lunar solar period and
+> cached site longitudes, with a fictional shared epoch and smooth-horizon model.
+> Batteries have fixed capacities; players prioritize life support or recording.
+> See `energy.md` for source boundaries and current generation/turn-order rules.
+
 **Project name:** LAST OUTPOST  
 **Subtitle:** Lunar Survival  
 **Genre:** Turn-based survival, strategy, resource management, decision-making  

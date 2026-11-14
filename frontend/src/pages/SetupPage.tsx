@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { Link, useNavigate, useSearchParams } from 'react-router-dom';
 import { fetchCatalog, createGame } from '../api/game';
+import { EnergyPanel } from '../components/EnergyPanel';
 import { Header } from '../components/Header';
 import { CrewSlots } from '../components/CrewSlots';
 import { CargoSelector } from '../components/CargoSelector';
@@ -134,6 +135,7 @@ export const SetupPage: React.FC = () => {
   }
 
   const station = catalog?.stations.find((s) => s.id === selectedStationId);
+  const incomingPower = (cargo.power_cells || 0) * (catalog?.items.find(item => item.id === 'power_cells')?.resource_amount || 0);
   const mission = catalog?.missions.find((m) => m.id === station?.mission_id);
   const maxCrew = catalog?.limits.max_crew || 4;
   const minCrew = mission?.minimum_survivors || 1;
@@ -204,7 +206,7 @@ export const SetupPage: React.FC = () => {
                 <div>Water reserve: {station?.starting_resources.water}u</div>
                 <div>Oxygen reserve: {station?.starting_resources.oxygen}u</div>
                 <div>Electricity: {station?.starting_resources.electricity}u</div>
-                <div>Solar capacity: +{station?.energy_per_week}u/wk</div>
+                <div>Full-daylight solar capacity: +{station?.energy_per_week}u/wk</div>
                 <div>Solar condition: {Math.round((station?.solar_efficiency ?? 1) * 100)}%</div>
                 <div>Oxygen capacity: +{station?.oxygen_per_week}u/wk</div>
                 <div>Oxygen condition: {Math.round((station?.oxygen_efficiency ?? 1) * 100)}%</div>
@@ -213,6 +215,12 @@ export const SetupPage: React.FC = () => {
             </div>
           </div>
         </div>
+
+        {station && catalog && <>
+          <EnergyPanel forecast={catalog.sunlight_forecasts[station.id]} stored={Math.min(station.battery_capacity, station.starting_resources.electricity + incomingPower)} capacity={station.battery_capacity}
+            solarDay={catalog.lighting.solar_day_earth_days} sourceUrl={catalog.lighting.source_url} assumption={catalog.lighting.assumption} />
+          {station.starting_resources.electricity + incomingPower > station.battery_capacity && <p role="alert">Packed power exceeds the battery capacity; excess starting charge cannot be stored.</p>}
+        </>}
 
         {mission && <ResearchObjectives objectives={mission.science_objectives} />}
 

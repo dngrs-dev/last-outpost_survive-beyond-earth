@@ -97,16 +97,19 @@ def test_pause_interrupt_and_resume_preserve_recordings(quiet_engine, project_st
     assert state.projects[0].progress == 2
 
 
-def test_power_shortage_waits_without_charging_or_using_future_generation(
+def test_power_shortage_waits_without_charging_then_solar_recovery_resumes(
     quiet_engine, project_state
 ):
     state, _ = week(quiet_engine, project_state, "research_seismic")
     state.resources["electricity"] = 1
+    state.solar_efficiency = 0
     state, report = week(quiet_engine, state)
     assert state.projects[0].progress == 0
     assert report["project_updates"][0]["electricity_used"] == 0
-    # The normal solar simulation replenished stored power for the following week.
-    state, _ = week(quiet_engine, state)
+    # Restore the array; partial dusk and night still cannot fund recording.
+    state.solar_efficiency = 1
+    for _ in range(3):
+        state, _ = week(quiet_engine, state)
     assert state.projects[0].progress == 1
 
 

@@ -26,6 +26,17 @@ class Station(Definition):
     difficulty_rank: int = 2
     challenge: str = "Balanced supplies and equipment failures."
     lunar_site_id: str | None = None
+    longitude_deg: float = 0
+    battery_capacity: float = 100
+
+
+@dataclass(frozen=True)
+class LightingModel(Definition):
+    solar_day_earth_days: float
+    reference_longitude_deg: float
+    source_url: str
+    context_url: str
+    assumption: str
 
 
 @dataclass(frozen=True)
@@ -166,6 +177,8 @@ class GameState:
     weeks_completed: int = 0
     ending: str | None = None
     projects: list[ResearchProject] = field(default_factory=list)
+    battery_capacity: float = 100
+    power_priority: Literal["life_support", "research"] = "life_support"
 
 
 @dataclass(frozen=True)
@@ -175,6 +188,7 @@ class Definitions:
     crew: dict[str, CrewMember]
     items: dict[str, Item]
     events: dict[str, Event]
+    lighting: LightingModel
 
 
 class GameError(ValueError):

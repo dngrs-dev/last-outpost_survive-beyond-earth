@@ -97,6 +97,12 @@ def generate(check: bool = False) -> None:
         def turn(game, body):
             return checked(client.post(f"/api/games/{game['game_id']}/turn", json=body))
 
+        priority_game = create(42)
+        priority_body = decision(priority_game["state"], "fixture-priority")
+        priority_body["power_priority"] = "research"
+        fixtures["energyPriorityGame"] = ("GameResponse", priority_game)
+        fixtures["energyPriorityTurn"] = ("TurnResponse", turn(priority_game, priority_body))
+
         for seed in range(1000):
             game = create(seed)
             if game["state"]["current_event_id"] != "solar_failure":

@@ -110,7 +110,10 @@ def finish_manual_work(
     return None
 
 
-def advance_recording(state: GameState, original: GameState, log: list[dict]) -> None:
+def advance_recording(
+    state: GameState, original: GameState, log: list[dict], available_power: float
+) -> float:
+    spent = 0.0
     for project in state.projects:
         previous = next((p for p in original.projects if p.id == project.id), None)
         if (
@@ -122,15 +125,13 @@ def advance_recording(state: GameState, original: GameState, log: list[dict]) ->
         phase = PROJECT_PHASES[project.kind][project.phase_index]
         if phase.work:
             continue
-        if state.resources["electricity"] + 1e-6 < phase.power:
-            project.message = "Waiting for stored power; no charge or recording progress."
+        if available_power - spent + 1e-6 < phase.power:
+            project.message = "Waiting for allocated power; no charge or recording progress."
             log.append(
                 {"project_id": project.id, "message": project.message, "electricity_used": 0}
             )
             continue
-        state.resources["electricity"] = round(
-            max(0, state.resources["electricity"] - phase.power), 6
-        )
+        spent += phase.power
         project.progress += 1
         project.message = "Recorded one week of seismic activity; no crew occupied."
         log.append(
@@ -140,6 +141,8 @@ def advance_recording(state: GameState, original: GameState, log: list[dict]) ->
             project.phase_index += 1
             project.progress = 0
             project.message = "Recording complete; assign a worker for analysis next week."
+
+    return spent
 
 
 def clear_dead_workers(state: GameState, log: list[dict]) -> None:

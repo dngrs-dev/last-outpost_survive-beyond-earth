@@ -1,7 +1,7 @@
 [
   {
     "id": "alpha",
-    "name": "Station Alpha — Research Base",
+    "name": "Station Alpha \u2014 Research Base",
     "description": "A fictional lunar research outpost. Keep its crew alive until rotation.",
     "mission_id": "alpha_rotation",
     "starting_resources": {
@@ -19,14 +19,16 @@
       "scientific_tools": 0,
       "research_data": 0
     },
-    "energy_per_week": 24,
+    "energy_per_week": 48,
     "oxygen_per_week": 14,
     "lunar_site_id": "apollo-11",
     "solar_efficiency": 1.0,
     "oxygen_efficiency": 1.0,
     "difficulty": "standard",
     "difficulty_rank": 2,
-    "challenge": "A balanced 12-week rotation. Bring enough provisions without neglecting repairs."
+    "challenge": "A balanced 12-week rotation. Bring enough provisions without neglecting repairs.",
+    "longitude_deg": 23.47314,
+    "battery_capacity": 100
   },
   {
     "id": "oceanus",
@@ -48,14 +50,16 @@
       "scientific_tools": 0,
       "research_data": 0
     },
-    "energy_per_week": 28,
+    "energy_per_week": 56,
     "oxygen_per_week": 16,
     "solar_efficiency": 0.95,
     "oxygen_efficiency": 0.95,
     "difficulty": "easy",
     "difficulty_rank": 1,
     "challenge": "A well-stocked station and an early relief window. A good first command.",
-    "lunar_site_id": "apollo-12"
+    "lunar_site_id": "apollo-12",
+    "longitude_deg": -23.4219,
+    "battery_capacity": 110
   },
   {
     "id": "fra_mauro",
@@ -77,14 +81,16 @@
       "scientific_tools": 0,
       "research_data": 0
     },
-    "energy_per_week": 24,
+    "energy_per_week": 48,
     "oxygen_per_week": 15,
     "solar_efficiency": 0.85,
     "oxygen_efficiency": 0.9,
     "difficulty": "standard",
     "difficulty_rank": 2,
     "challenge": "A worn solar array and limited water. Pack for ten weeks of careful maintenance.",
-    "lunar_site_id": "apollo-14"
+    "lunar_site_id": "apollo-14",
+    "longitude_deg": -17.47194,
+    "battery_capacity": 90
   },
   {
     "id": "hadley",
@@ -106,14 +112,16 @@
       "scientific_tools": 0,
       "research_data": 0
     },
-    "energy_per_week": 26,
+    "energy_per_week": 52,
     "oxygen_per_week": 15,
     "solar_efficiency": 0.8,
     "oxygen_efficiency": 0.8,
     "difficulty": "hard",
     "difficulty_rank": 3,
     "challenge": "A long research watch with aging life support. Two crew must make the handover.",
-    "lunar_site_id": "apollo-15"
+    "lunar_site_id": "apollo-15",
+    "longitude_deg": 3.6333,
+    "battery_capacity": 100
   },
   {
     "id": "descartes",
@@ -135,14 +143,16 @@
       "scientific_tools": 0,
       "research_data": 0
     },
-    "energy_per_week": 24,
+    "energy_per_week": 48,
     "oxygen_per_week": 16,
     "solar_efficiency": 0.7,
     "oxygen_efficiency": 0.85,
     "difficulty": "severe",
     "difficulty_rank": 4,
     "challenge": "Weak solar output strains power reserves. Endure sixteen weeks with two survivors.",
-    "lunar_site_id": "apollo-16"
+    "lunar_site_id": "apollo-16",
+    "longitude_deg": 15.5011,
+    "battery_capacity": 85
   },
   {
     "id": "taurus",
@@ -164,13 +174,15 @@
       "scientific_tools": 0,
       "research_data": 0
     },
-    "energy_per_week": 25,
+    "energy_per_week": 50,
     "oxygen_per_week": 15,
     "solar_efficiency": 0.65,
     "oxygen_efficiency": 0.75,
     "difficulty": "extreme",
     "difficulty_rank": 5,
     "challenge": "The longest rotation, damaged systems, and little stored power. Keep two crew alive.",
-    "lunar_site_id": "apollo-17"
+    "lunar_site_id": "apollo-17",
+    "longitude_deg": 30.7723,
+    "battery_capacity": 80
   }
 ]

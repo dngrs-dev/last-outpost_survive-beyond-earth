@@ -1,0 +1,7 @@
+{
+  "solar_day_earth_days": 29.5306,
+  "reference_longitude_deg": 23.47314,
+  "source_url": "https://svs.gsfc.nasa.gov/12739/",
+  "context_url": "https://science.nasa.gov/moon/weather-on-the-moon/",
+  "assumption": "Fictional shared epoch: sunrise at Apollo 11 longitude on mission day zero. Smooth non-polar horizon, equal day/night halves, constant useful output during daylight. Weekly averaging omits terrain shadows, eclipses, seasons, and panel incidence."
+}

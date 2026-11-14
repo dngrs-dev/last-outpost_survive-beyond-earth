@@ -3,6 +3,7 @@ import { useParams, useNavigate } from 'react-router-dom';
 import { fetchGameState, submitTurn } from '../api/game';
 import { ApiError } from '../api/client';
 import { ResearchProjects } from '../components/ResearchProjects';
+import { EnergyPanel } from '../components/EnergyPanel';
 import { Header } from '../components/Header';
 import { ResearchObjectives } from '../components/ResearchObjectives';
 import { ResourceCard } from '../components/ResourceCard';
@@ -35,6 +36,7 @@ export const GamePage: React.FC = () => {
   const [selectedChoiceId, setSelectedChoiceId] = useState<string>('');
   const [selectedCrewId, setSelectedCrewId] = useState<string | null>(null);
   const [supportCrew, setSupportCrew] = useState<string[]>([]);
+  const [powerPriority, setPowerPriority] = useState<"life_support" | "research">("life_support");
   const [projectOrders, setProjectOrders] = useState<Record<string, "pause" | "resume" | "interrupt">>({});
   const [assignments, setAssignments] = useState<Record<string, string>>({});
 
@@ -94,6 +96,7 @@ export const GamePage: React.FC = () => {
     setSupportCrew([]);
     setAssignments({});
     setProjectOrders({});
+    setPowerPriority(gameState.energy.priority);
     setSelectedChoiceId('');
     setSelectedCrewId(null);
 
@@ -172,6 +175,7 @@ export const GamePage: React.FC = () => {
       event_choice_id: selectedChoiceId,
       selected_crew_id: choice?.requires_crew ? selectedCrewId : null,
       support_crew_ids: supportCrew.slice(),
+      power_priority: powerPriority,
       project_orders: Object.entries(projectOrders).map(([project_id, action]) => ({project_id, action})),
       assignments: Object.entries(assignments).filter(([, activity]) => activity).map(([crew_id, activity_id]) => ({crew_id, activity_id})),
     };
@@ -319,6 +323,10 @@ export const GamePage: React.FC = () => {
         </div>
       )}
 
+      <EnergyPanel forecast={state.energy.forecast} stored={state.energy.stored} capacity={state.energy.battery_capacity}
+        demand={state.energy.life_support_required} priority={powerPriority} onPriorityChange={setPowerPriority}
+        disabled={decisionLocked} solarDay={state.energy.solar_day_earth_days} sourceUrl={state.energy.source_url} assumption={state.energy.assumption} />
+
       {/* Station Systems & Efficiencies */}
       <ResearchObjectives objectives={state.science.objectives} science={state.science} />
       <StationOverview
@@ -429,7 +437,7 @@ export const GamePage: React.FC = () => {
         <details><summary>Assignment requirements and costs</summary>
           {state.assignment_options.map(activity => <div key={activity.id}><h3>{activity.text}</h3><p>{activity.description}</p><p>Costs: {Object.entries(activity.costs).map(([id, value]) => `${value} ${id.replace(/_/g, ' ')}`).join(', ')}. Equipment retained: {Object.entries(activity.required_items).map(([id, value]) => `${value} ${id.replace(/_/g, ' ')}`).join(', ') || 'none'}.</p>{activity.objective_rewards.map(g => <p key={g.objective_id}>On success: +{g.amount} toward {g.title} (capped at target).</p>)}</div>)}
         </details>
-        <p>Automatic recording may additionally use {automaticProjectPower} stored power after action effects. Shortages skip recording without charging.</p>
+        <p>Automatic recording may additionally use {automaticProjectPower} power after action effects and solar generation, under your selected priority. Shortages skip recording without charging.</p>
         <p>Projected spending (rations and all actions): {Object.entries(weeklyCosts).map(([id, amount]) => `${amount.toFixed(1)} ${id.replace(/_/g, ' ')}`).join(' | ')}. Generation and outcome effects apply afterward.</p>
         {planIssues.map(issue => <p key={issue} role="alert">{issue}</p>)}
       </section>

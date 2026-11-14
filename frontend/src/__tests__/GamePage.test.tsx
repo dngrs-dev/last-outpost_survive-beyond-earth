@@ -30,7 +30,7 @@ describe('GamePage with real API fixtures', () => {
     expect(screen.getByText('Alex Vega')).toBeInTheDocument();
     expect(screen.getAllByRole('option', { name: 'Emergency (0.44u)' })).toHaveLength(1);
     fireEvent.click(screen.getByRole('button', { name: 'ALL REDUCED' }));
-    expect(screen.getAllByRole('combobox').filter(select => !(select as HTMLSelectElement).id.startsWith('work-')).every((select) => (select as HTMLSelectElement).value === 'reduced')).toBe(true);
+    expect(screen.getAllByRole('combobox').filter(select => Array.from((select as HTMLSelectElement).options).some(option => option.value === 'normal')).every((select) => (select as HTMLSelectElement).value === 'reduced')).toBe(true);
   });
 
   it('renders event injuries, survival penalties, and next-event discovery', async () => {
@@ -63,7 +63,7 @@ describe('GamePage with real API fixtures', () => {
       await submit();
       const retry = await screen.findByRole('button', { name: /Retry week 1 submission/ });
       expect(screen.getByRole('button', { name: 'ALL EMERGENCY' })).toBeDisabled();
-      expect(screen.getAllByRole('combobox').filter(select => !(select as HTMLSelectElement).id.startsWith('work-')).every((select) => (select as HTMLSelectElement).disabled)).toBe(true);
+      expect(screen.getAllByRole('combobox').filter(select => Array.from((select as HTMLSelectElement).options).some(option => option.value === 'normal')).every((select) => (select as HTMLSelectElement).disabled)).toBe(true);
       const original = structuredClone(send.mock.calls[0][1]);
       await act(async () => { fireEvent.click(retry); });
       await screen.findByText('WEEK 1 DEBRIEF');
