@@ -8,6 +8,9 @@ and manage a fictional research station until the next crew rotation.
 Six fictional lunar outposts are playable, with missions lasting 8 to 18 weeks,
 ten selectable specialists in four crew slots, twelve cargo types, fifteen shared narrative events, individual rationing,
 oxygen and electricity simulation, crew health/death, and four mission endings.
+Each mission also has a separate research brief: collect samples, analyze seismic
+records, or restore research equipment. Science progress and the final assessment
+are reported independently of survival.
 The game is playable through both the FastAPI REST backend and the React frontend.
 All balancing values are fictional gameplay units.
 
@@ -88,6 +91,8 @@ npm run build
   character profiles, cargo tradeoffs, and maintenance actions.
 - [Event library](docs/events.md): all fifteen scenarios, NASA references, equipment,
   research rewards, and gameplay boundaries.
+- [Research objectives](docs/research.md): mission targets, planned research work,
+  progress rules, and the separate scientific assessment.
 - [Third-party notices](THIRD_PARTY_NOTICES.md): attribution and reuse terms for the
   committed NASA texture and factual data.
 - [Agent instructions](AGENTS.md): workflow for coding agents working in this repository.

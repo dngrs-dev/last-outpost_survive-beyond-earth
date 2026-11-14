@@ -29,6 +29,16 @@ class Station(Definition):
 
 
 @dataclass(frozen=True)
+class ResearchObjective(Definition):
+    id: str
+    title: str
+    description: str
+    target: int
+    qualifying_choices: list[str]
+    source_url: str
+
+
+@dataclass(frozen=True)
 class Mission(Definition):
     id: str
     name: str
@@ -36,6 +46,7 @@ class Mission(Definition):
     duration_weeks: int
     event_ids: list[str]
     minimum_survivors: int
+    science_objectives: list[ResearchObjective] = field(default_factory=list)
 
 
 @dataclass

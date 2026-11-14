@@ -78,8 +78,16 @@ class CandidateResponse(BaseModel):
     success_probability: float
 
 
+class ObjectiveGainResponse(BaseModel):
+    objective_id: str
+    title: str
+    amount: int
+
+
 class ChoiceResponse(BaseModel):
     id: str
+    action_type: Literal["event", "maintenance", "research"]
+    objective_rewards: list[ObjectiveGainResponse]
     text: str
     description: str
     costs: dict[str, float]
@@ -114,6 +122,25 @@ class MissionDays(BaseModel):
     end: int
 
 
+class ObjectiveProgressResponse(BaseModel):
+    id: str
+    title: str
+    description: str
+    target: int
+    qualifying_choices: list[str]
+    source_url: str
+    progress: int
+    completed: bool
+
+
+class ScienceResponse(BaseModel):
+    status: Literal["not_started", "partial", "complete"]
+    completed_objectives: int
+    total_objectives: int
+    research_data: float
+    objectives: list[ObjectiveProgressResponse]
+
+
 class ResultsResponse(BaseModel):
     ending: str
     weeks_survived: int
@@ -121,6 +148,7 @@ class ResultsResponse(BaseModel):
     surviving_crew_ids: list[str]
     deceased_crew_ids: list[str]
     failure_reason: str | None
+    science: ScienceResponse
 
 
 class HealthChangeResponse(BaseModel):
@@ -145,6 +173,7 @@ class EventOutcomeResponse(BaseModel):
     success_probability: float
     costs: dict[str, float]
     effects: AppliedEffectsResponse
+    objective_progress: list[ObjectiveGainResponse]
 
 
 class SurvivalHealthResponse(HealthChangeResponse):
@@ -215,6 +244,7 @@ class GameStateResponse(BaseModel):
     weeks_completed: int
     ending: str | None
     results: ResultsResponse | None
+    science: ScienceResponse
 
 
 class GameResponse(BaseModel):

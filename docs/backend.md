@@ -5,6 +5,19 @@ twelve cargo types, configurable weekly missions, fifteen JSON events, rationing
 four endings. A React frontend consumes this API. All balancing values are
 fictional gameplay units.
 
+Missions also define a separate [research brief](research.md). `GET /api/catalog`
+includes `science_objectives` for preparation. Game states expose `science`
+(status, completed/total objectives, research data, and per-objective progress),
+and terminal `results.science` records the same assessment separately from the
+survival ending. Status is `not_started`, `partial`, or `complete`.
+
+Choice responses include `action_type` (`event`, `maintenance`, or `research`)
+and potential `objective_rewards`. Committed event outcomes include the actual
+`objective_progress` gains, awarded only on success. Progress is derived from
+committed history; reads, failures, rejections, and request replay cannot duplicate
+credit. Planned research uses the existing `event_choice_id`/`selected_crew_id`
+turn contract and consumes the week's one action. It does not repair the incident.
+
 Requires Python 3.11 or later. From the repository root on Windows PowerShell:
 
 ```powershell

@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
 import { fetchGameState } from '../api/game';
 import { Header } from '../components/Header';
+import { ResearchObjectives } from '../components/ResearchObjectives';
 import { ResourceCard } from '../components/ResourceCard';
 import { StationOverview } from '../components/StationOverview';
 import { TurnDetails } from '../components/TurnDetails';
@@ -131,6 +132,7 @@ export const ResultsPage: React.FC = () => {
           boxShadow: `0 0 30px ${details.borderClass}33`,
         }}
       >
+        <h2 style={{ fontSize: '1rem', color: 'var(--text-muted)' }}>Survival outcome</h2>
         <span className={`badge ${details.badgeClass}`} style={{ fontSize: '0.9rem', marginBottom: '0.75rem' }}>
           {details.subtitle}
         </span>
@@ -184,6 +186,8 @@ export const ResultsPage: React.FC = () => {
           </div>
         </div>
       </div>
+
+      <ResearchObjectives objectives={state.results!.science.objectives} science={state.results!.science} final />
 
       {/* Final Outpost Status */}
       <StationOverview

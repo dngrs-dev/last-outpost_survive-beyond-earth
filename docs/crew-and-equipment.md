@@ -69,6 +69,9 @@ the improvised-repair lesson from Apollo 17; it is not a real universal pressure
 repair specification. The field kit combines fictional sampling and diagnostic
 tools. Research data is earned in play, cannot be packed, and does not replace
 survival supplies or change handover requirements.
+The [research brief](research.md) now gives that work explicit mission targets.
+Pack a science kit for planned tasks; successful qualifying event actions can also
+earn credit. Generic points alone do not complete a research objective.
 
 Maintenance is available as an alternative weekly choice, including quiet weeks.
 It requires a living astronaut and skips the incident's normal response: discovery

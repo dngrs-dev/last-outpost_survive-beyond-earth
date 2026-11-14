@@ -21,7 +21,44 @@
       "inventory_audit",
       "crew_recovery"
     ],
-    "minimum_survivors": 1
+    "minimum_survivors": 1,
+    "science_objectives": [
+      {
+        "id": "geology",
+        "title": "Baseline sample collection",
+        "description": "Collect separate geological samples. Successful field sampling counts; generic research points do not.",
+        "target": 2,
+        "qualifying_choices": [
+          "kit_sampling",
+          "basic_sampling",
+          "research_geology"
+        ],
+        "source_url": "https://www.nasa.gov/missions/artemis/nasa-field-geology-training-prepares-artemis-mission-support-teams/"
+      },
+      {
+        "id": "seismology",
+        "title": "Seismic baseline",
+        "description": "Complete detailed analyses of separate seismic records. Simply archiving a signal does not count.",
+        "target": 1,
+        "qualifying_choices": [
+          "analyze_seismic",
+          "research_seismic"
+        ],
+        "source_url": "https://science.nasa.gov/moon/moonquakes/"
+      },
+      {
+        "id": "instruments",
+        "title": "Restore a research instrument",
+        "description": "Restore a research instrument or the research communications link. Routine life-support maintenance does not count.",
+        "target": 1,
+        "qualifying_choices": [
+          "align_antenna",
+          "remote_antenna",
+          "research_instrument"
+        ],
+        "source_url": "https://www.nasa.gov/reference/9-0-hardware-and-equipment-vol-2/"
+      }
+    ]
   },
   {
     "id": "oceanus_relief",
@@ -45,7 +82,33 @@
       "inventory_audit",
       "crew_recovery"
     ],
-    "minimum_survivors": 1
+    "minimum_survivors": 1,
+    "science_objectives": [
+      {
+        "id": "geology",
+        "title": "First field sample",
+        "description": "Collect separate geological samples. Successful field sampling counts; generic research points do not.",
+        "target": 1,
+        "qualifying_choices": [
+          "kit_sampling",
+          "basic_sampling",
+          "research_geology"
+        ],
+        "source_url": "https://www.nasa.gov/missions/artemis/nasa-field-geology-training-prepares-artemis-mission-support-teams/"
+      },
+      {
+        "id": "instruments",
+        "title": "Commission the field instrument",
+        "description": "Restore a research instrument or the research communications link. Routine life-support maintenance does not count.",
+        "target": 1,
+        "qualifying_choices": [
+          "align_antenna",
+          "remote_antenna",
+          "research_instrument"
+        ],
+        "source_url": "https://www.nasa.gov/reference/9-0-hardware-and-equipment-vol-2/"
+      }
+    ]
   },
   {
     "id": "fra_mauro_watch",
@@ -69,7 +132,33 @@
       "inventory_audit",
       "crew_recovery"
     ],
-    "minimum_survivors": 1
+    "minimum_survivors": 1,
+    "science_objectives": [
+      {
+        "id": "geology",
+        "title": "Highland sample survey",
+        "description": "Collect separate geological samples. Successful field sampling counts; generic research points do not.",
+        "target": 3,
+        "qualifying_choices": [
+          "kit_sampling",
+          "basic_sampling",
+          "research_geology"
+        ],
+        "source_url": "https://www.nasa.gov/missions/artemis/nasa-field-geology-training-prepares-artemis-mission-support-teams/"
+      },
+      {
+        "id": "instruments",
+        "title": "Restore the survey instrument",
+        "description": "Restore a research instrument or the research communications link. Routine life-support maintenance does not count.",
+        "target": 1,
+        "qualifying_choices": [
+          "align_antenna",
+          "remote_antenna",
+          "research_instrument"
+        ],
+        "source_url": "https://www.nasa.gov/reference/9-0-hardware-and-equipment-vol-2/"
+      }
+    ]
   },
   {
     "id": "hadley_survey",
@@ -93,7 +182,44 @@
       "inventory_audit",
       "crew_recovery"
     ],
-    "minimum_survivors": 2
+    "minimum_survivors": 2,
+    "science_objectives": [
+      {
+        "id": "geology",
+        "title": "Rille-region sample survey",
+        "description": "Collect separate geological samples. Successful field sampling counts; generic research points do not.",
+        "target": 3,
+        "qualifying_choices": [
+          "kit_sampling",
+          "basic_sampling",
+          "research_geology"
+        ],
+        "source_url": "https://www.nasa.gov/missions/artemis/nasa-field-geology-training-prepares-artemis-mission-support-teams/"
+      },
+      {
+        "id": "seismology",
+        "title": "Compare seismic records",
+        "description": "Complete detailed analyses of separate seismic records. Simply archiving a signal does not count.",
+        "target": 2,
+        "qualifying_choices": [
+          "analyze_seismic",
+          "research_seismic"
+        ],
+        "source_url": "https://science.nasa.gov/moon/moonquakes/"
+      },
+      {
+        "id": "instruments",
+        "title": "Restore the monitoring instrument",
+        "description": "Restore a research instrument or the research communications link. Routine life-support maintenance does not count.",
+        "target": 1,
+        "qualifying_choices": [
+          "align_antenna",
+          "remote_antenna",
+          "research_instrument"
+        ],
+        "source_url": "https://www.nasa.gov/reference/9-0-hardware-and-equipment-vol-2/"
+      }
+    ]
   },
   {
     "id": "descartes_endurance",
@@ -117,7 +243,44 @@
       "inventory_audit",
       "crew_recovery"
     ],
-    "minimum_survivors": 2
+    "minimum_survivors": 2,
+    "science_objectives": [
+      {
+        "id": "geology",
+        "title": "Highland comparison samples",
+        "description": "Collect separate geological samples. Successful field sampling counts; generic research points do not.",
+        "target": 2,
+        "qualifying_choices": [
+          "kit_sampling",
+          "basic_sampling",
+          "research_geology"
+        ],
+        "source_url": "https://www.nasa.gov/missions/artemis/nasa-field-geology-training-prepares-artemis-mission-support-teams/"
+      },
+      {
+        "id": "seismology",
+        "title": "Extended seismic baseline",
+        "description": "Complete detailed analyses of separate seismic records. Simply archiving a signal does not count.",
+        "target": 3,
+        "qualifying_choices": [
+          "analyze_seismic",
+          "research_seismic"
+        ],
+        "source_url": "https://science.nasa.gov/moon/moonquakes/"
+      },
+      {
+        "id": "instruments",
+        "title": "Restore the highland research link",
+        "description": "Restore a research instrument or the research communications link. Routine life-support maintenance does not count.",
+        "target": 1,
+        "qualifying_choices": [
+          "align_antenna",
+          "remote_antenna",
+          "research_instrument"
+        ],
+        "source_url": "https://www.nasa.gov/reference/9-0-hardware-and-equipment-vol-2/"
+      }
+    ]
   },
   {
     "id": "taurus_longwatch",
@@ -141,6 +304,43 @@
       "inventory_audit",
       "crew_recovery"
     ],
-    "minimum_survivors": 2
+    "minimum_survivors": 2,
+    "science_objectives": [
+      {
+        "id": "geology",
+        "title": "Valley sample campaign",
+        "description": "Collect separate geological samples. Successful field sampling counts; generic research points do not.",
+        "target": 4,
+        "qualifying_choices": [
+          "kit_sampling",
+          "basic_sampling",
+          "research_geology"
+        ],
+        "source_url": "https://www.nasa.gov/missions/artemis/nasa-field-geology-training-prepares-artemis-mission-support-teams/"
+      },
+      {
+        "id": "seismology",
+        "title": "Valley seismic comparison",
+        "description": "Complete detailed analyses of separate seismic records. Simply archiving a signal does not count.",
+        "target": 2,
+        "qualifying_choices": [
+          "analyze_seismic",
+          "research_seismic"
+        ],
+        "source_url": "https://science.nasa.gov/moon/moonquakes/"
+      },
+      {
+        "id": "instruments",
+        "title": "Restore the valley research link",
+        "description": "Restore a research instrument or the research communications link. Routine life-support maintenance does not count.",
+        "target": 1,
+        "qualifying_choices": [
+          "align_antenna",
+          "remote_antenna",
+          "research_instrument"
+        ],
+        "source_url": "https://www.nasa.gov/reference/9-0-hardware-and-equipment-vol-2/"
+      }
+    ]
   }
 ]

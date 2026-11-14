@@ -53,6 +53,9 @@ export function OutpostBriefing({ option, archive }: { option: OutpostOption; ar
           <div><strong>{mission.minimum_survivors}<small>crew</small></strong><span>Required survivors</span></div>
         </div>
         <p className={styles.challenge}>{station.challenge}</p>
+        <p className={styles.sectionLabel}>RESEARCH BRIEF</p>
+        <ul>{mission.science_objectives.map((objective) => <li key={objective.id}>{objective.title}: {objective.target}</li>)}</ul>
+        <p className={styles.moduleNote}>Science is assessed separately from survival. Pack research equipment during preparation.</p>
         <p className={styles.sectionLabel}>PROVISIONS BEFORE CARGO</p>
         <dl className={styles.reservePreview}><div><dt>Food</dt><dd>{station.starting_resources.food} u</dd></div><div><dt>Water</dt><dd>{station.starting_resources.water} u</dd></div></dl>
         <p className={styles.moduleNote}>Relief arrives after Week {mission.duration_weeks}. Keep the crew alive and hand over working systems. Crew size and cargo change the risk.</p>

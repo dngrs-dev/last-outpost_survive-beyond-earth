@@ -41,9 +41,11 @@ key is used. The JSON stores original summaries and links, not downloaded articl
   unlocks instrumented sampling and seismic analysis, conservative battery
   measurements, and environmental inspection of reserve packaging. It is distinct
   from the existing medical scanner. It does not generate survival resources.
-- **Research data** is an optional running total, shown during play and in the
-  debrief. Geology, seismic analysis, and restored communications can earn it.
-  It does not consume cargo capacity, feed astronauts, or change the four endings.
+- **Research data** is a running total, shown during play and in the debrief.
+  Geology, seismic analysis, and restored communications can earn it. Separate
+  [mission objectives](research.md) track successful samples, analyses, and
+  instrument restoration; points alone do not complete them. Neither science
+  progress nor points consume cargo capacity or change the four survival endings.
 
 Medicine, repair kits, EVA supplies, dust kits, oxygen regulators, and the medical
 scanner retain their existing purposes. Pack supplies according to crew size and
@@ -55,8 +57,16 @@ or extra research, rather than being required to advance.
 Every event has an authored response with no material cost and no assigned crew,
 so unavailable equipment cannot block a turn. These responses may accept losses;
 they do not guarantee survival. Existing weekly maintenance remains an alternative
-action. Only one event or maintenance action resolves per week, alongside rations.
+action. Only one event, maintenance, or planned research action resolves per week,
+alongside rations.
 Initial discovery damage is applied once before the player decides.
+
+Planned research tasks are another alternative to incident response, available
+for unfinished objectives regardless of the selected event. Each requires a field
+science kit, a living astronaut, and the displayed supplies. Completing research
+leaves discovery damage in place. Successful qualifying event choices also count
+toward the same targets. Archiving a seismic signal earns data but is not a
+detailed analysis and gives no objective credit.
 
 The selector prioritizes unseen eligible events, then uses weighted selection.
 The previous two events remain excluded; a quiet week is the fallback if no event

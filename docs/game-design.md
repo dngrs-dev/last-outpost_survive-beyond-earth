@@ -28,6 +28,11 @@
 > repeating them. See `events.md` for sources and fictional balancing boundaries.
 > Later references to three events describe the original implementation stages.
 
+> Research objectives update: each outpost now has explicit sample, seismic, or
+> instrument targets. Successful event actions and planned research tasks earn
+> progress; science is assessed separately from the four survival endings. Planned
+> work replaces the weekly incident response. See `research.md` for current rules.
+
 **Project name:** LAST OUTPOST  
 **Subtitle:** Lunar Survival  
 **Genre:** Turn-based survival, strategy, resource management, decision-making  

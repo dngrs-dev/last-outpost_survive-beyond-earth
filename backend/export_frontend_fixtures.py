@@ -27,11 +27,13 @@ def checked(response):
     return response.json()
 
 
-def decision(state, request_id, ignore=False):
+def decision(state, request_id, ignore=False, choice_id=None):
     choice = next(
         c
         for c in state["current_event"]["choices"]
-        if c["available"] and (not ignore or not c["requires_crew"])
+        if c["available"]
+        and (not ignore or not c["requires_crew"])
+        and (choice_id is None or c["id"] == choice_id)
     )
     living = [c for c in state["crew"] if c["alive"]]
     levels = {
@@ -110,6 +112,36 @@ def generate(check: bool = False) -> None:
                 break
         else:
             raise RuntimeError("No opportunity fixture found")
+        research_cargo = {**CARGO, "scientific_tools": 1, "eva_batteries": 9, "repair_kits": 9}
+        for seed in range(100):
+            initial = create(seed, ["alex", "lin"], research_cargo)
+            result = turn(
+                initial, decision(initial["state"], "fixture-science", choice_id="research_geology")
+            )
+            if result["turn_outcome"]["event"]["success"]:
+                fixtures["researchGame"] = ("GameResponse", initial)
+                fixtures["researchTurn"] = ("TurnResponse", result)
+                break
+        else:
+            raise RuntimeError("No successful research fixture found")
+        while result["state"]["status"] == "running":
+            state = result["state"]
+            choices = state["current_event"]["choices"]
+            work = next((c for c in choices if c["available"] and c["objective_rewards"]), None)
+            result = turn(
+                result,
+                decision(
+                    state,
+                    f"fixture-science-{state['current_week']}",
+                    choice_id=work["id"] if work else None,
+                ),
+            )
+        assert result["state"]["science"]["status"] == "complete"
+        fixtures["researchCompleted"] = (
+            "GameResponse",
+            {"game_id": result["game_id"], "state": result["state"]},
+        )
+
         for name, crew, cargo in (
             ("completed", ["alex", "maya"], CARGO),
             ("failed", ["alex", "maya", "lin", "sam"], {}),

@@ -16,6 +16,34 @@ export interface StationDefinition {
   lunar_site_id: string | null;
 }
 
+export interface ResearchObjectiveDefinition {
+  id: string;
+  title: string;
+  description: string;
+  target: number;
+  qualifying_choices: string[];
+  source_url: string;
+}
+
+export interface ObjectiveProgress extends ResearchObjectiveDefinition {
+  progress: number;
+  completed: boolean;
+}
+
+export interface ObjectiveGain {
+  objective_id: string;
+  title: string;
+  amount: number;
+}
+
+export interface ScienceResponse {
+  status: 'not_started' | 'partial' | 'complete';
+  completed_objectives: number;
+  total_objectives: number;
+  research_data: number;
+  objectives: ObjectiveProgress[];
+}
+
 export interface MissionDefinition {
   id: string;
   name: string;
@@ -23,6 +51,7 @@ export interface MissionDefinition {
   duration_weeks: number;
   event_ids: string[];
   minimum_survivors: number;
+  science_objectives: ResearchObjectiveDefinition[];
 }
 
 export interface CrewDefinition {
@@ -137,6 +166,8 @@ export interface CandidateResponse {
 
 export interface ChoiceResponse {
   id: string;
+  action_type: 'event' | 'maintenance' | 'research';
+  objective_rewards: ObjectiveGain[];
   text: string;
   description: string;
   costs: Record<string, number>;
@@ -178,6 +209,7 @@ export interface ResultsResponse {
   surviving_crew_ids: string[];
   deceased_crew_ids: string[];
   failure_reason: string | null;
+  science: ScienceResponse;
 }
 
 export interface HealthChange {
@@ -211,6 +243,7 @@ export interface TurnOutcome {
     success_probability: number;
     costs: Record<string, number>;
     effects: AppliedEffects;
+    objective_progress: ObjectiveGain[];
   };
   rations: Record<string, RationRequest>;
   survival: {
@@ -268,6 +301,7 @@ export interface GameStateResponse {
   weeks_completed: number;
   ending: string | null;
   results: ResultsResponse | null;
+  science: ScienceResponse;
 }
 
 export interface GameResponse {

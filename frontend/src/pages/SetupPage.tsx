@@ -4,6 +4,7 @@ import { fetchCatalog, createGame } from '../api/game';
 import { Header } from '../components/Header';
 import { CrewSlots } from '../components/CrewSlots';
 import { CargoSelector } from '../components/CargoSelector';
+import { ResearchObjectives } from '../components/ResearchObjectives';
 import type { CatalogResponse } from '../types/game';
 
 export const SetupPage: React.FC = () => {
@@ -212,6 +213,8 @@ export const SetupPage: React.FC = () => {
             </div>
           </div>
         </div>
+
+        {mission && <ResearchObjectives objectives={mission.science_objectives} />}
 
         {catalog && <CrewSlots crew={catalog.crew} slots={crewSlots} minCrew={minCrew}
           maxCrew={maxCrew} onChange={setCrewSlots} disabled={submitting} />}

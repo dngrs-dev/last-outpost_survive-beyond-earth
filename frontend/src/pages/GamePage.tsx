@@ -3,6 +3,7 @@ import { useParams, useNavigate } from 'react-router-dom';
 import { fetchGameState, submitTurn } from '../api/game';
 import { ApiError } from '../api/client';
 import { Header } from '../components/Header';
+import { ResearchObjectives } from '../components/ResearchObjectives';
 import { ResourceCard } from '../components/ResourceCard';
 import { StationOverview } from '../components/StationOverview';
 import { CrewCard } from '../components/CrewCard';
@@ -279,6 +280,7 @@ export const GamePage: React.FC = () => {
       )}
 
       {/* Station Systems & Efficiencies */}
+      <ResearchObjectives objectives={state.science.objectives} science={state.science} />
       <StationOverview
         solarEfficiency={state.solar_efficiency}
         oxygenEfficiency={state.oxygen_efficiency}

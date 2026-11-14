@@ -14,6 +14,7 @@ from app.game.events import (
     select_event,
 )
 from app.game.models import Definitions, GameError, GameState, Ration
+from app.game.research import objective_rewards, science_view
 from app.game.rules import DEFAULT_RULES, RATION_MULTIPLIERS, Rules
 from app.game.survival import permits_depletion, ration_cost, ration_requirements, simulate_week
 
@@ -131,6 +132,9 @@ class GameEngine:
         state = deepcopy(original)
         selected = next((crew for crew in state.crew if crew.id == selected_crew_id), None)
         event_result = resolve_choice(state, choice, selected)
+        event_result["objective_progress"] = (
+            objective_rewards(state, self.definitions, choice.id) if event_result["success"] else []
+        )
         state, survival = simulate_week(
             state, self.definitions.stations[state.station_id], rations, self.rules
         )
@@ -232,6 +236,7 @@ class GameEngine:
 
     def state_view(self, state: GameState) -> dict:
         mission = self.definitions.missions[state.mission_id]
+        science = science_view(state, self.definitions)
         crew_views = []
         for crew in state.crew:
             crew_views.append(
@@ -268,6 +273,7 @@ class GameEngine:
                 "end": state.current_week * 7,
             },
             "current_event": event_view(state, self.definitions),
+            "science": science,
             "emergency_ration_requirements": minimum_rations,
             "depleted_provisions": [
                 name for name, amount in minimum_rations.items() if state.resources[name] < amount
@@ -280,6 +286,7 @@ class GameEngine:
                     "surviving_crew_ids": [crew.id for crew in state.crew if crew.alive],
                     "deceased_crew_ids": [crew.id for crew in state.crew if not crew.alive],
                     "failure_reason": state.flags.get("failure_reason"),
+                    "science": science,
                 }
                 if state.status != "running"
                 else None

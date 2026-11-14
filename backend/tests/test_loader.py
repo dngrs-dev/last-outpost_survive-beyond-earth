@@ -96,3 +96,44 @@ def test_malformed_json(data_dir):
     (data_dir / "events.json").write_text("{", encoding="utf-8")
     with pytest.raises(ConfigurationError, match="events.json"):
         load_definitions(data_dir)
+
+
+@pytest.mark.parametrize(
+    "field,value",
+    [
+        ("target", 0),
+        ("target", 13),
+        ("target", 1.5),
+        ("qualifying_choices", ["missing"]),
+        ("qualifying_choices", ["kit_sampling"]),
+        ("qualifying_choices", ["research_geology", "research_geology"]),
+        ("source_url", "https://example.com"),
+        ("title", ""),
+    ],
+)
+def test_invalid_science_objectives(data_dir, field, value):
+    mutate(
+        data_dir,
+        "missions",
+        lambda entries: entries[0]["science_objectives"][0].update({field: value}),
+    )
+    with pytest.raises(ConfigurationError):
+        load_definitions(data_dir)
+
+
+def test_duplicate_objectives_and_overlapping_credit_are_rejected(data_dir):
+    def duplicate(entries):
+        entries[0]["science_objectives"].append(entries[0]["science_objectives"][0])
+
+    mutate(data_dir, "missions", duplicate)
+    with pytest.raises(ConfigurationError, match="duplicate science"):
+        load_definitions(data_dir)
+
+
+def test_one_action_cannot_complete_two_objectives(data_dir):
+    def overlap(entries):
+        entries[0]["science_objectives"][1]["qualifying_choices"].append("research_geology")
+
+    mutate(data_dir, "missions", overlap)
+    with pytest.raises(ConfigurationError, match="qualifying choice"):
+        load_definitions(data_dir)

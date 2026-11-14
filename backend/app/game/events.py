@@ -12,6 +12,7 @@ from app.game.models import (
     GameError,
     GameState,
 )
+from app.game.research import RESEARCH_CHOICE_IDS, objective_rewards, research_choices
 from app.game.rules import Rules
 from app.game.survival import change_health
 
@@ -108,7 +109,10 @@ def get_event(state: GameState, definitions: Definitions) -> Event:
         event = definitions.events[state.current_event_id]
     else:
         raise GameError("There is no active event.", 409)
-    return replace(event, choices=[*event.choices, *MAINTENANCE_CHOICES])
+    return replace(
+        event,
+        choices=[*event.choices, *MAINTENANCE_CHOICES, *research_choices(state, definitions)],
+    )
 
 
 def apply_effects(state: GameState, effects: Effects, selected: CrewMember | None) -> dict:
@@ -227,6 +231,14 @@ def event_view(state: GameState, definitions: Definitions) -> dict | None:
         choices.append(
             {
                 **asdict(choice),
+                "action_type": (
+                    "research"
+                    if choice.id in RESEARCH_CHOICE_IDS
+                    else "maintenance"
+                    if choice in MAINTENANCE_CHOICES
+                    else "event"
+                ),
+                "objective_rewards": objective_rewards(state, definitions, choice.id),
                 "available": available,
                 "unavailable_reasons": reasons,
                 "eligible_crew": candidates,

@@ -15,6 +15,7 @@ from app.game.models import (
     Mission,
     Station,
 )
+from app.game.research import RESEARCH_CHOICE_IDS
 from app.game.rules import RESOURCE_NAMES, ROLES
 
 SOURCE_DATA = Path(__file__).resolve().parents[2] / "data"
@@ -118,12 +119,61 @@ def load_definitions(data_dir: Path = DEFAULT_DATA) -> Definitions:
             and all(event_id in definitions.events for event_id in mission.event_ids),
             f"{mission.id}: duplicate or unknown event reference",
         )
+        objective_ids = [objective.id for objective in mission.science_objectives]
+        _require(
+            bool(objective_ids)
+            and all(objective_ids)
+            and len(set(objective_ids)) == len(objective_ids),
+            f"{mission.id}: missing or duplicate science objectives",
+        )
+        qualifying_choices = set()
+        mission_choices = {
+            choice.id
+            for event_id in mission.event_ids
+            for choice in definitions.events[event_id].choices
+        } | RESEARCH_CHOICE_IDS
+        for objective in mission.science_objectives:
+            context = f"{mission.id}/{objective.id}"
+            _require(
+                bool(objective.title.strip()) and bool(objective.description.strip()),
+                f"{context}: missing research brief",
+            )
+            _require(
+                0 < objective.target <= mission.duration_weeks, f"{context}: invalid science target"
+            )
+            choices = set(objective.qualifying_choices)
+            _require(
+                len(choices) == len(objective.qualifying_choices)
+                and not choices - mission_choices
+                and not choices & qualifying_choices,
+                f"{context}: duplicate or unknown qualifying choice",
+            )
+            _require(
+                bool(choices & RESEARCH_CHOICE_IDS), f"{context}: requires a planned research task"
+            )
+            _require(
+                objective.source_url.startswith(
+                    (
+                        "https://www.nasa.gov/",
+                        "https://science.nasa.gov/",
+                        "https://history.nasa.gov/",
+                    )
+                ),
+                f"{context}: expected an official NASA source",
+            )
+            qualifying_choices.update(choices)
+        _require(
+            sum(objective.target for objective in mission.science_objectives)
+            <= mission.duration_weeks,
+            f"{mission.id}: science targets exceed available weeks",
+        )
     for crew in definitions.crew.values():
         _require(0 < crew.health <= 100, f"{crew.id}: invalid starting health")
         _require(crew.role in ROLES, f"{crew.id}: unknown profession")
         choice_ids = {
             choice.id for event in definitions.events.values() for choice in event.choices
         }
+        choice_ids |= RESEARCH_CHOICE_IDS
         _require(
             not (crew.action_bonuses.keys() - choice_ids)
             and all(_number(value, -0.3, 0.3) for value in crew.action_bonuses.values()),
@@ -170,8 +220,8 @@ def load_definitions(data_dir: Path = DEFAULT_DATA) -> Definitions:
         for choice in event.choices:
             context = f"{event.id}/{choice.id}"
             _require(
-                choice.id not in {"clean_array", "install_regulator"},
-                f"{context}: reserved maintenance choice ID",
+                choice.id not in {"clean_array", "install_regulator"} | RESEARCH_CHOICE_IDS,
+                f"{context}: reserved weekly action ID",
             )
             _resources(choice.costs, context)
             _require(_number(choice.success_chance, 0, 1), f"{context}: invalid probability")

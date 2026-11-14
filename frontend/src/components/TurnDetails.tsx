@@ -25,6 +25,9 @@ function SystemChanges({ effects }: { effects: AppliedEffects }) {
 export function TurnDetails({ outcome, crewNames }: Props) {
   return <div style={{ fontSize: '0.9rem', lineHeight: 1.7 }}>
     <h3>Event consequences</h3>
+    {outcome.event.objective_progress.map((gain) => <p key={gain.objective_id}>
+      Research objective: {gain.title} +{gain.amount}.
+    </p>)}
     <SystemChanges effects={outcome.event.effects} />
     <HealthChanges changes={outcome.event.effects.health_changes} names={crewNames} />
     <h3>Weekly survival</h3>
