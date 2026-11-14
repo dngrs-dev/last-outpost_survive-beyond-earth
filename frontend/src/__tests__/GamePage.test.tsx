@@ -39,8 +39,8 @@ describe('GamePage with real API fixtures', () => {
     await submit();
     expect(await screen.findByText('WEEK 1 DEBRIEF')).toBeInTheDocument();
     expect(screen.getByText(/Alex Vega: 100.*75 HP/)).toBeInTheDocument();
-    expect(screen.getByText(/Alex Vega: 75.*73 HP/)).toBeInTheDocument();
-    expect(screen.getByText('Health penalties: food 2, water 0, oxygen 0.')).toBeInTheDocument();
+    expect(screen.getByText(/Alex Vega: 75.*75 HP/)).toBeInTheDocument();
+    expect(screen.getAllByText('Health penalties: food 0, water 0, oxygen 0.')).toHaveLength(2);
     expect(screen.getByText(/Next week's discovery:/)).toBeInTheDocument();
     expect(screen.queryByText(/\[object Object\]/)).not.toBeInTheDocument();
   });

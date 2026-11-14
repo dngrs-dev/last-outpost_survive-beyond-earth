@@ -51,9 +51,11 @@ def decision(state, request_id, ignore=False, choice_id=None):
         default=None,
     )
     support = (
-        [c["id"] for c in living if not selected or c["id"] != selected["crew_id"]][
-            : max(0, choice["minimum_crew"] - 1)
-        ]
+        [
+            c["crew_id"]
+            for c in choice["support_candidates"]
+            if c["available"] and (not selected or c["crew_id"] != selected["crew_id"])
+        ][: max(0, choice["minimum_crew"] - 1)]
         if choice["requires_crew"]
         else []
     )
@@ -102,6 +104,33 @@ def generate(check: bool = False) -> None:
         priority_body["power_priority"] = "research"
         fixtures["energyPriorityGame"] = ("GameResponse", priority_game)
         fixtures["energyPriorityTurn"] = ("TurnResponse", turn(priority_game, priority_body))
+
+        thirsty = create(0)
+        body = decision(thirsty["state"], "fixture-thirst", ignore=True)
+        for ration in body["rations"].values():
+            ration.update(food="normal", water="emergency")
+        result = turn(thirsty, body)
+        fixtures["dehydratedGame"] = (
+            "GameResponse",
+            {"game_id": result["game_id"], "state": result["state"]},
+        )
+
+        for seed in range(100):
+            depleted = create(seed, ["alex", "lin"], {**CARGO, "scientific_tools": 1})
+            for week in range(4):
+                body = decision(depleted["state"], f"fixture-underfed-{week}", ignore=True)
+                for ration in body["rations"].values():
+                    ration.update(food="reduced", water="normal")
+                result = turn(depleted, body)
+                depleted = {"game_id": result["game_id"], "state": result["state"]}
+            if all(c["health"] >= 60 for c in depleted["state"]["crew"]):
+                fixtures["underfedGame"] = ("GameResponse", depleted)
+                body = decision(depleted["state"], "fixture-recuperation", ignore=True)
+                body["assignments"] = [{"crew_id": "alex", "activity_id": "crew_rest"}]
+                fixtures["recuperationTurn"] = ("TurnResponse", turn(depleted, body))
+                break
+        else:
+            raise RuntimeError("No underfed crew fixture found")
 
         for seed in range(1000):
             game = create(seed)

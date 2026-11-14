@@ -75,6 +75,8 @@ export interface CrewDefinition {
   training_source: string;
   action_bonuses: Record<string, number>;
   food_shortage_weeks: number;
+  nutrition_deficit: number;
+  hydration_deficit: number;
   water_shortage_weeks: number;
 }
 
@@ -166,7 +168,28 @@ export interface RationCost {
   water: number;
 }
 
+export interface CrewCondition {
+  status: 'fit' | 'impaired' | 'serious' | 'critical' | 'deceased';
+  nutrition_status: 'adequate' | 'underfed' | 'depleted';
+  hydration_status: 'adequate' | 'thirsty' | 'dehydrated';
+  can_work: boolean;
+  can_do_eva: boolean;
+  performance_penalty: number;
+  restrictions: string[];
+  nutrition_recovery_weeks: number;
+  hydration_recovery_weeks: number;
+  source_url: string;
+}
+export interface RationOutlook {
+  nutrition_deficit: number;
+  hydration_deficit: number;
+  food_damage: number;
+  water_damage: number;
+}
+
 export interface CrewResponse {
+  condition: CrewCondition;
+  ration_outlook: Partial<Record<RationLevel, RationOutlook>>;
   id: string;
   name: string;
   role: string;
@@ -181,6 +204,8 @@ export interface CrewResponse {
   training_source: string;
   action_bonuses: Record<string, number>;
   food_shortage_weeks: number;
+  nutrition_deficit: number;
+  hydration_deficit: number;
   water_shortage_weeks: number;
   alive: boolean;
   ration_options: Partial<Record<RationLevel, RationCost>>;
@@ -204,8 +229,10 @@ export interface CandidateResponse {
 }
 
 export interface ChoiceResponse {
+  workload: 'light' | 'strenuous' | 'eva' | 'care' | 'rest';
+  support_candidates: { crew_id: string; available: boolean; unavailable_reasons: string[] }[];
   id: string;
-  action_type: 'event' | 'maintenance' | 'research';
+  action_type: 'event' | 'maintenance' | 'research' | 'rest';
   objective_rewards: ObjectiveGain[];
   text: string;
   description: string;
@@ -267,6 +294,15 @@ export interface AppliedEffects {
 }
 
 export interface SurvivalHealthChange extends HealthChange {
+  food_received_fraction: number;
+  water_received_fraction: number;
+  nutrition_before: number;
+  nutrition_after: number;
+  hydration_before: number;
+  hydration_after: number;
+  recovery: number;
+  worked: boolean;
+  rested: boolean;
   food_penalty: number;
   water_penalty: number;
   oxygen_penalty: number;

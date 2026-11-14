@@ -25,8 +25,6 @@ RESOURCE_NAMES = frozenset(
 )
 ROLES = frozenset({"engineer", "medic", "scientist", "technician"})
 RATION_MULTIPLIERS = {"normal": 1.0, "reduced": 0.7, "emergency": 0.4}
-FOOD_PENALTIES = {"normal": 0, "reduced": 2, "emergency": 6}
-WATER_PENALTIES = {"normal": 0, "reduced": 4, "emergency": 10}
 
 
 @dataclass(frozen=True)
@@ -55,10 +53,6 @@ class Rules:
     water_recovery_wear: float = 0.02
     co2_wear: float = 0.015
     oxygen_shortage_penalty: int = 60
-    food_depletion_penalty: int = 20
-    water_depletion_penalty: int = 35
-    repeated_ration_penalty: int = 2
-    max_ration_streak_penalty: int = 12
     event_cooldown_weeks: int = 2
     perfect_electricity_reserve: float = 12
     perfect_health: int = 70

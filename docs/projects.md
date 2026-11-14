@@ -60,10 +60,12 @@ Pausing/interruption cannot be combined with a manual assignment to the same
 project in one request. Invalid, duplicate, and completed-project controls reject
 the entire turn before mutation. Controls for different projects remain independent.
 
-An incident killing a worker before work begins cancels that assignment and
+An incident killing or making a worker unfit before work begins cancels that assignment and
 refunds reserved manual supplies under the existing rules. Failed-work deaths
 retain the incomplete phase and release the dead worker reference. A survival
 death after successful work does not undo the completed phase or recorded science.
+Deficit or injury restrictions also release unavailable manual-worker references;
+completed phases remain intact for a fit replacement. See [crew condition](health.md).
 Automatic recording does not depend on the original worker staying alive. No
 additional mortality or medical mechanics were introduced.
 

@@ -3,7 +3,9 @@
 Each living astronaut has one main job per week. An incident response can occupy
 one lead plus explicitly selected support crew. Other crew can perform research
 or maintenance assignments in the same week. Crew without an assignment perform
-routine duties, with no new healing or fatigue effects. All living crew continue
+routine duties (inactive recovery when unfit). Full provisions and safe air now
+allow gradual recovery; an explicit `crew_rest` assignment improves it. See
+[crew condition](health.md) for deficits and workload restrictions. All living crew continue
 to consume provisions through the existing survival rules.
 
 Research and maintenance are no longer choices in the incident response list.
@@ -37,7 +39,7 @@ orders. For example, during a solar failure:
 ```
 
 An incident requiring two crew must name one living lead and exactly one other
-living support astronaut. No astronaut can be lead, support, and/or assignment
+living support astronaut fit for the response's workload. No astronaut can be lead, support, and/or assignment
 worker more than once. Support does not add another role bonus; the existing
 lead and living-crew probability rules remain in effect. Responses needing no
 lead require an empty support list. Manual assignments take one week and
@@ -58,7 +60,7 @@ must now explicitly name support. Research IDs sent as event responses are rejec
    is rejected; the existing emergency depletion rules remain supported.
 3. Resolve the incident. Its existing discovery damage was already applied once.
 4. Resolve assignments in roster order, independently of request-list ordering.
-   An astronaut killed by the incident cannot begin work: the assignment is
+   An astronaut killed or made unfit by the incident cannot begin work: the assignment is
    cancelled, its reserved base costs are returned, and it grants no reward.
 5. Apply weekly food, water, power, oxygen, and health simulation. Work completed
    before a survival death retains its recorded science. No assignment persists

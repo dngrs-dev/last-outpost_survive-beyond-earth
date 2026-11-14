@@ -49,6 +49,14 @@
 > removal has its own condition and persistent burden; crew can maintain both new
 > processors. See `life-support.md` for the NASA inspiration and fictional rules.
 
+> Crew-condition update: health remains an overall summary, with separate cumulative
+> nutrition and hydration deficits based on actual delivered provisions. Deficits
+> affect performance and restrict light/strenuous/EVA workloads for leads, support,
+> and assignments. Full provisions and optional one-week rest provide gradual
+> recovery. See `health.md` for current rules; older flat ration penalties and
+> no-automatic-healing assumptions below are superseded. Illness, fatigue, and
+> medical assignments remain future work.
+
 **Project name:** LAST OUTPOST  
 **Subtitle:** Lunar Survival  
 **Genre:** Turn-based survival, strategy, resource management, decision-making  

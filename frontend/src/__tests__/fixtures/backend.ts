@@ -1226,6 +1226,8 @@ export const catalog: CatalogResponse = {
       "injury_multiplier": 1.0,
       "food_shortage_weeks": 0,
       "water_shortage_weeks": 0,
+      "nutrition_deficit": 0,
+      "hydration_deficit": 0,
       "specialty": "Mechanical repair",
       "training_source": "https://www.nasa.gov/reference/jsc-crew-operations-training/",
       "action_bonuses": {},
@@ -1247,6 +1249,8 @@ export const catalog: CatalogResponse = {
       "injury_multiplier": 1.0,
       "food_shortage_weeks": 0,
       "water_shortage_weeks": 0,
+      "nutrition_deficit": 0,
+      "hydration_deficit": 0,
       "specialty": "Crew medical officer",
       "training_source": "https://www.nasa.gov/reference/5-0-training/",
       "action_bonuses": {},
@@ -1268,6 +1272,8 @@ export const catalog: CatalogResponse = {
       "injury_multiplier": 1.2,
       "food_shortage_weeks": 0,
       "water_shortage_weeks": 0,
+      "nutrition_deficit": 0,
+      "hydration_deficit": 0,
       "specialty": "Field science and calibration",
       "training_source": "https://www.nasa.gov/missions/artemis/nasa-field-geology-training-prepares-artemis-mission-support-teams/",
       "action_bonuses": {},
@@ -1289,6 +1295,8 @@ export const catalog: CatalogResponse = {
       "injury_multiplier": 0.8,
       "food_shortage_weeks": 0,
       "water_shortage_weeks": 0,
+      "nutrition_deficit": 0,
+      "hydration_deficit": 0,
       "specialty": "EVA maintenance",
       "training_source": "https://www.nasa.gov/reference/jsc-crew-operations-training/",
       "action_bonuses": {},
@@ -1310,6 +1318,8 @@ export const catalog: CatalogResponse = {
       "injury_multiplier": 1.0,
       "food_shortage_weeks": 0,
       "water_shortage_weeks": 0,
+      "nutrition_deficit": 0,
+      "hydration_deficit": 0,
       "specialty": "Life-support engineering",
       "training_source": "https://www.nasa.gov/reference/jsc-crew-operations-training/",
       "action_bonuses": {
@@ -1333,6 +1343,8 @@ export const catalog: CatalogResponse = {
       "injury_multiplier": 0.8,
       "food_shortage_weeks": 0,
       "water_shortage_weeks": 0,
+      "nutrition_deficit": 0,
+      "hydration_deficit": 0,
       "specialty": "Power systems",
       "training_source": "https://www.nasa.gov/reference/jsc-crew-operations-training/",
       "action_bonuses": {
@@ -1356,6 +1368,8 @@ export const catalog: CatalogResponse = {
       "injury_multiplier": 1.2,
       "food_shortage_weeks": 0,
       "water_shortage_weeks": 0,
+      "nutrition_deficit": 0,
+      "hydration_deficit": 0,
       "specialty": "Emergency medicine",
       "training_source": "https://www.nasa.gov/reference/5-0-training/",
       "action_bonuses": {
@@ -1379,6 +1393,8 @@ export const catalog: CatalogResponse = {
       "injury_multiplier": 1.0,
       "food_shortage_weeks": 0,
       "water_shortage_weeks": 0,
+      "nutrition_deficit": 0,
+      "hydration_deficit": 0,
       "specialty": "Geology and instrument calibration",
       "training_source": "https://www.nasa.gov/missions/artemis/nasa-field-geology-training-prepares-artemis-mission-support-teams/",
       "action_bonuses": {
@@ -1402,6 +1418,8 @@ export const catalog: CatalogResponse = {
       "injury_multiplier": 1.0,
       "food_shortage_weeks": 0,
       "water_shortage_weeks": 0,
+      "nutrition_deficit": 0,
+      "hydration_deficit": 0,
       "specialty": "EVA tools and procedures",
       "training_source": "https://www.nasa.gov/reference/jsc-crew-operations-training/",
       "action_bonuses": {
@@ -1425,6 +1443,8 @@ export const catalog: CatalogResponse = {
       "injury_multiplier": 1.0,
       "food_shortage_weeks": 0,
       "water_shortage_weeks": 0,
+      "nutrition_deficit": 0,
+      "hydration_deficit": 0,
       "specialty": "Fault diagnosis",
       "training_source": "https://www.nasa.gov/reference/jsc-crew-operations-training/",
       "action_bonuses": {
@@ -1911,6 +1931,40 @@ export const energyPriorityGame: GameResponse = {
     },
     "crew": [
       {
+        "nutrition_deficit": 0.0,
+        "hydration_deficit": 0.0,
+        "condition": {
+          "status": "fit",
+          "nutrition_status": "adequate",
+          "hydration_status": "adequate",
+          "can_work": true,
+          "can_do_eva": true,
+          "performance_penalty": 0.0,
+          "restrictions": [],
+          "nutrition_recovery_weeks": 0,
+          "hydration_recovery_weeks": 0,
+          "source_url": "https://www.nasa.gov/reference/risk-of-inadequate-food-and-nutrition/"
+        },
+        "ration_outlook": {
+          "normal": {
+            "nutrition_deficit": 0.0,
+            "hydration_deficit": 0.0,
+            "food_damage": 0,
+            "water_damage": 0
+          },
+          "reduced": {
+            "nutrition_deficit": 0.3,
+            "hydration_deficit": 0.3,
+            "food_damage": 0,
+            "water_damage": 4
+          },
+          "emergency": {
+            "nutrition_deficit": 0.6,
+            "hydration_deficit": 0.6,
+            "food_damage": 0,
+            "water_damage": 28
+          }
+        },
         "id": "alex",
         "name": "Alex Vega",
         "role": "engineer",
@@ -1943,6 +1997,40 @@ export const energyPriorityGame: GameResponse = {
         }
       },
       {
+        "nutrition_deficit": 0.0,
+        "hydration_deficit": 0.0,
+        "condition": {
+          "status": "fit",
+          "nutrition_status": "adequate",
+          "hydration_status": "adequate",
+          "can_work": true,
+          "can_do_eva": true,
+          "performance_penalty": 0.0,
+          "restrictions": [],
+          "nutrition_recovery_weeks": 0,
+          "hydration_recovery_weeks": 0,
+          "source_url": "https://www.nasa.gov/reference/risk-of-inadequate-food-and-nutrition/"
+        },
+        "ration_outlook": {
+          "normal": {
+            "nutrition_deficit": 0.0,
+            "hydration_deficit": 0.0,
+            "food_damage": 0,
+            "water_damage": 0
+          },
+          "reduced": {
+            "nutrition_deficit": 0.3,
+            "hydration_deficit": 0.3,
+            "food_damage": 0,
+            "water_damage": 4
+          },
+          "emergency": {
+            "nutrition_deficit": 0.6,
+            "hydration_deficit": 0.6,
+            "food_damage": 0,
+            "water_damage": 28
+          }
+        },
         "id": "maya",
         "name": "Maya Okafor",
         "role": "medic",
@@ -2015,6 +2103,8 @@ export const energyPriorityGame: GameResponse = {
       },
       "choices": [
         {
+          "workload": "care",
+          "support_candidates": [],
           "id": "treat",
           "action_type": "event",
           "objective_rewards": [],
@@ -2069,6 +2159,19 @@ export const energyPriorityGame: GameResponse = {
           "success_probability": null
         },
         {
+          "workload": "strenuous",
+          "support_candidates": [
+            {
+              "crew_id": "alex",
+              "available": true,
+              "unavailable_reasons": []
+            },
+            {
+              "crew_id": "maya",
+              "available": true,
+              "unavailable_reasons": []
+            }
+          ],
           "id": "team_treatment",
           "action_type": "event",
           "objective_rewards": [],
@@ -2125,6 +2228,8 @@ export const energyPriorityGame: GameResponse = {
           "success_probability": null
         },
         {
+          "workload": "care",
+          "support_candidates": [],
           "id": "guided_treatment",
           "action_type": "event",
           "objective_rewards": [],
@@ -2185,6 +2290,8 @@ export const energyPriorityGame: GameResponse = {
           "success_probability": null
         },
         {
+          "workload": "light",
+          "support_candidates": [],
           "id": "rest",
           "action_type": "event",
           "objective_rewards": [],
@@ -2288,6 +2395,60 @@ export const energyPriorityGame: GameResponse = {
     },
     "assignment_options": [
       {
+        "workload": "rest",
+        "support_candidates": [],
+        "id": "crew_rest",
+        "action_type": "rest",
+        "objective_rewards": [],
+        "text": "Rest and recuperate",
+        "description": "One week without active work. Adequate actual food and water improve deficit recovery and allow up to 5 condition points of recovery in safe air. Rest creates no supplies and cannot compensate for continued deprivation.",
+        "costs": {},
+        "required_items": {},
+        "requires_crew": true,
+        "role_bonus": {},
+        "crew_role_bonus": {},
+        "success_chance": 1.0,
+        "success_effects": {
+          "resources": {},
+          "solar_efficiency": 0.0,
+          "oxygen_efficiency": 0.0,
+          "water_recovery_efficiency": 0.0,
+          "co2_efficiency": 0.0,
+          "crew_health": 0,
+          "target": "selected"
+        },
+        "failure_effects": {
+          "resources": {},
+          "solar_efficiency": 0.0,
+          "oxygen_efficiency": 0.0,
+          "water_recovery_efficiency": 0.0,
+          "co2_efficiency": 0.0,
+          "crew_health": 0,
+          "target": "selected"
+        },
+        "required_role": null,
+        "minimum_crew": 1,
+        "available": true,
+        "unavailable_reasons": [],
+        "eligible_crew": [
+          {
+            "crew_id": "alex",
+            "available": true,
+            "unavailable_reasons": [],
+            "success_probability": 1.0
+          },
+          {
+            "crew_id": "maya",
+            "available": true,
+            "unavailable_reasons": [],
+            "success_probability": 1.0
+          }
+        ],
+        "success_probability": null
+      },
+      {
+        "workload": "eva",
+        "support_candidates": [],
         "id": "clean_array",
         "action_type": "maintenance",
         "objective_rewards": [],
@@ -2351,6 +2512,8 @@ export const energyPriorityGame: GameResponse = {
         "success_probability": null
       },
       {
+        "workload": "strenuous",
+        "support_candidates": [],
         "id": "install_regulator",
         "action_type": "maintenance",
         "objective_rewards": [],
@@ -2413,6 +2576,8 @@ export const energyPriorityGame: GameResponse = {
         "success_probability": null
       },
       {
+        "workload": "light",
+        "support_candidates": [],
         "id": "service_water_recovery",
         "action_type": "maintenance",
         "objective_rewards": [],
@@ -2472,6 +2637,8 @@ export const energyPriorityGame: GameResponse = {
         "success_probability": null
       },
       {
+        "workload": "light",
+        "support_candidates": [],
         "id": "service_co2_scrubber",
         "action_type": "maintenance",
         "objective_rewards": [],
@@ -2531,6 +2698,8 @@ export const energyPriorityGame: GameResponse = {
         "success_probability": null
       },
       {
+        "workload": "eva",
+        "support_candidates": [],
         "id": "research_geology",
         "action_type": "research",
         "objective_rewards": [
@@ -2603,6 +2772,8 @@ export const energyPriorityGame: GameResponse = {
         "success_probability": null
       },
       {
+        "workload": "eva",
+        "support_candidates": [],
         "id": "research_seismic",
         "action_type": "research",
         "objective_rewards": [],
@@ -2668,6 +2839,8 @@ export const energyPriorityGame: GameResponse = {
         "success_probability": null
       },
       {
+        "workload": "strenuous",
+        "support_candidates": [],
         "id": "research_instrument",
         "action_type": "research",
         "objective_rewards": [
@@ -2886,6 +3059,40 @@ export const energyPriorityTurn: TurnResponse = {
     },
     "crew": [
       {
+        "nutrition_deficit": 0.0,
+        "hydration_deficit": 0.0,
+        "condition": {
+          "status": "fit",
+          "nutrition_status": "adequate",
+          "hydration_status": "adequate",
+          "can_work": true,
+          "can_do_eva": true,
+          "performance_penalty": 0.0,
+          "restrictions": [],
+          "nutrition_recovery_weeks": 0,
+          "hydration_recovery_weeks": 0,
+          "source_url": "https://www.nasa.gov/reference/risk-of-inadequate-food-and-nutrition/"
+        },
+        "ration_outlook": {
+          "normal": {
+            "nutrition_deficit": 0.0,
+            "hydration_deficit": 0.0,
+            "food_damage": 0,
+            "water_damage": 0
+          },
+          "reduced": {
+            "nutrition_deficit": 0.3,
+            "hydration_deficit": 0.3,
+            "food_damage": 0,
+            "water_damage": 4
+          },
+          "emergency": {
+            "nutrition_deficit": 0.6,
+            "hydration_deficit": 0.6,
+            "food_damage": 0,
+            "water_damage": 28
+          }
+        },
         "id": "alex",
         "name": "Alex Vega",
         "role": "engineer",
@@ -2918,10 +3125,44 @@ export const energyPriorityTurn: TurnResponse = {
         }
       },
       {
+        "nutrition_deficit": 0.0,
+        "hydration_deficit": 0.0,
+        "condition": {
+          "status": "fit",
+          "nutrition_status": "adequate",
+          "hydration_status": "adequate",
+          "can_work": true,
+          "can_do_eva": true,
+          "performance_penalty": 0.0,
+          "restrictions": [],
+          "nutrition_recovery_weeks": 0,
+          "hydration_recovery_weeks": 0,
+          "source_url": "https://www.nasa.gov/reference/risk-of-inadequate-food-and-nutrition/"
+        },
+        "ration_outlook": {
+          "normal": {
+            "nutrition_deficit": 0.0,
+            "hydration_deficit": 0.0,
+            "food_damage": 0,
+            "water_damage": 0
+          },
+          "reduced": {
+            "nutrition_deficit": 0.3,
+            "hydration_deficit": 0.3,
+            "food_damage": 0,
+            "water_damage": 4
+          },
+          "emergency": {
+            "nutrition_deficit": 0.6,
+            "hydration_deficit": 0.6,
+            "food_damage": 0,
+            "water_damage": 28
+          }
+        },
         "id": "maya",
         "name": "Maya Okafor",
         "role": "medic",
-        "health": 92,
+        "health": 94,
         "positive_trait": "Efficient metabolism: consumes 10% less food.",
         "negative_trait": "Thirsty: consumes 10% more water.",
         "food_multiplier": 0.9,
@@ -2990,6 +3231,8 @@ export const energyPriorityTurn: TurnResponse = {
       },
       "choices": [
         {
+          "workload": "light",
+          "support_candidates": [],
           "id": "structured_recovery",
           "action_type": "event",
           "objective_rewards": [],
@@ -3030,6 +3273,8 @@ export const energyPriorityTurn: TurnResponse = {
           "success_probability": 1.0
         },
         {
+          "workload": "care",
+          "support_candidates": [],
           "id": "medical_recovery",
           "action_type": "event",
           "objective_rewards": [],
@@ -3084,6 +3329,8 @@ export const energyPriorityTurn: TurnResponse = {
           "success_probability": null
         },
         {
+          "workload": "light",
+          "support_candidates": [],
           "id": "routine_recovery",
           "action_type": "event",
           "objective_rewards": [],
@@ -3221,6 +3468,15 @@ export const energyPriorityTurn: TurnResponse = {
               "crew_id": "alex",
               "before": 100,
               "after": 100,
+              "food_received_fraction": 1.0,
+              "water_received_fraction": 1.0,
+              "nutrition_before": 0.0,
+              "nutrition_after": 0.0,
+              "hydration_before": 0.0,
+              "hydration_after": 0.0,
+              "recovery": 0,
+              "worked": false,
+              "rested": false,
               "food_penalty": 0,
               "water_penalty": 0,
               "oxygen_penalty": 0,
@@ -3230,7 +3486,16 @@ export const energyPriorityTurn: TurnResponse = {
             {
               "crew_id": "maya",
               "before": 92,
-              "after": 92,
+              "after": 94,
+              "food_received_fraction": 1.0,
+              "water_received_fraction": 1.0,
+              "nutrition_before": 0.0,
+              "nutrition_after": 0.0,
+              "hydration_before": 0.0,
+              "hydration_after": 0.0,
+              "recovery": 2,
+              "worked": false,
+              "rested": false,
               "food_penalty": 0,
               "water_penalty": 0,
               "oxygen_penalty": 0,
@@ -3329,6 +3594,60 @@ export const energyPriorityTurn: TurnResponse = {
     },
     "assignment_options": [
       {
+        "workload": "rest",
+        "support_candidates": [],
+        "id": "crew_rest",
+        "action_type": "rest",
+        "objective_rewards": [],
+        "text": "Rest and recuperate",
+        "description": "One week without active work. Adequate actual food and water improve deficit recovery and allow up to 5 condition points of recovery in safe air. Rest creates no supplies and cannot compensate for continued deprivation.",
+        "costs": {},
+        "required_items": {},
+        "requires_crew": true,
+        "role_bonus": {},
+        "crew_role_bonus": {},
+        "success_chance": 1.0,
+        "success_effects": {
+          "resources": {},
+          "solar_efficiency": 0.0,
+          "oxygen_efficiency": 0.0,
+          "water_recovery_efficiency": 0.0,
+          "co2_efficiency": 0.0,
+          "crew_health": 0,
+          "target": "selected"
+        },
+        "failure_effects": {
+          "resources": {},
+          "solar_efficiency": 0.0,
+          "oxygen_efficiency": 0.0,
+          "water_recovery_efficiency": 0.0,
+          "co2_efficiency": 0.0,
+          "crew_health": 0,
+          "target": "selected"
+        },
+        "required_role": null,
+        "minimum_crew": 1,
+        "available": true,
+        "unavailable_reasons": [],
+        "eligible_crew": [
+          {
+            "crew_id": "alex",
+            "available": true,
+            "unavailable_reasons": [],
+            "success_probability": 1.0
+          },
+          {
+            "crew_id": "maya",
+            "available": true,
+            "unavailable_reasons": [],
+            "success_probability": 1.0
+          }
+        ],
+        "success_probability": null
+      },
+      {
+        "workload": "eva",
+        "support_candidates": [],
         "id": "clean_array",
         "action_type": "maintenance",
         "objective_rewards": [],
@@ -3392,6 +3711,8 @@ export const energyPriorityTurn: TurnResponse = {
         "success_probability": null
       },
       {
+        "workload": "strenuous",
+        "support_candidates": [],
         "id": "install_regulator",
         "action_type": "maintenance",
         "objective_rewards": [],
@@ -3454,6 +3775,8 @@ export const energyPriorityTurn: TurnResponse = {
         "success_probability": null
       },
       {
+        "workload": "light",
+        "support_candidates": [],
         "id": "service_water_recovery",
         "action_type": "maintenance",
         "objective_rewards": [],
@@ -3507,6 +3830,8 @@ export const energyPriorityTurn: TurnResponse = {
         "success_probability": null
       },
       {
+        "workload": "light",
+        "support_candidates": [],
         "id": "service_co2_scrubber",
         "action_type": "maintenance",
         "objective_rewards": [],
@@ -3560,6 +3885,8 @@ export const energyPriorityTurn: TurnResponse = {
         "success_probability": null
       },
       {
+        "workload": "eva",
+        "support_candidates": [],
         "id": "research_geology",
         "action_type": "research",
         "objective_rewards": [
@@ -3632,6 +3959,8 @@ export const energyPriorityTurn: TurnResponse = {
         "success_probability": null
       },
       {
+        "workload": "eva",
+        "support_candidates": [],
         "id": "research_seismic",
         "action_type": "research",
         "objective_rewards": [],
@@ -3697,6 +4026,8 @@ export const energyPriorityTurn: TurnResponse = {
         "success_probability": null
       },
       {
+        "workload": "strenuous",
+        "support_candidates": [],
         "id": "research_instrument",
         "action_type": "research",
         "objective_rewards": [
@@ -3860,6 +4191,15 @@ export const energyPriorityTurn: TurnResponse = {
           "crew_id": "alex",
           "before": 100,
           "after": 100,
+          "food_received_fraction": 1.0,
+          "water_received_fraction": 1.0,
+          "nutrition_before": 0.0,
+          "nutrition_after": 0.0,
+          "hydration_before": 0.0,
+          "hydration_after": 0.0,
+          "recovery": 0,
+          "worked": false,
+          "rested": false,
           "food_penalty": 0,
           "water_penalty": 0,
           "oxygen_penalty": 0,
@@ -3869,7 +4209,16 @@ export const energyPriorityTurn: TurnResponse = {
         {
           "crew_id": "maya",
           "before": 92,
-          "after": 92,
+          "after": 94,
+          "food_received_fraction": 1.0,
+          "water_received_fraction": 1.0,
+          "nutrition_before": 0.0,
+          "nutrition_after": 0.0,
+          "hydration_before": 0.0,
+          "hydration_after": 0.0,
+          "recovery": 2,
+          "worked": false,
+          "rested": false,
           "food_penalty": 0,
           "water_penalty": 0,
           "oxygen_penalty": 0,
@@ -3899,6 +4248,4904 @@ export const energyPriorityTurn: TurnResponse = {
     "next_event": {
       "event_id": "crew_recovery",
       "title": "A Week for Recovery",
+      "effects": {
+        "resources": {},
+        "solar_efficiency": 0.0,
+        "oxygen_efficiency": 0.0,
+        "water_recovery_efficiency": 0.0,
+        "co2_efficiency": 0.0,
+        "health_changes": []
+      }
+    },
+    "ending": null
+  }
+};
+
+export const dehydratedGame: GameResponse = {
+  "game_id": "fixture-game",
+  "state": {
+    "life_support": {
+      "source_url": "https://www.nasa.gov/reference/environmental-control-and-life-support-systems-eclss/",
+      "water_recovery_condition": 0.98,
+      "co2_condition": 0.985,
+      "wastewater": 9.344,
+      "co2_burden": 0.0,
+      "co2_warning_level": 4.0,
+      "recovery_capacity": 4.0,
+      "recovery_yield": 0.8,
+      "water_per_oxygen": 0.1,
+      "oxygen_reserve_weeks": 2.0,
+      "water_recovery_wear": 0.02,
+      "co2_wear": 0.015,
+      "co2_removal_capacity": 6.0,
+      "power_components": {
+        "habitat": 8.0,
+        "water_recovery": 2.0,
+        "oxygen_generation": 0.0,
+        "co2_removal": 2.0
+      }
+    },
+    "energy": {
+      "battery_capacity": 100.0,
+      "stored": 54.0,
+      "priority": "life_support",
+      "life_support_required": 12.0,
+      "solar_day_earth_days": 29.5306,
+      "source_url": "https://svs.gsfc.nasa.gov/12739/",
+      "assumption": "Fictional shared epoch: sunrise at Apollo 11 longitude on mission day zero. Smooth non-polar horizon, equal day/night halves, constant useful output during daylight. Weekly averaging omits terrain shadows, eclipses, seasons, and panel incidence.",
+      "forecast": [
+        {
+          "week": 2,
+          "daylight_fraction": 1.0,
+          "daylight_days": 7.0,
+          "darkness_days": 0.0,
+          "phase": "daylight",
+          "electricity_generated": 36.0
+        },
+        {
+          "week": 3,
+          "daylight_fraction": 0.109329,
+          "daylight_days": 0.7653,
+          "darkness_days": 6.2347,
+          "phase": "mixed",
+          "electricity_generated": 3.935844
+        },
+        {
+          "week": 4,
+          "daylight_fraction": 0.0,
+          "daylight_days": 0.0,
+          "darkness_days": 7.0,
+          "phase": "darkness",
+          "electricity_generated": 0.0
+        },
+        {
+          "week": 5,
+          "daylight_fraction": 0.781343,
+          "daylight_days": 5.4694,
+          "darkness_days": 1.5306,
+          "phase": "mixed",
+          "electricity_generated": 28.128348
+        },
+        {
+          "week": 6,
+          "daylight_fraction": 1.0,
+          "daylight_days": 7.0,
+          "darkness_days": 0.0,
+          "phase": "daylight",
+          "electricity_generated": 36.0
+        },
+        {
+          "week": 7,
+          "daylight_fraction": 0.327986,
+          "daylight_days": 2.2959,
+          "darkness_days": 4.7041,
+          "phase": "mixed",
+          "electricity_generated": 11.807496
+        },
+        {
+          "week": 8,
+          "daylight_fraction": 0.0,
+          "daylight_days": 0.0,
+          "darkness_days": 7.0,
+          "phase": "darkness",
+          "electricity_generated": 0.0
+        },
+        {
+          "week": 9,
+          "daylight_fraction": 0.562686,
+          "daylight_days": 3.9388,
+          "darkness_days": 3.0612,
+          "phase": "mixed",
+          "electricity_generated": 20.256696
+        },
+        {
+          "week": 10,
+          "daylight_fraction": 1.0,
+          "daylight_days": 7.0,
+          "darkness_days": 0.0,
+          "phase": "daylight",
+          "electricity_generated": 36.0
+        },
+        {
+          "week": 11,
+          "daylight_fraction": 0.546643,
+          "daylight_days": 3.8265,
+          "darkness_days": 3.1735,
+          "phase": "mixed",
+          "electricity_generated": 19.679148
+        },
+        {
+          "week": 12,
+          "daylight_fraction": 0.0,
+          "daylight_days": 0.0,
+          "darkness_days": 7.0,
+          "phase": "darkness",
+          "electricity_generated": 0.0
+        }
+      ]
+    },
+    "battery_capacity": 100.0,
+    "power_priority": "life_support",
+    "research_projects": [],
+    "station_id": "alpha",
+    "station_name": "Station Alpha \u2014 Research Base",
+    "difficulty": "standard",
+    "difficulty_rank": 2,
+    "mission_id": "alpha_rotation",
+    "mission_name": "Hold Until Rotation",
+    "current_week": 2,
+    "duration_weeks": 12,
+    "minimum_survivors": 1,
+    "weeks_remaining": 11,
+    "mission_days": {
+      "start": 8,
+      "end": 14
+    },
+    "crew": [
+      {
+        "nutrition_deficit": 0.0,
+        "hydration_deficit": 0.6,
+        "condition": {
+          "status": "serious",
+          "nutrition_status": "adequate",
+          "hydration_status": "dehydrated",
+          "can_work": true,
+          "can_do_eva": false,
+          "performance_penalty": 0.075,
+          "restrictions": [
+            "Condition permits light duties only; EVA and strenuous work are unavailable."
+          ],
+          "nutrition_recovery_weeks": 0,
+          "hydration_recovery_weeks": 2,
+          "source_url": "https://www.nasa.gov/reference/risk-of-inadequate-food-and-nutrition/"
+        },
+        "ration_outlook": {
+          "normal": {
+            "nutrition_deficit": 0.0,
+            "hydration_deficit": 0.1,
+            "food_damage": 0,
+            "water_damage": 0
+          },
+          "reduced": {
+            "nutrition_deficit": 0.3,
+            "hydration_deficit": 0.9,
+            "food_damage": 0,
+            "water_damage": 52
+          },
+          "emergency": {
+            "nutrition_deficit": 0.6,
+            "hydration_deficit": 1.2,
+            "food_damage": 0,
+            "water_damage": 76
+          }
+        },
+        "id": "alex",
+        "name": "Alex Vega",
+        "role": "engineer",
+        "health": 72,
+        "positive_trait": "Steady hands: +5 percentage points on assigned event actions.",
+        "negative_trait": "Large appetite: consumes 10% more food.",
+        "food_multiplier": 1.1,
+        "water_multiplier": 1.0,
+        "event_bonus": 0.05,
+        "injury_multiplier": 1.0,
+        "specialty": "Mechanical repair",
+        "training_source": "https://www.nasa.gov/reference/jsc-crew-operations-training/",
+        "action_bonuses": {},
+        "food_shortage_weeks": 0,
+        "water_shortage_weeks": 1,
+        "alive": true,
+        "ration_options": {
+          "normal": {
+            "food": 1.1,
+            "water": 2.0
+          },
+          "reduced": {
+            "food": 0.77,
+            "water": 1.4
+          },
+          "emergency": {
+            "food": 0.44,
+            "water": 0.8
+          }
+        }
+      },
+      {
+        "nutrition_deficit": 0.0,
+        "hydration_deficit": 0.6,
+        "condition": {
+          "status": "serious",
+          "nutrition_status": "adequate",
+          "hydration_status": "dehydrated",
+          "can_work": true,
+          "can_do_eva": false,
+          "performance_penalty": 0.075,
+          "restrictions": [
+            "Condition permits light duties only; EVA and strenuous work are unavailable."
+          ],
+          "nutrition_recovery_weeks": 0,
+          "hydration_recovery_weeks": 2,
+          "source_url": "https://www.nasa.gov/reference/risk-of-inadequate-food-and-nutrition/"
+        },
+        "ration_outlook": {
+          "normal": {
+            "nutrition_deficit": 0.0,
+            "hydration_deficit": 0.1,
+            "food_damage": 0,
+            "water_damage": 0
+          },
+          "reduced": {
+            "nutrition_deficit": 0.3,
+            "hydration_deficit": 0.9,
+            "food_damage": 0,
+            "water_damage": 52
+          },
+          "emergency": {
+            "nutrition_deficit": 0.6,
+            "hydration_deficit": 1.2,
+            "food_damage": 0,
+            "water_damage": 76
+          }
+        },
+        "id": "maya",
+        "name": "Maya Okafor",
+        "role": "medic",
+        "health": 72,
+        "positive_trait": "Efficient metabolism: consumes 10% less food.",
+        "negative_trait": "Thirsty: consumes 10% more water.",
+        "food_multiplier": 0.9,
+        "water_multiplier": 1.1,
+        "event_bonus": 0.0,
+        "injury_multiplier": 1.0,
+        "specialty": "Crew medical officer",
+        "training_source": "https://www.nasa.gov/reference/5-0-training/",
+        "action_bonuses": {},
+        "food_shortage_weeks": 0,
+        "water_shortage_weeks": 1,
+        "alive": true,
+        "ration_options": {
+          "normal": {
+            "food": 0.9,
+            "water": 2.2
+          },
+          "reduced": {
+            "food": 0.63,
+            "water": 1.54
+          },
+          "emergency": {
+            "food": 0.36,
+            "water": 0.88
+          }
+        }
+      }
+    ],
+    "resources": {
+      "food": 50.0,
+      "water": 113.52,
+      "oxygen": 24.0,
+      "electricity": 54.0,
+      "medicine": 8.0,
+      "repair_kits": 8.0,
+      "eva_batteries": 8.0,
+      "dust_kits": 0.0,
+      "oxygen_regulators": 0.0,
+      "diagnostic_tools": 0.0,
+      "sealant_packs": 0.0,
+      "scientific_tools": 0.0,
+      "research_data": 0.0,
+      "wastewater": 9.344,
+      "co2": 0.0
+    },
+    "solar_efficiency": 0.75,
+    "oxygen_efficiency": 0.75,
+    "water_recovery_efficiency": 0.98,
+    "co2_efficiency": 0.985,
+    "current_event_id": "oxygen_fault",
+    "current_event": {
+      "id": "oxygen_fault",
+      "title": "Life Support Alarm",
+      "description": "A pressure regulator sticks. Oxygen system efficiency falls by 25 percentage points.",
+      "category": "hazard",
+      "science_context": "Spacecraft life-support equipment needs maintenance. This regulator failure is a fictional training scenario.",
+      "source_url": "https://www.nasa.gov/reference/9-0-hardware-and-equipment-vol-2/",
+      "on_start": {
+        "resources": {},
+        "solar_efficiency": 0.0,
+        "oxygen_efficiency": -0.25,
+        "water_recovery_efficiency": 0.0,
+        "co2_efficiency": 0.0,
+        "crew_health": 0,
+        "target": "selected"
+      },
+      "choices": [
+        {
+          "workload": "strenuous",
+          "support_candidates": [],
+          "id": "replace_regulator",
+          "action_type": "event",
+          "objective_rewards": [],
+          "text": "Replace the regulator",
+          "description": "Requires a repair kit. Technical professions improve the odds; failure injures the worker.",
+          "costs": {
+            "repair_kits": 1.0
+          },
+          "required_items": {},
+          "requires_crew": true,
+          "role_bonus": {
+            "engineer": 0.25,
+            "technician": 0.25
+          },
+          "crew_role_bonus": {},
+          "success_chance": 0.65,
+          "success_effects": {
+            "resources": {},
+            "solar_efficiency": 0.0,
+            "oxygen_efficiency": 0.25,
+            "water_recovery_efficiency": 0.0,
+            "co2_efficiency": 0.0,
+            "crew_health": 0,
+            "target": "selected"
+          },
+          "failure_effects": {
+            "resources": {},
+            "solar_efficiency": 0.0,
+            "oxygen_efficiency": 0.0,
+            "water_recovery_efficiency": 0.0,
+            "co2_efficiency": 0.0,
+            "crew_health": -15,
+            "target": "selected"
+          },
+          "required_role": null,
+          "minimum_crew": 1,
+          "available": false,
+          "unavailable_reasons": [
+            "Requires at least 1 living astronauts fit for this workload.",
+            "Condition permits light duties only; EVA and strenuous work are unavailable."
+          ],
+          "eligible_crew": [
+            {
+              "crew_id": "alex",
+              "available": false,
+              "unavailable_reasons": [
+                "Requires at least 1 living astronauts fit for this workload.",
+                "Condition permits light duties only; EVA and strenuous work are unavailable."
+              ],
+              "success_probability": 0.875
+            },
+            {
+              "crew_id": "maya",
+              "available": false,
+              "unavailable_reasons": [
+                "Requires at least 1 living astronauts fit for this workload.",
+                "Condition permits light duties only; EVA and strenuous work are unavailable."
+              ],
+              "success_probability": 0.575
+            }
+          ],
+          "success_probability": null
+        },
+        {
+          "workload": "strenuous",
+          "support_candidates": [
+            {
+              "crew_id": "alex",
+              "available": false,
+              "unavailable_reasons": [
+                "Condition permits light duties only; EVA and strenuous work are unavailable."
+              ]
+            },
+            {
+              "crew_id": "maya",
+              "available": false,
+              "unavailable_reasons": [
+                "Condition permits light duties only; EVA and strenuous work are unavailable."
+              ]
+            }
+          ],
+          "id": "recalibrate",
+          "action_type": "event",
+          "objective_rewards": [],
+          "text": "Recalibrate with a second crew member",
+          "description": "Requires two living astronauts. A scientist improves the odds. Failure causes further damage.",
+          "costs": {
+            "electricity": 3.0
+          },
+          "required_items": {},
+          "requires_crew": true,
+          "role_bonus": {
+            "scientist": 0.3,
+            "technician": 0.15
+          },
+          "crew_role_bonus": {},
+          "success_chance": 0.55,
+          "success_effects": {
+            "resources": {},
+            "solar_efficiency": 0.0,
+            "oxygen_efficiency": 0.2,
+            "water_recovery_efficiency": 0.0,
+            "co2_efficiency": 0.0,
+            "crew_health": 0,
+            "target": "selected"
+          },
+          "failure_effects": {
+            "resources": {},
+            "solar_efficiency": 0.0,
+            "oxygen_efficiency": -0.1,
+            "water_recovery_efficiency": 0.0,
+            "co2_efficiency": 0.0,
+            "crew_health": 0,
+            "target": "selected"
+          },
+          "required_role": null,
+          "minimum_crew": 2,
+          "available": false,
+          "unavailable_reasons": [
+            "Requires at least 2 living astronauts fit for this workload.",
+            "Condition permits light duties only; EVA and strenuous work are unavailable."
+          ],
+          "eligible_crew": [
+            {
+              "crew_id": "alex",
+              "available": false,
+              "unavailable_reasons": [
+                "Requires at least 2 living astronauts fit for this workload.",
+                "Condition permits light duties only; EVA and strenuous work are unavailable."
+              ],
+              "success_probability": 0.525
+            },
+            {
+              "crew_id": "maya",
+              "available": false,
+              "unavailable_reasons": [
+                "Requires at least 2 living astronauts fit for this workload.",
+                "Condition permits light duties only; EVA and strenuous work are unavailable."
+              ],
+              "success_probability": 0.475
+            }
+          ],
+          "success_probability": null
+        },
+        {
+          "workload": "light",
+          "support_candidates": [],
+          "id": "ignore",
+          "action_type": "event",
+          "objective_rewards": [],
+          "text": "Rely on oxygen reserves",
+          "description": "No immediate cost, but oxygen production stays reduced.",
+          "costs": {},
+          "required_items": {},
+          "requires_crew": false,
+          "role_bonus": {},
+          "crew_role_bonus": {},
+          "success_chance": 1.0,
+          "success_effects": {
+            "resources": {},
+            "solar_efficiency": 0.0,
+            "oxygen_efficiency": 0.0,
+            "water_recovery_efficiency": 0.0,
+            "co2_efficiency": 0.0,
+            "crew_health": 0,
+            "target": "selected"
+          },
+          "failure_effects": {
+            "resources": {},
+            "solar_efficiency": 0.0,
+            "oxygen_efficiency": 0.0,
+            "water_recovery_efficiency": 0.0,
+            "co2_efficiency": 0.0,
+            "crew_health": 0,
+            "target": "selected"
+          },
+          "required_role": null,
+          "minimum_crew": 1,
+          "available": true,
+          "unavailable_reasons": [],
+          "eligible_crew": [],
+          "success_probability": 1.0
+        }
+      ]
+    },
+    "emergency_ration_requirements": {
+      "food": 0.8,
+      "water": 1.68
+    },
+    "depleted_provisions": [],
+    "used_event_ids": [
+      "solar_failure"
+    ],
+    "flags": {},
+    "history": [
+      {
+        "project_updates": [],
+        "assignments": [],
+        "science_gains": [],
+        "week": 1,
+        "event": {
+          "support_crew_ids": [],
+          "event_id": "solar_failure",
+          "choice_id": "ignore",
+          "choice_text": "Conserve supplies and accept reduced output",
+          "selected_crew_id": null,
+          "success": true,
+          "success_probability": 1.0,
+          "costs": {},
+          "effects": {
+            "resources": {},
+            "solar_efficiency": 0.0,
+            "oxygen_efficiency": 0.0,
+            "water_recovery_efficiency": 0.0,
+            "co2_efficiency": 0.0,
+            "health_changes": []
+          },
+          "objective_progress": []
+        },
+        "rations": {
+          "alex": {
+            "food": "normal",
+            "water": "emergency"
+          },
+          "maya": {
+            "food": "normal",
+            "water": "emergency"
+          }
+        },
+        "survival": {
+          "life_support": {
+            "wastewater_processed": 4.0,
+            "water_recovered": 3.2,
+            "water_for_oxygen": 0.0,
+            "wastewater_captured": 1.344,
+            "oxygen_generated": 0.0,
+            "co2_produced": 2.0,
+            "co2_removed": 2.0,
+            "co2_remaining": 0.0,
+            "power_components": {
+              "habitat": 8.0,
+              "water_recovery": 2.0,
+              "oxygen_generation": 0.0,
+              "co2_removal": 2.0
+            }
+          },
+          "daylight_fraction": 1.0,
+          "battery_capacity": 100.0,
+          "electricity_curtailed": 0.0,
+          "project_electricity_used": 0.0,
+          "power_priority": "life_support",
+          "ration_requirements": {
+            "food": 2.0,
+            "water": 1.68
+          },
+          "ration_costs": {
+            "food": 2.0,
+            "water": 1.68
+          },
+          "ration_depletion_fractions": {
+            "food": 0.0,
+            "water": 0.0
+          },
+          "electricity_generated": 36.0,
+          "electricity_required": 12.0,
+          "electricity_used": 12.0,
+          "life_support_power_fraction": 1.0,
+          "oxygen_generated": 0.0,
+          "oxygen_required": 6.0,
+          "oxygen_used": 6.0,
+          "oxygen_shortage": 0.0,
+          "health_changes": [
+            {
+              "crew_id": "alex",
+              "before": 100,
+              "after": 72,
+              "food_received_fraction": 1.0,
+              "water_received_fraction": 0.4,
+              "nutrition_before": 0.0,
+              "nutrition_after": 0.0,
+              "hydration_before": 0.0,
+              "hydration_after": 0.6,
+              "recovery": 0,
+              "worked": false,
+              "rested": false,
+              "food_penalty": 0,
+              "water_penalty": 28,
+              "oxygen_penalty": 0,
+              "co2_penalty": 0,
+              "died": false
+            },
+            {
+              "crew_id": "maya",
+              "before": 100,
+              "after": 72,
+              "food_received_fraction": 1.0,
+              "water_received_fraction": 0.4,
+              "nutrition_before": 0.0,
+              "nutrition_after": 0.0,
+              "hydration_before": 0.0,
+              "hydration_after": 0.6,
+              "recovery": 0,
+              "worked": false,
+              "rested": false,
+              "food_penalty": 0,
+              "water_penalty": 28,
+              "oxygen_penalty": 0,
+              "co2_penalty": 0,
+              "died": false
+            }
+          ]
+        },
+        "resource_changes": {
+          "food": -2.0,
+          "water": 1.52,
+          "oxygen": -6.0,
+          "electricity": 24.0,
+          "medicine": 0.0,
+          "repair_kits": 0.0,
+          "eva_batteries": 0.0,
+          "dust_kits": 0.0,
+          "oxygen_regulators": 0.0,
+          "diagnostic_tools": 0.0,
+          "sealant_packs": 0.0,
+          "scientific_tools": 0.0,
+          "research_data": 0.0,
+          "wastewater": -2.656,
+          "co2": 0.0
+        },
+        "deaths": [],
+        "next_event": {
+          "event_id": "oxygen_fault",
+          "title": "Life Support Alarm",
+          "effects": {
+            "resources": {},
+            "solar_efficiency": 0.0,
+            "oxygen_efficiency": -0.25,
+            "water_recovery_efficiency": 0.0,
+            "co2_efficiency": 0.0,
+            "health_changes": []
+          }
+        },
+        "ending": null
+      }
+    ],
+    "status": "running",
+    "random_seed": 0,
+    "initial_crew_size": 2,
+    "weeks_completed": 1,
+    "ending": null,
+    "results": null,
+    "science": {
+      "status": "not_started",
+      "completed_objectives": 0,
+      "total_objectives": 3,
+      "research_data": 0.0,
+      "objectives": [
+        {
+          "id": "geology",
+          "title": "Baseline sample collection",
+          "description": "Collect separate geological samples. Successful field sampling counts; generic research points do not.",
+          "target": 2,
+          "qualifying_choices": [
+            "kit_sampling",
+            "basic_sampling",
+            "research_geology"
+          ],
+          "source_url": "https://www.nasa.gov/missions/artemis/nasa-field-geology-training-prepares-artemis-mission-support-teams/",
+          "progress": 0,
+          "completed": false
+        },
+        {
+          "id": "seismology",
+          "title": "Seismic baseline",
+          "description": "Complete detailed analyses of separate seismic records. Simply archiving a signal does not count.",
+          "target": 1,
+          "qualifying_choices": [
+            "analyze_seismic",
+            "research_seismic"
+          ],
+          "source_url": "https://science.nasa.gov/moon/moonquakes/",
+          "progress": 0,
+          "completed": false
+        },
+        {
+          "id": "instruments",
+          "title": "Restore a research instrument",
+          "description": "Restore a research instrument or the research communications link. Routine life-support maintenance does not count.",
+          "target": 1,
+          "qualifying_choices": [
+            "align_antenna",
+            "remote_antenna",
+            "research_instrument"
+          ],
+          "source_url": "https://www.nasa.gov/reference/9-0-hardware-and-equipment-vol-2/",
+          "progress": 0,
+          "completed": false
+        }
+      ]
+    },
+    "assignment_options": [
+      {
+        "workload": "rest",
+        "support_candidates": [],
+        "id": "crew_rest",
+        "action_type": "rest",
+        "objective_rewards": [],
+        "text": "Rest and recuperate",
+        "description": "One week without active work. Adequate actual food and water improve deficit recovery and allow up to 5 condition points of recovery in safe air. Rest creates no supplies and cannot compensate for continued deprivation.",
+        "costs": {},
+        "required_items": {},
+        "requires_crew": true,
+        "role_bonus": {},
+        "crew_role_bonus": {},
+        "success_chance": 1.0,
+        "success_effects": {
+          "resources": {},
+          "solar_efficiency": 0.0,
+          "oxygen_efficiency": 0.0,
+          "water_recovery_efficiency": 0.0,
+          "co2_efficiency": 0.0,
+          "crew_health": 0,
+          "target": "selected"
+        },
+        "failure_effects": {
+          "resources": {},
+          "solar_efficiency": 0.0,
+          "oxygen_efficiency": 0.0,
+          "water_recovery_efficiency": 0.0,
+          "co2_efficiency": 0.0,
+          "crew_health": 0,
+          "target": "selected"
+        },
+        "required_role": null,
+        "minimum_crew": 1,
+        "available": true,
+        "unavailable_reasons": [],
+        "eligible_crew": [
+          {
+            "crew_id": "alex",
+            "available": true,
+            "unavailable_reasons": [],
+            "success_probability": 1.0
+          },
+          {
+            "crew_id": "maya",
+            "available": true,
+            "unavailable_reasons": [],
+            "success_probability": 1.0
+          }
+        ],
+        "success_probability": null
+      },
+      {
+        "workload": "eva",
+        "support_candidates": [],
+        "id": "clean_array",
+        "action_type": "maintenance",
+        "objective_rewards": [],
+        "text": "Clean the solar array",
+        "description": "Guaranteed +20 percentage points solar condition. Uses a dust kit and EVA supplies; One-week crew assignment; incident response is separate.",
+        "costs": {
+          "dust_kits": 1.0,
+          "eva_batteries": 1.0,
+          "oxygen": 2.0
+        },
+        "required_items": {},
+        "requires_crew": true,
+        "role_bonus": {},
+        "crew_role_bonus": {},
+        "success_chance": 1.0,
+        "success_effects": {
+          "resources": {},
+          "solar_efficiency": 0.2,
+          "oxygen_efficiency": 0.0,
+          "water_recovery_efficiency": 0.0,
+          "co2_efficiency": 0.0,
+          "crew_health": 0,
+          "target": "selected"
+        },
+        "failure_effects": {
+          "resources": {},
+          "solar_efficiency": 0.0,
+          "oxygen_efficiency": 0.0,
+          "water_recovery_efficiency": 0.0,
+          "co2_efficiency": 0.0,
+          "crew_health": 0,
+          "target": "selected"
+        },
+        "required_role": null,
+        "minimum_crew": 1,
+        "available": false,
+        "unavailable_reasons": [
+          "Requires at least 1 living astronauts fit for this workload.",
+          "Condition permits light duties only; EVA and strenuous work are unavailable.",
+          "Requires 1 dust_kits; available 0."
+        ],
+        "eligible_crew": [
+          {
+            "crew_id": "alex",
+            "available": false,
+            "unavailable_reasons": [
+              "Requires at least 1 living astronauts fit for this workload.",
+              "Condition permits light duties only; EVA and strenuous work are unavailable.",
+              "Requires 1 dust_kits; available 0."
+            ],
+            "success_probability": 1.0
+          },
+          {
+            "crew_id": "maya",
+            "available": false,
+            "unavailable_reasons": [
+              "Requires at least 1 living astronauts fit for this workload.",
+              "Condition permits light duties only; EVA and strenuous work are unavailable.",
+              "Requires 1 dust_kits; available 0."
+            ],
+            "success_probability": 1.0
+          }
+        ],
+        "success_probability": null
+      },
+      {
+        "workload": "strenuous",
+        "support_candidates": [],
+        "id": "install_regulator",
+        "action_type": "maintenance",
+        "objective_rewards": [],
+        "text": "Install an oxygen regulator",
+        "description": "Guaranteed +20 percentage points oxygen condition. Uses a regulator and 2 power; One-week crew assignment; incident response is separate.",
+        "costs": {
+          "oxygen_regulators": 1.0,
+          "electricity": 2.0
+        },
+        "required_items": {},
+        "requires_crew": true,
+        "role_bonus": {},
+        "crew_role_bonus": {},
+        "success_chance": 1.0,
+        "success_effects": {
+          "resources": {},
+          "solar_efficiency": 0.0,
+          "oxygen_efficiency": 0.2,
+          "water_recovery_efficiency": 0.0,
+          "co2_efficiency": 0.0,
+          "crew_health": 0,
+          "target": "selected"
+        },
+        "failure_effects": {
+          "resources": {},
+          "solar_efficiency": 0.0,
+          "oxygen_efficiency": 0.0,
+          "water_recovery_efficiency": 0.0,
+          "co2_efficiency": 0.0,
+          "crew_health": 0,
+          "target": "selected"
+        },
+        "required_role": null,
+        "minimum_crew": 1,
+        "available": false,
+        "unavailable_reasons": [
+          "Requires at least 1 living astronauts fit for this workload.",
+          "Condition permits light duties only; EVA and strenuous work are unavailable.",
+          "Requires 1 oxygen_regulators; available 0."
+        ],
+        "eligible_crew": [
+          {
+            "crew_id": "alex",
+            "available": false,
+            "unavailable_reasons": [
+              "Requires at least 1 living astronauts fit for this workload.",
+              "Condition permits light duties only; EVA and strenuous work are unavailable.",
+              "Requires 1 oxygen_regulators; available 0."
+            ],
+            "success_probability": 1.0
+          },
+          {
+            "crew_id": "maya",
+            "available": false,
+            "unavailable_reasons": [
+              "Requires at least 1 living astronauts fit for this workload.",
+              "Condition permits light duties only; EVA and strenuous work are unavailable.",
+              "Requires 1 oxygen_regulators; available 0."
+            ],
+            "success_probability": 1.0
+          }
+        ],
+        "success_probability": null
+      },
+      {
+        "workload": "light",
+        "support_candidates": [],
+        "id": "service_water_recovery",
+        "action_type": "maintenance",
+        "objective_rewards": [],
+        "text": "Service the water recovery processor",
+        "description": "One repair kit and 2 power guarantee +30 water-recovery condition points. Recovered water comes from the wastewater stock and is available after this week's rations.",
+        "costs": {
+          "repair_kits": 1.0,
+          "electricity": 2.0
+        },
+        "required_items": {},
+        "requires_crew": true,
+        "role_bonus": {},
+        "crew_role_bonus": {},
+        "success_chance": 1.0,
+        "success_effects": {
+          "resources": {},
+          "solar_efficiency": 0.0,
+          "oxygen_efficiency": 0.0,
+          "water_recovery_efficiency": 0.3,
+          "co2_efficiency": 0.0,
+          "crew_health": 0,
+          "target": "selected"
+        },
+        "failure_effects": {
+          "resources": {},
+          "solar_efficiency": 0.0,
+          "oxygen_efficiency": 0.0,
+          "water_recovery_efficiency": 0.0,
+          "co2_efficiency": 0.0,
+          "crew_health": 0,
+          "target": "selected"
+        },
+        "required_role": null,
+        "minimum_crew": 1,
+        "available": true,
+        "unavailable_reasons": [],
+        "eligible_crew": [
+          {
+            "crew_id": "alex",
+            "available": true,
+            "unavailable_reasons": [],
+            "success_probability": 1.0
+          },
+          {
+            "crew_id": "maya",
+            "available": true,
+            "unavailable_reasons": [],
+            "success_probability": 1.0
+          }
+        ],
+        "success_probability": null
+      },
+      {
+        "workload": "light",
+        "support_candidates": [],
+        "id": "service_co2_scrubber",
+        "action_type": "maintenance",
+        "objective_rewards": [],
+        "text": "Service the carbon dioxide scrubber",
+        "description": "One repair kit and 2 power guarantee +30 scrubber condition points. Removal still requires power; oxygen reserves do not remove CO2.",
+        "costs": {
+          "repair_kits": 1.0,
+          "electricity": 2.0
+        },
+        "required_items": {},
+        "requires_crew": true,
+        "role_bonus": {},
+        "crew_role_bonus": {},
+        "success_chance": 1.0,
+        "success_effects": {
+          "resources": {},
+          "solar_efficiency": 0.0,
+          "oxygen_efficiency": 0.0,
+          "water_recovery_efficiency": 0.0,
+          "co2_efficiency": 0.3,
+          "crew_health": 0,
+          "target": "selected"
+        },
+        "failure_effects": {
+          "resources": {},
+          "solar_efficiency": 0.0,
+          "oxygen_efficiency": 0.0,
+          "water_recovery_efficiency": 0.0,
+          "co2_efficiency": 0.0,
+          "crew_health": 0,
+          "target": "selected"
+        },
+        "required_role": null,
+        "minimum_crew": 1,
+        "available": true,
+        "unavailable_reasons": [],
+        "eligible_crew": [
+          {
+            "crew_id": "alex",
+            "available": true,
+            "unavailable_reasons": [],
+            "success_probability": 1.0
+          },
+          {
+            "crew_id": "maya",
+            "available": true,
+            "unavailable_reasons": [],
+            "success_probability": 1.0
+          }
+        ],
+        "success_probability": null
+      },
+      {
+        "workload": "eva",
+        "support_candidates": [],
+        "id": "research_geology",
+        "action_type": "research",
+        "objective_rewards": [
+          {
+            "objective_id": "geology",
+            "title": "Baseline sample collection",
+            "amount": 1
+          }
+        ],
+        "text": "Survey a geological sample",
+        "description": "Use the science kit to collect one sample and 2 research data on success. Scientists improve the odds; failure costs the worker 8 health. One-week crew assignment; incident response is separate.",
+        "costs": {
+          "eva_batteries": 1.0,
+          "oxygen": 2.0
+        },
+        "required_items": {
+          "scientific_tools": 1
+        },
+        "requires_crew": true,
+        "role_bonus": {
+          "scientist": 0.2,
+          "technician": 0.1
+        },
+        "crew_role_bonus": {},
+        "success_chance": 0.75,
+        "success_effects": {
+          "resources": {
+            "research_data": 2.0
+          },
+          "solar_efficiency": 0.0,
+          "oxygen_efficiency": 0.0,
+          "water_recovery_efficiency": 0.0,
+          "co2_efficiency": 0.0,
+          "crew_health": 0,
+          "target": "selected"
+        },
+        "failure_effects": {
+          "resources": {},
+          "solar_efficiency": 0.0,
+          "oxygen_efficiency": 0.0,
+          "water_recovery_efficiency": 0.0,
+          "co2_efficiency": 0.0,
+          "crew_health": -8,
+          "target": "selected"
+        },
+        "required_role": null,
+        "minimum_crew": 1,
+        "available": false,
+        "unavailable_reasons": [
+          "Requires at least 1 living astronauts fit for this workload.",
+          "Condition permits light duties only; EVA and strenuous work are unavailable.",
+          "Requires 1 Field science kit (not consumed)."
+        ],
+        "eligible_crew": [
+          {
+            "crew_id": "alex",
+            "available": false,
+            "unavailable_reasons": [
+              "Requires at least 1 living astronauts fit for this workload.",
+              "Condition permits light duties only; EVA and strenuous work are unavailable.",
+              "Requires 1 Field science kit (not consumed)."
+            ],
+            "success_probability": 0.725
+          },
+          {
+            "crew_id": "maya",
+            "available": false,
+            "unavailable_reasons": [
+              "Requires at least 1 living astronauts fit for this workload.",
+              "Condition permits light duties only; EVA and strenuous work are unavailable.",
+              "Requires 1 Field science kit (not consumed)."
+            ],
+            "success_probability": 0.675
+          }
+        ],
+        "success_probability": null
+      },
+      {
+        "workload": "eva",
+        "support_candidates": [],
+        "id": "research_seismic",
+        "action_type": "research",
+        "objective_rewards": [],
+        "text": "Deploy seismic sensors",
+        "description": "Start a seismic project: 1 deployment week, 3 automatic recording weeks at 2 power each, then 1 crew analysis week. No objective credit until analysis succeeds. Failure costs 8 worker health and deployment supplies; the phase can be retried.",
+        "costs": {
+          "electricity": 2.0,
+          "eva_batteries": 1.0,
+          "oxygen": 2.0
+        },
+        "required_items": {
+          "scientific_tools": 1
+        },
+        "requires_crew": true,
+        "role_bonus": {
+          "scientist": 0.2,
+          "technician": 0.1
+        },
+        "crew_role_bonus": {},
+        "success_chance": 0.75,
+        "success_effects": {
+          "resources": {},
+          "solar_efficiency": 0.0,
+          "oxygen_efficiency": 0.0,
+          "water_recovery_efficiency": 0.0,
+          "co2_efficiency": 0.0,
+          "crew_health": 0,
+          "target": "selected"
+        },
+        "failure_effects": {
+          "resources": {},
+          "solar_efficiency": 0.0,
+          "oxygen_efficiency": 0.0,
+          "water_recovery_efficiency": 0.0,
+          "co2_efficiency": 0.0,
+          "crew_health": -8,
+          "target": "selected"
+        },
+        "required_role": null,
+        "minimum_crew": 1,
+        "available": false,
+        "unavailable_reasons": [
+          "Requires at least 1 living astronauts fit for this workload.",
+          "Condition permits light duties only; EVA and strenuous work are unavailable.",
+          "Requires 1 Field science kit (not consumed)."
+        ],
+        "eligible_crew": [
+          {
+            "crew_id": "alex",
+            "available": false,
+            "unavailable_reasons": [
+              "Requires at least 1 living astronauts fit for this workload.",
+              "Condition permits light duties only; EVA and strenuous work are unavailable.",
+              "Requires 1 Field science kit (not consumed)."
+            ],
+            "success_probability": 0.725
+          },
+          {
+            "crew_id": "maya",
+            "available": false,
+            "unavailable_reasons": [
+              "Requires at least 1 living astronauts fit for this workload.",
+              "Condition permits light duties only; EVA and strenuous work are unavailable.",
+              "Requires 1 Field science kit (not consumed)."
+            ],
+            "success_probability": 0.675
+          }
+        ],
+        "success_probability": null
+      },
+      {
+        "workload": "strenuous",
+        "support_candidates": [],
+        "id": "research_instrument",
+        "action_type": "research",
+        "objective_rewards": [
+          {
+            "objective_id": "instruments",
+            "title": "Restore a research instrument",
+            "amount": 1
+          }
+        ],
+        "text": "Restore the next research instrument",
+        "description": "Use a repair kit and science kit to restore one instrument and earn 2 research data on success. Engineers and technicians improve the odds; failure costs the worker 6 health. One-week crew assignment; incident response is separate.",
+        "costs": {
+          "repair_kits": 1.0,
+          "electricity": 2.0
+        },
+        "required_items": {
+          "scientific_tools": 1
+        },
+        "requires_crew": true,
+        "role_bonus": {
+          "engineer": 0.2,
+          "technician": 0.2,
+          "scientist": 0.1
+        },
+        "crew_role_bonus": {},
+        "success_chance": 0.7,
+        "success_effects": {
+          "resources": {
+            "research_data": 2.0
+          },
+          "solar_efficiency": 0.0,
+          "oxygen_efficiency": 0.0,
+          "water_recovery_efficiency": 0.0,
+          "co2_efficiency": 0.0,
+          "crew_health": 0,
+          "target": "selected"
+        },
+        "failure_effects": {
+          "resources": {},
+          "solar_efficiency": 0.0,
+          "oxygen_efficiency": 0.0,
+          "water_recovery_efficiency": 0.0,
+          "co2_efficiency": 0.0,
+          "crew_health": -6,
+          "target": "selected"
+        },
+        "required_role": null,
+        "minimum_crew": 1,
+        "available": false,
+        "unavailable_reasons": [
+          "Requires at least 1 living astronauts fit for this workload.",
+          "Condition permits light duties only; EVA and strenuous work are unavailable.",
+          "Requires 1 Field science kit (not consumed)."
+        ],
+        "eligible_crew": [
+          {
+            "crew_id": "alex",
+            "available": false,
+            "unavailable_reasons": [
+              "Requires at least 1 living astronauts fit for this workload.",
+              "Condition permits light duties only; EVA and strenuous work are unavailable.",
+              "Requires 1 Field science kit (not consumed)."
+            ],
+            "success_probability": 0.875
+          },
+          {
+            "crew_id": "maya",
+            "available": false,
+            "unavailable_reasons": [
+              "Requires at least 1 living astronauts fit for this workload.",
+              "Condition permits light duties only; EVA and strenuous work are unavailable.",
+              "Requires 1 Field science kit (not consumed)."
+            ],
+            "success_probability": 0.625
+          }
+        ],
+        "success_probability": null
+      }
+    ]
+  }
+};
+
+export const underfedGame: GameResponse = {
+  "game_id": "fixture-game",
+  "state": {
+    "life_support": {
+      "source_url": "https://www.nasa.gov/reference/environmental-control-and-life-support-systems-eclss/",
+      "water_recovery_condition": 0.92,
+      "co2_condition": 0.94,
+      "wastewater": 8.64,
+      "co2_burden": 0.0,
+      "co2_warning_level": 4.0,
+      "recovery_capacity": 4.0,
+      "recovery_yield": 0.8,
+      "water_per_oxygen": 0.1,
+      "oxygen_reserve_weeks": 2.0,
+      "water_recovery_wear": 0.02,
+      "co2_wear": 0.015,
+      "co2_removal_capacity": 6.0,
+      "power_components": {
+        "habitat": 8.0,
+        "water_recovery": 2.0,
+        "oxygen_generation": 4.0,
+        "co2_removal": 2.0
+      }
+    },
+    "energy": {
+      "battery_capacity": 100.0,
+      "stored": 53.935844,
+      "priority": "life_support",
+      "life_support_required": 16.0,
+      "solar_day_earth_days": 29.5306,
+      "source_url": "https://svs.gsfc.nasa.gov/12739/",
+      "assumption": "Fictional shared epoch: sunrise at Apollo 11 longitude on mission day zero. Smooth non-polar horizon, equal day/night halves, constant useful output during daylight. Weekly averaging omits terrain shadows, eclipses, seasons, and panel incidence.",
+      "forecast": [
+        {
+          "week": 5,
+          "daylight_fraction": 0.781343,
+          "daylight_days": 5.4694,
+          "darkness_days": 1.5306,
+          "phase": "mixed",
+          "electricity_generated": 28.128348
+        },
+        {
+          "week": 6,
+          "daylight_fraction": 1.0,
+          "daylight_days": 7.0,
+          "darkness_days": 0.0,
+          "phase": "daylight",
+          "electricity_generated": 36.0
+        },
+        {
+          "week": 7,
+          "daylight_fraction": 0.327986,
+          "daylight_days": 2.2959,
+          "darkness_days": 4.7041,
+          "phase": "mixed",
+          "electricity_generated": 11.807496
+        },
+        {
+          "week": 8,
+          "daylight_fraction": 0.0,
+          "daylight_days": 0.0,
+          "darkness_days": 7.0,
+          "phase": "darkness",
+          "electricity_generated": 0.0
+        },
+        {
+          "week": 9,
+          "daylight_fraction": 0.562686,
+          "daylight_days": 3.9388,
+          "darkness_days": 3.0612,
+          "phase": "mixed",
+          "electricity_generated": 20.256696
+        },
+        {
+          "week": 10,
+          "daylight_fraction": 1.0,
+          "daylight_days": 7.0,
+          "darkness_days": 0.0,
+          "phase": "daylight",
+          "electricity_generated": 36.0
+        },
+        {
+          "week": 11,
+          "daylight_fraction": 0.546643,
+          "daylight_days": 3.8265,
+          "darkness_days": 3.1735,
+          "phase": "mixed",
+          "electricity_generated": 19.679148
+        },
+        {
+          "week": 12,
+          "daylight_fraction": 0.0,
+          "daylight_days": 0.0,
+          "darkness_days": 7.0,
+          "phase": "darkness",
+          "electricity_generated": 0.0
+        }
+      ]
+    },
+    "battery_capacity": 100.0,
+    "power_priority": "life_support",
+    "research_projects": [],
+    "station_id": "alpha",
+    "station_name": "Station Alpha \u2014 Research Base",
+    "difficulty": "standard",
+    "difficulty_rank": 2,
+    "mission_id": "alpha_rotation",
+    "mission_name": "Hold Until Rotation",
+    "current_week": 5,
+    "duration_weeks": 12,
+    "minimum_survivors": 1,
+    "weeks_remaining": 8,
+    "mission_days": {
+      "start": 29,
+      "end": 35
+    },
+    "crew": [
+      {
+        "nutrition_deficit": 1.2,
+        "hydration_deficit": 0.0,
+        "condition": {
+          "status": "serious",
+          "nutrition_status": "depleted",
+          "hydration_status": "adequate",
+          "can_work": true,
+          "can_do_eva": false,
+          "performance_penalty": 0.0475,
+          "restrictions": [
+            "Condition permits light duties only; EVA and strenuous work are unavailable."
+          ],
+          "nutrition_recovery_weeks": 5,
+          "hydration_recovery_weeks": 0,
+          "source_url": "https://www.nasa.gov/reference/risk-of-inadequate-food-and-nutrition/"
+        },
+        "ration_outlook": {
+          "normal": {
+            "nutrition_deficit": 0.95,
+            "hydration_deficit": 0.0,
+            "food_damage": 0,
+            "water_damage": 0
+          },
+          "reduced": {
+            "nutrition_deficit": 1.5,
+            "hydration_deficit": 0.3,
+            "food_damage": 3,
+            "water_damage": 4
+          },
+          "emergency": {
+            "nutrition_deficit": 1.8,
+            "hydration_deficit": 0.6,
+            "food_damage": 5,
+            "water_damage": 28
+          }
+        },
+        "id": "alex",
+        "name": "Alex Vega",
+        "role": "engineer",
+        "health": 85,
+        "positive_trait": "Steady hands: +5 percentage points on assigned event actions.",
+        "negative_trait": "Large appetite: consumes 10% more food.",
+        "food_multiplier": 1.1,
+        "water_multiplier": 1.0,
+        "event_bonus": 0.05,
+        "injury_multiplier": 1.0,
+        "specialty": "Mechanical repair",
+        "training_source": "https://www.nasa.gov/reference/jsc-crew-operations-training/",
+        "action_bonuses": {},
+        "food_shortage_weeks": 4,
+        "water_shortage_weeks": 0,
+        "alive": true,
+        "ration_options": {
+          "normal": {
+            "food": 1.1,
+            "water": 2.0
+          },
+          "reduced": {
+            "food": 0.77,
+            "water": 1.4
+          },
+          "emergency": {
+            "food": 0.44,
+            "water": 0.8
+          }
+        }
+      },
+      {
+        "nutrition_deficit": 1.2,
+        "hydration_deficit": 0.0,
+        "condition": {
+          "status": "serious",
+          "nutrition_status": "depleted",
+          "hydration_status": "adequate",
+          "can_work": true,
+          "can_do_eva": false,
+          "performance_penalty": 0.0475,
+          "restrictions": [
+            "Condition permits light duties only; EVA and strenuous work are unavailable."
+          ],
+          "nutrition_recovery_weeks": 5,
+          "hydration_recovery_weeks": 0,
+          "source_url": "https://www.nasa.gov/reference/risk-of-inadequate-food-and-nutrition/"
+        },
+        "ration_outlook": {
+          "normal": {
+            "nutrition_deficit": 0.95,
+            "hydration_deficit": 0.0,
+            "food_damage": 0,
+            "water_damage": 0
+          },
+          "reduced": {
+            "nutrition_deficit": 1.5,
+            "hydration_deficit": 0.3,
+            "food_damage": 3,
+            "water_damage": 4
+          },
+          "emergency": {
+            "nutrition_deficit": 1.8,
+            "hydration_deficit": 0.6,
+            "food_damage": 5,
+            "water_damage": 28
+          }
+        },
+        "id": "lin",
+        "name": "Lin Park",
+        "role": "scientist",
+        "health": 82,
+        "positive_trait": "Water conscious: consumes 10% less water.",
+        "negative_trait": "Fragile: event injuries cause 20% more damage.",
+        "food_multiplier": 1.0,
+        "water_multiplier": 0.9,
+        "event_bonus": 0.0,
+        "injury_multiplier": 1.2,
+        "specialty": "Field science and calibration",
+        "training_source": "https://www.nasa.gov/missions/artemis/nasa-field-geology-training-prepares-artemis-mission-support-teams/",
+        "action_bonuses": {},
+        "food_shortage_weeks": 4,
+        "water_shortage_weeks": 0,
+        "alive": true,
+        "ration_options": {
+          "normal": {
+            "food": 1.0,
+            "water": 1.8
+          },
+          "reduced": {
+            "food": 0.7,
+            "water": 1.26
+          },
+          "emergency": {
+            "food": 0.4,
+            "water": 0.72
+          }
+        }
+      }
+    ],
+    "resources": {
+      "food": 46.12,
+      "water": 108.616,
+      "oxygen": 12.0,
+      "electricity": 53.935844,
+      "medicine": 8.0,
+      "repair_kits": 8.0,
+      "eva_batteries": 8.0,
+      "dust_kits": 0.0,
+      "oxygen_regulators": 0.0,
+      "diagnostic_tools": 0.0,
+      "sealant_packs": 0.0,
+      "scientific_tools": 1.0,
+      "research_data": 0.0,
+      "wastewater": 8.64,
+      "co2": 0.0
+    },
+    "solar_efficiency": 0.75,
+    "oxygen_efficiency": 0.75,
+    "water_recovery_efficiency": 0.92,
+    "co2_efficiency": 0.94,
+    "current_event_id": "crew_recovery",
+    "current_event": {
+      "id": "crew_recovery",
+      "title": "A Week for Recovery",
+      "description": "No major equipment emergency is scheduled. Use the breathing space to support crew health.",
+      "category": "recovery",
+      "science_context": "NASA develops exercise countermeasures for spaceflight. These immediate health gains are fictional; exercise does not instantly reverse injuries.",
+      "source_url": "https://www.nasa.gov/directorates/esdmd/hhp/exercise-physiology-and-countermeasures/",
+      "on_start": {
+        "resources": {},
+        "solar_efficiency": 0.0,
+        "oxygen_efficiency": 0.0,
+        "water_recovery_efficiency": 0.0,
+        "co2_efficiency": 0.0,
+        "crew_health": 0,
+        "target": "selected"
+      },
+      "choices": [
+        {
+          "workload": "light",
+          "support_candidates": [],
+          "id": "structured_recovery",
+          "action_type": "event",
+          "objective_rewards": [],
+          "text": "Follow a structured recovery schedule",
+          "description": "Additional food and water support a guaranteed 6-health gain for each survivor.",
+          "costs": {
+            "food": 1.0,
+            "water": 1.0
+          },
+          "required_items": {},
+          "requires_crew": false,
+          "role_bonus": {},
+          "crew_role_bonus": {},
+          "success_chance": 1.0,
+          "success_effects": {
+            "resources": {},
+            "solar_efficiency": 0.0,
+            "oxygen_efficiency": 0.0,
+            "water_recovery_efficiency": 0.0,
+            "co2_efficiency": 0.0,
+            "crew_health": 6,
+            "target": "all"
+          },
+          "failure_effects": {
+            "resources": {},
+            "solar_efficiency": 0.0,
+            "oxygen_efficiency": 0.0,
+            "water_recovery_efficiency": 0.0,
+            "co2_efficiency": 0.0,
+            "crew_health": 0,
+            "target": "selected"
+          },
+          "required_role": null,
+          "minimum_crew": 1,
+          "available": true,
+          "unavailable_reasons": [],
+          "eligible_crew": [],
+          "success_probability": 1.0
+        },
+        {
+          "workload": "care",
+          "support_candidates": [],
+          "id": "medical_recovery",
+          "action_type": "event",
+          "objective_rewards": [],
+          "text": "Treat one recovering astronaut",
+          "description": "Choose a patient and spend 1 medicine. Success restores 20 health; failure gives no healing. A living medic improves the odds.",
+          "costs": {
+            "medicine": 1.0
+          },
+          "required_items": {},
+          "requires_crew": true,
+          "role_bonus": {},
+          "crew_role_bonus": {
+            "medic": 0.15
+          },
+          "success_chance": 0.75,
+          "success_effects": {
+            "resources": {},
+            "solar_efficiency": 0.0,
+            "oxygen_efficiency": 0.0,
+            "water_recovery_efficiency": 0.0,
+            "co2_efficiency": 0.0,
+            "crew_health": 20,
+            "target": "selected"
+          },
+          "failure_effects": {
+            "resources": {},
+            "solar_efficiency": 0.0,
+            "oxygen_efficiency": 0.0,
+            "water_recovery_efficiency": 0.0,
+            "co2_efficiency": 0.0,
+            "crew_health": 0,
+            "target": "selected"
+          },
+          "required_role": null,
+          "minimum_crew": 1,
+          "available": true,
+          "unavailable_reasons": [],
+          "eligible_crew": [
+            {
+              "crew_id": "alex",
+              "available": true,
+              "unavailable_reasons": [],
+              "success_probability": 0.8
+            },
+            {
+              "crew_id": "lin",
+              "available": true,
+              "unavailable_reasons": [],
+              "success_probability": 0.75
+            }
+          ],
+          "success_probability": null
+        },
+        {
+          "workload": "light",
+          "support_candidates": [],
+          "id": "routine_recovery",
+          "action_type": "event",
+          "objective_rewards": [],
+          "text": "Keep a light routine",
+          "description": "A small guaranteed 2-health gain for every survivor, with no extra supplies.",
+          "costs": {},
+          "required_items": {},
+          "requires_crew": false,
+          "role_bonus": {},
+          "crew_role_bonus": {},
+          "success_chance": 1.0,
+          "success_effects": {
+            "resources": {},
+            "solar_efficiency": 0.0,
+            "oxygen_efficiency": 0.0,
+            "water_recovery_efficiency": 0.0,
+            "co2_efficiency": 0.0,
+            "crew_health": 2,
+            "target": "all"
+          },
+          "failure_effects": {
+            "resources": {},
+            "solar_efficiency": 0.0,
+            "oxygen_efficiency": 0.0,
+            "water_recovery_efficiency": 0.0,
+            "co2_efficiency": 0.0,
+            "crew_health": 0,
+            "target": "selected"
+          },
+          "required_role": null,
+          "minimum_crew": 1,
+          "available": true,
+          "unavailable_reasons": [],
+          "eligible_crew": [],
+          "success_probability": 1.0
+        }
+      ]
+    },
+    "emergency_ration_requirements": {
+      "food": 0.84,
+      "water": 1.52
+    },
+    "depleted_provisions": [],
+    "used_event_ids": [
+      "solar_failure",
+      "oxygen_fault",
+      "medical_emergency",
+      "inventory_audit"
+    ],
+    "flags": {},
+    "history": [
+      {
+        "project_updates": [],
+        "assignments": [],
+        "science_gains": [],
+        "week": 1,
+        "event": {
+          "support_crew_ids": [],
+          "event_id": "solar_failure",
+          "choice_id": "ignore",
+          "choice_text": "Conserve supplies and accept reduced output",
+          "selected_crew_id": null,
+          "success": true,
+          "success_probability": 1.0,
+          "costs": {},
+          "effects": {
+            "resources": {},
+            "solar_efficiency": 0.0,
+            "oxygen_efficiency": 0.0,
+            "water_recovery_efficiency": 0.0,
+            "co2_efficiency": 0.0,
+            "health_changes": []
+          },
+          "objective_progress": []
+        },
+        "rations": {
+          "alex": {
+            "food": "reduced",
+            "water": "normal"
+          },
+          "lin": {
+            "food": "reduced",
+            "water": "normal"
+          }
+        },
+        "survival": {
+          "life_support": {
+            "wastewater_processed": 4.0,
+            "water_recovered": 3.2,
+            "water_for_oxygen": 0.0,
+            "wastewater_captured": 3.04,
+            "oxygen_generated": 0.0,
+            "co2_produced": 2.0,
+            "co2_removed": 2.0,
+            "co2_remaining": 0.0,
+            "power_components": {
+              "habitat": 8.0,
+              "water_recovery": 2.0,
+              "oxygen_generation": 0.0,
+              "co2_removal": 2.0
+            }
+          },
+          "daylight_fraction": 1.0,
+          "battery_capacity": 100.0,
+          "electricity_curtailed": 0.0,
+          "project_electricity_used": 0.0,
+          "power_priority": "life_support",
+          "ration_requirements": {
+            "food": 1.47,
+            "water": 3.8
+          },
+          "ration_costs": {
+            "food": 1.47,
+            "water": 3.8
+          },
+          "ration_depletion_fractions": {
+            "food": 0.0,
+            "water": 0.0
+          },
+          "electricity_generated": 36.0,
+          "electricity_required": 12.0,
+          "electricity_used": 12.0,
+          "life_support_power_fraction": 1.0,
+          "oxygen_generated": 0.0,
+          "oxygen_required": 6.0,
+          "oxygen_used": 6.0,
+          "oxygen_shortage": 0.0,
+          "health_changes": [
+            {
+              "crew_id": "alex",
+              "before": 100,
+              "after": 100,
+              "food_received_fraction": 0.7,
+              "water_received_fraction": 1.0,
+              "nutrition_before": 0.0,
+              "nutrition_after": 0.3,
+              "hydration_before": 0.0,
+              "hydration_after": 0.0,
+              "recovery": 0,
+              "worked": false,
+              "rested": false,
+              "food_penalty": 0,
+              "water_penalty": 0,
+              "oxygen_penalty": 0,
+              "co2_penalty": 0,
+              "died": false
+            },
+            {
+              "crew_id": "lin",
+              "before": 100,
+              "after": 100,
+              "food_received_fraction": 0.7,
+              "water_received_fraction": 1.0,
+              "nutrition_before": 0.0,
+              "nutrition_after": 0.3,
+              "hydration_before": 0.0,
+              "hydration_after": 0.0,
+              "recovery": 0,
+              "worked": false,
+              "rested": false,
+              "food_penalty": 0,
+              "water_penalty": 0,
+              "oxygen_penalty": 0,
+              "co2_penalty": 0,
+              "died": false
+            }
+          ]
+        },
+        "resource_changes": {
+          "food": -1.47,
+          "water": -0.6,
+          "oxygen": -6.0,
+          "electricity": 24.0,
+          "medicine": 0.0,
+          "repair_kits": 0.0,
+          "eva_batteries": 0.0,
+          "dust_kits": 0.0,
+          "oxygen_regulators": 0.0,
+          "diagnostic_tools": 0.0,
+          "sealant_packs": 0.0,
+          "scientific_tools": 0.0,
+          "research_data": 0.0,
+          "wastewater": -0.96,
+          "co2": 0.0
+        },
+        "deaths": [],
+        "next_event": {
+          "event_id": "oxygen_fault",
+          "title": "Life Support Alarm",
+          "effects": {
+            "resources": {},
+            "solar_efficiency": 0.0,
+            "oxygen_efficiency": -0.25,
+            "water_recovery_efficiency": 0.0,
+            "co2_efficiency": 0.0,
+            "health_changes": []
+          }
+        },
+        "ending": null
+      },
+      {
+        "project_updates": [],
+        "assignments": [],
+        "science_gains": [],
+        "week": 2,
+        "event": {
+          "support_crew_ids": [],
+          "event_id": "oxygen_fault",
+          "choice_id": "ignore",
+          "choice_text": "Rely on oxygen reserves",
+          "selected_crew_id": null,
+          "success": true,
+          "success_probability": 1.0,
+          "costs": {},
+          "effects": {
+            "resources": {},
+            "solar_efficiency": 0.0,
+            "oxygen_efficiency": 0.0,
+            "water_recovery_efficiency": 0.0,
+            "co2_efficiency": 0.0,
+            "health_changes": []
+          },
+          "objective_progress": []
+        },
+        "rations": {
+          "alex": {
+            "food": "reduced",
+            "water": "normal"
+          },
+          "lin": {
+            "food": "reduced",
+            "water": "normal"
+          }
+        },
+        "survival": {
+          "life_support": {
+            "wastewater_processed": 3.92,
+            "water_recovered": 3.136,
+            "water_for_oxygen": 0.0,
+            "wastewater_captured": 3.04,
+            "oxygen_generated": 0.0,
+            "co2_produced": 2.0,
+            "co2_removed": 2.0,
+            "co2_remaining": 0.0,
+            "power_components": {
+              "habitat": 8.0,
+              "water_recovery": 2.0,
+              "oxygen_generation": 0.0,
+              "co2_removal": 2.0
+            }
+          },
+          "daylight_fraction": 1.0,
+          "battery_capacity": 100.0,
+          "electricity_curtailed": 0.0,
+          "project_electricity_used": 0.0,
+          "power_priority": "life_support",
+          "ration_requirements": {
+            "food": 1.47,
+            "water": 3.8
+          },
+          "ration_costs": {
+            "food": 1.47,
+            "water": 3.8
+          },
+          "ration_depletion_fractions": {
+            "food": 0.0,
+            "water": 0.0
+          },
+          "electricity_generated": 36.0,
+          "electricity_required": 12.0,
+          "electricity_used": 12.0,
+          "life_support_power_fraction": 1.0,
+          "oxygen_generated": 0.0,
+          "oxygen_required": 6.0,
+          "oxygen_used": 6.0,
+          "oxygen_shortage": 0.0,
+          "health_changes": [
+            {
+              "crew_id": "alex",
+              "before": 100,
+              "after": 100,
+              "food_received_fraction": 0.7,
+              "water_received_fraction": 1.0,
+              "nutrition_before": 0.3,
+              "nutrition_after": 0.6,
+              "hydration_before": 0.0,
+              "hydration_after": 0.0,
+              "recovery": 0,
+              "worked": false,
+              "rested": false,
+              "food_penalty": 0,
+              "water_penalty": 0,
+              "oxygen_penalty": 0,
+              "co2_penalty": 0,
+              "died": false
+            },
+            {
+              "crew_id": "lin",
+              "before": 100,
+              "after": 100,
+              "food_received_fraction": 0.7,
+              "water_received_fraction": 1.0,
+              "nutrition_before": 0.3,
+              "nutrition_after": 0.6,
+              "hydration_before": 0.0,
+              "hydration_after": 0.0,
+              "recovery": 0,
+              "worked": false,
+              "rested": false,
+              "food_penalty": 0,
+              "water_penalty": 0,
+              "oxygen_penalty": 0,
+              "co2_penalty": 0,
+              "died": false
+            }
+          ]
+        },
+        "resource_changes": {
+          "food": -1.47,
+          "water": -0.664,
+          "oxygen": -6.0,
+          "electricity": 24.0,
+          "medicine": 0.0,
+          "repair_kits": 0.0,
+          "eva_batteries": 0.0,
+          "dust_kits": 0.0,
+          "oxygen_regulators": 0.0,
+          "diagnostic_tools": 0.0,
+          "sealant_packs": 0.0,
+          "scientific_tools": 0.0,
+          "research_data": 0.0,
+          "wastewater": -0.88,
+          "co2": 0.0
+        },
+        "deaths": [],
+        "next_event": {
+          "event_id": "medical_emergency",
+          "title": "Contaminated Air Filter",
+          "effects": {
+            "resources": {},
+            "solar_efficiency": 0.0,
+            "oxygen_efficiency": 0.0,
+            "water_recovery_efficiency": 0.0,
+            "co2_efficiency": 0.0,
+            "health_changes": [
+              {
+                "crew_id": "alex",
+                "before": 100,
+                "after": 92
+              },
+              {
+                "crew_id": "lin",
+                "before": 100,
+                "after": 90
+              }
+            ]
+          }
+        },
+        "ending": null
+      },
+      {
+        "project_updates": [],
+        "assignments": [],
+        "science_gains": [],
+        "week": 3,
+        "event": {
+          "support_crew_ids": [],
+          "event_id": "medical_emergency",
+          "choice_id": "rest",
+          "choice_text": "Isolate the filter and rest",
+          "selected_crew_id": null,
+          "success": true,
+          "success_probability": 1.0,
+          "costs": {},
+          "effects": {
+            "resources": {},
+            "solar_efficiency": 0.0,
+            "oxygen_efficiency": 0.0,
+            "water_recovery_efficiency": 0.0,
+            "co2_efficiency": 0.0,
+            "health_changes": [
+              {
+                "crew_id": "alex",
+                "before": 92,
+                "after": 87
+              },
+              {
+                "crew_id": "lin",
+                "before": 90,
+                "after": 84
+              }
+            ]
+          },
+          "objective_progress": []
+        },
+        "rations": {
+          "alex": {
+            "food": "reduced",
+            "water": "normal"
+          },
+          "lin": {
+            "food": "reduced",
+            "water": "normal"
+          }
+        },
+        "survival": {
+          "life_support": {
+            "wastewater_processed": 3.84,
+            "water_recovered": 3.072,
+            "water_for_oxygen": 0.0,
+            "wastewater_captured": 3.04,
+            "oxygen_generated": 0.0,
+            "co2_produced": 2.0,
+            "co2_removed": 2.0,
+            "co2_remaining": 0.0,
+            "power_components": {
+              "habitat": 8.0,
+              "water_recovery": 2.0,
+              "oxygen_generation": 0.0,
+              "co2_removal": 2.0
+            }
+          },
+          "daylight_fraction": 0.109329,
+          "battery_capacity": 100.0,
+          "electricity_curtailed": 0.0,
+          "project_electricity_used": 0.0,
+          "power_priority": "life_support",
+          "ration_requirements": {
+            "food": 1.47,
+            "water": 3.8
+          },
+          "ration_costs": {
+            "food": 1.47,
+            "water": 3.8
+          },
+          "ration_depletion_fractions": {
+            "food": 0.0,
+            "water": 0.0
+          },
+          "electricity_generated": 3.935844,
+          "electricity_required": 12.0,
+          "electricity_used": 12.0,
+          "life_support_power_fraction": 1.0,
+          "oxygen_generated": 0.0,
+          "oxygen_required": 6.0,
+          "oxygen_used": 6.0,
+          "oxygen_shortage": 0.0,
+          "health_changes": [
+            {
+              "crew_id": "alex",
+              "before": 87,
+              "after": 87,
+              "food_received_fraction": 0.7,
+              "water_received_fraction": 1.0,
+              "nutrition_before": 0.6,
+              "nutrition_after": 0.9,
+              "hydration_before": 0.0,
+              "hydration_after": 0.0,
+              "recovery": 0,
+              "worked": false,
+              "rested": false,
+              "food_penalty": 0,
+              "water_penalty": 0,
+              "oxygen_penalty": 0,
+              "co2_penalty": 0,
+              "died": false
+            },
+            {
+              "crew_id": "lin",
+              "before": 84,
+              "after": 84,
+              "food_received_fraction": 0.7,
+              "water_received_fraction": 1.0,
+              "nutrition_before": 0.6,
+              "nutrition_after": 0.9,
+              "hydration_before": 0.0,
+              "hydration_after": 0.0,
+              "recovery": 0,
+              "worked": false,
+              "rested": false,
+              "food_penalty": 0,
+              "water_penalty": 0,
+              "oxygen_penalty": 0,
+              "co2_penalty": 0,
+              "died": false
+            }
+          ]
+        },
+        "resource_changes": {
+          "food": -1.47,
+          "water": -0.728,
+          "oxygen": -6.0,
+          "electricity": -8.064156,
+          "medicine": 0.0,
+          "repair_kits": 0.0,
+          "eva_batteries": 0.0,
+          "dust_kits": 0.0,
+          "oxygen_regulators": 0.0,
+          "diagnostic_tools": 0.0,
+          "sealant_packs": 0.0,
+          "scientific_tools": 0.0,
+          "research_data": 0.0,
+          "wastewater": -0.8,
+          "co2": 0.0
+        },
+        "deaths": [],
+        "next_event": {
+          "event_id": "inventory_audit",
+          "title": "A Crate in the Ledger",
+          "effects": {
+            "resources": {},
+            "solar_efficiency": 0.0,
+            "oxygen_efficiency": 0.0,
+            "water_recovery_efficiency": 0.0,
+            "co2_efficiency": 0.0,
+            "health_changes": []
+          }
+        },
+        "ending": null
+      },
+      {
+        "project_updates": [],
+        "assignments": [],
+        "science_gains": [],
+        "week": 4,
+        "event": {
+          "support_crew_ids": [],
+          "event_id": "inventory_audit",
+          "choice_id": "quarantine_crate",
+          "choice_text": "Leave the unverified crate quarantined",
+          "selected_crew_id": null,
+          "success": true,
+          "success_probability": 1.0,
+          "costs": {},
+          "effects": {
+            "resources": {},
+            "solar_efficiency": 0.0,
+            "oxygen_efficiency": 0.0,
+            "water_recovery_efficiency": 0.0,
+            "co2_efficiency": 0.0,
+            "health_changes": []
+          },
+          "objective_progress": []
+        },
+        "rations": {
+          "alex": {
+            "food": "reduced",
+            "water": "normal"
+          },
+          "lin": {
+            "food": "reduced",
+            "water": "normal"
+          }
+        },
+        "survival": {
+          "life_support": {
+            "wastewater_processed": 3.76,
+            "water_recovered": 3.008,
+            "water_for_oxygen": 0.6,
+            "wastewater_captured": 3.04,
+            "oxygen_generated": 6.0,
+            "co2_produced": 2.0,
+            "co2_removed": 2.0,
+            "co2_remaining": 0.0,
+            "power_components": {
+              "habitat": 8.0,
+              "water_recovery": 2.0,
+              "oxygen_generation": 4.0,
+              "co2_removal": 2.0
+            }
+          },
+          "daylight_fraction": 0.0,
+          "battery_capacity": 100.0,
+          "electricity_curtailed": 0.0,
+          "project_electricity_used": 0.0,
+          "power_priority": "life_support",
+          "ration_requirements": {
+            "food": 1.47,
+            "water": 3.8
+          },
+          "ration_costs": {
+            "food": 1.47,
+            "water": 3.8
+          },
+          "ration_depletion_fractions": {
+            "food": 0.0,
+            "water": 0.0
+          },
+          "electricity_generated": 0.0,
+          "electricity_required": 16.0,
+          "electricity_used": 16.0,
+          "life_support_power_fraction": 1.0,
+          "oxygen_generated": 6.0,
+          "oxygen_required": 6.0,
+          "oxygen_used": 6.0,
+          "oxygen_shortage": 0.0,
+          "health_changes": [
+            {
+              "crew_id": "alex",
+              "before": 87,
+              "after": 85,
+              "food_received_fraction": 0.7,
+              "water_received_fraction": 1.0,
+              "nutrition_before": 0.9,
+              "nutrition_after": 1.2,
+              "hydration_before": 0.0,
+              "hydration_after": 0.0,
+              "recovery": 0,
+              "worked": false,
+              "rested": false,
+              "food_penalty": 2,
+              "water_penalty": 0,
+              "oxygen_penalty": 0,
+              "co2_penalty": 0,
+              "died": false
+            },
+            {
+              "crew_id": "lin",
+              "before": 84,
+              "after": 82,
+              "food_received_fraction": 0.7,
+              "water_received_fraction": 1.0,
+              "nutrition_before": 0.9,
+              "nutrition_after": 1.2,
+              "hydration_before": 0.0,
+              "hydration_after": 0.0,
+              "recovery": 0,
+              "worked": false,
+              "rested": false,
+              "food_penalty": 2,
+              "water_penalty": 0,
+              "oxygen_penalty": 0,
+              "co2_penalty": 0,
+              "died": false
+            }
+          ]
+        },
+        "resource_changes": {
+          "food": -1.47,
+          "water": -1.392,
+          "oxygen": 0.0,
+          "electricity": -16.0,
+          "medicine": 0.0,
+          "repair_kits": 0.0,
+          "eva_batteries": 0.0,
+          "dust_kits": 0.0,
+          "oxygen_regulators": 0.0,
+          "diagnostic_tools": 0.0,
+          "sealant_packs": 0.0,
+          "scientific_tools": 0.0,
+          "research_data": 0.0,
+          "wastewater": -0.72,
+          "co2": 0.0
+        },
+        "deaths": [],
+        "next_event": {
+          "event_id": "crew_recovery",
+          "title": "A Week for Recovery",
+          "effects": {
+            "resources": {},
+            "solar_efficiency": 0.0,
+            "oxygen_efficiency": 0.0,
+            "water_recovery_efficiency": 0.0,
+            "co2_efficiency": 0.0,
+            "health_changes": []
+          }
+        },
+        "ending": null
+      }
+    ],
+    "status": "running",
+    "random_seed": 0,
+    "initial_crew_size": 2,
+    "weeks_completed": 4,
+    "ending": null,
+    "results": null,
+    "science": {
+      "status": "not_started",
+      "completed_objectives": 0,
+      "total_objectives": 3,
+      "research_data": 0.0,
+      "objectives": [
+        {
+          "id": "geology",
+          "title": "Baseline sample collection",
+          "description": "Collect separate geological samples. Successful field sampling counts; generic research points do not.",
+          "target": 2,
+          "qualifying_choices": [
+            "kit_sampling",
+            "basic_sampling",
+            "research_geology"
+          ],
+          "source_url": "https://www.nasa.gov/missions/artemis/nasa-field-geology-training-prepares-artemis-mission-support-teams/",
+          "progress": 0,
+          "completed": false
+        },
+        {
+          "id": "seismology",
+          "title": "Seismic baseline",
+          "description": "Complete detailed analyses of separate seismic records. Simply archiving a signal does not count.",
+          "target": 1,
+          "qualifying_choices": [
+            "analyze_seismic",
+            "research_seismic"
+          ],
+          "source_url": "https://science.nasa.gov/moon/moonquakes/",
+          "progress": 0,
+          "completed": false
+        },
+        {
+          "id": "instruments",
+          "title": "Restore a research instrument",
+          "description": "Restore a research instrument or the research communications link. Routine life-support maintenance does not count.",
+          "target": 1,
+          "qualifying_choices": [
+            "align_antenna",
+            "remote_antenna",
+            "research_instrument"
+          ],
+          "source_url": "https://www.nasa.gov/reference/9-0-hardware-and-equipment-vol-2/",
+          "progress": 0,
+          "completed": false
+        }
+      ]
+    },
+    "assignment_options": [
+      {
+        "workload": "rest",
+        "support_candidates": [],
+        "id": "crew_rest",
+        "action_type": "rest",
+        "objective_rewards": [],
+        "text": "Rest and recuperate",
+        "description": "One week without active work. Adequate actual food and water improve deficit recovery and allow up to 5 condition points of recovery in safe air. Rest creates no supplies and cannot compensate for continued deprivation.",
+        "costs": {},
+        "required_items": {},
+        "requires_crew": true,
+        "role_bonus": {},
+        "crew_role_bonus": {},
+        "success_chance": 1.0,
+        "success_effects": {
+          "resources": {},
+          "solar_efficiency": 0.0,
+          "oxygen_efficiency": 0.0,
+          "water_recovery_efficiency": 0.0,
+          "co2_efficiency": 0.0,
+          "crew_health": 0,
+          "target": "selected"
+        },
+        "failure_effects": {
+          "resources": {},
+          "solar_efficiency": 0.0,
+          "oxygen_efficiency": 0.0,
+          "water_recovery_efficiency": 0.0,
+          "co2_efficiency": 0.0,
+          "crew_health": 0,
+          "target": "selected"
+        },
+        "required_role": null,
+        "minimum_crew": 1,
+        "available": true,
+        "unavailable_reasons": [],
+        "eligible_crew": [
+          {
+            "crew_id": "alex",
+            "available": true,
+            "unavailable_reasons": [],
+            "success_probability": 1.0
+          },
+          {
+            "crew_id": "lin",
+            "available": true,
+            "unavailable_reasons": [],
+            "success_probability": 1.0
+          }
+        ],
+        "success_probability": null
+      },
+      {
+        "workload": "eva",
+        "support_candidates": [],
+        "id": "clean_array",
+        "action_type": "maintenance",
+        "objective_rewards": [],
+        "text": "Clean the solar array",
+        "description": "Guaranteed +20 percentage points solar condition. Uses a dust kit and EVA supplies; One-week crew assignment; incident response is separate.",
+        "costs": {
+          "dust_kits": 1.0,
+          "eva_batteries": 1.0,
+          "oxygen": 2.0
+        },
+        "required_items": {},
+        "requires_crew": true,
+        "role_bonus": {},
+        "crew_role_bonus": {},
+        "success_chance": 1.0,
+        "success_effects": {
+          "resources": {},
+          "solar_efficiency": 0.2,
+          "oxygen_efficiency": 0.0,
+          "water_recovery_efficiency": 0.0,
+          "co2_efficiency": 0.0,
+          "crew_health": 0,
+          "target": "selected"
+        },
+        "failure_effects": {
+          "resources": {},
+          "solar_efficiency": 0.0,
+          "oxygen_efficiency": 0.0,
+          "water_recovery_efficiency": 0.0,
+          "co2_efficiency": 0.0,
+          "crew_health": 0,
+          "target": "selected"
+        },
+        "required_role": null,
+        "minimum_crew": 1,
+        "available": false,
+        "unavailable_reasons": [
+          "Requires at least 1 living astronauts fit for this workload.",
+          "Condition permits light duties only; EVA and strenuous work are unavailable.",
+          "Requires 1 dust_kits; available 0."
+        ],
+        "eligible_crew": [
+          {
+            "crew_id": "alex",
+            "available": false,
+            "unavailable_reasons": [
+              "Requires at least 1 living astronauts fit for this workload.",
+              "Condition permits light duties only; EVA and strenuous work are unavailable.",
+              "Requires 1 dust_kits; available 0."
+            ],
+            "success_probability": 1.0
+          },
+          {
+            "crew_id": "lin",
+            "available": false,
+            "unavailable_reasons": [
+              "Requires at least 1 living astronauts fit for this workload.",
+              "Condition permits light duties only; EVA and strenuous work are unavailable.",
+              "Requires 1 dust_kits; available 0."
+            ],
+            "success_probability": 1.0
+          }
+        ],
+        "success_probability": null
+      },
+      {
+        "workload": "strenuous",
+        "support_candidates": [],
+        "id": "install_regulator",
+        "action_type": "maintenance",
+        "objective_rewards": [],
+        "text": "Install an oxygen regulator",
+        "description": "Guaranteed +20 percentage points oxygen condition. Uses a regulator and 2 power; One-week crew assignment; incident response is separate.",
+        "costs": {
+          "oxygen_regulators": 1.0,
+          "electricity": 2.0
+        },
+        "required_items": {},
+        "requires_crew": true,
+        "role_bonus": {},
+        "crew_role_bonus": {},
+        "success_chance": 1.0,
+        "success_effects": {
+          "resources": {},
+          "solar_efficiency": 0.0,
+          "oxygen_efficiency": 0.2,
+          "water_recovery_efficiency": 0.0,
+          "co2_efficiency": 0.0,
+          "crew_health": 0,
+          "target": "selected"
+        },
+        "failure_effects": {
+          "resources": {},
+          "solar_efficiency": 0.0,
+          "oxygen_efficiency": 0.0,
+          "water_recovery_efficiency": 0.0,
+          "co2_efficiency": 0.0,
+          "crew_health": 0,
+          "target": "selected"
+        },
+        "required_role": null,
+        "minimum_crew": 1,
+        "available": false,
+        "unavailable_reasons": [
+          "Requires at least 1 living astronauts fit for this workload.",
+          "Condition permits light duties only; EVA and strenuous work are unavailable.",
+          "Requires 1 oxygen_regulators; available 0."
+        ],
+        "eligible_crew": [
+          {
+            "crew_id": "alex",
+            "available": false,
+            "unavailable_reasons": [
+              "Requires at least 1 living astronauts fit for this workload.",
+              "Condition permits light duties only; EVA and strenuous work are unavailable.",
+              "Requires 1 oxygen_regulators; available 0."
+            ],
+            "success_probability": 1.0
+          },
+          {
+            "crew_id": "lin",
+            "available": false,
+            "unavailable_reasons": [
+              "Requires at least 1 living astronauts fit for this workload.",
+              "Condition permits light duties only; EVA and strenuous work are unavailable.",
+              "Requires 1 oxygen_regulators; available 0."
+            ],
+            "success_probability": 1.0
+          }
+        ],
+        "success_probability": null
+      },
+      {
+        "workload": "light",
+        "support_candidates": [],
+        "id": "service_water_recovery",
+        "action_type": "maintenance",
+        "objective_rewards": [],
+        "text": "Service the water recovery processor",
+        "description": "One repair kit and 2 power guarantee +30 water-recovery condition points. Recovered water comes from the wastewater stock and is available after this week's rations.",
+        "costs": {
+          "repair_kits": 1.0,
+          "electricity": 2.0
+        },
+        "required_items": {},
+        "requires_crew": true,
+        "role_bonus": {},
+        "crew_role_bonus": {},
+        "success_chance": 1.0,
+        "success_effects": {
+          "resources": {},
+          "solar_efficiency": 0.0,
+          "oxygen_efficiency": 0.0,
+          "water_recovery_efficiency": 0.3,
+          "co2_efficiency": 0.0,
+          "crew_health": 0,
+          "target": "selected"
+        },
+        "failure_effects": {
+          "resources": {},
+          "solar_efficiency": 0.0,
+          "oxygen_efficiency": 0.0,
+          "water_recovery_efficiency": 0.0,
+          "co2_efficiency": 0.0,
+          "crew_health": 0,
+          "target": "selected"
+        },
+        "required_role": null,
+        "minimum_crew": 1,
+        "available": true,
+        "unavailable_reasons": [],
+        "eligible_crew": [
+          {
+            "crew_id": "alex",
+            "available": true,
+            "unavailable_reasons": [],
+            "success_probability": 1.0
+          },
+          {
+            "crew_id": "lin",
+            "available": true,
+            "unavailable_reasons": [],
+            "success_probability": 1.0
+          }
+        ],
+        "success_probability": null
+      },
+      {
+        "workload": "light",
+        "support_candidates": [],
+        "id": "service_co2_scrubber",
+        "action_type": "maintenance",
+        "objective_rewards": [],
+        "text": "Service the carbon dioxide scrubber",
+        "description": "One repair kit and 2 power guarantee +30 scrubber condition points. Removal still requires power; oxygen reserves do not remove CO2.",
+        "costs": {
+          "repair_kits": 1.0,
+          "electricity": 2.0
+        },
+        "required_items": {},
+        "requires_crew": true,
+        "role_bonus": {},
+        "crew_role_bonus": {},
+        "success_chance": 1.0,
+        "success_effects": {
+          "resources": {},
+          "solar_efficiency": 0.0,
+          "oxygen_efficiency": 0.0,
+          "water_recovery_efficiency": 0.0,
+          "co2_efficiency": 0.3,
+          "crew_health": 0,
+          "target": "selected"
+        },
+        "failure_effects": {
+          "resources": {},
+          "solar_efficiency": 0.0,
+          "oxygen_efficiency": 0.0,
+          "water_recovery_efficiency": 0.0,
+          "co2_efficiency": 0.0,
+          "crew_health": 0,
+          "target": "selected"
+        },
+        "required_role": null,
+        "minimum_crew": 1,
+        "available": true,
+        "unavailable_reasons": [],
+        "eligible_crew": [
+          {
+            "crew_id": "alex",
+            "available": true,
+            "unavailable_reasons": [],
+            "success_probability": 1.0
+          },
+          {
+            "crew_id": "lin",
+            "available": true,
+            "unavailable_reasons": [],
+            "success_probability": 1.0
+          }
+        ],
+        "success_probability": null
+      },
+      {
+        "workload": "eva",
+        "support_candidates": [],
+        "id": "research_geology",
+        "action_type": "research",
+        "objective_rewards": [
+          {
+            "objective_id": "geology",
+            "title": "Baseline sample collection",
+            "amount": 1
+          }
+        ],
+        "text": "Survey a geological sample",
+        "description": "Use the science kit to collect one sample and 2 research data on success. Scientists improve the odds; failure costs the worker 8 health. One-week crew assignment; incident response is separate.",
+        "costs": {
+          "eva_batteries": 1.0,
+          "oxygen": 2.0
+        },
+        "required_items": {
+          "scientific_tools": 1
+        },
+        "requires_crew": true,
+        "role_bonus": {
+          "scientist": 0.2,
+          "technician": 0.1
+        },
+        "crew_role_bonus": {},
+        "success_chance": 0.75,
+        "success_effects": {
+          "resources": {
+            "research_data": 2.0
+          },
+          "solar_efficiency": 0.0,
+          "oxygen_efficiency": 0.0,
+          "water_recovery_efficiency": 0.0,
+          "co2_efficiency": 0.0,
+          "crew_health": 0,
+          "target": "selected"
+        },
+        "failure_effects": {
+          "resources": {},
+          "solar_efficiency": 0.0,
+          "oxygen_efficiency": 0.0,
+          "water_recovery_efficiency": 0.0,
+          "co2_efficiency": 0.0,
+          "crew_health": -8,
+          "target": "selected"
+        },
+        "required_role": null,
+        "minimum_crew": 1,
+        "available": false,
+        "unavailable_reasons": [
+          "Requires at least 1 living astronauts fit for this workload.",
+          "Condition permits light duties only; EVA and strenuous work are unavailable."
+        ],
+        "eligible_crew": [
+          {
+            "crew_id": "alex",
+            "available": false,
+            "unavailable_reasons": [
+              "Requires at least 1 living astronauts fit for this workload.",
+              "Condition permits light duties only; EVA and strenuous work are unavailable."
+            ],
+            "success_probability": 0.7525
+          },
+          {
+            "crew_id": "lin",
+            "available": false,
+            "unavailable_reasons": [
+              "Requires at least 1 living astronauts fit for this workload.",
+              "Condition permits light duties only; EVA and strenuous work are unavailable."
+            ],
+            "success_probability": 0.9025
+          }
+        ],
+        "success_probability": null
+      },
+      {
+        "workload": "eva",
+        "support_candidates": [],
+        "id": "research_seismic",
+        "action_type": "research",
+        "objective_rewards": [],
+        "text": "Deploy seismic sensors",
+        "description": "Start a seismic project: 1 deployment week, 3 automatic recording weeks at 2 power each, then 1 crew analysis week. No objective credit until analysis succeeds. Failure costs 8 worker health and deployment supplies; the phase can be retried.",
+        "costs": {
+          "electricity": 2.0,
+          "eva_batteries": 1.0,
+          "oxygen": 2.0
+        },
+        "required_items": {
+          "scientific_tools": 1
+        },
+        "requires_crew": true,
+        "role_bonus": {
+          "scientist": 0.2,
+          "technician": 0.1
+        },
+        "crew_role_bonus": {},
+        "success_chance": 0.75,
+        "success_effects": {
+          "resources": {},
+          "solar_efficiency": 0.0,
+          "oxygen_efficiency": 0.0,
+          "water_recovery_efficiency": 0.0,
+          "co2_efficiency": 0.0,
+          "crew_health": 0,
+          "target": "selected"
+        },
+        "failure_effects": {
+          "resources": {},
+          "solar_efficiency": 0.0,
+          "oxygen_efficiency": 0.0,
+          "water_recovery_efficiency": 0.0,
+          "co2_efficiency": 0.0,
+          "crew_health": -8,
+          "target": "selected"
+        },
+        "required_role": null,
+        "minimum_crew": 1,
+        "available": false,
+        "unavailable_reasons": [
+          "Requires at least 1 living astronauts fit for this workload.",
+          "Condition permits light duties only; EVA and strenuous work are unavailable."
+        ],
+        "eligible_crew": [
+          {
+            "crew_id": "alex",
+            "available": false,
+            "unavailable_reasons": [
+              "Requires at least 1 living astronauts fit for this workload.",
+              "Condition permits light duties only; EVA and strenuous work are unavailable."
+            ],
+            "success_probability": 0.7525
+          },
+          {
+            "crew_id": "lin",
+            "available": false,
+            "unavailable_reasons": [
+              "Requires at least 1 living astronauts fit for this workload.",
+              "Condition permits light duties only; EVA and strenuous work are unavailable."
+            ],
+            "success_probability": 0.9025
+          }
+        ],
+        "success_probability": null
+      },
+      {
+        "workload": "strenuous",
+        "support_candidates": [],
+        "id": "research_instrument",
+        "action_type": "research",
+        "objective_rewards": [
+          {
+            "objective_id": "instruments",
+            "title": "Restore a research instrument",
+            "amount": 1
+          }
+        ],
+        "text": "Restore the next research instrument",
+        "description": "Use a repair kit and science kit to restore one instrument and earn 2 research data on success. Engineers and technicians improve the odds; failure costs the worker 6 health. One-week crew assignment; incident response is separate.",
+        "costs": {
+          "repair_kits": 1.0,
+          "electricity": 2.0
+        },
+        "required_items": {
+          "scientific_tools": 1
+        },
+        "requires_crew": true,
+        "role_bonus": {
+          "engineer": 0.2,
+          "technician": 0.2,
+          "scientist": 0.1
+        },
+        "crew_role_bonus": {},
+        "success_chance": 0.7,
+        "success_effects": {
+          "resources": {
+            "research_data": 2.0
+          },
+          "solar_efficiency": 0.0,
+          "oxygen_efficiency": 0.0,
+          "water_recovery_efficiency": 0.0,
+          "co2_efficiency": 0.0,
+          "crew_health": 0,
+          "target": "selected"
+        },
+        "failure_effects": {
+          "resources": {},
+          "solar_efficiency": 0.0,
+          "oxygen_efficiency": 0.0,
+          "water_recovery_efficiency": 0.0,
+          "co2_efficiency": 0.0,
+          "crew_health": -6,
+          "target": "selected"
+        },
+        "required_role": null,
+        "minimum_crew": 1,
+        "available": false,
+        "unavailable_reasons": [
+          "Requires at least 1 living astronauts fit for this workload.",
+          "Condition permits light duties only; EVA and strenuous work are unavailable."
+        ],
+        "eligible_crew": [
+          {
+            "crew_id": "alex",
+            "available": false,
+            "unavailable_reasons": [
+              "Requires at least 1 living astronauts fit for this workload.",
+              "Condition permits light duties only; EVA and strenuous work are unavailable."
+            ],
+            "success_probability": 0.9025
+          },
+          {
+            "crew_id": "lin",
+            "available": false,
+            "unavailable_reasons": [
+              "Requires at least 1 living astronauts fit for this workload.",
+              "Condition permits light duties only; EVA and strenuous work are unavailable."
+            ],
+            "success_probability": 0.7525
+          }
+        ],
+        "success_probability": null
+      }
+    ]
+  }
+};
+
+export const recuperationTurn: TurnResponse = {
+  "game_id": "fixture-game",
+  "state": {
+    "life_support": {
+      "source_url": "https://www.nasa.gov/reference/environmental-control-and-life-support-systems-eclss/",
+      "water_recovery_condition": 0.9,
+      "co2_condition": 0.925,
+      "wastewater": 8.0,
+      "co2_burden": 0.0,
+      "co2_warning_level": 4.0,
+      "recovery_capacity": 4.0,
+      "recovery_yield": 0.8,
+      "water_per_oxygen": 0.1,
+      "oxygen_reserve_weeks": 2.0,
+      "water_recovery_wear": 0.02,
+      "co2_wear": 0.015,
+      "co2_removal_capacity": 6.0,
+      "power_components": {
+        "habitat": 8.0,
+        "water_recovery": 2.0,
+        "oxygen_generation": 4.0,
+        "co2_removal": 2.0
+      }
+    },
+    "energy": {
+      "battery_capacity": 100.0,
+      "stored": 66.064192,
+      "priority": "life_support",
+      "life_support_required": 16.0,
+      "solar_day_earth_days": 29.5306,
+      "source_url": "https://svs.gsfc.nasa.gov/12739/",
+      "assumption": "Fictional shared epoch: sunrise at Apollo 11 longitude on mission day zero. Smooth non-polar horizon, equal day/night halves, constant useful output during daylight. Weekly averaging omits terrain shadows, eclipses, seasons, and panel incidence.",
+      "forecast": [
+        {
+          "week": 6,
+          "daylight_fraction": 1.0,
+          "daylight_days": 7.0,
+          "darkness_days": 0.0,
+          "phase": "daylight",
+          "electricity_generated": 36.0
+        },
+        {
+          "week": 7,
+          "daylight_fraction": 0.327986,
+          "daylight_days": 2.2959,
+          "darkness_days": 4.7041,
+          "phase": "mixed",
+          "electricity_generated": 11.807496
+        },
+        {
+          "week": 8,
+          "daylight_fraction": 0.0,
+          "daylight_days": 0.0,
+          "darkness_days": 7.0,
+          "phase": "darkness",
+          "electricity_generated": 0.0
+        },
+        {
+          "week": 9,
+          "daylight_fraction": 0.562686,
+          "daylight_days": 3.9388,
+          "darkness_days": 3.0612,
+          "phase": "mixed",
+          "electricity_generated": 20.256696
+        },
+        {
+          "week": 10,
+          "daylight_fraction": 1.0,
+          "daylight_days": 7.0,
+          "darkness_days": 0.0,
+          "phase": "daylight",
+          "electricity_generated": 36.0
+        },
+        {
+          "week": 11,
+          "daylight_fraction": 0.546643,
+          "daylight_days": 3.8265,
+          "darkness_days": 3.1735,
+          "phase": "mixed",
+          "electricity_generated": 19.679148
+        },
+        {
+          "week": 12,
+          "daylight_fraction": 0.0,
+          "daylight_days": 0.0,
+          "darkness_days": 7.0,
+          "phase": "darkness",
+          "electricity_generated": 0.0
+        }
+      ]
+    },
+    "battery_capacity": 100.0,
+    "power_priority": "life_support",
+    "research_projects": [],
+    "station_id": "alpha",
+    "station_name": "Station Alpha \u2014 Research Base",
+    "difficulty": "standard",
+    "difficulty_rank": 2,
+    "mission_id": "alpha_rotation",
+    "mission_name": "Hold Until Rotation",
+    "current_week": 6,
+    "duration_weeks": 12,
+    "minimum_survivors": 1,
+    "weeks_remaining": 7,
+    "mission_days": {
+      "start": 36,
+      "end": 42
+    },
+    "crew": [
+      {
+        "nutrition_deficit": 0.8,
+        "hydration_deficit": 0.0,
+        "condition": {
+          "status": "impaired",
+          "nutrition_status": "underfed",
+          "hydration_status": "adequate",
+          "can_work": true,
+          "can_do_eva": true,
+          "performance_penalty": 0.0275,
+          "restrictions": [],
+          "nutrition_recovery_weeks": 4,
+          "hydration_recovery_weeks": 0,
+          "source_url": "https://www.nasa.gov/reference/risk-of-inadequate-food-and-nutrition/"
+        },
+        "ration_outlook": {
+          "normal": {
+            "nutrition_deficit": 0.55,
+            "hydration_deficit": 0.0,
+            "food_damage": 0,
+            "water_damage": 0
+          },
+          "reduced": {
+            "nutrition_deficit": 1.1,
+            "hydration_deficit": 0.3,
+            "food_damage": 1,
+            "water_damage": 4
+          },
+          "emergency": {
+            "nutrition_deficit": 1.4,
+            "hydration_deficit": 0.6,
+            "food_damage": 3,
+            "water_damage": 28
+          }
+        },
+        "id": "alex",
+        "name": "Alex Vega",
+        "role": "engineer",
+        "health": 96,
+        "positive_trait": "Steady hands: +5 percentage points on assigned event actions.",
+        "negative_trait": "Large appetite: consumes 10% more food.",
+        "food_multiplier": 1.1,
+        "water_multiplier": 1.0,
+        "event_bonus": 0.05,
+        "injury_multiplier": 1.0,
+        "specialty": "Mechanical repair",
+        "training_source": "https://www.nasa.gov/reference/jsc-crew-operations-training/",
+        "action_bonuses": {},
+        "food_shortage_weeks": 0,
+        "water_shortage_weeks": 0,
+        "alive": true,
+        "ration_options": {
+          "normal": {
+            "food": 1.1,
+            "water": 2.0
+          },
+          "reduced": {
+            "food": 0.77,
+            "water": 1.4
+          },
+          "emergency": {
+            "food": 0.44,
+            "water": 0.8
+          }
+        }
+      },
+      {
+        "nutrition_deficit": 0.95,
+        "hydration_deficit": 0.0,
+        "condition": {
+          "status": "impaired",
+          "nutrition_status": "underfed",
+          "hydration_status": "adequate",
+          "can_work": true,
+          "can_do_eva": true,
+          "performance_penalty": 0.035,
+          "restrictions": [],
+          "nutrition_recovery_weeks": 4,
+          "hydration_recovery_weeks": 0,
+          "source_url": "https://www.nasa.gov/reference/risk-of-inadequate-food-and-nutrition/"
+        },
+        "ration_outlook": {
+          "normal": {
+            "nutrition_deficit": 0.7,
+            "hydration_deficit": 0.0,
+            "food_damage": 0,
+            "water_damage": 0
+          },
+          "reduced": {
+            "nutrition_deficit": 1.25,
+            "hydration_deficit": 0.3,
+            "food_damage": 2,
+            "water_damage": 4
+          },
+          "emergency": {
+            "nutrition_deficit": 1.55,
+            "hydration_deficit": 0.6,
+            "food_damage": 4,
+            "water_damage": 28
+          }
+        },
+        "id": "lin",
+        "name": "Lin Park",
+        "role": "scientist",
+        "health": 90,
+        "positive_trait": "Water conscious: consumes 10% less water.",
+        "negative_trait": "Fragile: event injuries cause 20% more damage.",
+        "food_multiplier": 1.0,
+        "water_multiplier": 0.9,
+        "event_bonus": 0.0,
+        "injury_multiplier": 1.2,
+        "specialty": "Field science and calibration",
+        "training_source": "https://www.nasa.gov/missions/artemis/nasa-field-geology-training-prepares-artemis-mission-support-teams/",
+        "action_bonuses": {},
+        "food_shortage_weeks": 0,
+        "water_shortage_weeks": 0,
+        "alive": true,
+        "ration_options": {
+          "normal": {
+            "food": 1.0,
+            "water": 1.8
+          },
+          "reduced": {
+            "food": 0.7,
+            "water": 1.26
+          },
+          "emergency": {
+            "food": 0.4,
+            "water": 0.72
+          }
+        }
+      }
+    ],
+    "resources": {
+      "food": 43.02,
+      "water": 106.16,
+      "oxygen": 12.0,
+      "electricity": 66.064192,
+      "medicine": 8.0,
+      "repair_kits": 8.0,
+      "eva_batteries": 8.0,
+      "dust_kits": 0.0,
+      "oxygen_regulators": 0.0,
+      "diagnostic_tools": 0.0,
+      "sealant_packs": 0.0,
+      "scientific_tools": 1.0,
+      "research_data": 0.0,
+      "wastewater": 8.0,
+      "co2": 0.0
+    },
+    "solar_efficiency": 0.75,
+    "oxygen_efficiency": 0.75,
+    "water_recovery_efficiency": 0.9,
+    "co2_efficiency": 0.925,
+    "current_event_id": "seismic_signal",
+    "current_event": {
+      "id": "seismic_signal",
+      "title": "A Signal in the Seismometer",
+      "description": "The station logger captures a possible moonquake. Decide how much effort to put into examining the signal.",
+      "category": "opportunity",
+      "science_context": "Apollo seismometers recorded moonquakes. Their origins include tidal effects, impacts, and thermal changes.",
+      "source_url": "https://science.nasa.gov/moon/moonquakes/",
+      "on_start": {
+        "resources": {},
+        "solar_efficiency": 0.0,
+        "oxygen_efficiency": 0.0,
+        "water_recovery_efficiency": 0.0,
+        "co2_efficiency": 0.0,
+        "crew_health": 0,
+        "target": "selected"
+      },
+      "choices": [
+        {
+          "workload": "strenuous",
+          "support_candidates": [
+            {
+              "crew_id": "alex",
+              "available": true,
+              "unavailable_reasons": []
+            },
+            {
+              "crew_id": "lin",
+              "available": true,
+              "unavailable_reasons": []
+            }
+          ],
+          "id": "analyze_seismic",
+          "action_type": "event",
+          "objective_rewards": [
+            {
+              "objective_id": "seismology",
+              "title": "Seismic baseline",
+              "amount": 1
+            }
+          ],
+          "text": "Calibrate and analyze the signal",
+          "description": "Requires two crew and the reusable science kit. Gain 5 research data on success; failure wastes 2 additional power. Scientists improve the odds.",
+          "costs": {
+            "electricity": 2.0
+          },
+          "required_items": {
+            "scientific_tools": 1
+          },
+          "requires_crew": true,
+          "role_bonus": {
+            "scientist": 0.2
+          },
+          "crew_role_bonus": {},
+          "success_chance": 0.7,
+          "success_effects": {
+            "resources": {
+              "research_data": 5.0
+            },
+            "solar_efficiency": 0.0,
+            "oxygen_efficiency": 0.0,
+            "water_recovery_efficiency": 0.0,
+            "co2_efficiency": 0.0,
+            "crew_health": 0,
+            "target": "selected"
+          },
+          "failure_effects": {
+            "resources": {
+              "electricity": -2.0
+            },
+            "solar_efficiency": 0.0,
+            "oxygen_efficiency": 0.0,
+            "water_recovery_efficiency": 0.0,
+            "co2_efficiency": 0.0,
+            "crew_health": 0,
+            "target": "selected"
+          },
+          "required_role": null,
+          "minimum_crew": 2,
+          "available": true,
+          "unavailable_reasons": [],
+          "eligible_crew": [
+            {
+              "crew_id": "alex",
+              "available": true,
+              "unavailable_reasons": [],
+              "success_probability": 0.7225
+            },
+            {
+              "crew_id": "lin",
+              "available": true,
+              "unavailable_reasons": [],
+              "success_probability": 0.865
+            }
+          ],
+          "success_probability": null
+        },
+        {
+          "workload": "light",
+          "support_candidates": [],
+          "id": "archive_seismic",
+          "action_type": "event",
+          "objective_rewards": [],
+          "text": "Archive the raw signal",
+          "description": "Gain 1 research data without equipment or resource spending.",
+          "costs": {},
+          "required_items": {},
+          "requires_crew": false,
+          "role_bonus": {},
+          "crew_role_bonus": {},
+          "success_chance": 1.0,
+          "success_effects": {
+            "resources": {
+              "research_data": 1.0
+            },
+            "solar_efficiency": 0.0,
+            "oxygen_efficiency": 0.0,
+            "water_recovery_efficiency": 0.0,
+            "co2_efficiency": 0.0,
+            "crew_health": 0,
+            "target": "selected"
+          },
+          "failure_effects": {
+            "resources": {},
+            "solar_efficiency": 0.0,
+            "oxygen_efficiency": 0.0,
+            "water_recovery_efficiency": 0.0,
+            "co2_efficiency": 0.0,
+            "crew_health": 0,
+            "target": "selected"
+          },
+          "required_role": null,
+          "minimum_crew": 1,
+          "available": true,
+          "unavailable_reasons": [],
+          "eligible_crew": [],
+          "success_probability": 1.0
+        },
+        {
+          "workload": "light",
+          "support_candidates": [],
+          "id": "defer_seismic",
+          "action_type": "event",
+          "objective_rewards": [],
+          "text": "Keep the logger in standby",
+          "description": "No research gain; preserve crew attention.",
+          "costs": {},
+          "required_items": {},
+          "requires_crew": false,
+          "role_bonus": {},
+          "crew_role_bonus": {},
+          "success_chance": 1.0,
+          "success_effects": {
+            "resources": {},
+            "solar_efficiency": 0.0,
+            "oxygen_efficiency": 0.0,
+            "water_recovery_efficiency": 0.0,
+            "co2_efficiency": 0.0,
+            "crew_health": 0,
+            "target": "selected"
+          },
+          "failure_effects": {
+            "resources": {},
+            "solar_efficiency": 0.0,
+            "oxygen_efficiency": 0.0,
+            "water_recovery_efficiency": 0.0,
+            "co2_efficiency": 0.0,
+            "crew_health": 0,
+            "target": "selected"
+          },
+          "required_role": null,
+          "minimum_crew": 1,
+          "available": true,
+          "unavailable_reasons": [],
+          "eligible_crew": [],
+          "success_probability": 1.0
+        }
+      ]
+    },
+    "emergency_ration_requirements": {
+      "food": 0.84,
+      "water": 1.52
+    },
+    "depleted_provisions": [],
+    "used_event_ids": [
+      "solar_failure",
+      "oxygen_fault",
+      "medical_emergency",
+      "inventory_audit",
+      "crew_recovery"
+    ],
+    "flags": {},
+    "history": [
+      {
+        "project_updates": [],
+        "assignments": [],
+        "science_gains": [],
+        "week": 1,
+        "event": {
+          "support_crew_ids": [],
+          "event_id": "solar_failure",
+          "choice_id": "ignore",
+          "choice_text": "Conserve supplies and accept reduced output",
+          "selected_crew_id": null,
+          "success": true,
+          "success_probability": 1.0,
+          "costs": {},
+          "effects": {
+            "resources": {},
+            "solar_efficiency": 0.0,
+            "oxygen_efficiency": 0.0,
+            "water_recovery_efficiency": 0.0,
+            "co2_efficiency": 0.0,
+            "health_changes": []
+          },
+          "objective_progress": []
+        },
+        "rations": {
+          "alex": {
+            "food": "reduced",
+            "water": "normal"
+          },
+          "lin": {
+            "food": "reduced",
+            "water": "normal"
+          }
+        },
+        "survival": {
+          "life_support": {
+            "wastewater_processed": 4.0,
+            "water_recovered": 3.2,
+            "water_for_oxygen": 0.0,
+            "wastewater_captured": 3.04,
+            "oxygen_generated": 0.0,
+            "co2_produced": 2.0,
+            "co2_removed": 2.0,
+            "co2_remaining": 0.0,
+            "power_components": {
+              "habitat": 8.0,
+              "water_recovery": 2.0,
+              "oxygen_generation": 0.0,
+              "co2_removal": 2.0
+            }
+          },
+          "daylight_fraction": 1.0,
+          "battery_capacity": 100.0,
+          "electricity_curtailed": 0.0,
+          "project_electricity_used": 0.0,
+          "power_priority": "life_support",
+          "ration_requirements": {
+            "food": 1.47,
+            "water": 3.8
+          },
+          "ration_costs": {
+            "food": 1.47,
+            "water": 3.8
+          },
+          "ration_depletion_fractions": {
+            "food": 0.0,
+            "water": 0.0
+          },
+          "electricity_generated": 36.0,
+          "electricity_required": 12.0,
+          "electricity_used": 12.0,
+          "life_support_power_fraction": 1.0,
+          "oxygen_generated": 0.0,
+          "oxygen_required": 6.0,
+          "oxygen_used": 6.0,
+          "oxygen_shortage": 0.0,
+          "health_changes": [
+            {
+              "crew_id": "alex",
+              "before": 100,
+              "after": 100,
+              "food_received_fraction": 0.7,
+              "water_received_fraction": 1.0,
+              "nutrition_before": 0.0,
+              "nutrition_after": 0.3,
+              "hydration_before": 0.0,
+              "hydration_after": 0.0,
+              "recovery": 0,
+              "worked": false,
+              "rested": false,
+              "food_penalty": 0,
+              "water_penalty": 0,
+              "oxygen_penalty": 0,
+              "co2_penalty": 0,
+              "died": false
+            },
+            {
+              "crew_id": "lin",
+              "before": 100,
+              "after": 100,
+              "food_received_fraction": 0.7,
+              "water_received_fraction": 1.0,
+              "nutrition_before": 0.0,
+              "nutrition_after": 0.3,
+              "hydration_before": 0.0,
+              "hydration_after": 0.0,
+              "recovery": 0,
+              "worked": false,
+              "rested": false,
+              "food_penalty": 0,
+              "water_penalty": 0,
+              "oxygen_penalty": 0,
+              "co2_penalty": 0,
+              "died": false
+            }
+          ]
+        },
+        "resource_changes": {
+          "food": -1.47,
+          "water": -0.6,
+          "oxygen": -6.0,
+          "electricity": 24.0,
+          "medicine": 0.0,
+          "repair_kits": 0.0,
+          "eva_batteries": 0.0,
+          "dust_kits": 0.0,
+          "oxygen_regulators": 0.0,
+          "diagnostic_tools": 0.0,
+          "sealant_packs": 0.0,
+          "scientific_tools": 0.0,
+          "research_data": 0.0,
+          "wastewater": -0.96,
+          "co2": 0.0
+        },
+        "deaths": [],
+        "next_event": {
+          "event_id": "oxygen_fault",
+          "title": "Life Support Alarm",
+          "effects": {
+            "resources": {},
+            "solar_efficiency": 0.0,
+            "oxygen_efficiency": -0.25,
+            "water_recovery_efficiency": 0.0,
+            "co2_efficiency": 0.0,
+            "health_changes": []
+          }
+        },
+        "ending": null
+      },
+      {
+        "project_updates": [],
+        "assignments": [],
+        "science_gains": [],
+        "week": 2,
+        "event": {
+          "support_crew_ids": [],
+          "event_id": "oxygen_fault",
+          "choice_id": "ignore",
+          "choice_text": "Rely on oxygen reserves",
+          "selected_crew_id": null,
+          "success": true,
+          "success_probability": 1.0,
+          "costs": {},
+          "effects": {
+            "resources": {},
+            "solar_efficiency": 0.0,
+            "oxygen_efficiency": 0.0,
+            "water_recovery_efficiency": 0.0,
+            "co2_efficiency": 0.0,
+            "health_changes": []
+          },
+          "objective_progress": []
+        },
+        "rations": {
+          "alex": {
+            "food": "reduced",
+            "water": "normal"
+          },
+          "lin": {
+            "food": "reduced",
+            "water": "normal"
+          }
+        },
+        "survival": {
+          "life_support": {
+            "wastewater_processed": 3.92,
+            "water_recovered": 3.136,
+            "water_for_oxygen": 0.0,
+            "wastewater_captured": 3.04,
+            "oxygen_generated": 0.0,
+            "co2_produced": 2.0,
+            "co2_removed": 2.0,
+            "co2_remaining": 0.0,
+            "power_components": {
+              "habitat": 8.0,
+              "water_recovery": 2.0,
+              "oxygen_generation": 0.0,
+              "co2_removal": 2.0
+            }
+          },
+          "daylight_fraction": 1.0,
+          "battery_capacity": 100.0,
+          "electricity_curtailed": 0.0,
+          "project_electricity_used": 0.0,
+          "power_priority": "life_support",
+          "ration_requirements": {
+            "food": 1.47,
+            "water": 3.8
+          },
+          "ration_costs": {
+            "food": 1.47,
+            "water": 3.8
+          },
+          "ration_depletion_fractions": {
+            "food": 0.0,
+            "water": 0.0
+          },
+          "electricity_generated": 36.0,
+          "electricity_required": 12.0,
+          "electricity_used": 12.0,
+          "life_support_power_fraction": 1.0,
+          "oxygen_generated": 0.0,
+          "oxygen_required": 6.0,
+          "oxygen_used": 6.0,
+          "oxygen_shortage": 0.0,
+          "health_changes": [
+            {
+              "crew_id": "alex",
+              "before": 100,
+              "after": 100,
+              "food_received_fraction": 0.7,
+              "water_received_fraction": 1.0,
+              "nutrition_before": 0.3,
+              "nutrition_after": 0.6,
+              "hydration_before": 0.0,
+              "hydration_after": 0.0,
+              "recovery": 0,
+              "worked": false,
+              "rested": false,
+              "food_penalty": 0,
+              "water_penalty": 0,
+              "oxygen_penalty": 0,
+              "co2_penalty": 0,
+              "died": false
+            },
+            {
+              "crew_id": "lin",
+              "before": 100,
+              "after": 100,
+              "food_received_fraction": 0.7,
+              "water_received_fraction": 1.0,
+              "nutrition_before": 0.3,
+              "nutrition_after": 0.6,
+              "hydration_before": 0.0,
+              "hydration_after": 0.0,
+              "recovery": 0,
+              "worked": false,
+              "rested": false,
+              "food_penalty": 0,
+              "water_penalty": 0,
+              "oxygen_penalty": 0,
+              "co2_penalty": 0,
+              "died": false
+            }
+          ]
+        },
+        "resource_changes": {
+          "food": -1.47,
+          "water": -0.664,
+          "oxygen": -6.0,
+          "electricity": 24.0,
+          "medicine": 0.0,
+          "repair_kits": 0.0,
+          "eva_batteries": 0.0,
+          "dust_kits": 0.0,
+          "oxygen_regulators": 0.0,
+          "diagnostic_tools": 0.0,
+          "sealant_packs": 0.0,
+          "scientific_tools": 0.0,
+          "research_data": 0.0,
+          "wastewater": -0.88,
+          "co2": 0.0
+        },
+        "deaths": [],
+        "next_event": {
+          "event_id": "medical_emergency",
+          "title": "Contaminated Air Filter",
+          "effects": {
+            "resources": {},
+            "solar_efficiency": 0.0,
+            "oxygen_efficiency": 0.0,
+            "water_recovery_efficiency": 0.0,
+            "co2_efficiency": 0.0,
+            "health_changes": [
+              {
+                "crew_id": "alex",
+                "before": 100,
+                "after": 92
+              },
+              {
+                "crew_id": "lin",
+                "before": 100,
+                "after": 90
+              }
+            ]
+          }
+        },
+        "ending": null
+      },
+      {
+        "project_updates": [],
+        "assignments": [],
+        "science_gains": [],
+        "week": 3,
+        "event": {
+          "support_crew_ids": [],
+          "event_id": "medical_emergency",
+          "choice_id": "rest",
+          "choice_text": "Isolate the filter and rest",
+          "selected_crew_id": null,
+          "success": true,
+          "success_probability": 1.0,
+          "costs": {},
+          "effects": {
+            "resources": {},
+            "solar_efficiency": 0.0,
+            "oxygen_efficiency": 0.0,
+            "water_recovery_efficiency": 0.0,
+            "co2_efficiency": 0.0,
+            "health_changes": [
+              {
+                "crew_id": "alex",
+                "before": 92,
+                "after": 87
+              },
+              {
+                "crew_id": "lin",
+                "before": 90,
+                "after": 84
+              }
+            ]
+          },
+          "objective_progress": []
+        },
+        "rations": {
+          "alex": {
+            "food": "reduced",
+            "water": "normal"
+          },
+          "lin": {
+            "food": "reduced",
+            "water": "normal"
+          }
+        },
+        "survival": {
+          "life_support": {
+            "wastewater_processed": 3.84,
+            "water_recovered": 3.072,
+            "water_for_oxygen": 0.0,
+            "wastewater_captured": 3.04,
+            "oxygen_generated": 0.0,
+            "co2_produced": 2.0,
+            "co2_removed": 2.0,
+            "co2_remaining": 0.0,
+            "power_components": {
+              "habitat": 8.0,
+              "water_recovery": 2.0,
+              "oxygen_generation": 0.0,
+              "co2_removal": 2.0
+            }
+          },
+          "daylight_fraction": 0.109329,
+          "battery_capacity": 100.0,
+          "electricity_curtailed": 0.0,
+          "project_electricity_used": 0.0,
+          "power_priority": "life_support",
+          "ration_requirements": {
+            "food": 1.47,
+            "water": 3.8
+          },
+          "ration_costs": {
+            "food": 1.47,
+            "water": 3.8
+          },
+          "ration_depletion_fractions": {
+            "food": 0.0,
+            "water": 0.0
+          },
+          "electricity_generated": 3.935844,
+          "electricity_required": 12.0,
+          "electricity_used": 12.0,
+          "life_support_power_fraction": 1.0,
+          "oxygen_generated": 0.0,
+          "oxygen_required": 6.0,
+          "oxygen_used": 6.0,
+          "oxygen_shortage": 0.0,
+          "health_changes": [
+            {
+              "crew_id": "alex",
+              "before": 87,
+              "after": 87,
+              "food_received_fraction": 0.7,
+              "water_received_fraction": 1.0,
+              "nutrition_before": 0.6,
+              "nutrition_after": 0.9,
+              "hydration_before": 0.0,
+              "hydration_after": 0.0,
+              "recovery": 0,
+              "worked": false,
+              "rested": false,
+              "food_penalty": 0,
+              "water_penalty": 0,
+              "oxygen_penalty": 0,
+              "co2_penalty": 0,
+              "died": false
+            },
+            {
+              "crew_id": "lin",
+              "before": 84,
+              "after": 84,
+              "food_received_fraction": 0.7,
+              "water_received_fraction": 1.0,
+              "nutrition_before": 0.6,
+              "nutrition_after": 0.9,
+              "hydration_before": 0.0,
+              "hydration_after": 0.0,
+              "recovery": 0,
+              "worked": false,
+              "rested": false,
+              "food_penalty": 0,
+              "water_penalty": 0,
+              "oxygen_penalty": 0,
+              "co2_penalty": 0,
+              "died": false
+            }
+          ]
+        },
+        "resource_changes": {
+          "food": -1.47,
+          "water": -0.728,
+          "oxygen": -6.0,
+          "electricity": -8.064156,
+          "medicine": 0.0,
+          "repair_kits": 0.0,
+          "eva_batteries": 0.0,
+          "dust_kits": 0.0,
+          "oxygen_regulators": 0.0,
+          "diagnostic_tools": 0.0,
+          "sealant_packs": 0.0,
+          "scientific_tools": 0.0,
+          "research_data": 0.0,
+          "wastewater": -0.8,
+          "co2": 0.0
+        },
+        "deaths": [],
+        "next_event": {
+          "event_id": "inventory_audit",
+          "title": "A Crate in the Ledger",
+          "effects": {
+            "resources": {},
+            "solar_efficiency": 0.0,
+            "oxygen_efficiency": 0.0,
+            "water_recovery_efficiency": 0.0,
+            "co2_efficiency": 0.0,
+            "health_changes": []
+          }
+        },
+        "ending": null
+      },
+      {
+        "project_updates": [],
+        "assignments": [],
+        "science_gains": [],
+        "week": 4,
+        "event": {
+          "support_crew_ids": [],
+          "event_id": "inventory_audit",
+          "choice_id": "quarantine_crate",
+          "choice_text": "Leave the unverified crate quarantined",
+          "selected_crew_id": null,
+          "success": true,
+          "success_probability": 1.0,
+          "costs": {},
+          "effects": {
+            "resources": {},
+            "solar_efficiency": 0.0,
+            "oxygen_efficiency": 0.0,
+            "water_recovery_efficiency": 0.0,
+            "co2_efficiency": 0.0,
+            "health_changes": []
+          },
+          "objective_progress": []
+        },
+        "rations": {
+          "alex": {
+            "food": "reduced",
+            "water": "normal"
+          },
+          "lin": {
+            "food": "reduced",
+            "water": "normal"
+          }
+        },
+        "survival": {
+          "life_support": {
+            "wastewater_processed": 3.76,
+            "water_recovered": 3.008,
+            "water_for_oxygen": 0.6,
+            "wastewater_captured": 3.04,
+            "oxygen_generated": 6.0,
+            "co2_produced": 2.0,
+            "co2_removed": 2.0,
+            "co2_remaining": 0.0,
+            "power_components": {
+              "habitat": 8.0,
+              "water_recovery": 2.0,
+              "oxygen_generation": 4.0,
+              "co2_removal": 2.0
+            }
+          },
+          "daylight_fraction": 0.0,
+          "battery_capacity": 100.0,
+          "electricity_curtailed": 0.0,
+          "project_electricity_used": 0.0,
+          "power_priority": "life_support",
+          "ration_requirements": {
+            "food": 1.47,
+            "water": 3.8
+          },
+          "ration_costs": {
+            "food": 1.47,
+            "water": 3.8
+          },
+          "ration_depletion_fractions": {
+            "food": 0.0,
+            "water": 0.0
+          },
+          "electricity_generated": 0.0,
+          "electricity_required": 16.0,
+          "electricity_used": 16.0,
+          "life_support_power_fraction": 1.0,
+          "oxygen_generated": 6.0,
+          "oxygen_required": 6.0,
+          "oxygen_used": 6.0,
+          "oxygen_shortage": 0.0,
+          "health_changes": [
+            {
+              "crew_id": "alex",
+              "before": 87,
+              "after": 85,
+              "food_received_fraction": 0.7,
+              "water_received_fraction": 1.0,
+              "nutrition_before": 0.9,
+              "nutrition_after": 1.2,
+              "hydration_before": 0.0,
+              "hydration_after": 0.0,
+              "recovery": 0,
+              "worked": false,
+              "rested": false,
+              "food_penalty": 2,
+              "water_penalty": 0,
+              "oxygen_penalty": 0,
+              "co2_penalty": 0,
+              "died": false
+            },
+            {
+              "crew_id": "lin",
+              "before": 84,
+              "after": 82,
+              "food_received_fraction": 0.7,
+              "water_received_fraction": 1.0,
+              "nutrition_before": 0.9,
+              "nutrition_after": 1.2,
+              "hydration_before": 0.0,
+              "hydration_after": 0.0,
+              "recovery": 0,
+              "worked": false,
+              "rested": false,
+              "food_penalty": 2,
+              "water_penalty": 0,
+              "oxygen_penalty": 0,
+              "co2_penalty": 0,
+              "died": false
+            }
+          ]
+        },
+        "resource_changes": {
+          "food": -1.47,
+          "water": -1.392,
+          "oxygen": 0.0,
+          "electricity": -16.0,
+          "medicine": 0.0,
+          "repair_kits": 0.0,
+          "eva_batteries": 0.0,
+          "dust_kits": 0.0,
+          "oxygen_regulators": 0.0,
+          "diagnostic_tools": 0.0,
+          "sealant_packs": 0.0,
+          "scientific_tools": 0.0,
+          "research_data": 0.0,
+          "wastewater": -0.72,
+          "co2": 0.0
+        },
+        "deaths": [],
+        "next_event": {
+          "event_id": "crew_recovery",
+          "title": "A Week for Recovery",
+          "effects": {
+            "resources": {},
+            "solar_efficiency": 0.0,
+            "oxygen_efficiency": 0.0,
+            "water_recovery_efficiency": 0.0,
+            "co2_efficiency": 0.0,
+            "health_changes": []
+          }
+        },
+        "ending": null
+      },
+      {
+        "project_updates": [],
+        "assignments": [
+          {
+            "crew_id": "alex",
+            "activity_id": "crew_rest",
+            "status": "completed",
+            "outcome": {
+              "support_crew_ids": [],
+              "event_id": "crew_recovery",
+              "choice_id": "crew_rest",
+              "choice_text": "Rest and recuperate",
+              "selected_crew_id": "alex",
+              "success": true,
+              "success_probability": 1.0,
+              "costs": {},
+              "effects": {
+                "resources": {},
+                "solar_efficiency": 0.0,
+                "oxygen_efficiency": 0.0,
+                "water_recovery_efficiency": 0.0,
+                "co2_efficiency": 0.0,
+                "health_changes": []
+              },
+              "objective_progress": []
+            },
+            "reason": null
+          }
+        ],
+        "science_gains": [],
+        "week": 5,
+        "event": {
+          "support_crew_ids": [],
+          "event_id": "crew_recovery",
+          "choice_id": "structured_recovery",
+          "choice_text": "Follow a structured recovery schedule",
+          "selected_crew_id": null,
+          "success": true,
+          "success_probability": 1.0,
+          "costs": {
+            "food": 1.0,
+            "water": 1.0
+          },
+          "effects": {
+            "resources": {},
+            "solar_efficiency": 0.0,
+            "oxygen_efficiency": 0.0,
+            "water_recovery_efficiency": 0.0,
+            "co2_efficiency": 0.0,
+            "health_changes": [
+              {
+                "crew_id": "alex",
+                "before": 85,
+                "after": 91
+              },
+              {
+                "crew_id": "lin",
+                "before": 82,
+                "after": 88
+              }
+            ]
+          },
+          "objective_progress": []
+        },
+        "rations": {
+          "alex": {
+            "food": "normal",
+            "water": "normal"
+          },
+          "lin": {
+            "food": "normal",
+            "water": "normal"
+          }
+        },
+        "survival": {
+          "life_support": {
+            "wastewater_processed": 3.68,
+            "water_recovered": 2.944,
+            "water_for_oxygen": 0.6,
+            "wastewater_captured": 3.04,
+            "oxygen_generated": 6.0,
+            "co2_produced": 2.0,
+            "co2_removed": 2.0,
+            "co2_remaining": 0.0,
+            "power_components": {
+              "habitat": 8.0,
+              "water_recovery": 2.0,
+              "oxygen_generation": 4.0,
+              "co2_removal": 2.0
+            }
+          },
+          "daylight_fraction": 0.781343,
+          "battery_capacity": 100.0,
+          "electricity_curtailed": 0.0,
+          "project_electricity_used": 0.0,
+          "power_priority": "life_support",
+          "ration_requirements": {
+            "food": 2.1,
+            "water": 3.8
+          },
+          "ration_costs": {
+            "food": 2.1,
+            "water": 3.8
+          },
+          "ration_depletion_fractions": {
+            "food": 0.0,
+            "water": 0.0
+          },
+          "electricity_generated": 28.128348,
+          "electricity_required": 16.0,
+          "electricity_used": 16.0,
+          "life_support_power_fraction": 1.0,
+          "oxygen_generated": 6.0,
+          "oxygen_required": 6.0,
+          "oxygen_used": 6.0,
+          "oxygen_shortage": 0.0,
+          "health_changes": [
+            {
+              "crew_id": "alex",
+              "before": 91,
+              "after": 96,
+              "food_received_fraction": 1.0,
+              "water_received_fraction": 1.0,
+              "nutrition_before": 1.2,
+              "nutrition_after": 0.8,
+              "hydration_before": 0.0,
+              "hydration_after": 0.0,
+              "recovery": 5,
+              "worked": false,
+              "rested": true,
+              "food_penalty": 0,
+              "water_penalty": 0,
+              "oxygen_penalty": 0,
+              "co2_penalty": 0,
+              "died": false
+            },
+            {
+              "crew_id": "lin",
+              "before": 88,
+              "after": 90,
+              "food_received_fraction": 1.0,
+              "water_received_fraction": 1.0,
+              "nutrition_before": 1.2,
+              "nutrition_after": 0.95,
+              "hydration_before": 0.0,
+              "hydration_after": 0.0,
+              "recovery": 2,
+              "worked": false,
+              "rested": false,
+              "food_penalty": 0,
+              "water_penalty": 0,
+              "oxygen_penalty": 0,
+              "co2_penalty": 0,
+              "died": false
+            }
+          ]
+        },
+        "resource_changes": {
+          "food": -3.1,
+          "water": -2.456,
+          "oxygen": 0.0,
+          "electricity": 12.128348,
+          "medicine": 0.0,
+          "repair_kits": 0.0,
+          "eva_batteries": 0.0,
+          "dust_kits": 0.0,
+          "oxygen_regulators": 0.0,
+          "diagnostic_tools": 0.0,
+          "sealant_packs": 0.0,
+          "scientific_tools": 0.0,
+          "research_data": 0.0,
+          "wastewater": -0.64,
+          "co2": 0.0
+        },
+        "deaths": [],
+        "next_event": {
+          "event_id": "seismic_signal",
+          "title": "A Signal in the Seismometer",
+          "effects": {
+            "resources": {},
+            "solar_efficiency": 0.0,
+            "oxygen_efficiency": 0.0,
+            "water_recovery_efficiency": 0.0,
+            "co2_efficiency": 0.0,
+            "health_changes": []
+          }
+        },
+        "ending": null
+      }
+    ],
+    "status": "running",
+    "random_seed": 0,
+    "initial_crew_size": 2,
+    "weeks_completed": 5,
+    "ending": null,
+    "results": null,
+    "science": {
+      "status": "not_started",
+      "completed_objectives": 0,
+      "total_objectives": 3,
+      "research_data": 0.0,
+      "objectives": [
+        {
+          "id": "geology",
+          "title": "Baseline sample collection",
+          "description": "Collect separate geological samples. Successful field sampling counts; generic research points do not.",
+          "target": 2,
+          "qualifying_choices": [
+            "kit_sampling",
+            "basic_sampling",
+            "research_geology"
+          ],
+          "source_url": "https://www.nasa.gov/missions/artemis/nasa-field-geology-training-prepares-artemis-mission-support-teams/",
+          "progress": 0,
+          "completed": false
+        },
+        {
+          "id": "seismology",
+          "title": "Seismic baseline",
+          "description": "Complete detailed analyses of separate seismic records. Simply archiving a signal does not count.",
+          "target": 1,
+          "qualifying_choices": [
+            "analyze_seismic",
+            "research_seismic"
+          ],
+          "source_url": "https://science.nasa.gov/moon/moonquakes/",
+          "progress": 0,
+          "completed": false
+        },
+        {
+          "id": "instruments",
+          "title": "Restore a research instrument",
+          "description": "Restore a research instrument or the research communications link. Routine life-support maintenance does not count.",
+          "target": 1,
+          "qualifying_choices": [
+            "align_antenna",
+            "remote_antenna",
+            "research_instrument"
+          ],
+          "source_url": "https://www.nasa.gov/reference/9-0-hardware-and-equipment-vol-2/",
+          "progress": 0,
+          "completed": false
+        }
+      ]
+    },
+    "assignment_options": [
+      {
+        "workload": "rest",
+        "support_candidates": [],
+        "id": "crew_rest",
+        "action_type": "rest",
+        "objective_rewards": [],
+        "text": "Rest and recuperate",
+        "description": "One week without active work. Adequate actual food and water improve deficit recovery and allow up to 5 condition points of recovery in safe air. Rest creates no supplies and cannot compensate for continued deprivation.",
+        "costs": {},
+        "required_items": {},
+        "requires_crew": true,
+        "role_bonus": {},
+        "crew_role_bonus": {},
+        "success_chance": 1.0,
+        "success_effects": {
+          "resources": {},
+          "solar_efficiency": 0.0,
+          "oxygen_efficiency": 0.0,
+          "water_recovery_efficiency": 0.0,
+          "co2_efficiency": 0.0,
+          "crew_health": 0,
+          "target": "selected"
+        },
+        "failure_effects": {
+          "resources": {},
+          "solar_efficiency": 0.0,
+          "oxygen_efficiency": 0.0,
+          "water_recovery_efficiency": 0.0,
+          "co2_efficiency": 0.0,
+          "crew_health": 0,
+          "target": "selected"
+        },
+        "required_role": null,
+        "minimum_crew": 1,
+        "available": true,
+        "unavailable_reasons": [],
+        "eligible_crew": [
+          {
+            "crew_id": "alex",
+            "available": true,
+            "unavailable_reasons": [],
+            "success_probability": 1.0
+          },
+          {
+            "crew_id": "lin",
+            "available": true,
+            "unavailable_reasons": [],
+            "success_probability": 1.0
+          }
+        ],
+        "success_probability": null
+      },
+      {
+        "workload": "eva",
+        "support_candidates": [],
+        "id": "clean_array",
+        "action_type": "maintenance",
+        "objective_rewards": [],
+        "text": "Clean the solar array",
+        "description": "Guaranteed +20 percentage points solar condition. Uses a dust kit and EVA supplies; One-week crew assignment; incident response is separate.",
+        "costs": {
+          "dust_kits": 1.0,
+          "eva_batteries": 1.0,
+          "oxygen": 2.0
+        },
+        "required_items": {},
+        "requires_crew": true,
+        "role_bonus": {},
+        "crew_role_bonus": {},
+        "success_chance": 1.0,
+        "success_effects": {
+          "resources": {},
+          "solar_efficiency": 0.2,
+          "oxygen_efficiency": 0.0,
+          "water_recovery_efficiency": 0.0,
+          "co2_efficiency": 0.0,
+          "crew_health": 0,
+          "target": "selected"
+        },
+        "failure_effects": {
+          "resources": {},
+          "solar_efficiency": 0.0,
+          "oxygen_efficiency": 0.0,
+          "water_recovery_efficiency": 0.0,
+          "co2_efficiency": 0.0,
+          "crew_health": 0,
+          "target": "selected"
+        },
+        "required_role": null,
+        "minimum_crew": 1,
+        "available": false,
+        "unavailable_reasons": [
+          "Requires 1 dust_kits; available 0."
+        ],
+        "eligible_crew": [
+          {
+            "crew_id": "alex",
+            "available": false,
+            "unavailable_reasons": [
+              "Requires 1 dust_kits; available 0."
+            ],
+            "success_probability": 1.0
+          },
+          {
+            "crew_id": "lin",
+            "available": false,
+            "unavailable_reasons": [
+              "Requires 1 dust_kits; available 0."
+            ],
+            "success_probability": 1.0
+          }
+        ],
+        "success_probability": null
+      },
+      {
+        "workload": "strenuous",
+        "support_candidates": [],
+        "id": "install_regulator",
+        "action_type": "maintenance",
+        "objective_rewards": [],
+        "text": "Install an oxygen regulator",
+        "description": "Guaranteed +20 percentage points oxygen condition. Uses a regulator and 2 power; One-week crew assignment; incident response is separate.",
+        "costs": {
+          "oxygen_regulators": 1.0,
+          "electricity": 2.0
+        },
+        "required_items": {},
+        "requires_crew": true,
+        "role_bonus": {},
+        "crew_role_bonus": {},
+        "success_chance": 1.0,
+        "success_effects": {
+          "resources": {},
+          "solar_efficiency": 0.0,
+          "oxygen_efficiency": 0.2,
+          "water_recovery_efficiency": 0.0,
+          "co2_efficiency": 0.0,
+          "crew_health": 0,
+          "target": "selected"
+        },
+        "failure_effects": {
+          "resources": {},
+          "solar_efficiency": 0.0,
+          "oxygen_efficiency": 0.0,
+          "water_recovery_efficiency": 0.0,
+          "co2_efficiency": 0.0,
+          "crew_health": 0,
+          "target": "selected"
+        },
+        "required_role": null,
+        "minimum_crew": 1,
+        "available": false,
+        "unavailable_reasons": [
+          "Requires 1 oxygen_regulators; available 0."
+        ],
+        "eligible_crew": [
+          {
+            "crew_id": "alex",
+            "available": false,
+            "unavailable_reasons": [
+              "Requires 1 oxygen_regulators; available 0."
+            ],
+            "success_probability": 1.0
+          },
+          {
+            "crew_id": "lin",
+            "available": false,
+            "unavailable_reasons": [
+              "Requires 1 oxygen_regulators; available 0."
+            ],
+            "success_probability": 1.0
+          }
+        ],
+        "success_probability": null
+      },
+      {
+        "workload": "light",
+        "support_candidates": [],
+        "id": "service_water_recovery",
+        "action_type": "maintenance",
+        "objective_rewards": [],
+        "text": "Service the water recovery processor",
+        "description": "One repair kit and 2 power guarantee +30 water-recovery condition points. Recovered water comes from the wastewater stock and is available after this week's rations.",
+        "costs": {
+          "repair_kits": 1.0,
+          "electricity": 2.0
+        },
+        "required_items": {},
+        "requires_crew": true,
+        "role_bonus": {},
+        "crew_role_bonus": {},
+        "success_chance": 1.0,
+        "success_effects": {
+          "resources": {},
+          "solar_efficiency": 0.0,
+          "oxygen_efficiency": 0.0,
+          "water_recovery_efficiency": 0.3,
+          "co2_efficiency": 0.0,
+          "crew_health": 0,
+          "target": "selected"
+        },
+        "failure_effects": {
+          "resources": {},
+          "solar_efficiency": 0.0,
+          "oxygen_efficiency": 0.0,
+          "water_recovery_efficiency": 0.0,
+          "co2_efficiency": 0.0,
+          "crew_health": 0,
+          "target": "selected"
+        },
+        "required_role": null,
+        "minimum_crew": 1,
+        "available": true,
+        "unavailable_reasons": [],
+        "eligible_crew": [
+          {
+            "crew_id": "alex",
+            "available": true,
+            "unavailable_reasons": [],
+            "success_probability": 1.0
+          },
+          {
+            "crew_id": "lin",
+            "available": true,
+            "unavailable_reasons": [],
+            "success_probability": 1.0
+          }
+        ],
+        "success_probability": null
+      },
+      {
+        "workload": "light",
+        "support_candidates": [],
+        "id": "service_co2_scrubber",
+        "action_type": "maintenance",
+        "objective_rewards": [],
+        "text": "Service the carbon dioxide scrubber",
+        "description": "One repair kit and 2 power guarantee +30 scrubber condition points. Removal still requires power; oxygen reserves do not remove CO2.",
+        "costs": {
+          "repair_kits": 1.0,
+          "electricity": 2.0
+        },
+        "required_items": {},
+        "requires_crew": true,
+        "role_bonus": {},
+        "crew_role_bonus": {},
+        "success_chance": 1.0,
+        "success_effects": {
+          "resources": {},
+          "solar_efficiency": 0.0,
+          "oxygen_efficiency": 0.0,
+          "water_recovery_efficiency": 0.0,
+          "co2_efficiency": 0.3,
+          "crew_health": 0,
+          "target": "selected"
+        },
+        "failure_effects": {
+          "resources": {},
+          "solar_efficiency": 0.0,
+          "oxygen_efficiency": 0.0,
+          "water_recovery_efficiency": 0.0,
+          "co2_efficiency": 0.0,
+          "crew_health": 0,
+          "target": "selected"
+        },
+        "required_role": null,
+        "minimum_crew": 1,
+        "available": true,
+        "unavailable_reasons": [],
+        "eligible_crew": [
+          {
+            "crew_id": "alex",
+            "available": true,
+            "unavailable_reasons": [],
+            "success_probability": 1.0
+          },
+          {
+            "crew_id": "lin",
+            "available": true,
+            "unavailable_reasons": [],
+            "success_probability": 1.0
+          }
+        ],
+        "success_probability": null
+      },
+      {
+        "workload": "eva",
+        "support_candidates": [],
+        "id": "research_geology",
+        "action_type": "research",
+        "objective_rewards": [
+          {
+            "objective_id": "geology",
+            "title": "Baseline sample collection",
+            "amount": 1
+          }
+        ],
+        "text": "Survey a geological sample",
+        "description": "Use the science kit to collect one sample and 2 research data on success. Scientists improve the odds; failure costs the worker 8 health. One-week crew assignment; incident response is separate.",
+        "costs": {
+          "eva_batteries": 1.0,
+          "oxygen": 2.0
+        },
+        "required_items": {
+          "scientific_tools": 1
+        },
+        "requires_crew": true,
+        "role_bonus": {
+          "scientist": 0.2,
+          "technician": 0.1
+        },
+        "crew_role_bonus": {},
+        "success_chance": 0.75,
+        "success_effects": {
+          "resources": {
+            "research_data": 2.0
+          },
+          "solar_efficiency": 0.0,
+          "oxygen_efficiency": 0.0,
+          "water_recovery_efficiency": 0.0,
+          "co2_efficiency": 0.0,
+          "crew_health": 0,
+          "target": "selected"
+        },
+        "failure_effects": {
+          "resources": {},
+          "solar_efficiency": 0.0,
+          "oxygen_efficiency": 0.0,
+          "water_recovery_efficiency": 0.0,
+          "co2_efficiency": 0.0,
+          "crew_health": -8,
+          "target": "selected"
+        },
+        "required_role": null,
+        "minimum_crew": 1,
+        "available": true,
+        "unavailable_reasons": [],
+        "eligible_crew": [
+          {
+            "crew_id": "alex",
+            "available": true,
+            "unavailable_reasons": [],
+            "success_probability": 0.7725
+          },
+          {
+            "crew_id": "lin",
+            "available": true,
+            "unavailable_reasons": [],
+            "success_probability": 0.915
+          }
+        ],
+        "success_probability": null
+      },
+      {
+        "workload": "eva",
+        "support_candidates": [],
+        "id": "research_seismic",
+        "action_type": "research",
+        "objective_rewards": [],
+        "text": "Deploy seismic sensors",
+        "description": "Start a seismic project: 1 deployment week, 3 automatic recording weeks at 2 power each, then 1 crew analysis week. No objective credit until analysis succeeds. Failure costs 8 worker health and deployment supplies; the phase can be retried.",
+        "costs": {
+          "electricity": 2.0,
+          "eva_batteries": 1.0,
+          "oxygen": 2.0
+        },
+        "required_items": {
+          "scientific_tools": 1
+        },
+        "requires_crew": true,
+        "role_bonus": {
+          "scientist": 0.2,
+          "technician": 0.1
+        },
+        "crew_role_bonus": {},
+        "success_chance": 0.75,
+        "success_effects": {
+          "resources": {},
+          "solar_efficiency": 0.0,
+          "oxygen_efficiency": 0.0,
+          "water_recovery_efficiency": 0.0,
+          "co2_efficiency": 0.0,
+          "crew_health": 0,
+          "target": "selected"
+        },
+        "failure_effects": {
+          "resources": {},
+          "solar_efficiency": 0.0,
+          "oxygen_efficiency": 0.0,
+          "water_recovery_efficiency": 0.0,
+          "co2_efficiency": 0.0,
+          "crew_health": -8,
+          "target": "selected"
+        },
+        "required_role": null,
+        "minimum_crew": 1,
+        "available": true,
+        "unavailable_reasons": [],
+        "eligible_crew": [
+          {
+            "crew_id": "alex",
+            "available": true,
+            "unavailable_reasons": [],
+            "success_probability": 0.7725
+          },
+          {
+            "crew_id": "lin",
+            "available": true,
+            "unavailable_reasons": [],
+            "success_probability": 0.915
+          }
+        ],
+        "success_probability": null
+      },
+      {
+        "workload": "strenuous",
+        "support_candidates": [],
+        "id": "research_instrument",
+        "action_type": "research",
+        "objective_rewards": [
+          {
+            "objective_id": "instruments",
+            "title": "Restore a research instrument",
+            "amount": 1
+          }
+        ],
+        "text": "Restore the next research instrument",
+        "description": "Use a repair kit and science kit to restore one instrument and earn 2 research data on success. Engineers and technicians improve the odds; failure costs the worker 6 health. One-week crew assignment; incident response is separate.",
+        "costs": {
+          "repair_kits": 1.0,
+          "electricity": 2.0
+        },
+        "required_items": {
+          "scientific_tools": 1
+        },
+        "requires_crew": true,
+        "role_bonus": {
+          "engineer": 0.2,
+          "technician": 0.2,
+          "scientist": 0.1
+        },
+        "crew_role_bonus": {},
+        "success_chance": 0.7,
+        "success_effects": {
+          "resources": {
+            "research_data": 2.0
+          },
+          "solar_efficiency": 0.0,
+          "oxygen_efficiency": 0.0,
+          "water_recovery_efficiency": 0.0,
+          "co2_efficiency": 0.0,
+          "crew_health": 0,
+          "target": "selected"
+        },
+        "failure_effects": {
+          "resources": {},
+          "solar_efficiency": 0.0,
+          "oxygen_efficiency": 0.0,
+          "water_recovery_efficiency": 0.0,
+          "co2_efficiency": 0.0,
+          "crew_health": -6,
+          "target": "selected"
+        },
+        "required_role": null,
+        "minimum_crew": 1,
+        "available": true,
+        "unavailable_reasons": [],
+        "eligible_crew": [
+          {
+            "crew_id": "alex",
+            "available": true,
+            "unavailable_reasons": [],
+            "success_probability": 0.9225
+          },
+          {
+            "crew_id": "lin",
+            "available": true,
+            "unavailable_reasons": [],
+            "success_probability": 0.765
+          }
+        ],
+        "success_probability": null
+      }
+    ]
+  },
+  "turn_outcome": {
+    "project_updates": [],
+    "assignments": [
+      {
+        "crew_id": "alex",
+        "activity_id": "crew_rest",
+        "status": "completed",
+        "outcome": {
+          "support_crew_ids": [],
+          "event_id": "crew_recovery",
+          "choice_id": "crew_rest",
+          "choice_text": "Rest and recuperate",
+          "selected_crew_id": "alex",
+          "success": true,
+          "success_probability": 1.0,
+          "costs": {},
+          "effects": {
+            "resources": {},
+            "solar_efficiency": 0.0,
+            "oxygen_efficiency": 0.0,
+            "water_recovery_efficiency": 0.0,
+            "co2_efficiency": 0.0,
+            "health_changes": []
+          },
+          "objective_progress": []
+        },
+        "reason": null
+      }
+    ],
+    "science_gains": [],
+    "week": 5,
+    "event": {
+      "support_crew_ids": [],
+      "event_id": "crew_recovery",
+      "choice_id": "structured_recovery",
+      "choice_text": "Follow a structured recovery schedule",
+      "selected_crew_id": null,
+      "success": true,
+      "success_probability": 1.0,
+      "costs": {
+        "food": 1.0,
+        "water": 1.0
+      },
+      "effects": {
+        "resources": {},
+        "solar_efficiency": 0.0,
+        "oxygen_efficiency": 0.0,
+        "water_recovery_efficiency": 0.0,
+        "co2_efficiency": 0.0,
+        "health_changes": [
+          {
+            "crew_id": "alex",
+            "before": 85,
+            "after": 91
+          },
+          {
+            "crew_id": "lin",
+            "before": 82,
+            "after": 88
+          }
+        ]
+      },
+      "objective_progress": []
+    },
+    "rations": {
+      "alex": {
+        "food": "normal",
+        "water": "normal"
+      },
+      "lin": {
+        "food": "normal",
+        "water": "normal"
+      }
+    },
+    "survival": {
+      "life_support": {
+        "wastewater_processed": 3.68,
+        "water_recovered": 2.944,
+        "water_for_oxygen": 0.6,
+        "wastewater_captured": 3.04,
+        "oxygen_generated": 6.0,
+        "co2_produced": 2.0,
+        "co2_removed": 2.0,
+        "co2_remaining": 0.0,
+        "power_components": {
+          "habitat": 8.0,
+          "water_recovery": 2.0,
+          "oxygen_generation": 4.0,
+          "co2_removal": 2.0
+        }
+      },
+      "daylight_fraction": 0.781343,
+      "battery_capacity": 100.0,
+      "electricity_curtailed": 0.0,
+      "project_electricity_used": 0.0,
+      "power_priority": "life_support",
+      "ration_requirements": {
+        "food": 2.1,
+        "water": 3.8
+      },
+      "ration_costs": {
+        "food": 2.1,
+        "water": 3.8
+      },
+      "ration_depletion_fractions": {
+        "food": 0.0,
+        "water": 0.0
+      },
+      "electricity_generated": 28.128348,
+      "electricity_required": 16.0,
+      "electricity_used": 16.0,
+      "life_support_power_fraction": 1.0,
+      "oxygen_generated": 6.0,
+      "oxygen_required": 6.0,
+      "oxygen_used": 6.0,
+      "oxygen_shortage": 0.0,
+      "health_changes": [
+        {
+          "crew_id": "alex",
+          "before": 91,
+          "after": 96,
+          "food_received_fraction": 1.0,
+          "water_received_fraction": 1.0,
+          "nutrition_before": 1.2,
+          "nutrition_after": 0.8,
+          "hydration_before": 0.0,
+          "hydration_after": 0.0,
+          "recovery": 5,
+          "worked": false,
+          "rested": true,
+          "food_penalty": 0,
+          "water_penalty": 0,
+          "oxygen_penalty": 0,
+          "co2_penalty": 0,
+          "died": false
+        },
+        {
+          "crew_id": "lin",
+          "before": 88,
+          "after": 90,
+          "food_received_fraction": 1.0,
+          "water_received_fraction": 1.0,
+          "nutrition_before": 1.2,
+          "nutrition_after": 0.95,
+          "hydration_before": 0.0,
+          "hydration_after": 0.0,
+          "recovery": 2,
+          "worked": false,
+          "rested": false,
+          "food_penalty": 0,
+          "water_penalty": 0,
+          "oxygen_penalty": 0,
+          "co2_penalty": 0,
+          "died": false
+        }
+      ]
+    },
+    "resource_changes": {
+      "food": -3.1,
+      "water": -2.456,
+      "oxygen": 0.0,
+      "electricity": 12.128348,
+      "medicine": 0.0,
+      "repair_kits": 0.0,
+      "eva_batteries": 0.0,
+      "dust_kits": 0.0,
+      "oxygen_regulators": 0.0,
+      "diagnostic_tools": 0.0,
+      "sealant_packs": 0.0,
+      "scientific_tools": 0.0,
+      "research_data": 0.0,
+      "wastewater": -0.64,
+      "co2": 0.0
+    },
+    "deaths": [],
+    "next_event": {
+      "event_id": "seismic_signal",
+      "title": "A Signal in the Seismometer",
       "effects": {
         "resources": {},
         "solar_efficiency": 0.0,
@@ -4062,6 +9309,40 @@ export const game: GameResponse = {
     },
     "crew": [
       {
+        "nutrition_deficit": 0.0,
+        "hydration_deficit": 0.0,
+        "condition": {
+          "status": "fit",
+          "nutrition_status": "adequate",
+          "hydration_status": "adequate",
+          "can_work": true,
+          "can_do_eva": true,
+          "performance_penalty": 0.0,
+          "restrictions": [],
+          "nutrition_recovery_weeks": 0,
+          "hydration_recovery_weeks": 0,
+          "source_url": "https://www.nasa.gov/reference/risk-of-inadequate-food-and-nutrition/"
+        },
+        "ration_outlook": {
+          "normal": {
+            "nutrition_deficit": 0.0,
+            "hydration_deficit": 0.0,
+            "food_damage": 0,
+            "water_damage": 0
+          },
+          "reduced": {
+            "nutrition_deficit": 0.3,
+            "hydration_deficit": 0.3,
+            "food_damage": 0,
+            "water_damage": 4
+          },
+          "emergency": {
+            "nutrition_deficit": 0.6,
+            "hydration_deficit": 0.6,
+            "food_damage": 0,
+            "water_damage": 28
+          }
+        },
         "id": "alex",
         "name": "Alex Vega",
         "role": "engineer",
@@ -4094,6 +9375,40 @@ export const game: GameResponse = {
         }
       },
       {
+        "nutrition_deficit": 0.0,
+        "hydration_deficit": 0.0,
+        "condition": {
+          "status": "fit",
+          "nutrition_status": "adequate",
+          "hydration_status": "adequate",
+          "can_work": true,
+          "can_do_eva": true,
+          "performance_penalty": 0.0,
+          "restrictions": [],
+          "nutrition_recovery_weeks": 0,
+          "hydration_recovery_weeks": 0,
+          "source_url": "https://www.nasa.gov/reference/risk-of-inadequate-food-and-nutrition/"
+        },
+        "ration_outlook": {
+          "normal": {
+            "nutrition_deficit": 0.0,
+            "hydration_deficit": 0.0,
+            "food_damage": 0,
+            "water_damage": 0
+          },
+          "reduced": {
+            "nutrition_deficit": 0.3,
+            "hydration_deficit": 0.3,
+            "food_damage": 0,
+            "water_damage": 4
+          },
+          "emergency": {
+            "nutrition_deficit": 0.6,
+            "hydration_deficit": 0.6,
+            "food_damage": 0,
+            "water_damage": 28
+          }
+        },
         "id": "maya",
         "name": "Maya Okafor",
         "role": "medic",
@@ -4166,6 +9481,8 @@ export const game: GameResponse = {
       },
       "choices": [
         {
+          "workload": "eva",
+          "support_candidates": [],
           "id": "engineer_repair",
           "action_type": "event",
           "objective_rewards": [],
@@ -4224,6 +9541,8 @@ export const game: GameResponse = {
           "success_probability": null
         },
         {
+          "workload": "eva",
+          "support_candidates": [],
           "id": "crew_repair",
           "action_type": "event",
           "objective_rewards": [],
@@ -4281,6 +9600,8 @@ export const game: GameResponse = {
           "success_probability": null
         },
         {
+          "workload": "light",
+          "support_candidates": [],
           "id": "ignore",
           "action_type": "event",
           "objective_rewards": [],
@@ -4384,6 +9705,60 @@ export const game: GameResponse = {
     },
     "assignment_options": [
       {
+        "workload": "rest",
+        "support_candidates": [],
+        "id": "crew_rest",
+        "action_type": "rest",
+        "objective_rewards": [],
+        "text": "Rest and recuperate",
+        "description": "One week without active work. Adequate actual food and water improve deficit recovery and allow up to 5 condition points of recovery in safe air. Rest creates no supplies and cannot compensate for continued deprivation.",
+        "costs": {},
+        "required_items": {},
+        "requires_crew": true,
+        "role_bonus": {},
+        "crew_role_bonus": {},
+        "success_chance": 1.0,
+        "success_effects": {
+          "resources": {},
+          "solar_efficiency": 0.0,
+          "oxygen_efficiency": 0.0,
+          "water_recovery_efficiency": 0.0,
+          "co2_efficiency": 0.0,
+          "crew_health": 0,
+          "target": "selected"
+        },
+        "failure_effects": {
+          "resources": {},
+          "solar_efficiency": 0.0,
+          "oxygen_efficiency": 0.0,
+          "water_recovery_efficiency": 0.0,
+          "co2_efficiency": 0.0,
+          "crew_health": 0,
+          "target": "selected"
+        },
+        "required_role": null,
+        "minimum_crew": 1,
+        "available": true,
+        "unavailable_reasons": [],
+        "eligible_crew": [
+          {
+            "crew_id": "alex",
+            "available": true,
+            "unavailable_reasons": [],
+            "success_probability": 1.0
+          },
+          {
+            "crew_id": "maya",
+            "available": true,
+            "unavailable_reasons": [],
+            "success_probability": 1.0
+          }
+        ],
+        "success_probability": null
+      },
+      {
+        "workload": "eva",
+        "support_candidates": [],
         "id": "clean_array",
         "action_type": "maintenance",
         "objective_rewards": [],
@@ -4444,6 +9819,8 @@ export const game: GameResponse = {
         "success_probability": null
       },
       {
+        "workload": "strenuous",
+        "support_candidates": [],
         "id": "install_regulator",
         "action_type": "maintenance",
         "objective_rewards": [],
@@ -4506,6 +9883,8 @@ export const game: GameResponse = {
         "success_probability": null
       },
       {
+        "workload": "light",
+        "support_candidates": [],
         "id": "service_water_recovery",
         "action_type": "maintenance",
         "objective_rewards": [],
@@ -4565,6 +9944,8 @@ export const game: GameResponse = {
         "success_probability": null
       },
       {
+        "workload": "light",
+        "support_candidates": [],
         "id": "service_co2_scrubber",
         "action_type": "maintenance",
         "objective_rewards": [],
@@ -4624,6 +10005,8 @@ export const game: GameResponse = {
         "success_probability": null
       },
       {
+        "workload": "eva",
+        "support_candidates": [],
         "id": "research_geology",
         "action_type": "research",
         "objective_rewards": [
@@ -4696,6 +10079,8 @@ export const game: GameResponse = {
         "success_probability": null
       },
       {
+        "workload": "eva",
+        "support_candidates": [],
         "id": "research_seismic",
         "action_type": "research",
         "objective_rewards": [],
@@ -4761,6 +10146,8 @@ export const game: GameResponse = {
         "success_probability": null
       },
       {
+        "workload": "strenuous",
+        "support_candidates": [],
         "id": "research_instrument",
         "action_type": "research",
         "objective_rewards": [
@@ -4979,10 +10366,44 @@ export const turn: TurnResponse = {
     },
     "crew": [
       {
+        "nutrition_deficit": 0.3,
+        "hydration_deficit": 0.0,
+        "condition": {
+          "status": "impaired",
+          "nutrition_status": "underfed",
+          "hydration_status": "adequate",
+          "can_work": true,
+          "can_do_eva": true,
+          "performance_penalty": 0.0115,
+          "restrictions": [],
+          "nutrition_recovery_weeks": 2,
+          "hydration_recovery_weeks": 0,
+          "source_url": "https://www.nasa.gov/reference/risk-of-inadequate-food-and-nutrition/"
+        },
+        "ration_outlook": {
+          "normal": {
+            "nutrition_deficit": 0.05,
+            "hydration_deficit": 0.0,
+            "food_damage": 0,
+            "water_damage": 0
+          },
+          "reduced": {
+            "nutrition_deficit": 0.6,
+            "hydration_deficit": 0.3,
+            "food_damage": 0,
+            "water_damage": 4
+          },
+          "emergency": {
+            "nutrition_deficit": 0.9,
+            "hydration_deficit": 0.6,
+            "food_damage": 0,
+            "water_damage": 28
+          }
+        },
         "id": "alex",
         "name": "Alex Vega",
         "role": "engineer",
-        "health": 65,
+        "health": 67,
         "positive_trait": "Steady hands: +5 percentage points on assigned event actions.",
         "negative_trait": "Large appetite: consumes 10% more food.",
         "food_multiplier": 1.1,
@@ -5011,6 +10432,40 @@ export const turn: TurnResponse = {
         }
       },
       {
+        "nutrition_deficit": 0.0,
+        "hydration_deficit": 0.0,
+        "condition": {
+          "status": "fit",
+          "nutrition_status": "adequate",
+          "hydration_status": "adequate",
+          "can_work": true,
+          "can_do_eva": true,
+          "performance_penalty": 0.0,
+          "restrictions": [],
+          "nutrition_recovery_weeks": 0,
+          "hydration_recovery_weeks": 0,
+          "source_url": "https://www.nasa.gov/reference/risk-of-inadequate-food-and-nutrition/"
+        },
+        "ration_outlook": {
+          "normal": {
+            "nutrition_deficit": 0.0,
+            "hydration_deficit": 0.0,
+            "food_damage": 0,
+            "water_damage": 0
+          },
+          "reduced": {
+            "nutrition_deficit": 0.3,
+            "hydration_deficit": 0.3,
+            "food_damage": 0,
+            "water_damage": 4
+          },
+          "emergency": {
+            "nutrition_deficit": 0.6,
+            "hydration_deficit": 0.6,
+            "food_damage": 0,
+            "water_damage": 28
+          }
+        },
         "id": "maya",
         "name": "Maya Okafor",
         "role": "medic",
@@ -5083,6 +10538,8 @@ export const turn: TurnResponse = {
       },
       "choices": [
         {
+          "workload": "care",
+          "support_candidates": [],
           "id": "treat",
           "action_type": "event",
           "objective_rewards": [],
@@ -5137,6 +10594,19 @@ export const turn: TurnResponse = {
           "success_probability": null
         },
         {
+          "workload": "strenuous",
+          "support_candidates": [
+            {
+              "crew_id": "alex",
+              "available": true,
+              "unavailable_reasons": []
+            },
+            {
+              "crew_id": "maya",
+              "available": true,
+              "unavailable_reasons": []
+            }
+          ],
           "id": "team_treatment",
           "action_type": "event",
           "objective_rewards": [],
@@ -5181,7 +10651,7 @@ export const turn: TurnResponse = {
               "unavailable_reasons": [
                 "Requires a living medic."
               ],
-              "success_probability": 0.8
+              "success_probability": 0.7885
             },
             {
               "crew_id": "maya",
@@ -5193,6 +10663,8 @@ export const turn: TurnResponse = {
           "success_probability": null
         },
         {
+          "workload": "care",
+          "support_candidates": [],
           "id": "guided_treatment",
           "action_type": "event",
           "objective_rewards": [],
@@ -5253,6 +10725,8 @@ export const turn: TurnResponse = {
           "success_probability": null
         },
         {
+          "workload": "light",
+          "support_candidates": [],
           "id": "rest",
           "action_type": "event",
           "objective_rewards": [],
@@ -5391,8 +10865,17 @@ export const turn: TurnResponse = {
             {
               "crew_id": "alex",
               "before": 75,
-              "after": 73,
-              "food_penalty": 2,
+              "after": 75,
+              "food_received_fraction": 0.7,
+              "water_received_fraction": 1.0,
+              "nutrition_before": 0.0,
+              "nutrition_after": 0.3,
+              "hydration_before": 0.0,
+              "hydration_after": 0.0,
+              "recovery": 0,
+              "worked": true,
+              "rested": false,
+              "food_penalty": 0,
               "water_penalty": 0,
               "oxygen_penalty": 0,
               "co2_penalty": 0,
@@ -5402,6 +10885,15 @@ export const turn: TurnResponse = {
               "crew_id": "maya",
               "before": 100,
               "after": 100,
+              "food_received_fraction": 1.0,
+              "water_received_fraction": 1.0,
+              "nutrition_before": 0.0,
+              "nutrition_after": 0.0,
+              "hydration_before": 0.0,
+              "hydration_after": 0.0,
+              "recovery": 0,
+              "worked": false,
+              "rested": false,
               "food_penalty": 0,
               "water_penalty": 0,
               "oxygen_penalty": 0,
@@ -5440,8 +10932,8 @@ export const turn: TurnResponse = {
             "health_changes": [
               {
                 "crew_id": "alex",
-                "before": 73,
-                "after": 65
+                "before": 75,
+                "after": 67
               },
               {
                 "crew_id": "maya",
@@ -5511,6 +11003,60 @@ export const turn: TurnResponse = {
     },
     "assignment_options": [
       {
+        "workload": "rest",
+        "support_candidates": [],
+        "id": "crew_rest",
+        "action_type": "rest",
+        "objective_rewards": [],
+        "text": "Rest and recuperate",
+        "description": "One week without active work. Adequate actual food and water improve deficit recovery and allow up to 5 condition points of recovery in safe air. Rest creates no supplies and cannot compensate for continued deprivation.",
+        "costs": {},
+        "required_items": {},
+        "requires_crew": true,
+        "role_bonus": {},
+        "crew_role_bonus": {},
+        "success_chance": 1.0,
+        "success_effects": {
+          "resources": {},
+          "solar_efficiency": 0.0,
+          "oxygen_efficiency": 0.0,
+          "water_recovery_efficiency": 0.0,
+          "co2_efficiency": 0.0,
+          "crew_health": 0,
+          "target": "selected"
+        },
+        "failure_effects": {
+          "resources": {},
+          "solar_efficiency": 0.0,
+          "oxygen_efficiency": 0.0,
+          "water_recovery_efficiency": 0.0,
+          "co2_efficiency": 0.0,
+          "crew_health": 0,
+          "target": "selected"
+        },
+        "required_role": null,
+        "minimum_crew": 1,
+        "available": true,
+        "unavailable_reasons": [],
+        "eligible_crew": [
+          {
+            "crew_id": "alex",
+            "available": true,
+            "unavailable_reasons": [],
+            "success_probability": 1.0
+          },
+          {
+            "crew_id": "maya",
+            "available": true,
+            "unavailable_reasons": [],
+            "success_probability": 1.0
+          }
+        ],
+        "success_probability": null
+      },
+      {
+        "workload": "eva",
+        "support_candidates": [],
         "id": "clean_array",
         "action_type": "maintenance",
         "objective_rewards": [],
@@ -5571,6 +11117,8 @@ export const turn: TurnResponse = {
         "success_probability": null
       },
       {
+        "workload": "strenuous",
+        "support_candidates": [],
         "id": "install_regulator",
         "action_type": "maintenance",
         "objective_rewards": [],
@@ -5633,6 +11181,8 @@ export const turn: TurnResponse = {
         "success_probability": null
       },
       {
+        "workload": "light",
+        "support_candidates": [],
         "id": "service_water_recovery",
         "action_type": "maintenance",
         "objective_rewards": [],
@@ -5686,6 +11236,8 @@ export const turn: TurnResponse = {
         "success_probability": null
       },
       {
+        "workload": "light",
+        "support_candidates": [],
         "id": "service_co2_scrubber",
         "action_type": "maintenance",
         "objective_rewards": [],
@@ -5739,6 +11291,8 @@ export const turn: TurnResponse = {
         "success_probability": null
       },
       {
+        "workload": "eva",
+        "support_candidates": [],
         "id": "research_geology",
         "action_type": "research",
         "objective_rewards": [
@@ -5797,7 +11351,7 @@ export const turn: TurnResponse = {
             "unavailable_reasons": [
               "Requires 1 Field science kit (not consumed)."
             ],
-            "success_probability": 0.8
+            "success_probability": 0.7885
           },
           {
             "crew_id": "maya",
@@ -5811,6 +11365,8 @@ export const turn: TurnResponse = {
         "success_probability": null
       },
       {
+        "workload": "eva",
+        "support_candidates": [],
         "id": "research_seismic",
         "action_type": "research",
         "objective_rewards": [],
@@ -5862,7 +11418,7 @@ export const turn: TurnResponse = {
             "unavailable_reasons": [
               "Requires 1 Field science kit (not consumed)."
             ],
-            "success_probability": 0.8
+            "success_probability": 0.7885
           },
           {
             "crew_id": "maya",
@@ -5876,6 +11432,8 @@ export const turn: TurnResponse = {
         "success_probability": null
       },
       {
+        "workload": "strenuous",
+        "support_candidates": [],
         "id": "research_instrument",
         "action_type": "research",
         "objective_rewards": [
@@ -5935,7 +11493,7 @@ export const turn: TurnResponse = {
             "unavailable_reasons": [
               "Requires 1 Field science kit (not consumed)."
             ],
-            "success_probability": 0.95
+            "success_probability": 0.9385
           },
           {
             "crew_id": "maya",
@@ -6040,8 +11598,17 @@ export const turn: TurnResponse = {
         {
           "crew_id": "alex",
           "before": 75,
-          "after": 73,
-          "food_penalty": 2,
+          "after": 75,
+          "food_received_fraction": 0.7,
+          "water_received_fraction": 1.0,
+          "nutrition_before": 0.0,
+          "nutrition_after": 0.3,
+          "hydration_before": 0.0,
+          "hydration_after": 0.0,
+          "recovery": 0,
+          "worked": true,
+          "rested": false,
+          "food_penalty": 0,
           "water_penalty": 0,
           "oxygen_penalty": 0,
           "co2_penalty": 0,
@@ -6051,6 +11618,15 @@ export const turn: TurnResponse = {
           "crew_id": "maya",
           "before": 100,
           "after": 100,
+          "food_received_fraction": 1.0,
+          "water_received_fraction": 1.0,
+          "nutrition_before": 0.0,
+          "nutrition_after": 0.0,
+          "hydration_before": 0.0,
+          "hydration_after": 0.0,
+          "recovery": 0,
+          "worked": false,
+          "rested": false,
           "food_penalty": 0,
           "water_penalty": 0,
           "oxygen_penalty": 0,
@@ -6089,8 +11665,8 @@ export const turn: TurnResponse = {
         "health_changes": [
           {
             "crew_id": "alex",
-            "before": 73,
-            "after": 65
+            "before": 75,
+            "after": 67
           },
           {
             "crew_id": "maya",
@@ -6254,6 +11830,40 @@ export const medicalGame: GameResponse = {
     },
     "crew": [
       {
+        "nutrition_deficit": 0.0,
+        "hydration_deficit": 0.0,
+        "condition": {
+          "status": "fit",
+          "nutrition_status": "adequate",
+          "hydration_status": "adequate",
+          "can_work": true,
+          "can_do_eva": true,
+          "performance_penalty": 0.0,
+          "restrictions": [],
+          "nutrition_recovery_weeks": 0,
+          "hydration_recovery_weeks": 0,
+          "source_url": "https://www.nasa.gov/reference/risk-of-inadequate-food-and-nutrition/"
+        },
+        "ration_outlook": {
+          "normal": {
+            "nutrition_deficit": 0.0,
+            "hydration_deficit": 0.0,
+            "food_damage": 0,
+            "water_damage": 0
+          },
+          "reduced": {
+            "nutrition_deficit": 0.3,
+            "hydration_deficit": 0.3,
+            "food_damage": 0,
+            "water_damage": 4
+          },
+          "emergency": {
+            "nutrition_deficit": 0.6,
+            "hydration_deficit": 0.6,
+            "food_damage": 0,
+            "water_damage": 28
+          }
+        },
         "id": "alex",
         "name": "Alex Vega",
         "role": "engineer",
@@ -6286,6 +11896,40 @@ export const medicalGame: GameResponse = {
         }
       },
       {
+        "nutrition_deficit": 0.0,
+        "hydration_deficit": 0.0,
+        "condition": {
+          "status": "fit",
+          "nutrition_status": "adequate",
+          "hydration_status": "adequate",
+          "can_work": true,
+          "can_do_eva": true,
+          "performance_penalty": 0.0,
+          "restrictions": [],
+          "nutrition_recovery_weeks": 0,
+          "hydration_recovery_weeks": 0,
+          "source_url": "https://www.nasa.gov/reference/risk-of-inadequate-food-and-nutrition/"
+        },
+        "ration_outlook": {
+          "normal": {
+            "nutrition_deficit": 0.0,
+            "hydration_deficit": 0.0,
+            "food_damage": 0,
+            "water_damage": 0
+          },
+          "reduced": {
+            "nutrition_deficit": 0.3,
+            "hydration_deficit": 0.3,
+            "food_damage": 0,
+            "water_damage": 4
+          },
+          "emergency": {
+            "nutrition_deficit": 0.6,
+            "hydration_deficit": 0.6,
+            "food_damage": 0,
+            "water_damage": 28
+          }
+        },
         "id": "maya",
         "name": "Maya Okafor",
         "role": "medic",
@@ -6358,6 +12002,8 @@ export const medicalGame: GameResponse = {
       },
       "choices": [
         {
+          "workload": "care",
+          "support_candidates": [],
           "id": "treat",
           "action_type": "event",
           "objective_rewards": [],
@@ -6412,6 +12058,19 @@ export const medicalGame: GameResponse = {
           "success_probability": null
         },
         {
+          "workload": "strenuous",
+          "support_candidates": [
+            {
+              "crew_id": "alex",
+              "available": true,
+              "unavailable_reasons": []
+            },
+            {
+              "crew_id": "maya",
+              "available": true,
+              "unavailable_reasons": []
+            }
+          ],
           "id": "team_treatment",
           "action_type": "event",
           "objective_rewards": [],
@@ -6468,6 +12127,8 @@ export const medicalGame: GameResponse = {
           "success_probability": null
         },
         {
+          "workload": "care",
+          "support_candidates": [],
           "id": "guided_treatment",
           "action_type": "event",
           "objective_rewards": [],
@@ -6528,6 +12189,8 @@ export const medicalGame: GameResponse = {
           "success_probability": null
         },
         {
+          "workload": "light",
+          "support_candidates": [],
           "id": "rest",
           "action_type": "event",
           "objective_rewards": [],
@@ -6631,6 +12294,60 @@ export const medicalGame: GameResponse = {
     },
     "assignment_options": [
       {
+        "workload": "rest",
+        "support_candidates": [],
+        "id": "crew_rest",
+        "action_type": "rest",
+        "objective_rewards": [],
+        "text": "Rest and recuperate",
+        "description": "One week without active work. Adequate actual food and water improve deficit recovery and allow up to 5 condition points of recovery in safe air. Rest creates no supplies and cannot compensate for continued deprivation.",
+        "costs": {},
+        "required_items": {},
+        "requires_crew": true,
+        "role_bonus": {},
+        "crew_role_bonus": {},
+        "success_chance": 1.0,
+        "success_effects": {
+          "resources": {},
+          "solar_efficiency": 0.0,
+          "oxygen_efficiency": 0.0,
+          "water_recovery_efficiency": 0.0,
+          "co2_efficiency": 0.0,
+          "crew_health": 0,
+          "target": "selected"
+        },
+        "failure_effects": {
+          "resources": {},
+          "solar_efficiency": 0.0,
+          "oxygen_efficiency": 0.0,
+          "water_recovery_efficiency": 0.0,
+          "co2_efficiency": 0.0,
+          "crew_health": 0,
+          "target": "selected"
+        },
+        "required_role": null,
+        "minimum_crew": 1,
+        "available": true,
+        "unavailable_reasons": [],
+        "eligible_crew": [
+          {
+            "crew_id": "alex",
+            "available": true,
+            "unavailable_reasons": [],
+            "success_probability": 1.0
+          },
+          {
+            "crew_id": "maya",
+            "available": true,
+            "unavailable_reasons": [],
+            "success_probability": 1.0
+          }
+        ],
+        "success_probability": null
+      },
+      {
+        "workload": "eva",
+        "support_candidates": [],
         "id": "clean_array",
         "action_type": "maintenance",
         "objective_rewards": [],
@@ -6694,6 +12411,8 @@ export const medicalGame: GameResponse = {
         "success_probability": null
       },
       {
+        "workload": "strenuous",
+        "support_candidates": [],
         "id": "install_regulator",
         "action_type": "maintenance",
         "objective_rewards": [],
@@ -6756,6 +12475,8 @@ export const medicalGame: GameResponse = {
         "success_probability": null
       },
       {
+        "workload": "light",
+        "support_candidates": [],
         "id": "service_water_recovery",
         "action_type": "maintenance",
         "objective_rewards": [],
@@ -6815,6 +12536,8 @@ export const medicalGame: GameResponse = {
         "success_probability": null
       },
       {
+        "workload": "light",
+        "support_candidates": [],
         "id": "service_co2_scrubber",
         "action_type": "maintenance",
         "objective_rewards": [],
@@ -6874,6 +12597,8 @@ export const medicalGame: GameResponse = {
         "success_probability": null
       },
       {
+        "workload": "eva",
+        "support_candidates": [],
         "id": "research_geology",
         "action_type": "research",
         "objective_rewards": [
@@ -6946,6 +12671,8 @@ export const medicalGame: GameResponse = {
         "success_probability": null
       },
       {
+        "workload": "eva",
+        "support_candidates": [],
         "id": "research_seismic",
         "action_type": "research",
         "objective_rewards": [],
@@ -7011,6 +12738,8 @@ export const medicalGame: GameResponse = {
         "success_probability": null
       },
       {
+        "workload": "strenuous",
+        "support_candidates": [],
         "id": "research_instrument",
         "action_type": "research",
         "objective_rewards": [
@@ -7229,6 +12958,40 @@ export const treatment: TurnResponse = {
     },
     "crew": [
       {
+        "nutrition_deficit": 0.0,
+        "hydration_deficit": 0.0,
+        "condition": {
+          "status": "fit",
+          "nutrition_status": "adequate",
+          "hydration_status": "adequate",
+          "can_work": true,
+          "can_do_eva": true,
+          "performance_penalty": 0.0,
+          "restrictions": [],
+          "nutrition_recovery_weeks": 0,
+          "hydration_recovery_weeks": 0,
+          "source_url": "https://www.nasa.gov/reference/risk-of-inadequate-food-and-nutrition/"
+        },
+        "ration_outlook": {
+          "normal": {
+            "nutrition_deficit": 0.0,
+            "hydration_deficit": 0.0,
+            "food_damage": 0,
+            "water_damage": 0
+          },
+          "reduced": {
+            "nutrition_deficit": 0.3,
+            "hydration_deficit": 0.3,
+            "food_damage": 0,
+            "water_damage": 4
+          },
+          "emergency": {
+            "nutrition_deficit": 0.6,
+            "hydration_deficit": 0.6,
+            "food_damage": 0,
+            "water_damage": 28
+          }
+        },
         "id": "alex",
         "name": "Alex Vega",
         "role": "engineer",
@@ -7261,10 +13024,44 @@ export const treatment: TurnResponse = {
         }
       },
       {
+        "nutrition_deficit": 0.0,
+        "hydration_deficit": 0.0,
+        "condition": {
+          "status": "fit",
+          "nutrition_status": "adequate",
+          "hydration_status": "adequate",
+          "can_work": true,
+          "can_do_eva": true,
+          "performance_penalty": 0.0,
+          "restrictions": [],
+          "nutrition_recovery_weeks": 0,
+          "hydration_recovery_weeks": 0,
+          "source_url": "https://www.nasa.gov/reference/risk-of-inadequate-food-and-nutrition/"
+        },
+        "ration_outlook": {
+          "normal": {
+            "nutrition_deficit": 0.0,
+            "hydration_deficit": 0.0,
+            "food_damage": 0,
+            "water_damage": 0
+          },
+          "reduced": {
+            "nutrition_deficit": 0.3,
+            "hydration_deficit": 0.3,
+            "food_damage": 0,
+            "water_damage": 4
+          },
+          "emergency": {
+            "nutrition_deficit": 0.6,
+            "hydration_deficit": 0.6,
+            "food_damage": 0,
+            "water_damage": 28
+          }
+        },
         "id": "maya",
         "name": "Maya Okafor",
         "role": "medic",
-        "health": 92,
+        "health": 94,
         "positive_trait": "Efficient metabolism: consumes 10% less food.",
         "negative_trait": "Thirsty: consumes 10% more water.",
         "food_multiplier": 0.9,
@@ -7333,6 +13130,8 @@ export const treatment: TurnResponse = {
       },
       "choices": [
         {
+          "workload": "light",
+          "support_candidates": [],
           "id": "structured_recovery",
           "action_type": "event",
           "objective_rewards": [],
@@ -7373,6 +13172,8 @@ export const treatment: TurnResponse = {
           "success_probability": 1.0
         },
         {
+          "workload": "care",
+          "support_candidates": [],
           "id": "medical_recovery",
           "action_type": "event",
           "objective_rewards": [],
@@ -7427,6 +13228,8 @@ export const treatment: TurnResponse = {
           "success_probability": null
         },
         {
+          "workload": "light",
+          "support_candidates": [],
           "id": "routine_recovery",
           "action_type": "event",
           "objective_rewards": [],
@@ -7564,6 +13367,15 @@ export const treatment: TurnResponse = {
               "crew_id": "alex",
               "before": 100,
               "after": 100,
+              "food_received_fraction": 1.0,
+              "water_received_fraction": 1.0,
+              "nutrition_before": 0.0,
+              "nutrition_after": 0.0,
+              "hydration_before": 0.0,
+              "hydration_after": 0.0,
+              "recovery": 0,
+              "worked": false,
+              "rested": false,
               "food_penalty": 0,
               "water_penalty": 0,
               "oxygen_penalty": 0,
@@ -7573,7 +13385,16 @@ export const treatment: TurnResponse = {
             {
               "crew_id": "maya",
               "before": 92,
-              "after": 92,
+              "after": 94,
+              "food_received_fraction": 1.0,
+              "water_received_fraction": 1.0,
+              "nutrition_before": 0.0,
+              "nutrition_after": 0.0,
+              "hydration_before": 0.0,
+              "hydration_after": 0.0,
+              "recovery": 2,
+              "worked": false,
+              "rested": false,
               "food_penalty": 0,
               "water_penalty": 0,
               "oxygen_penalty": 0,
@@ -7672,6 +13493,60 @@ export const treatment: TurnResponse = {
     },
     "assignment_options": [
       {
+        "workload": "rest",
+        "support_candidates": [],
+        "id": "crew_rest",
+        "action_type": "rest",
+        "objective_rewards": [],
+        "text": "Rest and recuperate",
+        "description": "One week without active work. Adequate actual food and water improve deficit recovery and allow up to 5 condition points of recovery in safe air. Rest creates no supplies and cannot compensate for continued deprivation.",
+        "costs": {},
+        "required_items": {},
+        "requires_crew": true,
+        "role_bonus": {},
+        "crew_role_bonus": {},
+        "success_chance": 1.0,
+        "success_effects": {
+          "resources": {},
+          "solar_efficiency": 0.0,
+          "oxygen_efficiency": 0.0,
+          "water_recovery_efficiency": 0.0,
+          "co2_efficiency": 0.0,
+          "crew_health": 0,
+          "target": "selected"
+        },
+        "failure_effects": {
+          "resources": {},
+          "solar_efficiency": 0.0,
+          "oxygen_efficiency": 0.0,
+          "water_recovery_efficiency": 0.0,
+          "co2_efficiency": 0.0,
+          "crew_health": 0,
+          "target": "selected"
+        },
+        "required_role": null,
+        "minimum_crew": 1,
+        "available": true,
+        "unavailable_reasons": [],
+        "eligible_crew": [
+          {
+            "crew_id": "alex",
+            "available": true,
+            "unavailable_reasons": [],
+            "success_probability": 1.0
+          },
+          {
+            "crew_id": "maya",
+            "available": true,
+            "unavailable_reasons": [],
+            "success_probability": 1.0
+          }
+        ],
+        "success_probability": null
+      },
+      {
+        "workload": "eva",
+        "support_candidates": [],
         "id": "clean_array",
         "action_type": "maintenance",
         "objective_rewards": [],
@@ -7735,6 +13610,8 @@ export const treatment: TurnResponse = {
         "success_probability": null
       },
       {
+        "workload": "strenuous",
+        "support_candidates": [],
         "id": "install_regulator",
         "action_type": "maintenance",
         "objective_rewards": [],
@@ -7797,6 +13674,8 @@ export const treatment: TurnResponse = {
         "success_probability": null
       },
       {
+        "workload": "light",
+        "support_candidates": [],
         "id": "service_water_recovery",
         "action_type": "maintenance",
         "objective_rewards": [],
@@ -7850,6 +13729,8 @@ export const treatment: TurnResponse = {
         "success_probability": null
       },
       {
+        "workload": "light",
+        "support_candidates": [],
         "id": "service_co2_scrubber",
         "action_type": "maintenance",
         "objective_rewards": [],
@@ -7903,6 +13784,8 @@ export const treatment: TurnResponse = {
         "success_probability": null
       },
       {
+        "workload": "eva",
+        "support_candidates": [],
         "id": "research_geology",
         "action_type": "research",
         "objective_rewards": [
@@ -7975,6 +13858,8 @@ export const treatment: TurnResponse = {
         "success_probability": null
       },
       {
+        "workload": "eva",
+        "support_candidates": [],
         "id": "research_seismic",
         "action_type": "research",
         "objective_rewards": [],
@@ -8040,6 +13925,8 @@ export const treatment: TurnResponse = {
         "success_probability": null
       },
       {
+        "workload": "strenuous",
+        "support_candidates": [],
         "id": "research_instrument",
         "action_type": "research",
         "objective_rewards": [
@@ -8203,6 +14090,15 @@ export const treatment: TurnResponse = {
           "crew_id": "alex",
           "before": 100,
           "after": 100,
+          "food_received_fraction": 1.0,
+          "water_received_fraction": 1.0,
+          "nutrition_before": 0.0,
+          "nutrition_after": 0.0,
+          "hydration_before": 0.0,
+          "hydration_after": 0.0,
+          "recovery": 0,
+          "worked": false,
+          "rested": false,
           "food_penalty": 0,
           "water_penalty": 0,
           "oxygen_penalty": 0,
@@ -8212,7 +14108,16 @@ export const treatment: TurnResponse = {
         {
           "crew_id": "maya",
           "before": 92,
-          "after": 92,
+          "after": 94,
+          "food_received_fraction": 1.0,
+          "water_received_fraction": 1.0,
+          "nutrition_before": 0.0,
+          "nutrition_after": 0.0,
+          "hydration_before": 0.0,
+          "hydration_after": 0.0,
+          "recovery": 2,
+          "worked": false,
+          "rested": false,
           "food_penalty": 0,
           "water_penalty": 0,
           "oxygen_penalty": 0,
@@ -8397,10 +14302,44 @@ export const opportunityGame: GameResponse = {
     },
     "crew": [
       {
+        "nutrition_deficit": 0.0,
+        "hydration_deficit": 0.0,
+        "condition": {
+          "status": "fit",
+          "nutrition_status": "adequate",
+          "hydration_status": "adequate",
+          "can_work": true,
+          "can_do_eva": true,
+          "performance_penalty": 0.0,
+          "restrictions": [],
+          "nutrition_recovery_weeks": 0,
+          "hydration_recovery_weeks": 0,
+          "source_url": "https://www.nasa.gov/reference/risk-of-inadequate-food-and-nutrition/"
+        },
+        "ration_outlook": {
+          "normal": {
+            "nutrition_deficit": 0.0,
+            "hydration_deficit": 0.0,
+            "food_damage": 0,
+            "water_damage": 0
+          },
+          "reduced": {
+            "nutrition_deficit": 0.3,
+            "hydration_deficit": 0.3,
+            "food_damage": 0,
+            "water_damage": 4
+          },
+          "emergency": {
+            "nutrition_deficit": 0.6,
+            "hydration_deficit": 0.6,
+            "food_damage": 0,
+            "water_damage": 28
+          }
+        },
         "id": "alex",
         "name": "Alex Vega",
         "role": "engineer",
-        "health": 87,
+        "health": 89,
         "positive_trait": "Steady hands: +5 percentage points on assigned event actions.",
         "negative_trait": "Large appetite: consumes 10% more food.",
         "food_multiplier": 1.1,
@@ -8429,10 +14368,44 @@ export const opportunityGame: GameResponse = {
         }
       },
       {
+        "nutrition_deficit": 0.0,
+        "hydration_deficit": 0.0,
+        "condition": {
+          "status": "fit",
+          "nutrition_status": "adequate",
+          "hydration_status": "adequate",
+          "can_work": true,
+          "can_do_eva": true,
+          "performance_penalty": 0.0,
+          "restrictions": [],
+          "nutrition_recovery_weeks": 0,
+          "hydration_recovery_weeks": 0,
+          "source_url": "https://www.nasa.gov/reference/risk-of-inadequate-food-and-nutrition/"
+        },
+        "ration_outlook": {
+          "normal": {
+            "nutrition_deficit": 0.0,
+            "hydration_deficit": 0.0,
+            "food_damage": 0,
+            "water_damage": 0
+          },
+          "reduced": {
+            "nutrition_deficit": 0.3,
+            "hydration_deficit": 0.3,
+            "food_damage": 0,
+            "water_damage": 4
+          },
+          "emergency": {
+            "nutrition_deficit": 0.6,
+            "hydration_deficit": 0.6,
+            "food_damage": 0,
+            "water_damage": 28
+          }
+        },
         "id": "maya",
         "name": "Maya Okafor",
         "role": "medic",
-        "health": 87,
+        "health": 89,
         "positive_trait": "Efficient metabolism: consumes 10% less food.",
         "negative_trait": "Thirsty: consumes 10% more water.",
         "food_multiplier": 0.9,
@@ -8501,6 +14474,8 @@ export const opportunityGame: GameResponse = {
       },
       "choices": [
         {
+          "workload": "light",
+          "support_candidates": [],
           "id": "audit_crate",
           "action_type": "event",
           "objective_rewards": [],
@@ -8559,6 +14534,8 @@ export const opportunityGame: GameResponse = {
           "success_probability": null
         },
         {
+          "workload": "light",
+          "support_candidates": [],
           "id": "audit_scanner",
           "action_type": "event",
           "objective_rewards": [],
@@ -8622,6 +14599,8 @@ export const opportunityGame: GameResponse = {
           "success_probability": null
         },
         {
+          "workload": "light",
+          "support_candidates": [],
           "id": "quarantine_crate",
           "action_type": "event",
           "objective_rewards": [],
@@ -8761,7 +14740,16 @@ export const opportunityGame: GameResponse = {
             {
               "crew_id": "alex",
               "before": 87,
-              "after": 87,
+              "after": 89,
+              "food_received_fraction": 1.0,
+              "water_received_fraction": 1.0,
+              "nutrition_before": 0.0,
+              "nutrition_after": 0.0,
+              "hydration_before": 0.0,
+              "hydration_after": 0.0,
+              "recovery": 2,
+              "worked": false,
+              "rested": false,
               "food_penalty": 0,
               "water_penalty": 0,
               "oxygen_penalty": 0,
@@ -8771,7 +14759,16 @@ export const opportunityGame: GameResponse = {
             {
               "crew_id": "maya",
               "before": 87,
-              "after": 87,
+              "after": 89,
+              "food_received_fraction": 1.0,
+              "water_received_fraction": 1.0,
+              "nutrition_before": 0.0,
+              "nutrition_after": 0.0,
+              "hydration_before": 0.0,
+              "hydration_after": 0.0,
+              "recovery": 2,
+              "worked": false,
+              "rested": false,
               "food_penalty": 0,
               "water_penalty": 0,
               "oxygen_penalty": 0,
@@ -8870,6 +14867,60 @@ export const opportunityGame: GameResponse = {
     },
     "assignment_options": [
       {
+        "workload": "rest",
+        "support_candidates": [],
+        "id": "crew_rest",
+        "action_type": "rest",
+        "objective_rewards": [],
+        "text": "Rest and recuperate",
+        "description": "One week without active work. Adequate actual food and water improve deficit recovery and allow up to 5 condition points of recovery in safe air. Rest creates no supplies and cannot compensate for continued deprivation.",
+        "costs": {},
+        "required_items": {},
+        "requires_crew": true,
+        "role_bonus": {},
+        "crew_role_bonus": {},
+        "success_chance": 1.0,
+        "success_effects": {
+          "resources": {},
+          "solar_efficiency": 0.0,
+          "oxygen_efficiency": 0.0,
+          "water_recovery_efficiency": 0.0,
+          "co2_efficiency": 0.0,
+          "crew_health": 0,
+          "target": "selected"
+        },
+        "failure_effects": {
+          "resources": {},
+          "solar_efficiency": 0.0,
+          "oxygen_efficiency": 0.0,
+          "water_recovery_efficiency": 0.0,
+          "co2_efficiency": 0.0,
+          "crew_health": 0,
+          "target": "selected"
+        },
+        "required_role": null,
+        "minimum_crew": 1,
+        "available": true,
+        "unavailable_reasons": [],
+        "eligible_crew": [
+          {
+            "crew_id": "alex",
+            "available": true,
+            "unavailable_reasons": [],
+            "success_probability": 1.0
+          },
+          {
+            "crew_id": "maya",
+            "available": true,
+            "unavailable_reasons": [],
+            "success_probability": 1.0
+          }
+        ],
+        "success_probability": null
+      },
+      {
+        "workload": "eva",
+        "support_candidates": [],
         "id": "clean_array",
         "action_type": "maintenance",
         "objective_rewards": [],
@@ -8933,6 +14984,8 @@ export const opportunityGame: GameResponse = {
         "success_probability": null
       },
       {
+        "workload": "strenuous",
+        "support_candidates": [],
         "id": "install_regulator",
         "action_type": "maintenance",
         "objective_rewards": [],
@@ -8995,6 +15048,8 @@ export const opportunityGame: GameResponse = {
         "success_probability": null
       },
       {
+        "workload": "light",
+        "support_candidates": [],
         "id": "service_water_recovery",
         "action_type": "maintenance",
         "objective_rewards": [],
@@ -9048,6 +15103,8 @@ export const opportunityGame: GameResponse = {
         "success_probability": null
       },
       {
+        "workload": "light",
+        "support_candidates": [],
         "id": "service_co2_scrubber",
         "action_type": "maintenance",
         "objective_rewards": [],
@@ -9101,6 +15158,8 @@ export const opportunityGame: GameResponse = {
         "success_probability": null
       },
       {
+        "workload": "eva",
+        "support_candidates": [],
         "id": "research_geology",
         "action_type": "research",
         "objective_rewards": [
@@ -9173,6 +15232,8 @@ export const opportunityGame: GameResponse = {
         "success_probability": null
       },
       {
+        "workload": "eva",
+        "support_candidates": [],
         "id": "research_seismic",
         "action_type": "research",
         "objective_rewards": [],
@@ -9238,6 +15299,8 @@ export const opportunityGame: GameResponse = {
         "success_probability": null
       },
       {
+        "workload": "strenuous",
+        "support_candidates": [],
         "id": "research_instrument",
         "action_type": "research",
         "objective_rewards": [
@@ -9464,6 +15527,40 @@ export const researchGame: GameResponse = {
     },
     "crew": [
       {
+        "nutrition_deficit": 0.0,
+        "hydration_deficit": 0.0,
+        "condition": {
+          "status": "fit",
+          "nutrition_status": "adequate",
+          "hydration_status": "adequate",
+          "can_work": true,
+          "can_do_eva": true,
+          "performance_penalty": 0.0,
+          "restrictions": [],
+          "nutrition_recovery_weeks": 0,
+          "hydration_recovery_weeks": 0,
+          "source_url": "https://www.nasa.gov/reference/risk-of-inadequate-food-and-nutrition/"
+        },
+        "ration_outlook": {
+          "normal": {
+            "nutrition_deficit": 0.0,
+            "hydration_deficit": 0.0,
+            "food_damage": 0,
+            "water_damage": 0
+          },
+          "reduced": {
+            "nutrition_deficit": 0.3,
+            "hydration_deficit": 0.3,
+            "food_damage": 0,
+            "water_damage": 4
+          },
+          "emergency": {
+            "nutrition_deficit": 0.6,
+            "hydration_deficit": 0.6,
+            "food_damage": 0,
+            "water_damage": 28
+          }
+        },
         "id": "alex",
         "name": "Alex Vega",
         "role": "engineer",
@@ -9496,6 +15593,40 @@ export const researchGame: GameResponse = {
         }
       },
       {
+        "nutrition_deficit": 0.0,
+        "hydration_deficit": 0.0,
+        "condition": {
+          "status": "fit",
+          "nutrition_status": "adequate",
+          "hydration_status": "adequate",
+          "can_work": true,
+          "can_do_eva": true,
+          "performance_penalty": 0.0,
+          "restrictions": [],
+          "nutrition_recovery_weeks": 0,
+          "hydration_recovery_weeks": 0,
+          "source_url": "https://www.nasa.gov/reference/risk-of-inadequate-food-and-nutrition/"
+        },
+        "ration_outlook": {
+          "normal": {
+            "nutrition_deficit": 0.0,
+            "hydration_deficit": 0.0,
+            "food_damage": 0,
+            "water_damage": 0
+          },
+          "reduced": {
+            "nutrition_deficit": 0.3,
+            "hydration_deficit": 0.3,
+            "food_damage": 0,
+            "water_damage": 4
+          },
+          "emergency": {
+            "nutrition_deficit": 0.6,
+            "hydration_deficit": 0.6,
+            "food_damage": 0,
+            "water_damage": 28
+          }
+        },
         "id": "lin",
         "name": "Lin Park",
         "role": "scientist",
@@ -9568,6 +15699,8 @@ export const researchGame: GameResponse = {
       },
       "choices": [
         {
+          "workload": "eva",
+          "support_candidates": [],
           "id": "engineer_repair",
           "action_type": "event",
           "objective_rewards": [],
@@ -9626,6 +15759,8 @@ export const researchGame: GameResponse = {
           "success_probability": null
         },
         {
+          "workload": "eva",
+          "support_candidates": [],
           "id": "crew_repair",
           "action_type": "event",
           "objective_rewards": [],
@@ -9683,6 +15818,8 @@ export const researchGame: GameResponse = {
           "success_probability": null
         },
         {
+          "workload": "light",
+          "support_candidates": [],
           "id": "ignore",
           "action_type": "event",
           "objective_rewards": [],
@@ -9786,6 +15923,60 @@ export const researchGame: GameResponse = {
     },
     "assignment_options": [
       {
+        "workload": "rest",
+        "support_candidates": [],
+        "id": "crew_rest",
+        "action_type": "rest",
+        "objective_rewards": [],
+        "text": "Rest and recuperate",
+        "description": "One week without active work. Adequate actual food and water improve deficit recovery and allow up to 5 condition points of recovery in safe air. Rest creates no supplies and cannot compensate for continued deprivation.",
+        "costs": {},
+        "required_items": {},
+        "requires_crew": true,
+        "role_bonus": {},
+        "crew_role_bonus": {},
+        "success_chance": 1.0,
+        "success_effects": {
+          "resources": {},
+          "solar_efficiency": 0.0,
+          "oxygen_efficiency": 0.0,
+          "water_recovery_efficiency": 0.0,
+          "co2_efficiency": 0.0,
+          "crew_health": 0,
+          "target": "selected"
+        },
+        "failure_effects": {
+          "resources": {},
+          "solar_efficiency": 0.0,
+          "oxygen_efficiency": 0.0,
+          "water_recovery_efficiency": 0.0,
+          "co2_efficiency": 0.0,
+          "crew_health": 0,
+          "target": "selected"
+        },
+        "required_role": null,
+        "minimum_crew": 1,
+        "available": true,
+        "unavailable_reasons": [],
+        "eligible_crew": [
+          {
+            "crew_id": "alex",
+            "available": true,
+            "unavailable_reasons": [],
+            "success_probability": 1.0
+          },
+          {
+            "crew_id": "lin",
+            "available": true,
+            "unavailable_reasons": [],
+            "success_probability": 1.0
+          }
+        ],
+        "success_probability": null
+      },
+      {
+        "workload": "eva",
+        "support_candidates": [],
         "id": "clean_array",
         "action_type": "maintenance",
         "objective_rewards": [],
@@ -9846,6 +16037,8 @@ export const researchGame: GameResponse = {
         "success_probability": null
       },
       {
+        "workload": "strenuous",
+        "support_candidates": [],
         "id": "install_regulator",
         "action_type": "maintenance",
         "objective_rewards": [],
@@ -9908,6 +16101,8 @@ export const researchGame: GameResponse = {
         "success_probability": null
       },
       {
+        "workload": "light",
+        "support_candidates": [],
         "id": "service_water_recovery",
         "action_type": "maintenance",
         "objective_rewards": [],
@@ -9967,6 +16162,8 @@ export const researchGame: GameResponse = {
         "success_probability": null
       },
       {
+        "workload": "light",
+        "support_candidates": [],
         "id": "service_co2_scrubber",
         "action_type": "maintenance",
         "objective_rewards": [],
@@ -10026,6 +16223,8 @@ export const researchGame: GameResponse = {
         "success_probability": null
       },
       {
+        "workload": "eva",
+        "support_candidates": [],
         "id": "research_geology",
         "action_type": "research",
         "objective_rewards": [
@@ -10092,6 +16291,8 @@ export const researchGame: GameResponse = {
         "success_probability": null
       },
       {
+        "workload": "eva",
+        "support_candidates": [],
         "id": "research_seismic",
         "action_type": "research",
         "objective_rewards": [],
@@ -10151,6 +16352,8 @@ export const researchGame: GameResponse = {
         "success_probability": null
       },
       {
+        "workload": "strenuous",
+        "support_candidates": [],
         "id": "research_instrument",
         "action_type": "research",
         "objective_rewards": [
@@ -10363,6 +16566,40 @@ export const researchTurn: TurnResponse = {
     },
     "crew": [
       {
+        "nutrition_deficit": 0.0,
+        "hydration_deficit": 0.0,
+        "condition": {
+          "status": "fit",
+          "nutrition_status": "adequate",
+          "hydration_status": "adequate",
+          "can_work": true,
+          "can_do_eva": true,
+          "performance_penalty": 0.0,
+          "restrictions": [],
+          "nutrition_recovery_weeks": 0,
+          "hydration_recovery_weeks": 0,
+          "source_url": "https://www.nasa.gov/reference/risk-of-inadequate-food-and-nutrition/"
+        },
+        "ration_outlook": {
+          "normal": {
+            "nutrition_deficit": 0.0,
+            "hydration_deficit": 0.0,
+            "food_damage": 0,
+            "water_damage": 0
+          },
+          "reduced": {
+            "nutrition_deficit": 0.3,
+            "hydration_deficit": 0.3,
+            "food_damage": 0,
+            "water_damage": 4
+          },
+          "emergency": {
+            "nutrition_deficit": 0.6,
+            "hydration_deficit": 0.6,
+            "food_damage": 0,
+            "water_damage": 28
+          }
+        },
         "id": "alex",
         "name": "Alex Vega",
         "role": "engineer",
@@ -10395,6 +16632,40 @@ export const researchTurn: TurnResponse = {
         }
       },
       {
+        "nutrition_deficit": 0.0,
+        "hydration_deficit": 0.0,
+        "condition": {
+          "status": "fit",
+          "nutrition_status": "adequate",
+          "hydration_status": "adequate",
+          "can_work": true,
+          "can_do_eva": true,
+          "performance_penalty": 0.0,
+          "restrictions": [],
+          "nutrition_recovery_weeks": 0,
+          "hydration_recovery_weeks": 0,
+          "source_url": "https://www.nasa.gov/reference/risk-of-inadequate-food-and-nutrition/"
+        },
+        "ration_outlook": {
+          "normal": {
+            "nutrition_deficit": 0.0,
+            "hydration_deficit": 0.0,
+            "food_damage": 0,
+            "water_damage": 0
+          },
+          "reduced": {
+            "nutrition_deficit": 0.3,
+            "hydration_deficit": 0.3,
+            "food_damage": 0,
+            "water_damage": 4
+          },
+          "emergency": {
+            "nutrition_deficit": 0.6,
+            "hydration_deficit": 0.6,
+            "food_damage": 0,
+            "water_damage": 28
+          }
+        },
         "id": "lin",
         "name": "Lin Park",
         "role": "scientist",
@@ -10467,6 +16738,8 @@ export const researchTurn: TurnResponse = {
       },
       "choices": [
         {
+          "workload": "strenuous",
+          "support_candidates": [],
           "id": "replace_regulator",
           "action_type": "event",
           "objective_rewards": [],
@@ -10522,6 +16795,19 @@ export const researchTurn: TurnResponse = {
           "success_probability": null
         },
         {
+          "workload": "strenuous",
+          "support_candidates": [
+            {
+              "crew_id": "alex",
+              "available": true,
+              "unavailable_reasons": []
+            },
+            {
+              "crew_id": "lin",
+              "available": true,
+              "unavailable_reasons": []
+            }
+          ],
           "id": "recalibrate",
           "action_type": "event",
           "objective_rewards": [],
@@ -10577,6 +16863,8 @@ export const researchTurn: TurnResponse = {
           "success_probability": null
         },
         {
+          "workload": "light",
+          "support_candidates": [],
           "id": "ignore",
           "action_type": "event",
           "objective_rewards": [],
@@ -10749,6 +17037,15 @@ export const researchTurn: TurnResponse = {
               "crew_id": "alex",
               "before": 100,
               "after": 100,
+              "food_received_fraction": 1.0,
+              "water_received_fraction": 1.0,
+              "nutrition_before": 0.0,
+              "nutrition_after": 0.0,
+              "hydration_before": 0.0,
+              "hydration_after": 0.0,
+              "recovery": 0,
+              "worked": false,
+              "rested": false,
               "food_penalty": 0,
               "water_penalty": 0,
               "oxygen_penalty": 0,
@@ -10759,6 +17056,15 @@ export const researchTurn: TurnResponse = {
               "crew_id": "lin",
               "before": 100,
               "after": 100,
+              "food_received_fraction": 1.0,
+              "water_received_fraction": 1.0,
+              "nutrition_before": 0.0,
+              "nutrition_after": 0.0,
+              "hydration_before": 0.0,
+              "hydration_after": 0.0,
+              "recovery": 0,
+              "worked": true,
+              "rested": false,
               "food_penalty": 0,
               "water_penalty": 0,
               "oxygen_penalty": 0,
@@ -10857,6 +17163,60 @@ export const researchTurn: TurnResponse = {
     },
     "assignment_options": [
       {
+        "workload": "rest",
+        "support_candidates": [],
+        "id": "crew_rest",
+        "action_type": "rest",
+        "objective_rewards": [],
+        "text": "Rest and recuperate",
+        "description": "One week without active work. Adequate actual food and water improve deficit recovery and allow up to 5 condition points of recovery in safe air. Rest creates no supplies and cannot compensate for continued deprivation.",
+        "costs": {},
+        "required_items": {},
+        "requires_crew": true,
+        "role_bonus": {},
+        "crew_role_bonus": {},
+        "success_chance": 1.0,
+        "success_effects": {
+          "resources": {},
+          "solar_efficiency": 0.0,
+          "oxygen_efficiency": 0.0,
+          "water_recovery_efficiency": 0.0,
+          "co2_efficiency": 0.0,
+          "crew_health": 0,
+          "target": "selected"
+        },
+        "failure_effects": {
+          "resources": {},
+          "solar_efficiency": 0.0,
+          "oxygen_efficiency": 0.0,
+          "water_recovery_efficiency": 0.0,
+          "co2_efficiency": 0.0,
+          "crew_health": 0,
+          "target": "selected"
+        },
+        "required_role": null,
+        "minimum_crew": 1,
+        "available": true,
+        "unavailable_reasons": [],
+        "eligible_crew": [
+          {
+            "crew_id": "alex",
+            "available": true,
+            "unavailable_reasons": [],
+            "success_probability": 1.0
+          },
+          {
+            "crew_id": "lin",
+            "available": true,
+            "unavailable_reasons": [],
+            "success_probability": 1.0
+          }
+        ],
+        "success_probability": null
+      },
+      {
+        "workload": "eva",
+        "support_candidates": [],
         "id": "clean_array",
         "action_type": "maintenance",
         "objective_rewards": [],
@@ -10917,6 +17277,8 @@ export const researchTurn: TurnResponse = {
         "success_probability": null
       },
       {
+        "workload": "strenuous",
+        "support_candidates": [],
         "id": "install_regulator",
         "action_type": "maintenance",
         "objective_rewards": [],
@@ -10976,6 +17338,8 @@ export const researchTurn: TurnResponse = {
         "success_probability": null
       },
       {
+        "workload": "light",
+        "support_candidates": [],
         "id": "service_water_recovery",
         "action_type": "maintenance",
         "objective_rewards": [],
@@ -11029,6 +17393,8 @@ export const researchTurn: TurnResponse = {
         "success_probability": null
       },
       {
+        "workload": "light",
+        "support_candidates": [],
         "id": "service_co2_scrubber",
         "action_type": "maintenance",
         "objective_rewards": [],
@@ -11082,6 +17448,8 @@ export const researchTurn: TurnResponse = {
         "success_probability": null
       },
       {
+        "workload": "eva",
+        "support_candidates": [],
         "id": "research_geology",
         "action_type": "research",
         "objective_rewards": [
@@ -11148,6 +17516,8 @@ export const researchTurn: TurnResponse = {
         "success_probability": null
       },
       {
+        "workload": "eva",
+        "support_candidates": [],
         "id": "research_seismic",
         "action_type": "research",
         "objective_rewards": [],
@@ -11207,6 +17577,8 @@ export const researchTurn: TurnResponse = {
         "success_probability": null
       },
       {
+        "workload": "strenuous",
+        "support_candidates": [],
         "id": "research_instrument",
         "action_type": "research",
         "objective_rewards": [
@@ -11399,6 +17771,15 @@ export const researchTurn: TurnResponse = {
           "crew_id": "alex",
           "before": 100,
           "after": 100,
+          "food_received_fraction": 1.0,
+          "water_received_fraction": 1.0,
+          "nutrition_before": 0.0,
+          "nutrition_after": 0.0,
+          "hydration_before": 0.0,
+          "hydration_after": 0.0,
+          "recovery": 0,
+          "worked": false,
+          "rested": false,
           "food_penalty": 0,
           "water_penalty": 0,
           "oxygen_penalty": 0,
@@ -11409,6 +17790,15 @@ export const researchTurn: TurnResponse = {
           "crew_id": "lin",
           "before": 100,
           "after": 100,
+          "food_received_fraction": 1.0,
+          "water_received_fraction": 1.0,
+          "nutrition_before": 0.0,
+          "nutrition_after": 0.0,
+          "hydration_before": 0.0,
+          "hydration_after": 0.0,
+          "recovery": 0,
+          "worked": true,
+          "rested": false,
           "food_penalty": 0,
           "water_penalty": 0,
           "oxygen_penalty": 0,
@@ -11531,10 +17921,44 @@ export const researchCompleted: GameResponse = {
     },
     "crew": [
       {
+        "nutrition_deficit": 0.0,
+        "hydration_deficit": 0.0,
+        "condition": {
+          "status": "fit",
+          "nutrition_status": "adequate",
+          "hydration_status": "adequate",
+          "can_work": true,
+          "can_do_eva": true,
+          "performance_penalty": 0.0,
+          "restrictions": [],
+          "nutrition_recovery_weeks": 0,
+          "hydration_recovery_weeks": 0,
+          "source_url": "https://www.nasa.gov/reference/risk-of-inadequate-food-and-nutrition/"
+        },
+        "ration_outlook": {
+          "normal": {
+            "nutrition_deficit": 0.0,
+            "hydration_deficit": 0.0,
+            "food_damage": 0,
+            "water_damage": 0
+          },
+          "reduced": {
+            "nutrition_deficit": 0.3,
+            "hydration_deficit": 0.3,
+            "food_damage": 0,
+            "water_damage": 4
+          },
+          "emergency": {
+            "nutrition_deficit": 0.6,
+            "hydration_deficit": 0.6,
+            "food_damage": 0,
+            "water_damage": 28
+          }
+        },
         "id": "alex",
         "name": "Alex Vega",
         "role": "engineer",
-        "health": 93,
+        "health": 100,
         "positive_trait": "Steady hands: +5 percentage points on assigned event actions.",
         "negative_trait": "Large appetite: consumes 10% more food.",
         "food_multiplier": 1.1,
@@ -11563,10 +17987,44 @@ export const researchCompleted: GameResponse = {
         }
       },
       {
+        "nutrition_deficit": 0.0,
+        "hydration_deficit": 0.0,
+        "condition": {
+          "status": "fit",
+          "nutrition_status": "adequate",
+          "hydration_status": "adequate",
+          "can_work": true,
+          "can_do_eva": true,
+          "performance_penalty": 0.0,
+          "restrictions": [],
+          "nutrition_recovery_weeks": 0,
+          "hydration_recovery_weeks": 0,
+          "source_url": "https://www.nasa.gov/reference/risk-of-inadequate-food-and-nutrition/"
+        },
+        "ration_outlook": {
+          "normal": {
+            "nutrition_deficit": 0.0,
+            "hydration_deficit": 0.0,
+            "food_damage": 0,
+            "water_damage": 0
+          },
+          "reduced": {
+            "nutrition_deficit": 0.3,
+            "hydration_deficit": 0.3,
+            "food_damage": 0,
+            "water_damage": 4
+          },
+          "emergency": {
+            "nutrition_deficit": 0.6,
+            "hydration_deficit": 0.6,
+            "food_damage": 0,
+            "water_damage": 28
+          }
+        },
         "id": "lin",
         "name": "Lin Park",
         "role": "scientist",
-        "health": 80,
+        "health": 92,
         "positive_trait": "Water conscious: consumes 10% less water.",
         "negative_trait": "Fragile: event injuries cause 20% more damage.",
         "food_multiplier": 1.0,
@@ -11763,6 +18221,15 @@ export const researchCompleted: GameResponse = {
               "crew_id": "alex",
               "before": 100,
               "after": 100,
+              "food_received_fraction": 1.0,
+              "water_received_fraction": 1.0,
+              "nutrition_before": 0.0,
+              "nutrition_after": 0.0,
+              "hydration_before": 0.0,
+              "hydration_after": 0.0,
+              "recovery": 0,
+              "worked": false,
+              "rested": false,
               "food_penalty": 0,
               "water_penalty": 0,
               "oxygen_penalty": 0,
@@ -11773,6 +18240,15 @@ export const researchCompleted: GameResponse = {
               "crew_id": "lin",
               "before": 100,
               "after": 100,
+              "food_received_fraction": 1.0,
+              "water_received_fraction": 1.0,
+              "nutrition_before": 0.0,
+              "nutrition_after": 0.0,
+              "hydration_before": 0.0,
+              "hydration_after": 0.0,
+              "recovery": 0,
+              "worked": true,
+              "rested": false,
               "food_penalty": 0,
               "water_penalty": 0,
               "oxygen_penalty": 0,
@@ -11929,6 +18405,15 @@ export const researchCompleted: GameResponse = {
               "crew_id": "alex",
               "before": 100,
               "after": 100,
+              "food_received_fraction": 1.0,
+              "water_received_fraction": 1.0,
+              "nutrition_before": 0.0,
+              "nutrition_after": 0.0,
+              "hydration_before": 0.0,
+              "hydration_after": 0.0,
+              "recovery": 0,
+              "worked": false,
+              "rested": false,
               "food_penalty": 0,
               "water_penalty": 0,
               "oxygen_penalty": 0,
@@ -11939,6 +18424,15 @@ export const researchCompleted: GameResponse = {
               "crew_id": "lin",
               "before": 90,
               "after": 90,
+              "food_received_fraction": 1.0,
+              "water_received_fraction": 1.0,
+              "nutrition_before": 0.0,
+              "nutrition_after": 0.0,
+              "hydration_before": 0.0,
+              "hydration_after": 0.0,
+              "recovery": 0,
+              "worked": true,
+              "rested": false,
               "food_penalty": 0,
               "water_penalty": 0,
               "oxygen_penalty": 0,
@@ -12124,7 +18618,16 @@ export const researchCompleted: GameResponse = {
             {
               "crew_id": "alex",
               "before": 87,
-              "after": 87,
+              "after": 89,
+              "food_received_fraction": 1.0,
+              "water_received_fraction": 1.0,
+              "nutrition_before": 0.0,
+              "nutrition_after": 0.0,
+              "hydration_before": 0.0,
+              "hydration_after": 0.0,
+              "recovery": 2,
+              "worked": false,
+              "rested": false,
               "food_penalty": 0,
               "water_penalty": 0,
               "oxygen_penalty": 0,
@@ -12135,6 +18638,15 @@ export const researchCompleted: GameResponse = {
               "crew_id": "lin",
               "before": 74,
               "after": 74,
+              "food_received_fraction": 1.0,
+              "water_received_fraction": 1.0,
+              "nutrition_before": 0.0,
+              "nutrition_after": 0.0,
+              "hydration_before": 0.0,
+              "hydration_after": 0.0,
+              "recovery": 0,
+              "worked": true,
+              "rested": false,
               "food_penalty": 0,
               "water_penalty": 0,
               "oxygen_penalty": 0,
@@ -12290,8 +18802,17 @@ export const researchCompleted: GameResponse = {
           "health_changes": [
             {
               "crew_id": "alex",
-              "before": 87,
-              "after": 87,
+              "before": 89,
+              "after": 91,
+              "food_received_fraction": 1.0,
+              "water_received_fraction": 1.0,
+              "nutrition_before": 0.0,
+              "nutrition_after": 0.0,
+              "hydration_before": 0.0,
+              "hydration_after": 0.0,
+              "recovery": 2,
+              "worked": false,
+              "rested": false,
               "food_penalty": 0,
               "water_penalty": 0,
               "oxygen_penalty": 0,
@@ -12302,6 +18823,15 @@ export const researchCompleted: GameResponse = {
               "crew_id": "lin",
               "before": 74,
               "after": 74,
+              "food_received_fraction": 1.0,
+              "water_received_fraction": 1.0,
+              "nutrition_before": 0.0,
+              "nutrition_after": 0.0,
+              "hydration_before": 0.0,
+              "hydration_after": 0.0,
+              "recovery": 0,
+              "worked": true,
+              "rested": false,
               "food_penalty": 0,
               "water_penalty": 0,
               "oxygen_penalty": 0,
@@ -12417,8 +18947,8 @@ export const researchCompleted: GameResponse = {
             "health_changes": [
               {
                 "crew_id": "alex",
-                "before": 87,
-                "after": 93
+                "before": 91,
+                "after": 97
               },
               {
                 "crew_id": "lin",
@@ -12484,8 +19014,17 @@ export const researchCompleted: GameResponse = {
           "health_changes": [
             {
               "crew_id": "alex",
-              "before": 93,
-              "after": 93,
+              "before": 97,
+              "after": 97,
+              "food_received_fraction": 1.0,
+              "water_received_fraction": 1.0,
+              "nutrition_before": 0.0,
+              "nutrition_after": 0.0,
+              "hydration_before": 0.0,
+              "hydration_after": 0.0,
+              "recovery": 0,
+              "worked": true,
+              "rested": false,
               "food_penalty": 0,
               "water_penalty": 0,
               "oxygen_penalty": 0,
@@ -12495,7 +19034,16 @@ export const researchCompleted: GameResponse = {
             {
               "crew_id": "lin",
               "before": 80,
-              "after": 80,
+              "after": 82,
+              "food_received_fraction": 1.0,
+              "water_received_fraction": 1.0,
+              "nutrition_before": 0.0,
+              "nutrition_after": 0.0,
+              "hydration_before": 0.0,
+              "hydration_after": 0.0,
+              "recovery": 2,
+              "worked": false,
+              "rested": false,
               "food_penalty": 0,
               "water_penalty": 0,
               "oxygen_penalty": 0,
@@ -12639,8 +19187,17 @@ export const researchCompleted: GameResponse = {
           "health_changes": [
             {
               "crew_id": "alex",
-              "before": 93,
-              "after": 93,
+              "before": 97,
+              "after": 97,
+              "food_received_fraction": 1.0,
+              "water_received_fraction": 1.0,
+              "nutrition_before": 0.0,
+              "nutrition_after": 0.0,
+              "hydration_before": 0.0,
+              "hydration_after": 0.0,
+              "recovery": 0,
+              "worked": true,
+              "rested": false,
               "food_penalty": 0,
               "water_penalty": 0,
               "oxygen_penalty": 0,
@@ -12649,8 +19206,17 @@ export const researchCompleted: GameResponse = {
             },
             {
               "crew_id": "lin",
-              "before": 80,
-              "after": 80,
+              "before": 82,
+              "after": 82,
+              "food_received_fraction": 1.0,
+              "water_received_fraction": 1.0,
+              "nutrition_before": 0.0,
+              "nutrition_after": 0.0,
+              "hydration_before": 0.0,
+              "hydration_after": 0.0,
+              "recovery": 0,
+              "worked": true,
+              "rested": false,
               "food_penalty": 0,
               "water_penalty": 0,
               "oxygen_penalty": 0,
@@ -12782,8 +19348,17 @@ export const researchCompleted: GameResponse = {
           "health_changes": [
             {
               "crew_id": "alex",
-              "before": 93,
-              "after": 93,
+              "before": 97,
+              "after": 97,
+              "food_received_fraction": 1.0,
+              "water_received_fraction": 1.0,
+              "nutrition_before": 0.0,
+              "nutrition_after": 0.0,
+              "hydration_before": 0.0,
+              "hydration_after": 0.0,
+              "recovery": 0,
+              "worked": true,
+              "rested": false,
               "food_penalty": 0,
               "water_penalty": 0,
               "oxygen_penalty": 0,
@@ -12792,8 +19367,17 @@ export const researchCompleted: GameResponse = {
             },
             {
               "crew_id": "lin",
-              "before": 80,
-              "after": 80,
+              "before": 82,
+              "after": 84,
+              "food_received_fraction": 1.0,
+              "water_received_fraction": 1.0,
+              "nutrition_before": 0.0,
+              "nutrition_after": 0.0,
+              "hydration_before": 0.0,
+              "hydration_after": 0.0,
+              "recovery": 2,
+              "worked": false,
+              "rested": false,
               "food_penalty": 0,
               "water_penalty": 0,
               "oxygen_penalty": 0,
@@ -12953,8 +19537,17 @@ export const researchCompleted: GameResponse = {
           "health_changes": [
             {
               "crew_id": "alex",
-              "before": 93,
-              "after": 93,
+              "before": 97,
+              "after": 99,
+              "food_received_fraction": 1.0,
+              "water_received_fraction": 1.0,
+              "nutrition_before": 0.0,
+              "nutrition_after": 0.0,
+              "hydration_before": 0.0,
+              "hydration_after": 0.0,
+              "recovery": 2,
+              "worked": false,
+              "rested": false,
               "food_penalty": 0,
               "water_penalty": 0,
               "oxygen_penalty": 0,
@@ -12963,8 +19556,17 @@ export const researchCompleted: GameResponse = {
             },
             {
               "crew_id": "lin",
-              "before": 80,
-              "after": 80,
+              "before": 84,
+              "after": 84,
+              "food_received_fraction": 1.0,
+              "water_received_fraction": 1.0,
+              "nutrition_before": 0.0,
+              "nutrition_after": 0.0,
+              "hydration_before": 0.0,
+              "hydration_after": 0.0,
+              "recovery": 0,
+              "worked": true,
+              "rested": false,
               "food_penalty": 0,
               "water_penalty": 0,
               "oxygen_penalty": 0,
@@ -13090,8 +19692,17 @@ export const researchCompleted: GameResponse = {
           "health_changes": [
             {
               "crew_id": "alex",
-              "before": 93,
-              "after": 93,
+              "before": 99,
+              "after": 99,
+              "food_received_fraction": 1.0,
+              "water_received_fraction": 1.0,
+              "nutrition_before": 0.0,
+              "nutrition_after": 0.0,
+              "hydration_before": 0.0,
+              "hydration_after": 0.0,
+              "recovery": 0,
+              "worked": true,
+              "rested": false,
               "food_penalty": 0,
               "water_penalty": 0,
               "oxygen_penalty": 0,
@@ -13100,8 +19711,17 @@ export const researchCompleted: GameResponse = {
             },
             {
               "crew_id": "lin",
-              "before": 80,
-              "after": 80,
+              "before": 84,
+              "after": 86,
+              "food_received_fraction": 1.0,
+              "water_received_fraction": 1.0,
+              "nutrition_before": 0.0,
+              "nutrition_after": 0.0,
+              "hydration_before": 0.0,
+              "hydration_after": 0.0,
+              "recovery": 2,
+              "worked": false,
+              "rested": false,
               "food_penalty": 0,
               "water_penalty": 0,
               "oxygen_penalty": 0,
@@ -13224,8 +19844,17 @@ export const researchCompleted: GameResponse = {
           "health_changes": [
             {
               "crew_id": "alex",
-              "before": 93,
-              "after": 93,
+              "before": 99,
+              "after": 100,
+              "food_received_fraction": 1.0,
+              "water_received_fraction": 1.0,
+              "nutrition_before": 0.0,
+              "nutrition_after": 0.0,
+              "hydration_before": 0.0,
+              "hydration_after": 0.0,
+              "recovery": 1,
+              "worked": false,
+              "rested": false,
               "food_penalty": 0,
               "water_penalty": 0,
               "oxygen_penalty": 0,
@@ -13234,8 +19863,17 @@ export const researchCompleted: GameResponse = {
             },
             {
               "crew_id": "lin",
-              "before": 80,
-              "after": 80,
+              "before": 86,
+              "after": 88,
+              "food_received_fraction": 1.0,
+              "water_received_fraction": 1.0,
+              "nutrition_before": 0.0,
+              "nutrition_after": 0.0,
+              "hydration_before": 0.0,
+              "hydration_after": 0.0,
+              "recovery": 2,
+              "worked": false,
+              "rested": false,
               "food_penalty": 0,
               "water_penalty": 0,
               "oxygen_penalty": 0,
@@ -13359,8 +19997,17 @@ export const researchCompleted: GameResponse = {
           "health_changes": [
             {
               "crew_id": "alex",
-              "before": 93,
-              "after": 93,
+              "before": 100,
+              "after": 100,
+              "food_received_fraction": 1.0,
+              "water_received_fraction": 1.0,
+              "nutrition_before": 0.0,
+              "nutrition_after": 0.0,
+              "hydration_before": 0.0,
+              "hydration_after": 0.0,
+              "recovery": 0,
+              "worked": true,
+              "rested": false,
               "food_penalty": 0,
               "water_penalty": 0,
               "oxygen_penalty": 0,
@@ -13369,8 +20016,17 @@ export const researchCompleted: GameResponse = {
             },
             {
               "crew_id": "lin",
-              "before": 80,
-              "after": 80,
+              "before": 88,
+              "after": 90,
+              "food_received_fraction": 1.0,
+              "water_received_fraction": 1.0,
+              "nutrition_before": 0.0,
+              "nutrition_after": 0.0,
+              "hydration_before": 0.0,
+              "hydration_after": 0.0,
+              "recovery": 2,
+              "worked": false,
+              "rested": false,
               "food_penalty": 0,
               "water_penalty": 0,
               "oxygen_penalty": 0,
@@ -13492,8 +20148,17 @@ export const researchCompleted: GameResponse = {
           "health_changes": [
             {
               "crew_id": "alex",
-              "before": 93,
-              "after": 93,
+              "before": 100,
+              "after": 100,
+              "food_received_fraction": 1.0,
+              "water_received_fraction": 1.0,
+              "nutrition_before": 0.0,
+              "nutrition_after": 0.0,
+              "hydration_before": 0.0,
+              "hydration_after": 0.0,
+              "recovery": 0,
+              "worked": true,
+              "rested": false,
               "food_penalty": 0,
               "water_penalty": 0,
               "oxygen_penalty": 0,
@@ -13502,8 +20167,17 @@ export const researchCompleted: GameResponse = {
             },
             {
               "crew_id": "lin",
-              "before": 80,
-              "after": 80,
+              "before": 90,
+              "after": 92,
+              "food_received_fraction": 1.0,
+              "water_received_fraction": 1.0,
+              "nutrition_before": 0.0,
+              "nutrition_after": 0.0,
+              "hydration_before": 0.0,
+              "hydration_after": 0.0,
+              "recovery": 2,
+              "worked": false,
+              "rested": false,
               "food_penalty": 0,
               "water_penalty": 0,
               "oxygen_penalty": 0,
@@ -13794,6 +20468,40 @@ export const supportGame: GameResponse = {
     },
     "crew": [
       {
+        "nutrition_deficit": 0.0,
+        "hydration_deficit": 0.0,
+        "condition": {
+          "status": "fit",
+          "nutrition_status": "adequate",
+          "hydration_status": "adequate",
+          "can_work": true,
+          "can_do_eva": true,
+          "performance_penalty": 0.0,
+          "restrictions": [],
+          "nutrition_recovery_weeks": 0,
+          "hydration_recovery_weeks": 0,
+          "source_url": "https://www.nasa.gov/reference/risk-of-inadequate-food-and-nutrition/"
+        },
+        "ration_outlook": {
+          "normal": {
+            "nutrition_deficit": 0.0,
+            "hydration_deficit": 0.0,
+            "food_damage": 0,
+            "water_damage": 0
+          },
+          "reduced": {
+            "nutrition_deficit": 0.3,
+            "hydration_deficit": 0.3,
+            "food_damage": 0,
+            "water_damage": 4
+          },
+          "emergency": {
+            "nutrition_deficit": 0.6,
+            "hydration_deficit": 0.6,
+            "food_damage": 0,
+            "water_damage": 28
+          }
+        },
         "id": "alex",
         "name": "Alex Vega",
         "role": "engineer",
@@ -13826,6 +20534,40 @@ export const supportGame: GameResponse = {
         }
       },
       {
+        "nutrition_deficit": 0.0,
+        "hydration_deficit": 0.0,
+        "condition": {
+          "status": "fit",
+          "nutrition_status": "adequate",
+          "hydration_status": "adequate",
+          "can_work": true,
+          "can_do_eva": true,
+          "performance_penalty": 0.0,
+          "restrictions": [],
+          "nutrition_recovery_weeks": 0,
+          "hydration_recovery_weeks": 0,
+          "source_url": "https://www.nasa.gov/reference/risk-of-inadequate-food-and-nutrition/"
+        },
+        "ration_outlook": {
+          "normal": {
+            "nutrition_deficit": 0.0,
+            "hydration_deficit": 0.0,
+            "food_damage": 0,
+            "water_damage": 0
+          },
+          "reduced": {
+            "nutrition_deficit": 0.3,
+            "hydration_deficit": 0.3,
+            "food_damage": 0,
+            "water_damage": 4
+          },
+          "emergency": {
+            "nutrition_deficit": 0.6,
+            "hydration_deficit": 0.6,
+            "food_damage": 0,
+            "water_damage": 28
+          }
+        },
         "id": "lin",
         "name": "Lin Park",
         "role": "scientist",
@@ -13858,6 +20600,40 @@ export const supportGame: GameResponse = {
         }
       },
       {
+        "nutrition_deficit": 0.0,
+        "hydration_deficit": 0.0,
+        "condition": {
+          "status": "fit",
+          "nutrition_status": "adequate",
+          "hydration_status": "adequate",
+          "can_work": true,
+          "can_do_eva": true,
+          "performance_penalty": 0.0,
+          "restrictions": [],
+          "nutrition_recovery_weeks": 0,
+          "hydration_recovery_weeks": 0,
+          "source_url": "https://www.nasa.gov/reference/risk-of-inadequate-food-and-nutrition/"
+        },
+        "ration_outlook": {
+          "normal": {
+            "nutrition_deficit": 0.0,
+            "hydration_deficit": 0.0,
+            "food_damage": 0,
+            "water_damage": 0
+          },
+          "reduced": {
+            "nutrition_deficit": 0.3,
+            "hydration_deficit": 0.3,
+            "food_damage": 0,
+            "water_damage": 4
+          },
+          "emergency": {
+            "nutrition_deficit": 0.6,
+            "hydration_deficit": 0.6,
+            "food_damage": 0,
+            "water_damage": 28
+          }
+        },
         "id": "sam",
         "name": "Sam Nowak",
         "role": "technician",
@@ -13890,6 +20666,40 @@ export const supportGame: GameResponse = {
         }
       },
       {
+        "nutrition_deficit": 0.0,
+        "hydration_deficit": 0.0,
+        "condition": {
+          "status": "fit",
+          "nutrition_status": "adequate",
+          "hydration_status": "adequate",
+          "can_work": true,
+          "can_do_eva": true,
+          "performance_penalty": 0.0,
+          "restrictions": [],
+          "nutrition_recovery_weeks": 0,
+          "hydration_recovery_weeks": 0,
+          "source_url": "https://www.nasa.gov/reference/risk-of-inadequate-food-and-nutrition/"
+        },
+        "ration_outlook": {
+          "normal": {
+            "nutrition_deficit": 0.0,
+            "hydration_deficit": 0.0,
+            "food_damage": 0,
+            "water_damage": 0
+          },
+          "reduced": {
+            "nutrition_deficit": 0.3,
+            "hydration_deficit": 0.3,
+            "food_damage": 0,
+            "water_damage": 4
+          },
+          "emergency": {
+            "nutrition_deficit": 0.6,
+            "hydration_deficit": 0.6,
+            "food_damage": 0,
+            "water_damage": 28
+          }
+        },
         "id": "maya",
         "name": "Maya Okafor",
         "role": "medic",
@@ -13962,6 +20772,8 @@ export const supportGame: GameResponse = {
       },
       "choices": [
         {
+          "workload": "strenuous",
+          "support_candidates": [],
           "id": "replace_regulator",
           "action_type": "event",
           "objective_rewards": [],
@@ -14029,6 +20841,29 @@ export const supportGame: GameResponse = {
           "success_probability": null
         },
         {
+          "workload": "strenuous",
+          "support_candidates": [
+            {
+              "crew_id": "alex",
+              "available": true,
+              "unavailable_reasons": []
+            },
+            {
+              "crew_id": "lin",
+              "available": true,
+              "unavailable_reasons": []
+            },
+            {
+              "crew_id": "sam",
+              "available": true,
+              "unavailable_reasons": []
+            },
+            {
+              "crew_id": "maya",
+              "available": true,
+              "unavailable_reasons": []
+            }
+          ],
           "id": "recalibrate",
           "action_type": "event",
           "objective_rewards": [],
@@ -14096,6 +20931,8 @@ export const supportGame: GameResponse = {
           "success_probability": null
         },
         {
+          "workload": "light",
+          "support_candidates": [],
           "id": "ignore",
           "action_type": "event",
           "objective_rewards": [],
@@ -14233,6 +21070,15 @@ export const supportGame: GameResponse = {
               "crew_id": "alex",
               "before": 100,
               "after": 100,
+              "food_received_fraction": 1.0,
+              "water_received_fraction": 1.0,
+              "nutrition_before": 0.0,
+              "nutrition_after": 0.0,
+              "hydration_before": 0.0,
+              "hydration_after": 0.0,
+              "recovery": 0,
+              "worked": false,
+              "rested": false,
               "food_penalty": 0,
               "water_penalty": 0,
               "oxygen_penalty": 0,
@@ -14243,6 +21089,15 @@ export const supportGame: GameResponse = {
               "crew_id": "lin",
               "before": 100,
               "after": 100,
+              "food_received_fraction": 1.0,
+              "water_received_fraction": 1.0,
+              "nutrition_before": 0.0,
+              "nutrition_after": 0.0,
+              "hydration_before": 0.0,
+              "hydration_after": 0.0,
+              "recovery": 0,
+              "worked": false,
+              "rested": false,
               "food_penalty": 0,
               "water_penalty": 0,
               "oxygen_penalty": 0,
@@ -14253,6 +21108,15 @@ export const supportGame: GameResponse = {
               "crew_id": "sam",
               "before": 100,
               "after": 100,
+              "food_received_fraction": 1.0,
+              "water_received_fraction": 1.0,
+              "nutrition_before": 0.0,
+              "nutrition_after": 0.0,
+              "hydration_before": 0.0,
+              "hydration_after": 0.0,
+              "recovery": 0,
+              "worked": false,
+              "rested": false,
               "food_penalty": 0,
               "water_penalty": 0,
               "oxygen_penalty": 0,
@@ -14263,6 +21127,15 @@ export const supportGame: GameResponse = {
               "crew_id": "maya",
               "before": 100,
               "after": 100,
+              "food_received_fraction": 1.0,
+              "water_received_fraction": 1.0,
+              "nutrition_before": 0.0,
+              "nutrition_after": 0.0,
+              "hydration_before": 0.0,
+              "hydration_after": 0.0,
+              "recovery": 0,
+              "worked": false,
+              "rested": false,
               "food_penalty": 0,
               "water_penalty": 0,
               "oxygen_penalty": 0,
@@ -14361,6 +21234,72 @@ export const supportGame: GameResponse = {
     },
     "assignment_options": [
       {
+        "workload": "rest",
+        "support_candidates": [],
+        "id": "crew_rest",
+        "action_type": "rest",
+        "objective_rewards": [],
+        "text": "Rest and recuperate",
+        "description": "One week without active work. Adequate actual food and water improve deficit recovery and allow up to 5 condition points of recovery in safe air. Rest creates no supplies and cannot compensate for continued deprivation.",
+        "costs": {},
+        "required_items": {},
+        "requires_crew": true,
+        "role_bonus": {},
+        "crew_role_bonus": {},
+        "success_chance": 1.0,
+        "success_effects": {
+          "resources": {},
+          "solar_efficiency": 0.0,
+          "oxygen_efficiency": 0.0,
+          "water_recovery_efficiency": 0.0,
+          "co2_efficiency": 0.0,
+          "crew_health": 0,
+          "target": "selected"
+        },
+        "failure_effects": {
+          "resources": {},
+          "solar_efficiency": 0.0,
+          "oxygen_efficiency": 0.0,
+          "water_recovery_efficiency": 0.0,
+          "co2_efficiency": 0.0,
+          "crew_health": 0,
+          "target": "selected"
+        },
+        "required_role": null,
+        "minimum_crew": 1,
+        "available": true,
+        "unavailable_reasons": [],
+        "eligible_crew": [
+          {
+            "crew_id": "alex",
+            "available": true,
+            "unavailable_reasons": [],
+            "success_probability": 1.0
+          },
+          {
+            "crew_id": "lin",
+            "available": true,
+            "unavailable_reasons": [],
+            "success_probability": 1.0
+          },
+          {
+            "crew_id": "sam",
+            "available": true,
+            "unavailable_reasons": [],
+            "success_probability": 1.0
+          },
+          {
+            "crew_id": "maya",
+            "available": true,
+            "unavailable_reasons": [],
+            "success_probability": 1.0
+          }
+        ],
+        "success_probability": null
+      },
+      {
+        "workload": "eva",
+        "support_candidates": [],
         "id": "clean_array",
         "action_type": "maintenance",
         "objective_rewards": [],
@@ -14437,6 +21376,8 @@ export const supportGame: GameResponse = {
         "success_probability": null
       },
       {
+        "workload": "strenuous",
+        "support_candidates": [],
         "id": "install_regulator",
         "action_type": "maintenance",
         "objective_rewards": [],
@@ -14512,6 +21453,8 @@ export const supportGame: GameResponse = {
         "success_probability": null
       },
       {
+        "workload": "light",
+        "support_candidates": [],
         "id": "service_water_recovery",
         "action_type": "maintenance",
         "objective_rewards": [],
@@ -14577,6 +21520,8 @@ export const supportGame: GameResponse = {
         "success_probability": null
       },
       {
+        "workload": "light",
+        "support_candidates": [],
         "id": "service_co2_scrubber",
         "action_type": "maintenance",
         "objective_rewards": [],
@@ -14642,6 +21587,8 @@ export const supportGame: GameResponse = {
         "success_probability": null
       },
       {
+        "workload": "eva",
+        "support_candidates": [],
         "id": "research_geology",
         "action_type": "research",
         "objective_rewards": [
@@ -14720,6 +21667,8 @@ export const supportGame: GameResponse = {
         "success_probability": null
       },
       {
+        "workload": "eva",
+        "support_candidates": [],
         "id": "research_seismic",
         "action_type": "research",
         "objective_rewards": [],
@@ -14791,6 +21740,8 @@ export const supportGame: GameResponse = {
         "success_probability": null
       },
       {
+        "workload": "strenuous",
+        "support_candidates": [],
         "id": "research_instrument",
         "action_type": "research",
         "objective_rewards": [
@@ -15007,6 +21958,40 @@ export const parallelTurn: TurnResponse = {
     },
     "crew": [
       {
+        "nutrition_deficit": 0.0,
+        "hydration_deficit": 0.0,
+        "condition": {
+          "status": "fit",
+          "nutrition_status": "adequate",
+          "hydration_status": "adequate",
+          "can_work": true,
+          "can_do_eva": true,
+          "performance_penalty": 0.0,
+          "restrictions": [],
+          "nutrition_recovery_weeks": 0,
+          "hydration_recovery_weeks": 0,
+          "source_url": "https://www.nasa.gov/reference/risk-of-inadequate-food-and-nutrition/"
+        },
+        "ration_outlook": {
+          "normal": {
+            "nutrition_deficit": 0.0,
+            "hydration_deficit": 0.0,
+            "food_damage": 0,
+            "water_damage": 0
+          },
+          "reduced": {
+            "nutrition_deficit": 0.3,
+            "hydration_deficit": 0.3,
+            "food_damage": 0,
+            "water_damage": 4
+          },
+          "emergency": {
+            "nutrition_deficit": 0.6,
+            "hydration_deficit": 0.6,
+            "food_damage": 0,
+            "water_damage": 28
+          }
+        },
         "id": "alex",
         "name": "Alex Vega",
         "role": "engineer",
@@ -15039,6 +22024,40 @@ export const parallelTurn: TurnResponse = {
         }
       },
       {
+        "nutrition_deficit": 0.0,
+        "hydration_deficit": 0.0,
+        "condition": {
+          "status": "fit",
+          "nutrition_status": "adequate",
+          "hydration_status": "adequate",
+          "can_work": true,
+          "can_do_eva": true,
+          "performance_penalty": 0.0,
+          "restrictions": [],
+          "nutrition_recovery_weeks": 0,
+          "hydration_recovery_weeks": 0,
+          "source_url": "https://www.nasa.gov/reference/risk-of-inadequate-food-and-nutrition/"
+        },
+        "ration_outlook": {
+          "normal": {
+            "nutrition_deficit": 0.0,
+            "hydration_deficit": 0.0,
+            "food_damage": 0,
+            "water_damage": 0
+          },
+          "reduced": {
+            "nutrition_deficit": 0.3,
+            "hydration_deficit": 0.3,
+            "food_damage": 0,
+            "water_damage": 4
+          },
+          "emergency": {
+            "nutrition_deficit": 0.6,
+            "hydration_deficit": 0.6,
+            "food_damage": 0,
+            "water_damage": 28
+          }
+        },
         "id": "lin",
         "name": "Lin Park",
         "role": "scientist",
@@ -15071,6 +22090,40 @@ export const parallelTurn: TurnResponse = {
         }
       },
       {
+        "nutrition_deficit": 0.0,
+        "hydration_deficit": 0.0,
+        "condition": {
+          "status": "fit",
+          "nutrition_status": "adequate",
+          "hydration_status": "adequate",
+          "can_work": true,
+          "can_do_eva": true,
+          "performance_penalty": 0.0,
+          "restrictions": [],
+          "nutrition_recovery_weeks": 0,
+          "hydration_recovery_weeks": 0,
+          "source_url": "https://www.nasa.gov/reference/risk-of-inadequate-food-and-nutrition/"
+        },
+        "ration_outlook": {
+          "normal": {
+            "nutrition_deficit": 0.0,
+            "hydration_deficit": 0.0,
+            "food_damage": 0,
+            "water_damage": 0
+          },
+          "reduced": {
+            "nutrition_deficit": 0.3,
+            "hydration_deficit": 0.3,
+            "food_damage": 0,
+            "water_damage": 4
+          },
+          "emergency": {
+            "nutrition_deficit": 0.6,
+            "hydration_deficit": 0.6,
+            "food_damage": 0,
+            "water_damage": 28
+          }
+        },
         "id": "sam",
         "name": "Sam Nowak",
         "role": "technician",
@@ -15103,6 +22156,40 @@ export const parallelTurn: TurnResponse = {
         }
       },
       {
+        "nutrition_deficit": 0.0,
+        "hydration_deficit": 0.0,
+        "condition": {
+          "status": "fit",
+          "nutrition_status": "adequate",
+          "hydration_status": "adequate",
+          "can_work": true,
+          "can_do_eva": true,
+          "performance_penalty": 0.0,
+          "restrictions": [],
+          "nutrition_recovery_weeks": 0,
+          "hydration_recovery_weeks": 0,
+          "source_url": "https://www.nasa.gov/reference/risk-of-inadequate-food-and-nutrition/"
+        },
+        "ration_outlook": {
+          "normal": {
+            "nutrition_deficit": 0.0,
+            "hydration_deficit": 0.0,
+            "food_damage": 0,
+            "water_damage": 0
+          },
+          "reduced": {
+            "nutrition_deficit": 0.3,
+            "hydration_deficit": 0.3,
+            "food_damage": 0,
+            "water_damage": 4
+          },
+          "emergency": {
+            "nutrition_deficit": 0.6,
+            "hydration_deficit": 0.6,
+            "food_damage": 0,
+            "water_damage": 28
+          }
+        },
         "id": "maya",
         "name": "Maya Okafor",
         "role": "medic",
@@ -15175,6 +22262,8 @@ export const parallelTurn: TurnResponse = {
       },
       "choices": [
         {
+          "workload": "care",
+          "support_candidates": [],
           "id": "treat",
           "action_type": "event",
           "objective_rewards": [],
@@ -15241,6 +22330,29 @@ export const parallelTurn: TurnResponse = {
           "success_probability": null
         },
         {
+          "workload": "strenuous",
+          "support_candidates": [
+            {
+              "crew_id": "alex",
+              "available": true,
+              "unavailable_reasons": []
+            },
+            {
+              "crew_id": "lin",
+              "available": true,
+              "unavailable_reasons": []
+            },
+            {
+              "crew_id": "sam",
+              "available": true,
+              "unavailable_reasons": []
+            },
+            {
+              "crew_id": "maya",
+              "available": true,
+              "unavailable_reasons": []
+            }
+          ],
           "id": "team_treatment",
           "action_type": "event",
           "objective_rewards": [],
@@ -15313,6 +22425,8 @@ export const parallelTurn: TurnResponse = {
           "success_probability": null
         },
         {
+          "workload": "care",
+          "support_candidates": [],
           "id": "guided_treatment",
           "action_type": "event",
           "objective_rewards": [],
@@ -15389,6 +22503,8 @@ export const parallelTurn: TurnResponse = {
           "success_probability": null
         },
         {
+          "workload": "light",
+          "support_candidates": [],
           "id": "rest",
           "action_type": "event",
           "objective_rewards": [],
@@ -15527,6 +22643,15 @@ export const parallelTurn: TurnResponse = {
               "crew_id": "alex",
               "before": 100,
               "after": 100,
+              "food_received_fraction": 1.0,
+              "water_received_fraction": 1.0,
+              "nutrition_before": 0.0,
+              "nutrition_after": 0.0,
+              "hydration_before": 0.0,
+              "hydration_after": 0.0,
+              "recovery": 0,
+              "worked": false,
+              "rested": false,
               "food_penalty": 0,
               "water_penalty": 0,
               "oxygen_penalty": 0,
@@ -15537,6 +22662,15 @@ export const parallelTurn: TurnResponse = {
               "crew_id": "lin",
               "before": 100,
               "after": 100,
+              "food_received_fraction": 1.0,
+              "water_received_fraction": 1.0,
+              "nutrition_before": 0.0,
+              "nutrition_after": 0.0,
+              "hydration_before": 0.0,
+              "hydration_after": 0.0,
+              "recovery": 0,
+              "worked": false,
+              "rested": false,
               "food_penalty": 0,
               "water_penalty": 0,
               "oxygen_penalty": 0,
@@ -15547,6 +22681,15 @@ export const parallelTurn: TurnResponse = {
               "crew_id": "sam",
               "before": 100,
               "after": 100,
+              "food_received_fraction": 1.0,
+              "water_received_fraction": 1.0,
+              "nutrition_before": 0.0,
+              "nutrition_after": 0.0,
+              "hydration_before": 0.0,
+              "hydration_after": 0.0,
+              "recovery": 0,
+              "worked": false,
+              "rested": false,
               "food_penalty": 0,
               "water_penalty": 0,
               "oxygen_penalty": 0,
@@ -15557,6 +22700,15 @@ export const parallelTurn: TurnResponse = {
               "crew_id": "maya",
               "before": 100,
               "after": 100,
+              "food_received_fraction": 1.0,
+              "water_received_fraction": 1.0,
+              "nutrition_before": 0.0,
+              "nutrition_after": 0.0,
+              "hydration_before": 0.0,
+              "hydration_after": 0.0,
+              "recovery": 0,
+              "worked": false,
+              "rested": false,
               "food_penalty": 0,
               "water_penalty": 0,
               "oxygen_penalty": 0,
@@ -15774,6 +22926,15 @@ export const parallelTurn: TurnResponse = {
               "crew_id": "alex",
               "before": 100,
               "after": 100,
+              "food_received_fraction": 1.0,
+              "water_received_fraction": 1.0,
+              "nutrition_before": 0.0,
+              "nutrition_after": 0.0,
+              "hydration_before": 0.0,
+              "hydration_after": 0.0,
+              "recovery": 0,
+              "worked": true,
+              "rested": false,
               "food_penalty": 0,
               "water_penalty": 0,
               "oxygen_penalty": 0,
@@ -15784,6 +22945,15 @@ export const parallelTurn: TurnResponse = {
               "crew_id": "lin",
               "before": 100,
               "after": 100,
+              "food_received_fraction": 1.0,
+              "water_received_fraction": 1.0,
+              "nutrition_before": 0.0,
+              "nutrition_after": 0.0,
+              "hydration_before": 0.0,
+              "hydration_after": 0.0,
+              "recovery": 0,
+              "worked": true,
+              "rested": false,
               "food_penalty": 0,
               "water_penalty": 0,
               "oxygen_penalty": 0,
@@ -15794,6 +22964,15 @@ export const parallelTurn: TurnResponse = {
               "crew_id": "sam",
               "before": 100,
               "after": 100,
+              "food_received_fraction": 1.0,
+              "water_received_fraction": 1.0,
+              "nutrition_before": 0.0,
+              "nutrition_after": 0.0,
+              "hydration_before": 0.0,
+              "hydration_after": 0.0,
+              "recovery": 0,
+              "worked": true,
+              "rested": false,
               "food_penalty": 0,
               "water_penalty": 0,
               "oxygen_penalty": 0,
@@ -15804,6 +22983,15 @@ export const parallelTurn: TurnResponse = {
               "crew_id": "maya",
               "before": 100,
               "after": 100,
+              "food_received_fraction": 1.0,
+              "water_received_fraction": 1.0,
+              "nutrition_before": 0.0,
+              "nutrition_after": 0.0,
+              "hydration_before": 0.0,
+              "hydration_after": 0.0,
+              "recovery": 0,
+              "worked": true,
+              "rested": false,
               "food_penalty": 0,
               "water_penalty": 0,
               "oxygen_penalty": 0,
@@ -15923,6 +23111,72 @@ export const parallelTurn: TurnResponse = {
     },
     "assignment_options": [
       {
+        "workload": "rest",
+        "support_candidates": [],
+        "id": "crew_rest",
+        "action_type": "rest",
+        "objective_rewards": [],
+        "text": "Rest and recuperate",
+        "description": "One week without active work. Adequate actual food and water improve deficit recovery and allow up to 5 condition points of recovery in safe air. Rest creates no supplies and cannot compensate for continued deprivation.",
+        "costs": {},
+        "required_items": {},
+        "requires_crew": true,
+        "role_bonus": {},
+        "crew_role_bonus": {},
+        "success_chance": 1.0,
+        "success_effects": {
+          "resources": {},
+          "solar_efficiency": 0.0,
+          "oxygen_efficiency": 0.0,
+          "water_recovery_efficiency": 0.0,
+          "co2_efficiency": 0.0,
+          "crew_health": 0,
+          "target": "selected"
+        },
+        "failure_effects": {
+          "resources": {},
+          "solar_efficiency": 0.0,
+          "oxygen_efficiency": 0.0,
+          "water_recovery_efficiency": 0.0,
+          "co2_efficiency": 0.0,
+          "crew_health": 0,
+          "target": "selected"
+        },
+        "required_role": null,
+        "minimum_crew": 1,
+        "available": true,
+        "unavailable_reasons": [],
+        "eligible_crew": [
+          {
+            "crew_id": "alex",
+            "available": true,
+            "unavailable_reasons": [],
+            "success_probability": 1.0
+          },
+          {
+            "crew_id": "lin",
+            "available": true,
+            "unavailable_reasons": [],
+            "success_probability": 1.0
+          },
+          {
+            "crew_id": "sam",
+            "available": true,
+            "unavailable_reasons": [],
+            "success_probability": 1.0
+          },
+          {
+            "crew_id": "maya",
+            "available": true,
+            "unavailable_reasons": [],
+            "success_probability": 1.0
+          }
+        ],
+        "success_probability": null
+      },
+      {
+        "workload": "eva",
+        "support_candidates": [],
         "id": "clean_array",
         "action_type": "maintenance",
         "objective_rewards": [],
@@ -15999,6 +23253,8 @@ export const parallelTurn: TurnResponse = {
         "success_probability": null
       },
       {
+        "workload": "strenuous",
+        "support_candidates": [],
         "id": "install_regulator",
         "action_type": "maintenance",
         "objective_rewards": [],
@@ -16074,6 +23330,8 @@ export const parallelTurn: TurnResponse = {
         "success_probability": null
       },
       {
+        "workload": "light",
+        "support_candidates": [],
         "id": "service_water_recovery",
         "action_type": "maintenance",
         "objective_rewards": [],
@@ -16139,6 +23397,8 @@ export const parallelTurn: TurnResponse = {
         "success_probability": null
       },
       {
+        "workload": "light",
+        "support_candidates": [],
         "id": "service_co2_scrubber",
         "action_type": "maintenance",
         "objective_rewards": [],
@@ -16204,6 +23464,8 @@ export const parallelTurn: TurnResponse = {
         "success_probability": null
       },
       {
+        "workload": "eva",
+        "support_candidates": [],
         "id": "research_geology",
         "action_type": "research",
         "objective_rewards": [
@@ -16282,6 +23544,8 @@ export const parallelTurn: TurnResponse = {
         "success_probability": null
       },
       {
+        "workload": "eva",
+        "support_candidates": [],
         "id": "research_seismic",
         "action_type": "research",
         "objective_rewards": [],
@@ -16531,6 +23795,15 @@ export const parallelTurn: TurnResponse = {
           "crew_id": "alex",
           "before": 100,
           "after": 100,
+          "food_received_fraction": 1.0,
+          "water_received_fraction": 1.0,
+          "nutrition_before": 0.0,
+          "nutrition_after": 0.0,
+          "hydration_before": 0.0,
+          "hydration_after": 0.0,
+          "recovery": 0,
+          "worked": true,
+          "rested": false,
           "food_penalty": 0,
           "water_penalty": 0,
           "oxygen_penalty": 0,
@@ -16541,6 +23814,15 @@ export const parallelTurn: TurnResponse = {
           "crew_id": "lin",
           "before": 100,
           "after": 100,
+          "food_received_fraction": 1.0,
+          "water_received_fraction": 1.0,
+          "nutrition_before": 0.0,
+          "nutrition_after": 0.0,
+          "hydration_before": 0.0,
+          "hydration_after": 0.0,
+          "recovery": 0,
+          "worked": true,
+          "rested": false,
           "food_penalty": 0,
           "water_penalty": 0,
           "oxygen_penalty": 0,
@@ -16551,6 +23833,15 @@ export const parallelTurn: TurnResponse = {
           "crew_id": "sam",
           "before": 100,
           "after": 100,
+          "food_received_fraction": 1.0,
+          "water_received_fraction": 1.0,
+          "nutrition_before": 0.0,
+          "nutrition_after": 0.0,
+          "hydration_before": 0.0,
+          "hydration_after": 0.0,
+          "recovery": 0,
+          "worked": true,
+          "rested": false,
           "food_penalty": 0,
           "water_penalty": 0,
           "oxygen_penalty": 0,
@@ -16561,6 +23852,15 @@ export const parallelTurn: TurnResponse = {
           "crew_id": "maya",
           "before": 100,
           "after": 100,
+          "food_received_fraction": 1.0,
+          "water_received_fraction": 1.0,
+          "nutrition_before": 0.0,
+          "nutrition_after": 0.0,
+          "hydration_before": 0.0,
+          "hydration_after": 0.0,
+          "recovery": 0,
+          "worked": true,
+          "rested": false,
           "food_penalty": 0,
           "water_penalty": 0,
           "oxygen_penalty": 0,
@@ -16786,6 +24086,40 @@ export const projectRecording: GameResponse = {
     },
     "crew": [
       {
+        "nutrition_deficit": 0.0,
+        "hydration_deficit": 0.0,
+        "condition": {
+          "status": "fit",
+          "nutrition_status": "adequate",
+          "hydration_status": "adequate",
+          "can_work": true,
+          "can_do_eva": true,
+          "performance_penalty": 0.0,
+          "restrictions": [],
+          "nutrition_recovery_weeks": 0,
+          "hydration_recovery_weeks": 0,
+          "source_url": "https://www.nasa.gov/reference/risk-of-inadequate-food-and-nutrition/"
+        },
+        "ration_outlook": {
+          "normal": {
+            "nutrition_deficit": 0.0,
+            "hydration_deficit": 0.0,
+            "food_damage": 0,
+            "water_damage": 0
+          },
+          "reduced": {
+            "nutrition_deficit": 0.3,
+            "hydration_deficit": 0.3,
+            "food_damage": 0,
+            "water_damage": 4
+          },
+          "emergency": {
+            "nutrition_deficit": 0.6,
+            "hydration_deficit": 0.6,
+            "food_damage": 0,
+            "water_damage": 28
+          }
+        },
         "id": "alex",
         "name": "Alex Vega",
         "role": "engineer",
@@ -16818,6 +24152,40 @@ export const projectRecording: GameResponse = {
         }
       },
       {
+        "nutrition_deficit": 0.0,
+        "hydration_deficit": 0.0,
+        "condition": {
+          "status": "fit",
+          "nutrition_status": "adequate",
+          "hydration_status": "adequate",
+          "can_work": true,
+          "can_do_eva": true,
+          "performance_penalty": 0.0,
+          "restrictions": [],
+          "nutrition_recovery_weeks": 0,
+          "hydration_recovery_weeks": 0,
+          "source_url": "https://www.nasa.gov/reference/risk-of-inadequate-food-and-nutrition/"
+        },
+        "ration_outlook": {
+          "normal": {
+            "nutrition_deficit": 0.0,
+            "hydration_deficit": 0.0,
+            "food_damage": 0,
+            "water_damage": 0
+          },
+          "reduced": {
+            "nutrition_deficit": 0.3,
+            "hydration_deficit": 0.3,
+            "food_damage": 0,
+            "water_damage": 4
+          },
+          "emergency": {
+            "nutrition_deficit": 0.6,
+            "hydration_deficit": 0.6,
+            "food_damage": 0,
+            "water_damage": 28
+          }
+        },
         "id": "lin",
         "name": "Lin Park",
         "role": "scientist",
@@ -16890,6 +24258,8 @@ export const projectRecording: GameResponse = {
       },
       "choices": [
         {
+          "workload": "strenuous",
+          "support_candidates": [],
           "id": "replace_regulator",
           "action_type": "event",
           "objective_rewards": [],
@@ -16945,6 +24315,19 @@ export const projectRecording: GameResponse = {
           "success_probability": null
         },
         {
+          "workload": "strenuous",
+          "support_candidates": [
+            {
+              "crew_id": "alex",
+              "available": true,
+              "unavailable_reasons": []
+            },
+            {
+              "crew_id": "lin",
+              "available": true,
+              "unavailable_reasons": []
+            }
+          ],
           "id": "recalibrate",
           "action_type": "event",
           "objective_rewards": [],
@@ -17000,6 +24383,8 @@ export const projectRecording: GameResponse = {
           "success_probability": null
         },
         {
+          "workload": "light",
+          "support_candidates": [],
           "id": "ignore",
           "action_type": "event",
           "objective_rewards": [],
@@ -17165,6 +24550,15 @@ export const projectRecording: GameResponse = {
               "crew_id": "alex",
               "before": 100,
               "after": 100,
+              "food_received_fraction": 1.0,
+              "water_received_fraction": 1.0,
+              "nutrition_before": 0.0,
+              "nutrition_after": 0.0,
+              "hydration_before": 0.0,
+              "hydration_after": 0.0,
+              "recovery": 0,
+              "worked": false,
+              "rested": false,
               "food_penalty": 0,
               "water_penalty": 0,
               "oxygen_penalty": 0,
@@ -17175,6 +24569,15 @@ export const projectRecording: GameResponse = {
               "crew_id": "lin",
               "before": 100,
               "after": 100,
+              "food_received_fraction": 1.0,
+              "water_received_fraction": 1.0,
+              "nutrition_before": 0.0,
+              "nutrition_after": 0.0,
+              "hydration_before": 0.0,
+              "hydration_after": 0.0,
+              "recovery": 0,
+              "worked": true,
+              "rested": false,
               "food_penalty": 0,
               "water_penalty": 0,
               "oxygen_penalty": 0,
@@ -17273,6 +24676,60 @@ export const projectRecording: GameResponse = {
     },
     "assignment_options": [
       {
+        "workload": "rest",
+        "support_candidates": [],
+        "id": "crew_rest",
+        "action_type": "rest",
+        "objective_rewards": [],
+        "text": "Rest and recuperate",
+        "description": "One week without active work. Adequate actual food and water improve deficit recovery and allow up to 5 condition points of recovery in safe air. Rest creates no supplies and cannot compensate for continued deprivation.",
+        "costs": {},
+        "required_items": {},
+        "requires_crew": true,
+        "role_bonus": {},
+        "crew_role_bonus": {},
+        "success_chance": 1.0,
+        "success_effects": {
+          "resources": {},
+          "solar_efficiency": 0.0,
+          "oxygen_efficiency": 0.0,
+          "water_recovery_efficiency": 0.0,
+          "co2_efficiency": 0.0,
+          "crew_health": 0,
+          "target": "selected"
+        },
+        "failure_effects": {
+          "resources": {},
+          "solar_efficiency": 0.0,
+          "oxygen_efficiency": 0.0,
+          "water_recovery_efficiency": 0.0,
+          "co2_efficiency": 0.0,
+          "crew_health": 0,
+          "target": "selected"
+        },
+        "required_role": null,
+        "minimum_crew": 1,
+        "available": true,
+        "unavailable_reasons": [],
+        "eligible_crew": [
+          {
+            "crew_id": "alex",
+            "available": true,
+            "unavailable_reasons": [],
+            "success_probability": 1.0
+          },
+          {
+            "crew_id": "lin",
+            "available": true,
+            "unavailable_reasons": [],
+            "success_probability": 1.0
+          }
+        ],
+        "success_probability": null
+      },
+      {
+        "workload": "eva",
+        "support_candidates": [],
         "id": "clean_array",
         "action_type": "maintenance",
         "objective_rewards": [],
@@ -17333,6 +24790,8 @@ export const projectRecording: GameResponse = {
         "success_probability": null
       },
       {
+        "workload": "strenuous",
+        "support_candidates": [],
         "id": "install_regulator",
         "action_type": "maintenance",
         "objective_rewards": [],
@@ -17392,6 +24851,8 @@ export const projectRecording: GameResponse = {
         "success_probability": null
       },
       {
+        "workload": "light",
+        "support_candidates": [],
         "id": "service_water_recovery",
         "action_type": "maintenance",
         "objective_rewards": [],
@@ -17445,6 +24906,8 @@ export const projectRecording: GameResponse = {
         "success_probability": null
       },
       {
+        "workload": "light",
+        "support_candidates": [],
         "id": "service_co2_scrubber",
         "action_type": "maintenance",
         "objective_rewards": [],
@@ -17498,6 +24961,8 @@ export const projectRecording: GameResponse = {
         "success_probability": null
       },
       {
+        "workload": "eva",
+        "support_candidates": [],
         "id": "research_geology",
         "action_type": "research",
         "objective_rewards": [
@@ -17564,6 +25029,8 @@ export const projectRecording: GameResponse = {
         "success_probability": null
       },
       {
+        "workload": "strenuous",
+        "support_candidates": [],
         "id": "research_instrument",
         "action_type": "research",
         "objective_rewards": [
@@ -17788,6 +25255,40 @@ export const projectPaused: GameResponse = {
     },
     "crew": [
       {
+        "nutrition_deficit": 0.0,
+        "hydration_deficit": 0.0,
+        "condition": {
+          "status": "fit",
+          "nutrition_status": "adequate",
+          "hydration_status": "adequate",
+          "can_work": true,
+          "can_do_eva": true,
+          "performance_penalty": 0.0,
+          "restrictions": [],
+          "nutrition_recovery_weeks": 0,
+          "hydration_recovery_weeks": 0,
+          "source_url": "https://www.nasa.gov/reference/risk-of-inadequate-food-and-nutrition/"
+        },
+        "ration_outlook": {
+          "normal": {
+            "nutrition_deficit": 0.0,
+            "hydration_deficit": 0.0,
+            "food_damage": 0,
+            "water_damage": 0
+          },
+          "reduced": {
+            "nutrition_deficit": 0.3,
+            "hydration_deficit": 0.3,
+            "food_damage": 0,
+            "water_damage": 4
+          },
+          "emergency": {
+            "nutrition_deficit": 0.6,
+            "hydration_deficit": 0.6,
+            "food_damage": 0,
+            "water_damage": 28
+          }
+        },
         "id": "alex",
         "name": "Alex Vega",
         "role": "engineer",
@@ -17820,6 +25321,40 @@ export const projectPaused: GameResponse = {
         }
       },
       {
+        "nutrition_deficit": 0.0,
+        "hydration_deficit": 0.0,
+        "condition": {
+          "status": "fit",
+          "nutrition_status": "adequate",
+          "hydration_status": "adequate",
+          "can_work": true,
+          "can_do_eva": true,
+          "performance_penalty": 0.0,
+          "restrictions": [],
+          "nutrition_recovery_weeks": 0,
+          "hydration_recovery_weeks": 0,
+          "source_url": "https://www.nasa.gov/reference/risk-of-inadequate-food-and-nutrition/"
+        },
+        "ration_outlook": {
+          "normal": {
+            "nutrition_deficit": 0.0,
+            "hydration_deficit": 0.0,
+            "food_damage": 0,
+            "water_damage": 0
+          },
+          "reduced": {
+            "nutrition_deficit": 0.3,
+            "hydration_deficit": 0.3,
+            "food_damage": 0,
+            "water_damage": 4
+          },
+          "emergency": {
+            "nutrition_deficit": 0.6,
+            "hydration_deficit": 0.6,
+            "food_damage": 0,
+            "water_damage": 28
+          }
+        },
         "id": "lin",
         "name": "Lin Park",
         "role": "scientist",
@@ -17892,6 +25427,8 @@ export const projectPaused: GameResponse = {
       },
       "choices": [
         {
+          "workload": "care",
+          "support_candidates": [],
           "id": "treat",
           "action_type": "event",
           "objective_rewards": [],
@@ -17946,6 +25483,19 @@ export const projectPaused: GameResponse = {
           "success_probability": null
         },
         {
+          "workload": "strenuous",
+          "support_candidates": [
+            {
+              "crew_id": "alex",
+              "available": true,
+              "unavailable_reasons": []
+            },
+            {
+              "crew_id": "lin",
+              "available": true,
+              "unavailable_reasons": []
+            }
+          ],
           "id": "team_treatment",
           "action_type": "event",
           "objective_rewards": [],
@@ -18006,6 +25556,8 @@ export const projectPaused: GameResponse = {
           "success_probability": null
         },
         {
+          "workload": "care",
+          "support_candidates": [],
           "id": "guided_treatment",
           "action_type": "event",
           "objective_rewards": [],
@@ -18066,6 +25618,8 @@ export const projectPaused: GameResponse = {
           "success_probability": null
         },
         {
+          "workload": "light",
+          "support_candidates": [],
           "id": "rest",
           "action_type": "event",
           "objective_rewards": [],
@@ -18232,6 +25786,15 @@ export const projectPaused: GameResponse = {
               "crew_id": "alex",
               "before": 100,
               "after": 100,
+              "food_received_fraction": 1.0,
+              "water_received_fraction": 1.0,
+              "nutrition_before": 0.0,
+              "nutrition_after": 0.0,
+              "hydration_before": 0.0,
+              "hydration_after": 0.0,
+              "recovery": 0,
+              "worked": false,
+              "rested": false,
               "food_penalty": 0,
               "water_penalty": 0,
               "oxygen_penalty": 0,
@@ -18242,6 +25805,15 @@ export const projectPaused: GameResponse = {
               "crew_id": "lin",
               "before": 100,
               "after": 100,
+              "food_received_fraction": 1.0,
+              "water_received_fraction": 1.0,
+              "nutrition_before": 0.0,
+              "nutrition_after": 0.0,
+              "hydration_before": 0.0,
+              "hydration_after": 0.0,
+              "recovery": 0,
+              "worked": true,
+              "rested": false,
               "food_penalty": 0,
               "water_penalty": 0,
               "oxygen_penalty": 0,
@@ -18369,6 +25941,15 @@ export const projectPaused: GameResponse = {
               "crew_id": "alex",
               "before": 100,
               "after": 100,
+              "food_received_fraction": 1.0,
+              "water_received_fraction": 1.0,
+              "nutrition_before": 0.0,
+              "nutrition_after": 0.0,
+              "hydration_before": 0.0,
+              "hydration_after": 0.0,
+              "recovery": 0,
+              "worked": false,
+              "rested": false,
               "food_penalty": 0,
               "water_penalty": 0,
               "oxygen_penalty": 0,
@@ -18379,6 +25960,15 @@ export const projectPaused: GameResponse = {
               "crew_id": "lin",
               "before": 100,
               "after": 100,
+              "food_received_fraction": 1.0,
+              "water_received_fraction": 1.0,
+              "nutrition_before": 0.0,
+              "nutrition_after": 0.0,
+              "hydration_before": 0.0,
+              "hydration_after": 0.0,
+              "recovery": 0,
+              "worked": false,
+              "rested": false,
               "food_penalty": 0,
               "water_penalty": 0,
               "oxygen_penalty": 0,
@@ -18488,6 +26078,60 @@ export const projectPaused: GameResponse = {
     },
     "assignment_options": [
       {
+        "workload": "rest",
+        "support_candidates": [],
+        "id": "crew_rest",
+        "action_type": "rest",
+        "objective_rewards": [],
+        "text": "Rest and recuperate",
+        "description": "One week without active work. Adequate actual food and water improve deficit recovery and allow up to 5 condition points of recovery in safe air. Rest creates no supplies and cannot compensate for continued deprivation.",
+        "costs": {},
+        "required_items": {},
+        "requires_crew": true,
+        "role_bonus": {},
+        "crew_role_bonus": {},
+        "success_chance": 1.0,
+        "success_effects": {
+          "resources": {},
+          "solar_efficiency": 0.0,
+          "oxygen_efficiency": 0.0,
+          "water_recovery_efficiency": 0.0,
+          "co2_efficiency": 0.0,
+          "crew_health": 0,
+          "target": "selected"
+        },
+        "failure_effects": {
+          "resources": {},
+          "solar_efficiency": 0.0,
+          "oxygen_efficiency": 0.0,
+          "water_recovery_efficiency": 0.0,
+          "co2_efficiency": 0.0,
+          "crew_health": 0,
+          "target": "selected"
+        },
+        "required_role": null,
+        "minimum_crew": 1,
+        "available": true,
+        "unavailable_reasons": [],
+        "eligible_crew": [
+          {
+            "crew_id": "alex",
+            "available": true,
+            "unavailable_reasons": [],
+            "success_probability": 1.0
+          },
+          {
+            "crew_id": "lin",
+            "available": true,
+            "unavailable_reasons": [],
+            "success_probability": 1.0
+          }
+        ],
+        "success_probability": null
+      },
+      {
+        "workload": "eva",
+        "support_candidates": [],
         "id": "clean_array",
         "action_type": "maintenance",
         "objective_rewards": [],
@@ -18548,6 +26192,8 @@ export const projectPaused: GameResponse = {
         "success_probability": null
       },
       {
+        "workload": "strenuous",
+        "support_candidates": [],
         "id": "install_regulator",
         "action_type": "maintenance",
         "objective_rewards": [],
@@ -18607,6 +26253,8 @@ export const projectPaused: GameResponse = {
         "success_probability": null
       },
       {
+        "workload": "light",
+        "support_candidates": [],
         "id": "service_water_recovery",
         "action_type": "maintenance",
         "objective_rewards": [],
@@ -18660,6 +26308,8 @@ export const projectPaused: GameResponse = {
         "success_probability": null
       },
       {
+        "workload": "light",
+        "support_candidates": [],
         "id": "service_co2_scrubber",
         "action_type": "maintenance",
         "objective_rewards": [],
@@ -18713,6 +26363,8 @@ export const projectPaused: GameResponse = {
         "success_probability": null
       },
       {
+        "workload": "eva",
+        "support_candidates": [],
         "id": "research_geology",
         "action_type": "research",
         "objective_rewards": [
@@ -18779,6 +26431,8 @@ export const projectPaused: GameResponse = {
         "success_probability": null
       },
       {
+        "workload": "strenuous",
+        "support_candidates": [],
         "id": "research_instrument",
         "action_type": "research",
         "objective_rewards": [
@@ -18981,10 +26635,44 @@ export const projectAnalysis: GameResponse = {
     },
     "crew": [
       {
+        "nutrition_deficit": 0.0,
+        "hydration_deficit": 0.0,
+        "condition": {
+          "status": "fit",
+          "nutrition_status": "adequate",
+          "hydration_status": "adequate",
+          "can_work": true,
+          "can_do_eva": true,
+          "performance_penalty": 0.0,
+          "restrictions": [],
+          "nutrition_recovery_weeks": 0,
+          "hydration_recovery_weeks": 0,
+          "source_url": "https://www.nasa.gov/reference/risk-of-inadequate-food-and-nutrition/"
+        },
+        "ration_outlook": {
+          "normal": {
+            "nutrition_deficit": 0.0,
+            "hydration_deficit": 0.0,
+            "food_damage": 0,
+            "water_damage": 0
+          },
+          "reduced": {
+            "nutrition_deficit": 0.3,
+            "hydration_deficit": 0.3,
+            "food_damage": 0,
+            "water_damage": 4
+          },
+          "emergency": {
+            "nutrition_deficit": 0.6,
+            "hydration_deficit": 0.6,
+            "food_damage": 0,
+            "water_damage": 28
+          }
+        },
         "id": "alex",
         "name": "Alex Vega",
         "role": "engineer",
-        "health": 93,
+        "health": 99,
         "positive_trait": "Steady hands: +5 percentage points on assigned event actions.",
         "negative_trait": "Large appetite: consumes 10% more food.",
         "food_multiplier": 1.1,
@@ -19013,10 +26701,44 @@ export const projectAnalysis: GameResponse = {
         }
       },
       {
+        "nutrition_deficit": 0.0,
+        "hydration_deficit": 0.0,
+        "condition": {
+          "status": "fit",
+          "nutrition_status": "adequate",
+          "hydration_status": "adequate",
+          "can_work": true,
+          "can_do_eva": true,
+          "performance_penalty": 0.0,
+          "restrictions": [],
+          "nutrition_recovery_weeks": 0,
+          "hydration_recovery_weeks": 0,
+          "source_url": "https://www.nasa.gov/reference/risk-of-inadequate-food-and-nutrition/"
+        },
+        "ration_outlook": {
+          "normal": {
+            "nutrition_deficit": 0.0,
+            "hydration_deficit": 0.0,
+            "food_damage": 0,
+            "water_damage": 0
+          },
+          "reduced": {
+            "nutrition_deficit": 0.3,
+            "hydration_deficit": 0.3,
+            "food_damage": 0,
+            "water_damage": 4
+          },
+          "emergency": {
+            "nutrition_deficit": 0.6,
+            "hydration_deficit": 0.6,
+            "food_damage": 0,
+            "water_damage": 28
+          }
+        },
         "id": "lin",
         "name": "Lin Park",
         "role": "scientist",
-        "health": 90,
+        "health": 96,
         "positive_trait": "Water conscious: consumes 10% less water.",
         "negative_trait": "Fragile: event injuries cause 20% more damage.",
         "food_multiplier": 1.0,
@@ -19085,6 +26807,19 @@ export const projectAnalysis: GameResponse = {
       },
       "choices": [
         {
+          "workload": "strenuous",
+          "support_candidates": [
+            {
+              "crew_id": "alex",
+              "available": true,
+              "unavailable_reasons": []
+            },
+            {
+              "crew_id": "lin",
+              "available": true,
+              "unavailable_reasons": []
+            }
+          ],
           "id": "analyze_seismic",
           "action_type": "event",
           "objective_rewards": [
@@ -19151,6 +26886,8 @@ export const projectAnalysis: GameResponse = {
           "success_probability": null
         },
         {
+          "workload": "light",
+          "support_candidates": [],
           "id": "archive_seismic",
           "action_type": "event",
           "objective_rewards": [],
@@ -19190,6 +26927,8 @@ export const projectAnalysis: GameResponse = {
           "success_probability": 1.0
         },
         {
+          "workload": "light",
+          "support_candidates": [],
           "id": "defer_seismic",
           "action_type": "event",
           "objective_rewards": [],
@@ -19359,6 +27098,15 @@ export const projectAnalysis: GameResponse = {
               "crew_id": "alex",
               "before": 100,
               "after": 100,
+              "food_received_fraction": 1.0,
+              "water_received_fraction": 1.0,
+              "nutrition_before": 0.0,
+              "nutrition_after": 0.0,
+              "hydration_before": 0.0,
+              "hydration_after": 0.0,
+              "recovery": 0,
+              "worked": false,
+              "rested": false,
               "food_penalty": 0,
               "water_penalty": 0,
               "oxygen_penalty": 0,
@@ -19369,6 +27117,15 @@ export const projectAnalysis: GameResponse = {
               "crew_id": "lin",
               "before": 100,
               "after": 100,
+              "food_received_fraction": 1.0,
+              "water_received_fraction": 1.0,
+              "nutrition_before": 0.0,
+              "nutrition_after": 0.0,
+              "hydration_before": 0.0,
+              "hydration_after": 0.0,
+              "recovery": 0,
+              "worked": true,
+              "rested": false,
               "food_penalty": 0,
               "water_penalty": 0,
               "oxygen_penalty": 0,
@@ -19496,6 +27253,15 @@ export const projectAnalysis: GameResponse = {
               "crew_id": "alex",
               "before": 100,
               "after": 100,
+              "food_received_fraction": 1.0,
+              "water_received_fraction": 1.0,
+              "nutrition_before": 0.0,
+              "nutrition_after": 0.0,
+              "hydration_before": 0.0,
+              "hydration_after": 0.0,
+              "recovery": 0,
+              "worked": false,
+              "rested": false,
               "food_penalty": 0,
               "water_penalty": 0,
               "oxygen_penalty": 0,
@@ -19506,6 +27272,15 @@ export const projectAnalysis: GameResponse = {
               "crew_id": "lin",
               "before": 100,
               "after": 100,
+              "food_received_fraction": 1.0,
+              "water_received_fraction": 1.0,
+              "nutrition_before": 0.0,
+              "nutrition_after": 0.0,
+              "hydration_before": 0.0,
+              "hydration_after": 0.0,
+              "recovery": 0,
+              "worked": false,
+              "rested": false,
               "food_penalty": 0,
               "water_penalty": 0,
               "oxygen_penalty": 0,
@@ -19659,7 +27434,16 @@ export const projectAnalysis: GameResponse = {
             {
               "crew_id": "alex",
               "before": 87,
-              "after": 87,
+              "after": 89,
+              "food_received_fraction": 1.0,
+              "water_received_fraction": 1.0,
+              "nutrition_before": 0.0,
+              "nutrition_after": 0.0,
+              "hydration_before": 0.0,
+              "hydration_after": 0.0,
+              "recovery": 2,
+              "worked": false,
+              "rested": false,
               "food_penalty": 0,
               "water_penalty": 0,
               "oxygen_penalty": 0,
@@ -19669,7 +27453,16 @@ export const projectAnalysis: GameResponse = {
             {
               "crew_id": "lin",
               "before": 84,
-              "after": 84,
+              "after": 86,
+              "food_received_fraction": 1.0,
+              "water_received_fraction": 1.0,
+              "nutrition_before": 0.0,
+              "nutrition_after": 0.0,
+              "hydration_before": 0.0,
+              "hydration_after": 0.0,
+              "recovery": 2,
+              "worked": false,
+              "rested": false,
               "food_penalty": 0,
               "water_penalty": 0,
               "oxygen_penalty": 0,
@@ -19795,8 +27588,17 @@ export const projectAnalysis: GameResponse = {
           "health_changes": [
             {
               "crew_id": "alex",
-              "before": 87,
-              "after": 87,
+              "before": 89,
+              "after": 91,
+              "food_received_fraction": 1.0,
+              "water_received_fraction": 1.0,
+              "nutrition_before": 0.0,
+              "nutrition_after": 0.0,
+              "hydration_before": 0.0,
+              "hydration_after": 0.0,
+              "recovery": 2,
+              "worked": false,
+              "rested": false,
               "food_penalty": 0,
               "water_penalty": 0,
               "oxygen_penalty": 0,
@@ -19805,8 +27607,17 @@ export const projectAnalysis: GameResponse = {
             },
             {
               "crew_id": "lin",
-              "before": 84,
-              "after": 84,
+              "before": 86,
+              "after": 88,
+              "food_received_fraction": 1.0,
+              "water_received_fraction": 1.0,
+              "nutrition_before": 0.0,
+              "nutrition_after": 0.0,
+              "hydration_before": 0.0,
+              "hydration_after": 0.0,
+              "recovery": 2,
+              "worked": false,
+              "rested": false,
               "food_penalty": 0,
               "water_penalty": 0,
               "oxygen_penalty": 0,
@@ -19879,13 +27690,13 @@ export const projectAnalysis: GameResponse = {
             "health_changes": [
               {
                 "crew_id": "alex",
-                "before": 87,
-                "after": 93
+                "before": 91,
+                "after": 97
               },
               {
                 "crew_id": "lin",
-                "before": 84,
-                "after": 90
+                "before": 88,
+                "after": 94
               }
             ]
           },
@@ -19946,8 +27757,17 @@ export const projectAnalysis: GameResponse = {
           "health_changes": [
             {
               "crew_id": "alex",
-              "before": 93,
-              "after": 93,
+              "before": 97,
+              "after": 99,
+              "food_received_fraction": 1.0,
+              "water_received_fraction": 1.0,
+              "nutrition_before": 0.0,
+              "nutrition_after": 0.0,
+              "hydration_before": 0.0,
+              "hydration_after": 0.0,
+              "recovery": 2,
+              "worked": false,
+              "rested": false,
               "food_penalty": 0,
               "water_penalty": 0,
               "oxygen_penalty": 0,
@@ -19956,8 +27776,17 @@ export const projectAnalysis: GameResponse = {
             },
             {
               "crew_id": "lin",
-              "before": 90,
-              "after": 90,
+              "before": 94,
+              "after": 96,
+              "food_received_fraction": 1.0,
+              "water_received_fraction": 1.0,
+              "nutrition_before": 0.0,
+              "nutrition_after": 0.0,
+              "hydration_before": 0.0,
+              "hydration_after": 0.0,
+              "recovery": 2,
+              "worked": false,
+              "rested": false,
               "food_penalty": 0,
               "water_penalty": 0,
               "oxygen_penalty": 0,
@@ -20056,6 +27885,60 @@ export const projectAnalysis: GameResponse = {
     },
     "assignment_options": [
       {
+        "workload": "rest",
+        "support_candidates": [],
+        "id": "crew_rest",
+        "action_type": "rest",
+        "objective_rewards": [],
+        "text": "Rest and recuperate",
+        "description": "One week without active work. Adequate actual food and water improve deficit recovery and allow up to 5 condition points of recovery in safe air. Rest creates no supplies and cannot compensate for continued deprivation.",
+        "costs": {},
+        "required_items": {},
+        "requires_crew": true,
+        "role_bonus": {},
+        "crew_role_bonus": {},
+        "success_chance": 1.0,
+        "success_effects": {
+          "resources": {},
+          "solar_efficiency": 0.0,
+          "oxygen_efficiency": 0.0,
+          "water_recovery_efficiency": 0.0,
+          "co2_efficiency": 0.0,
+          "crew_health": 0,
+          "target": "selected"
+        },
+        "failure_effects": {
+          "resources": {},
+          "solar_efficiency": 0.0,
+          "oxygen_efficiency": 0.0,
+          "water_recovery_efficiency": 0.0,
+          "co2_efficiency": 0.0,
+          "crew_health": 0,
+          "target": "selected"
+        },
+        "required_role": null,
+        "minimum_crew": 1,
+        "available": true,
+        "unavailable_reasons": [],
+        "eligible_crew": [
+          {
+            "crew_id": "alex",
+            "available": true,
+            "unavailable_reasons": [],
+            "success_probability": 1.0
+          },
+          {
+            "crew_id": "lin",
+            "available": true,
+            "unavailable_reasons": [],
+            "success_probability": 1.0
+          }
+        ],
+        "success_probability": null
+      },
+      {
+        "workload": "eva",
+        "support_candidates": [],
         "id": "clean_array",
         "action_type": "maintenance",
         "objective_rewards": [],
@@ -20116,6 +27999,8 @@ export const projectAnalysis: GameResponse = {
         "success_probability": null
       },
       {
+        "workload": "strenuous",
+        "support_candidates": [],
         "id": "install_regulator",
         "action_type": "maintenance",
         "objective_rewards": [],
@@ -20175,6 +28060,8 @@ export const projectAnalysis: GameResponse = {
         "success_probability": null
       },
       {
+        "workload": "light",
+        "support_candidates": [],
         "id": "service_water_recovery",
         "action_type": "maintenance",
         "objective_rewards": [],
@@ -20228,6 +28115,8 @@ export const projectAnalysis: GameResponse = {
         "success_probability": null
       },
       {
+        "workload": "light",
+        "support_candidates": [],
         "id": "service_co2_scrubber",
         "action_type": "maintenance",
         "objective_rewards": [],
@@ -20281,6 +28170,8 @@ export const projectAnalysis: GameResponse = {
         "success_probability": null
       },
       {
+        "workload": "eva",
+        "support_candidates": [],
         "id": "research_geology",
         "action_type": "research",
         "objective_rewards": [
@@ -20347,6 +28238,8 @@ export const projectAnalysis: GameResponse = {
         "success_probability": null
       },
       {
+        "workload": "strenuous",
+        "support_candidates": [],
         "id": "research_instrument",
         "action_type": "research",
         "objective_rewards": [
@@ -20414,6 +28307,8 @@ export const projectAnalysis: GameResponse = {
         "success_probability": null
       },
       {
+        "workload": "light",
+        "support_candidates": [],
         "id": "project:seismic-1",
         "action_type": "research",
         "objective_rewards": [
@@ -20604,10 +28499,44 @@ export const projectCompleted: GameResponse = {
     },
     "crew": [
       {
+        "nutrition_deficit": 0.0,
+        "hydration_deficit": 0.0,
+        "condition": {
+          "status": "fit",
+          "nutrition_status": "adequate",
+          "hydration_status": "adequate",
+          "can_work": true,
+          "can_do_eva": true,
+          "performance_penalty": 0.0,
+          "restrictions": [],
+          "nutrition_recovery_weeks": 0,
+          "hydration_recovery_weeks": 0,
+          "source_url": "https://www.nasa.gov/reference/risk-of-inadequate-food-and-nutrition/"
+        },
+        "ration_outlook": {
+          "normal": {
+            "nutrition_deficit": 0.0,
+            "hydration_deficit": 0.0,
+            "food_damage": 0,
+            "water_damage": 0
+          },
+          "reduced": {
+            "nutrition_deficit": 0.3,
+            "hydration_deficit": 0.3,
+            "food_damage": 0,
+            "water_damage": 4
+          },
+          "emergency": {
+            "nutrition_deficit": 0.6,
+            "hydration_deficit": 0.6,
+            "food_damage": 0,
+            "water_damage": 28
+          }
+        },
         "id": "alex",
         "name": "Alex Vega",
         "role": "engineer",
-        "health": 93,
+        "health": 100,
         "positive_trait": "Steady hands: +5 percentage points on assigned event actions.",
         "negative_trait": "Large appetite: consumes 10% more food.",
         "food_multiplier": 1.1,
@@ -20636,10 +28565,44 @@ export const projectCompleted: GameResponse = {
         }
       },
       {
+        "nutrition_deficit": 0.0,
+        "hydration_deficit": 0.0,
+        "condition": {
+          "status": "fit",
+          "nutrition_status": "adequate",
+          "hydration_status": "adequate",
+          "can_work": true,
+          "can_do_eva": true,
+          "performance_penalty": 0.0,
+          "restrictions": [],
+          "nutrition_recovery_weeks": 0,
+          "hydration_recovery_weeks": 0,
+          "source_url": "https://www.nasa.gov/reference/risk-of-inadequate-food-and-nutrition/"
+        },
+        "ration_outlook": {
+          "normal": {
+            "nutrition_deficit": 0.0,
+            "hydration_deficit": 0.0,
+            "food_damage": 0,
+            "water_damage": 0
+          },
+          "reduced": {
+            "nutrition_deficit": 0.3,
+            "hydration_deficit": 0.3,
+            "food_damage": 0,
+            "water_damage": 4
+          },
+          "emergency": {
+            "nutrition_deficit": 0.6,
+            "hydration_deficit": 0.6,
+            "food_damage": 0,
+            "water_damage": 28
+          }
+        },
         "id": "lin",
         "name": "Lin Park",
         "role": "scientist",
-        "health": 90,
+        "health": 96,
         "positive_trait": "Water conscious: consumes 10% less water.",
         "negative_trait": "Fragile: event injuries cause 20% more damage.",
         "food_multiplier": 1.0,
@@ -20710,6 +28673,8 @@ export const projectCompleted: GameResponse = {
       },
       "choices": [
         {
+          "workload": "strenuous",
+          "support_candidates": [],
           "id": "battery_diagnosis",
           "action_type": "event",
           "objective_rewards": [],
@@ -20767,6 +28732,8 @@ export const projectCompleted: GameResponse = {
           "success_probability": null
         },
         {
+          "workload": "light",
+          "support_candidates": [],
           "id": "battery_scan",
           "action_type": "event",
           "objective_rewards": [],
@@ -20823,6 +28790,8 @@ export const projectCompleted: GameResponse = {
           "success_probability": null
         },
         {
+          "workload": "light",
+          "support_candidates": [],
           "id": "battery_accept",
           "action_type": "event",
           "objective_rewards": [],
@@ -20993,6 +28962,15 @@ export const projectCompleted: GameResponse = {
               "crew_id": "alex",
               "before": 100,
               "after": 100,
+              "food_received_fraction": 1.0,
+              "water_received_fraction": 1.0,
+              "nutrition_before": 0.0,
+              "nutrition_after": 0.0,
+              "hydration_before": 0.0,
+              "hydration_after": 0.0,
+              "recovery": 0,
+              "worked": false,
+              "rested": false,
               "food_penalty": 0,
               "water_penalty": 0,
               "oxygen_penalty": 0,
@@ -21003,6 +28981,15 @@ export const projectCompleted: GameResponse = {
               "crew_id": "lin",
               "before": 100,
               "after": 100,
+              "food_received_fraction": 1.0,
+              "water_received_fraction": 1.0,
+              "nutrition_before": 0.0,
+              "nutrition_after": 0.0,
+              "hydration_before": 0.0,
+              "hydration_after": 0.0,
+              "recovery": 0,
+              "worked": true,
+              "rested": false,
               "food_penalty": 0,
               "water_penalty": 0,
               "oxygen_penalty": 0,
@@ -21130,6 +29117,15 @@ export const projectCompleted: GameResponse = {
               "crew_id": "alex",
               "before": 100,
               "after": 100,
+              "food_received_fraction": 1.0,
+              "water_received_fraction": 1.0,
+              "nutrition_before": 0.0,
+              "nutrition_after": 0.0,
+              "hydration_before": 0.0,
+              "hydration_after": 0.0,
+              "recovery": 0,
+              "worked": false,
+              "rested": false,
               "food_penalty": 0,
               "water_penalty": 0,
               "oxygen_penalty": 0,
@@ -21140,6 +29136,15 @@ export const projectCompleted: GameResponse = {
               "crew_id": "lin",
               "before": 100,
               "after": 100,
+              "food_received_fraction": 1.0,
+              "water_received_fraction": 1.0,
+              "nutrition_before": 0.0,
+              "nutrition_after": 0.0,
+              "hydration_before": 0.0,
+              "hydration_after": 0.0,
+              "recovery": 0,
+              "worked": false,
+              "rested": false,
               "food_penalty": 0,
               "water_penalty": 0,
               "oxygen_penalty": 0,
@@ -21293,7 +29298,16 @@ export const projectCompleted: GameResponse = {
             {
               "crew_id": "alex",
               "before": 87,
-              "after": 87,
+              "after": 89,
+              "food_received_fraction": 1.0,
+              "water_received_fraction": 1.0,
+              "nutrition_before": 0.0,
+              "nutrition_after": 0.0,
+              "hydration_before": 0.0,
+              "hydration_after": 0.0,
+              "recovery": 2,
+              "worked": false,
+              "rested": false,
               "food_penalty": 0,
               "water_penalty": 0,
               "oxygen_penalty": 0,
@@ -21303,7 +29317,16 @@ export const projectCompleted: GameResponse = {
             {
               "crew_id": "lin",
               "before": 84,
-              "after": 84,
+              "after": 86,
+              "food_received_fraction": 1.0,
+              "water_received_fraction": 1.0,
+              "nutrition_before": 0.0,
+              "nutrition_after": 0.0,
+              "hydration_before": 0.0,
+              "hydration_after": 0.0,
+              "recovery": 2,
+              "worked": false,
+              "rested": false,
               "food_penalty": 0,
               "water_penalty": 0,
               "oxygen_penalty": 0,
@@ -21429,8 +29452,17 @@ export const projectCompleted: GameResponse = {
           "health_changes": [
             {
               "crew_id": "alex",
-              "before": 87,
-              "after": 87,
+              "before": 89,
+              "after": 91,
+              "food_received_fraction": 1.0,
+              "water_received_fraction": 1.0,
+              "nutrition_before": 0.0,
+              "nutrition_after": 0.0,
+              "hydration_before": 0.0,
+              "hydration_after": 0.0,
+              "recovery": 2,
+              "worked": false,
+              "rested": false,
               "food_penalty": 0,
               "water_penalty": 0,
               "oxygen_penalty": 0,
@@ -21439,8 +29471,17 @@ export const projectCompleted: GameResponse = {
             },
             {
               "crew_id": "lin",
-              "before": 84,
-              "after": 84,
+              "before": 86,
+              "after": 88,
+              "food_received_fraction": 1.0,
+              "water_received_fraction": 1.0,
+              "nutrition_before": 0.0,
+              "nutrition_after": 0.0,
+              "hydration_before": 0.0,
+              "hydration_after": 0.0,
+              "recovery": 2,
+              "worked": false,
+              "rested": false,
               "food_penalty": 0,
               "water_penalty": 0,
               "oxygen_penalty": 0,
@@ -21513,13 +29554,13 @@ export const projectCompleted: GameResponse = {
             "health_changes": [
               {
                 "crew_id": "alex",
-                "before": 87,
-                "after": 93
+                "before": 91,
+                "after": 97
               },
               {
                 "crew_id": "lin",
-                "before": 84,
-                "after": 90
+                "before": 88,
+                "after": 94
               }
             ]
           },
@@ -21580,8 +29621,17 @@ export const projectCompleted: GameResponse = {
           "health_changes": [
             {
               "crew_id": "alex",
-              "before": 93,
-              "after": 93,
+              "before": 97,
+              "after": 99,
+              "food_received_fraction": 1.0,
+              "water_received_fraction": 1.0,
+              "nutrition_before": 0.0,
+              "nutrition_after": 0.0,
+              "hydration_before": 0.0,
+              "hydration_after": 0.0,
+              "recovery": 2,
+              "worked": false,
+              "rested": false,
               "food_penalty": 0,
               "water_penalty": 0,
               "oxygen_penalty": 0,
@@ -21590,8 +29640,17 @@ export const projectCompleted: GameResponse = {
             },
             {
               "crew_id": "lin",
-              "before": 90,
-              "after": 90,
+              "before": 94,
+              "after": 96,
+              "food_received_fraction": 1.0,
+              "water_received_fraction": 1.0,
+              "nutrition_before": 0.0,
+              "nutrition_after": 0.0,
+              "hydration_before": 0.0,
+              "hydration_after": 0.0,
+              "recovery": 2,
+              "worked": false,
+              "rested": false,
               "food_penalty": 0,
               "water_penalty": 0,
               "oxygen_penalty": 0,
@@ -21761,8 +29820,17 @@ export const projectCompleted: GameResponse = {
           "health_changes": [
             {
               "crew_id": "alex",
-              "before": 93,
-              "after": 93,
+              "before": 99,
+              "after": 100,
+              "food_received_fraction": 1.0,
+              "water_received_fraction": 1.0,
+              "nutrition_before": 0.0,
+              "nutrition_after": 0.0,
+              "hydration_before": 0.0,
+              "hydration_after": 0.0,
+              "recovery": 1,
+              "worked": false,
+              "rested": false,
               "food_penalty": 0,
               "water_penalty": 0,
               "oxygen_penalty": 0,
@@ -21771,8 +29839,17 @@ export const projectCompleted: GameResponse = {
             },
             {
               "crew_id": "lin",
-              "before": 90,
-              "after": 90,
+              "before": 96,
+              "after": 96,
+              "food_received_fraction": 1.0,
+              "water_received_fraction": 1.0,
+              "nutrition_before": 0.0,
+              "nutrition_after": 0.0,
+              "hydration_before": 0.0,
+              "hydration_after": 0.0,
+              "recovery": 0,
+              "worked": true,
+              "rested": false,
               "food_penalty": 0,
               "water_penalty": 0,
               "oxygen_penalty": 0,
@@ -21873,6 +29950,60 @@ export const projectCompleted: GameResponse = {
     },
     "assignment_options": [
       {
+        "workload": "rest",
+        "support_candidates": [],
+        "id": "crew_rest",
+        "action_type": "rest",
+        "objective_rewards": [],
+        "text": "Rest and recuperate",
+        "description": "One week without active work. Adequate actual food and water improve deficit recovery and allow up to 5 condition points of recovery in safe air. Rest creates no supplies and cannot compensate for continued deprivation.",
+        "costs": {},
+        "required_items": {},
+        "requires_crew": true,
+        "role_bonus": {},
+        "crew_role_bonus": {},
+        "success_chance": 1.0,
+        "success_effects": {
+          "resources": {},
+          "solar_efficiency": 0.0,
+          "oxygen_efficiency": 0.0,
+          "water_recovery_efficiency": 0.0,
+          "co2_efficiency": 0.0,
+          "crew_health": 0,
+          "target": "selected"
+        },
+        "failure_effects": {
+          "resources": {},
+          "solar_efficiency": 0.0,
+          "oxygen_efficiency": 0.0,
+          "water_recovery_efficiency": 0.0,
+          "co2_efficiency": 0.0,
+          "crew_health": 0,
+          "target": "selected"
+        },
+        "required_role": null,
+        "minimum_crew": 1,
+        "available": true,
+        "unavailable_reasons": [],
+        "eligible_crew": [
+          {
+            "crew_id": "alex",
+            "available": true,
+            "unavailable_reasons": [],
+            "success_probability": 1.0
+          },
+          {
+            "crew_id": "lin",
+            "available": true,
+            "unavailable_reasons": [],
+            "success_probability": 1.0
+          }
+        ],
+        "success_probability": null
+      },
+      {
+        "workload": "eva",
+        "support_candidates": [],
         "id": "clean_array",
         "action_type": "maintenance",
         "objective_rewards": [],
@@ -21933,6 +30064,8 @@ export const projectCompleted: GameResponse = {
         "success_probability": null
       },
       {
+        "workload": "strenuous",
+        "support_candidates": [],
         "id": "install_regulator",
         "action_type": "maintenance",
         "objective_rewards": [],
@@ -21992,6 +30125,8 @@ export const projectCompleted: GameResponse = {
         "success_probability": null
       },
       {
+        "workload": "light",
+        "support_candidates": [],
         "id": "service_water_recovery",
         "action_type": "maintenance",
         "objective_rewards": [],
@@ -22045,6 +30180,8 @@ export const projectCompleted: GameResponse = {
         "success_probability": null
       },
       {
+        "workload": "light",
+        "support_candidates": [],
         "id": "service_co2_scrubber",
         "action_type": "maintenance",
         "objective_rewards": [],
@@ -22098,6 +30235,8 @@ export const projectCompleted: GameResponse = {
         "success_probability": null
       },
       {
+        "workload": "eva",
+        "support_candidates": [],
         "id": "research_geology",
         "action_type": "research",
         "objective_rewards": [
@@ -22164,6 +30303,8 @@ export const projectCompleted: GameResponse = {
         "success_probability": null
       },
       {
+        "workload": "strenuous",
+        "support_candidates": [],
         "id": "research_instrument",
         "action_type": "research",
         "objective_rewards": [
@@ -22388,6 +30529,40 @@ export const projectPauseTurn: TurnResponse = {
     },
     "crew": [
       {
+        "nutrition_deficit": 0.0,
+        "hydration_deficit": 0.0,
+        "condition": {
+          "status": "fit",
+          "nutrition_status": "adequate",
+          "hydration_status": "adequate",
+          "can_work": true,
+          "can_do_eva": true,
+          "performance_penalty": 0.0,
+          "restrictions": [],
+          "nutrition_recovery_weeks": 0,
+          "hydration_recovery_weeks": 0,
+          "source_url": "https://www.nasa.gov/reference/risk-of-inadequate-food-and-nutrition/"
+        },
+        "ration_outlook": {
+          "normal": {
+            "nutrition_deficit": 0.0,
+            "hydration_deficit": 0.0,
+            "food_damage": 0,
+            "water_damage": 0
+          },
+          "reduced": {
+            "nutrition_deficit": 0.3,
+            "hydration_deficit": 0.3,
+            "food_damage": 0,
+            "water_damage": 4
+          },
+          "emergency": {
+            "nutrition_deficit": 0.6,
+            "hydration_deficit": 0.6,
+            "food_damage": 0,
+            "water_damage": 28
+          }
+        },
         "id": "alex",
         "name": "Alex Vega",
         "role": "engineer",
@@ -22420,6 +30595,40 @@ export const projectPauseTurn: TurnResponse = {
         }
       },
       {
+        "nutrition_deficit": 0.0,
+        "hydration_deficit": 0.0,
+        "condition": {
+          "status": "fit",
+          "nutrition_status": "adequate",
+          "hydration_status": "adequate",
+          "can_work": true,
+          "can_do_eva": true,
+          "performance_penalty": 0.0,
+          "restrictions": [],
+          "nutrition_recovery_weeks": 0,
+          "hydration_recovery_weeks": 0,
+          "source_url": "https://www.nasa.gov/reference/risk-of-inadequate-food-and-nutrition/"
+        },
+        "ration_outlook": {
+          "normal": {
+            "nutrition_deficit": 0.0,
+            "hydration_deficit": 0.0,
+            "food_damage": 0,
+            "water_damage": 0
+          },
+          "reduced": {
+            "nutrition_deficit": 0.3,
+            "hydration_deficit": 0.3,
+            "food_damage": 0,
+            "water_damage": 4
+          },
+          "emergency": {
+            "nutrition_deficit": 0.6,
+            "hydration_deficit": 0.6,
+            "food_damage": 0,
+            "water_damage": 28
+          }
+        },
         "id": "lin",
         "name": "Lin Park",
         "role": "scientist",
@@ -22492,6 +30701,8 @@ export const projectPauseTurn: TurnResponse = {
       },
       "choices": [
         {
+          "workload": "care",
+          "support_candidates": [],
           "id": "treat",
           "action_type": "event",
           "objective_rewards": [],
@@ -22546,6 +30757,19 @@ export const projectPauseTurn: TurnResponse = {
           "success_probability": null
         },
         {
+          "workload": "strenuous",
+          "support_candidates": [
+            {
+              "crew_id": "alex",
+              "available": true,
+              "unavailable_reasons": []
+            },
+            {
+              "crew_id": "lin",
+              "available": true,
+              "unavailable_reasons": []
+            }
+          ],
           "id": "team_treatment",
           "action_type": "event",
           "objective_rewards": [],
@@ -22606,6 +30830,8 @@ export const projectPauseTurn: TurnResponse = {
           "success_probability": null
         },
         {
+          "workload": "care",
+          "support_candidates": [],
           "id": "guided_treatment",
           "action_type": "event",
           "objective_rewards": [],
@@ -22666,6 +30892,8 @@ export const projectPauseTurn: TurnResponse = {
           "success_probability": null
         },
         {
+          "workload": "light",
+          "support_candidates": [],
           "id": "rest",
           "action_type": "event",
           "objective_rewards": [],
@@ -22832,6 +31060,15 @@ export const projectPauseTurn: TurnResponse = {
               "crew_id": "alex",
               "before": 100,
               "after": 100,
+              "food_received_fraction": 1.0,
+              "water_received_fraction": 1.0,
+              "nutrition_before": 0.0,
+              "nutrition_after": 0.0,
+              "hydration_before": 0.0,
+              "hydration_after": 0.0,
+              "recovery": 0,
+              "worked": false,
+              "rested": false,
               "food_penalty": 0,
               "water_penalty": 0,
               "oxygen_penalty": 0,
@@ -22842,6 +31079,15 @@ export const projectPauseTurn: TurnResponse = {
               "crew_id": "lin",
               "before": 100,
               "after": 100,
+              "food_received_fraction": 1.0,
+              "water_received_fraction": 1.0,
+              "nutrition_before": 0.0,
+              "nutrition_after": 0.0,
+              "hydration_before": 0.0,
+              "hydration_after": 0.0,
+              "recovery": 0,
+              "worked": true,
+              "rested": false,
               "food_penalty": 0,
               "water_penalty": 0,
               "oxygen_penalty": 0,
@@ -22969,6 +31215,15 @@ export const projectPauseTurn: TurnResponse = {
               "crew_id": "alex",
               "before": 100,
               "after": 100,
+              "food_received_fraction": 1.0,
+              "water_received_fraction": 1.0,
+              "nutrition_before": 0.0,
+              "nutrition_after": 0.0,
+              "hydration_before": 0.0,
+              "hydration_after": 0.0,
+              "recovery": 0,
+              "worked": false,
+              "rested": false,
               "food_penalty": 0,
               "water_penalty": 0,
               "oxygen_penalty": 0,
@@ -22979,6 +31234,15 @@ export const projectPauseTurn: TurnResponse = {
               "crew_id": "lin",
               "before": 100,
               "after": 100,
+              "food_received_fraction": 1.0,
+              "water_received_fraction": 1.0,
+              "nutrition_before": 0.0,
+              "nutrition_after": 0.0,
+              "hydration_before": 0.0,
+              "hydration_after": 0.0,
+              "recovery": 0,
+              "worked": false,
+              "rested": false,
               "food_penalty": 0,
               "water_penalty": 0,
               "oxygen_penalty": 0,
@@ -23088,6 +31352,60 @@ export const projectPauseTurn: TurnResponse = {
     },
     "assignment_options": [
       {
+        "workload": "rest",
+        "support_candidates": [],
+        "id": "crew_rest",
+        "action_type": "rest",
+        "objective_rewards": [],
+        "text": "Rest and recuperate",
+        "description": "One week without active work. Adequate actual food and water improve deficit recovery and allow up to 5 condition points of recovery in safe air. Rest creates no supplies and cannot compensate for continued deprivation.",
+        "costs": {},
+        "required_items": {},
+        "requires_crew": true,
+        "role_bonus": {},
+        "crew_role_bonus": {},
+        "success_chance": 1.0,
+        "success_effects": {
+          "resources": {},
+          "solar_efficiency": 0.0,
+          "oxygen_efficiency": 0.0,
+          "water_recovery_efficiency": 0.0,
+          "co2_efficiency": 0.0,
+          "crew_health": 0,
+          "target": "selected"
+        },
+        "failure_effects": {
+          "resources": {},
+          "solar_efficiency": 0.0,
+          "oxygen_efficiency": 0.0,
+          "water_recovery_efficiency": 0.0,
+          "co2_efficiency": 0.0,
+          "crew_health": 0,
+          "target": "selected"
+        },
+        "required_role": null,
+        "minimum_crew": 1,
+        "available": true,
+        "unavailable_reasons": [],
+        "eligible_crew": [
+          {
+            "crew_id": "alex",
+            "available": true,
+            "unavailable_reasons": [],
+            "success_probability": 1.0
+          },
+          {
+            "crew_id": "lin",
+            "available": true,
+            "unavailable_reasons": [],
+            "success_probability": 1.0
+          }
+        ],
+        "success_probability": null
+      },
+      {
+        "workload": "eva",
+        "support_candidates": [],
         "id": "clean_array",
         "action_type": "maintenance",
         "objective_rewards": [],
@@ -23148,6 +31466,8 @@ export const projectPauseTurn: TurnResponse = {
         "success_probability": null
       },
       {
+        "workload": "strenuous",
+        "support_candidates": [],
         "id": "install_regulator",
         "action_type": "maintenance",
         "objective_rewards": [],
@@ -23207,6 +31527,8 @@ export const projectPauseTurn: TurnResponse = {
         "success_probability": null
       },
       {
+        "workload": "light",
+        "support_candidates": [],
         "id": "service_water_recovery",
         "action_type": "maintenance",
         "objective_rewards": [],
@@ -23260,6 +31582,8 @@ export const projectPauseTurn: TurnResponse = {
         "success_probability": null
       },
       {
+        "workload": "light",
+        "support_candidates": [],
         "id": "service_co2_scrubber",
         "action_type": "maintenance",
         "objective_rewards": [],
@@ -23313,6 +31637,8 @@ export const projectPauseTurn: TurnResponse = {
         "success_probability": null
       },
       {
+        "workload": "eva",
+        "support_candidates": [],
         "id": "research_geology",
         "action_type": "research",
         "objective_rewards": [
@@ -23379,6 +31705,8 @@ export const projectPauseTurn: TurnResponse = {
         "success_probability": null
       },
       {
+        "workload": "strenuous",
+        "support_candidates": [],
         "id": "research_instrument",
         "action_type": "research",
         "objective_rewards": [
@@ -23534,6 +31862,15 @@ export const projectPauseTurn: TurnResponse = {
           "crew_id": "alex",
           "before": 100,
           "after": 100,
+          "food_received_fraction": 1.0,
+          "water_received_fraction": 1.0,
+          "nutrition_before": 0.0,
+          "nutrition_after": 0.0,
+          "hydration_before": 0.0,
+          "hydration_after": 0.0,
+          "recovery": 0,
+          "worked": false,
+          "rested": false,
           "food_penalty": 0,
           "water_penalty": 0,
           "oxygen_penalty": 0,
@@ -23544,6 +31881,15 @@ export const projectPauseTurn: TurnResponse = {
           "crew_id": "lin",
           "before": 100,
           "after": 100,
+          "food_received_fraction": 1.0,
+          "water_received_fraction": 1.0,
+          "nutrition_before": 0.0,
+          "nutrition_after": 0.0,
+          "hydration_before": 0.0,
+          "hydration_after": 0.0,
+          "recovery": 0,
+          "worked": false,
+          "rested": false,
           "food_penalty": 0,
           "water_penalty": 0,
           "oxygen_penalty": 0,
@@ -23659,6 +32005,40 @@ export const completed: GameResponse = {
     },
     "crew": [
       {
+        "nutrition_deficit": 0.0,
+        "hydration_deficit": 0.0,
+        "condition": {
+          "status": "fit",
+          "nutrition_status": "adequate",
+          "hydration_status": "adequate",
+          "can_work": true,
+          "can_do_eva": true,
+          "performance_penalty": 0.0,
+          "restrictions": [],
+          "nutrition_recovery_weeks": 0,
+          "hydration_recovery_weeks": 0,
+          "source_url": "https://www.nasa.gov/reference/risk-of-inadequate-food-and-nutrition/"
+        },
+        "ration_outlook": {
+          "normal": {
+            "nutrition_deficit": 0.0,
+            "hydration_deficit": 0.0,
+            "food_damage": 0,
+            "water_damage": 0
+          },
+          "reduced": {
+            "nutrition_deficit": 0.3,
+            "hydration_deficit": 0.3,
+            "food_damage": 0,
+            "water_damage": 4
+          },
+          "emergency": {
+            "nutrition_deficit": 0.6,
+            "hydration_deficit": 0.6,
+            "food_damage": 0,
+            "water_damage": 28
+          }
+        },
         "id": "alex",
         "name": "Alex Vega",
         "role": "engineer",
@@ -23691,10 +32071,44 @@ export const completed: GameResponse = {
         }
       },
       {
+        "nutrition_deficit": 0.0,
+        "hydration_deficit": 0.0,
+        "condition": {
+          "status": "fit",
+          "nutrition_status": "adequate",
+          "hydration_status": "adequate",
+          "can_work": true,
+          "can_do_eva": true,
+          "performance_penalty": 0.0,
+          "restrictions": [],
+          "nutrition_recovery_weeks": 0,
+          "hydration_recovery_weeks": 0,
+          "source_url": "https://www.nasa.gov/reference/risk-of-inadequate-food-and-nutrition/"
+        },
+        "ration_outlook": {
+          "normal": {
+            "nutrition_deficit": 0.0,
+            "hydration_deficit": 0.0,
+            "food_damage": 0,
+            "water_damage": 0
+          },
+          "reduced": {
+            "nutrition_deficit": 0.3,
+            "hydration_deficit": 0.3,
+            "food_damage": 0,
+            "water_damage": 4
+          },
+          "emergency": {
+            "nutrition_deficit": 0.6,
+            "hydration_deficit": 0.6,
+            "food_damage": 0,
+            "water_damage": 28
+          }
+        },
         "id": "maya",
         "name": "Maya Okafor",
         "role": "medic",
-        "health": 98,
+        "health": 100,
         "positive_trait": "Efficient metabolism: consumes 10% less food.",
         "negative_trait": "Thirsty: consumes 10% more water.",
         "food_multiplier": 0.9,
@@ -23856,6 +32270,15 @@ export const completed: GameResponse = {
               "crew_id": "alex",
               "before": 100,
               "after": 100,
+              "food_received_fraction": 1.0,
+              "water_received_fraction": 1.0,
+              "nutrition_before": 0.0,
+              "nutrition_after": 0.0,
+              "hydration_before": 0.0,
+              "hydration_after": 0.0,
+              "recovery": 0,
+              "worked": false,
+              "rested": false,
               "food_penalty": 0,
               "water_penalty": 0,
               "oxygen_penalty": 0,
@@ -23865,7 +32288,16 @@ export const completed: GameResponse = {
             {
               "crew_id": "maya",
               "before": 92,
-              "after": 92,
+              "after": 94,
+              "food_received_fraction": 1.0,
+              "water_received_fraction": 1.0,
+              "nutrition_before": 0.0,
+              "nutrition_after": 0.0,
+              "hydration_before": 0.0,
+              "hydration_after": 0.0,
+              "recovery": 2,
+              "worked": false,
+              "rested": false,
               "food_penalty": 0,
               "water_penalty": 0,
               "oxygen_penalty": 0,
@@ -23932,8 +32364,8 @@ export const completed: GameResponse = {
             "health_changes": [
               {
                 "crew_id": "maya",
-                "before": 92,
-                "after": 98
+                "before": 94,
+                "after": 100
               }
             ]
           },
@@ -23996,6 +32428,15 @@ export const completed: GameResponse = {
               "crew_id": "alex",
               "before": 100,
               "after": 100,
+              "food_received_fraction": 1.0,
+              "water_received_fraction": 1.0,
+              "nutrition_before": 0.0,
+              "nutrition_after": 0.0,
+              "hydration_before": 0.0,
+              "hydration_after": 0.0,
+              "recovery": 0,
+              "worked": false,
+              "rested": false,
               "food_penalty": 0,
               "water_penalty": 0,
               "oxygen_penalty": 0,
@@ -24004,8 +32445,17 @@ export const completed: GameResponse = {
             },
             {
               "crew_id": "maya",
-              "before": 98,
-              "after": 98,
+              "before": 100,
+              "after": 100,
+              "food_received_fraction": 1.0,
+              "water_received_fraction": 1.0,
+              "nutrition_before": 0.0,
+              "nutrition_after": 0.0,
+              "hydration_before": 0.0,
+              "hydration_after": 0.0,
+              "recovery": 0,
+              "worked": false,
+              "rested": false,
               "food_penalty": 0,
               "water_penalty": 0,
               "oxygen_penalty": 0,
@@ -24129,6 +32579,15 @@ export const completed: GameResponse = {
               "crew_id": "alex",
               "before": 100,
               "after": 100,
+              "food_received_fraction": 1.0,
+              "water_received_fraction": 1.0,
+              "nutrition_before": 0.0,
+              "nutrition_after": 0.0,
+              "hydration_before": 0.0,
+              "hydration_after": 0.0,
+              "recovery": 0,
+              "worked": true,
+              "rested": false,
               "food_penalty": 0,
               "water_penalty": 0,
               "oxygen_penalty": 0,
@@ -24137,8 +32596,17 @@ export const completed: GameResponse = {
             },
             {
               "crew_id": "maya",
-              "before": 98,
-              "after": 98,
+              "before": 100,
+              "after": 100,
+              "food_received_fraction": 1.0,
+              "water_received_fraction": 1.0,
+              "nutrition_before": 0.0,
+              "nutrition_after": 0.0,
+              "hydration_before": 0.0,
+              "hydration_after": 0.0,
+              "recovery": 0,
+              "worked": false,
+              "rested": false,
               "food_penalty": 0,
               "water_penalty": 0,
               "oxygen_penalty": 0,
@@ -24277,6 +32745,15 @@ export const completed: GameResponse = {
               "crew_id": "alex",
               "before": 100,
               "after": 100,
+              "food_received_fraction": 1.0,
+              "water_received_fraction": 1.0,
+              "nutrition_before": 0.0,
+              "nutrition_after": 0.0,
+              "hydration_before": 0.0,
+              "hydration_after": 0.0,
+              "recovery": 0,
+              "worked": true,
+              "rested": false,
               "food_penalty": 0,
               "water_penalty": 0,
               "oxygen_penalty": 0,
@@ -24285,8 +32762,17 @@ export const completed: GameResponse = {
             },
             {
               "crew_id": "maya",
-              "before": 98,
-              "after": 98,
+              "before": 100,
+              "after": 100,
+              "food_received_fraction": 1.0,
+              "water_received_fraction": 1.0,
+              "nutrition_before": 0.0,
+              "nutrition_after": 0.0,
+              "hydration_before": 0.0,
+              "hydration_after": 0.0,
+              "recovery": 0,
+              "worked": false,
+              "rested": false,
               "food_penalty": 0,
               "water_penalty": 0,
               "oxygen_penalty": 0,
@@ -24412,6 +32898,15 @@ export const completed: GameResponse = {
               "crew_id": "alex",
               "before": 100,
               "after": 100,
+              "food_received_fraction": 1.0,
+              "water_received_fraction": 1.0,
+              "nutrition_before": 0.0,
+              "nutrition_after": 0.0,
+              "hydration_before": 0.0,
+              "hydration_after": 0.0,
+              "recovery": 0,
+              "worked": true,
+              "rested": false,
               "food_penalty": 0,
               "water_penalty": 0,
               "oxygen_penalty": 0,
@@ -24420,8 +32915,17 @@ export const completed: GameResponse = {
             },
             {
               "crew_id": "maya",
-              "before": 98,
-              "after": 98,
+              "before": 100,
+              "after": 100,
+              "food_received_fraction": 1.0,
+              "water_received_fraction": 1.0,
+              "nutrition_before": 0.0,
+              "nutrition_after": 0.0,
+              "hydration_before": 0.0,
+              "hydration_after": 0.0,
+              "recovery": 0,
+              "worked": false,
+              "rested": false,
               "food_penalty": 0,
               "water_penalty": 0,
               "oxygen_penalty": 0,
@@ -24549,6 +33053,15 @@ export const completed: GameResponse = {
               "crew_id": "alex",
               "before": 100,
               "after": 100,
+              "food_received_fraction": 1.0,
+              "water_received_fraction": 1.0,
+              "nutrition_before": 0.0,
+              "nutrition_after": 0.0,
+              "hydration_before": 0.0,
+              "hydration_after": 0.0,
+              "recovery": 0,
+              "worked": true,
+              "rested": false,
               "food_penalty": 0,
               "water_penalty": 0,
               "oxygen_penalty": 0,
@@ -24557,8 +33070,17 @@ export const completed: GameResponse = {
             },
             {
               "crew_id": "maya",
-              "before": 98,
-              "after": 98,
+              "before": 100,
+              "after": 100,
+              "food_received_fraction": 1.0,
+              "water_received_fraction": 1.0,
+              "nutrition_before": 0.0,
+              "nutrition_after": 0.0,
+              "hydration_before": 0.0,
+              "hydration_after": 0.0,
+              "recovery": 0,
+              "worked": false,
+              "rested": false,
               "food_penalty": 0,
               "water_penalty": 0,
               "oxygen_penalty": 0,
@@ -24683,6 +33205,15 @@ export const completed: GameResponse = {
               "crew_id": "alex",
               "before": 100,
               "after": 100,
+              "food_received_fraction": 1.0,
+              "water_received_fraction": 1.0,
+              "nutrition_before": 0.0,
+              "nutrition_after": 0.0,
+              "hydration_before": 0.0,
+              "hydration_after": 0.0,
+              "recovery": 0,
+              "worked": false,
+              "rested": false,
               "food_penalty": 0,
               "water_penalty": 0,
               "oxygen_penalty": 0,
@@ -24691,8 +33222,17 @@ export const completed: GameResponse = {
             },
             {
               "crew_id": "maya",
-              "before": 98,
-              "after": 98,
+              "before": 100,
+              "after": 100,
+              "food_received_fraction": 1.0,
+              "water_received_fraction": 1.0,
+              "nutrition_before": 0.0,
+              "nutrition_after": 0.0,
+              "hydration_before": 0.0,
+              "hydration_after": 0.0,
+              "recovery": 0,
+              "worked": false,
+              "rested": false,
               "food_penalty": 0,
               "water_penalty": 0,
               "oxygen_penalty": 0,
@@ -24818,6 +33358,15 @@ export const completed: GameResponse = {
               "crew_id": "alex",
               "before": 100,
               "after": 100,
+              "food_received_fraction": 1.0,
+              "water_received_fraction": 1.0,
+              "nutrition_before": 0.0,
+              "nutrition_after": 0.0,
+              "hydration_before": 0.0,
+              "hydration_after": 0.0,
+              "recovery": 0,
+              "worked": true,
+              "rested": false,
               "food_penalty": 0,
               "water_penalty": 0,
               "oxygen_penalty": 0,
@@ -24826,8 +33375,17 @@ export const completed: GameResponse = {
             },
             {
               "crew_id": "maya",
-              "before": 98,
-              "after": 98,
+              "before": 100,
+              "after": 100,
+              "food_received_fraction": 1.0,
+              "water_received_fraction": 1.0,
+              "nutrition_before": 0.0,
+              "nutrition_after": 0.0,
+              "hydration_before": 0.0,
+              "hydration_after": 0.0,
+              "recovery": 0,
+              "worked": false,
+              "rested": false,
               "food_penalty": 0,
               "water_penalty": 0,
               "oxygen_penalty": 0,
@@ -24951,6 +33509,15 @@ export const completed: GameResponse = {
               "crew_id": "alex",
               "before": 100,
               "after": 100,
+              "food_received_fraction": 1.0,
+              "water_received_fraction": 1.0,
+              "nutrition_before": 0.0,
+              "nutrition_after": 0.0,
+              "hydration_before": 0.0,
+              "hydration_after": 0.0,
+              "recovery": 0,
+              "worked": true,
+              "rested": false,
               "food_penalty": 0,
               "water_penalty": 0,
               "oxygen_penalty": 0,
@@ -24959,8 +33526,17 @@ export const completed: GameResponse = {
             },
             {
               "crew_id": "maya",
-              "before": 98,
-              "after": 98,
+              "before": 100,
+              "after": 100,
+              "food_received_fraction": 1.0,
+              "water_received_fraction": 1.0,
+              "nutrition_before": 0.0,
+              "nutrition_after": 0.0,
+              "hydration_before": 0.0,
+              "hydration_after": 0.0,
+              "recovery": 0,
+              "worked": false,
+              "rested": false,
               "food_penalty": 0,
               "water_penalty": 0,
               "oxygen_penalty": 0,
@@ -25084,6 +33660,15 @@ export const completed: GameResponse = {
               "crew_id": "alex",
               "before": 100,
               "after": 100,
+              "food_received_fraction": 1.0,
+              "water_received_fraction": 1.0,
+              "nutrition_before": 0.0,
+              "nutrition_after": 0.0,
+              "hydration_before": 0.0,
+              "hydration_after": 0.0,
+              "recovery": 0,
+              "worked": true,
+              "rested": false,
               "food_penalty": 0,
               "water_penalty": 0,
               "oxygen_penalty": 0,
@@ -25092,8 +33677,17 @@ export const completed: GameResponse = {
             },
             {
               "crew_id": "maya",
-              "before": 98,
-              "after": 98,
+              "before": 100,
+              "after": 100,
+              "food_received_fraction": 1.0,
+              "water_received_fraction": 1.0,
+              "nutrition_before": 0.0,
+              "nutrition_after": 0.0,
+              "hydration_before": 0.0,
+              "hydration_after": 0.0,
+              "recovery": 0,
+              "worked": false,
+              "rested": false,
               "food_penalty": 0,
               "water_penalty": 0,
               "oxygen_penalty": 0,
@@ -25217,6 +33811,15 @@ export const completed: GameResponse = {
               "crew_id": "alex",
               "before": 100,
               "after": 100,
+              "food_received_fraction": 1.0,
+              "water_received_fraction": 1.0,
+              "nutrition_before": 0.0,
+              "nutrition_after": 0.0,
+              "hydration_before": 0.0,
+              "hydration_after": 0.0,
+              "recovery": 0,
+              "worked": false,
+              "rested": false,
               "food_penalty": 0,
               "water_penalty": 0,
               "oxygen_penalty": 0,
@@ -25225,8 +33828,17 @@ export const completed: GameResponse = {
             },
             {
               "crew_id": "maya",
-              "before": 98,
-              "after": 98,
+              "before": 100,
+              "after": 100,
+              "food_received_fraction": 1.0,
+              "water_received_fraction": 1.0,
+              "nutrition_before": 0.0,
+              "nutrition_after": 0.0,
+              "hydration_before": 0.0,
+              "hydration_after": 0.0,
+              "recovery": 0,
+              "worked": false,
+              "rested": false,
               "food_penalty": 0,
               "water_penalty": 0,
               "oxygen_penalty": 0,
@@ -25354,6 +33966,15 @@ export const completed: GameResponse = {
               "crew_id": "alex",
               "before": 100,
               "after": 100,
+              "food_received_fraction": 1.0,
+              "water_received_fraction": 1.0,
+              "nutrition_before": 0.0,
+              "nutrition_after": 0.0,
+              "hydration_before": 0.0,
+              "hydration_after": 0.0,
+              "recovery": 0,
+              "worked": true,
+              "rested": false,
               "food_penalty": 0,
               "water_penalty": 0,
               "oxygen_penalty": 0,
@@ -25362,8 +33983,17 @@ export const completed: GameResponse = {
             },
             {
               "crew_id": "maya",
-              "before": 98,
-              "after": 98,
+              "before": 100,
+              "after": 100,
+              "food_received_fraction": 1.0,
+              "water_received_fraction": 1.0,
+              "nutrition_before": 0.0,
+              "nutrition_after": 0.0,
+              "hydration_before": 0.0,
+              "hydration_after": 0.0,
+              "recovery": 0,
+              "worked": false,
+              "rested": false,
               "food_penalty": 0,
               "water_penalty": 0,
               "oxygen_penalty": 0,
@@ -25517,9 +34147,9 @@ export const failed: GameResponse = {
   "state": {
     "life_support": {
       "source_url": "https://www.nasa.gov/reference/environmental-control-and-life-support-systems-eclss/",
-      "water_recovery_condition": 0.86,
-      "co2_condition": 0.895,
-      "wastewater": 16.272,
+      "water_recovery_condition": 0.88,
+      "co2_condition": 0.91,
+      "wastewater": 19.128,
       "co2_burden": 0.0,
       "co2_warning_level": 4.0,
       "recovery_capacity": 4.0,
@@ -25538,13 +34168,21 @@ export const failed: GameResponse = {
     },
     "energy": {
       "battery_capacity": 100.0,
-      "stored": 63.183636,
+      "stored": 75.37614,
       "priority": "life_support",
       "life_support_required": 6.0,
       "solar_day_earth_days": 29.5306,
       "source_url": "https://svs.gsfc.nasa.gov/12739/",
       "assumption": "Fictional shared epoch: sunrise at Apollo 11 longitude on mission day zero. Smooth non-polar horizon, equal day/night halves, constant useful output during daylight. Weekly averaging omits terrain shadows, eclipses, seasons, and panel incidence.",
       "forecast": [
+        {
+          "week": 6,
+          "daylight_fraction": 1.0,
+          "daylight_days": 7.0,
+          "darkness_days": 0.0,
+          "phase": "daylight",
+          "electricity_generated": 36.0
+        },
         {
           "week": 7,
           "daylight_fraction": 0.327986,
@@ -25604,16 +34242,33 @@ export const failed: GameResponse = {
     "difficulty_rank": 2,
     "mission_id": "alpha_rotation",
     "mission_name": "Hold Until Rotation",
-    "current_week": 7,
+    "current_week": 6,
     "duration_weeks": 12,
     "minimum_survivors": 1,
-    "weeks_remaining": 5,
+    "weeks_remaining": 6,
     "mission_days": {
-      "start": 43,
-      "end": 49
+      "start": 36,
+      "end": 42
     },
     "crew": [
       {
+        "nutrition_deficit": 1.25,
+        "hydration_deficit": 1.32375,
+        "condition": {
+          "status": "deceased",
+          "nutrition_status": "depleted",
+          "hydration_status": "dehydrated",
+          "can_work": false,
+          "can_do_eva": false,
+          "performance_penalty": 0.0,
+          "restrictions": [
+            "Requires a living astronaut."
+          ],
+          "nutrition_recovery_weeks": 5,
+          "hydration_recovery_weeks": 3,
+          "source_url": "https://www.nasa.gov/reference/risk-of-inadequate-food-and-nutrition/"
+        },
+        "ration_outlook": {},
         "id": "alex",
         "name": "Alex Vega",
         "role": "engineer",
@@ -25627,12 +34282,29 @@ export const failed: GameResponse = {
         "specialty": "Mechanical repair",
         "training_source": "https://www.nasa.gov/reference/jsc-crew-operations-training/",
         "action_bonuses": {},
-        "food_shortage_weeks": 3,
-        "water_shortage_weeks": 3,
+        "food_shortage_weeks": 2,
+        "water_shortage_weeks": 2,
         "alive": false,
         "ration_options": {}
       },
       {
+        "nutrition_deficit": 1.25,
+        "hydration_deficit": 1.32375,
+        "condition": {
+          "status": "deceased",
+          "nutrition_status": "depleted",
+          "hydration_status": "dehydrated",
+          "can_work": false,
+          "can_do_eva": false,
+          "performance_penalty": 0.0,
+          "restrictions": [
+            "Requires a living astronaut."
+          ],
+          "nutrition_recovery_weeks": 5,
+          "hydration_recovery_weeks": 3,
+          "source_url": "https://www.nasa.gov/reference/risk-of-inadequate-food-and-nutrition/"
+        },
+        "ration_outlook": {},
         "id": "maya",
         "name": "Maya Okafor",
         "role": "medic",
@@ -25646,12 +34318,29 @@ export const failed: GameResponse = {
         "specialty": "Crew medical officer",
         "training_source": "https://www.nasa.gov/reference/5-0-training/",
         "action_bonuses": {},
-        "food_shortage_weeks": 3,
-        "water_shortage_weeks": 3,
+        "food_shortage_weeks": 2,
+        "water_shortage_weeks": 2,
         "alive": false,
         "ration_options": {}
       },
       {
+        "nutrition_deficit": 1.25,
+        "hydration_deficit": 1.32375,
+        "condition": {
+          "status": "deceased",
+          "nutrition_status": "depleted",
+          "hydration_status": "dehydrated",
+          "can_work": false,
+          "can_do_eva": false,
+          "performance_penalty": 0.0,
+          "restrictions": [
+            "Requires a living astronaut."
+          ],
+          "nutrition_recovery_weeks": 5,
+          "hydration_recovery_weeks": 3,
+          "source_url": "https://www.nasa.gov/reference/risk-of-inadequate-food-and-nutrition/"
+        },
+        "ration_outlook": {},
         "id": "lin",
         "name": "Lin Park",
         "role": "scientist",
@@ -25665,12 +34354,29 @@ export const failed: GameResponse = {
         "specialty": "Field science and calibration",
         "training_source": "https://www.nasa.gov/missions/artemis/nasa-field-geology-training-prepares-artemis-mission-support-teams/",
         "action_bonuses": {},
-        "food_shortage_weeks": 3,
-        "water_shortage_weeks": 3,
+        "food_shortage_weeks": 2,
+        "water_shortage_weeks": 2,
         "alive": false,
         "ration_options": {}
       },
       {
+        "nutrition_deficit": 1.25,
+        "hydration_deficit": 1.32375,
+        "condition": {
+          "status": "deceased",
+          "nutrition_status": "depleted",
+          "hydration_status": "dehydrated",
+          "can_work": false,
+          "can_do_eva": false,
+          "performance_penalty": 0.0,
+          "restrictions": [
+            "Requires a living astronaut."
+          ],
+          "nutrition_recovery_weeks": 5,
+          "hydration_recovery_weeks": 3,
+          "source_url": "https://www.nasa.gov/reference/risk-of-inadequate-food-and-nutrition/"
+        },
+        "ration_outlook": {},
         "id": "sam",
         "name": "Sam Nowak",
         "role": "technician",
@@ -25684,17 +34390,17 @@ export const failed: GameResponse = {
         "specialty": "EVA maintenance",
         "training_source": "https://www.nasa.gov/reference/jsc-crew-operations-training/",
         "action_bonuses": {},
-        "food_shortage_weeks": 3,
-        "water_shortage_weeks": 3,
+        "food_shortage_weeks": 2,
+        "water_shortage_weeks": 2,
         "alive": false,
         "ration_options": {}
       }
     ],
     "resources": {
       "food": 0.0,
-      "water": 1.766,
-      "oxygen": 16.5,
-      "electricity": 63.183636,
+      "water": 1.83,
+      "oxygen": 18.0,
+      "electricity": 75.37614,
       "medicine": 1.0,
       "repair_kits": 1.0,
       "eva_batteries": 1.0,
@@ -25704,13 +34410,13 @@ export const failed: GameResponse = {
       "sealant_packs": 0.0,
       "scientific_tools": 0.0,
       "research_data": 0.0,
-      "wastewater": 16.272,
+      "wastewater": 19.128,
       "co2": 0.0
     },
     "solar_efficiency": 0.75,
     "oxygen_efficiency": 0.75,
-    "water_recovery_efficiency": 0.86,
-    "co2_efficiency": 0.895,
+    "water_recovery_efficiency": 0.88,
+    "co2_efficiency": 0.91,
     "current_event_id": null,
     "current_event": null,
     "emergency_ration_requirements": {
@@ -25724,8 +34430,7 @@ export const failed: GameResponse = {
       "oxygen_fault",
       "antenna_drift",
       "solar_failure",
-      "water_line_leak",
-      "solar_particle_alert"
+      "water_line_leak"
     ],
     "flags": {
       "failure_reason": "All astronauts have died."
@@ -25840,7 +34545,16 @@ export const failed: GameResponse = {
             {
               "crew_id": "alex",
               "before": 87,
-              "after": 87,
+              "after": 89,
+              "food_received_fraction": 1.0,
+              "water_received_fraction": 1.0,
+              "nutrition_before": 0.0,
+              "nutrition_after": 0.0,
+              "hydration_before": 0.0,
+              "hydration_after": 0.0,
+              "recovery": 2,
+              "worked": false,
+              "rested": false,
               "food_penalty": 0,
               "water_penalty": 0,
               "oxygen_penalty": 0,
@@ -25850,7 +34564,16 @@ export const failed: GameResponse = {
             {
               "crew_id": "maya",
               "before": 87,
-              "after": 87,
+              "after": 89,
+              "food_received_fraction": 1.0,
+              "water_received_fraction": 1.0,
+              "nutrition_before": 0.0,
+              "nutrition_after": 0.0,
+              "hydration_before": 0.0,
+              "hydration_after": 0.0,
+              "recovery": 2,
+              "worked": false,
+              "rested": false,
               "food_penalty": 0,
               "water_penalty": 0,
               "oxygen_penalty": 0,
@@ -25860,7 +34583,16 @@ export const failed: GameResponse = {
             {
               "crew_id": "lin",
               "before": 84,
-              "after": 84,
+              "after": 86,
+              "food_received_fraction": 1.0,
+              "water_received_fraction": 1.0,
+              "nutrition_before": 0.0,
+              "nutrition_after": 0.0,
+              "hydration_before": 0.0,
+              "hydration_after": 0.0,
+              "recovery": 2,
+              "worked": false,
+              "rested": false,
               "food_penalty": 0,
               "water_penalty": 0,
               "oxygen_penalty": 0,
@@ -25870,7 +34602,16 @@ export const failed: GameResponse = {
             {
               "crew_id": "sam",
               "before": 89,
-              "after": 89,
+              "after": 91,
+              "food_received_fraction": 1.0,
+              "water_received_fraction": 1.0,
+              "nutrition_before": 0.0,
+              "nutrition_after": 0.0,
+              "hydration_before": 0.0,
+              "hydration_after": 0.0,
+              "recovery": 2,
+              "worked": false,
+              "rested": false,
               "food_penalty": 0,
               "water_penalty": 0,
               "oxygen_penalty": 0,
@@ -25937,23 +34678,23 @@ export const failed: GameResponse = {
             "health_changes": [
               {
                 "crew_id": "alex",
-                "before": 87,
-                "after": 93
+                "before": 89,
+                "after": 95
               },
               {
                 "crew_id": "maya",
-                "before": 87,
-                "after": 93
+                "before": 89,
+                "after": 95
               },
               {
                 "crew_id": "lin",
-                "before": 84,
-                "after": 90
+                "before": 86,
+                "after": 92
               },
               {
                 "crew_id": "sam",
-                "before": 89,
-                "after": 95
+                "before": 91,
+                "after": 97
               }
             ]
           },
@@ -26022,8 +34763,17 @@ export const failed: GameResponse = {
           "health_changes": [
             {
               "crew_id": "alex",
-              "before": 93,
-              "after": 93,
+              "before": 95,
+              "after": 97,
+              "food_received_fraction": 1.0,
+              "water_received_fraction": 1.0,
+              "nutrition_before": 0.0,
+              "nutrition_after": 0.0,
+              "hydration_before": 0.0,
+              "hydration_after": 0.0,
+              "recovery": 2,
+              "worked": false,
+              "rested": false,
               "food_penalty": 0,
               "water_penalty": 0,
               "oxygen_penalty": 0,
@@ -26032,8 +34782,17 @@ export const failed: GameResponse = {
             },
             {
               "crew_id": "maya",
-              "before": 93,
-              "after": 93,
+              "before": 95,
+              "after": 97,
+              "food_received_fraction": 1.0,
+              "water_received_fraction": 1.0,
+              "nutrition_before": 0.0,
+              "nutrition_after": 0.0,
+              "hydration_before": 0.0,
+              "hydration_after": 0.0,
+              "recovery": 2,
+              "worked": false,
+              "rested": false,
               "food_penalty": 0,
               "water_penalty": 0,
               "oxygen_penalty": 0,
@@ -26042,8 +34801,17 @@ export const failed: GameResponse = {
             },
             {
               "crew_id": "lin",
-              "before": 90,
-              "after": 90,
+              "before": 92,
+              "after": 94,
+              "food_received_fraction": 1.0,
+              "water_received_fraction": 1.0,
+              "nutrition_before": 0.0,
+              "nutrition_after": 0.0,
+              "hydration_before": 0.0,
+              "hydration_after": 0.0,
+              "recovery": 2,
+              "worked": false,
+              "rested": false,
               "food_penalty": 0,
               "water_penalty": 0,
               "oxygen_penalty": 0,
@@ -26052,8 +34820,17 @@ export const failed: GameResponse = {
             },
             {
               "crew_id": "sam",
-              "before": 95,
-              "after": 95,
+              "before": 97,
+              "after": 99,
+              "food_received_fraction": 1.0,
+              "water_received_fraction": 1.0,
+              "nutrition_before": 0.0,
+              "nutrition_after": 0.0,
+              "hydration_before": 0.0,
+              "hydration_after": 0.0,
+              "recovery": 2,
+              "worked": false,
+              "rested": false,
               "food_penalty": 0,
               "water_penalty": 0,
               "oxygen_penalty": 0,
@@ -26181,8 +34958,17 @@ export const failed: GameResponse = {
           "health_changes": [
             {
               "crew_id": "alex",
-              "before": 93,
-              "after": 93,
+              "before": 97,
+              "after": 99,
+              "food_received_fraction": 1.0,
+              "water_received_fraction": 1.0,
+              "nutrition_before": 0.0,
+              "nutrition_after": 0.0,
+              "hydration_before": 0.0,
+              "hydration_after": 0.0,
+              "recovery": 2,
+              "worked": false,
+              "rested": false,
               "food_penalty": 0,
               "water_penalty": 0,
               "oxygen_penalty": 0,
@@ -26191,8 +34977,17 @@ export const failed: GameResponse = {
             },
             {
               "crew_id": "maya",
-              "before": 93,
-              "after": 93,
+              "before": 97,
+              "after": 99,
+              "food_received_fraction": 1.0,
+              "water_received_fraction": 1.0,
+              "nutrition_before": 0.0,
+              "nutrition_after": 0.0,
+              "hydration_before": 0.0,
+              "hydration_after": 0.0,
+              "recovery": 2,
+              "worked": false,
+              "rested": false,
               "food_penalty": 0,
               "water_penalty": 0,
               "oxygen_penalty": 0,
@@ -26201,8 +34996,17 @@ export const failed: GameResponse = {
             },
             {
               "crew_id": "lin",
-              "before": 90,
-              "after": 90,
+              "before": 94,
+              "after": 96,
+              "food_received_fraction": 1.0,
+              "water_received_fraction": 1.0,
+              "nutrition_before": 0.0,
+              "nutrition_after": 0.0,
+              "hydration_before": 0.0,
+              "hydration_after": 0.0,
+              "recovery": 2,
+              "worked": false,
+              "rested": false,
               "food_penalty": 0,
               "water_penalty": 0,
               "oxygen_penalty": 0,
@@ -26211,8 +35015,17 @@ export const failed: GameResponse = {
             },
             {
               "crew_id": "sam",
-              "before": 95,
-              "after": 95,
+              "before": 99,
+              "after": 100,
+              "food_received_fraction": 1.0,
+              "water_received_fraction": 1.0,
+              "nutrition_before": 0.0,
+              "nutrition_after": 0.0,
+              "hydration_before": 0.0,
+              "hydration_after": 0.0,
+              "recovery": 1,
+              "worked": false,
+              "rested": false,
               "food_penalty": 0,
               "water_penalty": 0,
               "oxygen_penalty": 0,
@@ -26340,8 +35153,17 @@ export const failed: GameResponse = {
           "health_changes": [
             {
               "crew_id": "alex",
-              "before": 93,
-              "after": 93,
+              "before": 99,
+              "after": 100,
+              "food_received_fraction": 1.0,
+              "water_received_fraction": 1.0,
+              "nutrition_before": 0.0,
+              "nutrition_after": 0.0,
+              "hydration_before": 0.0,
+              "hydration_after": 0.0,
+              "recovery": 1,
+              "worked": false,
+              "rested": false,
               "food_penalty": 0,
               "water_penalty": 0,
               "oxygen_penalty": 0,
@@ -26350,8 +35172,17 @@ export const failed: GameResponse = {
             },
             {
               "crew_id": "maya",
-              "before": 93,
-              "after": 93,
+              "before": 99,
+              "after": 100,
+              "food_received_fraction": 1.0,
+              "water_received_fraction": 1.0,
+              "nutrition_before": 0.0,
+              "nutrition_after": 0.0,
+              "hydration_before": 0.0,
+              "hydration_after": 0.0,
+              "recovery": 1,
+              "worked": false,
+              "rested": false,
               "food_penalty": 0,
               "water_penalty": 0,
               "oxygen_penalty": 0,
@@ -26360,8 +35191,17 @@ export const failed: GameResponse = {
             },
             {
               "crew_id": "lin",
-              "before": 90,
-              "after": 90,
+              "before": 96,
+              "after": 98,
+              "food_received_fraction": 1.0,
+              "water_received_fraction": 1.0,
+              "nutrition_before": 0.0,
+              "nutrition_after": 0.0,
+              "hydration_before": 0.0,
+              "hydration_after": 0.0,
+              "recovery": 2,
+              "worked": false,
+              "rested": false,
               "food_penalty": 0,
               "water_penalty": 0,
               "oxygen_penalty": 0,
@@ -26370,8 +35210,17 @@ export const failed: GameResponse = {
             },
             {
               "crew_id": "sam",
-              "before": 95,
-              "after": 95,
+              "before": 100,
+              "after": 100,
+              "food_received_fraction": 1.0,
+              "water_received_fraction": 1.0,
+              "nutrition_before": 0.0,
+              "nutrition_after": 0.0,
+              "hydration_before": 0.0,
+              "hydration_after": 0.0,
+              "recovery": 0,
+              "worked": false,
+              "rested": false,
               "food_penalty": 0,
               "water_penalty": 0,
               "oxygen_penalty": 0,
@@ -26499,40 +35348,76 @@ export const failed: GameResponse = {
           "health_changes": [
             {
               "crew_id": "alex",
-              "before": 93,
-              "after": 77,
-              "food_penalty": 6,
-              "water_penalty": 10,
+              "before": 100,
+              "after": 72,
+              "food_received_fraction": 0.4,
+              "water_received_fraction": 0.4,
+              "nutrition_before": 0.0,
+              "nutrition_after": 0.6,
+              "hydration_before": 0.0,
+              "hydration_after": 0.6,
+              "recovery": 0,
+              "worked": false,
+              "rested": false,
+              "food_penalty": 0,
+              "water_penalty": 28,
               "oxygen_penalty": 0,
               "co2_penalty": 0,
               "died": false
             },
             {
               "crew_id": "maya",
-              "before": 93,
-              "after": 77,
-              "food_penalty": 6,
-              "water_penalty": 10,
+              "before": 100,
+              "after": 72,
+              "food_received_fraction": 0.4,
+              "water_received_fraction": 0.4,
+              "nutrition_before": 0.0,
+              "nutrition_after": 0.6,
+              "hydration_before": 0.0,
+              "hydration_after": 0.6,
+              "recovery": 0,
+              "worked": false,
+              "rested": false,
+              "food_penalty": 0,
+              "water_penalty": 28,
               "oxygen_penalty": 0,
               "co2_penalty": 0,
               "died": false
             },
             {
               "crew_id": "lin",
-              "before": 90,
-              "after": 74,
-              "food_penalty": 6,
-              "water_penalty": 10,
+              "before": 98,
+              "after": 70,
+              "food_received_fraction": 0.4,
+              "water_received_fraction": 0.4,
+              "nutrition_before": 0.0,
+              "nutrition_after": 0.6,
+              "hydration_before": 0.0,
+              "hydration_after": 0.6,
+              "recovery": 0,
+              "worked": false,
+              "rested": false,
+              "food_penalty": 0,
+              "water_penalty": 28,
               "oxygen_penalty": 0,
               "co2_penalty": 0,
               "died": false
             },
             {
               "crew_id": "sam",
-              "before": 95,
-              "after": 79,
-              "food_penalty": 6,
-              "water_penalty": 10,
+              "before": 100,
+              "after": 72,
+              "food_received_fraction": 0.4,
+              "water_received_fraction": 0.4,
+              "nutrition_before": 0.0,
+              "nutrition_after": 0.6,
+              "hydration_before": 0.0,
+              "hydration_after": 0.6,
+              "recovery": 0,
+              "worked": false,
+              "rested": false,
+              "food_penalty": 0,
+              "water_penalty": 28,
               "oxygen_penalty": 0,
               "co2_penalty": 0,
               "died": false
@@ -26660,43 +35545,79 @@ export const failed: GameResponse = {
           "health_changes": [
             {
               "crew_id": "alex",
-              "before": 77,
-              "after": 43,
-              "food_penalty": 11,
-              "water_penalty": 23,
+              "before": 72,
+              "after": 0,
+              "food_received_fraction": 0.35,
+              "water_received_fraction": 0.27625,
+              "nutrition_before": 0.6,
+              "nutrition_after": 1.25,
+              "hydration_before": 0.6,
+              "hydration_after": 1.32375,
+              "recovery": 0,
+              "worked": false,
+              "rested": false,
+              "food_penalty": 2,
+              "water_penalty": 80,
               "oxygen_penalty": 0,
               "co2_penalty": 0,
-              "died": false
+              "died": true
             },
             {
               "crew_id": "maya",
-              "before": 77,
-              "after": 43,
-              "food_penalty": 11,
-              "water_penalty": 23,
+              "before": 72,
+              "after": 0,
+              "food_received_fraction": 0.35,
+              "water_received_fraction": 0.27625,
+              "nutrition_before": 0.6,
+              "nutrition_after": 1.25,
+              "hydration_before": 0.6,
+              "hydration_after": 1.32375,
+              "recovery": 0,
+              "worked": false,
+              "rested": false,
+              "food_penalty": 2,
+              "water_penalty": 80,
               "oxygen_penalty": 0,
               "co2_penalty": 0,
-              "died": false
+              "died": true
             },
             {
               "crew_id": "lin",
-              "before": 74,
-              "after": 40,
-              "food_penalty": 11,
-              "water_penalty": 23,
+              "before": 70,
+              "after": 0,
+              "food_received_fraction": 0.35,
+              "water_received_fraction": 0.27625,
+              "nutrition_before": 0.6,
+              "nutrition_after": 1.25,
+              "hydration_before": 0.6,
+              "hydration_after": 1.32375,
+              "recovery": 0,
+              "worked": false,
+              "rested": false,
+              "food_penalty": 2,
+              "water_penalty": 80,
               "oxygen_penalty": 0,
               "co2_penalty": 0,
-              "died": false
+              "died": true
             },
             {
               "crew_id": "sam",
-              "before": 79,
-              "after": 45,
-              "food_penalty": 11,
-              "water_penalty": 23,
+              "before": 72,
+              "after": 0,
+              "food_received_fraction": 0.35,
+              "water_received_fraction": 0.27625,
+              "nutrition_before": 0.6,
+              "nutrition_after": 1.25,
+              "hydration_before": 0.6,
+              "hydration_after": 1.32375,
+              "recovery": 0,
+              "worked": false,
+              "rested": false,
+              "food_penalty": 2,
+              "water_penalty": 80,
               "oxygen_penalty": 0,
               "co2_penalty": 0,
-              "died": false
+              "died": true
             }
           ]
         },
@@ -26717,168 +35638,6 @@ export const failed: GameResponse = {
           "wastewater": -1.832,
           "co2": 0.0
         },
-        "deaths": [],
-        "next_event": {
-          "event_id": "solar_particle_alert",
-          "title": "Shelter Before the Storm",
-          "effects": {
-            "resources": {},
-            "solar_efficiency": 0.0,
-            "oxygen_efficiency": 0.0,
-            "water_recovery_efficiency": 0.0,
-            "co2_efficiency": 0.0,
-            "health_changes": []
-          }
-        },
-        "ending": null
-      },
-      {
-        "project_updates": [],
-        "assignments": [],
-        "science_gains": [],
-        "week": 7,
-        "event": {
-          "support_crew_ids": [],
-          "event_id": "solar_particle_alert",
-          "choice_id": "shelter",
-          "choice_text": "Move into the shielded compartment",
-          "selected_crew_id": null,
-          "success": true,
-          "success_probability": 1.0,
-          "costs": {
-            "electricity": 4.0,
-            "water": 1.0
-          },
-          "effects": {
-            "resources": {},
-            "solar_efficiency": 0.0,
-            "oxygen_efficiency": 0.0,
-            "water_recovery_efficiency": 0.0,
-            "co2_efficiency": 0.0,
-            "health_changes": []
-          },
-          "objective_progress": []
-        },
-        "rations": {
-          "alex": {
-            "food": "emergency",
-            "water": "emergency"
-          },
-          "maya": {
-            "food": "emergency",
-            "water": "emergency"
-          },
-          "lin": {
-            "food": "emergency",
-            "water": "emergency"
-          },
-          "sam": {
-            "food": "emergency",
-            "water": "emergency"
-          }
-        },
-        "survival": {
-          "life_support": {
-            "wastewater_processed": 3.52,
-            "water_recovered": 2.816,
-            "water_for_oxygen": 1.05,
-            "wastewater_captured": 0.664,
-            "oxygen_generated": 10.5,
-            "co2_produced": 4.0,
-            "co2_removed": 4.0,
-            "co2_remaining": 0.0,
-            "power_components": {
-              "habitat": 12.0,
-              "water_recovery": 2.0,
-              "oxygen_generation": 4.0,
-              "co2_removal": 2.0
-            }
-          },
-          "daylight_fraction": 0.327986,
-          "battery_capacity": 100.0,
-          "electricity_curtailed": 0.0,
-          "project_electricity_used": 0.0,
-          "power_priority": "life_support",
-          "ration_requirements": {
-            "food": 1.6,
-            "water": 3.2
-          },
-          "ration_costs": {
-            "food": 0.0,
-            "water": 0.83
-          },
-          "ration_depletion_fractions": {
-            "food": 1.0,
-            "water": 0.7406250000000001
-          },
-          "electricity_generated": 11.807496,
-          "electricity_required": 20.0,
-          "electricity_used": 20.0,
-          "life_support_power_fraction": 1.0,
-          "oxygen_generated": 10.5,
-          "oxygen_required": 12.0,
-          "oxygen_used": 12.0,
-          "oxygen_shortage": 0.0,
-          "health_changes": [
-            {
-              "crew_id": "alex",
-              "before": 43,
-              "after": 0,
-              "food_penalty": 30,
-              "water_penalty": 40,
-              "oxygen_penalty": 0,
-              "co2_penalty": 0,
-              "died": true
-            },
-            {
-              "crew_id": "maya",
-              "before": 43,
-              "after": 0,
-              "food_penalty": 30,
-              "water_penalty": 40,
-              "oxygen_penalty": 0,
-              "co2_penalty": 0,
-              "died": true
-            },
-            {
-              "crew_id": "lin",
-              "before": 40,
-              "after": 0,
-              "food_penalty": 30,
-              "water_penalty": 40,
-              "oxygen_penalty": 0,
-              "co2_penalty": 0,
-              "died": true
-            },
-            {
-              "crew_id": "sam",
-              "before": 45,
-              "after": 0,
-              "food_penalty": 30,
-              "water_penalty": 40,
-              "oxygen_penalty": 0,
-              "co2_penalty": 0,
-              "died": true
-            }
-          ]
-        },
-        "resource_changes": {
-          "food": 0.0,
-          "water": -0.064,
-          "oxygen": -1.5,
-          "electricity": -12.192504,
-          "medicine": 0.0,
-          "repair_kits": 0.0,
-          "eva_batteries": 0.0,
-          "dust_kits": 0.0,
-          "oxygen_regulators": 0.0,
-          "diagnostic_tools": 0.0,
-          "sealant_packs": 0.0,
-          "scientific_tools": 0.0,
-          "research_data": 0.0,
-          "wastewater": -2.856,
-          "co2": 0.0
-        },
         "deaths": [
           "alex",
           "maya",
@@ -26892,11 +35651,11 @@ export const failed: GameResponse = {
     "status": "failed",
     "random_seed": 42,
     "initial_crew_size": 4,
-    "weeks_completed": 7,
+    "weeks_completed": 6,
     "ending": "mission_failure",
     "results": {
       "ending": "mission_failure",
-      "weeks_survived": 7,
+      "weeks_survived": 6,
       "initial_crew_size": 4,
       "surviving_crew_ids": [],
       "deceased_crew_ids": [

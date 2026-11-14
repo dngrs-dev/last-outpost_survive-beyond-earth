@@ -3,6 +3,7 @@
 import random
 from dataclasses import asdict
 
+from app.game.health import REST, capacity_reasons, performance_penalty
 from app.game.life_support import MAINTENANCE_IDS
 from app.game.models import (
     CrewMember,
@@ -44,6 +45,7 @@ QUIET_WEEK = Event(
 MAINTENANCE_CHOICES = [
     EventChoice(
         id="clean_array",
+        workload="eva",
         text="Clean the solar array",
         description=(
             "Guaranteed +20 percentage points solar condition. Uses a dust kit and EVA supplies; "
@@ -59,6 +61,7 @@ MAINTENANCE_CHOICES = [
     ),
     EventChoice(
         id="install_regulator",
+        workload="strenuous",
         text="Install an oxygen regulator",
         description=(
             "Guaranteed +20 percentage points oxygen condition. Uses a regulator and 2 power; "
@@ -158,11 +161,21 @@ def choice_reasons(
     selected: CrewMember | None,
 ) -> list[str]:
     reasons = []
-    if sum(crew.alive for crew in state.crew) < choice.minimum_crew:
-        reasons.append(f"Requires at least {choice.minimum_crew} living astronauts.")
+    if (
+        sum(
+            crew.alive and (not choice.requires_crew or not capacity_reasons(crew, choice.workload))
+            for crew in state.crew
+        )
+        < choice.minimum_crew
+    ):
+        reasons.append(
+            f"Requires at least {choice.minimum_crew} living astronauts fit for this workload."
+        )
     if choice.requires_crew:
         if selected is None or not selected.alive:
             reasons.append("Select a living astronaut.")
+        elif capacity_reasons(selected, choice.workload):
+            reasons.extend(capacity_reasons(selected, choice.workload))
         elif choice.required_role and selected.role != choice.required_role:
             reasons.append(f"Requires a living {choice.required_role}.")
     elif selected is not None:
@@ -209,6 +222,8 @@ def success_probability(
         )
     elif selected:
         bonus += selected.action_bonuses.get(choice.id, 0)
+    if selected and choice.workload not in {"care", "rest"}:
+        bonus -= performance_penalty(selected)
     living_roles = {crew.role for crew in state.crew if crew.alive}
     bonus += sum(choice.crew_role_bonus.get(role, 0) for role in living_roles)
     return round(min(0.95, max(0.05, choice.success_chance + bonus)), 6)
@@ -243,8 +258,21 @@ def choice_views(
         choices.append(
             {
                 **asdict(choice),
+                "support_candidates": [
+                    {
+                        "crew_id": crew.id,
+                        "available": not capacity_reasons(crew, choice.workload),
+                        "unavailable_reasons": capacity_reasons(crew, choice.workload),
+                    }
+                    for crew in state.crew
+                    if crew.alive
+                ]
+                if choice.requires_crew and choice.minimum_crew > 1
+                else [],
                 "action_type": (
-                    "research"
+                    "rest"
+                    if choice.id == REST.id
+                    else "research"
                     if choice.id in RESEARCH_CHOICE_IDS or choice.id.startswith("project:")
                     else "maintenance"
                     if choice in MAINTENANCE_CHOICES or choice.id in MAINTENANCE_IDS

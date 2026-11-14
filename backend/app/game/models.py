@@ -77,6 +77,8 @@ class CrewMember(Definition):
     injury_multiplier: float = 1.0
     food_shortage_weeks: int = 0
     water_shortage_weeks: int = 0
+    nutrition_deficit: float = 0
+    hydration_deficit: float = 0
     specialty: str = "Mission operations"
     training_source: str = "https://www.nasa.gov/reference/jsc-crew-operations-training/"
     action_bonuses: dict[str, float] = field(default_factory=dict)
@@ -129,6 +131,7 @@ class EventChoice(Definition):
     required_role: str | None = None
     minimum_crew: int = 1
     crew_role_bonus: dict[str, float] = field(default_factory=dict)
+    workload: Literal["light", "strenuous", "eva", "care", "rest"] = "light"
 
 
 @dataclass(frozen=True)

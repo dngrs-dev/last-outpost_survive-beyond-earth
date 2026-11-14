@@ -1,11 +1,12 @@
 from copy import deepcopy
+from dataclasses import replace
 from types import SimpleNamespace
 
 import pytest
 from conftest import normal_rations
 
 from app.game.events import seeded_rng
-from app.game.models import GameError
+from app.game.models import Effects, GameError
 from app.storage import GameStore
 
 
@@ -141,7 +142,17 @@ def test_event_and_assignment_credit_share_the_same_cap(quiet_engine, work_state
 def test_incident_death_cancels_work_and_refunds_reserved_cost(quiet_engine, work_state):
     state = work_state
     state.current_event_id = "solar_particle_alert"
-    state.crew[1].health = 1
+    state.crew[1].health = 50
+    event = quiet_engine.definitions.events[state.current_event_id]
+    quiet_engine.definitions.events[event.id] = replace(
+        event,
+        choices=[
+            replace(c, success_effects=Effects(crew_health=-60, target="all"))
+            if c.id == "storm_wait"
+            else c
+            for c in event.choices
+        ],
+    )
     before = state.resources["eva_batteries"]
     after, report = quiet_engine.advance_week(
         state, 1, normal_rations(state), "storm_wait", assignments=[order("lin")]

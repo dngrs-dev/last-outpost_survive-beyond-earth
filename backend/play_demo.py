@@ -68,9 +68,11 @@ def main() -> None:
                 "rations": {crew["id"]: levels for crew in living},
                 "event_choice_id": choice["id"],
                 "selected_crew_id": selected,
-                "support_crew_ids": [c["id"] for c in living if c["id"] != selected][
-                    : max(0, choice["minimum_crew"] - 1)
-                ]
+                "support_crew_ids": [
+                    c["crew_id"]
+                    for c in choice["support_candidates"]
+                    if c["available"] and c["crew_id"] != selected
+                ][: max(0, choice["minimum_crew"] - 1)]
                 if choice["requires_crew"]
                 else [],
                 "assignments": [],

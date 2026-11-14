@@ -30,6 +30,9 @@ export const CrewCard: React.FC<CrewCardProps> = ({
   disabled = false,
 }) => {
   const icon = ROLE_ICONS[crew.role.toLowerCase()] || '👨‍🚀';
+  const foodOutlook = rations ? crew.ration_outlook[rations.food] : undefined;
+  const waterOutlook = rations ? crew.ration_outlook[rations.water] : undefined;
+  const projectedLoss = (foodOutlook?.food_damage ?? 0) + (waterOutlook?.water_damage ?? 0);
 
   const getHealthColor = (hp: number) => {
     if (hp >= 70) return 'progress-fill-green';
@@ -76,6 +79,18 @@ export const CrewCard: React.FC<CrewCardProps> = ({
           />
         </div>
       )}
+
+      <section aria-label={`Condition of ${crew.name}`} style={{ fontSize: '0.8rem', margin: '0.5rem 0' }}>
+        <strong>Overall condition: {crew.condition.status} ({crew.health}/100)</strong>
+        <p>Nutrition: {crew.condition.nutrition_status}. Hydration: {crew.condition.hydration_status}.</p>
+        {crew.condition.restrictions.map(reason => <p key={reason} style={{ color: 'var(--color-amber)' }}>{reason}</p>)}
+        {crew.condition.performance_penalty > 0 && <p>Risky-task success reduced by up to {(crew.condition.performance_penalty * 100).toFixed(1)} percentage points; guaranteed actions stay guaranteed.</p>}
+        <details><summary>Deficits and recovery</summary>
+          <p>Nutrition deficit {crew.nutrition_deficit.toFixed(2)}, hydration deficit {crew.hydration_deficit.toFixed(2)}. Fictional missing-normal-week equivalents, not medical measurements.</p>
+          <p>With full actual provisions, ordinary deficit recovery needs about {crew.condition.nutrition_recovery_weeks} nutrition / {crew.condition.hydration_recovery_weeks} hydration weeks. Rest can improve this; safe air and no active work permit gradual condition recovery.</p>
+          <a href={crew.condition.source_url} target="_blank" rel="noreferrer">NASA nutrition context</a>
+        </details>
+      </section>
 
       <div className="crew-traits">
         <div className="trait-pos">✦ {crew.positive_trait}</div>
@@ -144,17 +159,13 @@ export const CrewCard: React.FC<CrewCardProps> = ({
             </select>
           </div>
 
-          {/* Shortage penalties indicators */}
-          {(crew.food_shortage_weeks > 0 || crew.water_shortage_weeks > 0) && (
-            <div style={{ fontSize: '0.75rem', color: 'var(--color-amber)', display: 'flex', gap: '0.5rem' }}>
-              {crew.food_shortage_weeks > 0 && (
-                <span>⚠️ Food streak: {crew.food_shortage_weeks}w</span>
-              )}
-              {crew.water_shortage_weeks > 0 && (
-                <span>⚠️ Water streak: {crew.water_shortage_weeks}w</span>
-              )}
-            </div>
-          )}
+          <div style={{ fontSize: '0.75rem', color: 'var(--text-muted)' }}>
+            {projectedLoss >= crew.health && (
+              <p role="alert" style={{ color: 'var(--color-red)' }}>Selected rations could be fatal this week, even without other hazards. Restore provisions.</p>
+            )}
+            <p>If fully funded, selected rations leave deficits at {foodOutlook?.nutrition_deficit.toFixed(2)} nutrition / {waterOutlook?.hydration_deficit.toFixed(2)} hydration, with {projectedLoss} ration-related condition loss.</p>
+            <p>Stock shortages can worsen this outlook; rest may improve recovery. Current condition determines this week's work eligibility.</p>
+          </div>
         </div>
       )}
 

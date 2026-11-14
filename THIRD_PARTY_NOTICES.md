@@ -47,6 +47,15 @@ hardware/rate/health rules are fictional. No NASA article text or media was copi
 The source is linked in the game and [life-support guide](docs/life-support.md).
 This does not imply NASA validation or endorsement of the simulation.
 
+## Crew nutrition reference
+
+The [NASA inadequate food and nutrition risk overview](https://www.nasa.gov/reference/risk-of-inadequate-food-and-nutrition/)
+provides qualitative context for nutrition, health, and performance. All descriptions
+are original summaries. Deficit units, hydration rules, damage, recovery, workload
+thresholds, and weekly timing are fictional project work documented in
+[crew condition](docs/health.md). No NASA article text or media was copied;
+this is not a NASA-validated physiological model and implies no endorsement.
+
 ## Conditions and scope
 
 The selected dataset and map may be included in this repository with these notices.

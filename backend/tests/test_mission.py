@@ -110,7 +110,8 @@ def test_stale_week(quiet_engine, state, rations):
 
 def test_event_death_removes_weekly_consumption(engine, state):
     state.current_event_id = "solar_failure"
-    state.crew[0].health = 1
+    state.crew[0].health = 50
+    state.crew[0].injury_multiplier = 3
     event = engine.definitions.events["solar_failure"]
     choices = [replace(event.choices[0], success_chance=0), *event.choices[1:]]
     events = {**engine.definitions.events, event.id: replace(event, choices=choices)}

@@ -36,6 +36,13 @@ cancellation policy. Research credit from both paths is combined in the turn's
 `science_gains`, with per-action gains retained for debriefing. Science remains
 independent of survival.
 
+[Crew condition](health.md) adds `nutrition_deficit`, `hydration_deficit`, derived
+`condition`, and fully funded `ration_outlook` to crew state. Choices expose
+`workload` and `support_candidates`; `action_type` additionally accepts `rest`.
+Use `crew_rest` in the existing assignment structure. Survival health records
+include actual received fractions, before/after deficits, recovery, and work/rest
+flags. Work restrictions apply to leads, support, and assignments atomically.
+
 Requires Python 3.11 or later. From the repository root on Windows PowerShell:
 
 ```powershell
@@ -128,13 +135,17 @@ Turn order and prototype rules:
   power, recover water, generate oxygen from water, remove CO2, and capture wastewater. Apply ration and oxygen health penalties and check endings.
   Event casualties consume no weekly provisions. A surviving crew then advances
   to the next event. The journal records both the turn and next event's discovery.
-- Repeat rationing increases penalties; normal rations reset the respective
-  streak. Water penalties exceed food penalties. There is no automatic healing.
+- Actual provision fractions accumulate separate nutrition/hydration deficits.
+  Full provision reduces debt gradually; rest speeds recovery. Deprivation first
+  reduces task performance, then restricts demanding/active work and causes
+  escalating damage. Safe air, full provisions, and no active work permit limited
+  health recovery. See [crew condition](health.md) for exact fictional thresholds.
 - If even emergency rations are unaffordable, select emergency for every living
   astronaut for the depleted resource. Remaining stock is shared proportionally,
-  with additional starvation/dehydration damage. This prevents a mission from
+  with the unsupplied portion added to each deficit. This prevents a mission from
   becoming stuck at zero food or water. Normal/reduced overspending is rejected.
-- Perfect handover requires all original crew, health at least 70, all four systems
+- Perfect handover requires all original crew, health at least 70, nutrition deficit
+  below 0.25 and hydration deficit below 0.1 per survivor, all four systems
   at least 80%, two weeks of food/water/oxygen reserves, at least 12 electricity,
   and a medicine and repair kit. Successful handover requires the mission's
   survivor target, all four systems at least 40%, and half a week of provisions and

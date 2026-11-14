@@ -2,6 +2,7 @@
 
 from dataclasses import dataclass, replace
 
+from app.game.health import capacity_reasons
 from app.game.models import Definitions, Effects, EventChoice, GameError, GameState, ResearchProject
 from app.game.research import RESEARCH_CHOICES
 
@@ -91,7 +92,7 @@ def finish_manual_work(
     project.assigned_crew_id = crew_id
     if not success:
         project.message = (
-            "Attempt failed; supplies spent, phase retained. Assign any living worker to retry."
+            "Attempt failed; supplies spent, phase retained. Assign a fit worker to retry."
         )
         return None
     phase = PROJECT_PHASES[project.kind][project.phase_index]
@@ -145,12 +146,17 @@ def advance_recording(
     return spent
 
 
-def clear_dead_workers(state: GameState, log: list[dict]) -> None:
-    living = {c.id for c in state.crew if c.alive}
+def clear_unavailable_workers(state: GameState, log: list[dict]) -> None:
     for project in state.projects:
-        if project.assigned_crew_id and project.assigned_crew_id not in living:
+        if project.status == "completed":
+            continue
+        phase = PROJECT_PHASES[project.kind][project.phase_index]
+        worker = next((c for c in state.crew if c.id == project.assigned_crew_id), None)
+        if worker and (
+            not worker.alive or (phase.work and capacity_reasons(worker, phase.work.workload))
+        ):
             project.assigned_crew_id = None
-            project.message += " Previous worker died; completed work retained."
+            project.message += " Previous worker unavailable; completed work retained."
             log.append(
                 {"project_id": project.id, "message": project.message, "electricity_used": 0}
             )

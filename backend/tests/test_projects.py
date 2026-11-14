@@ -127,16 +127,37 @@ def test_failed_deployment_can_be_interrupted_and_reassigned(
     assert len(state.projects) == 1 and state.projects[0].phase_index == 1
 
 
-def test_dead_worker_is_released_but_work_is_retained(quiet_engine, project_state, monkeypatch):
-    project_state.crew[1].health = 1
-    force_roll(monkeypatch, 0.999999)
+def test_dead_worker_is_released_but_work_is_retained(quiet_engine, project_state):
+    project_state.crew[1].health = 50  # fit at planning; dies in weekly survival afterward
+    project_state.resources["oxygen"] = 2  # deployment spends these before breathing
+    project_state.oxygen_efficiency = 0
     state, _ = week(quiet_engine, project_state, "research_seismic")
     assert not state.crew[1].alive
     assert state.projects[0].assigned_crew_id is None
-    assert state.projects[0].phase_index == 0
-    force_roll(monkeypatch, 0)
-    state, _ = week(quiet_engine, state, "project:seismic-1", crew="alex")
     assert state.projects[0].phase_index == 1
+    state.resources["oxygen"] = 50
+    state.oxygen_efficiency = 1
+    for _ in range(3):
+        state, _ = week(quiet_engine, state)
+    state, _ = week(quiet_engine, state, "project:seismic-1", crew="alex")
+    assert state.projects[0].status == "completed"
+
+
+def test_discovery_injury_releases_newly_unfit_manual_worker(
+    quiet_engine, project_state, monkeypatch
+):
+    project_state.crew[1].health = 60  # injury trait: failed work leaves 50, discovery leaves 40
+    force_roll(monkeypatch, 0.999999)
+    monkeypatch.setattr(
+        "app.game.engine.select_event",
+        lambda *args: quiet_engine.definitions.events["medical_emergency"],
+    )
+    state, report = week(quiet_engine, project_state, "research_seismic")
+    assert report["survival"]["health_changes"][1]["after"] == 50
+    assert state.crew[1].health == 40
+    assert state.projects[0].phase_index == 0
+    assert state.projects[0].assigned_crew_id is None
+    assert "unavailable" in report["project_updates"][-1]["message"]
 
 
 def test_failed_analysis_retains_three_recorded_weeks(quiet_engine, project_state, monkeypatch):

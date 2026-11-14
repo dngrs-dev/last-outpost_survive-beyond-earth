@@ -109,7 +109,7 @@ export const GamePage: React.FC = () => {
         if (availableChoice.requires_crew) {
           const firstEligible = availableChoice.eligible_crew.find((c) => c.available);
           setSelectedCrewId(firstEligible ? firstEligible.crew_id : null);
-          setSupportCrew(living.filter(c => c.id !== firstEligible?.crew_id).slice(0, Math.max(0, availableChoice.minimum_crew - 1)).map(c => c.id));
+          setSupportCrew(living.filter(c => c.id !== firstEligible?.crew_id && availableChoice.support_candidates.some(candidate => candidate.crew_id === c.id && candidate.available)).slice(0, Math.max(0, availableChoice.minimum_crew - 1)).map(c => c.id));
         } else {
           setSelectedCrewId(null);
         }
@@ -293,6 +293,7 @@ export const GamePage: React.FC = () => {
   const projectWork = orderedActivities.filter(o => o.activity?.id === 'research_seismic' || o.activity?.id.startsWith('project:'));
   if (new Set(projectWork.map(o => o.activity.id)).size !== projectWork.length) planIssues.push('Only one worker may advance each project this week.');
   if (projectWork.some(o => ['pause', 'interrupt'].includes(projectOrders[o.activity.id.replace('project:', '')]))) planIssues.push('Remove the assignment before pausing or interrupting its project.');
+  if (supportCrew.some(id => !activeChoice?.support_candidates.some(candidate => candidate.crew_id === id && candidate.available))) planIssues.push('Some support crew are unfit for this workload.');
   if (supportCrew.length !== requiredSupport) planIssues.push(`Select exactly ${requiredSupport} support astronauts for this response.`);
   if (new Set(incidentCrew).size !== incidentCrew.length || orderedActivities.some(order => incidentCrew.includes(order.crewId))) planIssues.push('Each astronaut can perform only one main job this week.');
   for (const order of orderedActivities) if (!order.activity?.eligible_crew.find(c => c.crew_id === order.crewId)?.available) planIssues.push('An assignment is unavailable for its astronaut.');
@@ -422,13 +423,13 @@ export const GamePage: React.FC = () => {
         {activeChoice?.requires_crew && requiredSupport > 0 && <fieldset disabled={decisionLocked}>
           <legend>Incident support crew: {supportCrew.length} / {requiredSupport}</legend>
           {livingCrew.filter(c => c.id !== selectedCrewId).map(c => <label key={c.id} style={{ marginRight: '1rem' }}>
-            <input type="checkbox" checked={supportCrew.includes(c.id)} onChange={e => setSupportCrew(prev => e.target.checked ? [...prev, c.id] : prev.filter(id => id !== c.id))} /> {c.name}
+            <input type="checkbox" disabled={!activeChoice.support_candidates.some(candidate => candidate.crew_id === c.id && candidate.available)} checked={supportCrew.includes(c.id)} onChange={e => setSupportCrew(prev => e.target.checked ? [...prev, c.id] : prev.filter(id => id !== c.id))} /> {c.name}
           </label>)}
         </fieldset>}
         {livingCrew.map(crew => <div key={crew.id} style={{ margin: '0.75rem 0' }}>
-          <label htmlFor={`work-${crew.id}`}>{crew.name} - {incidentCrew.includes(crew.id) ? 'Incident response' : 'Available for work'}</label>{' '}
+          <label htmlFor={`work-${crew.id}`}>{crew.name} - {incidentCrew.includes(crew.id) ? 'Incident response' : crew.condition.can_work ? 'Available for work' : 'Rest or care only'}</label>{' '}
           <select id={`work-${crew.id}`} aria-label={`Assignment for ${crew.name}`} disabled={decisionLocked} value={assignments[crew.id] || ''} onChange={e => setAssignments(prev => ({...prev, [crew.id]: e.target.value}))}>
-            <option value="">Routine duties</option>
+            <option value="">{crew.condition.can_work ? 'Routine duties' : 'Unassigned recovery'}</option>
             {state.assignment_options.map(activity => {
               const candidate = activity.eligible_crew.find(c => c.crew_id === crew.id);
               return <option key={activity.id} value={activity.id} disabled={!candidate?.available || incidentCrew.includes(crew.id)}>

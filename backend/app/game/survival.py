@@ -4,13 +4,12 @@ from copy import deepcopy
 from math import ceil
 
 from app.game.energy import daylight_fraction
+from app.game.health import resolve_provisions
 from app.game.life_support import operating_plan, process_systems
 from app.game.models import CrewMember, GameError, GameState, LightingModel, Ration, Station
 from app.game.projects import advance_recording
 from app.game.rules import (
-    FOOD_PENALTIES,
     RATION_MULTIPLIERS,
-    WATER_PENALTIES,
     Rules,
 )
 
@@ -64,6 +63,8 @@ def simulate_week(
     lighting: LightingModel,
     original: GameState | None = None,
     project_log: list[dict] | None = None,
+    working_crew: set[str] | None = None,
+    resting_crew: set[str] | None = None,
 ) -> tuple[GameState, dict]:
     """After event resolution: feed survivors, generate/use power, generate/use oxygen,
     then apply ration and oxygen penalties. Event casualties consume no weekly supplies.
@@ -120,34 +121,34 @@ def simulate_week(
     for crew in living:
         before = crew.health
         ration = rations[crew.id]
-        penalties = {}
-        for resource, level, schedule in (
-            ("food", ration.food, FOOD_PENALTIES),
-            ("water", ration.water, WATER_PENALTIES),
-        ):
-            field = f"{resource}_shortage_weeks"
-            streak = getattr(crew, field) + 1 if level != "normal" else 0
-            setattr(crew, field, streak)
-            repeated = min(
-                rules.max_ration_streak_penalty,
-                max(0, streak - 1) * rules.repeated_ration_penalty,
-            )
-            depletion_penalty = (
-                rules.food_depletion_penalty
-                if resource == "food"
-                else rules.water_depletion_penalty
-            )
-            penalties[resource] = (
-                schedule[level] + repeated + ceil(depletion_penalty * depletion_fractions[resource])
-            )
-        crew.health = max(0, crew.health - sum(penalties.values()) - oxygen_penalty - co2_penalty)
+        food_fraction = RATION_MULTIPLIERS[ration.food] * (1 - depletion_fractions["food"])
+        water_fraction = RATION_MULTIPLIERS[ration.water] * (1 - depletion_fractions["water"])
+        provision = resolve_provisions(
+            crew,
+            food_fraction,
+            water_fraction,
+            safe=oxygen_penalty == 0 and co2_penalty == 0,
+            working=crew.id in (working_crew or set()),
+            resting=crew.id in (resting_crew or set()),
+        )
+        crew.health = max(
+            0,
+            min(
+                100,
+                crew.health
+                - provision["food_penalty"]
+                - provision["water_penalty"]
+                - oxygen_penalty
+                - co2_penalty
+                + provision["recovery"],
+            ),
+        )
         health_changes.append(
             {
                 "crew_id": crew.id,
                 "before": before,
                 "after": crew.health,
-                "food_penalty": penalties["food"],
-                "water_penalty": penalties["water"],
+                **provision,
                 "oxygen_penalty": oxygen_penalty,
                 "co2_penalty": co2_penalty,
                 "died": not crew.alive,

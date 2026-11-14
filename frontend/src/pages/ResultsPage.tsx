@@ -250,6 +250,7 @@ export const ResultsPage: React.FC = () => {
                 {member.role}
               </div>
               <div style={{ fontSize: '0.75rem', color: 'var(--text-muted)', marginTop: '0.4rem' }}>
+                <p>Condition: {member.condition.status}; nutrition {member.condition.nutrition_status}, hydration {member.condition.hydration_status}.</p>
                 {member.positive_trait}
               </div>
             </div>

@@ -30,7 +30,8 @@
         },
         "failure_effects": {
           "crew_health": -25
-        }
+        },
+        "workload": "eva"
       },
       {
         "id": "crew_repair",
@@ -53,7 +54,8 @@
         },
         "failure_effects": {
           "crew_health": -40
-        }
+        },
+        "workload": "eva"
       },
       {
         "id": "ignore",
@@ -65,7 +67,8 @@
         "role_bonus": {},
         "success_chance": 1,
         "success_effects": {},
-        "failure_effects": {}
+        "failure_effects": {},
+        "workload": "light"
       }
     ],
     "category": "hazard",
@@ -101,7 +104,8 @@
         },
         "failure_effects": {
           "crew_health": -15
-        }
+        },
+        "workload": "strenuous"
       },
       {
         "id": "recalibrate",
@@ -123,7 +127,8 @@
         },
         "failure_effects": {
           "oxygen_efficiency": -0.1
-        }
+        },
+        "workload": "strenuous"
       },
       {
         "id": "ignore",
@@ -135,7 +140,8 @@
         "role_bonus": {},
         "success_chance": 1,
         "success_effects": {},
-        "failure_effects": {}
+        "failure_effects": {},
+        "workload": "light"
       }
     ],
     "category": "hazard",
@@ -172,7 +178,8 @@
         },
         "failure_effects": {
           "crew_health": -5
-        }
+        },
+        "workload": "care"
       },
       {
         "id": "team_treatment",
@@ -196,7 +203,8 @@
         "failure_effects": {
           "crew_health": -5,
           "target": "all"
-        }
+        },
+        "workload": "strenuous"
       },
       {
         "id": "guided_treatment",
@@ -214,7 +222,8 @@
         "success_effects": {
           "crew_health": 20
         },
-        "failure_effects": {}
+        "failure_effects": {},
+        "workload": "care"
       },
       {
         "id": "rest",
@@ -229,7 +238,8 @@
           "crew_health": -5,
           "target": "all"
         },
-        "failure_effects": {}
+        "failure_effects": {},
+        "workload": "light"
       }
     ],
     "category": "hazard",
@@ -261,7 +271,8 @@
         "minimum_crew": 1,
         "success_chance": 1,
         "success_effects": {},
-        "failure_effects": {}
+        "failure_effects": {},
+        "workload": "light"
       },
       {
         "id": "shield_reconfigure",
@@ -285,7 +296,8 @@
         "failure_effects": {
           "crew_health": -10,
           "target": "all"
-        }
+        },
+        "workload": "strenuous"
       },
       {
         "id": "storm_wait",
@@ -301,7 +313,8 @@
           "crew_health": -12,
           "target": "all"
         },
-        "failure_effects": {}
+        "failure_effects": {},
+        "workload": "light"
       }
     ]
   },
@@ -333,7 +346,8 @@
         "minimum_crew": 1,
         "success_chance": 1,
         "success_effects": {},
-        "failure_effects": {}
+        "failure_effects": {},
+        "workload": "light"
       },
       {
         "id": "clamp_pressure",
@@ -355,7 +369,8 @@
           "resources": {
             "oxygen": -4
           }
-        }
+        },
+        "workload": "strenuous"
       },
       {
         "id": "isolate_pressure",
@@ -372,7 +387,8 @@
             "oxygen": -6
           }
         },
-        "failure_effects": {}
+        "failure_effects": {},
+        "workload": "light"
       }
     ]
   },
@@ -409,7 +425,8 @@
         "success_effects": {},
         "failure_effects": {
           "crew_health": -10
-        }
+        },
+        "workload": "strenuous"
       },
       {
         "id": "radiator_patch",
@@ -424,7 +441,8 @@
         "minimum_crew": 1,
         "success_chance": 1,
         "success_effects": {},
-        "failure_effects": {}
+        "failure_effects": {},
+        "workload": "light"
       },
       {
         "id": "thermal_shutdown",
@@ -441,7 +459,8 @@
             "oxygen": -10
           }
         },
-        "failure_effects": {}
+        "failure_effects": {},
+        "workload": "light"
       }
     ]
   },
@@ -477,7 +496,8 @@
             "water": 3
           }
         },
-        "failure_effects": {}
+        "failure_effects": {},
+        "workload": "light"
       },
       {
         "id": "repair_water",
@@ -501,7 +521,8 @@
         },
         "failure_effects": {
           "crew_health": -6
-        }
+        },
+        "workload": "strenuous"
       },
       {
         "id": "isolate_water",
@@ -514,7 +535,8 @@
         "minimum_crew": 1,
         "success_chance": 1,
         "success_effects": {},
-        "failure_effects": {}
+        "failure_effects": {},
+        "workload": "light"
       }
     ]
   },
@@ -552,7 +574,8 @@
         "failure_effects": {
           "crew_health": -8,
           "target": "all"
-        }
+        },
+        "workload": "strenuous"
       },
       {
         "id": "vent_scrubber",
@@ -571,7 +594,8 @@
             "co2": -6
           }
         },
-        "failure_effects": {}
+        "failure_effects": {},
+        "workload": "light"
       },
       {
         "id": "scrubber_risk",
@@ -588,7 +612,8 @@
           "crew_health": -5,
           "target": "all"
         },
-        "failure_effects": {}
+        "failure_effects": {},
+        "workload": "light"
       }
     ]
   },
@@ -626,7 +651,8 @@
         },
         "failure_effects": {
           "crew_health": -8
-        }
+        },
+        "workload": "eva"
       },
       {
         "id": "remote_antenna",
@@ -651,7 +677,8 @@
           "resources": {
             "electricity": -2
           }
-        }
+        },
+        "workload": "light"
       },
       {
         "id": "offline_procedures",
@@ -664,7 +691,8 @@
         "minimum_crew": 1,
         "success_chance": 1,
         "success_effects": {},
-        "failure_effects": {}
+        "failure_effects": {},
+        "workload": "light"
       }
     ]
   },
@@ -705,7 +733,8 @@
         },
         "failure_effects": {
           "crew_health": -8
-        }
+        },
+        "workload": "strenuous"
       },
       {
         "id": "battery_scan",
@@ -726,7 +755,8 @@
             "electricity": 3
           }
         },
-        "failure_effects": {}
+        "failure_effects": {},
+        "workload": "light"
       },
       {
         "id": "battery_accept",
@@ -739,7 +769,8 @@
         "minimum_crew": 1,
         "success_chance": 1,
         "success_effects": {},
-        "failure_effects": {}
+        "failure_effects": {},
+        "workload": "light"
       }
     ]
   },
@@ -773,7 +804,8 @@
         "success_effects": {
           "solar_efficiency": 0.1
         },
-        "failure_effects": {}
+        "failure_effects": {},
+        "workload": "eva"
       },
       {
         "id": "fabricate_cover",
@@ -795,7 +827,8 @@
         },
         "failure_effects": {
           "crew_health": -8
-        }
+        },
+        "workload": "strenuous"
       },
       {
         "id": "shield_accept",
@@ -808,7 +841,8 @@
         "minimum_crew": 1,
         "success_chance": 1,
         "success_effects": {},
-        "failure_effects": {}
+        "failure_effects": {},
+        "workload": "light"
       }
     ]
   },
@@ -847,7 +881,8 @@
         },
         "failure_effects": {
           "crew_health": -8
-        }
+        },
+        "workload": "eva"
       },
       {
         "id": "basic_sampling",
@@ -871,7 +906,8 @@
         },
         "failure_effects": {
           "crew_health": -12
-        }
+        },
+        "workload": "eva"
       },
       {
         "id": "defer_geology",
@@ -884,7 +920,8 @@
         "minimum_crew": 1,
         "success_chance": 1,
         "success_effects": {},
-        "failure_effects": {}
+        "failure_effects": {},
+        "workload": "light"
       }
     ]
   },
@@ -924,7 +961,8 @@
           "resources": {
             "electricity": -2
           }
-        }
+        },
+        "workload": "strenuous"
       },
       {
         "id": "archive_seismic",
@@ -941,7 +979,8 @@
             "research_data": 1
           }
         },
-        "failure_effects": {}
+        "failure_effects": {},
+        "workload": "light"
       },
       {
         "id": "defer_seismic",
@@ -954,7 +993,8 @@
         "minimum_crew": 1,
         "success_chance": 1,
         "success_effects": {},
-        "failure_effects": {}
+        "failure_effects": {},
+        "workload": "light"
       }
     ]
   },
@@ -990,7 +1030,8 @@
             "water": 4
           }
         },
-        "failure_effects": {}
+        "failure_effects": {},
+        "workload": "light"
       },
       {
         "id": "audit_scanner",
@@ -1012,7 +1053,8 @@
             "water": 2
           }
         },
-        "failure_effects": {}
+        "failure_effects": {},
+        "workload": "light"
       },
       {
         "id": "quarantine_crate",
@@ -1025,7 +1067,8 @@
         "minimum_crew": 1,
         "success_chance": 1,
         "success_effects": {},
-        "failure_effects": {}
+        "failure_effects": {},
+        "workload": "light"
       }
     ]
   },
@@ -1057,7 +1100,8 @@
           "crew_health": 6,
           "target": "all"
         },
-        "failure_effects": {}
+        "failure_effects": {},
+        "workload": "light"
       },
       {
         "id": "medical_recovery",
@@ -1077,7 +1121,8 @@
         "failure_effects": {},
         "crew_role_bonus": {
           "medic": 0.15
-        }
+        },
+        "workload": "care"
       },
       {
         "id": "routine_recovery",
@@ -1093,7 +1138,8 @@
           "crew_health": 2,
           "target": "all"
         },
-        "failure_effects": {}
+        "failure_effects": {},
+        "workload": "light"
       }
     ]
   }

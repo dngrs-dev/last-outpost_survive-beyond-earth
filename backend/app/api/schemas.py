@@ -57,7 +57,31 @@ class RationCost(BaseModel):
     water: float
 
 
+class ConditionResponse(BaseModel):
+    status: Literal["fit", "impaired", "serious", "critical", "deceased"]
+    nutrition_status: Literal["adequate", "underfed", "depleted"]
+    hydration_status: Literal["adequate", "thirsty", "dehydrated"]
+    can_work: bool
+    can_do_eva: bool
+    performance_penalty: float
+    restrictions: list[str]
+    nutrition_recovery_weeks: int
+    hydration_recovery_weeks: int
+    source_url: str
+
+
+class RationOutlookResponse(BaseModel):
+    nutrition_deficit: float
+    hydration_deficit: float
+    food_damage: int
+    water_damage: int
+
+
 class CrewResponse(BaseModel):
+    nutrition_deficit: float
+    hydration_deficit: float
+    condition: ConditionResponse
+    ration_outlook: dict[RationLevel, RationOutlookResponse]
     id: str
     name: str
     role: str
@@ -100,9 +124,17 @@ class ObjectiveGainResponse(BaseModel):
     amount: int
 
 
+class SupportCandidateResponse(BaseModel):
+    crew_id: str
+    available: bool
+    unavailable_reasons: list[str]
+
+
 class ChoiceResponse(BaseModel):
+    workload: Literal["light", "strenuous", "eva", "care", "rest"]
+    support_candidates: list[SupportCandidateResponse]
     id: str
-    action_type: Literal["event", "maintenance", "research"]
+    action_type: Literal["event", "maintenance", "research", "rest"]
     objective_rewards: list[ObjectiveGainResponse]
     text: str
     description: str
@@ -196,6 +228,15 @@ class EventOutcomeResponse(BaseModel):
 
 
 class SurvivalHealthResponse(HealthChangeResponse):
+    food_received_fraction: float
+    water_received_fraction: float
+    nutrition_before: float
+    nutrition_after: float
+    hydration_before: float
+    hydration_after: float
+    recovery: int
+    worked: bool
+    rested: bool
     food_penalty: int
     water_penalty: int
     oxygen_penalty: int

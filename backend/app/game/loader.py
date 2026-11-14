@@ -204,6 +204,10 @@ def load_definitions(data_dir: Path = DEFAULT_DATA) -> Definitions:
         )
     for crew in definitions.crew.values():
         _require(0 < crew.health <= 100, f"{crew.id}: invalid starting health")
+        _require(
+            crew.nutrition_deficit == crew.hydration_deficit == 0,
+            f"{crew.id}: starting deficits must be zero",
+        )
         _require(crew.role in ROLES, f"{crew.id}: unknown profession")
         choice_ids = {
             choice.id for event in definitions.events.values() for choice in event.choices
@@ -256,7 +260,9 @@ def load_definitions(data_dir: Path = DEFAULT_DATA) -> Definitions:
             context = f"{event.id}/{choice.id}"
             _require(
                 choice.id
-                not in {"clean_array", "install_regulator"} | RESEARCH_CHOICE_IDS | MAINTENANCE_IDS
+                not in {"crew_rest", "clean_array", "install_regulator"}
+                | RESEARCH_CHOICE_IDS
+                | MAINTENANCE_IDS
                 and not choice.id.startswith("project:"),
                 f"{context}: reserved weekly action ID",
             )

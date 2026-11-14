@@ -32,7 +32,7 @@ def test_normal_consumption_and_pure_calculation(quiet_engine, state, rations):
 
 @pytest.mark.parametrize(
     "level,multiplier,food_penalty,water_penalty",
-    [("normal", 1, 0, 0), ("reduced", 0.7, 2, 4), ("emergency", 0.4, 6, 10)],
+    [("normal", 1, 0, 0), ("reduced", 0.7, 0, 4), ("emergency", 0.4, 0, 28)],
 )
 def test_ration_levels(quiet_engine, state, level, multiplier, food_penalty, water_penalty):
     rations = {crew.id: Ration(level, level) for crew in state.crew}
@@ -60,13 +60,15 @@ def test_repeated_rationing_and_recovery(quiet_engine, state):
     reduced = {crew.id: Ration("reduced", "reduced") for crew in state.crew}
     once, _ = run_week(quiet_engine, state, reduced)
     twice, report = run_week(quiet_engine, once, reduced)
-    assert report["health_changes"][0]["food_penalty"] == 4
-    assert report["health_changes"][0]["water_penalty"] == 6
+    assert report["health_changes"][0]["food_penalty"] == 0
+    assert report["health_changes"][0]["water_penalty"] == 28
     assert twice.crew[0].food_shortage_weeks == 2
     normal = {crew.id: Ration("normal", "normal") for crew in twice.crew}
     recovered, _ = run_week(quiet_engine, twice, normal)
     assert recovered.crew[0].food_shortage_weeks == 0
     assert recovered.crew[0].water_shortage_weeks == 0
+    assert recovered.crew[0].nutrition_deficit == 0.35
+    assert recovered.crew[0].hydration_deficit == 0.1
 
 
 def test_power_shortage_reduces_oxygen(quiet_engine, state, rations):

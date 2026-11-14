@@ -16,11 +16,12 @@ from app.game.events import (
     resolve_choice,
     select_event,
 )
+from app.game.health import REST, capacity_reasons, condition_view, ration_outlook
 from app.game.life_support import MAINTENANCE, life_support_view
 from app.game.models import Definitions, GameError, GameState, Ration
 from app.game.projects import (
     apply_project_orders,
-    clear_dead_workers,
+    clear_unavailable_workers,
     finish_manual_work,
     project_choices,
     project_views,
@@ -151,6 +152,12 @@ class GameEngine:
         required_support = max(0, choice.minimum_crew - 1) if choice.requires_crew else 0
         if len(support) != required_support:
             raise GameError(f"This response requires {required_support} support astronauts.")
+        for crew_id in support:
+            supporter = next((c for c in original.crew if c.id == crew_id and c.alive), None)
+            if supporter and capacity_reasons(supporter, choice.workload):
+                raise GameError(
+                    "Support crew: " + " ".join(capacity_reasons(supporter, choice.workload))
+                )
         occupied = ([selected_crew_id] if choice.requires_crew else []) + support
         living_ids = {crew.id for crew in original.crew if crew.alive}
         activities = {activity.id: activity for activity in self.assignment_choices(planning)}
@@ -221,7 +228,8 @@ class GameEngine:
         )
         for activity, crew_id in planned:
             actor = next(crew for crew in state.crew if crew.id == crew_id)
-            if not actor.alive:
+            restrictions = capacity_reasons(actor, activity.workload)
+            if restrictions:
                 for resource, amount in activity.costs.items():
                     state.resources[resource] += amount
                 assignment_results.append(
@@ -230,7 +238,12 @@ class GameEngine:
                         "activity_id": activity.id,
                         "status": "cancelled",
                         "outcome": None,
-                        "reason": "Astronaut died before work began; reserved supplies returned.",
+                        "reason": (
+                            "Astronaut died before work began; reserved supplies returned."
+                            if not actor.alive
+                            else "Astronaut became unfit before work began; reserved supplies "
+                            "returned. " + " ".join(restrictions)
+                        ),
                     }
                 )
                 continue
@@ -278,6 +291,22 @@ class GameEngine:
                     "reason": None,
                 }
             )
+        resting = {
+            r["crew_id"]
+            for r in assignment_results
+            if r["activity_id"] == REST.id and r["status"] == "completed"
+        }
+        working = (
+            set(([selected_crew_id] if choice.requires_crew else []) + support)
+            if choice.workload not in {"care", "rest"}
+            else set()
+        )
+        cancelled = {r["crew_id"] for r in assignment_results if r["status"] == "cancelled"}
+        working.update(
+            crew_id
+            for activity, crew_id in planned
+            if crew_id not in cancelled and activity.workload not in {"care", "rest"}
+        )
         state, survival = simulate_week(
             state,
             self.definitions.stations[state.station_id],
@@ -286,8 +315,10 @@ class GameEngine:
             lighting=self.definitions.lighting,
             original=original,
             project_log=project_log,
+            working_crew=working,
+            resting_crew=resting,
         )
-        clear_dead_workers(state, project_log)
+        clear_unavailable_workers(state, project_log)
         state.weeks_completed += 1
         state.used_event_ids.append(event.id)
         report = {
@@ -312,6 +343,7 @@ class GameEngine:
         if state.status == "running":
             state.current_week += 1
             report["next_event"] = self.prepare_event(state)
+            clear_unavailable_workers(state, project_log)
             self.check_game_over(state)
         report["ending"] = state.ending
         state.history.append(deepcopy(report))
@@ -353,7 +385,12 @@ class GameEngine:
             if (
                 breathable
                 and len(survivors) == state.initial_crew_size
-                and all(crew.health >= self.rules.perfect_health for crew in survivors)
+                and all(
+                    crew.health >= self.rules.perfect_health
+                    and crew.nutrition_deficit < 0.25
+                    and crew.hydration_deficit < 0.1
+                    for crew in survivors
+                )
                 and efficiency >= self.rules.perfect_efficiency
                 and reserve >= self.rules.perfect_reserve_weeks
                 and state.resources["electricity"] >= self.rules.perfect_electricity_reserve
@@ -409,6 +446,7 @@ class GameEngine:
 
     def assignment_choices(self, state: GameState):
         return [
+            REST,
             *MAINTENANCE_CHOICES,
             *MAINTENANCE,
             *research_choices(state, self.definitions),
@@ -424,6 +462,8 @@ class GameEngine:
                 {
                     **asdict(crew),
                     "alive": crew.alive,
+                    "condition": condition_view(crew),
+                    "ration_outlook": ration_outlook(crew) if crew.alive else {},
                     "ration_options": (
                         {
                             level: ration_cost(crew, Ration(level, level), self.rules)

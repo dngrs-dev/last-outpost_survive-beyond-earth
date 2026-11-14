@@ -45,6 +45,7 @@ export function TurnDetails({ outcome, crewNames }: Props) {
     <h3>Weekly survival</h3>
     {outcome.survival.health_changes.map((change) => <div key={change.crew_id}>
       <HealthChanges changes={[change]} names={crewNames} />
+      <p>Actual food / water received: {Math.round(change.food_received_fraction * 100)}% / {Math.round(change.water_received_fraction * 100)}% of normal need. Deficits: nutrition {change.nutrition_before} to {change.nutrition_after}; hydration {change.hydration_before} to {change.hydration_after}. Recovery: +{change.recovery} condition points{change.rested ? " with rest" : ""}.</p>
       <p>Health penalties: food {change.food_penalty}, water {change.water_penalty}, oxygen {change.oxygen_penalty}.</p>
       {change.co2_penalty > 0 && <p>CO2 exposure penalty: {change.co2_penalty} health.</p>}
     </div>)}

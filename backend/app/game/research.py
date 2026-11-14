@@ -9,6 +9,7 @@ from app.game.models import Definitions, Effects, EventChoice, GameState
 RESEARCH_CHOICES = [
     EventChoice(
         id="research_geology",
+        workload="eva",
         text="Survey a geological sample",
         description=(
             "Use the science kit to collect one sample and 2 research data on success. "
@@ -25,6 +26,7 @@ RESEARCH_CHOICES = [
     ),
     EventChoice(
         id="research_seismic",
+        workload="eva",
         text="Deploy seismic sensors",
         description=(
             "Start a seismic project: 1 deployment week, 3 automatic recording weeks at 2 power "
@@ -41,6 +43,7 @@ RESEARCH_CHOICES = [
     ),
     EventChoice(
         id="research_instrument",
+        workload="strenuous",
         text="Restore the next research instrument",
         description=(
             "Use a repair kit and science kit to restore one instrument and earn 2 research data "
