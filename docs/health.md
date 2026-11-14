@@ -2,9 +2,10 @@
 
 `health` remains the 0-100 overall condition summary, including injuries and
 environmental damage. Zero still means death under the existing survival rules.
-Two independent per-astronaut deficits now represent cumulative inadequate
-provisions. There is no illness catalog, fatigue system, daily emergency clock,
-medical assignment, or new death roll in this update.
+Two independent per-astronaut deficits represent cumulative inadequate provisions.
+The later [medical lifecycle](medicine.md) adds named injuries/illnesses and paired
+care while retaining these deficit rules. Fatigue, a daily emergency clock, and
+new random fatality mechanics remain future work.
 
 ## Source boundary
 
@@ -59,7 +60,8 @@ Research sampling and sensor deployment are EVA; instrument restoration and heav
 repairs are strenuous. Analysis, remote operations, and internal processor service
 are light. Patient-targeted existing treatment choices are care, so a patient is
 never rejected for being too unwell to receive treatment. Medic-led team treatment
-remains active work. No new medical job has been added.
+remains active light work. Medical assignments now reserve caregiver and patient;
+a critically unfit patient can receive care or perform self-care.
 
 | Condition at planning | Available work |
 | --- | --- |
@@ -95,7 +97,8 @@ working; these are separate from health recovery.
 
 Rest improves each deficit's recovery only when that respective resource is
 fully supplied. Continued deprivation never earns a rest healing bonus. Existing
-authored medical/recovery events keep their health effects but do not clear debt.
+authored patient-care events now give 5 immediate health and supported medical
+recovery, as described in [medicine](medicine.md); they still do not clear debt.
 
 Completed research phases remain completed after an injury, deficit restriction,
 or death. Unavailable manual worker references are released without discarding
@@ -110,6 +113,7 @@ alone cannot mask unresolved deprivation.
 Crew state includes `nutrition_deficit`, `hydration_deficit`, a derived `condition`
 (status, nutrition/hydration status, work/EVA availability, probability penalty,
 restrictions, and ordinary full-provision recovery estimates), and `ration_outlook`.
+Named medical cases add their own restrictions and recovery estimates.
 Condition status is a summary: fit, impaired, serious, critical, or deceased.
 Ration outlook assumes fully funded requested portions, routine duties, and no
 incident/air damage. Its food and water projections are independent and do not

@@ -2,6 +2,7 @@
 
 from math import ceil
 
+from app.game.medicine import CONDITIONS, restrictions
 from app.game.models import CrewMember, Effects, EventChoice
 from app.game.rules import RATION_MULTIPLIERS
 
@@ -44,6 +45,9 @@ def capacity_reasons(crew: CrewMember, workload: str) -> list[str]:
         return ["Requires a living astronaut."]
     if workload in {"care", "rest"}:
         return []
+    medical_reasons = restrictions(crew, workload)
+    if medical_reasons:
+        return medical_reasons
     if crew.health < 25 or crew.nutrition_deficit >= 2.5 or crew.hydration_deficit >= 1:
         return ["Critical condition: active work unavailable; restore provisions and rest."]
     if workload in {"eva", "strenuous"} and (
@@ -58,6 +62,7 @@ def performance_penalty(crew: CrewMember) -> float:
         min(
             0.35,
             max(0, crew.nutrition_deficit - 0.25) * 0.05
+            + sum(CONDITIONS[c.kind].penalty for c in crew.medical_conditions)
             + max(0, crew.hydration_deficit - 0.1) * 0.15
             + max(0, 70 - crew.health) * 0.003,
         ),

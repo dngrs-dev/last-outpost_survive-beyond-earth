@@ -18,6 +18,7 @@ from app.game.events import (
 )
 from app.game.health import REST, capacity_reasons, condition_view, ration_outlook
 from app.game.life_support import MAINTENANCE, life_support_view
+from app.game.medicine import MEDICAL_CHOICES, MEDICAL_IDS, medical_views, provide_care
 from app.game.models import Definitions, GameError, GameState, Ration
 from app.game.projects import (
     apply_project_orders,
@@ -162,6 +163,7 @@ class GameEngine:
         living_ids = {crew.id for crew in original.crew if crew.alive}
         activities = {activity.id: activity for activity in self.assignment_choices(planning)}
         planned = []
+        patient_orders = {}
         for order in orders:
             actor = next((crew for crew in original.crew if crew.id == order["crew_id"]), None)
             activity = activities.get(order["activity_id"])
@@ -170,6 +172,23 @@ class GameEngine:
             reasons = choice_reasons(original, activity, self.definitions, actor)
             if reasons:
                 raise GameError(" ".join(reasons))
+            if activity.id in MEDICAL_IDS:
+                patient = next(
+                    (c for c in original.crew if c.id == order.get("patient_id") and c.alive), None
+                )
+                kind = order.get("condition_id")
+                if not patient or not any(c.kind == kind for c in patient.medical_conditions):
+                    raise GameError("Select a living patient and their active medical condition.")
+                if (activity.id == "self_care") != (patient.id == actor.id):
+                    raise GameError(
+                        "Self-care requires the worker as patient; "
+                        "medical care needs a different patient."
+                    )
+                patient_orders[actor.id] = (patient.id, kind)
+                if patient.id != actor.id:
+                    occupied.append(patient.id)
+            elif order.get("patient_id") is not None or order.get("condition_id") is not None:
+                raise GameError("Only medical assignments accept patient and condition fields.")
             occupied.append(order["crew_id"])
             planned.append((activity, order["crew_id"]))
         project_work = [
@@ -224,11 +243,18 @@ class GameEngine:
         assignment_results = []
         # Canonical crew order makes results independent of request-list ordering.
         planned.sort(
-            key=lambda plan: next(i for i, crew in enumerate(state.crew) if crew.id == plan[1])
+            key=lambda plan: (
+                plan[0].id not in MEDICAL_IDS,
+                next(i for i, crew in enumerate(state.crew) if crew.id == plan[1]),
+            )
         )
         for activity, crew_id in planned:
             actor = next(crew for crew in state.crew if crew.id == crew_id)
+            patient_id, condition_id = patient_orders.get(crew_id, (None, None))
+            patient = next((c for c in state.crew if c.id == patient_id), None)
             restrictions = capacity_reasons(actor, activity.workload)
+            if patient and not patient.alive:
+                restrictions.append("Patient died before care began; reserved supplies returned.")
             if restrictions:
                 for resource, amount in activity.costs.items():
                     state.resources[resource] += amount
@@ -236,11 +262,15 @@ class GameEngine:
                     {
                         "crew_id": crew_id,
                         "activity_id": activity.id,
+                        "patient_id": patient_id,
+                        "condition_id": condition_id,
                         "status": "cancelled",
                         "outcome": None,
                         "reason": (
                             "Astronaut died before work began; reserved supplies returned."
                             if not actor.alive
+                            else "Patient died before care began; reserved supplies returned."
+                            if patient and not patient.alive
                             else "Astronaut became unfit before work began; reserved supplies "
                             "returned. " + " ".join(restrictions)
                         ),
@@ -254,6 +284,16 @@ class GameEngine:
                 purpose=f"outcome:assignment:{crew_id}:{activity.id}",
                 charge_costs=False,
             )
+            if patient:
+                points = (
+                    2
+                    if activity.id == "medical_care"
+                    and (actor.role == "medic" or state.resources["diagnostic_tools"] > 0)
+                    else 1
+                )
+                change = provide_care(patient, state.current_week, points, condition_id)
+                if change:
+                    outcome["effects"]["medical_changes"].append(change)
             project_activity = activity.id == "research_seismic" or activity.id.startswith(
                 "project:"
             )
@@ -286,6 +326,8 @@ class GameEngine:
                 {
                     "crew_id": crew_id,
                     "activity_id": activity.id,
+                    "patient_id": patient_id,
+                    "condition_id": condition_id,
                     "status": "completed",
                     "outcome": outcome,
                     "reason": None,
@@ -296,6 +338,13 @@ class GameEngine:
             for r in assignment_results
             if r["activity_id"] == REST.id and r["status"] == "completed"
         }
+        resting.update(
+            r["patient_id"]
+            for r in assignment_results
+            if r["patient_id"] and r["status"] == "completed"
+        )
+        if choice.workload == "care" and selected_crew_id:
+            resting.add(selected_crew_id)
         working = (
             set(([selected_crew_id] if choice.requires_crew else []) + support)
             if choice.workload not in {"care", "rest"}
@@ -387,6 +436,7 @@ class GameEngine:
                 and len(survivors) == state.initial_crew_size
                 and all(
                     crew.health >= self.rules.perfect_health
+                    and not crew.medical_conditions
                     and crew.nutrition_deficit < 0.25
                     and crew.hydration_deficit < 0.1
                     for crew in survivors
@@ -447,6 +497,7 @@ class GameEngine:
     def assignment_choices(self, state: GameState):
         return [
             REST,
+            *(MEDICAL_CHOICES if any(c.alive and c.medical_conditions for c in state.crew) else []),
             *MAINTENANCE_CHOICES,
             *MAINTENANCE,
             *research_choices(state, self.definitions),
@@ -463,6 +514,7 @@ class GameEngine:
                     **asdict(crew),
                     "alive": crew.alive,
                     "condition": condition_view(crew),
+                    "medical_conditions": medical_views(crew),
                     "ration_outlook": ration_outlook(crew) if crew.alive else {},
                     "ration_options": (
                         {

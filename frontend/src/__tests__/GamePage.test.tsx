@@ -50,7 +50,8 @@ describe('GamePage with real API fixtures', () => {
     vi.spyOn(gameApi, 'submitTurn').mockResolvedValue(structuredClone(treatment));
     renderGame();
     await submit();
-    expect(await screen.findByText(/Alex Vega: 92.*100 HP/)).toBeInTheDocument();
+    expect(await screen.findByText(/Alex Vega: 92.*97 HP/)).toBeInTheDocument();
+    expect(screen.getByText(/Alex Vega: 97.*100 HP/)).toBeInTheDocument();
   });
 
   it.each([new TypeError('Connection lost'), new ApiError(503, 'Temporarily unavailable'), new ApiError(408, 'Request timed out')])(

@@ -57,6 +57,13 @@
 > no-automatic-healing assumptions below are superseded. Illness, fatigue, and
 > medical assignments remain future work.
 
+> Medical update: named sprains, wounds, dust irritation, and gastrointestinal
+> illness now persist across turns. Care reserves a caregiver and patient;
+> self-care supports solo crews. Stabilization precedes supported recovery,
+> restrictions interrupt unfit work, and completed research phases remain intact.
+> See `medicine.md`. The older exclusions of illnesses and medical assignments
+> below are superseded; fatigue and daily emergency timing remain future work.
+
 **Project name:** LAST OUTPOST  
 **Subtitle:** Lunar Survival  
 **Genre:** Turn-based survival, strategy, resource management, decision-making  

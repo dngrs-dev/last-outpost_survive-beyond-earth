@@ -1,4 +1,5 @@
 import React from 'react';
+import { MedicalConditions } from './MedicalConditions';
 import type { CrewResponse, RationLevel, RationRequest } from '../types/game';
 
 interface CrewCardProps {
@@ -83,6 +84,7 @@ export const CrewCard: React.FC<CrewCardProps> = ({
       <section aria-label={`Condition of ${crew.name}`} style={{ fontSize: '0.8rem', margin: '0.5rem 0' }}>
         <strong>Overall condition: {crew.condition.status} ({crew.health}/100)</strong>
         <p>Nutrition: {crew.condition.nutrition_status}. Hydration: {crew.condition.hydration_status}.</p>
+        <MedicalConditions conditions={crew.medical_conditions} alive={crew.alive} />
         {crew.condition.restrictions.map(reason => <p key={reason} style={{ color: 'var(--color-amber)' }}>{reason}</p>)}
         {crew.condition.performance_penalty > 0 && <p>Risky-task success reduced by up to {(crew.condition.performance_penalty * 100).toFixed(1)} percentage points; guaranteed actions stay guaranteed.</p>}
         <details><summary>Deficits and recovery</summary>

@@ -2,7 +2,9 @@
 
 Each living astronaut has one main job per week. An incident response can occupy
 one lead plus explicitly selected support crew. Other crew can perform research
-or maintenance assignments in the same week. Crew without an assignment perform
+or maintenance assignments in the same week. Medical care reserves a caregiver
+and a patient; self-care reserves one astronaut. See [medicine](medicine.md).
+Crew without an assignment perform
 routine duties (inactive recovery when unfit). Full provisions and safe air now
 allow gradual recovery; an explicit `crew_rest` assignment improves it. See
 [crew condition](health.md) for deficits and workload restrictions. All living crew continue
@@ -59,7 +61,8 @@ must now explicitly name support. Research IDs sent as event responses are rejec
    accidentally spent again by a later action. Normal/reduced ration overspending
    is rejected; the existing emergency depletion rules remain supported.
 3. Resolve the incident. Its existing discovery damage was already applied once.
-4. Resolve assignments in roster order, independently of request-list ordering.
+4. Resolve medical care first, then other assignments, in roster order within each
+   group, independently of request-list ordering.
    An astronaut killed or made unfit by the incident cannot begin work: the assignment is
    cancelled, its reserved base costs are returned, and it grants no reward.
 5. Apply weekly food, water, power, oxygen, and health simulation. Work completed
@@ -96,8 +99,9 @@ earn its normal research data. Survival and science assessments remain separate.
 The interface separates incident choices from the crew-work module and shows
 support selection, occupied crew, probabilities, requirements, costs, combined
 projected spending, and conflicts before submission. The debrief and final journal
-include successful, failed, and cancelled work. Medical assignments, new fatality
-mechanics and fatigue remain future work. Lasting seismic projects now use the
+include successful, failed, and cancelled work. Medical assignments now use the
+[named-condition lifecycle](medicine.md); fatigue and finer emergency timing remain
+future work. Lasting seismic projects now use the
 [project lifecycle](projects.md), including optional `project_orders`, automatic
 power allocation after action effects and solar generation under the selected priority, and `project_updates` in weekly reports.
 

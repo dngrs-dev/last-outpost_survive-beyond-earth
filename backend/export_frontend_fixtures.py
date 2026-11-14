@@ -153,6 +153,19 @@ def generate(check: bool = False) -> None:
             "TurnResponse",
             turn(medical, decision(medical["state"], "fixture-treatment")),
         )
+        paired = create(42, ["alex", "maya", "lin"])
+        paired_body = decision(paired["state"], "fixture-paired-care", ignore=True)
+        paired_body["assignments"] = [
+            {
+                "crew_id": "maya",
+                "activity_id": "medical_care",
+                "patient_id": "alex",
+                "condition_id": "dust_irritation",
+            },
+            {"crew_id": "lin", "activity_id": "crew_rest"},
+        ]
+        fixtures["medicalAssignmentGame"] = ("GameResponse", paired)
+        fixtures["medicalAssignmentTurn"] = ("TurnResponse", turn(paired, paired_body))
         for seed in range(100):
             initial = create(seed)
             result = turn(initial, decision(initial["state"], "fixture-opportunity", ignore=True))
@@ -167,6 +180,10 @@ def generate(check: bool = False) -> None:
         research_cargo = {**CARGO, "scientific_tools": 1, "eva_batteries": 9, "repair_kits": 9}
         for seed in range(100):
             initial = create(seed, ["alex", "lin"], research_cargo)
+            if not next(
+                a for a in initial["state"]["assignment_options"] if a["id"] == "research_geology"
+            )["available"]:
+                continue
             result = turn(
                 initial, decision(initial["state"], "fixture-science", choice_id="research_geology")
             )
@@ -192,14 +209,23 @@ def generate(check: bool = False) -> None:
                 ),
                 None,
             )
-            result = turn(
-                result,
-                decision(
-                    state,
-                    f"fixture-science-{state['current_week']}",
-                    choice_id=work["id"] if work else None,
-                ),
+            body = decision(
+                state,
+                f"fixture-science-{state['current_week']}",
+                choice_id=work["id"] if work else None,
+                ignore=not work,
             )
+            occupied = {
+                body["selected_crew_id"],
+                *body["support_crew_ids"],
+                *(a["crew_id"] for a in body["assignments"]),
+            }
+            body["assignments"].extend(
+                {"crew_id": c["id"], "activity_id": "crew_rest"}
+                for c in state["crew"]
+                if c["alive"] and c["medical_conditions"] and c["id"] not in occupied
+            )
+            result = turn(result, body)
         assert result["state"]["science"]["status"] == "complete"
         fixtures["researchCompleted"] = (
             "GameResponse",
@@ -219,7 +245,13 @@ def generate(check: bool = False) -> None:
                 ),
                 None,
             )
-            if response:
+            if (
+                response
+                and response["available"]
+                and all(
+                    c["condition"]["can_do_eva"] for c in next_week["state"]["crew"] if c["alive"]
+                )
+            ):
                 fixtures["supportGame"] = (
                     "GameResponse",
                     {"game_id": next_week["game_id"], "state": next_week["state"]},
@@ -242,6 +274,10 @@ def generate(check: bool = False) -> None:
 
         for seed in range(50):
             initial = create(seed, ["alex", "lin"], research_cargo)
+            if not next(
+                a for a in initial["state"]["assignment_options"] if a["id"] == "research_seismic"
+            )["available"]:
+                continue
             deployed = turn(
                 initial, decision(initial["state"], "project-deploy", choice_id="research_seismic")
             )

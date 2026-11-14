@@ -7,6 +7,7 @@ from pathlib import Path
 from pydantic import TypeAdapter, ValidationError
 
 from app.game.life_support import MAINTENANCE_IDS
+from app.game.medicine import MEDICAL_IDS
 from app.game.models import (
     CrewMember,
     Definitions,
@@ -68,8 +69,11 @@ def _effects(effect: Effects, context: str, requires_crew: bool) -> None:
     ):
         _require(_number(getattr(effect, name), -1, 1), f"{context}: invalid {name}")
     _require(-100 <= effect.crew_health <= 100, f"{context}: invalid health effect")
+    _require(0 <= effect.treatment <= 2, f"{context}: invalid treatment strength")
     _require(
-        not effect.crew_health or effect.target == "all" or requires_crew,
+        not (effect.crew_health or effect.condition or effect.treatment)
+        or effect.target == "all"
+        or requires_crew,
         f"{context}: selected health effect requires an astronaut",
     )
 
@@ -203,6 +207,7 @@ def load_definitions(data_dir: Path = DEFAULT_DATA) -> Definitions:
             f"{mission.id}: science targets exceed available weeks",
         )
     for crew in definitions.crew.values():
+        _require(not crew.medical_conditions, f"{crew.id}: starting crew must have no conditions")
         _require(0 < crew.health <= 100, f"{crew.id}: invalid starting health")
         _require(
             crew.nutrition_deficit == crew.hydration_deficit == 0,
@@ -263,6 +268,7 @@ def load_definitions(data_dir: Path = DEFAULT_DATA) -> Definitions:
                 not in {"crew_rest", "clean_array", "install_regulator"}
                 | RESEARCH_CHOICE_IDS
                 | MAINTENANCE_IDS
+                | MEDICAL_IDS
                 and not choice.id.startswith("project:"),
                 f"{context}: reserved weekly action ID",
             )

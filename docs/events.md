@@ -54,6 +54,12 @@ or extra research, rather than being required to advance.
 
 ## Playability and resolution
 
+The [medical lifecycle](medicine.md) now connects specified event failures and
+filter contamination to persistent named cases. Event descriptions disclose these
+fictional risks. Patient treatment emphasizes stabilization and supported recovery,
+with a smaller 5-point immediate health boost; separate medical assignments can
+handle the case independently of that week's incident.
+
 Every event has an authored response with no material cost and no assigned crew,
 so unavailable equipment cannot block a turn. These responses may accept losses;
 they do not guarantee survival. Maintenance and planned research are separate

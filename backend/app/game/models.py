@@ -63,6 +63,19 @@ class Mission(Definition):
     science_objectives: list[ResearchObjective] = field(default_factory=list)
 
 
+MedicalKind = Literal["sprain", "bleeding_wound", "dust_irritation", "gastrointestinal_illness"]
+
+
+@dataclass
+class MedicalCondition(Definition):
+    kind: MedicalKind
+    remaining: int
+    acquired_week: int
+    stabilized: bool = False
+    care_week: int = 0
+    care_points: int = 0
+
+
 @dataclass
 class CrewMember(Definition):
     id: str
@@ -79,6 +92,7 @@ class CrewMember(Definition):
     water_shortage_weeks: int = 0
     nutrition_deficit: float = 0
     hydration_deficit: float = 0
+    medical_conditions: list[MedicalCondition] = field(default_factory=list)
     specialty: str = "Mission operations"
     training_source: str = "https://www.nasa.gov/reference/jsc-crew-operations-training/"
     action_bonuses: dict[str, float] = field(default_factory=dict)
@@ -113,6 +127,8 @@ class Effects(Definition):
     water_recovery_efficiency: float = 0.0
     co2_efficiency: float = 0.0
     crew_health: int = 0
+    condition: MedicalKind | None = None
+    treatment: int = 0
     target: Literal["selected", "all"] = "selected"
 
 

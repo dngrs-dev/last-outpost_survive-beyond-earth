@@ -261,7 +261,7 @@ def test_http_contract_previews_and_returns_committed_objective_credit(client, m
             "station_id": "alpha",
             "crew_ids": ["alex"],
             "cargo": {"scientific_tools": 1, "eva_batteries": 2},
-            "random_seed": 42,
+            "random_seed": 0,
         },
     )
     assert response.status_code == 201

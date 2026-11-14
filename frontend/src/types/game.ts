@@ -60,6 +60,7 @@ export interface MissionDefinition {
 }
 
 export interface CrewDefinition {
+  medical_conditions: MedicalCase[];
   normal_ration_cost: RationCost;
   id: string;
   name: string;
@@ -159,7 +160,7 @@ export interface SubmitTurnRequest {
   event_choice_id: string;
   selected_crew_id?: string | null;
   support_crew_ids?: string[];
-  assignments?: { crew_id: string; activity_id: string }[];
+  assignments?: { crew_id: string; activity_id: string; patient_id?: string; condition_id?: MedicalKind }[];
   project_orders?: { project_id: string; action: "pause" | "resume" | "interrupt" }[];
 }
 
@@ -187,7 +188,33 @@ export interface RationOutlook {
   water_damage: number;
 }
 
+export type MedicalKind = 'sprain' | 'bleeding_wound' | 'dust_irritation' | 'gastrointestinal_illness';
+export interface MedicalCase {
+  kind: MedicalKind;
+  remaining: number;
+  acquired_week: number;
+  stabilized: boolean;
+  care_week: number;
+  care_points: number;
+}
+export interface MedicalCondition extends MedicalCase {
+  title: string;
+  urgent: boolean;
+  rest_weeks: number | null;
+  medic_weeks: number;
+  untreated_damage: number;
+  source_url: string;
+}
+export interface MedicalChange {
+  crew_id: string;
+  kind: MedicalKind;
+  action: 'acquired' | 'worsened' | 'stabilized' | 'recovering' | 'resolved' | 'stalled';
+  reason: string | null;
+  before: MedicalCase | null;
+  after: MedicalCase | null;
+}
 export interface CrewResponse {
+  medical_conditions: MedicalCondition[];
   condition: CrewCondition;
   ration_outlook: Partial<Record<RationLevel, RationOutlook>>;
   id: string;
@@ -212,6 +239,8 @@ export interface CrewResponse {
 }
 
 export interface EffectsResponse {
+  condition: MedicalKind | null;
+  treatment: number;
   resources: Record<string, number>;
   solar_efficiency: number;
   oxygen_efficiency: number;
@@ -232,7 +261,7 @@ export interface ChoiceResponse {
   workload: 'light' | 'strenuous' | 'eva' | 'care' | 'rest';
   support_candidates: { crew_id: string; available: boolean; unavailable_reasons: string[] }[];
   id: string;
-  action_type: 'event' | 'maintenance' | 'research' | 'rest';
+  action_type: 'event' | 'maintenance' | 'research' | 'rest' | 'medical';
   objective_rewards: ObjectiveGain[];
   text: string;
   description: string;
@@ -285,6 +314,7 @@ export interface HealthChange {
 }
 
 export interface AppliedEffects {
+  medical_changes: MedicalChange[];
   resources: Record<string, number>;
   solar_efficiency: number;
   oxygen_efficiency: number;
@@ -294,6 +324,8 @@ export interface AppliedEffects {
 }
 
 export interface SurvivalHealthChange extends HealthChange {
+  medical_penalty: number;
+  medical_changes: MedicalChange[];
   food_received_fraction: number;
   water_received_fraction: number;
   nutrition_before: number;
@@ -313,7 +345,7 @@ export interface SurvivalHealthChange extends HealthChange {
 export interface TurnOutcome {
   project_updates: { project_id: string; message: string; electricity_used: number }[];
   science_gains: ObjectiveGain[];
-  assignments: { crew_id: string; activity_id: string; status: "completed" | "cancelled"; outcome: TurnOutcome["event"] | null; reason: string | null }[];
+  assignments: { crew_id: string; activity_id: string; patient_id: string | null; condition_id: MedicalKind | null; status: "completed" | "cancelled"; outcome: TurnOutcome["event"] | null; reason: string | null }[];
   week: number;
   event: {
     event_id: string;

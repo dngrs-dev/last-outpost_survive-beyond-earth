@@ -1,4 +1,4 @@
-import type { AppliedEffects, HealthChange, TurnOutcome } from '../types/game';
+import type { AppliedEffects, HealthChange, MedicalChange, TurnOutcome } from '../types/game';
 
 interface Props {
   outcome: TurnOutcome;
@@ -17,11 +17,18 @@ function HealthChanges({ changes, names }: { changes: HealthChange[]; names: Rec
 
 function SystemChanges({ effects }: { effects: AppliedEffects }) {
   return <>
+    <MedicalChanges changes={effects.medical_changes} />
     {effects.solar_efficiency !== 0 && <p>Solar efficiency: {effects.solar_efficiency > 0 ? '+' : ''}{Math.round(effects.solar_efficiency * 100)} percentage points.</p>}
     {effects.water_recovery_efficiency !== 0 && <p>Water recovery condition: {Math.round(effects.water_recovery_efficiency * 100)} percentage points.</p>}
     {effects.co2_efficiency !== 0 && <p>CO2 scrubber condition: {Math.round(effects.co2_efficiency * 100)} percentage points.</p>}
     {effects.oxygen_efficiency !== 0 && <p>Oxygen efficiency: {effects.oxygen_efficiency > 0 ? '+' : ''}{Math.round(effects.oxygen_efficiency * 100)} percentage points.</p>}
   </>;
+}
+
+function MedicalChanges({ changes }: { changes: MedicalChange[] }) {
+  return <>{changes.map((change, index) => <p key={`${change.crew_id}-${change.kind}-${index}`}>
+    {change.crew_id}: {change.kind.replace(/_/g, ' ')} - {change.action}; recovery points {change.before?.remaining ?? 0} to {change.after?.remaining ?? 0}. {change.reason}
+  </p>)}</>;
 }
 
 export function TurnDetails({ outcome, crewNames }: Props) {
@@ -34,6 +41,7 @@ export function TurnDetails({ outcome, crewNames }: Props) {
     <HealthChanges changes={outcome.event.effects.health_changes} names={crewNames} />
     <h3>Crew assignments</h3>
     {outcome.assignments.map(assignment => <div key={assignment.crew_id}>
+      {assignment.patient_id && <p>Patient: {crewNames[assignment.patient_id] || assignment.patient_id}; condition: {assignment.condition_id?.replace(/_/g, ' ')}.</p>}
       <p>{crewNames[assignment.crew_id] || assignment.crew_id}: {assignment.outcome?.choice_text || assignment.activity_id} - {assignment.status === 'cancelled' ? assignment.reason : assignment.outcome?.success ? 'Success' : 'Failed'}</p>
       {assignment.outcome && <><SystemChanges effects={assignment.outcome.effects} /><HealthChanges changes={assignment.outcome.effects.health_changes} names={crewNames} />{assignment.outcome.objective_progress.map(g => <p key={g.objective_id}>Research objective: {g.title} +{g.amount}.</p>)}</>}
     </div>)}
@@ -47,6 +55,8 @@ export function TurnDetails({ outcome, crewNames }: Props) {
       <HealthChanges changes={[change]} names={crewNames} />
       <p>Actual food / water received: {Math.round(change.food_received_fraction * 100)}% / {Math.round(change.water_received_fraction * 100)}% of normal need. Deficits: nutrition {change.nutrition_before} to {change.nutrition_after}; hydration {change.hydration_before} to {change.hydration_after}. Recovery: +{change.recovery} condition points{change.rested ? " with rest" : ""}.</p>
       <p>Health penalties: food {change.food_penalty}, water {change.water_penalty}, oxygen {change.oxygen_penalty}.</p>
+      {change.medical_penalty > 0 && <p>Ongoing injury/illness damage: {change.medical_penalty} condition points.</p>}
+      <MedicalChanges changes={change.medical_changes} />
       {change.co2_penalty > 0 && <p>CO2 exposure penalty: {change.co2_penalty} health.</p>}
     </div>)}
     <p>Daylight: {Math.round(outcome.survival.daylight_fraction * 100)}% of this week. Power priority: {outcome.survival.power_priority.replace(/_/g, " ")}. Recording used {outcome.survival.project_electricity_used}; battery capacity {outcome.survival.battery_capacity}; discarded overflow {outcome.survival.electricity_curtailed}.</p>

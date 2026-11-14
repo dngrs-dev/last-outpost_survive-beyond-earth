@@ -31,7 +31,7 @@ describe('ResultsPage with real API fixtures', () => {
     renderResults();
     await screen.findByText(/MISSION CHRONICLE/);
     fireEvent.click(screen.getAllByText('View consequences')[0]);
-    expect(screen.getAllByText(/Alex Vega: 92.*100 HP/).length).toBeGreaterThan(0);
+    expect(screen.getAllByText(/Alex Vega: 92.*97 HP/).length).toBeGreaterThan(0);
     expect(screen.queryByText(/\[object Object\]/)).not.toBeInTheDocument();
   });
 

@@ -21,6 +21,9 @@ connect resource planning with maintenance and cabin health.
 Accumulated nutrition and hydration deficits now restrict work and reduce risky-task
 performance. Full provisions and optional crew rest provide gradual recovery;
 health remains the overall condition indicator.
+Named injuries and illnesses persist across weeks. Medical care reserves caregiver
+and patient; self-care supports solo crews. Stabilization and supported recovery
+affect work availability while interrupted research retains completed progress.
 The game is playable through both the FastAPI REST backend and the React frontend.
 All balancing values are fictional gameplay units.
 
@@ -105,6 +108,8 @@ npm run build
   loop, fictional rates, maintenance, and health consequences.
 - [Crew condition](docs/health.md): nutrition/hydration deficits, workload restrictions,
   ration projections, gradual recovery, and the boundary between research and game rules.
+- [Medical care](docs/medicine.md): named conditions, caregiver/patient bookings,
+  stabilization, recovery, interruptions, and current weekly emergency limits.
 - [Sunlight and energy](docs/energy.md): NASA-based timing, explicit model assumptions,
   batteries, forecasts, and power priorities.
 - [Research projects](docs/projects.md): seismic phases, controls, power, failure,

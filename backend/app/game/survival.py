@@ -6,6 +6,7 @@ from math import ceil
 from app.game.energy import daylight_fraction
 from app.game.health import resolve_provisions
 from app.game.life_support import operating_plan, process_systems
+from app.game.medicine import progress_conditions, urgent
 from app.game.models import CrewMember, GameError, GameState, LightingModel, Ration, Station
 from app.game.projects import advance_recording
 from app.game.rules import (
@@ -123,11 +124,24 @@ def simulate_week(
         ration = rations[crew.id]
         food_fraction = RATION_MULTIPLIERS[ration.food] * (1 - depletion_fractions["food"])
         water_fraction = RATION_MULTIPLIERS[ration.water] * (1 - depletion_fractions["water"])
+        medical = progress_conditions(
+            crew,
+            result.current_week,
+            supported=food_fraction >= 1 - 1e-6
+            and water_fraction >= 1 - 1e-6
+            and oxygen_penalty == 0
+            and co2_penalty == 0
+            and crew.id not in (working_crew or set()),
+            resting=crew.id in (resting_crew or set()),
+        )
         provision = resolve_provisions(
             crew,
             food_fraction,
             water_fraction,
-            safe=oxygen_penalty == 0 and co2_penalty == 0,
+            safe=oxygen_penalty == 0
+            and co2_penalty == 0
+            and medical["medical_penalty"] == 0
+            and not any(urgent(c) for c in crew.medical_conditions),
             working=crew.id in (working_crew or set()),
             resting=crew.id in (resting_crew or set()),
         )
@@ -140,6 +154,7 @@ def simulate_week(
                 - provision["water_penalty"]
                 - oxygen_penalty
                 - co2_penalty
+                - medical["medical_penalty"]
                 + provision["recovery"],
             ),
         )
@@ -149,6 +164,7 @@ def simulate_week(
                 "before": before,
                 "after": crew.health,
                 **provision,
+                **medical,
                 "oxygen_penalty": oxygen_penalty,
                 "co2_penalty": co2_penalty,
                 "died": not crew.alive,

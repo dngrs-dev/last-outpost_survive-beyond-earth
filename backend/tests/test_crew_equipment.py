@@ -21,7 +21,7 @@ def test_ten_distinct_researched_profiles_and_individual_costs(engine):
 
 
 def test_specialist_bonus_applies_to_the_assigned_astronaut(engine):
-    state = engine.create_game("alpha", ["inez", "sam"], {}, 42)
+    state = engine.create_game("alpha", ["inez", "sam"], {}, 0)
     choice = engine.definitions.events["solar_failure"].choices[1]
     assert success_probability(state, choice, state.crew[0]) == 0.85
     assert success_probability(state, choice, state.crew[1]) == 0.6
@@ -95,7 +95,8 @@ def test_scanner_is_retained_but_medicine_is_consumed(engine):
     assert get_event(state, engine.definitions).id == "medical_emergency"
     medicine = state.resources["medicine"]
     after, report = engine.advance_week(state, 1, rations(state), "guided_treatment", "alex")
-    assert report["event"]["effects"]["health_changes"][0]["after"] == 60
+    assert report["event"]["effects"]["health_changes"][0]["after"] == 45
+    assert not after.crew[0].medical_conditions
     assert after.resources["diagnostic_tools"] == 1
     assert after.resources["medicine"] == medicine - 1
 

@@ -43,6 +43,13 @@ Use `crew_rest` in the existing assignment structure. Survival health records
 include actual received fractions, before/after deficits, recovery, and work/rest
 flags. Work restrictions apply to leads, support, and assignments atomically.
 
+[Medical care](medicine.md) adds persistent crew `medical_conditions`, with typed
+case histories in `medical_changes` and a separate survival `medical_penalty`.
+Medical assignments add `patient_id` and `condition_id`, reserve both crew slots,
+and reuse existing medicine/scanner stocks. Assignment outcomes return those IDs;
+choices add action type `medical`. Authored effects add optional `condition` and
+`treatment`. Stabilization occurs during care; supported recovery during survival.
+
 Requires Python 3.11 or later. From the repository root on Windows PowerShell:
 
 ```powershell
@@ -131,7 +138,7 @@ Turn order and prototype rules:
   selection within that group. Do not repeat either of the previous two events;
   use a quiet week when nothing is eligible.
 - Validate the entire decision before resolving it on a copy. Charge event costs,
-  resolve the incident and assignments, feed surviving crew, allocate solar/battery
+  resolve the incident, medical care, and other assignments, feed surviving crew, allocate solar/battery
   power, recover water, generate oxygen from water, remove CO2, and capture wastewater. Apply ration and oxygen health penalties and check endings.
   Event casualties consume no weekly provisions. A surviving crew then advances
   to the next event. The journal records both the turn and next event's discovery.
@@ -147,7 +154,8 @@ Turn order and prototype rules:
 - Perfect handover requires all original crew, health at least 70, nutrition deficit
   below 0.25 and hydration deficit below 0.1 per survivor, all four systems
   at least 80%, two weeks of food/water/oxygen reserves, at least 12 electricity,
-  and a medicine and repair kit. Successful handover requires the mission's
+  and a medicine and repair kit. No survivor may have an active named medical case.
+  Successful handover requires the mission's
   survivor target, all four systems at least 40%, and half a week of provisions and
   oxygen. Other surviving crews at rotation receive an emergency handover.
   All crew dying, or both systems reaching zero with empty oxygen/electricity

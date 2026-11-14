@@ -58,6 +58,12 @@ this is not a NASA-validated physiological model and implies no endorsement.
 
 ## Conditions and scope
 
+Named medical scenarios additionally reference [NASA medical-condition planning](https://www.nasa.gov/reference/appendix-e-health-and-medical-care-technical-requirements/)
+and the existing NASA dust reference. Descriptions are original summaries; all
+severity, frequency, treatment, equipment, damage, and recovery rules are fictional.
+No medical text, media, or astronaut medical records were copied. See
+[the medical guide](docs/medicine.md). No NASA review or endorsement is implied.
+
 The selected dataset and map may be included in this repository with these notices.
 Keep source attribution. NASA logos, insignia, and mission patches are not included.
 No NASA endorsement or review of this application is implied. Third-party material

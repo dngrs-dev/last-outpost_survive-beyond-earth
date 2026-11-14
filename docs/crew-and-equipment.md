@@ -60,7 +60,7 @@ consumable supply from equipment. Cargo limits are clearly labeled fictional.
 | Emergency power cell | 6 kg / 5 L | Adds 12 electricity on arrival; no generation increase |
 | Dust-cleaning kit | 1.5 kg / 3 L | Consumed for guaranteed +20 solar percentage points; also costs one EVA pack and 2 oxygen |
 | Spare oxygen regulator | 2.5 kg / 3 L | Consumed for guaranteed +20 oxygen percentage points; also costs 2 electricity |
-| Diagnostic scanner | 4 kg / 5 L, maximum one | Retained; unlocks guaranteed 20-health treatment during medical incidents, consuming one medicine |
+| Diagnostic scanner | 4 kg / 5 L, maximum one | Retained; unlocks guaranteed patient treatment (5 immediate health, stabilization, up to 2 supported recovery points), consuming one medicine; improves non-medic paired care to 2 points |
 | Multipurpose sealant pack | 0.8 kg / 2 L | Consumed for guaranteed line, coupling, thermal-patch, or dust-cover repairs |
 | Field science kit | 3 kg / 5 L, maximum one | Retained; unlocks instrumented science, battery measurements, and reserve inspection |
 
@@ -78,7 +78,9 @@ a living astronaut who is not committed to the incident response. Discovery dama
 already happened and remains unless repaired.
 Maintenance on an already healthy system is rejected without spending supplies.
 Efficiencies and health remain capped. The scanner offers reliability in exchange
-for cargo capacity and a smaller healing amount than ordinary successful treatment.
+for cargo capacity. Patient treatment now emphasizes [named-condition recovery](medicine.md)
+rather than large instant health boosts. Assigned medics provide 2 care points;
+non-medics provide 1, or 2 with the scanner. Both caregiver and patient are occupied.
 
 All equipment costs, eligibility checks, outcomes, and resource accounting remain
 authoritative in the backend. Repeated requests use the existing atomic/idempotent

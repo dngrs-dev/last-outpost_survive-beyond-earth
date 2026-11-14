@@ -12,7 +12,7 @@
       {
         "id": "engineer_repair",
         "text": "Send the engineer outside",
-        "description": "Requires an engineer. A failed EVA causes injury; supplies are spent either way.",
+        "description": "Requires an engineer. A failed EVA causes injury; supplies are spent either way. Failure also causes a sprain, restricting demanding work until recovered.",
         "costs": {
           "repair_kits": 1,
           "eva_batteries": 1,
@@ -29,14 +29,15 @@
           "solar_efficiency": 0.25
         },
         "failure_effects": {
-          "crew_health": -25
+          "crew_health": -25,
+          "condition": "sprain"
         },
         "workload": "eva"
       },
       {
         "id": "crew_repair",
         "text": "Attempt a general repair",
-        "description": "Any living astronaut can try. Failure causes a serious EVA injury.",
+        "description": "Any living astronaut can try. Failure causes a serious EVA injury. Failure also causes a sprain, restricting demanding work until recovered.",
         "costs": {
           "repair_kits": 1,
           "eva_batteries": 1,
@@ -53,7 +54,8 @@
           "solar_efficiency": 0.25
         },
         "failure_effects": {
-          "crew_health": -40
+          "crew_health": -40,
+          "condition": "sprain"
         },
         "workload": "eva"
       },
@@ -151,18 +153,19 @@
   {
     "id": "medical_emergency",
     "title": "Contaminated Air Filter",
-    "description": "An irritant escapes a filter. Every living astronaut loses 8 health on discovery.",
+    "description": "An irritant escapes a filter. Every living astronaut loses 8 health on discovery. All living crew develop dust-related respiratory irritation; named conditions need recovery as well as symptom relief.",
     "weight": 2,
     "min_week": 1,
     "on_start": {
       "crew_health": -8,
-      "target": "all"
+      "target": "all",
+      "condition": "dust_irritation"
     },
     "choices": [
       {
         "id": "treat",
         "text": "Treat an affected astronaut",
-        "description": "Select a patient. A living medic improves treatment. Failed treatment does not restore health.",
+        "description": "Select a patient. A living medic improves success. Costs 1 medicine; success gives 5 health, stabilizes one active condition (urgent first), and supplies up to 2 recovery points at survival with full provisions and safe air. Failure costs 5 health.",
         "costs": {
           "medicine": 1
         },
@@ -174,7 +177,8 @@
         },
         "success_chance": 0.7,
         "success_effects": {
-          "crew_health": 30
+          "crew_health": 5,
+          "treatment": 2
         },
         "failure_effects": {
           "crew_health": -5
@@ -204,12 +208,12 @@
           "crew_health": -5,
           "target": "all"
         },
-        "workload": "strenuous"
+        "workload": "light"
       },
       {
         "id": "guided_treatment",
         "text": "Use scanner-guided treatment",
-        "description": "Guaranteed 20-health recovery for the selected patient. Consumes medicine; the scanner is retained.",
+        "description": "Use the retained scanner and 1 medicine for guaranteed 5-health symptom relief and stabilization of one active condition (urgent first). Up to 2 recovery points apply during survival with full provisions and safe air.",
         "costs": {
           "medicine": 1
         },
@@ -220,7 +224,8 @@
         "role_bonus": {},
         "success_chance": 1,
         "success_effects": {
-          "crew_health": 20
+          "crew_health": 5,
+          "treatment": 2
         },
         "failure_effects": {},
         "workload": "care"
@@ -352,7 +357,7 @@
       {
         "id": "clamp_pressure",
         "text": "Fit a repair clamp",
-        "description": "An engineer or technician improves the odds; failure vents another 4 oxygen.",
+        "description": "An engineer or technician improves the odds; failure vents another 4 oxygen. Failure also causes a bleeding wound. Stabilize it before returning to active work; ongoing damage starts after the onset week.",
         "costs": {
           "repair_kits": 1
         },
@@ -368,7 +373,8 @@
         "failure_effects": {
           "resources": {
             "oxygen": -4
-          }
+          },
+          "condition": "bleeding_wound"
         },
         "workload": "strenuous"
       },
@@ -860,7 +866,7 @@
       {
         "id": "kit_sampling",
         "text": "Conduct an instrumented sample survey",
-        "description": "Use the reusable science kit for 6 research data on success; failure costs the worker 8 health. Scientists improve the odds.",
+        "description": "Use the reusable science kit for 6 research data on success; failure costs the worker 8 health. Scientists improve the odds. Failure also causes a sprain, restricting demanding work until recovered.",
         "costs": {
           "eva_batteries": 1,
           "oxygen": 2
@@ -880,14 +886,15 @@
           }
         },
         "failure_effects": {
-          "crew_health": -8
+          "crew_health": -8,
+          "condition": "sprain"
         },
         "workload": "eva"
       },
       {
         "id": "basic_sampling",
         "text": "Make a basic field observation",
-        "description": "Gain 3 research data on success; failure costs the worker 12 health. Requires EVA supplies but no science kit.",
+        "description": "Gain 3 research data on success; failure costs the worker 12 health. Requires EVA supplies but no science kit. Failure also causes a sprain, restricting demanding work until recovered.",
         "costs": {
           "eva_batteries": 1,
           "oxygen": 2
@@ -905,7 +912,8 @@
           }
         },
         "failure_effects": {
-          "crew_health": -12
+          "crew_health": -12,
+          "condition": "sprain"
         },
         "workload": "eva"
       },
@@ -1012,7 +1020,7 @@
       {
         "id": "audit_crate",
         "text": "Inspect and reconcile the manifest",
-        "description": "Spend power on inspection. Recover 3 food and 4 water on success; no supplies recovered on failure. Technicians and scientists improve the odds.",
+        "description": "Spend power on inspection. Recover 3 food and 4 water on success; no supplies recovered on failure. Technicians and scientists improve the odds. Failure also exposes the inspector to a fictional gastrointestinal illness from contaminated contents.",
         "costs": {
           "electricity": 1
         },
@@ -1030,7 +1038,9 @@
             "water": 4
           }
         },
-        "failure_effects": {},
+        "failure_effects": {
+          "condition": "gastrointestinal_illness"
+        },
         "workload": "light"
       },
       {
@@ -1106,7 +1116,7 @@
       {
         "id": "medical_recovery",
         "text": "Treat one recovering astronaut",
-        "description": "Choose a patient and spend 1 medicine. Success restores 20 health; failure gives no healing. A living medic improves the odds.",
+        "description": "Select a patient and spend 1 medicine. Success gives 5 health, stabilizes one active condition (urgent first), and supplies up to 2 recovery points during survival with full provisions and safe air. Existing role bonuses improve the odds.",
         "costs": {
           "medicine": 1
         },
@@ -1116,7 +1126,8 @@
         "minimum_crew": 1,
         "success_chance": 0.75,
         "success_effects": {
-          "crew_health": 20
+          "crew_health": 5,
+          "treatment": 2
         },
         "failure_effects": {},
         "crew_role_bonus": {

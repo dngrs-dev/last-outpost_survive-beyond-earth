@@ -5,6 +5,7 @@ from dataclasses import asdict
 
 from app.game.health import REST, capacity_reasons, performance_penalty
 from app.game.life_support import MAINTENANCE_IDS
+from app.game.medicine import MEDICAL_IDS, add_condition, provide_care
 from app.game.models import (
     CrewMember,
     Definitions,
@@ -134,9 +135,19 @@ def apply_effects(state: GameState, effects: Effects, selected: CrewMember | Non
         min(1.0, max(0.0, before_oxygen + effects.oxygen_efficiency)), 6
     )
     targets = state.crew if effects.target == "all" else ([selected] if selected else [])
+    medical_changes = []
     for crew in targets:
         change_health(crew, effects.crew_health)
+        if effects.condition:
+            change = add_condition(crew, effects.condition, state.current_week)
+            if change:
+                medical_changes.append(change)
+        if effects.treatment:
+            change = provide_care(crew, state.current_week, effects.treatment)
+            if change:
+                medical_changes.append(change)
     return {
+        "medical_changes": medical_changes,
         "resources": {
             name: round(state.resources[name] - value, 6)
             for name, value in before_resources.items()
@@ -178,6 +189,14 @@ def choice_reasons(
             reasons.extend(capacity_reasons(selected, choice.workload))
         elif choice.required_role and selected.role != choice.required_role:
             reasons.append(f"Requires a living {choice.required_role}.")
+        if selected and choice.id in MEDICAL_IDS:
+            patients = (
+                [selected]
+                if choice.id == "self_care"
+                else [c for c in state.crew if c.id != selected.id]
+            )
+            if not any(c.alive and c.medical_conditions for c in patients):
+                reasons.append("Requires a living patient with an active medical condition.")
     elif selected is not None:
         reasons.append("This choice does not use a selected astronaut.")
     for resource, amount in choice.costs.items():
@@ -270,7 +289,9 @@ def choice_views(
                 if choice.requires_crew and choice.minimum_crew > 1
                 else [],
                 "action_type": (
-                    "rest"
+                    "medical"
+                    if choice.id in MEDICAL_IDS
+                    else "rest"
                     if choice.id == REST.id
                     else "research"
                     if choice.id in RESEARCH_CHOICE_IDS or choice.id.startswith("project:")

@@ -48,6 +48,7 @@ def test_every_authored_choice_resolves_atomically_with_valid_supplies(
     state.solar_efficiency = state.oxygen_efficiency = 0.5
     for crew in state.crew:
         crew.health = 60
+        crew.medical_conditions.clear()  # isolate this scenario from the launch discovery
     event = engine.definitions.events[event_id]
     apply_effects(state, event.on_start, None)
     choice = next(

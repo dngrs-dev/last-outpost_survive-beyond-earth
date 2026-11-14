@@ -13,7 +13,7 @@ RESEARCH_CHOICES = [
         text="Survey a geological sample",
         description=(
             "Use the science kit to collect one sample and 2 research data on success. "
-            "Scientists improve the odds; failure costs the worker 8 health. "
+            "Scientists improve the odds; failure costs the worker 8 health and causes a sprain. "
             "One-week crew assignment; incident response is separate."
         ),
         costs={"eva_batteries": 1, "oxygen": 2},
@@ -22,7 +22,7 @@ RESEARCH_CHOICES = [
         role_bonus={"scientist": 0.2, "technician": 0.1},
         success_chance=0.75,
         success_effects=Effects(resources={"research_data": 2}),
-        failure_effects=Effects(crew_health=-8),
+        failure_effects=Effects(crew_health=-8, condition="sprain"),
     ),
     EventChoice(
         id="research_seismic",
@@ -31,7 +31,8 @@ RESEARCH_CHOICES = [
         description=(
             "Start a seismic project: 1 deployment week, 3 automatic recording weeks at 2 power "
             "each, then 1 crew analysis week. No objective credit until analysis succeeds. "
-            "Failure costs 8 worker health and deployment supplies; the phase can be retried."
+            "Failure causes a sprain and costs 8 health and deployment supplies; "
+            "the phase can be retried."
         ),
         costs={"electricity": 2, "eva_batteries": 1, "oxygen": 2},
         required_items={"scientific_tools": 1},
@@ -39,7 +40,7 @@ RESEARCH_CHOICES = [
         role_bonus={"scientist": 0.2, "technician": 0.1},
         success_chance=0.75,
         success_effects=Effects(),
-        failure_effects=Effects(crew_health=-8),
+        failure_effects=Effects(crew_health=-8, condition="sprain"),
     ),
     EventChoice(
         id="research_instrument",

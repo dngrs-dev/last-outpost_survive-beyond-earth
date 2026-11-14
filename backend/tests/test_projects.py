@@ -262,7 +262,13 @@ def test_interruption_and_manual_work_conflict_is_atomic(quiet_engine, project_s
     state, _ = week(quiet_engine, project_state, "research_seismic")
     before = deepcopy(state)
     with pytest.raises(GameError, match="paused or interrupted"):
-        week(quiet_engine, state, "project:seismic-1", controls=control(state, "interrupt"))
+        week(
+            quiet_engine,
+            state,
+            "project:seismic-1",
+            crew="alex",
+            controls=control(state, "interrupt"),
+        )
     assert state == before
 
 

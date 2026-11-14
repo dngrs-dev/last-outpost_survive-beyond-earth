@@ -4,6 +4,7 @@ from typing import Annotated, Any, Literal
 
 from pydantic import BaseModel, ConfigDict, Field
 
+from app.game.models import MedicalKind
 from app.game.rules import RationLevel
 
 Identifier = Annotated[str, Field(strict=True, min_length=1, max_length=128)]
@@ -29,6 +30,8 @@ class RationRequest(RequestModel):
 class AssignmentRequest(RequestModel):
     crew_id: Identifier
     activity_id: Identifier
+    patient_id: Identifier | None = None
+    condition_id: MedicalKind | None = None
 
 
 class ProjectOrderRequest(RequestModel):
@@ -77,7 +80,35 @@ class RationOutlookResponse(BaseModel):
     water_damage: int
 
 
+class MedicalCaseResponse(BaseModel):
+    kind: MedicalKind
+    remaining: int
+    acquired_week: int
+    stabilized: bool
+    care_week: int
+    care_points: int
+
+
+class MedicalConditionResponse(MedicalCaseResponse):
+    title: str
+    urgent: bool
+    rest_weeks: int | None
+    medic_weeks: int
+    untreated_damage: int
+    source_url: str
+
+
+class MedicalChangeResponse(BaseModel):
+    crew_id: str
+    kind: MedicalKind
+    action: Literal["acquired", "worsened", "stabilized", "recovering", "resolved", "stalled"]
+    reason: str | None = None
+    before: MedicalCaseResponse | None
+    after: MedicalCaseResponse | None
+
+
 class CrewResponse(BaseModel):
+    medical_conditions: list[MedicalConditionResponse]
     nutrition_deficit: float
     hydration_deficit: float
     condition: ConditionResponse
@@ -102,6 +133,8 @@ class CrewResponse(BaseModel):
 
 
 class EffectsResponse(BaseModel):
+    condition: MedicalKind | None
+    treatment: int
     resources: dict[str, float]
     solar_efficiency: float
     oxygen_efficiency: float
@@ -134,7 +167,7 @@ class ChoiceResponse(BaseModel):
     workload: Literal["light", "strenuous", "eva", "care", "rest"]
     support_candidates: list[SupportCandidateResponse]
     id: str
-    action_type: Literal["event", "maintenance", "research", "rest"]
+    action_type: Literal["event", "maintenance", "research", "rest", "medical"]
     objective_rewards: list[ObjectiveGainResponse]
     text: str
     description: str
@@ -206,6 +239,7 @@ class HealthChangeResponse(BaseModel):
 
 
 class AppliedEffectsResponse(BaseModel):
+    medical_changes: list[MedicalChangeResponse]
     resources: dict[str, float]
     solar_efficiency: float
     oxygen_efficiency: float
@@ -228,6 +262,8 @@ class EventOutcomeResponse(BaseModel):
 
 
 class SurvivalHealthResponse(HealthChangeResponse):
+    medical_penalty: int
+    medical_changes: list[MedicalChangeResponse]
     food_received_fraction: float
     water_received_fraction: float
     nutrition_before: float
@@ -284,6 +320,8 @@ class NextEventResponse(BaseModel):
 
 
 class AssignmentOutcomeResponse(BaseModel):
+    patient_id: str | None
+    condition_id: MedicalKind | None
     crew_id: str
     activity_id: str
     status: Literal["completed", "cancelled"]

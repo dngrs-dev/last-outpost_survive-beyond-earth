@@ -1228,6 +1228,7 @@ export const catalog: CatalogResponse = {
       "water_shortage_weeks": 0,
       "nutrition_deficit": 0,
       "hydration_deficit": 0,
+      "medical_conditions": [],
       "specialty": "Mechanical repair",
       "training_source": "https://www.nasa.gov/reference/jsc-crew-operations-training/",
       "action_bonuses": {},
@@ -1251,6 +1252,7 @@ export const catalog: CatalogResponse = {
       "water_shortage_weeks": 0,
       "nutrition_deficit": 0,
       "hydration_deficit": 0,
+      "medical_conditions": [],
       "specialty": "Crew medical officer",
       "training_source": "https://www.nasa.gov/reference/5-0-training/",
       "action_bonuses": {},
@@ -1274,6 +1276,7 @@ export const catalog: CatalogResponse = {
       "water_shortage_weeks": 0,
       "nutrition_deficit": 0,
       "hydration_deficit": 0,
+      "medical_conditions": [],
       "specialty": "Field science and calibration",
       "training_source": "https://www.nasa.gov/missions/artemis/nasa-field-geology-training-prepares-artemis-mission-support-teams/",
       "action_bonuses": {},
@@ -1297,6 +1300,7 @@ export const catalog: CatalogResponse = {
       "water_shortage_weeks": 0,
       "nutrition_deficit": 0,
       "hydration_deficit": 0,
+      "medical_conditions": [],
       "specialty": "EVA maintenance",
       "training_source": "https://www.nasa.gov/reference/jsc-crew-operations-training/",
       "action_bonuses": {},
@@ -1320,6 +1324,7 @@ export const catalog: CatalogResponse = {
       "water_shortage_weeks": 0,
       "nutrition_deficit": 0,
       "hydration_deficit": 0,
+      "medical_conditions": [],
       "specialty": "Life-support engineering",
       "training_source": "https://www.nasa.gov/reference/jsc-crew-operations-training/",
       "action_bonuses": {
@@ -1345,6 +1350,7 @@ export const catalog: CatalogResponse = {
       "water_shortage_weeks": 0,
       "nutrition_deficit": 0,
       "hydration_deficit": 0,
+      "medical_conditions": [],
       "specialty": "Power systems",
       "training_source": "https://www.nasa.gov/reference/jsc-crew-operations-training/",
       "action_bonuses": {
@@ -1370,6 +1376,7 @@ export const catalog: CatalogResponse = {
       "water_shortage_weeks": 0,
       "nutrition_deficit": 0,
       "hydration_deficit": 0,
+      "medical_conditions": [],
       "specialty": "Emergency medicine",
       "training_source": "https://www.nasa.gov/reference/5-0-training/",
       "action_bonuses": {
@@ -1395,6 +1402,7 @@ export const catalog: CatalogResponse = {
       "water_shortage_weeks": 0,
       "nutrition_deficit": 0,
       "hydration_deficit": 0,
+      "medical_conditions": [],
       "specialty": "Geology and instrument calibration",
       "training_source": "https://www.nasa.gov/missions/artemis/nasa-field-geology-training-prepares-artemis-mission-support-teams/",
       "action_bonuses": {
@@ -1420,6 +1428,7 @@ export const catalog: CatalogResponse = {
       "water_shortage_weeks": 0,
       "nutrition_deficit": 0,
       "hydration_deficit": 0,
+      "medical_conditions": [],
       "specialty": "EVA tools and procedures",
       "training_source": "https://www.nasa.gov/reference/jsc-crew-operations-training/",
       "action_bonuses": {
@@ -1445,6 +1454,7 @@ export const catalog: CatalogResponse = {
       "water_shortage_weeks": 0,
       "nutrition_deficit": 0,
       "hydration_deficit": 0,
+      "medical_conditions": [],
       "specialty": "Fault diagnosis",
       "training_source": "https://www.nasa.gov/reference/jsc-crew-operations-training/",
       "action_bonuses": {
@@ -1931,16 +1941,34 @@ export const energyPriorityGame: GameResponse = {
     },
     "crew": [
       {
+        "medical_conditions": [
+          {
+            "kind": "dust_irritation",
+            "remaining": 2,
+            "acquired_week": 1,
+            "stabilized": false,
+            "care_week": 0,
+            "care_points": 0,
+            "title": "Dust-related respiratory irritation",
+            "urgent": false,
+            "rest_weeks": 2,
+            "medic_weeks": 1,
+            "untreated_damage": 1,
+            "source_url": "https://www.nasa.gov/reference/jsc-dust/"
+          }
+        ],
         "nutrition_deficit": 0.0,
         "hydration_deficit": 0.0,
         "condition": {
-          "status": "fit",
+          "status": "serious",
           "nutrition_status": "adequate",
           "hydration_status": "adequate",
           "can_work": true,
-          "can_do_eva": true,
-          "performance_penalty": 0.0,
-          "restrictions": [],
+          "can_do_eva": false,
+          "performance_penalty": 0.05,
+          "restrictions": [
+            "Respiratory irritation: EVA unavailable until recovered; indoor work remains possible."
+          ],
           "nutrition_recovery_weeks": 0,
           "hydration_recovery_weeks": 0,
           "source_url": "https://www.nasa.gov/reference/risk-of-inadequate-food-and-nutrition/"
@@ -1997,16 +2025,34 @@ export const energyPriorityGame: GameResponse = {
         }
       },
       {
+        "medical_conditions": [
+          {
+            "kind": "dust_irritation",
+            "remaining": 2,
+            "acquired_week": 1,
+            "stabilized": false,
+            "care_week": 0,
+            "care_points": 0,
+            "title": "Dust-related respiratory irritation",
+            "urgent": false,
+            "rest_weeks": 2,
+            "medic_weeks": 1,
+            "untreated_damage": 1,
+            "source_url": "https://www.nasa.gov/reference/jsc-dust/"
+          }
+        ],
         "nutrition_deficit": 0.0,
         "hydration_deficit": 0.0,
         "condition": {
-          "status": "fit",
+          "status": "serious",
           "nutrition_status": "adequate",
           "hydration_status": "adequate",
           "can_work": true,
-          "can_do_eva": true,
-          "performance_penalty": 0.0,
-          "restrictions": [],
+          "can_do_eva": false,
+          "performance_penalty": 0.05,
+          "restrictions": [
+            "Respiratory irritation: EVA unavailable until recovered; indoor work remains possible."
+          ],
           "nutrition_recovery_weeks": 0,
           "hydration_recovery_weeks": 0,
           "source_url": "https://www.nasa.gov/reference/risk-of-inadequate-food-and-nutrition/"
@@ -2088,11 +2134,13 @@ export const energyPriorityGame: GameResponse = {
     "current_event": {
       "id": "medical_emergency",
       "title": "Contaminated Air Filter",
-      "description": "An irritant escapes a filter. Every living astronaut loses 8 health on discovery.",
+      "description": "An irritant escapes a filter. Every living astronaut loses 8 health on discovery. All living crew develop dust-related respiratory irritation; named conditions need recovery as well as symptom relief.",
       "category": "hazard",
       "science_context": "Dust management matters for cabin cleanliness. The irritant incident and health changes here are fictional.",
       "source_url": "https://www.nasa.gov/reference/jsc-dust/",
       "on_start": {
+        "condition": "dust_irritation",
+        "treatment": 0,
         "resources": {},
         "solar_efficiency": 0.0,
         "oxygen_efficiency": 0.0,
@@ -2109,7 +2157,7 @@ export const energyPriorityGame: GameResponse = {
           "action_type": "event",
           "objective_rewards": [],
           "text": "Treat an affected astronaut",
-          "description": "Select a patient. A living medic improves treatment. Failed treatment does not restore health.",
+          "description": "Select a patient. A living medic improves success. Costs 1 medicine; success gives 5 health, stabilizes one active condition (urgent first), and supplies up to 2 recovery points at survival with full provisions and safe air. Failure costs 5 health.",
           "costs": {
             "medicine": 1.0
           },
@@ -2121,15 +2169,19 @@ export const energyPriorityGame: GameResponse = {
           },
           "success_chance": 0.7,
           "success_effects": {
+            "condition": null,
+            "treatment": 2,
             "resources": {},
             "solar_efficiency": 0.0,
             "oxygen_efficiency": 0.0,
             "water_recovery_efficiency": 0.0,
             "co2_efficiency": 0.0,
-            "crew_health": 30,
+            "crew_health": 5,
             "target": "selected"
           },
           "failure_effects": {
+            "condition": null,
+            "treatment": 0,
             "resources": {},
             "solar_efficiency": 0.0,
             "oxygen_efficiency": 0.0,
@@ -2159,7 +2211,7 @@ export const energyPriorityGame: GameResponse = {
           "success_probability": null
         },
         {
-          "workload": "strenuous",
+          "workload": "light",
           "support_candidates": [
             {
               "crew_id": "alex",
@@ -2188,6 +2240,8 @@ export const energyPriorityGame: GameResponse = {
           "crew_role_bonus": {},
           "success_chance": 0.75,
           "success_effects": {
+            "condition": null,
+            "treatment": 0,
             "resources": {},
             "solar_efficiency": 0.0,
             "oxygen_efficiency": 0.0,
@@ -2197,6 +2251,8 @@ export const energyPriorityGame: GameResponse = {
             "target": "all"
           },
           "failure_effects": {
+            "condition": null,
+            "treatment": 0,
             "resources": {},
             "solar_efficiency": 0.0,
             "oxygen_efficiency": 0.0,
@@ -2216,13 +2272,13 @@ export const energyPriorityGame: GameResponse = {
               "unavailable_reasons": [
                 "Requires a living medic."
               ],
-              "success_probability": 0.8
+              "success_probability": 0.75
             },
             {
               "crew_id": "maya",
               "available": true,
               "unavailable_reasons": [],
-              "success_probability": 0.95
+              "success_probability": 0.9
             }
           ],
           "success_probability": null
@@ -2234,7 +2290,7 @@ export const energyPriorityGame: GameResponse = {
           "action_type": "event",
           "objective_rewards": [],
           "text": "Use scanner-guided treatment",
-          "description": "Guaranteed 20-health recovery for the selected patient. Consumes medicine; the scanner is retained.",
+          "description": "Use the retained scanner and 1 medicine for guaranteed 5-health symptom relief and stabilization of one active condition (urgent first). Up to 2 recovery points apply during survival with full provisions and safe air.",
           "costs": {
             "medicine": 1.0
           },
@@ -2246,15 +2302,19 @@ export const energyPriorityGame: GameResponse = {
           "crew_role_bonus": {},
           "success_chance": 1.0,
           "success_effects": {
+            "condition": null,
+            "treatment": 2,
             "resources": {},
             "solar_efficiency": 0.0,
             "oxygen_efficiency": 0.0,
             "water_recovery_efficiency": 0.0,
             "co2_efficiency": 0.0,
-            "crew_health": 20,
+            "crew_health": 5,
             "target": "selected"
           },
           "failure_effects": {
+            "condition": null,
+            "treatment": 0,
             "resources": {},
             "solar_efficiency": 0.0,
             "oxygen_efficiency": 0.0,
@@ -2304,6 +2364,8 @@ export const energyPriorityGame: GameResponse = {
           "crew_role_bonus": {},
           "success_chance": 1.0,
           "success_effects": {
+            "condition": null,
+            "treatment": 0,
             "resources": {},
             "solar_efficiency": 0.0,
             "oxygen_efficiency": 0.0,
@@ -2313,6 +2375,8 @@ export const energyPriorityGame: GameResponse = {
             "target": "all"
           },
           "failure_effects": {
+            "condition": null,
+            "treatment": 0,
             "resources": {},
             "solar_efficiency": 0.0,
             "oxygen_efficiency": 0.0,
@@ -2409,6 +2473,8 @@ export const energyPriorityGame: GameResponse = {
         "crew_role_bonus": {},
         "success_chance": 1.0,
         "success_effects": {
+          "condition": null,
+          "treatment": 0,
           "resources": {},
           "solar_efficiency": 0.0,
           "oxygen_efficiency": 0.0,
@@ -2418,6 +2484,124 @@ export const energyPriorityGame: GameResponse = {
           "target": "selected"
         },
         "failure_effects": {
+          "condition": null,
+          "treatment": 0,
+          "resources": {},
+          "solar_efficiency": 0.0,
+          "oxygen_efficiency": 0.0,
+          "water_recovery_efficiency": 0.0,
+          "co2_efficiency": 0.0,
+          "crew_health": 0,
+          "target": "selected"
+        },
+        "required_role": null,
+        "minimum_crew": 1,
+        "available": true,
+        "unavailable_reasons": [],
+        "eligible_crew": [
+          {
+            "crew_id": "alex",
+            "available": true,
+            "unavailable_reasons": [],
+            "success_probability": 1.0
+          },
+          {
+            "crew_id": "maya",
+            "available": true,
+            "unavailable_reasons": [],
+            "success_probability": 1.0
+          }
+        ],
+        "success_probability": null
+      },
+      {
+        "workload": "light",
+        "support_candidates": [],
+        "id": "medical_care",
+        "action_type": "medical",
+        "objective_rewards": [],
+        "text": "Provide medical care",
+        "description": "Reserve caregiver and patient for one week, plus 1 medicine. Stabilizes the chosen condition immediately. A fit medic earns 2 recovery points; another fit caregiver earns 1 (2 with a retained diagnostic scanner). Progress needs full actual provisions and safe air. Both crew are occupied, even if recovery stalls.",
+        "costs": {
+          "medicine": 1.0
+        },
+        "required_items": {},
+        "requires_crew": true,
+        "role_bonus": {},
+        "crew_role_bonus": {},
+        "success_chance": 1.0,
+        "success_effects": {
+          "condition": null,
+          "treatment": 0,
+          "resources": {},
+          "solar_efficiency": 0.0,
+          "oxygen_efficiency": 0.0,
+          "water_recovery_efficiency": 0.0,
+          "co2_efficiency": 0.0,
+          "crew_health": 0,
+          "target": "selected"
+        },
+        "failure_effects": {
+          "condition": null,
+          "treatment": 0,
+          "resources": {},
+          "solar_efficiency": 0.0,
+          "oxygen_efficiency": 0.0,
+          "water_recovery_efficiency": 0.0,
+          "co2_efficiency": 0.0,
+          "crew_health": 0,
+          "target": "selected"
+        },
+        "required_role": null,
+        "minimum_crew": 1,
+        "available": true,
+        "unavailable_reasons": [],
+        "eligible_crew": [
+          {
+            "crew_id": "alex",
+            "available": true,
+            "unavailable_reasons": [],
+            "success_probability": 1.0
+          },
+          {
+            "crew_id": "maya",
+            "available": true,
+            "unavailable_reasons": [],
+            "success_probability": 1.0
+          }
+        ],
+        "success_probability": null
+      },
+      {
+        "workload": "rest",
+        "support_candidates": [],
+        "id": "self_care",
+        "action_type": "medical",
+        "objective_rewards": [],
+        "text": "Self-care and stabilization",
+        "description": "One astronaut and 1 medicine. Available even when critically unfit; treats only their own chosen condition. Stabilizes immediately and earns 1 recovery point with full actual provisions and safe air. No work or incident duty that week.",
+        "costs": {
+          "medicine": 1.0
+        },
+        "required_items": {},
+        "requires_crew": true,
+        "role_bonus": {},
+        "crew_role_bonus": {},
+        "success_chance": 1.0,
+        "success_effects": {
+          "condition": null,
+          "treatment": 0,
+          "resources": {},
+          "solar_efficiency": 0.0,
+          "oxygen_efficiency": 0.0,
+          "water_recovery_efficiency": 0.0,
+          "co2_efficiency": 0.0,
+          "crew_health": 0,
+          "target": "selected"
+        },
+        "failure_effects": {
+          "condition": null,
+          "treatment": 0,
           "resources": {},
           "solar_efficiency": 0.0,
           "oxygen_efficiency": 0.0,
@@ -2465,6 +2649,8 @@ export const energyPriorityGame: GameResponse = {
         "crew_role_bonus": {},
         "success_chance": 1.0,
         "success_effects": {
+          "condition": null,
+          "treatment": 0,
           "resources": {},
           "solar_efficiency": 0.2,
           "oxygen_efficiency": 0.0,
@@ -2474,6 +2660,8 @@ export const energyPriorityGame: GameResponse = {
           "target": "selected"
         },
         "failure_effects": {
+          "condition": null,
+          "treatment": 0,
           "resources": {},
           "solar_efficiency": 0.0,
           "oxygen_efficiency": 0.0,
@@ -2486,6 +2674,8 @@ export const energyPriorityGame: GameResponse = {
         "minimum_crew": 1,
         "available": false,
         "unavailable_reasons": [
+          "Requires at least 1 living astronauts fit for this workload.",
+          "Respiratory irritation: EVA unavailable until recovered; indoor work remains possible.",
           "Requires 1 dust_kits; available 0.",
           "The solar array is already at full condition."
         ],
@@ -2494,6 +2684,8 @@ export const energyPriorityGame: GameResponse = {
             "crew_id": "alex",
             "available": false,
             "unavailable_reasons": [
+              "Requires at least 1 living astronauts fit for this workload.",
+              "Respiratory irritation: EVA unavailable until recovered; indoor work remains possible.",
               "Requires 1 dust_kits; available 0.",
               "The solar array is already at full condition."
             ],
@@ -2503,6 +2695,8 @@ export const energyPriorityGame: GameResponse = {
             "crew_id": "maya",
             "available": false,
             "unavailable_reasons": [
+              "Requires at least 1 living astronauts fit for this workload.",
+              "Respiratory irritation: EVA unavailable until recovered; indoor work remains possible.",
               "Requires 1 dust_kits; available 0.",
               "The solar array is already at full condition."
             ],
@@ -2529,6 +2723,8 @@ export const energyPriorityGame: GameResponse = {
         "crew_role_bonus": {},
         "success_chance": 1.0,
         "success_effects": {
+          "condition": null,
+          "treatment": 0,
           "resources": {},
           "solar_efficiency": 0.0,
           "oxygen_efficiency": 0.2,
@@ -2538,6 +2734,8 @@ export const energyPriorityGame: GameResponse = {
           "target": "selected"
         },
         "failure_effects": {
+          "condition": null,
+          "treatment": 0,
           "resources": {},
           "solar_efficiency": 0.0,
           "oxygen_efficiency": 0.0,
@@ -2593,6 +2791,8 @@ export const energyPriorityGame: GameResponse = {
         "crew_role_bonus": {},
         "success_chance": 1.0,
         "success_effects": {
+          "condition": null,
+          "treatment": 0,
           "resources": {},
           "solar_efficiency": 0.0,
           "oxygen_efficiency": 0.0,
@@ -2602,6 +2802,8 @@ export const energyPriorityGame: GameResponse = {
           "target": "selected"
         },
         "failure_effects": {
+          "condition": null,
+          "treatment": 0,
           "resources": {},
           "solar_efficiency": 0.0,
           "oxygen_efficiency": 0.0,
@@ -2654,6 +2856,8 @@ export const energyPriorityGame: GameResponse = {
         "crew_role_bonus": {},
         "success_chance": 1.0,
         "success_effects": {
+          "condition": null,
+          "treatment": 0,
           "resources": {},
           "solar_efficiency": 0.0,
           "oxygen_efficiency": 0.0,
@@ -2663,6 +2867,8 @@ export const energyPriorityGame: GameResponse = {
           "target": "selected"
         },
         "failure_effects": {
+          "condition": null,
+          "treatment": 0,
           "resources": {},
           "solar_efficiency": 0.0,
           "oxygen_efficiency": 0.0,
@@ -2710,7 +2916,7 @@ export const energyPriorityGame: GameResponse = {
           }
         ],
         "text": "Survey a geological sample",
-        "description": "Use the science kit to collect one sample and 2 research data on success. Scientists improve the odds; failure costs the worker 8 health. One-week crew assignment; incident response is separate.",
+        "description": "Use the science kit to collect one sample and 2 research data on success. Scientists improve the odds; failure costs the worker 8 health and causes a sprain. One-week crew assignment; incident response is separate.",
         "costs": {
           "eva_batteries": 1.0,
           "oxygen": 2.0
@@ -2726,6 +2932,8 @@ export const energyPriorityGame: GameResponse = {
         "crew_role_bonus": {},
         "success_chance": 0.75,
         "success_effects": {
+          "condition": null,
+          "treatment": 0,
           "resources": {
             "research_data": 2.0
           },
@@ -2737,6 +2945,8 @@ export const energyPriorityGame: GameResponse = {
           "target": "selected"
         },
         "failure_effects": {
+          "condition": "sprain",
+          "treatment": 0,
           "resources": {},
           "solar_efficiency": 0.0,
           "oxygen_efficiency": 0.0,
@@ -2749,6 +2959,8 @@ export const energyPriorityGame: GameResponse = {
         "minimum_crew": 1,
         "available": false,
         "unavailable_reasons": [
+          "Requires at least 1 living astronauts fit for this workload.",
+          "Respiratory irritation: EVA unavailable until recovered; indoor work remains possible.",
           "Requires 1 Field science kit (not consumed)."
         ],
         "eligible_crew": [
@@ -2756,17 +2968,21 @@ export const energyPriorityGame: GameResponse = {
             "crew_id": "alex",
             "available": false,
             "unavailable_reasons": [
+              "Requires at least 1 living astronauts fit for this workload.",
+              "Respiratory irritation: EVA unavailable until recovered; indoor work remains possible.",
               "Requires 1 Field science kit (not consumed)."
             ],
-            "success_probability": 0.8
+            "success_probability": 0.75
           },
           {
             "crew_id": "maya",
             "available": false,
             "unavailable_reasons": [
+              "Requires at least 1 living astronauts fit for this workload.",
+              "Respiratory irritation: EVA unavailable until recovered; indoor work remains possible.",
               "Requires 1 Field science kit (not consumed)."
             ],
-            "success_probability": 0.75
+            "success_probability": 0.7
           }
         ],
         "success_probability": null
@@ -2778,7 +2994,7 @@ export const energyPriorityGame: GameResponse = {
         "action_type": "research",
         "objective_rewards": [],
         "text": "Deploy seismic sensors",
-        "description": "Start a seismic project: 1 deployment week, 3 automatic recording weeks at 2 power each, then 1 crew analysis week. No objective credit until analysis succeeds. Failure costs 8 worker health and deployment supplies; the phase can be retried.",
+        "description": "Start a seismic project: 1 deployment week, 3 automatic recording weeks at 2 power each, then 1 crew analysis week. No objective credit until analysis succeeds. Failure causes a sprain and costs 8 health and deployment supplies; the phase can be retried.",
         "costs": {
           "electricity": 2.0,
           "eva_batteries": 1.0,
@@ -2795,6 +3011,8 @@ export const energyPriorityGame: GameResponse = {
         "crew_role_bonus": {},
         "success_chance": 0.75,
         "success_effects": {
+          "condition": null,
+          "treatment": 0,
           "resources": {},
           "solar_efficiency": 0.0,
           "oxygen_efficiency": 0.0,
@@ -2804,6 +3022,8 @@ export const energyPriorityGame: GameResponse = {
           "target": "selected"
         },
         "failure_effects": {
+          "condition": "sprain",
+          "treatment": 0,
           "resources": {},
           "solar_efficiency": 0.0,
           "oxygen_efficiency": 0.0,
@@ -2816,6 +3036,8 @@ export const energyPriorityGame: GameResponse = {
         "minimum_crew": 1,
         "available": false,
         "unavailable_reasons": [
+          "Requires at least 1 living astronauts fit for this workload.",
+          "Respiratory irritation: EVA unavailable until recovered; indoor work remains possible.",
           "Requires 1 Field science kit (not consumed)."
         ],
         "eligible_crew": [
@@ -2823,17 +3045,21 @@ export const energyPriorityGame: GameResponse = {
             "crew_id": "alex",
             "available": false,
             "unavailable_reasons": [
+              "Requires at least 1 living astronauts fit for this workload.",
+              "Respiratory irritation: EVA unavailable until recovered; indoor work remains possible.",
               "Requires 1 Field science kit (not consumed)."
             ],
-            "success_probability": 0.8
+            "success_probability": 0.75
           },
           {
             "crew_id": "maya",
             "available": false,
             "unavailable_reasons": [
+              "Requires at least 1 living astronauts fit for this workload.",
+              "Respiratory irritation: EVA unavailable until recovered; indoor work remains possible.",
               "Requires 1 Field science kit (not consumed)."
             ],
-            "success_probability": 0.75
+            "success_probability": 0.7
           }
         ],
         "success_probability": null
@@ -2868,6 +3094,8 @@ export const energyPriorityGame: GameResponse = {
         "crew_role_bonus": {},
         "success_chance": 0.7,
         "success_effects": {
+          "condition": null,
+          "treatment": 0,
           "resources": {
             "research_data": 2.0
           },
@@ -2879,6 +3107,8 @@ export const energyPriorityGame: GameResponse = {
           "target": "selected"
         },
         "failure_effects": {
+          "condition": null,
+          "treatment": 0,
           "resources": {},
           "solar_efficiency": 0.0,
           "oxygen_efficiency": 0.0,
@@ -2900,7 +3130,7 @@ export const energyPriorityGame: GameResponse = {
             "unavailable_reasons": [
               "Requires 1 Field science kit (not consumed)."
             ],
-            "success_probability": 0.95
+            "success_probability": 0.9
           },
           {
             "crew_id": "maya",
@@ -2908,7 +3138,7 @@ export const energyPriorityGame: GameResponse = {
             "unavailable_reasons": [
               "Requires 1 Field science kit (not consumed)."
             ],
-            "success_probability": 0.7
+            "success_probability": 0.65
           }
         ],
         "success_probability": null
@@ -3059,6 +3289,7 @@ export const energyPriorityTurn: TurnResponse = {
     },
     "crew": [
       {
+        "medical_conditions": [],
         "nutrition_deficit": 0.0,
         "hydration_deficit": 0.0,
         "condition": {
@@ -3125,16 +3356,34 @@ export const energyPriorityTurn: TurnResponse = {
         }
       },
       {
+        "medical_conditions": [
+          {
+            "kind": "dust_irritation",
+            "remaining": 2,
+            "acquired_week": 1,
+            "stabilized": false,
+            "care_week": 0,
+            "care_points": 0,
+            "title": "Dust-related respiratory irritation",
+            "urgent": false,
+            "rest_weeks": 2,
+            "medic_weeks": 1,
+            "untreated_damage": 1,
+            "source_url": "https://www.nasa.gov/reference/jsc-dust/"
+          }
+        ],
         "nutrition_deficit": 0.0,
         "hydration_deficit": 0.0,
         "condition": {
-          "status": "fit",
+          "status": "serious",
           "nutrition_status": "adequate",
           "hydration_status": "adequate",
           "can_work": true,
-          "can_do_eva": true,
-          "performance_penalty": 0.0,
-          "restrictions": [],
+          "can_do_eva": false,
+          "performance_penalty": 0.05,
+          "restrictions": [
+            "Respiratory irritation: EVA unavailable until recovered; indoor work remains possible."
+          ],
           "nutrition_recovery_weeks": 0,
           "hydration_recovery_weeks": 0,
           "source_url": "https://www.nasa.gov/reference/risk-of-inadequate-food-and-nutrition/"
@@ -3221,6 +3470,8 @@ export const energyPriorityTurn: TurnResponse = {
       "science_context": "NASA develops exercise countermeasures for spaceflight. These immediate health gains are fictional; exercise does not instantly reverse injuries.",
       "source_url": "https://www.nasa.gov/directorates/esdmd/hhp/exercise-physiology-and-countermeasures/",
       "on_start": {
+        "condition": null,
+        "treatment": 0,
         "resources": {},
         "solar_efficiency": 0.0,
         "oxygen_efficiency": 0.0,
@@ -3248,6 +3499,8 @@ export const energyPriorityTurn: TurnResponse = {
           "crew_role_bonus": {},
           "success_chance": 1.0,
           "success_effects": {
+            "condition": null,
+            "treatment": 0,
             "resources": {},
             "solar_efficiency": 0.0,
             "oxygen_efficiency": 0.0,
@@ -3257,6 +3510,8 @@ export const energyPriorityTurn: TurnResponse = {
             "target": "all"
           },
           "failure_effects": {
+            "condition": null,
+            "treatment": 0,
             "resources": {},
             "solar_efficiency": 0.0,
             "oxygen_efficiency": 0.0,
@@ -3279,7 +3534,7 @@ export const energyPriorityTurn: TurnResponse = {
           "action_type": "event",
           "objective_rewards": [],
           "text": "Treat one recovering astronaut",
-          "description": "Choose a patient and spend 1 medicine. Success restores 20 health; failure gives no healing. A living medic improves the odds.",
+          "description": "Select a patient and spend 1 medicine. Success gives 5 health, stabilizes one active condition (urgent first), and supplies up to 2 recovery points during survival with full provisions and safe air. Existing role bonuses improve the odds.",
           "costs": {
             "medicine": 1.0
           },
@@ -3291,15 +3546,19 @@ export const energyPriorityTurn: TurnResponse = {
           },
           "success_chance": 0.75,
           "success_effects": {
+            "condition": null,
+            "treatment": 2,
             "resources": {},
             "solar_efficiency": 0.0,
             "oxygen_efficiency": 0.0,
             "water_recovery_efficiency": 0.0,
             "co2_efficiency": 0.0,
-            "crew_health": 20,
+            "crew_health": 5,
             "target": "selected"
           },
           "failure_effects": {
+            "condition": null,
+            "treatment": 0,
             "resources": {},
             "solar_efficiency": 0.0,
             "oxygen_efficiency": 0.0,
@@ -3343,6 +3602,8 @@ export const energyPriorityTurn: TurnResponse = {
           "crew_role_bonus": {},
           "success_chance": 1.0,
           "success_effects": {
+            "condition": null,
+            "treatment": 0,
             "resources": {},
             "solar_efficiency": 0.0,
             "oxygen_efficiency": 0.0,
@@ -3352,6 +3613,8 @@ export const energyPriorityTurn: TurnResponse = {
             "target": "all"
           },
           "failure_effects": {
+            "condition": null,
+            "treatment": 0,
             "resources": {},
             "solar_efficiency": 0.0,
             "oxygen_efficiency": 0.0,
@@ -3396,6 +3659,30 @@ export const energyPriorityTurn: TurnResponse = {
             "medicine": 1.0
           },
           "effects": {
+            "medical_changes": [
+              {
+                "crew_id": "alex",
+                "kind": "dust_irritation",
+                "action": "stabilized",
+                "reason": null,
+                "before": {
+                  "kind": "dust_irritation",
+                  "remaining": 2,
+                  "acquired_week": 1,
+                  "stabilized": false,
+                  "care_week": 0,
+                  "care_points": 0
+                },
+                "after": {
+                  "kind": "dust_irritation",
+                  "remaining": 2,
+                  "acquired_week": 1,
+                  "stabilized": true,
+                  "care_week": 1,
+                  "care_points": 2
+                }
+              }
+            ],
             "resources": {},
             "solar_efficiency": 0.0,
             "oxygen_efficiency": 0.0,
@@ -3405,7 +3692,7 @@ export const energyPriorityTurn: TurnResponse = {
               {
                 "crew_id": "alex",
                 "before": 92,
-                "after": 100
+                "after": 97
               }
             ]
           },
@@ -3466,17 +3753,35 @@ export const energyPriorityTurn: TurnResponse = {
           "health_changes": [
             {
               "crew_id": "alex",
-              "before": 100,
+              "before": 97,
               "after": 100,
+              "medical_penalty": 0,
+              "medical_changes": [
+                {
+                  "crew_id": "alex",
+                  "kind": "dust_irritation",
+                  "action": "resolved",
+                  "reason": null,
+                  "before": {
+                    "kind": "dust_irritation",
+                    "remaining": 2,
+                    "acquired_week": 1,
+                    "stabilized": true,
+                    "care_week": 1,
+                    "care_points": 2
+                  },
+                  "after": null
+                }
+              ],
               "food_received_fraction": 1.0,
               "water_received_fraction": 1.0,
               "nutrition_before": 0.0,
               "nutrition_after": 0.0,
               "hydration_before": 0.0,
               "hydration_after": 0.0,
-              "recovery": 0,
+              "recovery": 3,
               "worked": false,
-              "rested": false,
+              "rested": true,
               "food_penalty": 0,
               "water_penalty": 0,
               "oxygen_penalty": 0,
@@ -3487,6 +3792,8 @@ export const energyPriorityTurn: TurnResponse = {
               "crew_id": "maya",
               "before": 92,
               "after": 94,
+              "medical_penalty": 0,
+              "medical_changes": [],
               "food_received_fraction": 1.0,
               "water_received_fraction": 1.0,
               "nutrition_before": 0.0,
@@ -3526,6 +3833,7 @@ export const energyPriorityTurn: TurnResponse = {
           "event_id": "crew_recovery",
           "title": "A Week for Recovery",
           "effects": {
+            "medical_changes": [],
             "resources": {},
             "solar_efficiency": 0.0,
             "oxygen_efficiency": 0.0,
@@ -3608,6 +3916,8 @@ export const energyPriorityTurn: TurnResponse = {
         "crew_role_bonus": {},
         "success_chance": 1.0,
         "success_effects": {
+          "condition": null,
+          "treatment": 0,
           "resources": {},
           "solar_efficiency": 0.0,
           "oxygen_efficiency": 0.0,
@@ -3617,6 +3927,8 @@ export const energyPriorityTurn: TurnResponse = {
           "target": "selected"
         },
         "failure_effects": {
+          "condition": null,
+          "treatment": 0,
           "resources": {},
           "solar_efficiency": 0.0,
           "oxygen_efficiency": 0.0,
@@ -3634,6 +3946,126 @@ export const energyPriorityTurn: TurnResponse = {
             "crew_id": "alex",
             "available": true,
             "unavailable_reasons": [],
+            "success_probability": 1.0
+          },
+          {
+            "crew_id": "maya",
+            "available": true,
+            "unavailable_reasons": [],
+            "success_probability": 1.0
+          }
+        ],
+        "success_probability": null
+      },
+      {
+        "workload": "light",
+        "support_candidates": [],
+        "id": "medical_care",
+        "action_type": "medical",
+        "objective_rewards": [],
+        "text": "Provide medical care",
+        "description": "Reserve caregiver and patient for one week, plus 1 medicine. Stabilizes the chosen condition immediately. A fit medic earns 2 recovery points; another fit caregiver earns 1 (2 with a retained diagnostic scanner). Progress needs full actual provisions and safe air. Both crew are occupied, even if recovery stalls.",
+        "costs": {
+          "medicine": 1.0
+        },
+        "required_items": {},
+        "requires_crew": true,
+        "role_bonus": {},
+        "crew_role_bonus": {},
+        "success_chance": 1.0,
+        "success_effects": {
+          "condition": null,
+          "treatment": 0,
+          "resources": {},
+          "solar_efficiency": 0.0,
+          "oxygen_efficiency": 0.0,
+          "water_recovery_efficiency": 0.0,
+          "co2_efficiency": 0.0,
+          "crew_health": 0,
+          "target": "selected"
+        },
+        "failure_effects": {
+          "condition": null,
+          "treatment": 0,
+          "resources": {},
+          "solar_efficiency": 0.0,
+          "oxygen_efficiency": 0.0,
+          "water_recovery_efficiency": 0.0,
+          "co2_efficiency": 0.0,
+          "crew_health": 0,
+          "target": "selected"
+        },
+        "required_role": null,
+        "minimum_crew": 1,
+        "available": true,
+        "unavailable_reasons": [],
+        "eligible_crew": [
+          {
+            "crew_id": "alex",
+            "available": true,
+            "unavailable_reasons": [],
+            "success_probability": 1.0
+          },
+          {
+            "crew_id": "maya",
+            "available": false,
+            "unavailable_reasons": [
+              "Requires a living patient with an active medical condition."
+            ],
+            "success_probability": 1.0
+          }
+        ],
+        "success_probability": null
+      },
+      {
+        "workload": "rest",
+        "support_candidates": [],
+        "id": "self_care",
+        "action_type": "medical",
+        "objective_rewards": [],
+        "text": "Self-care and stabilization",
+        "description": "One astronaut and 1 medicine. Available even when critically unfit; treats only their own chosen condition. Stabilizes immediately and earns 1 recovery point with full actual provisions and safe air. No work or incident duty that week.",
+        "costs": {
+          "medicine": 1.0
+        },
+        "required_items": {},
+        "requires_crew": true,
+        "role_bonus": {},
+        "crew_role_bonus": {},
+        "success_chance": 1.0,
+        "success_effects": {
+          "condition": null,
+          "treatment": 0,
+          "resources": {},
+          "solar_efficiency": 0.0,
+          "oxygen_efficiency": 0.0,
+          "water_recovery_efficiency": 0.0,
+          "co2_efficiency": 0.0,
+          "crew_health": 0,
+          "target": "selected"
+        },
+        "failure_effects": {
+          "condition": null,
+          "treatment": 0,
+          "resources": {},
+          "solar_efficiency": 0.0,
+          "oxygen_efficiency": 0.0,
+          "water_recovery_efficiency": 0.0,
+          "co2_efficiency": 0.0,
+          "crew_health": 0,
+          "target": "selected"
+        },
+        "required_role": null,
+        "minimum_crew": 1,
+        "available": true,
+        "unavailable_reasons": [],
+        "eligible_crew": [
+          {
+            "crew_id": "alex",
+            "available": false,
+            "unavailable_reasons": [
+              "Requires a living patient with an active medical condition."
+            ],
             "success_probability": 1.0
           },
           {
@@ -3664,6 +4096,8 @@ export const energyPriorityTurn: TurnResponse = {
         "crew_role_bonus": {},
         "success_chance": 1.0,
         "success_effects": {
+          "condition": null,
+          "treatment": 0,
           "resources": {},
           "solar_efficiency": 0.2,
           "oxygen_efficiency": 0.0,
@@ -3673,6 +4107,8 @@ export const energyPriorityTurn: TurnResponse = {
           "target": "selected"
         },
         "failure_effects": {
+          "condition": null,
+          "treatment": 0,
           "resources": {},
           "solar_efficiency": 0.0,
           "oxygen_efficiency": 0.0,
@@ -3686,7 +4122,8 @@ export const energyPriorityTurn: TurnResponse = {
         "available": false,
         "unavailable_reasons": [
           "Requires 1 dust_kits; available 0.",
-          "The solar array is already at full condition."
+          "The solar array is already at full condition.",
+          "Respiratory irritation: EVA unavailable until recovered; indoor work remains possible."
         ],
         "eligible_crew": [
           {
@@ -3702,6 +4139,7 @@ export const energyPriorityTurn: TurnResponse = {
             "crew_id": "maya",
             "available": false,
             "unavailable_reasons": [
+              "Respiratory irritation: EVA unavailable until recovered; indoor work remains possible.",
               "Requires 1 dust_kits; available 0.",
               "The solar array is already at full condition."
             ],
@@ -3728,6 +4166,8 @@ export const energyPriorityTurn: TurnResponse = {
         "crew_role_bonus": {},
         "success_chance": 1.0,
         "success_effects": {
+          "condition": null,
+          "treatment": 0,
           "resources": {},
           "solar_efficiency": 0.0,
           "oxygen_efficiency": 0.2,
@@ -3737,6 +4177,8 @@ export const energyPriorityTurn: TurnResponse = {
           "target": "selected"
         },
         "failure_effects": {
+          "condition": null,
+          "treatment": 0,
           "resources": {},
           "solar_efficiency": 0.0,
           "oxygen_efficiency": 0.0,
@@ -3792,6 +4234,8 @@ export const energyPriorityTurn: TurnResponse = {
         "crew_role_bonus": {},
         "success_chance": 1.0,
         "success_effects": {
+          "condition": null,
+          "treatment": 0,
           "resources": {},
           "solar_efficiency": 0.0,
           "oxygen_efficiency": 0.0,
@@ -3801,6 +4245,8 @@ export const energyPriorityTurn: TurnResponse = {
           "target": "selected"
         },
         "failure_effects": {
+          "condition": null,
+          "treatment": 0,
           "resources": {},
           "solar_efficiency": 0.0,
           "oxygen_efficiency": 0.0,
@@ -3847,6 +4293,8 @@ export const energyPriorityTurn: TurnResponse = {
         "crew_role_bonus": {},
         "success_chance": 1.0,
         "success_effects": {
+          "condition": null,
+          "treatment": 0,
           "resources": {},
           "solar_efficiency": 0.0,
           "oxygen_efficiency": 0.0,
@@ -3856,6 +4304,8 @@ export const energyPriorityTurn: TurnResponse = {
           "target": "selected"
         },
         "failure_effects": {
+          "condition": null,
+          "treatment": 0,
           "resources": {},
           "solar_efficiency": 0.0,
           "oxygen_efficiency": 0.0,
@@ -3897,7 +4347,7 @@ export const energyPriorityTurn: TurnResponse = {
           }
         ],
         "text": "Survey a geological sample",
-        "description": "Use the science kit to collect one sample and 2 research data on success. Scientists improve the odds; failure costs the worker 8 health. One-week crew assignment; incident response is separate.",
+        "description": "Use the science kit to collect one sample and 2 research data on success. Scientists improve the odds; failure costs the worker 8 health and causes a sprain. One-week crew assignment; incident response is separate.",
         "costs": {
           "eva_batteries": 1.0,
           "oxygen": 2.0
@@ -3913,6 +4363,8 @@ export const energyPriorityTurn: TurnResponse = {
         "crew_role_bonus": {},
         "success_chance": 0.75,
         "success_effects": {
+          "condition": null,
+          "treatment": 0,
           "resources": {
             "research_data": 2.0
           },
@@ -3924,6 +4376,8 @@ export const energyPriorityTurn: TurnResponse = {
           "target": "selected"
         },
         "failure_effects": {
+          "condition": "sprain",
+          "treatment": 0,
           "resources": {},
           "solar_efficiency": 0.0,
           "oxygen_efficiency": 0.0,
@@ -3936,7 +4390,8 @@ export const energyPriorityTurn: TurnResponse = {
         "minimum_crew": 1,
         "available": false,
         "unavailable_reasons": [
-          "Requires 1 Field science kit (not consumed)."
+          "Requires 1 Field science kit (not consumed).",
+          "Respiratory irritation: EVA unavailable until recovered; indoor work remains possible."
         ],
         "eligible_crew": [
           {
@@ -3951,9 +4406,10 @@ export const energyPriorityTurn: TurnResponse = {
             "crew_id": "maya",
             "available": false,
             "unavailable_reasons": [
+              "Respiratory irritation: EVA unavailable until recovered; indoor work remains possible.",
               "Requires 1 Field science kit (not consumed)."
             ],
-            "success_probability": 0.75
+            "success_probability": 0.7
           }
         ],
         "success_probability": null
@@ -3965,7 +4421,7 @@ export const energyPriorityTurn: TurnResponse = {
         "action_type": "research",
         "objective_rewards": [],
         "text": "Deploy seismic sensors",
-        "description": "Start a seismic project: 1 deployment week, 3 automatic recording weeks at 2 power each, then 1 crew analysis week. No objective credit until analysis succeeds. Failure costs 8 worker health and deployment supplies; the phase can be retried.",
+        "description": "Start a seismic project: 1 deployment week, 3 automatic recording weeks at 2 power each, then 1 crew analysis week. No objective credit until analysis succeeds. Failure causes a sprain and costs 8 health and deployment supplies; the phase can be retried.",
         "costs": {
           "electricity": 2.0,
           "eva_batteries": 1.0,
@@ -3982,6 +4438,8 @@ export const energyPriorityTurn: TurnResponse = {
         "crew_role_bonus": {},
         "success_chance": 0.75,
         "success_effects": {
+          "condition": null,
+          "treatment": 0,
           "resources": {},
           "solar_efficiency": 0.0,
           "oxygen_efficiency": 0.0,
@@ -3991,6 +4449,8 @@ export const energyPriorityTurn: TurnResponse = {
           "target": "selected"
         },
         "failure_effects": {
+          "condition": "sprain",
+          "treatment": 0,
           "resources": {},
           "solar_efficiency": 0.0,
           "oxygen_efficiency": 0.0,
@@ -4003,7 +4463,8 @@ export const energyPriorityTurn: TurnResponse = {
         "minimum_crew": 1,
         "available": false,
         "unavailable_reasons": [
-          "Requires 1 Field science kit (not consumed)."
+          "Requires 1 Field science kit (not consumed).",
+          "Respiratory irritation: EVA unavailable until recovered; indoor work remains possible."
         ],
         "eligible_crew": [
           {
@@ -4018,9 +4479,10 @@ export const energyPriorityTurn: TurnResponse = {
             "crew_id": "maya",
             "available": false,
             "unavailable_reasons": [
+              "Respiratory irritation: EVA unavailable until recovered; indoor work remains possible.",
               "Requires 1 Field science kit (not consumed)."
             ],
-            "success_probability": 0.75
+            "success_probability": 0.7
           }
         ],
         "success_probability": null
@@ -4055,6 +4517,8 @@ export const energyPriorityTurn: TurnResponse = {
         "crew_role_bonus": {},
         "success_chance": 0.7,
         "success_effects": {
+          "condition": null,
+          "treatment": 0,
           "resources": {
             "research_data": 2.0
           },
@@ -4066,6 +4530,8 @@ export const energyPriorityTurn: TurnResponse = {
           "target": "selected"
         },
         "failure_effects": {
+          "condition": null,
+          "treatment": 0,
           "resources": {},
           "solar_efficiency": 0.0,
           "oxygen_efficiency": 0.0,
@@ -4095,7 +4561,7 @@ export const energyPriorityTurn: TurnResponse = {
             "unavailable_reasons": [
               "Requires 1 Field science kit (not consumed)."
             ],
-            "success_probability": 0.7
+            "success_probability": 0.65
           }
         ],
         "success_probability": null
@@ -4119,6 +4585,30 @@ export const energyPriorityTurn: TurnResponse = {
         "medicine": 1.0
       },
       "effects": {
+        "medical_changes": [
+          {
+            "crew_id": "alex",
+            "kind": "dust_irritation",
+            "action": "stabilized",
+            "reason": null,
+            "before": {
+              "kind": "dust_irritation",
+              "remaining": 2,
+              "acquired_week": 1,
+              "stabilized": false,
+              "care_week": 0,
+              "care_points": 0
+            },
+            "after": {
+              "kind": "dust_irritation",
+              "remaining": 2,
+              "acquired_week": 1,
+              "stabilized": true,
+              "care_week": 1,
+              "care_points": 2
+            }
+          }
+        ],
         "resources": {},
         "solar_efficiency": 0.0,
         "oxygen_efficiency": 0.0,
@@ -4128,7 +4618,7 @@ export const energyPriorityTurn: TurnResponse = {
           {
             "crew_id": "alex",
             "before": 92,
-            "after": 100
+            "after": 97
           }
         ]
       },
@@ -4189,17 +4679,35 @@ export const energyPriorityTurn: TurnResponse = {
       "health_changes": [
         {
           "crew_id": "alex",
-          "before": 100,
+          "before": 97,
           "after": 100,
+          "medical_penalty": 0,
+          "medical_changes": [
+            {
+              "crew_id": "alex",
+              "kind": "dust_irritation",
+              "action": "resolved",
+              "reason": null,
+              "before": {
+                "kind": "dust_irritation",
+                "remaining": 2,
+                "acquired_week": 1,
+                "stabilized": true,
+                "care_week": 1,
+                "care_points": 2
+              },
+              "after": null
+            }
+          ],
           "food_received_fraction": 1.0,
           "water_received_fraction": 1.0,
           "nutrition_before": 0.0,
           "nutrition_after": 0.0,
           "hydration_before": 0.0,
           "hydration_after": 0.0,
-          "recovery": 0,
+          "recovery": 3,
           "worked": false,
-          "rested": false,
+          "rested": true,
           "food_penalty": 0,
           "water_penalty": 0,
           "oxygen_penalty": 0,
@@ -4210,6 +4718,8 @@ export const energyPriorityTurn: TurnResponse = {
           "crew_id": "maya",
           "before": 92,
           "after": 94,
+          "medical_penalty": 0,
+          "medical_changes": [],
           "food_received_fraction": 1.0,
           "water_received_fraction": 1.0,
           "nutrition_before": 0.0,
@@ -4249,6 +4759,7 @@ export const energyPriorityTurn: TurnResponse = {
       "event_id": "crew_recovery",
       "title": "A Week for Recovery",
       "effects": {
+        "medical_changes": [],
         "resources": {},
         "solar_efficiency": 0.0,
         "oxygen_efficiency": 0.0,
@@ -4403,6 +4914,7 @@ export const dehydratedGame: GameResponse = {
     },
     "crew": [
       {
+        "medical_conditions": [],
         "nutrition_deficit": 0.0,
         "hydration_deficit": 0.6,
         "condition": {
@@ -4471,6 +4983,7 @@ export const dehydratedGame: GameResponse = {
         }
       },
       {
+        "medical_conditions": [],
         "nutrition_deficit": 0.0,
         "hydration_deficit": 0.6,
         "condition": {
@@ -4569,6 +5082,8 @@ export const dehydratedGame: GameResponse = {
       "science_context": "Spacecraft life-support equipment needs maintenance. This regulator failure is a fictional training scenario.",
       "source_url": "https://www.nasa.gov/reference/9-0-hardware-and-equipment-vol-2/",
       "on_start": {
+        "condition": null,
+        "treatment": 0,
         "resources": {},
         "solar_efficiency": 0.0,
         "oxygen_efficiency": -0.25,
@@ -4598,6 +5113,8 @@ export const dehydratedGame: GameResponse = {
           "crew_role_bonus": {},
           "success_chance": 0.65,
           "success_effects": {
+            "condition": null,
+            "treatment": 0,
             "resources": {},
             "solar_efficiency": 0.0,
             "oxygen_efficiency": 0.25,
@@ -4607,6 +5124,8 @@ export const dehydratedGame: GameResponse = {
             "target": "selected"
           },
           "failure_effects": {
+            "condition": null,
+            "treatment": 0,
             "resources": {},
             "solar_efficiency": 0.0,
             "oxygen_efficiency": 0.0,
@@ -4679,6 +5198,8 @@ export const dehydratedGame: GameResponse = {
           "crew_role_bonus": {},
           "success_chance": 0.55,
           "success_effects": {
+            "condition": null,
+            "treatment": 0,
             "resources": {},
             "solar_efficiency": 0.0,
             "oxygen_efficiency": 0.2,
@@ -4688,6 +5209,8 @@ export const dehydratedGame: GameResponse = {
             "target": "selected"
           },
           "failure_effects": {
+            "condition": null,
+            "treatment": 0,
             "resources": {},
             "solar_efficiency": 0.0,
             "oxygen_efficiency": -0.1,
@@ -4740,6 +5263,8 @@ export const dehydratedGame: GameResponse = {
           "crew_role_bonus": {},
           "success_chance": 1.0,
           "success_effects": {
+            "condition": null,
+            "treatment": 0,
             "resources": {},
             "solar_efficiency": 0.0,
             "oxygen_efficiency": 0.0,
@@ -4749,6 +5274,8 @@ export const dehydratedGame: GameResponse = {
             "target": "selected"
           },
           "failure_effects": {
+            "condition": null,
+            "treatment": 0,
             "resources": {},
             "solar_efficiency": 0.0,
             "oxygen_efficiency": 0.0,
@@ -4791,6 +5318,7 @@ export const dehydratedGame: GameResponse = {
           "success_probability": 1.0,
           "costs": {},
           "effects": {
+            "medical_changes": [],
             "resources": {},
             "solar_efficiency": 0.0,
             "oxygen_efficiency": 0.0,
@@ -4857,6 +5385,8 @@ export const dehydratedGame: GameResponse = {
               "crew_id": "alex",
               "before": 100,
               "after": 72,
+              "medical_penalty": 0,
+              "medical_changes": [],
               "food_received_fraction": 1.0,
               "water_received_fraction": 0.4,
               "nutrition_before": 0.0,
@@ -4876,6 +5406,8 @@ export const dehydratedGame: GameResponse = {
               "crew_id": "maya",
               "before": 100,
               "after": 72,
+              "medical_penalty": 0,
+              "medical_changes": [],
               "food_received_fraction": 1.0,
               "water_received_fraction": 0.4,
               "nutrition_before": 0.0,
@@ -4915,6 +5447,7 @@ export const dehydratedGame: GameResponse = {
           "event_id": "oxygen_fault",
           "title": "Life Support Alarm",
           "effects": {
+            "medical_changes": [],
             "resources": {},
             "solar_efficiency": 0.0,
             "oxygen_efficiency": -0.25,
@@ -4997,6 +5530,8 @@ export const dehydratedGame: GameResponse = {
         "crew_role_bonus": {},
         "success_chance": 1.0,
         "success_effects": {
+          "condition": null,
+          "treatment": 0,
           "resources": {},
           "solar_efficiency": 0.0,
           "oxygen_efficiency": 0.0,
@@ -5006,6 +5541,8 @@ export const dehydratedGame: GameResponse = {
           "target": "selected"
         },
         "failure_effects": {
+          "condition": null,
+          "treatment": 0,
           "resources": {},
           "solar_efficiency": 0.0,
           "oxygen_efficiency": 0.0,
@@ -5053,6 +5590,8 @@ export const dehydratedGame: GameResponse = {
         "crew_role_bonus": {},
         "success_chance": 1.0,
         "success_effects": {
+          "condition": null,
+          "treatment": 0,
           "resources": {},
           "solar_efficiency": 0.2,
           "oxygen_efficiency": 0.0,
@@ -5062,6 +5601,8 @@ export const dehydratedGame: GameResponse = {
           "target": "selected"
         },
         "failure_effects": {
+          "condition": null,
+          "treatment": 0,
           "resources": {},
           "solar_efficiency": 0.0,
           "oxygen_efficiency": 0.0,
@@ -5120,6 +5661,8 @@ export const dehydratedGame: GameResponse = {
         "crew_role_bonus": {},
         "success_chance": 1.0,
         "success_effects": {
+          "condition": null,
+          "treatment": 0,
           "resources": {},
           "solar_efficiency": 0.0,
           "oxygen_efficiency": 0.2,
@@ -5129,6 +5672,8 @@ export const dehydratedGame: GameResponse = {
           "target": "selected"
         },
         "failure_effects": {
+          "condition": null,
+          "treatment": 0,
           "resources": {},
           "solar_efficiency": 0.0,
           "oxygen_efficiency": 0.0,
@@ -5187,6 +5732,8 @@ export const dehydratedGame: GameResponse = {
         "crew_role_bonus": {},
         "success_chance": 1.0,
         "success_effects": {
+          "condition": null,
+          "treatment": 0,
           "resources": {},
           "solar_efficiency": 0.0,
           "oxygen_efficiency": 0.0,
@@ -5196,6 +5743,8 @@ export const dehydratedGame: GameResponse = {
           "target": "selected"
         },
         "failure_effects": {
+          "condition": null,
+          "treatment": 0,
           "resources": {},
           "solar_efficiency": 0.0,
           "oxygen_efficiency": 0.0,
@@ -5242,6 +5791,8 @@ export const dehydratedGame: GameResponse = {
         "crew_role_bonus": {},
         "success_chance": 1.0,
         "success_effects": {
+          "condition": null,
+          "treatment": 0,
           "resources": {},
           "solar_efficiency": 0.0,
           "oxygen_efficiency": 0.0,
@@ -5251,6 +5802,8 @@ export const dehydratedGame: GameResponse = {
           "target": "selected"
         },
         "failure_effects": {
+          "condition": null,
+          "treatment": 0,
           "resources": {},
           "solar_efficiency": 0.0,
           "oxygen_efficiency": 0.0,
@@ -5292,7 +5845,7 @@ export const dehydratedGame: GameResponse = {
           }
         ],
         "text": "Survey a geological sample",
-        "description": "Use the science kit to collect one sample and 2 research data on success. Scientists improve the odds; failure costs the worker 8 health. One-week crew assignment; incident response is separate.",
+        "description": "Use the science kit to collect one sample and 2 research data on success. Scientists improve the odds; failure costs the worker 8 health and causes a sprain. One-week crew assignment; incident response is separate.",
         "costs": {
           "eva_batteries": 1.0,
           "oxygen": 2.0
@@ -5308,6 +5861,8 @@ export const dehydratedGame: GameResponse = {
         "crew_role_bonus": {},
         "success_chance": 0.75,
         "success_effects": {
+          "condition": null,
+          "treatment": 0,
           "resources": {
             "research_data": 2.0
           },
@@ -5319,6 +5874,8 @@ export const dehydratedGame: GameResponse = {
           "target": "selected"
         },
         "failure_effects": {
+          "condition": "sprain",
+          "treatment": 0,
           "resources": {},
           "solar_efficiency": 0.0,
           "oxygen_efficiency": 0.0,
@@ -5366,7 +5923,7 @@ export const dehydratedGame: GameResponse = {
         "action_type": "research",
         "objective_rewards": [],
         "text": "Deploy seismic sensors",
-        "description": "Start a seismic project: 1 deployment week, 3 automatic recording weeks at 2 power each, then 1 crew analysis week. No objective credit until analysis succeeds. Failure costs 8 worker health and deployment supplies; the phase can be retried.",
+        "description": "Start a seismic project: 1 deployment week, 3 automatic recording weeks at 2 power each, then 1 crew analysis week. No objective credit until analysis succeeds. Failure causes a sprain and costs 8 health and deployment supplies; the phase can be retried.",
         "costs": {
           "electricity": 2.0,
           "eva_batteries": 1.0,
@@ -5383,6 +5940,8 @@ export const dehydratedGame: GameResponse = {
         "crew_role_bonus": {},
         "success_chance": 0.75,
         "success_effects": {
+          "condition": null,
+          "treatment": 0,
           "resources": {},
           "solar_efficiency": 0.0,
           "oxygen_efficiency": 0.0,
@@ -5392,6 +5951,8 @@ export const dehydratedGame: GameResponse = {
           "target": "selected"
         },
         "failure_effects": {
+          "condition": "sprain",
+          "treatment": 0,
           "resources": {},
           "solar_efficiency": 0.0,
           "oxygen_efficiency": 0.0,
@@ -5462,6 +6023,8 @@ export const dehydratedGame: GameResponse = {
         "crew_role_bonus": {},
         "success_chance": 0.7,
         "success_effects": {
+          "condition": null,
+          "treatment": 0,
           "resources": {
             "research_data": 2.0
           },
@@ -5473,6 +6036,8 @@ export const dehydratedGame: GameResponse = {
           "target": "selected"
         },
         "failure_effects": {
+          "condition": null,
+          "treatment": 0,
           "resources": {},
           "solar_efficiency": 0.0,
           "oxygen_efficiency": 0.0,
@@ -5635,6 +6200,22 @@ export const underfedGame: GameResponse = {
     },
     "crew": [
       {
+        "medical_conditions": [
+          {
+            "kind": "dust_irritation",
+            "remaining": 2,
+            "acquired_week": 3,
+            "stabilized": false,
+            "care_week": 0,
+            "care_points": 0,
+            "title": "Dust-related respiratory irritation",
+            "urgent": false,
+            "rest_weeks": 2,
+            "medic_weeks": 1,
+            "untreated_damage": 1,
+            "source_url": "https://www.nasa.gov/reference/jsc-dust/"
+          }
+        ],
         "nutrition_deficit": 1.2,
         "hydration_deficit": 0.0,
         "condition": {
@@ -5643,9 +6224,9 @@ export const underfedGame: GameResponse = {
           "hydration_status": "adequate",
           "can_work": true,
           "can_do_eva": false,
-          "performance_penalty": 0.0475,
+          "performance_penalty": 0.0975,
           "restrictions": [
-            "Condition permits light duties only; EVA and strenuous work are unavailable."
+            "Respiratory irritation: EVA unavailable until recovered; indoor work remains possible."
           ],
           "nutrition_recovery_weeks": 5,
           "hydration_recovery_weeks": 0,
@@ -5674,7 +6255,7 @@ export const underfedGame: GameResponse = {
         "id": "alex",
         "name": "Alex Vega",
         "role": "engineer",
-        "health": 85,
+        "health": 84,
         "positive_trait": "Steady hands: +5 percentage points on assigned event actions.",
         "negative_trait": "Large appetite: consumes 10% more food.",
         "food_multiplier": 1.1,
@@ -5703,6 +6284,22 @@ export const underfedGame: GameResponse = {
         }
       },
       {
+        "medical_conditions": [
+          {
+            "kind": "dust_irritation",
+            "remaining": 2,
+            "acquired_week": 3,
+            "stabilized": false,
+            "care_week": 0,
+            "care_points": 0,
+            "title": "Dust-related respiratory irritation",
+            "urgent": false,
+            "rest_weeks": 2,
+            "medic_weeks": 1,
+            "untreated_damage": 1,
+            "source_url": "https://www.nasa.gov/reference/jsc-dust/"
+          }
+        ],
         "nutrition_deficit": 1.2,
         "hydration_deficit": 0.0,
         "condition": {
@@ -5711,9 +6308,9 @@ export const underfedGame: GameResponse = {
           "hydration_status": "adequate",
           "can_work": true,
           "can_do_eva": false,
-          "performance_penalty": 0.0475,
+          "performance_penalty": 0.0975,
           "restrictions": [
-            "Condition permits light duties only; EVA and strenuous work are unavailable."
+            "Respiratory irritation: EVA unavailable until recovered; indoor work remains possible."
           ],
           "nutrition_recovery_weeks": 5,
           "hydration_recovery_weeks": 0,
@@ -5742,7 +6339,7 @@ export const underfedGame: GameResponse = {
         "id": "lin",
         "name": "Lin Park",
         "role": "scientist",
-        "health": 82,
+        "health": 81,
         "positive_trait": "Water conscious: consumes 10% less water.",
         "negative_trait": "Fragile: event injuries cause 20% more damage.",
         "food_multiplier": 1.0,
@@ -5801,6 +6398,8 @@ export const underfedGame: GameResponse = {
       "science_context": "NASA develops exercise countermeasures for spaceflight. These immediate health gains are fictional; exercise does not instantly reverse injuries.",
       "source_url": "https://www.nasa.gov/directorates/esdmd/hhp/exercise-physiology-and-countermeasures/",
       "on_start": {
+        "condition": null,
+        "treatment": 0,
         "resources": {},
         "solar_efficiency": 0.0,
         "oxygen_efficiency": 0.0,
@@ -5828,6 +6427,8 @@ export const underfedGame: GameResponse = {
           "crew_role_bonus": {},
           "success_chance": 1.0,
           "success_effects": {
+            "condition": null,
+            "treatment": 0,
             "resources": {},
             "solar_efficiency": 0.0,
             "oxygen_efficiency": 0.0,
@@ -5837,6 +6438,8 @@ export const underfedGame: GameResponse = {
             "target": "all"
           },
           "failure_effects": {
+            "condition": null,
+            "treatment": 0,
             "resources": {},
             "solar_efficiency": 0.0,
             "oxygen_efficiency": 0.0,
@@ -5859,7 +6462,7 @@ export const underfedGame: GameResponse = {
           "action_type": "event",
           "objective_rewards": [],
           "text": "Treat one recovering astronaut",
-          "description": "Choose a patient and spend 1 medicine. Success restores 20 health; failure gives no healing. A living medic improves the odds.",
+          "description": "Select a patient and spend 1 medicine. Success gives 5 health, stabilizes one active condition (urgent first), and supplies up to 2 recovery points during survival with full provisions and safe air. Existing role bonuses improve the odds.",
           "costs": {
             "medicine": 1.0
           },
@@ -5871,15 +6474,19 @@ export const underfedGame: GameResponse = {
           },
           "success_chance": 0.75,
           "success_effects": {
+            "condition": null,
+            "treatment": 2,
             "resources": {},
             "solar_efficiency": 0.0,
             "oxygen_efficiency": 0.0,
             "water_recovery_efficiency": 0.0,
             "co2_efficiency": 0.0,
-            "crew_health": 20,
+            "crew_health": 5,
             "target": "selected"
           },
           "failure_effects": {
+            "condition": null,
+            "treatment": 0,
             "resources": {},
             "solar_efficiency": 0.0,
             "oxygen_efficiency": 0.0,
@@ -5923,6 +6530,8 @@ export const underfedGame: GameResponse = {
           "crew_role_bonus": {},
           "success_chance": 1.0,
           "success_effects": {
+            "condition": null,
+            "treatment": 0,
             "resources": {},
             "solar_efficiency": 0.0,
             "oxygen_efficiency": 0.0,
@@ -5932,6 +6541,8 @@ export const underfedGame: GameResponse = {
             "target": "all"
           },
           "failure_effects": {
+            "condition": null,
+            "treatment": 0,
             "resources": {},
             "solar_efficiency": 0.0,
             "oxygen_efficiency": 0.0,
@@ -5977,6 +6588,7 @@ export const underfedGame: GameResponse = {
           "success_probability": 1.0,
           "costs": {},
           "effects": {
+            "medical_changes": [],
             "resources": {},
             "solar_efficiency": 0.0,
             "oxygen_efficiency": 0.0,
@@ -6043,6 +6655,8 @@ export const underfedGame: GameResponse = {
               "crew_id": "alex",
               "before": 100,
               "after": 100,
+              "medical_penalty": 0,
+              "medical_changes": [],
               "food_received_fraction": 0.7,
               "water_received_fraction": 1.0,
               "nutrition_before": 0.0,
@@ -6062,6 +6676,8 @@ export const underfedGame: GameResponse = {
               "crew_id": "lin",
               "before": 100,
               "after": 100,
+              "medical_penalty": 0,
+              "medical_changes": [],
               "food_received_fraction": 0.7,
               "water_received_fraction": 1.0,
               "nutrition_before": 0.0,
@@ -6101,6 +6717,7 @@ export const underfedGame: GameResponse = {
           "event_id": "oxygen_fault",
           "title": "Life Support Alarm",
           "effects": {
+            "medical_changes": [],
             "resources": {},
             "solar_efficiency": 0.0,
             "oxygen_efficiency": -0.25,
@@ -6126,6 +6743,7 @@ export const underfedGame: GameResponse = {
           "success_probability": 1.0,
           "costs": {},
           "effects": {
+            "medical_changes": [],
             "resources": {},
             "solar_efficiency": 0.0,
             "oxygen_efficiency": 0.0,
@@ -6192,6 +6810,8 @@ export const underfedGame: GameResponse = {
               "crew_id": "alex",
               "before": 100,
               "after": 100,
+              "medical_penalty": 0,
+              "medical_changes": [],
               "food_received_fraction": 0.7,
               "water_received_fraction": 1.0,
               "nutrition_before": 0.3,
@@ -6211,6 +6831,8 @@ export const underfedGame: GameResponse = {
               "crew_id": "lin",
               "before": 100,
               "after": 100,
+              "medical_penalty": 0,
+              "medical_changes": [],
               "food_received_fraction": 0.7,
               "water_received_fraction": 1.0,
               "nutrition_before": 0.3,
@@ -6250,6 +6872,38 @@ export const underfedGame: GameResponse = {
           "event_id": "medical_emergency",
           "title": "Contaminated Air Filter",
           "effects": {
+            "medical_changes": [
+              {
+                "crew_id": "alex",
+                "kind": "dust_irritation",
+                "action": "acquired",
+                "reason": null,
+                "before": null,
+                "after": {
+                  "kind": "dust_irritation",
+                  "remaining": 2,
+                  "acquired_week": 3,
+                  "stabilized": false,
+                  "care_week": 0,
+                  "care_points": 0
+                }
+              },
+              {
+                "crew_id": "lin",
+                "kind": "dust_irritation",
+                "action": "acquired",
+                "reason": null,
+                "before": null,
+                "after": {
+                  "kind": "dust_irritation",
+                  "remaining": 2,
+                  "acquired_week": 3,
+                  "stabilized": false,
+                  "care_week": 0,
+                  "care_points": 0
+                }
+              }
+            ],
             "resources": {},
             "solar_efficiency": 0.0,
             "oxygen_efficiency": 0.0,
@@ -6286,6 +6940,7 @@ export const underfedGame: GameResponse = {
           "success_probability": 1.0,
           "costs": {},
           "effects": {
+            "medical_changes": [],
             "resources": {},
             "solar_efficiency": 0.0,
             "oxygen_efficiency": 0.0,
@@ -6363,6 +7018,8 @@ export const underfedGame: GameResponse = {
               "crew_id": "alex",
               "before": 87,
               "after": 87,
+              "medical_penalty": 0,
+              "medical_changes": [],
               "food_received_fraction": 0.7,
               "water_received_fraction": 1.0,
               "nutrition_before": 0.6,
@@ -6382,6 +7039,8 @@ export const underfedGame: GameResponse = {
               "crew_id": "lin",
               "before": 84,
               "after": 84,
+              "medical_penalty": 0,
+              "medical_changes": [],
               "food_received_fraction": 0.7,
               "water_received_fraction": 1.0,
               "nutrition_before": 0.6,
@@ -6421,6 +7080,7 @@ export const underfedGame: GameResponse = {
           "event_id": "inventory_audit",
           "title": "A Crate in the Ledger",
           "effects": {
+            "medical_changes": [],
             "resources": {},
             "solar_efficiency": 0.0,
             "oxygen_efficiency": 0.0,
@@ -6446,6 +7106,7 @@ export const underfedGame: GameResponse = {
           "success_probability": 1.0,
           "costs": {},
           "effects": {
+            "medical_changes": [],
             "resources": {},
             "solar_efficiency": 0.0,
             "oxygen_efficiency": 0.0,
@@ -6511,7 +7172,9 @@ export const underfedGame: GameResponse = {
             {
               "crew_id": "alex",
               "before": 87,
-              "after": 85,
+              "after": 84,
+              "medical_penalty": 1,
+              "medical_changes": [],
               "food_received_fraction": 0.7,
               "water_received_fraction": 1.0,
               "nutrition_before": 0.9,
@@ -6530,7 +7193,9 @@ export const underfedGame: GameResponse = {
             {
               "crew_id": "lin",
               "before": 84,
-              "after": 82,
+              "after": 81,
+              "medical_penalty": 1,
+              "medical_changes": [],
               "food_received_fraction": 0.7,
               "water_received_fraction": 1.0,
               "nutrition_before": 0.9,
@@ -6570,6 +7235,7 @@ export const underfedGame: GameResponse = {
           "event_id": "crew_recovery",
           "title": "A Week for Recovery",
           "effects": {
+            "medical_changes": [],
             "resources": {},
             "solar_efficiency": 0.0,
             "oxygen_efficiency": 0.0,
@@ -6652,6 +7318,8 @@ export const underfedGame: GameResponse = {
         "crew_role_bonus": {},
         "success_chance": 1.0,
         "success_effects": {
+          "condition": null,
+          "treatment": 0,
           "resources": {},
           "solar_efficiency": 0.0,
           "oxygen_efficiency": 0.0,
@@ -6661,6 +7329,124 @@ export const underfedGame: GameResponse = {
           "target": "selected"
         },
         "failure_effects": {
+          "condition": null,
+          "treatment": 0,
+          "resources": {},
+          "solar_efficiency": 0.0,
+          "oxygen_efficiency": 0.0,
+          "water_recovery_efficiency": 0.0,
+          "co2_efficiency": 0.0,
+          "crew_health": 0,
+          "target": "selected"
+        },
+        "required_role": null,
+        "minimum_crew": 1,
+        "available": true,
+        "unavailable_reasons": [],
+        "eligible_crew": [
+          {
+            "crew_id": "alex",
+            "available": true,
+            "unavailable_reasons": [],
+            "success_probability": 1.0
+          },
+          {
+            "crew_id": "lin",
+            "available": true,
+            "unavailable_reasons": [],
+            "success_probability": 1.0
+          }
+        ],
+        "success_probability": null
+      },
+      {
+        "workload": "light",
+        "support_candidates": [],
+        "id": "medical_care",
+        "action_type": "medical",
+        "objective_rewards": [],
+        "text": "Provide medical care",
+        "description": "Reserve caregiver and patient for one week, plus 1 medicine. Stabilizes the chosen condition immediately. A fit medic earns 2 recovery points; another fit caregiver earns 1 (2 with a retained diagnostic scanner). Progress needs full actual provisions and safe air. Both crew are occupied, even if recovery stalls.",
+        "costs": {
+          "medicine": 1.0
+        },
+        "required_items": {},
+        "requires_crew": true,
+        "role_bonus": {},
+        "crew_role_bonus": {},
+        "success_chance": 1.0,
+        "success_effects": {
+          "condition": null,
+          "treatment": 0,
+          "resources": {},
+          "solar_efficiency": 0.0,
+          "oxygen_efficiency": 0.0,
+          "water_recovery_efficiency": 0.0,
+          "co2_efficiency": 0.0,
+          "crew_health": 0,
+          "target": "selected"
+        },
+        "failure_effects": {
+          "condition": null,
+          "treatment": 0,
+          "resources": {},
+          "solar_efficiency": 0.0,
+          "oxygen_efficiency": 0.0,
+          "water_recovery_efficiency": 0.0,
+          "co2_efficiency": 0.0,
+          "crew_health": 0,
+          "target": "selected"
+        },
+        "required_role": null,
+        "minimum_crew": 1,
+        "available": true,
+        "unavailable_reasons": [],
+        "eligible_crew": [
+          {
+            "crew_id": "alex",
+            "available": true,
+            "unavailable_reasons": [],
+            "success_probability": 1.0
+          },
+          {
+            "crew_id": "lin",
+            "available": true,
+            "unavailable_reasons": [],
+            "success_probability": 1.0
+          }
+        ],
+        "success_probability": null
+      },
+      {
+        "workload": "rest",
+        "support_candidates": [],
+        "id": "self_care",
+        "action_type": "medical",
+        "objective_rewards": [],
+        "text": "Self-care and stabilization",
+        "description": "One astronaut and 1 medicine. Available even when critically unfit; treats only their own chosen condition. Stabilizes immediately and earns 1 recovery point with full actual provisions and safe air. No work or incident duty that week.",
+        "costs": {
+          "medicine": 1.0
+        },
+        "required_items": {},
+        "requires_crew": true,
+        "role_bonus": {},
+        "crew_role_bonus": {},
+        "success_chance": 1.0,
+        "success_effects": {
+          "condition": null,
+          "treatment": 0,
+          "resources": {},
+          "solar_efficiency": 0.0,
+          "oxygen_efficiency": 0.0,
+          "water_recovery_efficiency": 0.0,
+          "co2_efficiency": 0.0,
+          "crew_health": 0,
+          "target": "selected"
+        },
+        "failure_effects": {
+          "condition": null,
+          "treatment": 0,
           "resources": {},
           "solar_efficiency": 0.0,
           "oxygen_efficiency": 0.0,
@@ -6708,6 +7494,8 @@ export const underfedGame: GameResponse = {
         "crew_role_bonus": {},
         "success_chance": 1.0,
         "success_effects": {
+          "condition": null,
+          "treatment": 0,
           "resources": {},
           "solar_efficiency": 0.2,
           "oxygen_efficiency": 0.0,
@@ -6717,6 +7505,8 @@ export const underfedGame: GameResponse = {
           "target": "selected"
         },
         "failure_effects": {
+          "condition": null,
+          "treatment": 0,
           "resources": {},
           "solar_efficiency": 0.0,
           "oxygen_efficiency": 0.0,
@@ -6730,7 +7520,7 @@ export const underfedGame: GameResponse = {
         "available": false,
         "unavailable_reasons": [
           "Requires at least 1 living astronauts fit for this workload.",
-          "Condition permits light duties only; EVA and strenuous work are unavailable.",
+          "Respiratory irritation: EVA unavailable until recovered; indoor work remains possible.",
           "Requires 1 dust_kits; available 0."
         ],
         "eligible_crew": [
@@ -6739,7 +7529,7 @@ export const underfedGame: GameResponse = {
             "available": false,
             "unavailable_reasons": [
               "Requires at least 1 living astronauts fit for this workload.",
-              "Condition permits light duties only; EVA and strenuous work are unavailable.",
+              "Respiratory irritation: EVA unavailable until recovered; indoor work remains possible.",
               "Requires 1 dust_kits; available 0."
             ],
             "success_probability": 1.0
@@ -6749,7 +7539,7 @@ export const underfedGame: GameResponse = {
             "available": false,
             "unavailable_reasons": [
               "Requires at least 1 living astronauts fit for this workload.",
-              "Condition permits light duties only; EVA and strenuous work are unavailable.",
+              "Respiratory irritation: EVA unavailable until recovered; indoor work remains possible.",
               "Requires 1 dust_kits; available 0."
             ],
             "success_probability": 1.0
@@ -6775,6 +7565,8 @@ export const underfedGame: GameResponse = {
         "crew_role_bonus": {},
         "success_chance": 1.0,
         "success_effects": {
+          "condition": null,
+          "treatment": 0,
           "resources": {},
           "solar_efficiency": 0.0,
           "oxygen_efficiency": 0.2,
@@ -6784,6 +7576,8 @@ export const underfedGame: GameResponse = {
           "target": "selected"
         },
         "failure_effects": {
+          "condition": null,
+          "treatment": 0,
           "resources": {},
           "solar_efficiency": 0.0,
           "oxygen_efficiency": 0.0,
@@ -6842,6 +7636,8 @@ export const underfedGame: GameResponse = {
         "crew_role_bonus": {},
         "success_chance": 1.0,
         "success_effects": {
+          "condition": null,
+          "treatment": 0,
           "resources": {},
           "solar_efficiency": 0.0,
           "oxygen_efficiency": 0.0,
@@ -6851,6 +7647,8 @@ export const underfedGame: GameResponse = {
           "target": "selected"
         },
         "failure_effects": {
+          "condition": null,
+          "treatment": 0,
           "resources": {},
           "solar_efficiency": 0.0,
           "oxygen_efficiency": 0.0,
@@ -6897,6 +7695,8 @@ export const underfedGame: GameResponse = {
         "crew_role_bonus": {},
         "success_chance": 1.0,
         "success_effects": {
+          "condition": null,
+          "treatment": 0,
           "resources": {},
           "solar_efficiency": 0.0,
           "oxygen_efficiency": 0.0,
@@ -6906,6 +7706,8 @@ export const underfedGame: GameResponse = {
           "target": "selected"
         },
         "failure_effects": {
+          "condition": null,
+          "treatment": 0,
           "resources": {},
           "solar_efficiency": 0.0,
           "oxygen_efficiency": 0.0,
@@ -6947,7 +7749,7 @@ export const underfedGame: GameResponse = {
           }
         ],
         "text": "Survey a geological sample",
-        "description": "Use the science kit to collect one sample and 2 research data on success. Scientists improve the odds; failure costs the worker 8 health. One-week crew assignment; incident response is separate.",
+        "description": "Use the science kit to collect one sample and 2 research data on success. Scientists improve the odds; failure costs the worker 8 health and causes a sprain. One-week crew assignment; incident response is separate.",
         "costs": {
           "eva_batteries": 1.0,
           "oxygen": 2.0
@@ -6963,6 +7765,8 @@ export const underfedGame: GameResponse = {
         "crew_role_bonus": {},
         "success_chance": 0.75,
         "success_effects": {
+          "condition": null,
+          "treatment": 0,
           "resources": {
             "research_data": 2.0
           },
@@ -6974,6 +7778,8 @@ export const underfedGame: GameResponse = {
           "target": "selected"
         },
         "failure_effects": {
+          "condition": "sprain",
+          "treatment": 0,
           "resources": {},
           "solar_efficiency": 0.0,
           "oxygen_efficiency": 0.0,
@@ -6987,7 +7793,7 @@ export const underfedGame: GameResponse = {
         "available": false,
         "unavailable_reasons": [
           "Requires at least 1 living astronauts fit for this workload.",
-          "Condition permits light duties only; EVA and strenuous work are unavailable."
+          "Respiratory irritation: EVA unavailable until recovered; indoor work remains possible."
         ],
         "eligible_crew": [
           {
@@ -6995,18 +7801,18 @@ export const underfedGame: GameResponse = {
             "available": false,
             "unavailable_reasons": [
               "Requires at least 1 living astronauts fit for this workload.",
-              "Condition permits light duties only; EVA and strenuous work are unavailable."
+              "Respiratory irritation: EVA unavailable until recovered; indoor work remains possible."
             ],
-            "success_probability": 0.7525
+            "success_probability": 0.7025
           },
           {
             "crew_id": "lin",
             "available": false,
             "unavailable_reasons": [
               "Requires at least 1 living astronauts fit for this workload.",
-              "Condition permits light duties only; EVA and strenuous work are unavailable."
+              "Respiratory irritation: EVA unavailable until recovered; indoor work remains possible."
             ],
-            "success_probability": 0.9025
+            "success_probability": 0.8525
           }
         ],
         "success_probability": null
@@ -7018,7 +7824,7 @@ export const underfedGame: GameResponse = {
         "action_type": "research",
         "objective_rewards": [],
         "text": "Deploy seismic sensors",
-        "description": "Start a seismic project: 1 deployment week, 3 automatic recording weeks at 2 power each, then 1 crew analysis week. No objective credit until analysis succeeds. Failure costs 8 worker health and deployment supplies; the phase can be retried.",
+        "description": "Start a seismic project: 1 deployment week, 3 automatic recording weeks at 2 power each, then 1 crew analysis week. No objective credit until analysis succeeds. Failure causes a sprain and costs 8 health and deployment supplies; the phase can be retried.",
         "costs": {
           "electricity": 2.0,
           "eva_batteries": 1.0,
@@ -7035,6 +7841,8 @@ export const underfedGame: GameResponse = {
         "crew_role_bonus": {},
         "success_chance": 0.75,
         "success_effects": {
+          "condition": null,
+          "treatment": 0,
           "resources": {},
           "solar_efficiency": 0.0,
           "oxygen_efficiency": 0.0,
@@ -7044,6 +7852,8 @@ export const underfedGame: GameResponse = {
           "target": "selected"
         },
         "failure_effects": {
+          "condition": "sprain",
+          "treatment": 0,
           "resources": {},
           "solar_efficiency": 0.0,
           "oxygen_efficiency": 0.0,
@@ -7057,7 +7867,7 @@ export const underfedGame: GameResponse = {
         "available": false,
         "unavailable_reasons": [
           "Requires at least 1 living astronauts fit for this workload.",
-          "Condition permits light duties only; EVA and strenuous work are unavailable."
+          "Respiratory irritation: EVA unavailable until recovered; indoor work remains possible."
         ],
         "eligible_crew": [
           {
@@ -7065,18 +7875,18 @@ export const underfedGame: GameResponse = {
             "available": false,
             "unavailable_reasons": [
               "Requires at least 1 living astronauts fit for this workload.",
-              "Condition permits light duties only; EVA and strenuous work are unavailable."
+              "Respiratory irritation: EVA unavailable until recovered; indoor work remains possible."
             ],
-            "success_probability": 0.7525
+            "success_probability": 0.7025
           },
           {
             "crew_id": "lin",
             "available": false,
             "unavailable_reasons": [
               "Requires at least 1 living astronauts fit for this workload.",
-              "Condition permits light duties only; EVA and strenuous work are unavailable."
+              "Respiratory irritation: EVA unavailable until recovered; indoor work remains possible."
             ],
-            "success_probability": 0.9025
+            "success_probability": 0.8525
           }
         ],
         "success_probability": null
@@ -7111,6 +7921,8 @@ export const underfedGame: GameResponse = {
         "crew_role_bonus": {},
         "success_chance": 0.7,
         "success_effects": {
+          "condition": null,
+          "treatment": 0,
           "resources": {
             "research_data": 2.0
           },
@@ -7122,6 +7934,8 @@ export const underfedGame: GameResponse = {
           "target": "selected"
         },
         "failure_effects": {
+          "condition": null,
+          "treatment": 0,
           "resources": {},
           "solar_efficiency": 0.0,
           "oxygen_efficiency": 0.0,
@@ -7145,7 +7959,7 @@ export const underfedGame: GameResponse = {
               "Requires at least 1 living astronauts fit for this workload.",
               "Condition permits light duties only; EVA and strenuous work are unavailable."
             ],
-            "success_probability": 0.9025
+            "success_probability": 0.8525
           },
           {
             "crew_id": "lin",
@@ -7154,7 +7968,7 @@ export const underfedGame: GameResponse = {
               "Requires at least 1 living astronauts fit for this workload.",
               "Condition permits light duties only; EVA and strenuous work are unavailable."
             ],
-            "success_probability": 0.7525
+            "success_probability": 0.7025
           }
         ],
         "success_probability": null
@@ -7273,16 +8087,34 @@ export const recuperationTurn: TurnResponse = {
     },
     "crew": [
       {
+        "medical_conditions": [
+          {
+            "kind": "dust_irritation",
+            "remaining": 1,
+            "acquired_week": 3,
+            "stabilized": false,
+            "care_week": 0,
+            "care_points": 0,
+            "title": "Dust-related respiratory irritation",
+            "urgent": false,
+            "rest_weeks": 1,
+            "medic_weeks": 1,
+            "untreated_damage": 1,
+            "source_url": "https://www.nasa.gov/reference/jsc-dust/"
+          }
+        ],
         "nutrition_deficit": 0.8,
         "hydration_deficit": 0.0,
         "condition": {
-          "status": "impaired",
+          "status": "serious",
           "nutrition_status": "underfed",
           "hydration_status": "adequate",
           "can_work": true,
-          "can_do_eva": true,
-          "performance_penalty": 0.0275,
-          "restrictions": [],
+          "can_do_eva": false,
+          "performance_penalty": 0.0775,
+          "restrictions": [
+            "Respiratory irritation: EVA unavailable until recovered; indoor work remains possible."
+          ],
           "nutrition_recovery_weeks": 4,
           "hydration_recovery_weeks": 0,
           "source_url": "https://www.nasa.gov/reference/risk-of-inadequate-food-and-nutrition/"
@@ -7310,7 +8142,7 @@ export const recuperationTurn: TurnResponse = {
         "id": "alex",
         "name": "Alex Vega",
         "role": "engineer",
-        "health": 96,
+        "health": 89,
         "positive_trait": "Steady hands: +5 percentage points on assigned event actions.",
         "negative_trait": "Large appetite: consumes 10% more food.",
         "food_multiplier": 1.1,
@@ -7339,16 +8171,34 @@ export const recuperationTurn: TurnResponse = {
         }
       },
       {
+        "medical_conditions": [
+          {
+            "kind": "dust_irritation",
+            "remaining": 2,
+            "acquired_week": 3,
+            "stabilized": false,
+            "care_week": 0,
+            "care_points": 0,
+            "title": "Dust-related respiratory irritation",
+            "urgent": false,
+            "rest_weeks": 2,
+            "medic_weeks": 1,
+            "untreated_damage": 1,
+            "source_url": "https://www.nasa.gov/reference/jsc-dust/"
+          }
+        ],
         "nutrition_deficit": 0.95,
         "hydration_deficit": 0.0,
         "condition": {
-          "status": "impaired",
+          "status": "serious",
           "nutrition_status": "underfed",
           "hydration_status": "adequate",
           "can_work": true,
-          "can_do_eva": true,
-          "performance_penalty": 0.035,
-          "restrictions": [],
+          "can_do_eva": false,
+          "performance_penalty": 0.085,
+          "restrictions": [
+            "Respiratory irritation: EVA unavailable until recovered; indoor work remains possible."
+          ],
           "nutrition_recovery_weeks": 4,
           "hydration_recovery_weeks": 0,
           "source_url": "https://www.nasa.gov/reference/risk-of-inadequate-food-and-nutrition/"
@@ -7376,7 +8226,7 @@ export const recuperationTurn: TurnResponse = {
         "id": "lin",
         "name": "Lin Park",
         "role": "scientist",
-        "health": 90,
+        "health": 86,
         "positive_trait": "Water conscious: consumes 10% less water.",
         "negative_trait": "Fragile: event injuries cause 20% more damage.",
         "food_multiplier": 1.0,
@@ -7435,6 +8285,8 @@ export const recuperationTurn: TurnResponse = {
       "science_context": "Apollo seismometers recorded moonquakes. Their origins include tidal effects, impacts, and thermal changes.",
       "source_url": "https://science.nasa.gov/moon/moonquakes/",
       "on_start": {
+        "condition": null,
+        "treatment": 0,
         "resources": {},
         "solar_efficiency": 0.0,
         "oxygen_efficiency": 0.0,
@@ -7482,6 +8334,8 @@ export const recuperationTurn: TurnResponse = {
           "crew_role_bonus": {},
           "success_chance": 0.7,
           "success_effects": {
+            "condition": null,
+            "treatment": 0,
             "resources": {
               "research_data": 5.0
             },
@@ -7493,6 +8347,8 @@ export const recuperationTurn: TurnResponse = {
             "target": "selected"
           },
           "failure_effects": {
+            "condition": null,
+            "treatment": 0,
             "resources": {
               "electricity": -2.0
             },
@@ -7512,13 +8368,13 @@ export const recuperationTurn: TurnResponse = {
               "crew_id": "alex",
               "available": true,
               "unavailable_reasons": [],
-              "success_probability": 0.7225
+              "success_probability": 0.6725
             },
             {
               "crew_id": "lin",
               "available": true,
               "unavailable_reasons": [],
-              "success_probability": 0.865
+              "success_probability": 0.815
             }
           ],
           "success_probability": null
@@ -7538,6 +8394,8 @@ export const recuperationTurn: TurnResponse = {
           "crew_role_bonus": {},
           "success_chance": 1.0,
           "success_effects": {
+            "condition": null,
+            "treatment": 0,
             "resources": {
               "research_data": 1.0
             },
@@ -7549,6 +8407,8 @@ export const recuperationTurn: TurnResponse = {
             "target": "selected"
           },
           "failure_effects": {
+            "condition": null,
+            "treatment": 0,
             "resources": {},
             "solar_efficiency": 0.0,
             "oxygen_efficiency": 0.0,
@@ -7579,6 +8439,8 @@ export const recuperationTurn: TurnResponse = {
           "crew_role_bonus": {},
           "success_chance": 1.0,
           "success_effects": {
+            "condition": null,
+            "treatment": 0,
             "resources": {},
             "solar_efficiency": 0.0,
             "oxygen_efficiency": 0.0,
@@ -7588,6 +8450,8 @@ export const recuperationTurn: TurnResponse = {
             "target": "selected"
           },
           "failure_effects": {
+            "condition": null,
+            "treatment": 0,
             "resources": {},
             "solar_efficiency": 0.0,
             "oxygen_efficiency": 0.0,
@@ -7634,6 +8498,7 @@ export const recuperationTurn: TurnResponse = {
           "success_probability": 1.0,
           "costs": {},
           "effects": {
+            "medical_changes": [],
             "resources": {},
             "solar_efficiency": 0.0,
             "oxygen_efficiency": 0.0,
@@ -7700,6 +8565,8 @@ export const recuperationTurn: TurnResponse = {
               "crew_id": "alex",
               "before": 100,
               "after": 100,
+              "medical_penalty": 0,
+              "medical_changes": [],
               "food_received_fraction": 0.7,
               "water_received_fraction": 1.0,
               "nutrition_before": 0.0,
@@ -7719,6 +8586,8 @@ export const recuperationTurn: TurnResponse = {
               "crew_id": "lin",
               "before": 100,
               "after": 100,
+              "medical_penalty": 0,
+              "medical_changes": [],
               "food_received_fraction": 0.7,
               "water_received_fraction": 1.0,
               "nutrition_before": 0.0,
@@ -7758,6 +8627,7 @@ export const recuperationTurn: TurnResponse = {
           "event_id": "oxygen_fault",
           "title": "Life Support Alarm",
           "effects": {
+            "medical_changes": [],
             "resources": {},
             "solar_efficiency": 0.0,
             "oxygen_efficiency": -0.25,
@@ -7783,6 +8653,7 @@ export const recuperationTurn: TurnResponse = {
           "success_probability": 1.0,
           "costs": {},
           "effects": {
+            "medical_changes": [],
             "resources": {},
             "solar_efficiency": 0.0,
             "oxygen_efficiency": 0.0,
@@ -7849,6 +8720,8 @@ export const recuperationTurn: TurnResponse = {
               "crew_id": "alex",
               "before": 100,
               "after": 100,
+              "medical_penalty": 0,
+              "medical_changes": [],
               "food_received_fraction": 0.7,
               "water_received_fraction": 1.0,
               "nutrition_before": 0.3,
@@ -7868,6 +8741,8 @@ export const recuperationTurn: TurnResponse = {
               "crew_id": "lin",
               "before": 100,
               "after": 100,
+              "medical_penalty": 0,
+              "medical_changes": [],
               "food_received_fraction": 0.7,
               "water_received_fraction": 1.0,
               "nutrition_before": 0.3,
@@ -7907,6 +8782,38 @@ export const recuperationTurn: TurnResponse = {
           "event_id": "medical_emergency",
           "title": "Contaminated Air Filter",
           "effects": {
+            "medical_changes": [
+              {
+                "crew_id": "alex",
+                "kind": "dust_irritation",
+                "action": "acquired",
+                "reason": null,
+                "before": null,
+                "after": {
+                  "kind": "dust_irritation",
+                  "remaining": 2,
+                  "acquired_week": 3,
+                  "stabilized": false,
+                  "care_week": 0,
+                  "care_points": 0
+                }
+              },
+              {
+                "crew_id": "lin",
+                "kind": "dust_irritation",
+                "action": "acquired",
+                "reason": null,
+                "before": null,
+                "after": {
+                  "kind": "dust_irritation",
+                  "remaining": 2,
+                  "acquired_week": 3,
+                  "stabilized": false,
+                  "care_week": 0,
+                  "care_points": 0
+                }
+              }
+            ],
             "resources": {},
             "solar_efficiency": 0.0,
             "oxygen_efficiency": 0.0,
@@ -7943,6 +8850,7 @@ export const recuperationTurn: TurnResponse = {
           "success_probability": 1.0,
           "costs": {},
           "effects": {
+            "medical_changes": [],
             "resources": {},
             "solar_efficiency": 0.0,
             "oxygen_efficiency": 0.0,
@@ -8020,6 +8928,8 @@ export const recuperationTurn: TurnResponse = {
               "crew_id": "alex",
               "before": 87,
               "after": 87,
+              "medical_penalty": 0,
+              "medical_changes": [],
               "food_received_fraction": 0.7,
               "water_received_fraction": 1.0,
               "nutrition_before": 0.6,
@@ -8039,6 +8949,8 @@ export const recuperationTurn: TurnResponse = {
               "crew_id": "lin",
               "before": 84,
               "after": 84,
+              "medical_penalty": 0,
+              "medical_changes": [],
               "food_received_fraction": 0.7,
               "water_received_fraction": 1.0,
               "nutrition_before": 0.6,
@@ -8078,6 +8990,7 @@ export const recuperationTurn: TurnResponse = {
           "event_id": "inventory_audit",
           "title": "A Crate in the Ledger",
           "effects": {
+            "medical_changes": [],
             "resources": {},
             "solar_efficiency": 0.0,
             "oxygen_efficiency": 0.0,
@@ -8103,6 +9016,7 @@ export const recuperationTurn: TurnResponse = {
           "success_probability": 1.0,
           "costs": {},
           "effects": {
+            "medical_changes": [],
             "resources": {},
             "solar_efficiency": 0.0,
             "oxygen_efficiency": 0.0,
@@ -8168,7 +9082,9 @@ export const recuperationTurn: TurnResponse = {
             {
               "crew_id": "alex",
               "before": 87,
-              "after": 85,
+              "after": 84,
+              "medical_penalty": 1,
+              "medical_changes": [],
               "food_received_fraction": 0.7,
               "water_received_fraction": 1.0,
               "nutrition_before": 0.9,
@@ -8187,7 +9103,9 @@ export const recuperationTurn: TurnResponse = {
             {
               "crew_id": "lin",
               "before": 84,
-              "after": 82,
+              "after": 81,
+              "medical_penalty": 1,
+              "medical_changes": [],
               "food_received_fraction": 0.7,
               "water_received_fraction": 1.0,
               "nutrition_before": 0.9,
@@ -8227,6 +9145,7 @@ export const recuperationTurn: TurnResponse = {
           "event_id": "crew_recovery",
           "title": "A Week for Recovery",
           "effects": {
+            "medical_changes": [],
             "resources": {},
             "solar_efficiency": 0.0,
             "oxygen_efficiency": 0.0,
@@ -8241,6 +9160,8 @@ export const recuperationTurn: TurnResponse = {
         "project_updates": [],
         "assignments": [
           {
+            "patient_id": null,
+            "condition_id": null,
             "crew_id": "alex",
             "activity_id": "crew_rest",
             "status": "completed",
@@ -8254,6 +9175,7 @@ export const recuperationTurn: TurnResponse = {
               "success_probability": 1.0,
               "costs": {},
               "effects": {
+                "medical_changes": [],
                 "resources": {},
                 "solar_efficiency": 0.0,
                 "oxygen_efficiency": 0.0,
@@ -8281,6 +9203,7 @@ export const recuperationTurn: TurnResponse = {
             "water": 1.0
           },
           "effects": {
+            "medical_changes": [],
             "resources": {},
             "solar_efficiency": 0.0,
             "oxygen_efficiency": 0.0,
@@ -8289,13 +9212,13 @@ export const recuperationTurn: TurnResponse = {
             "health_changes": [
               {
                 "crew_id": "alex",
-                "before": 85,
-                "after": 91
+                "before": 84,
+                "after": 90
               },
               {
                 "crew_id": "lin",
-                "before": 82,
-                "after": 88
+                "before": 81,
+                "after": 87
               }
             ]
           },
@@ -8356,15 +9279,40 @@ export const recuperationTurn: TurnResponse = {
           "health_changes": [
             {
               "crew_id": "alex",
-              "before": 91,
-              "after": 96,
+              "before": 90,
+              "after": 89,
+              "medical_penalty": 1,
+              "medical_changes": [
+                {
+                  "crew_id": "alex",
+                  "kind": "dust_irritation",
+                  "action": "recovering",
+                  "reason": null,
+                  "before": {
+                    "kind": "dust_irritation",
+                    "remaining": 2,
+                    "acquired_week": 3,
+                    "stabilized": false,
+                    "care_week": 0,
+                    "care_points": 0
+                  },
+                  "after": {
+                    "kind": "dust_irritation",
+                    "remaining": 1,
+                    "acquired_week": 3,
+                    "stabilized": false,
+                    "care_week": 0,
+                    "care_points": 0
+                  }
+                }
+              ],
               "food_received_fraction": 1.0,
               "water_received_fraction": 1.0,
               "nutrition_before": 1.2,
               "nutrition_after": 0.8,
               "hydration_before": 0.0,
               "hydration_after": 0.0,
-              "recovery": 5,
+              "recovery": 0,
               "worked": false,
               "rested": true,
               "food_penalty": 0,
@@ -8375,15 +9323,17 @@ export const recuperationTurn: TurnResponse = {
             },
             {
               "crew_id": "lin",
-              "before": 88,
-              "after": 90,
+              "before": 87,
+              "after": 86,
+              "medical_penalty": 1,
+              "medical_changes": [],
               "food_received_fraction": 1.0,
               "water_received_fraction": 1.0,
               "nutrition_before": 1.2,
               "nutrition_after": 0.95,
               "hydration_before": 0.0,
               "hydration_after": 0.0,
-              "recovery": 2,
+              "recovery": 0,
               "worked": false,
               "rested": false,
               "food_penalty": 0,
@@ -8416,6 +9366,7 @@ export const recuperationTurn: TurnResponse = {
           "event_id": "seismic_signal",
           "title": "A Signal in the Seismometer",
           "effects": {
+            "medical_changes": [],
             "resources": {},
             "solar_efficiency": 0.0,
             "oxygen_efficiency": 0.0,
@@ -8498,6 +9449,8 @@ export const recuperationTurn: TurnResponse = {
         "crew_role_bonus": {},
         "success_chance": 1.0,
         "success_effects": {
+          "condition": null,
+          "treatment": 0,
           "resources": {},
           "solar_efficiency": 0.0,
           "oxygen_efficiency": 0.0,
@@ -8507,6 +9460,124 @@ export const recuperationTurn: TurnResponse = {
           "target": "selected"
         },
         "failure_effects": {
+          "condition": null,
+          "treatment": 0,
+          "resources": {},
+          "solar_efficiency": 0.0,
+          "oxygen_efficiency": 0.0,
+          "water_recovery_efficiency": 0.0,
+          "co2_efficiency": 0.0,
+          "crew_health": 0,
+          "target": "selected"
+        },
+        "required_role": null,
+        "minimum_crew": 1,
+        "available": true,
+        "unavailable_reasons": [],
+        "eligible_crew": [
+          {
+            "crew_id": "alex",
+            "available": true,
+            "unavailable_reasons": [],
+            "success_probability": 1.0
+          },
+          {
+            "crew_id": "lin",
+            "available": true,
+            "unavailable_reasons": [],
+            "success_probability": 1.0
+          }
+        ],
+        "success_probability": null
+      },
+      {
+        "workload": "light",
+        "support_candidates": [],
+        "id": "medical_care",
+        "action_type": "medical",
+        "objective_rewards": [],
+        "text": "Provide medical care",
+        "description": "Reserve caregiver and patient for one week, plus 1 medicine. Stabilizes the chosen condition immediately. A fit medic earns 2 recovery points; another fit caregiver earns 1 (2 with a retained diagnostic scanner). Progress needs full actual provisions and safe air. Both crew are occupied, even if recovery stalls.",
+        "costs": {
+          "medicine": 1.0
+        },
+        "required_items": {},
+        "requires_crew": true,
+        "role_bonus": {},
+        "crew_role_bonus": {},
+        "success_chance": 1.0,
+        "success_effects": {
+          "condition": null,
+          "treatment": 0,
+          "resources": {},
+          "solar_efficiency": 0.0,
+          "oxygen_efficiency": 0.0,
+          "water_recovery_efficiency": 0.0,
+          "co2_efficiency": 0.0,
+          "crew_health": 0,
+          "target": "selected"
+        },
+        "failure_effects": {
+          "condition": null,
+          "treatment": 0,
+          "resources": {},
+          "solar_efficiency": 0.0,
+          "oxygen_efficiency": 0.0,
+          "water_recovery_efficiency": 0.0,
+          "co2_efficiency": 0.0,
+          "crew_health": 0,
+          "target": "selected"
+        },
+        "required_role": null,
+        "minimum_crew": 1,
+        "available": true,
+        "unavailable_reasons": [],
+        "eligible_crew": [
+          {
+            "crew_id": "alex",
+            "available": true,
+            "unavailable_reasons": [],
+            "success_probability": 1.0
+          },
+          {
+            "crew_id": "lin",
+            "available": true,
+            "unavailable_reasons": [],
+            "success_probability": 1.0
+          }
+        ],
+        "success_probability": null
+      },
+      {
+        "workload": "rest",
+        "support_candidates": [],
+        "id": "self_care",
+        "action_type": "medical",
+        "objective_rewards": [],
+        "text": "Self-care and stabilization",
+        "description": "One astronaut and 1 medicine. Available even when critically unfit; treats only their own chosen condition. Stabilizes immediately and earns 1 recovery point with full actual provisions and safe air. No work or incident duty that week.",
+        "costs": {
+          "medicine": 1.0
+        },
+        "required_items": {},
+        "requires_crew": true,
+        "role_bonus": {},
+        "crew_role_bonus": {},
+        "success_chance": 1.0,
+        "success_effects": {
+          "condition": null,
+          "treatment": 0,
+          "resources": {},
+          "solar_efficiency": 0.0,
+          "oxygen_efficiency": 0.0,
+          "water_recovery_efficiency": 0.0,
+          "co2_efficiency": 0.0,
+          "crew_health": 0,
+          "target": "selected"
+        },
+        "failure_effects": {
+          "condition": null,
+          "treatment": 0,
           "resources": {},
           "solar_efficiency": 0.0,
           "oxygen_efficiency": 0.0,
@@ -8554,6 +9625,8 @@ export const recuperationTurn: TurnResponse = {
         "crew_role_bonus": {},
         "success_chance": 1.0,
         "success_effects": {
+          "condition": null,
+          "treatment": 0,
           "resources": {},
           "solar_efficiency": 0.2,
           "oxygen_efficiency": 0.0,
@@ -8563,6 +9636,8 @@ export const recuperationTurn: TurnResponse = {
           "target": "selected"
         },
         "failure_effects": {
+          "condition": null,
+          "treatment": 0,
           "resources": {},
           "solar_efficiency": 0.0,
           "oxygen_efficiency": 0.0,
@@ -8575,6 +9650,8 @@ export const recuperationTurn: TurnResponse = {
         "minimum_crew": 1,
         "available": false,
         "unavailable_reasons": [
+          "Requires at least 1 living astronauts fit for this workload.",
+          "Respiratory irritation: EVA unavailable until recovered; indoor work remains possible.",
           "Requires 1 dust_kits; available 0."
         ],
         "eligible_crew": [
@@ -8582,6 +9659,8 @@ export const recuperationTurn: TurnResponse = {
             "crew_id": "alex",
             "available": false,
             "unavailable_reasons": [
+              "Requires at least 1 living astronauts fit for this workload.",
+              "Respiratory irritation: EVA unavailable until recovered; indoor work remains possible.",
               "Requires 1 dust_kits; available 0."
             ],
             "success_probability": 1.0
@@ -8590,6 +9669,8 @@ export const recuperationTurn: TurnResponse = {
             "crew_id": "lin",
             "available": false,
             "unavailable_reasons": [
+              "Requires at least 1 living astronauts fit for this workload.",
+              "Respiratory irritation: EVA unavailable until recovered; indoor work remains possible.",
               "Requires 1 dust_kits; available 0."
             ],
             "success_probability": 1.0
@@ -8615,6 +9696,8 @@ export const recuperationTurn: TurnResponse = {
         "crew_role_bonus": {},
         "success_chance": 1.0,
         "success_effects": {
+          "condition": null,
+          "treatment": 0,
           "resources": {},
           "solar_efficiency": 0.0,
           "oxygen_efficiency": 0.2,
@@ -8624,6 +9707,8 @@ export const recuperationTurn: TurnResponse = {
           "target": "selected"
         },
         "failure_effects": {
+          "condition": null,
+          "treatment": 0,
           "resources": {},
           "solar_efficiency": 0.0,
           "oxygen_efficiency": 0.0,
@@ -8676,6 +9761,8 @@ export const recuperationTurn: TurnResponse = {
         "crew_role_bonus": {},
         "success_chance": 1.0,
         "success_effects": {
+          "condition": null,
+          "treatment": 0,
           "resources": {},
           "solar_efficiency": 0.0,
           "oxygen_efficiency": 0.0,
@@ -8685,6 +9772,8 @@ export const recuperationTurn: TurnResponse = {
           "target": "selected"
         },
         "failure_effects": {
+          "condition": null,
+          "treatment": 0,
           "resources": {},
           "solar_efficiency": 0.0,
           "oxygen_efficiency": 0.0,
@@ -8731,6 +9820,8 @@ export const recuperationTurn: TurnResponse = {
         "crew_role_bonus": {},
         "success_chance": 1.0,
         "success_effects": {
+          "condition": null,
+          "treatment": 0,
           "resources": {},
           "solar_efficiency": 0.0,
           "oxygen_efficiency": 0.0,
@@ -8740,6 +9831,8 @@ export const recuperationTurn: TurnResponse = {
           "target": "selected"
         },
         "failure_effects": {
+          "condition": null,
+          "treatment": 0,
           "resources": {},
           "solar_efficiency": 0.0,
           "oxygen_efficiency": 0.0,
@@ -8781,7 +9874,7 @@ export const recuperationTurn: TurnResponse = {
           }
         ],
         "text": "Survey a geological sample",
-        "description": "Use the science kit to collect one sample and 2 research data on success. Scientists improve the odds; failure costs the worker 8 health. One-week crew assignment; incident response is separate.",
+        "description": "Use the science kit to collect one sample and 2 research data on success. Scientists improve the odds; failure costs the worker 8 health and causes a sprain. One-week crew assignment; incident response is separate.",
         "costs": {
           "eva_batteries": 1.0,
           "oxygen": 2.0
@@ -8797,6 +9890,8 @@ export const recuperationTurn: TurnResponse = {
         "crew_role_bonus": {},
         "success_chance": 0.75,
         "success_effects": {
+          "condition": null,
+          "treatment": 0,
           "resources": {
             "research_data": 2.0
           },
@@ -8808,6 +9903,8 @@ export const recuperationTurn: TurnResponse = {
           "target": "selected"
         },
         "failure_effects": {
+          "condition": "sprain",
+          "treatment": 0,
           "resources": {},
           "solar_efficiency": 0.0,
           "oxygen_efficiency": 0.0,
@@ -8818,20 +9915,29 @@ export const recuperationTurn: TurnResponse = {
         },
         "required_role": null,
         "minimum_crew": 1,
-        "available": true,
-        "unavailable_reasons": [],
+        "available": false,
+        "unavailable_reasons": [
+          "Requires at least 1 living astronauts fit for this workload.",
+          "Respiratory irritation: EVA unavailable until recovered; indoor work remains possible."
+        ],
         "eligible_crew": [
           {
             "crew_id": "alex",
-            "available": true,
-            "unavailable_reasons": [],
-            "success_probability": 0.7725
+            "available": false,
+            "unavailable_reasons": [
+              "Requires at least 1 living astronauts fit for this workload.",
+              "Respiratory irritation: EVA unavailable until recovered; indoor work remains possible."
+            ],
+            "success_probability": 0.7225
           },
           {
             "crew_id": "lin",
-            "available": true,
-            "unavailable_reasons": [],
-            "success_probability": 0.915
+            "available": false,
+            "unavailable_reasons": [
+              "Requires at least 1 living astronauts fit for this workload.",
+              "Respiratory irritation: EVA unavailable until recovered; indoor work remains possible."
+            ],
+            "success_probability": 0.865
           }
         ],
         "success_probability": null
@@ -8843,7 +9949,7 @@ export const recuperationTurn: TurnResponse = {
         "action_type": "research",
         "objective_rewards": [],
         "text": "Deploy seismic sensors",
-        "description": "Start a seismic project: 1 deployment week, 3 automatic recording weeks at 2 power each, then 1 crew analysis week. No objective credit until analysis succeeds. Failure costs 8 worker health and deployment supplies; the phase can be retried.",
+        "description": "Start a seismic project: 1 deployment week, 3 automatic recording weeks at 2 power each, then 1 crew analysis week. No objective credit until analysis succeeds. Failure causes a sprain and costs 8 health and deployment supplies; the phase can be retried.",
         "costs": {
           "electricity": 2.0,
           "eva_batteries": 1.0,
@@ -8860,6 +9966,8 @@ export const recuperationTurn: TurnResponse = {
         "crew_role_bonus": {},
         "success_chance": 0.75,
         "success_effects": {
+          "condition": null,
+          "treatment": 0,
           "resources": {},
           "solar_efficiency": 0.0,
           "oxygen_efficiency": 0.0,
@@ -8869,6 +9977,8 @@ export const recuperationTurn: TurnResponse = {
           "target": "selected"
         },
         "failure_effects": {
+          "condition": "sprain",
+          "treatment": 0,
           "resources": {},
           "solar_efficiency": 0.0,
           "oxygen_efficiency": 0.0,
@@ -8879,20 +9989,29 @@ export const recuperationTurn: TurnResponse = {
         },
         "required_role": null,
         "minimum_crew": 1,
-        "available": true,
-        "unavailable_reasons": [],
+        "available": false,
+        "unavailable_reasons": [
+          "Requires at least 1 living astronauts fit for this workload.",
+          "Respiratory irritation: EVA unavailable until recovered; indoor work remains possible."
+        ],
         "eligible_crew": [
           {
             "crew_id": "alex",
-            "available": true,
-            "unavailable_reasons": [],
-            "success_probability": 0.7725
+            "available": false,
+            "unavailable_reasons": [
+              "Requires at least 1 living astronauts fit for this workload.",
+              "Respiratory irritation: EVA unavailable until recovered; indoor work remains possible."
+            ],
+            "success_probability": 0.7225
           },
           {
             "crew_id": "lin",
-            "available": true,
-            "unavailable_reasons": [],
-            "success_probability": 0.915
+            "available": false,
+            "unavailable_reasons": [
+              "Requires at least 1 living astronauts fit for this workload.",
+              "Respiratory irritation: EVA unavailable until recovered; indoor work remains possible."
+            ],
+            "success_probability": 0.865
           }
         ],
         "success_probability": null
@@ -8927,6 +10046,8 @@ export const recuperationTurn: TurnResponse = {
         "crew_role_bonus": {},
         "success_chance": 0.7,
         "success_effects": {
+          "condition": null,
+          "treatment": 0,
           "resources": {
             "research_data": 2.0
           },
@@ -8938,6 +10059,8 @@ export const recuperationTurn: TurnResponse = {
           "target": "selected"
         },
         "failure_effects": {
+          "condition": null,
+          "treatment": 0,
           "resources": {},
           "solar_efficiency": 0.0,
           "oxygen_efficiency": 0.0,
@@ -8955,13 +10078,13 @@ export const recuperationTurn: TurnResponse = {
             "crew_id": "alex",
             "available": true,
             "unavailable_reasons": [],
-            "success_probability": 0.9225
+            "success_probability": 0.8725
           },
           {
             "crew_id": "lin",
             "available": true,
             "unavailable_reasons": [],
-            "success_probability": 0.765
+            "success_probability": 0.715
           }
         ],
         "success_probability": null
@@ -8972,6 +10095,8 @@ export const recuperationTurn: TurnResponse = {
     "project_updates": [],
     "assignments": [
       {
+        "patient_id": null,
+        "condition_id": null,
         "crew_id": "alex",
         "activity_id": "crew_rest",
         "status": "completed",
@@ -8985,6 +10110,7 @@ export const recuperationTurn: TurnResponse = {
           "success_probability": 1.0,
           "costs": {},
           "effects": {
+            "medical_changes": [],
             "resources": {},
             "solar_efficiency": 0.0,
             "oxygen_efficiency": 0.0,
@@ -9012,6 +10138,7 @@ export const recuperationTurn: TurnResponse = {
         "water": 1.0
       },
       "effects": {
+        "medical_changes": [],
         "resources": {},
         "solar_efficiency": 0.0,
         "oxygen_efficiency": 0.0,
@@ -9020,13 +10147,13 @@ export const recuperationTurn: TurnResponse = {
         "health_changes": [
           {
             "crew_id": "alex",
-            "before": 85,
-            "after": 91
+            "before": 84,
+            "after": 90
           },
           {
             "crew_id": "lin",
-            "before": 82,
-            "after": 88
+            "before": 81,
+            "after": 87
           }
         ]
       },
@@ -9087,15 +10214,40 @@ export const recuperationTurn: TurnResponse = {
       "health_changes": [
         {
           "crew_id": "alex",
-          "before": 91,
-          "after": 96,
+          "before": 90,
+          "after": 89,
+          "medical_penalty": 1,
+          "medical_changes": [
+            {
+              "crew_id": "alex",
+              "kind": "dust_irritation",
+              "action": "recovering",
+              "reason": null,
+              "before": {
+                "kind": "dust_irritation",
+                "remaining": 2,
+                "acquired_week": 3,
+                "stabilized": false,
+                "care_week": 0,
+                "care_points": 0
+              },
+              "after": {
+                "kind": "dust_irritation",
+                "remaining": 1,
+                "acquired_week": 3,
+                "stabilized": false,
+                "care_week": 0,
+                "care_points": 0
+              }
+            }
+          ],
           "food_received_fraction": 1.0,
           "water_received_fraction": 1.0,
           "nutrition_before": 1.2,
           "nutrition_after": 0.8,
           "hydration_before": 0.0,
           "hydration_after": 0.0,
-          "recovery": 5,
+          "recovery": 0,
           "worked": false,
           "rested": true,
           "food_penalty": 0,
@@ -9106,15 +10258,17 @@ export const recuperationTurn: TurnResponse = {
         },
         {
           "crew_id": "lin",
-          "before": 88,
-          "after": 90,
+          "before": 87,
+          "after": 86,
+          "medical_penalty": 1,
+          "medical_changes": [],
           "food_received_fraction": 1.0,
           "water_received_fraction": 1.0,
           "nutrition_before": 1.2,
           "nutrition_after": 0.95,
           "hydration_before": 0.0,
           "hydration_after": 0.0,
-          "recovery": 2,
+          "recovery": 0,
           "worked": false,
           "rested": false,
           "food_penalty": 0,
@@ -9147,6 +10301,7 @@ export const recuperationTurn: TurnResponse = {
       "event_id": "seismic_signal",
       "title": "A Signal in the Seismometer",
       "effects": {
+        "medical_changes": [],
         "resources": {},
         "solar_efficiency": 0.0,
         "oxygen_efficiency": 0.0,
@@ -9309,6 +10464,7 @@ export const game: GameResponse = {
     },
     "crew": [
       {
+        "medical_conditions": [],
         "nutrition_deficit": 0.0,
         "hydration_deficit": 0.0,
         "condition": {
@@ -9375,6 +10531,7 @@ export const game: GameResponse = {
         }
       },
       {
+        "medical_conditions": [],
         "nutrition_deficit": 0.0,
         "hydration_deficit": 0.0,
         "condition": {
@@ -9471,6 +10628,8 @@ export const game: GameResponse = {
       "science_context": "Lunar dust can contaminate equipment and complicate surface maintenance.",
       "source_url": "https://www.nasa.gov/reference/jsc-dust/",
       "on_start": {
+        "condition": null,
+        "treatment": 0,
         "resources": {},
         "solar_efficiency": -0.25,
         "oxygen_efficiency": 0.0,
@@ -9487,7 +10646,7 @@ export const game: GameResponse = {
           "action_type": "event",
           "objective_rewards": [],
           "text": "Send the engineer outside",
-          "description": "Requires an engineer. A failed EVA causes injury; supplies are spent either way.",
+          "description": "Requires an engineer. A failed EVA causes injury; supplies are spent either way. Failure also causes a sprain, restricting demanding work until recovered.",
           "costs": {
             "repair_kits": 1.0,
             "eva_batteries": 1.0,
@@ -9501,6 +10660,8 @@ export const game: GameResponse = {
           "crew_role_bonus": {},
           "success_chance": 0.6,
           "success_effects": {
+            "condition": null,
+            "treatment": 0,
             "resources": {},
             "solar_efficiency": 0.25,
             "oxygen_efficiency": 0.0,
@@ -9510,6 +10671,8 @@ export const game: GameResponse = {
             "target": "selected"
           },
           "failure_effects": {
+            "condition": "sprain",
+            "treatment": 0,
             "resources": {},
             "solar_efficiency": 0.0,
             "oxygen_efficiency": 0.0,
@@ -9547,7 +10710,7 @@ export const game: GameResponse = {
           "action_type": "event",
           "objective_rewards": [],
           "text": "Attempt a general repair",
-          "description": "Any living astronaut can try. Failure causes a serious EVA injury.",
+          "description": "Any living astronaut can try. Failure causes a serious EVA injury. Failure also causes a sprain, restricting demanding work until recovered.",
           "costs": {
             "repair_kits": 1.0,
             "eva_batteries": 1.0,
@@ -9562,6 +10725,8 @@ export const game: GameResponse = {
           "crew_role_bonus": {},
           "success_chance": 0.5,
           "success_effects": {
+            "condition": null,
+            "treatment": 0,
             "resources": {},
             "solar_efficiency": 0.25,
             "oxygen_efficiency": 0.0,
@@ -9571,6 +10736,8 @@ export const game: GameResponse = {
             "target": "selected"
           },
           "failure_effects": {
+            "condition": "sprain",
+            "treatment": 0,
             "resources": {},
             "solar_efficiency": 0.0,
             "oxygen_efficiency": 0.0,
@@ -9614,6 +10781,8 @@ export const game: GameResponse = {
           "crew_role_bonus": {},
           "success_chance": 1.0,
           "success_effects": {
+            "condition": null,
+            "treatment": 0,
             "resources": {},
             "solar_efficiency": 0.0,
             "oxygen_efficiency": 0.0,
@@ -9623,6 +10792,8 @@ export const game: GameResponse = {
             "target": "selected"
           },
           "failure_effects": {
+            "condition": null,
+            "treatment": 0,
             "resources": {},
             "solar_efficiency": 0.0,
             "oxygen_efficiency": 0.0,
@@ -9719,6 +10890,8 @@ export const game: GameResponse = {
         "crew_role_bonus": {},
         "success_chance": 1.0,
         "success_effects": {
+          "condition": null,
+          "treatment": 0,
           "resources": {},
           "solar_efficiency": 0.0,
           "oxygen_efficiency": 0.0,
@@ -9728,6 +10901,8 @@ export const game: GameResponse = {
           "target": "selected"
         },
         "failure_effects": {
+          "condition": null,
+          "treatment": 0,
           "resources": {},
           "solar_efficiency": 0.0,
           "oxygen_efficiency": 0.0,
@@ -9775,6 +10950,8 @@ export const game: GameResponse = {
         "crew_role_bonus": {},
         "success_chance": 1.0,
         "success_effects": {
+          "condition": null,
+          "treatment": 0,
           "resources": {},
           "solar_efficiency": 0.2,
           "oxygen_efficiency": 0.0,
@@ -9784,6 +10961,8 @@ export const game: GameResponse = {
           "target": "selected"
         },
         "failure_effects": {
+          "condition": null,
+          "treatment": 0,
           "resources": {},
           "solar_efficiency": 0.0,
           "oxygen_efficiency": 0.0,
@@ -9836,6 +11015,8 @@ export const game: GameResponse = {
         "crew_role_bonus": {},
         "success_chance": 1.0,
         "success_effects": {
+          "condition": null,
+          "treatment": 0,
           "resources": {},
           "solar_efficiency": 0.0,
           "oxygen_efficiency": 0.2,
@@ -9845,6 +11026,8 @@ export const game: GameResponse = {
           "target": "selected"
         },
         "failure_effects": {
+          "condition": null,
+          "treatment": 0,
           "resources": {},
           "solar_efficiency": 0.0,
           "oxygen_efficiency": 0.0,
@@ -9900,6 +11083,8 @@ export const game: GameResponse = {
         "crew_role_bonus": {},
         "success_chance": 1.0,
         "success_effects": {
+          "condition": null,
+          "treatment": 0,
           "resources": {},
           "solar_efficiency": 0.0,
           "oxygen_efficiency": 0.0,
@@ -9909,6 +11094,8 @@ export const game: GameResponse = {
           "target": "selected"
         },
         "failure_effects": {
+          "condition": null,
+          "treatment": 0,
           "resources": {},
           "solar_efficiency": 0.0,
           "oxygen_efficiency": 0.0,
@@ -9961,6 +11148,8 @@ export const game: GameResponse = {
         "crew_role_bonus": {},
         "success_chance": 1.0,
         "success_effects": {
+          "condition": null,
+          "treatment": 0,
           "resources": {},
           "solar_efficiency": 0.0,
           "oxygen_efficiency": 0.0,
@@ -9970,6 +11159,8 @@ export const game: GameResponse = {
           "target": "selected"
         },
         "failure_effects": {
+          "condition": null,
+          "treatment": 0,
           "resources": {},
           "solar_efficiency": 0.0,
           "oxygen_efficiency": 0.0,
@@ -10017,7 +11208,7 @@ export const game: GameResponse = {
           }
         ],
         "text": "Survey a geological sample",
-        "description": "Use the science kit to collect one sample and 2 research data on success. Scientists improve the odds; failure costs the worker 8 health. One-week crew assignment; incident response is separate.",
+        "description": "Use the science kit to collect one sample and 2 research data on success. Scientists improve the odds; failure costs the worker 8 health and causes a sprain. One-week crew assignment; incident response is separate.",
         "costs": {
           "eva_batteries": 1.0,
           "oxygen": 2.0
@@ -10033,6 +11224,8 @@ export const game: GameResponse = {
         "crew_role_bonus": {},
         "success_chance": 0.75,
         "success_effects": {
+          "condition": null,
+          "treatment": 0,
           "resources": {
             "research_data": 2.0
           },
@@ -10044,6 +11237,8 @@ export const game: GameResponse = {
           "target": "selected"
         },
         "failure_effects": {
+          "condition": "sprain",
+          "treatment": 0,
           "resources": {},
           "solar_efficiency": 0.0,
           "oxygen_efficiency": 0.0,
@@ -10085,7 +11280,7 @@ export const game: GameResponse = {
         "action_type": "research",
         "objective_rewards": [],
         "text": "Deploy seismic sensors",
-        "description": "Start a seismic project: 1 deployment week, 3 automatic recording weeks at 2 power each, then 1 crew analysis week. No objective credit until analysis succeeds. Failure costs 8 worker health and deployment supplies; the phase can be retried.",
+        "description": "Start a seismic project: 1 deployment week, 3 automatic recording weeks at 2 power each, then 1 crew analysis week. No objective credit until analysis succeeds. Failure causes a sprain and costs 8 health and deployment supplies; the phase can be retried.",
         "costs": {
           "electricity": 2.0,
           "eva_batteries": 1.0,
@@ -10102,6 +11297,8 @@ export const game: GameResponse = {
         "crew_role_bonus": {},
         "success_chance": 0.75,
         "success_effects": {
+          "condition": null,
+          "treatment": 0,
           "resources": {},
           "solar_efficiency": 0.0,
           "oxygen_efficiency": 0.0,
@@ -10111,6 +11308,8 @@ export const game: GameResponse = {
           "target": "selected"
         },
         "failure_effects": {
+          "condition": "sprain",
+          "treatment": 0,
           "resources": {},
           "solar_efficiency": 0.0,
           "oxygen_efficiency": 0.0,
@@ -10175,6 +11374,8 @@ export const game: GameResponse = {
         "crew_role_bonus": {},
         "success_chance": 0.7,
         "success_effects": {
+          "condition": null,
+          "treatment": 0,
           "resources": {
             "research_data": 2.0
           },
@@ -10186,6 +11387,8 @@ export const game: GameResponse = {
           "target": "selected"
         },
         "failure_effects": {
+          "condition": null,
+          "treatment": 0,
           "resources": {},
           "solar_efficiency": 0.0,
           "oxygen_efficiency": 0.0,
@@ -10366,16 +11569,48 @@ export const turn: TurnResponse = {
     },
     "crew": [
       {
+        "medical_conditions": [
+          {
+            "kind": "sprain",
+            "remaining": 3,
+            "acquired_week": 1,
+            "stabilized": false,
+            "care_week": 0,
+            "care_points": 0,
+            "title": "Musculoskeletal sprain",
+            "urgent": false,
+            "rest_weeks": 3,
+            "medic_weeks": 2,
+            "untreated_damage": 0,
+            "source_url": "https://www.nasa.gov/reference/appendix-e-health-and-medical-care-technical-requirements/"
+          },
+          {
+            "kind": "dust_irritation",
+            "remaining": 2,
+            "acquired_week": 2,
+            "stabilized": false,
+            "care_week": 0,
+            "care_points": 0,
+            "title": "Dust-related respiratory irritation",
+            "urgent": false,
+            "rest_weeks": 2,
+            "medic_weeks": 1,
+            "untreated_damage": 1,
+            "source_url": "https://www.nasa.gov/reference/jsc-dust/"
+          }
+        ],
         "nutrition_deficit": 0.3,
         "hydration_deficit": 0.0,
         "condition": {
-          "status": "impaired",
+          "status": "serious",
           "nutrition_status": "underfed",
           "hydration_status": "adequate",
           "can_work": true,
-          "can_do_eva": true,
-          "performance_penalty": 0.0115,
-          "restrictions": [],
+          "can_do_eva": false,
+          "performance_penalty": 0.1415,
+          "restrictions": [
+            "Respiratory irritation: EVA unavailable until recovered; indoor work remains possible."
+          ],
           "nutrition_recovery_weeks": 2,
           "hydration_recovery_weeks": 0,
           "source_url": "https://www.nasa.gov/reference/risk-of-inadequate-food-and-nutrition/"
@@ -10432,16 +11667,34 @@ export const turn: TurnResponse = {
         }
       },
       {
+        "medical_conditions": [
+          {
+            "kind": "dust_irritation",
+            "remaining": 2,
+            "acquired_week": 2,
+            "stabilized": false,
+            "care_week": 0,
+            "care_points": 0,
+            "title": "Dust-related respiratory irritation",
+            "urgent": false,
+            "rest_weeks": 2,
+            "medic_weeks": 1,
+            "untreated_damage": 1,
+            "source_url": "https://www.nasa.gov/reference/jsc-dust/"
+          }
+        ],
         "nutrition_deficit": 0.0,
         "hydration_deficit": 0.0,
         "condition": {
-          "status": "fit",
+          "status": "serious",
           "nutrition_status": "adequate",
           "hydration_status": "adequate",
           "can_work": true,
-          "can_do_eva": true,
-          "performance_penalty": 0.0,
-          "restrictions": [],
+          "can_do_eva": false,
+          "performance_penalty": 0.05,
+          "restrictions": [
+            "Respiratory irritation: EVA unavailable until recovered; indoor work remains possible."
+          ],
           "nutrition_recovery_weeks": 0,
           "hydration_recovery_weeks": 0,
           "source_url": "https://www.nasa.gov/reference/risk-of-inadequate-food-and-nutrition/"
@@ -10523,11 +11776,13 @@ export const turn: TurnResponse = {
     "current_event": {
       "id": "medical_emergency",
       "title": "Contaminated Air Filter",
-      "description": "An irritant escapes a filter. Every living astronaut loses 8 health on discovery.",
+      "description": "An irritant escapes a filter. Every living astronaut loses 8 health on discovery. All living crew develop dust-related respiratory irritation; named conditions need recovery as well as symptom relief.",
       "category": "hazard",
       "science_context": "Dust management matters for cabin cleanliness. The irritant incident and health changes here are fictional.",
       "source_url": "https://www.nasa.gov/reference/jsc-dust/",
       "on_start": {
+        "condition": "dust_irritation",
+        "treatment": 0,
         "resources": {},
         "solar_efficiency": 0.0,
         "oxygen_efficiency": 0.0,
@@ -10544,7 +11799,7 @@ export const turn: TurnResponse = {
           "action_type": "event",
           "objective_rewards": [],
           "text": "Treat an affected astronaut",
-          "description": "Select a patient. A living medic improves treatment. Failed treatment does not restore health.",
+          "description": "Select a patient. A living medic improves success. Costs 1 medicine; success gives 5 health, stabilizes one active condition (urgent first), and supplies up to 2 recovery points at survival with full provisions and safe air. Failure costs 5 health.",
           "costs": {
             "medicine": 1.0
           },
@@ -10556,15 +11811,19 @@ export const turn: TurnResponse = {
           },
           "success_chance": 0.7,
           "success_effects": {
+            "condition": null,
+            "treatment": 2,
             "resources": {},
             "solar_efficiency": 0.0,
             "oxygen_efficiency": 0.0,
             "water_recovery_efficiency": 0.0,
             "co2_efficiency": 0.0,
-            "crew_health": 30,
+            "crew_health": 5,
             "target": "selected"
           },
           "failure_effects": {
+            "condition": null,
+            "treatment": 0,
             "resources": {},
             "solar_efficiency": 0.0,
             "oxygen_efficiency": 0.0,
@@ -10594,7 +11853,7 @@ export const turn: TurnResponse = {
           "success_probability": null
         },
         {
-          "workload": "strenuous",
+          "workload": "light",
           "support_candidates": [
             {
               "crew_id": "alex",
@@ -10623,6 +11882,8 @@ export const turn: TurnResponse = {
           "crew_role_bonus": {},
           "success_chance": 0.75,
           "success_effects": {
+            "condition": null,
+            "treatment": 0,
             "resources": {},
             "solar_efficiency": 0.0,
             "oxygen_efficiency": 0.0,
@@ -10632,6 +11893,8 @@ export const turn: TurnResponse = {
             "target": "all"
           },
           "failure_effects": {
+            "condition": null,
+            "treatment": 0,
             "resources": {},
             "solar_efficiency": 0.0,
             "oxygen_efficiency": 0.0,
@@ -10651,13 +11914,13 @@ export const turn: TurnResponse = {
               "unavailable_reasons": [
                 "Requires a living medic."
               ],
-              "success_probability": 0.7885
+              "success_probability": 0.6585
             },
             {
               "crew_id": "maya",
               "available": true,
               "unavailable_reasons": [],
-              "success_probability": 0.95
+              "success_probability": 0.9
             }
           ],
           "success_probability": null
@@ -10669,7 +11932,7 @@ export const turn: TurnResponse = {
           "action_type": "event",
           "objective_rewards": [],
           "text": "Use scanner-guided treatment",
-          "description": "Guaranteed 20-health recovery for the selected patient. Consumes medicine; the scanner is retained.",
+          "description": "Use the retained scanner and 1 medicine for guaranteed 5-health symptom relief and stabilization of one active condition (urgent first). Up to 2 recovery points apply during survival with full provisions and safe air.",
           "costs": {
             "medicine": 1.0
           },
@@ -10681,15 +11944,19 @@ export const turn: TurnResponse = {
           "crew_role_bonus": {},
           "success_chance": 1.0,
           "success_effects": {
+            "condition": null,
+            "treatment": 2,
             "resources": {},
             "solar_efficiency": 0.0,
             "oxygen_efficiency": 0.0,
             "water_recovery_efficiency": 0.0,
             "co2_efficiency": 0.0,
-            "crew_health": 20,
+            "crew_health": 5,
             "target": "selected"
           },
           "failure_effects": {
+            "condition": null,
+            "treatment": 0,
             "resources": {},
             "solar_efficiency": 0.0,
             "oxygen_efficiency": 0.0,
@@ -10739,6 +12006,8 @@ export const turn: TurnResponse = {
           "crew_role_bonus": {},
           "success_chance": 1.0,
           "success_effects": {
+            "condition": null,
+            "treatment": 0,
             "resources": {},
             "solar_efficiency": 0.0,
             "oxygen_efficiency": 0.0,
@@ -10748,6 +12017,8 @@ export const turn: TurnResponse = {
             "target": "all"
           },
           "failure_effects": {
+            "condition": null,
+            "treatment": 0,
             "resources": {},
             "solar_efficiency": 0.0,
             "oxygen_efficiency": 0.0,
@@ -10794,6 +12065,23 @@ export const turn: TurnResponse = {
             "oxygen": 2.0
           },
           "effects": {
+            "medical_changes": [
+              {
+                "crew_id": "alex",
+                "kind": "sprain",
+                "action": "acquired",
+                "reason": null,
+                "before": null,
+                "after": {
+                  "kind": "sprain",
+                  "remaining": 3,
+                  "acquired_week": 1,
+                  "stabilized": false,
+                  "care_week": 0,
+                  "care_points": 0
+                }
+              }
+            ],
             "resources": {},
             "solar_efficiency": 0.0,
             "oxygen_efficiency": 0.0,
@@ -10866,6 +12154,8 @@ export const turn: TurnResponse = {
               "crew_id": "alex",
               "before": 75,
               "after": 75,
+              "medical_penalty": 0,
+              "medical_changes": [],
               "food_received_fraction": 0.7,
               "water_received_fraction": 1.0,
               "nutrition_before": 0.0,
@@ -10885,6 +12175,8 @@ export const turn: TurnResponse = {
               "crew_id": "maya",
               "before": 100,
               "after": 100,
+              "medical_penalty": 0,
+              "medical_changes": [],
               "food_received_fraction": 1.0,
               "water_received_fraction": 1.0,
               "nutrition_before": 0.0,
@@ -10924,6 +12216,38 @@ export const turn: TurnResponse = {
           "event_id": "medical_emergency",
           "title": "Contaminated Air Filter",
           "effects": {
+            "medical_changes": [
+              {
+                "crew_id": "alex",
+                "kind": "dust_irritation",
+                "action": "acquired",
+                "reason": null,
+                "before": null,
+                "after": {
+                  "kind": "dust_irritation",
+                  "remaining": 2,
+                  "acquired_week": 2,
+                  "stabilized": false,
+                  "care_week": 0,
+                  "care_points": 0
+                }
+              },
+              {
+                "crew_id": "maya",
+                "kind": "dust_irritation",
+                "action": "acquired",
+                "reason": null,
+                "before": null,
+                "after": {
+                  "kind": "dust_irritation",
+                  "remaining": 2,
+                  "acquired_week": 2,
+                  "stabilized": false,
+                  "care_week": 0,
+                  "care_points": 0
+                }
+              }
+            ],
             "resources": {},
             "solar_efficiency": 0.0,
             "oxygen_efficiency": 0.0,
@@ -11017,6 +12341,8 @@ export const turn: TurnResponse = {
         "crew_role_bonus": {},
         "success_chance": 1.0,
         "success_effects": {
+          "condition": null,
+          "treatment": 0,
           "resources": {},
           "solar_efficiency": 0.0,
           "oxygen_efficiency": 0.0,
@@ -11026,6 +12352,124 @@ export const turn: TurnResponse = {
           "target": "selected"
         },
         "failure_effects": {
+          "condition": null,
+          "treatment": 0,
+          "resources": {},
+          "solar_efficiency": 0.0,
+          "oxygen_efficiency": 0.0,
+          "water_recovery_efficiency": 0.0,
+          "co2_efficiency": 0.0,
+          "crew_health": 0,
+          "target": "selected"
+        },
+        "required_role": null,
+        "minimum_crew": 1,
+        "available": true,
+        "unavailable_reasons": [],
+        "eligible_crew": [
+          {
+            "crew_id": "alex",
+            "available": true,
+            "unavailable_reasons": [],
+            "success_probability": 1.0
+          },
+          {
+            "crew_id": "maya",
+            "available": true,
+            "unavailable_reasons": [],
+            "success_probability": 1.0
+          }
+        ],
+        "success_probability": null
+      },
+      {
+        "workload": "light",
+        "support_candidates": [],
+        "id": "medical_care",
+        "action_type": "medical",
+        "objective_rewards": [],
+        "text": "Provide medical care",
+        "description": "Reserve caregiver and patient for one week, plus 1 medicine. Stabilizes the chosen condition immediately. A fit medic earns 2 recovery points; another fit caregiver earns 1 (2 with a retained diagnostic scanner). Progress needs full actual provisions and safe air. Both crew are occupied, even if recovery stalls.",
+        "costs": {
+          "medicine": 1.0
+        },
+        "required_items": {},
+        "requires_crew": true,
+        "role_bonus": {},
+        "crew_role_bonus": {},
+        "success_chance": 1.0,
+        "success_effects": {
+          "condition": null,
+          "treatment": 0,
+          "resources": {},
+          "solar_efficiency": 0.0,
+          "oxygen_efficiency": 0.0,
+          "water_recovery_efficiency": 0.0,
+          "co2_efficiency": 0.0,
+          "crew_health": 0,
+          "target": "selected"
+        },
+        "failure_effects": {
+          "condition": null,
+          "treatment": 0,
+          "resources": {},
+          "solar_efficiency": 0.0,
+          "oxygen_efficiency": 0.0,
+          "water_recovery_efficiency": 0.0,
+          "co2_efficiency": 0.0,
+          "crew_health": 0,
+          "target": "selected"
+        },
+        "required_role": null,
+        "minimum_crew": 1,
+        "available": true,
+        "unavailable_reasons": [],
+        "eligible_crew": [
+          {
+            "crew_id": "alex",
+            "available": true,
+            "unavailable_reasons": [],
+            "success_probability": 1.0
+          },
+          {
+            "crew_id": "maya",
+            "available": true,
+            "unavailable_reasons": [],
+            "success_probability": 1.0
+          }
+        ],
+        "success_probability": null
+      },
+      {
+        "workload": "rest",
+        "support_candidates": [],
+        "id": "self_care",
+        "action_type": "medical",
+        "objective_rewards": [],
+        "text": "Self-care and stabilization",
+        "description": "One astronaut and 1 medicine. Available even when critically unfit; treats only their own chosen condition. Stabilizes immediately and earns 1 recovery point with full actual provisions and safe air. No work or incident duty that week.",
+        "costs": {
+          "medicine": 1.0
+        },
+        "required_items": {},
+        "requires_crew": true,
+        "role_bonus": {},
+        "crew_role_bonus": {},
+        "success_chance": 1.0,
+        "success_effects": {
+          "condition": null,
+          "treatment": 0,
+          "resources": {},
+          "solar_efficiency": 0.0,
+          "oxygen_efficiency": 0.0,
+          "water_recovery_efficiency": 0.0,
+          "co2_efficiency": 0.0,
+          "crew_health": 0,
+          "target": "selected"
+        },
+        "failure_effects": {
+          "condition": null,
+          "treatment": 0,
           "resources": {},
           "solar_efficiency": 0.0,
           "oxygen_efficiency": 0.0,
@@ -11073,6 +12517,8 @@ export const turn: TurnResponse = {
         "crew_role_bonus": {},
         "success_chance": 1.0,
         "success_effects": {
+          "condition": null,
+          "treatment": 0,
           "resources": {},
           "solar_efficiency": 0.2,
           "oxygen_efficiency": 0.0,
@@ -11082,6 +12528,8 @@ export const turn: TurnResponse = {
           "target": "selected"
         },
         "failure_effects": {
+          "condition": null,
+          "treatment": 0,
           "resources": {},
           "solar_efficiency": 0.0,
           "oxygen_efficiency": 0.0,
@@ -11094,6 +12542,8 @@ export const turn: TurnResponse = {
         "minimum_crew": 1,
         "available": false,
         "unavailable_reasons": [
+          "Requires at least 1 living astronauts fit for this workload.",
+          "Respiratory irritation: EVA unavailable until recovered; indoor work remains possible.",
           "Requires 1 dust_kits; available 0."
         ],
         "eligible_crew": [
@@ -11101,6 +12551,8 @@ export const turn: TurnResponse = {
             "crew_id": "alex",
             "available": false,
             "unavailable_reasons": [
+              "Requires at least 1 living astronauts fit for this workload.",
+              "Respiratory irritation: EVA unavailable until recovered; indoor work remains possible.",
               "Requires 1 dust_kits; available 0."
             ],
             "success_probability": 1.0
@@ -11109,6 +12561,8 @@ export const turn: TurnResponse = {
             "crew_id": "maya",
             "available": false,
             "unavailable_reasons": [
+              "Requires at least 1 living astronauts fit for this workload.",
+              "Respiratory irritation: EVA unavailable until recovered; indoor work remains possible.",
               "Requires 1 dust_kits; available 0."
             ],
             "success_probability": 1.0
@@ -11134,6 +12588,8 @@ export const turn: TurnResponse = {
         "crew_role_bonus": {},
         "success_chance": 1.0,
         "success_effects": {
+          "condition": null,
+          "treatment": 0,
           "resources": {},
           "solar_efficiency": 0.0,
           "oxygen_efficiency": 0.2,
@@ -11143,6 +12599,8 @@ export const turn: TurnResponse = {
           "target": "selected"
         },
         "failure_effects": {
+          "condition": null,
+          "treatment": 0,
           "resources": {},
           "solar_efficiency": 0.0,
           "oxygen_efficiency": 0.0,
@@ -11155,6 +12613,7 @@ export const turn: TurnResponse = {
         "minimum_crew": 1,
         "available": false,
         "unavailable_reasons": [
+          "Active injury or illness: light duties only until the condition resolves.",
           "Requires 1 oxygen_regulators; available 0.",
           "The oxygen system is already at full condition."
         ],
@@ -11163,6 +12622,7 @@ export const turn: TurnResponse = {
             "crew_id": "alex",
             "available": false,
             "unavailable_reasons": [
+              "Active injury or illness: light duties only until the condition resolves.",
               "Requires 1 oxygen_regulators; available 0.",
               "The oxygen system is already at full condition."
             ],
@@ -11198,6 +12658,8 @@ export const turn: TurnResponse = {
         "crew_role_bonus": {},
         "success_chance": 1.0,
         "success_effects": {
+          "condition": null,
+          "treatment": 0,
           "resources": {},
           "solar_efficiency": 0.0,
           "oxygen_efficiency": 0.0,
@@ -11207,6 +12669,8 @@ export const turn: TurnResponse = {
           "target": "selected"
         },
         "failure_effects": {
+          "condition": null,
+          "treatment": 0,
           "resources": {},
           "solar_efficiency": 0.0,
           "oxygen_efficiency": 0.0,
@@ -11253,6 +12717,8 @@ export const turn: TurnResponse = {
         "crew_role_bonus": {},
         "success_chance": 1.0,
         "success_effects": {
+          "condition": null,
+          "treatment": 0,
           "resources": {},
           "solar_efficiency": 0.0,
           "oxygen_efficiency": 0.0,
@@ -11262,6 +12728,8 @@ export const turn: TurnResponse = {
           "target": "selected"
         },
         "failure_effects": {
+          "condition": null,
+          "treatment": 0,
           "resources": {},
           "solar_efficiency": 0.0,
           "oxygen_efficiency": 0.0,
@@ -11303,7 +12771,7 @@ export const turn: TurnResponse = {
           }
         ],
         "text": "Survey a geological sample",
-        "description": "Use the science kit to collect one sample and 2 research data on success. Scientists improve the odds; failure costs the worker 8 health. One-week crew assignment; incident response is separate.",
+        "description": "Use the science kit to collect one sample and 2 research data on success. Scientists improve the odds; failure costs the worker 8 health and causes a sprain. One-week crew assignment; incident response is separate.",
         "costs": {
           "eva_batteries": 1.0,
           "oxygen": 2.0
@@ -11319,6 +12787,8 @@ export const turn: TurnResponse = {
         "crew_role_bonus": {},
         "success_chance": 0.75,
         "success_effects": {
+          "condition": null,
+          "treatment": 0,
           "resources": {
             "research_data": 2.0
           },
@@ -11330,6 +12800,8 @@ export const turn: TurnResponse = {
           "target": "selected"
         },
         "failure_effects": {
+          "condition": "sprain",
+          "treatment": 0,
           "resources": {},
           "solar_efficiency": 0.0,
           "oxygen_efficiency": 0.0,
@@ -11342,6 +12814,8 @@ export const turn: TurnResponse = {
         "minimum_crew": 1,
         "available": false,
         "unavailable_reasons": [
+          "Requires at least 1 living astronauts fit for this workload.",
+          "Respiratory irritation: EVA unavailable until recovered; indoor work remains possible.",
           "Requires 1 Field science kit (not consumed)."
         ],
         "eligible_crew": [
@@ -11349,17 +12823,21 @@ export const turn: TurnResponse = {
             "crew_id": "alex",
             "available": false,
             "unavailable_reasons": [
+              "Requires at least 1 living astronauts fit for this workload.",
+              "Respiratory irritation: EVA unavailable until recovered; indoor work remains possible.",
               "Requires 1 Field science kit (not consumed)."
             ],
-            "success_probability": 0.7885
+            "success_probability": 0.6585
           },
           {
             "crew_id": "maya",
             "available": false,
             "unavailable_reasons": [
+              "Requires at least 1 living astronauts fit for this workload.",
+              "Respiratory irritation: EVA unavailable until recovered; indoor work remains possible.",
               "Requires 1 Field science kit (not consumed)."
             ],
-            "success_probability": 0.75
+            "success_probability": 0.7
           }
         ],
         "success_probability": null
@@ -11371,7 +12849,7 @@ export const turn: TurnResponse = {
         "action_type": "research",
         "objective_rewards": [],
         "text": "Deploy seismic sensors",
-        "description": "Start a seismic project: 1 deployment week, 3 automatic recording weeks at 2 power each, then 1 crew analysis week. No objective credit until analysis succeeds. Failure costs 8 worker health and deployment supplies; the phase can be retried.",
+        "description": "Start a seismic project: 1 deployment week, 3 automatic recording weeks at 2 power each, then 1 crew analysis week. No objective credit until analysis succeeds. Failure causes a sprain and costs 8 health and deployment supplies; the phase can be retried.",
         "costs": {
           "electricity": 2.0,
           "eva_batteries": 1.0,
@@ -11388,6 +12866,8 @@ export const turn: TurnResponse = {
         "crew_role_bonus": {},
         "success_chance": 0.75,
         "success_effects": {
+          "condition": null,
+          "treatment": 0,
           "resources": {},
           "solar_efficiency": 0.0,
           "oxygen_efficiency": 0.0,
@@ -11397,6 +12877,8 @@ export const turn: TurnResponse = {
           "target": "selected"
         },
         "failure_effects": {
+          "condition": "sprain",
+          "treatment": 0,
           "resources": {},
           "solar_efficiency": 0.0,
           "oxygen_efficiency": 0.0,
@@ -11409,6 +12891,8 @@ export const turn: TurnResponse = {
         "minimum_crew": 1,
         "available": false,
         "unavailable_reasons": [
+          "Requires at least 1 living astronauts fit for this workload.",
+          "Respiratory irritation: EVA unavailable until recovered; indoor work remains possible.",
           "Requires 1 Field science kit (not consumed)."
         ],
         "eligible_crew": [
@@ -11416,17 +12900,21 @@ export const turn: TurnResponse = {
             "crew_id": "alex",
             "available": false,
             "unavailable_reasons": [
+              "Requires at least 1 living astronauts fit for this workload.",
+              "Respiratory irritation: EVA unavailable until recovered; indoor work remains possible.",
               "Requires 1 Field science kit (not consumed)."
             ],
-            "success_probability": 0.7885
+            "success_probability": 0.6585
           },
           {
             "crew_id": "maya",
             "available": false,
             "unavailable_reasons": [
+              "Requires at least 1 living astronauts fit for this workload.",
+              "Respiratory irritation: EVA unavailable until recovered; indoor work remains possible.",
               "Requires 1 Field science kit (not consumed)."
             ],
-            "success_probability": 0.75
+            "success_probability": 0.7
           }
         ],
         "success_probability": null
@@ -11461,6 +12949,8 @@ export const turn: TurnResponse = {
         "crew_role_bonus": {},
         "success_chance": 0.7,
         "success_effects": {
+          "condition": null,
+          "treatment": 0,
           "resources": {
             "research_data": 2.0
           },
@@ -11472,6 +12962,8 @@ export const turn: TurnResponse = {
           "target": "selected"
         },
         "failure_effects": {
+          "condition": null,
+          "treatment": 0,
           "resources": {},
           "solar_efficiency": 0.0,
           "oxygen_efficiency": 0.0,
@@ -11484,6 +12976,7 @@ export const turn: TurnResponse = {
         "minimum_crew": 1,
         "available": false,
         "unavailable_reasons": [
+          "Active injury or illness: light duties only until the condition resolves.",
           "Requires 1 Field science kit (not consumed)."
         ],
         "eligible_crew": [
@@ -11491,9 +12984,10 @@ export const turn: TurnResponse = {
             "crew_id": "alex",
             "available": false,
             "unavailable_reasons": [
+              "Active injury or illness: light duties only until the condition resolves.",
               "Requires 1 Field science kit (not consumed)."
             ],
-            "success_probability": 0.9385
+            "success_probability": 0.8085
           },
           {
             "crew_id": "maya",
@@ -11501,7 +12995,7 @@ export const turn: TurnResponse = {
             "unavailable_reasons": [
               "Requires 1 Field science kit (not consumed)."
             ],
-            "success_probability": 0.7
+            "success_probability": 0.65
           }
         ],
         "success_probability": null
@@ -11527,6 +13021,23 @@ export const turn: TurnResponse = {
         "oxygen": 2.0
       },
       "effects": {
+        "medical_changes": [
+          {
+            "crew_id": "alex",
+            "kind": "sprain",
+            "action": "acquired",
+            "reason": null,
+            "before": null,
+            "after": {
+              "kind": "sprain",
+              "remaining": 3,
+              "acquired_week": 1,
+              "stabilized": false,
+              "care_week": 0,
+              "care_points": 0
+            }
+          }
+        ],
         "resources": {},
         "solar_efficiency": 0.0,
         "oxygen_efficiency": 0.0,
@@ -11599,6 +13110,8 @@ export const turn: TurnResponse = {
           "crew_id": "alex",
           "before": 75,
           "after": 75,
+          "medical_penalty": 0,
+          "medical_changes": [],
           "food_received_fraction": 0.7,
           "water_received_fraction": 1.0,
           "nutrition_before": 0.0,
@@ -11618,6 +13131,8 @@ export const turn: TurnResponse = {
           "crew_id": "maya",
           "before": 100,
           "after": 100,
+          "medical_penalty": 0,
+          "medical_changes": [],
           "food_received_fraction": 1.0,
           "water_received_fraction": 1.0,
           "nutrition_before": 0.0,
@@ -11657,6 +13172,38 @@ export const turn: TurnResponse = {
       "event_id": "medical_emergency",
       "title": "Contaminated Air Filter",
       "effects": {
+        "medical_changes": [
+          {
+            "crew_id": "alex",
+            "kind": "dust_irritation",
+            "action": "acquired",
+            "reason": null,
+            "before": null,
+            "after": {
+              "kind": "dust_irritation",
+              "remaining": 2,
+              "acquired_week": 2,
+              "stabilized": false,
+              "care_week": 0,
+              "care_points": 0
+            }
+          },
+          {
+            "crew_id": "maya",
+            "kind": "dust_irritation",
+            "action": "acquired",
+            "reason": null,
+            "before": null,
+            "after": {
+              "kind": "dust_irritation",
+              "remaining": 2,
+              "acquired_week": 2,
+              "stabilized": false,
+              "care_week": 0,
+              "care_points": 0
+            }
+          }
+        ],
         "resources": {},
         "solar_efficiency": 0.0,
         "oxygen_efficiency": 0.0,
@@ -11830,16 +13377,34 @@ export const medicalGame: GameResponse = {
     },
     "crew": [
       {
+        "medical_conditions": [
+          {
+            "kind": "dust_irritation",
+            "remaining": 2,
+            "acquired_week": 1,
+            "stabilized": false,
+            "care_week": 0,
+            "care_points": 0,
+            "title": "Dust-related respiratory irritation",
+            "urgent": false,
+            "rest_weeks": 2,
+            "medic_weeks": 1,
+            "untreated_damage": 1,
+            "source_url": "https://www.nasa.gov/reference/jsc-dust/"
+          }
+        ],
         "nutrition_deficit": 0.0,
         "hydration_deficit": 0.0,
         "condition": {
-          "status": "fit",
+          "status": "serious",
           "nutrition_status": "adequate",
           "hydration_status": "adequate",
           "can_work": true,
-          "can_do_eva": true,
-          "performance_penalty": 0.0,
-          "restrictions": [],
+          "can_do_eva": false,
+          "performance_penalty": 0.05,
+          "restrictions": [
+            "Respiratory irritation: EVA unavailable until recovered; indoor work remains possible."
+          ],
           "nutrition_recovery_weeks": 0,
           "hydration_recovery_weeks": 0,
           "source_url": "https://www.nasa.gov/reference/risk-of-inadequate-food-and-nutrition/"
@@ -11896,16 +13461,34 @@ export const medicalGame: GameResponse = {
         }
       },
       {
+        "medical_conditions": [
+          {
+            "kind": "dust_irritation",
+            "remaining": 2,
+            "acquired_week": 1,
+            "stabilized": false,
+            "care_week": 0,
+            "care_points": 0,
+            "title": "Dust-related respiratory irritation",
+            "urgent": false,
+            "rest_weeks": 2,
+            "medic_weeks": 1,
+            "untreated_damage": 1,
+            "source_url": "https://www.nasa.gov/reference/jsc-dust/"
+          }
+        ],
         "nutrition_deficit": 0.0,
         "hydration_deficit": 0.0,
         "condition": {
-          "status": "fit",
+          "status": "serious",
           "nutrition_status": "adequate",
           "hydration_status": "adequate",
           "can_work": true,
-          "can_do_eva": true,
-          "performance_penalty": 0.0,
-          "restrictions": [],
+          "can_do_eva": false,
+          "performance_penalty": 0.05,
+          "restrictions": [
+            "Respiratory irritation: EVA unavailable until recovered; indoor work remains possible."
+          ],
           "nutrition_recovery_weeks": 0,
           "hydration_recovery_weeks": 0,
           "source_url": "https://www.nasa.gov/reference/risk-of-inadequate-food-and-nutrition/"
@@ -11987,11 +13570,13 @@ export const medicalGame: GameResponse = {
     "current_event": {
       "id": "medical_emergency",
       "title": "Contaminated Air Filter",
-      "description": "An irritant escapes a filter. Every living astronaut loses 8 health on discovery.",
+      "description": "An irritant escapes a filter. Every living astronaut loses 8 health on discovery. All living crew develop dust-related respiratory irritation; named conditions need recovery as well as symptom relief.",
       "category": "hazard",
       "science_context": "Dust management matters for cabin cleanliness. The irritant incident and health changes here are fictional.",
       "source_url": "https://www.nasa.gov/reference/jsc-dust/",
       "on_start": {
+        "condition": "dust_irritation",
+        "treatment": 0,
         "resources": {},
         "solar_efficiency": 0.0,
         "oxygen_efficiency": 0.0,
@@ -12008,7 +13593,7 @@ export const medicalGame: GameResponse = {
           "action_type": "event",
           "objective_rewards": [],
           "text": "Treat an affected astronaut",
-          "description": "Select a patient. A living medic improves treatment. Failed treatment does not restore health.",
+          "description": "Select a patient. A living medic improves success. Costs 1 medicine; success gives 5 health, stabilizes one active condition (urgent first), and supplies up to 2 recovery points at survival with full provisions and safe air. Failure costs 5 health.",
           "costs": {
             "medicine": 1.0
           },
@@ -12020,15 +13605,19 @@ export const medicalGame: GameResponse = {
           },
           "success_chance": 0.7,
           "success_effects": {
+            "condition": null,
+            "treatment": 2,
             "resources": {},
             "solar_efficiency": 0.0,
             "oxygen_efficiency": 0.0,
             "water_recovery_efficiency": 0.0,
             "co2_efficiency": 0.0,
-            "crew_health": 30,
+            "crew_health": 5,
             "target": "selected"
           },
           "failure_effects": {
+            "condition": null,
+            "treatment": 0,
             "resources": {},
             "solar_efficiency": 0.0,
             "oxygen_efficiency": 0.0,
@@ -12058,7 +13647,7 @@ export const medicalGame: GameResponse = {
           "success_probability": null
         },
         {
-          "workload": "strenuous",
+          "workload": "light",
           "support_candidates": [
             {
               "crew_id": "alex",
@@ -12087,6 +13676,8 @@ export const medicalGame: GameResponse = {
           "crew_role_bonus": {},
           "success_chance": 0.75,
           "success_effects": {
+            "condition": null,
+            "treatment": 0,
             "resources": {},
             "solar_efficiency": 0.0,
             "oxygen_efficiency": 0.0,
@@ -12096,6 +13687,8 @@ export const medicalGame: GameResponse = {
             "target": "all"
           },
           "failure_effects": {
+            "condition": null,
+            "treatment": 0,
             "resources": {},
             "solar_efficiency": 0.0,
             "oxygen_efficiency": 0.0,
@@ -12115,13 +13708,13 @@ export const medicalGame: GameResponse = {
               "unavailable_reasons": [
                 "Requires a living medic."
               ],
-              "success_probability": 0.8
+              "success_probability": 0.75
             },
             {
               "crew_id": "maya",
               "available": true,
               "unavailable_reasons": [],
-              "success_probability": 0.95
+              "success_probability": 0.9
             }
           ],
           "success_probability": null
@@ -12133,7 +13726,7 @@ export const medicalGame: GameResponse = {
           "action_type": "event",
           "objective_rewards": [],
           "text": "Use scanner-guided treatment",
-          "description": "Guaranteed 20-health recovery for the selected patient. Consumes medicine; the scanner is retained.",
+          "description": "Use the retained scanner and 1 medicine for guaranteed 5-health symptom relief and stabilization of one active condition (urgent first). Up to 2 recovery points apply during survival with full provisions and safe air.",
           "costs": {
             "medicine": 1.0
           },
@@ -12145,15 +13738,19 @@ export const medicalGame: GameResponse = {
           "crew_role_bonus": {},
           "success_chance": 1.0,
           "success_effects": {
+            "condition": null,
+            "treatment": 2,
             "resources": {},
             "solar_efficiency": 0.0,
             "oxygen_efficiency": 0.0,
             "water_recovery_efficiency": 0.0,
             "co2_efficiency": 0.0,
-            "crew_health": 20,
+            "crew_health": 5,
             "target": "selected"
           },
           "failure_effects": {
+            "condition": null,
+            "treatment": 0,
             "resources": {},
             "solar_efficiency": 0.0,
             "oxygen_efficiency": 0.0,
@@ -12203,6 +13800,8 @@ export const medicalGame: GameResponse = {
           "crew_role_bonus": {},
           "success_chance": 1.0,
           "success_effects": {
+            "condition": null,
+            "treatment": 0,
             "resources": {},
             "solar_efficiency": 0.0,
             "oxygen_efficiency": 0.0,
@@ -12212,6 +13811,8 @@ export const medicalGame: GameResponse = {
             "target": "all"
           },
           "failure_effects": {
+            "condition": null,
+            "treatment": 0,
             "resources": {},
             "solar_efficiency": 0.0,
             "oxygen_efficiency": 0.0,
@@ -12308,6 +13909,8 @@ export const medicalGame: GameResponse = {
         "crew_role_bonus": {},
         "success_chance": 1.0,
         "success_effects": {
+          "condition": null,
+          "treatment": 0,
           "resources": {},
           "solar_efficiency": 0.0,
           "oxygen_efficiency": 0.0,
@@ -12317,6 +13920,124 @@ export const medicalGame: GameResponse = {
           "target": "selected"
         },
         "failure_effects": {
+          "condition": null,
+          "treatment": 0,
+          "resources": {},
+          "solar_efficiency": 0.0,
+          "oxygen_efficiency": 0.0,
+          "water_recovery_efficiency": 0.0,
+          "co2_efficiency": 0.0,
+          "crew_health": 0,
+          "target": "selected"
+        },
+        "required_role": null,
+        "minimum_crew": 1,
+        "available": true,
+        "unavailable_reasons": [],
+        "eligible_crew": [
+          {
+            "crew_id": "alex",
+            "available": true,
+            "unavailable_reasons": [],
+            "success_probability": 1.0
+          },
+          {
+            "crew_id": "maya",
+            "available": true,
+            "unavailable_reasons": [],
+            "success_probability": 1.0
+          }
+        ],
+        "success_probability": null
+      },
+      {
+        "workload": "light",
+        "support_candidates": [],
+        "id": "medical_care",
+        "action_type": "medical",
+        "objective_rewards": [],
+        "text": "Provide medical care",
+        "description": "Reserve caregiver and patient for one week, plus 1 medicine. Stabilizes the chosen condition immediately. A fit medic earns 2 recovery points; another fit caregiver earns 1 (2 with a retained diagnostic scanner). Progress needs full actual provisions and safe air. Both crew are occupied, even if recovery stalls.",
+        "costs": {
+          "medicine": 1.0
+        },
+        "required_items": {},
+        "requires_crew": true,
+        "role_bonus": {},
+        "crew_role_bonus": {},
+        "success_chance": 1.0,
+        "success_effects": {
+          "condition": null,
+          "treatment": 0,
+          "resources": {},
+          "solar_efficiency": 0.0,
+          "oxygen_efficiency": 0.0,
+          "water_recovery_efficiency": 0.0,
+          "co2_efficiency": 0.0,
+          "crew_health": 0,
+          "target": "selected"
+        },
+        "failure_effects": {
+          "condition": null,
+          "treatment": 0,
+          "resources": {},
+          "solar_efficiency": 0.0,
+          "oxygen_efficiency": 0.0,
+          "water_recovery_efficiency": 0.0,
+          "co2_efficiency": 0.0,
+          "crew_health": 0,
+          "target": "selected"
+        },
+        "required_role": null,
+        "minimum_crew": 1,
+        "available": true,
+        "unavailable_reasons": [],
+        "eligible_crew": [
+          {
+            "crew_id": "alex",
+            "available": true,
+            "unavailable_reasons": [],
+            "success_probability": 1.0
+          },
+          {
+            "crew_id": "maya",
+            "available": true,
+            "unavailable_reasons": [],
+            "success_probability": 1.0
+          }
+        ],
+        "success_probability": null
+      },
+      {
+        "workload": "rest",
+        "support_candidates": [],
+        "id": "self_care",
+        "action_type": "medical",
+        "objective_rewards": [],
+        "text": "Self-care and stabilization",
+        "description": "One astronaut and 1 medicine. Available even when critically unfit; treats only their own chosen condition. Stabilizes immediately and earns 1 recovery point with full actual provisions and safe air. No work or incident duty that week.",
+        "costs": {
+          "medicine": 1.0
+        },
+        "required_items": {},
+        "requires_crew": true,
+        "role_bonus": {},
+        "crew_role_bonus": {},
+        "success_chance": 1.0,
+        "success_effects": {
+          "condition": null,
+          "treatment": 0,
+          "resources": {},
+          "solar_efficiency": 0.0,
+          "oxygen_efficiency": 0.0,
+          "water_recovery_efficiency": 0.0,
+          "co2_efficiency": 0.0,
+          "crew_health": 0,
+          "target": "selected"
+        },
+        "failure_effects": {
+          "condition": null,
+          "treatment": 0,
           "resources": {},
           "solar_efficiency": 0.0,
           "oxygen_efficiency": 0.0,
@@ -12364,6 +14085,8 @@ export const medicalGame: GameResponse = {
         "crew_role_bonus": {},
         "success_chance": 1.0,
         "success_effects": {
+          "condition": null,
+          "treatment": 0,
           "resources": {},
           "solar_efficiency": 0.2,
           "oxygen_efficiency": 0.0,
@@ -12373,6 +14096,8 @@ export const medicalGame: GameResponse = {
           "target": "selected"
         },
         "failure_effects": {
+          "condition": null,
+          "treatment": 0,
           "resources": {},
           "solar_efficiency": 0.0,
           "oxygen_efficiency": 0.0,
@@ -12385,6 +14110,8 @@ export const medicalGame: GameResponse = {
         "minimum_crew": 1,
         "available": false,
         "unavailable_reasons": [
+          "Requires at least 1 living astronauts fit for this workload.",
+          "Respiratory irritation: EVA unavailable until recovered; indoor work remains possible.",
           "Requires 1 dust_kits; available 0.",
           "The solar array is already at full condition."
         ],
@@ -12393,6 +14120,8 @@ export const medicalGame: GameResponse = {
             "crew_id": "alex",
             "available": false,
             "unavailable_reasons": [
+              "Requires at least 1 living astronauts fit for this workload.",
+              "Respiratory irritation: EVA unavailable until recovered; indoor work remains possible.",
               "Requires 1 dust_kits; available 0.",
               "The solar array is already at full condition."
             ],
@@ -12402,6 +14131,8 @@ export const medicalGame: GameResponse = {
             "crew_id": "maya",
             "available": false,
             "unavailable_reasons": [
+              "Requires at least 1 living astronauts fit for this workload.",
+              "Respiratory irritation: EVA unavailable until recovered; indoor work remains possible.",
               "Requires 1 dust_kits; available 0.",
               "The solar array is already at full condition."
             ],
@@ -12428,6 +14159,8 @@ export const medicalGame: GameResponse = {
         "crew_role_bonus": {},
         "success_chance": 1.0,
         "success_effects": {
+          "condition": null,
+          "treatment": 0,
           "resources": {},
           "solar_efficiency": 0.0,
           "oxygen_efficiency": 0.2,
@@ -12437,6 +14170,8 @@ export const medicalGame: GameResponse = {
           "target": "selected"
         },
         "failure_effects": {
+          "condition": null,
+          "treatment": 0,
           "resources": {},
           "solar_efficiency": 0.0,
           "oxygen_efficiency": 0.0,
@@ -12492,6 +14227,8 @@ export const medicalGame: GameResponse = {
         "crew_role_bonus": {},
         "success_chance": 1.0,
         "success_effects": {
+          "condition": null,
+          "treatment": 0,
           "resources": {},
           "solar_efficiency": 0.0,
           "oxygen_efficiency": 0.0,
@@ -12501,6 +14238,8 @@ export const medicalGame: GameResponse = {
           "target": "selected"
         },
         "failure_effects": {
+          "condition": null,
+          "treatment": 0,
           "resources": {},
           "solar_efficiency": 0.0,
           "oxygen_efficiency": 0.0,
@@ -12553,6 +14292,8 @@ export const medicalGame: GameResponse = {
         "crew_role_bonus": {},
         "success_chance": 1.0,
         "success_effects": {
+          "condition": null,
+          "treatment": 0,
           "resources": {},
           "solar_efficiency": 0.0,
           "oxygen_efficiency": 0.0,
@@ -12562,6 +14303,8 @@ export const medicalGame: GameResponse = {
           "target": "selected"
         },
         "failure_effects": {
+          "condition": null,
+          "treatment": 0,
           "resources": {},
           "solar_efficiency": 0.0,
           "oxygen_efficiency": 0.0,
@@ -12609,7 +14352,7 @@ export const medicalGame: GameResponse = {
           }
         ],
         "text": "Survey a geological sample",
-        "description": "Use the science kit to collect one sample and 2 research data on success. Scientists improve the odds; failure costs the worker 8 health. One-week crew assignment; incident response is separate.",
+        "description": "Use the science kit to collect one sample and 2 research data on success. Scientists improve the odds; failure costs the worker 8 health and causes a sprain. One-week crew assignment; incident response is separate.",
         "costs": {
           "eva_batteries": 1.0,
           "oxygen": 2.0
@@ -12625,6 +14368,8 @@ export const medicalGame: GameResponse = {
         "crew_role_bonus": {},
         "success_chance": 0.75,
         "success_effects": {
+          "condition": null,
+          "treatment": 0,
           "resources": {
             "research_data": 2.0
           },
@@ -12636,6 +14381,8 @@ export const medicalGame: GameResponse = {
           "target": "selected"
         },
         "failure_effects": {
+          "condition": "sprain",
+          "treatment": 0,
           "resources": {},
           "solar_efficiency": 0.0,
           "oxygen_efficiency": 0.0,
@@ -12648,6 +14395,8 @@ export const medicalGame: GameResponse = {
         "minimum_crew": 1,
         "available": false,
         "unavailable_reasons": [
+          "Requires at least 1 living astronauts fit for this workload.",
+          "Respiratory irritation: EVA unavailable until recovered; indoor work remains possible.",
           "Requires 1 Field science kit (not consumed)."
         ],
         "eligible_crew": [
@@ -12655,17 +14404,21 @@ export const medicalGame: GameResponse = {
             "crew_id": "alex",
             "available": false,
             "unavailable_reasons": [
+              "Requires at least 1 living astronauts fit for this workload.",
+              "Respiratory irritation: EVA unavailable until recovered; indoor work remains possible.",
               "Requires 1 Field science kit (not consumed)."
             ],
-            "success_probability": 0.8
+            "success_probability": 0.75
           },
           {
             "crew_id": "maya",
             "available": false,
             "unavailable_reasons": [
+              "Requires at least 1 living astronauts fit for this workload.",
+              "Respiratory irritation: EVA unavailable until recovered; indoor work remains possible.",
               "Requires 1 Field science kit (not consumed)."
             ],
-            "success_probability": 0.75
+            "success_probability": 0.7
           }
         ],
         "success_probability": null
@@ -12677,7 +14430,7 @@ export const medicalGame: GameResponse = {
         "action_type": "research",
         "objective_rewards": [],
         "text": "Deploy seismic sensors",
-        "description": "Start a seismic project: 1 deployment week, 3 automatic recording weeks at 2 power each, then 1 crew analysis week. No objective credit until analysis succeeds. Failure costs 8 worker health and deployment supplies; the phase can be retried.",
+        "description": "Start a seismic project: 1 deployment week, 3 automatic recording weeks at 2 power each, then 1 crew analysis week. No objective credit until analysis succeeds. Failure causes a sprain and costs 8 health and deployment supplies; the phase can be retried.",
         "costs": {
           "electricity": 2.0,
           "eva_batteries": 1.0,
@@ -12694,6 +14447,8 @@ export const medicalGame: GameResponse = {
         "crew_role_bonus": {},
         "success_chance": 0.75,
         "success_effects": {
+          "condition": null,
+          "treatment": 0,
           "resources": {},
           "solar_efficiency": 0.0,
           "oxygen_efficiency": 0.0,
@@ -12703,6 +14458,8 @@ export const medicalGame: GameResponse = {
           "target": "selected"
         },
         "failure_effects": {
+          "condition": "sprain",
+          "treatment": 0,
           "resources": {},
           "solar_efficiency": 0.0,
           "oxygen_efficiency": 0.0,
@@ -12715,6 +14472,8 @@ export const medicalGame: GameResponse = {
         "minimum_crew": 1,
         "available": false,
         "unavailable_reasons": [
+          "Requires at least 1 living astronauts fit for this workload.",
+          "Respiratory irritation: EVA unavailable until recovered; indoor work remains possible.",
           "Requires 1 Field science kit (not consumed)."
         ],
         "eligible_crew": [
@@ -12722,17 +14481,21 @@ export const medicalGame: GameResponse = {
             "crew_id": "alex",
             "available": false,
             "unavailable_reasons": [
+              "Requires at least 1 living astronauts fit for this workload.",
+              "Respiratory irritation: EVA unavailable until recovered; indoor work remains possible.",
               "Requires 1 Field science kit (not consumed)."
             ],
-            "success_probability": 0.8
+            "success_probability": 0.75
           },
           {
             "crew_id": "maya",
             "available": false,
             "unavailable_reasons": [
+              "Requires at least 1 living astronauts fit for this workload.",
+              "Respiratory irritation: EVA unavailable until recovered; indoor work remains possible.",
               "Requires 1 Field science kit (not consumed)."
             ],
-            "success_probability": 0.75
+            "success_probability": 0.7
           }
         ],
         "success_probability": null
@@ -12767,6 +14530,8 @@ export const medicalGame: GameResponse = {
         "crew_role_bonus": {},
         "success_chance": 0.7,
         "success_effects": {
+          "condition": null,
+          "treatment": 0,
           "resources": {
             "research_data": 2.0
           },
@@ -12778,6 +14543,8 @@ export const medicalGame: GameResponse = {
           "target": "selected"
         },
         "failure_effects": {
+          "condition": null,
+          "treatment": 0,
           "resources": {},
           "solar_efficiency": 0.0,
           "oxygen_efficiency": 0.0,
@@ -12799,7 +14566,7 @@ export const medicalGame: GameResponse = {
             "unavailable_reasons": [
               "Requires 1 Field science kit (not consumed)."
             ],
-            "success_probability": 0.95
+            "success_probability": 0.9
           },
           {
             "crew_id": "maya",
@@ -12807,7 +14574,7 @@ export const medicalGame: GameResponse = {
             "unavailable_reasons": [
               "Requires 1 Field science kit (not consumed)."
             ],
-            "success_probability": 0.7
+            "success_probability": 0.65
           }
         ],
         "success_probability": null
@@ -12958,6 +14725,7 @@ export const treatment: TurnResponse = {
     },
     "crew": [
       {
+        "medical_conditions": [],
         "nutrition_deficit": 0.0,
         "hydration_deficit": 0.0,
         "condition": {
@@ -13024,16 +14792,34 @@ export const treatment: TurnResponse = {
         }
       },
       {
+        "medical_conditions": [
+          {
+            "kind": "dust_irritation",
+            "remaining": 2,
+            "acquired_week": 1,
+            "stabilized": false,
+            "care_week": 0,
+            "care_points": 0,
+            "title": "Dust-related respiratory irritation",
+            "urgent": false,
+            "rest_weeks": 2,
+            "medic_weeks": 1,
+            "untreated_damage": 1,
+            "source_url": "https://www.nasa.gov/reference/jsc-dust/"
+          }
+        ],
         "nutrition_deficit": 0.0,
         "hydration_deficit": 0.0,
         "condition": {
-          "status": "fit",
+          "status": "serious",
           "nutrition_status": "adequate",
           "hydration_status": "adequate",
           "can_work": true,
-          "can_do_eva": true,
-          "performance_penalty": 0.0,
-          "restrictions": [],
+          "can_do_eva": false,
+          "performance_penalty": 0.05,
+          "restrictions": [
+            "Respiratory irritation: EVA unavailable until recovered; indoor work remains possible."
+          ],
           "nutrition_recovery_weeks": 0,
           "hydration_recovery_weeks": 0,
           "source_url": "https://www.nasa.gov/reference/risk-of-inadequate-food-and-nutrition/"
@@ -13120,6 +14906,8 @@ export const treatment: TurnResponse = {
       "science_context": "NASA develops exercise countermeasures for spaceflight. These immediate health gains are fictional; exercise does not instantly reverse injuries.",
       "source_url": "https://www.nasa.gov/directorates/esdmd/hhp/exercise-physiology-and-countermeasures/",
       "on_start": {
+        "condition": null,
+        "treatment": 0,
         "resources": {},
         "solar_efficiency": 0.0,
         "oxygen_efficiency": 0.0,
@@ -13147,6 +14935,8 @@ export const treatment: TurnResponse = {
           "crew_role_bonus": {},
           "success_chance": 1.0,
           "success_effects": {
+            "condition": null,
+            "treatment": 0,
             "resources": {},
             "solar_efficiency": 0.0,
             "oxygen_efficiency": 0.0,
@@ -13156,6 +14946,8 @@ export const treatment: TurnResponse = {
             "target": "all"
           },
           "failure_effects": {
+            "condition": null,
+            "treatment": 0,
             "resources": {},
             "solar_efficiency": 0.0,
             "oxygen_efficiency": 0.0,
@@ -13178,7 +14970,7 @@ export const treatment: TurnResponse = {
           "action_type": "event",
           "objective_rewards": [],
           "text": "Treat one recovering astronaut",
-          "description": "Choose a patient and spend 1 medicine. Success restores 20 health; failure gives no healing. A living medic improves the odds.",
+          "description": "Select a patient and spend 1 medicine. Success gives 5 health, stabilizes one active condition (urgent first), and supplies up to 2 recovery points during survival with full provisions and safe air. Existing role bonuses improve the odds.",
           "costs": {
             "medicine": 1.0
           },
@@ -13190,15 +14982,19 @@ export const treatment: TurnResponse = {
           },
           "success_chance": 0.75,
           "success_effects": {
+            "condition": null,
+            "treatment": 2,
             "resources": {},
             "solar_efficiency": 0.0,
             "oxygen_efficiency": 0.0,
             "water_recovery_efficiency": 0.0,
             "co2_efficiency": 0.0,
-            "crew_health": 20,
+            "crew_health": 5,
             "target": "selected"
           },
           "failure_effects": {
+            "condition": null,
+            "treatment": 0,
             "resources": {},
             "solar_efficiency": 0.0,
             "oxygen_efficiency": 0.0,
@@ -13242,6 +15038,8 @@ export const treatment: TurnResponse = {
           "crew_role_bonus": {},
           "success_chance": 1.0,
           "success_effects": {
+            "condition": null,
+            "treatment": 0,
             "resources": {},
             "solar_efficiency": 0.0,
             "oxygen_efficiency": 0.0,
@@ -13251,6 +15049,8 @@ export const treatment: TurnResponse = {
             "target": "all"
           },
           "failure_effects": {
+            "condition": null,
+            "treatment": 0,
             "resources": {},
             "solar_efficiency": 0.0,
             "oxygen_efficiency": 0.0,
@@ -13295,6 +15095,30 @@ export const treatment: TurnResponse = {
             "medicine": 1.0
           },
           "effects": {
+            "medical_changes": [
+              {
+                "crew_id": "alex",
+                "kind": "dust_irritation",
+                "action": "stabilized",
+                "reason": null,
+                "before": {
+                  "kind": "dust_irritation",
+                  "remaining": 2,
+                  "acquired_week": 1,
+                  "stabilized": false,
+                  "care_week": 0,
+                  "care_points": 0
+                },
+                "after": {
+                  "kind": "dust_irritation",
+                  "remaining": 2,
+                  "acquired_week": 1,
+                  "stabilized": true,
+                  "care_week": 1,
+                  "care_points": 2
+                }
+              }
+            ],
             "resources": {},
             "solar_efficiency": 0.0,
             "oxygen_efficiency": 0.0,
@@ -13304,7 +15128,7 @@ export const treatment: TurnResponse = {
               {
                 "crew_id": "alex",
                 "before": 92,
-                "after": 100
+                "after": 97
               }
             ]
           },
@@ -13365,17 +15189,35 @@ export const treatment: TurnResponse = {
           "health_changes": [
             {
               "crew_id": "alex",
-              "before": 100,
+              "before": 97,
               "after": 100,
+              "medical_penalty": 0,
+              "medical_changes": [
+                {
+                  "crew_id": "alex",
+                  "kind": "dust_irritation",
+                  "action": "resolved",
+                  "reason": null,
+                  "before": {
+                    "kind": "dust_irritation",
+                    "remaining": 2,
+                    "acquired_week": 1,
+                    "stabilized": true,
+                    "care_week": 1,
+                    "care_points": 2
+                  },
+                  "after": null
+                }
+              ],
               "food_received_fraction": 1.0,
               "water_received_fraction": 1.0,
               "nutrition_before": 0.0,
               "nutrition_after": 0.0,
               "hydration_before": 0.0,
               "hydration_after": 0.0,
-              "recovery": 0,
+              "recovery": 3,
               "worked": false,
-              "rested": false,
+              "rested": true,
               "food_penalty": 0,
               "water_penalty": 0,
               "oxygen_penalty": 0,
@@ -13386,6 +15228,8 @@ export const treatment: TurnResponse = {
               "crew_id": "maya",
               "before": 92,
               "after": 94,
+              "medical_penalty": 0,
+              "medical_changes": [],
               "food_received_fraction": 1.0,
               "water_received_fraction": 1.0,
               "nutrition_before": 0.0,
@@ -13425,6 +15269,7 @@ export const treatment: TurnResponse = {
           "event_id": "crew_recovery",
           "title": "A Week for Recovery",
           "effects": {
+            "medical_changes": [],
             "resources": {},
             "solar_efficiency": 0.0,
             "oxygen_efficiency": 0.0,
@@ -13507,6 +15352,8 @@ export const treatment: TurnResponse = {
         "crew_role_bonus": {},
         "success_chance": 1.0,
         "success_effects": {
+          "condition": null,
+          "treatment": 0,
           "resources": {},
           "solar_efficiency": 0.0,
           "oxygen_efficiency": 0.0,
@@ -13516,6 +15363,8 @@ export const treatment: TurnResponse = {
           "target": "selected"
         },
         "failure_effects": {
+          "condition": null,
+          "treatment": 0,
           "resources": {},
           "solar_efficiency": 0.0,
           "oxygen_efficiency": 0.0,
@@ -13533,6 +15382,126 @@ export const treatment: TurnResponse = {
             "crew_id": "alex",
             "available": true,
             "unavailable_reasons": [],
+            "success_probability": 1.0
+          },
+          {
+            "crew_id": "maya",
+            "available": true,
+            "unavailable_reasons": [],
+            "success_probability": 1.0
+          }
+        ],
+        "success_probability": null
+      },
+      {
+        "workload": "light",
+        "support_candidates": [],
+        "id": "medical_care",
+        "action_type": "medical",
+        "objective_rewards": [],
+        "text": "Provide medical care",
+        "description": "Reserve caregiver and patient for one week, plus 1 medicine. Stabilizes the chosen condition immediately. A fit medic earns 2 recovery points; another fit caregiver earns 1 (2 with a retained diagnostic scanner). Progress needs full actual provisions and safe air. Both crew are occupied, even if recovery stalls.",
+        "costs": {
+          "medicine": 1.0
+        },
+        "required_items": {},
+        "requires_crew": true,
+        "role_bonus": {},
+        "crew_role_bonus": {},
+        "success_chance": 1.0,
+        "success_effects": {
+          "condition": null,
+          "treatment": 0,
+          "resources": {},
+          "solar_efficiency": 0.0,
+          "oxygen_efficiency": 0.0,
+          "water_recovery_efficiency": 0.0,
+          "co2_efficiency": 0.0,
+          "crew_health": 0,
+          "target": "selected"
+        },
+        "failure_effects": {
+          "condition": null,
+          "treatment": 0,
+          "resources": {},
+          "solar_efficiency": 0.0,
+          "oxygen_efficiency": 0.0,
+          "water_recovery_efficiency": 0.0,
+          "co2_efficiency": 0.0,
+          "crew_health": 0,
+          "target": "selected"
+        },
+        "required_role": null,
+        "minimum_crew": 1,
+        "available": true,
+        "unavailable_reasons": [],
+        "eligible_crew": [
+          {
+            "crew_id": "alex",
+            "available": true,
+            "unavailable_reasons": [],
+            "success_probability": 1.0
+          },
+          {
+            "crew_id": "maya",
+            "available": false,
+            "unavailable_reasons": [
+              "Requires a living patient with an active medical condition."
+            ],
+            "success_probability": 1.0
+          }
+        ],
+        "success_probability": null
+      },
+      {
+        "workload": "rest",
+        "support_candidates": [],
+        "id": "self_care",
+        "action_type": "medical",
+        "objective_rewards": [],
+        "text": "Self-care and stabilization",
+        "description": "One astronaut and 1 medicine. Available even when critically unfit; treats only their own chosen condition. Stabilizes immediately and earns 1 recovery point with full actual provisions and safe air. No work or incident duty that week.",
+        "costs": {
+          "medicine": 1.0
+        },
+        "required_items": {},
+        "requires_crew": true,
+        "role_bonus": {},
+        "crew_role_bonus": {},
+        "success_chance": 1.0,
+        "success_effects": {
+          "condition": null,
+          "treatment": 0,
+          "resources": {},
+          "solar_efficiency": 0.0,
+          "oxygen_efficiency": 0.0,
+          "water_recovery_efficiency": 0.0,
+          "co2_efficiency": 0.0,
+          "crew_health": 0,
+          "target": "selected"
+        },
+        "failure_effects": {
+          "condition": null,
+          "treatment": 0,
+          "resources": {},
+          "solar_efficiency": 0.0,
+          "oxygen_efficiency": 0.0,
+          "water_recovery_efficiency": 0.0,
+          "co2_efficiency": 0.0,
+          "crew_health": 0,
+          "target": "selected"
+        },
+        "required_role": null,
+        "minimum_crew": 1,
+        "available": true,
+        "unavailable_reasons": [],
+        "eligible_crew": [
+          {
+            "crew_id": "alex",
+            "available": false,
+            "unavailable_reasons": [
+              "Requires a living patient with an active medical condition."
+            ],
             "success_probability": 1.0
           },
           {
@@ -13563,6 +15532,8 @@ export const treatment: TurnResponse = {
         "crew_role_bonus": {},
         "success_chance": 1.0,
         "success_effects": {
+          "condition": null,
+          "treatment": 0,
           "resources": {},
           "solar_efficiency": 0.2,
           "oxygen_efficiency": 0.0,
@@ -13572,6 +15543,8 @@ export const treatment: TurnResponse = {
           "target": "selected"
         },
         "failure_effects": {
+          "condition": null,
+          "treatment": 0,
           "resources": {},
           "solar_efficiency": 0.0,
           "oxygen_efficiency": 0.0,
@@ -13585,7 +15558,8 @@ export const treatment: TurnResponse = {
         "available": false,
         "unavailable_reasons": [
           "Requires 1 dust_kits; available 0.",
-          "The solar array is already at full condition."
+          "The solar array is already at full condition.",
+          "Respiratory irritation: EVA unavailable until recovered; indoor work remains possible."
         ],
         "eligible_crew": [
           {
@@ -13601,6 +15575,7 @@ export const treatment: TurnResponse = {
             "crew_id": "maya",
             "available": false,
             "unavailable_reasons": [
+              "Respiratory irritation: EVA unavailable until recovered; indoor work remains possible.",
               "Requires 1 dust_kits; available 0.",
               "The solar array is already at full condition."
             ],
@@ -13627,6 +15602,8 @@ export const treatment: TurnResponse = {
         "crew_role_bonus": {},
         "success_chance": 1.0,
         "success_effects": {
+          "condition": null,
+          "treatment": 0,
           "resources": {},
           "solar_efficiency": 0.0,
           "oxygen_efficiency": 0.2,
@@ -13636,6 +15613,8 @@ export const treatment: TurnResponse = {
           "target": "selected"
         },
         "failure_effects": {
+          "condition": null,
+          "treatment": 0,
           "resources": {},
           "solar_efficiency": 0.0,
           "oxygen_efficiency": 0.0,
@@ -13691,6 +15670,8 @@ export const treatment: TurnResponse = {
         "crew_role_bonus": {},
         "success_chance": 1.0,
         "success_effects": {
+          "condition": null,
+          "treatment": 0,
           "resources": {},
           "solar_efficiency": 0.0,
           "oxygen_efficiency": 0.0,
@@ -13700,6 +15681,8 @@ export const treatment: TurnResponse = {
           "target": "selected"
         },
         "failure_effects": {
+          "condition": null,
+          "treatment": 0,
           "resources": {},
           "solar_efficiency": 0.0,
           "oxygen_efficiency": 0.0,
@@ -13746,6 +15729,8 @@ export const treatment: TurnResponse = {
         "crew_role_bonus": {},
         "success_chance": 1.0,
         "success_effects": {
+          "condition": null,
+          "treatment": 0,
           "resources": {},
           "solar_efficiency": 0.0,
           "oxygen_efficiency": 0.0,
@@ -13755,6 +15740,8 @@ export const treatment: TurnResponse = {
           "target": "selected"
         },
         "failure_effects": {
+          "condition": null,
+          "treatment": 0,
           "resources": {},
           "solar_efficiency": 0.0,
           "oxygen_efficiency": 0.0,
@@ -13796,7 +15783,7 @@ export const treatment: TurnResponse = {
           }
         ],
         "text": "Survey a geological sample",
-        "description": "Use the science kit to collect one sample and 2 research data on success. Scientists improve the odds; failure costs the worker 8 health. One-week crew assignment; incident response is separate.",
+        "description": "Use the science kit to collect one sample and 2 research data on success. Scientists improve the odds; failure costs the worker 8 health and causes a sprain. One-week crew assignment; incident response is separate.",
         "costs": {
           "eva_batteries": 1.0,
           "oxygen": 2.0
@@ -13812,6 +15799,8 @@ export const treatment: TurnResponse = {
         "crew_role_bonus": {},
         "success_chance": 0.75,
         "success_effects": {
+          "condition": null,
+          "treatment": 0,
           "resources": {
             "research_data": 2.0
           },
@@ -13823,6 +15812,8 @@ export const treatment: TurnResponse = {
           "target": "selected"
         },
         "failure_effects": {
+          "condition": "sprain",
+          "treatment": 0,
           "resources": {},
           "solar_efficiency": 0.0,
           "oxygen_efficiency": 0.0,
@@ -13835,7 +15826,8 @@ export const treatment: TurnResponse = {
         "minimum_crew": 1,
         "available": false,
         "unavailable_reasons": [
-          "Requires 1 Field science kit (not consumed)."
+          "Requires 1 Field science kit (not consumed).",
+          "Respiratory irritation: EVA unavailable until recovered; indoor work remains possible."
         ],
         "eligible_crew": [
           {
@@ -13850,9 +15842,10 @@ export const treatment: TurnResponse = {
             "crew_id": "maya",
             "available": false,
             "unavailable_reasons": [
+              "Respiratory irritation: EVA unavailable until recovered; indoor work remains possible.",
               "Requires 1 Field science kit (not consumed)."
             ],
-            "success_probability": 0.75
+            "success_probability": 0.7
           }
         ],
         "success_probability": null
@@ -13864,7 +15857,7 @@ export const treatment: TurnResponse = {
         "action_type": "research",
         "objective_rewards": [],
         "text": "Deploy seismic sensors",
-        "description": "Start a seismic project: 1 deployment week, 3 automatic recording weeks at 2 power each, then 1 crew analysis week. No objective credit until analysis succeeds. Failure costs 8 worker health and deployment supplies; the phase can be retried.",
+        "description": "Start a seismic project: 1 deployment week, 3 automatic recording weeks at 2 power each, then 1 crew analysis week. No objective credit until analysis succeeds. Failure causes a sprain and costs 8 health and deployment supplies; the phase can be retried.",
         "costs": {
           "electricity": 2.0,
           "eva_batteries": 1.0,
@@ -13881,6 +15874,8 @@ export const treatment: TurnResponse = {
         "crew_role_bonus": {},
         "success_chance": 0.75,
         "success_effects": {
+          "condition": null,
+          "treatment": 0,
           "resources": {},
           "solar_efficiency": 0.0,
           "oxygen_efficiency": 0.0,
@@ -13890,6 +15885,8 @@ export const treatment: TurnResponse = {
           "target": "selected"
         },
         "failure_effects": {
+          "condition": "sprain",
+          "treatment": 0,
           "resources": {},
           "solar_efficiency": 0.0,
           "oxygen_efficiency": 0.0,
@@ -13902,7 +15899,8 @@ export const treatment: TurnResponse = {
         "minimum_crew": 1,
         "available": false,
         "unavailable_reasons": [
-          "Requires 1 Field science kit (not consumed)."
+          "Requires 1 Field science kit (not consumed).",
+          "Respiratory irritation: EVA unavailable until recovered; indoor work remains possible."
         ],
         "eligible_crew": [
           {
@@ -13917,9 +15915,10 @@ export const treatment: TurnResponse = {
             "crew_id": "maya",
             "available": false,
             "unavailable_reasons": [
+              "Respiratory irritation: EVA unavailable until recovered; indoor work remains possible.",
               "Requires 1 Field science kit (not consumed)."
             ],
-            "success_probability": 0.75
+            "success_probability": 0.7
           }
         ],
         "success_probability": null
@@ -13954,6 +15953,8 @@ export const treatment: TurnResponse = {
         "crew_role_bonus": {},
         "success_chance": 0.7,
         "success_effects": {
+          "condition": null,
+          "treatment": 0,
           "resources": {
             "research_data": 2.0
           },
@@ -13965,6 +15966,8 @@ export const treatment: TurnResponse = {
           "target": "selected"
         },
         "failure_effects": {
+          "condition": null,
+          "treatment": 0,
           "resources": {},
           "solar_efficiency": 0.0,
           "oxygen_efficiency": 0.0,
@@ -13994,7 +15997,7 @@ export const treatment: TurnResponse = {
             "unavailable_reasons": [
               "Requires 1 Field science kit (not consumed)."
             ],
-            "success_probability": 0.7
+            "success_probability": 0.65
           }
         ],
         "success_probability": null
@@ -14018,6 +16021,30 @@ export const treatment: TurnResponse = {
         "medicine": 1.0
       },
       "effects": {
+        "medical_changes": [
+          {
+            "crew_id": "alex",
+            "kind": "dust_irritation",
+            "action": "stabilized",
+            "reason": null,
+            "before": {
+              "kind": "dust_irritation",
+              "remaining": 2,
+              "acquired_week": 1,
+              "stabilized": false,
+              "care_week": 0,
+              "care_points": 0
+            },
+            "after": {
+              "kind": "dust_irritation",
+              "remaining": 2,
+              "acquired_week": 1,
+              "stabilized": true,
+              "care_week": 1,
+              "care_points": 2
+            }
+          }
+        ],
         "resources": {},
         "solar_efficiency": 0.0,
         "oxygen_efficiency": 0.0,
@@ -14027,7 +16054,7 @@ export const treatment: TurnResponse = {
           {
             "crew_id": "alex",
             "before": 92,
-            "after": 100
+            "after": 97
           }
         ]
       },
@@ -14088,17 +16115,35 @@ export const treatment: TurnResponse = {
       "health_changes": [
         {
           "crew_id": "alex",
-          "before": 100,
+          "before": 97,
           "after": 100,
+          "medical_penalty": 0,
+          "medical_changes": [
+            {
+              "crew_id": "alex",
+              "kind": "dust_irritation",
+              "action": "resolved",
+              "reason": null,
+              "before": {
+                "kind": "dust_irritation",
+                "remaining": 2,
+                "acquired_week": 1,
+                "stabilized": true,
+                "care_week": 1,
+                "care_points": 2
+              },
+              "after": null
+            }
+          ],
           "food_received_fraction": 1.0,
           "water_received_fraction": 1.0,
           "nutrition_before": 0.0,
           "nutrition_after": 0.0,
           "hydration_before": 0.0,
           "hydration_after": 0.0,
-          "recovery": 0,
+          "recovery": 3,
           "worked": false,
-          "rested": false,
+          "rested": true,
           "food_penalty": 0,
           "water_penalty": 0,
           "oxygen_penalty": 0,
@@ -14109,6 +16154,8 @@ export const treatment: TurnResponse = {
           "crew_id": "maya",
           "before": 92,
           "after": 94,
+          "medical_penalty": 0,
+          "medical_changes": [],
           "food_received_fraction": 1.0,
           "water_received_fraction": 1.0,
           "nutrition_before": 0.0,
@@ -14148,6 +16195,3574 @@ export const treatment: TurnResponse = {
       "event_id": "crew_recovery",
       "title": "A Week for Recovery",
       "effects": {
+        "medical_changes": [],
+        "resources": {},
+        "solar_efficiency": 0.0,
+        "oxygen_efficiency": 0.0,
+        "water_recovery_efficiency": 0.0,
+        "co2_efficiency": 0.0,
+        "health_changes": []
+      }
+    },
+    "ending": null
+  }
+};
+
+export const medicalAssignmentGame: GameResponse = {
+  "game_id": "fixture-game",
+  "state": {
+    "life_support": {
+      "source_url": "https://www.nasa.gov/reference/environmental-control-and-life-support-systems-eclss/",
+      "water_recovery_condition": 1.0,
+      "co2_condition": 1.0,
+      "wastewater": 12.0,
+      "co2_burden": 0.0,
+      "co2_warning_level": 4.0,
+      "recovery_capacity": 4.0,
+      "recovery_yield": 0.8,
+      "water_per_oxygen": 0.1,
+      "oxygen_reserve_weeks": 2.0,
+      "water_recovery_wear": 0.02,
+      "co2_wear": 0.015,
+      "co2_removal_capacity": 6.0,
+      "power_components": {
+        "habitat": 10.0,
+        "water_recovery": 2.0,
+        "oxygen_generation": 0.0,
+        "co2_removal": 2.0
+      }
+    },
+    "energy": {
+      "battery_capacity": 100.0,
+      "stored": 30.0,
+      "priority": "life_support",
+      "life_support_required": 14.0,
+      "solar_day_earth_days": 29.5306,
+      "source_url": "https://svs.gsfc.nasa.gov/12739/",
+      "assumption": "Fictional shared epoch: sunrise at Apollo 11 longitude on mission day zero. Smooth non-polar horizon, equal day/night halves, constant useful output during daylight. Weekly averaging omits terrain shadows, eclipses, seasons, and panel incidence.",
+      "forecast": [
+        {
+          "week": 1,
+          "daylight_fraction": 1.0,
+          "daylight_days": 7.0,
+          "darkness_days": 0.0,
+          "phase": "daylight",
+          "electricity_generated": 48.0
+        },
+        {
+          "week": 2,
+          "daylight_fraction": 1.0,
+          "daylight_days": 7.0,
+          "darkness_days": 0.0,
+          "phase": "daylight",
+          "electricity_generated": 48.0
+        },
+        {
+          "week": 3,
+          "daylight_fraction": 0.109329,
+          "daylight_days": 0.7653,
+          "darkness_days": 6.2347,
+          "phase": "mixed",
+          "electricity_generated": 5.247792
+        },
+        {
+          "week": 4,
+          "daylight_fraction": 0.0,
+          "daylight_days": 0.0,
+          "darkness_days": 7.0,
+          "phase": "darkness",
+          "electricity_generated": 0.0
+        },
+        {
+          "week": 5,
+          "daylight_fraction": 0.781343,
+          "daylight_days": 5.4694,
+          "darkness_days": 1.5306,
+          "phase": "mixed",
+          "electricity_generated": 37.504464
+        },
+        {
+          "week": 6,
+          "daylight_fraction": 1.0,
+          "daylight_days": 7.0,
+          "darkness_days": 0.0,
+          "phase": "daylight",
+          "electricity_generated": 48.0
+        },
+        {
+          "week": 7,
+          "daylight_fraction": 0.327986,
+          "daylight_days": 2.2959,
+          "darkness_days": 4.7041,
+          "phase": "mixed",
+          "electricity_generated": 15.743328
+        },
+        {
+          "week": 8,
+          "daylight_fraction": 0.0,
+          "daylight_days": 0.0,
+          "darkness_days": 7.0,
+          "phase": "darkness",
+          "electricity_generated": 0.0
+        },
+        {
+          "week": 9,
+          "daylight_fraction": 0.562686,
+          "daylight_days": 3.9388,
+          "darkness_days": 3.0612,
+          "phase": "mixed",
+          "electricity_generated": 27.008928
+        },
+        {
+          "week": 10,
+          "daylight_fraction": 1.0,
+          "daylight_days": 7.0,
+          "darkness_days": 0.0,
+          "phase": "daylight",
+          "electricity_generated": 48.0
+        },
+        {
+          "week": 11,
+          "daylight_fraction": 0.546643,
+          "daylight_days": 3.8265,
+          "darkness_days": 3.1735,
+          "phase": "mixed",
+          "electricity_generated": 26.238864
+        },
+        {
+          "week": 12,
+          "daylight_fraction": 0.0,
+          "daylight_days": 0.0,
+          "darkness_days": 7.0,
+          "phase": "darkness",
+          "electricity_generated": 0.0
+        }
+      ]
+    },
+    "battery_capacity": 100.0,
+    "power_priority": "life_support",
+    "research_projects": [],
+    "station_id": "alpha",
+    "station_name": "Station Alpha \u2014 Research Base",
+    "difficulty": "standard",
+    "difficulty_rank": 2,
+    "mission_id": "alpha_rotation",
+    "mission_name": "Hold Until Rotation",
+    "current_week": 1,
+    "duration_weeks": 12,
+    "minimum_survivors": 1,
+    "weeks_remaining": 12,
+    "mission_days": {
+      "start": 1,
+      "end": 7
+    },
+    "crew": [
+      {
+        "medical_conditions": [
+          {
+            "kind": "dust_irritation",
+            "remaining": 2,
+            "acquired_week": 1,
+            "stabilized": false,
+            "care_week": 0,
+            "care_points": 0,
+            "title": "Dust-related respiratory irritation",
+            "urgent": false,
+            "rest_weeks": 2,
+            "medic_weeks": 1,
+            "untreated_damage": 1,
+            "source_url": "https://www.nasa.gov/reference/jsc-dust/"
+          }
+        ],
+        "nutrition_deficit": 0.0,
+        "hydration_deficit": 0.0,
+        "condition": {
+          "status": "serious",
+          "nutrition_status": "adequate",
+          "hydration_status": "adequate",
+          "can_work": true,
+          "can_do_eva": false,
+          "performance_penalty": 0.05,
+          "restrictions": [
+            "Respiratory irritation: EVA unavailable until recovered; indoor work remains possible."
+          ],
+          "nutrition_recovery_weeks": 0,
+          "hydration_recovery_weeks": 0,
+          "source_url": "https://www.nasa.gov/reference/risk-of-inadequate-food-and-nutrition/"
+        },
+        "ration_outlook": {
+          "normal": {
+            "nutrition_deficit": 0.0,
+            "hydration_deficit": 0.0,
+            "food_damage": 0,
+            "water_damage": 0
+          },
+          "reduced": {
+            "nutrition_deficit": 0.3,
+            "hydration_deficit": 0.3,
+            "food_damage": 0,
+            "water_damage": 4
+          },
+          "emergency": {
+            "nutrition_deficit": 0.6,
+            "hydration_deficit": 0.6,
+            "food_damage": 0,
+            "water_damage": 28
+          }
+        },
+        "id": "alex",
+        "name": "Alex Vega",
+        "role": "engineer",
+        "health": 92,
+        "positive_trait": "Steady hands: +5 percentage points on assigned event actions.",
+        "negative_trait": "Large appetite: consumes 10% more food.",
+        "food_multiplier": 1.1,
+        "water_multiplier": 1.0,
+        "event_bonus": 0.05,
+        "injury_multiplier": 1.0,
+        "specialty": "Mechanical repair",
+        "training_source": "https://www.nasa.gov/reference/jsc-crew-operations-training/",
+        "action_bonuses": {},
+        "food_shortage_weeks": 0,
+        "water_shortage_weeks": 0,
+        "alive": true,
+        "ration_options": {
+          "normal": {
+            "food": 1.1,
+            "water": 2.0
+          },
+          "reduced": {
+            "food": 0.77,
+            "water": 1.4
+          },
+          "emergency": {
+            "food": 0.44,
+            "water": 0.8
+          }
+        }
+      },
+      {
+        "medical_conditions": [
+          {
+            "kind": "dust_irritation",
+            "remaining": 2,
+            "acquired_week": 1,
+            "stabilized": false,
+            "care_week": 0,
+            "care_points": 0,
+            "title": "Dust-related respiratory irritation",
+            "urgent": false,
+            "rest_weeks": 2,
+            "medic_weeks": 1,
+            "untreated_damage": 1,
+            "source_url": "https://www.nasa.gov/reference/jsc-dust/"
+          }
+        ],
+        "nutrition_deficit": 0.0,
+        "hydration_deficit": 0.0,
+        "condition": {
+          "status": "serious",
+          "nutrition_status": "adequate",
+          "hydration_status": "adequate",
+          "can_work": true,
+          "can_do_eva": false,
+          "performance_penalty": 0.05,
+          "restrictions": [
+            "Respiratory irritation: EVA unavailable until recovered; indoor work remains possible."
+          ],
+          "nutrition_recovery_weeks": 0,
+          "hydration_recovery_weeks": 0,
+          "source_url": "https://www.nasa.gov/reference/risk-of-inadequate-food-and-nutrition/"
+        },
+        "ration_outlook": {
+          "normal": {
+            "nutrition_deficit": 0.0,
+            "hydration_deficit": 0.0,
+            "food_damage": 0,
+            "water_damage": 0
+          },
+          "reduced": {
+            "nutrition_deficit": 0.3,
+            "hydration_deficit": 0.3,
+            "food_damage": 0,
+            "water_damage": 4
+          },
+          "emergency": {
+            "nutrition_deficit": 0.6,
+            "hydration_deficit": 0.6,
+            "food_damage": 0,
+            "water_damage": 28
+          }
+        },
+        "id": "maya",
+        "name": "Maya Okafor",
+        "role": "medic",
+        "health": 92,
+        "positive_trait": "Efficient metabolism: consumes 10% less food.",
+        "negative_trait": "Thirsty: consumes 10% more water.",
+        "food_multiplier": 0.9,
+        "water_multiplier": 1.1,
+        "event_bonus": 0.0,
+        "injury_multiplier": 1.0,
+        "specialty": "Crew medical officer",
+        "training_source": "https://www.nasa.gov/reference/5-0-training/",
+        "action_bonuses": {},
+        "food_shortage_weeks": 0,
+        "water_shortage_weeks": 0,
+        "alive": true,
+        "ration_options": {
+          "normal": {
+            "food": 0.9,
+            "water": 2.2
+          },
+          "reduced": {
+            "food": 0.63,
+            "water": 1.54
+          },
+          "emergency": {
+            "food": 0.36,
+            "water": 0.88
+          }
+        }
+      },
+      {
+        "medical_conditions": [
+          {
+            "kind": "dust_irritation",
+            "remaining": 2,
+            "acquired_week": 1,
+            "stabilized": false,
+            "care_week": 0,
+            "care_points": 0,
+            "title": "Dust-related respiratory irritation",
+            "urgent": false,
+            "rest_weeks": 2,
+            "medic_weeks": 1,
+            "untreated_damage": 1,
+            "source_url": "https://www.nasa.gov/reference/jsc-dust/"
+          }
+        ],
+        "nutrition_deficit": 0.0,
+        "hydration_deficit": 0.0,
+        "condition": {
+          "status": "serious",
+          "nutrition_status": "adequate",
+          "hydration_status": "adequate",
+          "can_work": true,
+          "can_do_eva": false,
+          "performance_penalty": 0.05,
+          "restrictions": [
+            "Respiratory irritation: EVA unavailable until recovered; indoor work remains possible."
+          ],
+          "nutrition_recovery_weeks": 0,
+          "hydration_recovery_weeks": 0,
+          "source_url": "https://www.nasa.gov/reference/risk-of-inadequate-food-and-nutrition/"
+        },
+        "ration_outlook": {
+          "normal": {
+            "nutrition_deficit": 0.0,
+            "hydration_deficit": 0.0,
+            "food_damage": 0,
+            "water_damage": 0
+          },
+          "reduced": {
+            "nutrition_deficit": 0.3,
+            "hydration_deficit": 0.3,
+            "food_damage": 0,
+            "water_damage": 4
+          },
+          "emergency": {
+            "nutrition_deficit": 0.6,
+            "hydration_deficit": 0.6,
+            "food_damage": 0,
+            "water_damage": 28
+          }
+        },
+        "id": "lin",
+        "name": "Lin Park",
+        "role": "scientist",
+        "health": 90,
+        "positive_trait": "Water conscious: consumes 10% less water.",
+        "negative_trait": "Fragile: event injuries cause 20% more damage.",
+        "food_multiplier": 1.0,
+        "water_multiplier": 0.9,
+        "event_bonus": 0.0,
+        "injury_multiplier": 1.2,
+        "specialty": "Field science and calibration",
+        "training_source": "https://www.nasa.gov/missions/artemis/nasa-field-geology-training-prepares-artemis-mission-support-teams/",
+        "action_bonuses": {},
+        "food_shortage_weeks": 0,
+        "water_shortage_weeks": 0,
+        "alive": true,
+        "ration_options": {
+          "normal": {
+            "food": 1.0,
+            "water": 1.8
+          },
+          "reduced": {
+            "food": 0.7,
+            "water": 1.26
+          },
+          "emergency": {
+            "food": 0.4,
+            "water": 0.72
+          }
+        }
+      }
+    ],
+    "resources": {
+      "food": 52.0,
+      "water": 112.0,
+      "oxygen": 30.0,
+      "electricity": 30.0,
+      "medicine": 8.0,
+      "repair_kits": 8.0,
+      "eva_batteries": 8.0,
+      "dust_kits": 0.0,
+      "oxygen_regulators": 0.0,
+      "diagnostic_tools": 0.0,
+      "sealant_packs": 0.0,
+      "scientific_tools": 0.0,
+      "research_data": 0.0,
+      "wastewater": 12.0,
+      "co2": 0.0
+    },
+    "solar_efficiency": 1.0,
+    "oxygen_efficiency": 1.0,
+    "water_recovery_efficiency": 1.0,
+    "co2_efficiency": 1.0,
+    "current_event_id": "medical_emergency",
+    "current_event": {
+      "id": "medical_emergency",
+      "title": "Contaminated Air Filter",
+      "description": "An irritant escapes a filter. Every living astronaut loses 8 health on discovery. All living crew develop dust-related respiratory irritation; named conditions need recovery as well as symptom relief.",
+      "category": "hazard",
+      "science_context": "Dust management matters for cabin cleanliness. The irritant incident and health changes here are fictional.",
+      "source_url": "https://www.nasa.gov/reference/jsc-dust/",
+      "on_start": {
+        "condition": "dust_irritation",
+        "treatment": 0,
+        "resources": {},
+        "solar_efficiency": 0.0,
+        "oxygen_efficiency": 0.0,
+        "water_recovery_efficiency": 0.0,
+        "co2_efficiency": 0.0,
+        "crew_health": -8,
+        "target": "all"
+      },
+      "choices": [
+        {
+          "workload": "care",
+          "support_candidates": [],
+          "id": "treat",
+          "action_type": "event",
+          "objective_rewards": [],
+          "text": "Treat an affected astronaut",
+          "description": "Select a patient. A living medic improves success. Costs 1 medicine; success gives 5 health, stabilizes one active condition (urgent first), and supplies up to 2 recovery points at survival with full provisions and safe air. Failure costs 5 health.",
+          "costs": {
+            "medicine": 1.0
+          },
+          "required_items": {},
+          "requires_crew": true,
+          "role_bonus": {},
+          "crew_role_bonus": {
+            "medic": 0.2
+          },
+          "success_chance": 0.7,
+          "success_effects": {
+            "condition": null,
+            "treatment": 2,
+            "resources": {},
+            "solar_efficiency": 0.0,
+            "oxygen_efficiency": 0.0,
+            "water_recovery_efficiency": 0.0,
+            "co2_efficiency": 0.0,
+            "crew_health": 5,
+            "target": "selected"
+          },
+          "failure_effects": {
+            "condition": null,
+            "treatment": 0,
+            "resources": {},
+            "solar_efficiency": 0.0,
+            "oxygen_efficiency": 0.0,
+            "water_recovery_efficiency": 0.0,
+            "co2_efficiency": 0.0,
+            "crew_health": -5,
+            "target": "selected"
+          },
+          "required_role": null,
+          "minimum_crew": 1,
+          "available": true,
+          "unavailable_reasons": [],
+          "eligible_crew": [
+            {
+              "crew_id": "alex",
+              "available": true,
+              "unavailable_reasons": [],
+              "success_probability": 0.95
+            },
+            {
+              "crew_id": "maya",
+              "available": true,
+              "unavailable_reasons": [],
+              "success_probability": 0.9
+            },
+            {
+              "crew_id": "lin",
+              "available": true,
+              "unavailable_reasons": [],
+              "success_probability": 0.9
+            }
+          ],
+          "success_probability": null
+        },
+        {
+          "workload": "light",
+          "support_candidates": [
+            {
+              "crew_id": "alex",
+              "available": true,
+              "unavailable_reasons": []
+            },
+            {
+              "crew_id": "maya",
+              "available": true,
+              "unavailable_reasons": []
+            },
+            {
+              "crew_id": "lin",
+              "available": true,
+              "unavailable_reasons": []
+            }
+          ],
+          "id": "team_treatment",
+          "action_type": "event",
+          "objective_rewards": [],
+          "text": "Let the medic coordinate treatment",
+          "description": "Requires a medic, at least two living crew, and two medicine units. Helps the whole crew.",
+          "costs": {
+            "medicine": 2.0
+          },
+          "required_items": {},
+          "requires_crew": true,
+          "role_bonus": {
+            "medic": 0.2
+          },
+          "crew_role_bonus": {},
+          "success_chance": 0.75,
+          "success_effects": {
+            "condition": null,
+            "treatment": 0,
+            "resources": {},
+            "solar_efficiency": 0.0,
+            "oxygen_efficiency": 0.0,
+            "water_recovery_efficiency": 0.0,
+            "co2_efficiency": 0.0,
+            "crew_health": 15,
+            "target": "all"
+          },
+          "failure_effects": {
+            "condition": null,
+            "treatment": 0,
+            "resources": {},
+            "solar_efficiency": 0.0,
+            "oxygen_efficiency": 0.0,
+            "water_recovery_efficiency": 0.0,
+            "co2_efficiency": 0.0,
+            "crew_health": -5,
+            "target": "all"
+          },
+          "required_role": "medic",
+          "minimum_crew": 2,
+          "available": true,
+          "unavailable_reasons": [],
+          "eligible_crew": [
+            {
+              "crew_id": "alex",
+              "available": false,
+              "unavailable_reasons": [
+                "Requires a living medic."
+              ],
+              "success_probability": 0.75
+            },
+            {
+              "crew_id": "maya",
+              "available": true,
+              "unavailable_reasons": [],
+              "success_probability": 0.9
+            },
+            {
+              "crew_id": "lin",
+              "available": false,
+              "unavailable_reasons": [
+                "Requires a living medic."
+              ],
+              "success_probability": 0.7
+            }
+          ],
+          "success_probability": null
+        },
+        {
+          "workload": "care",
+          "support_candidates": [],
+          "id": "guided_treatment",
+          "action_type": "event",
+          "objective_rewards": [],
+          "text": "Use scanner-guided treatment",
+          "description": "Use the retained scanner and 1 medicine for guaranteed 5-health symptom relief and stabilization of one active condition (urgent first). Up to 2 recovery points apply during survival with full provisions and safe air.",
+          "costs": {
+            "medicine": 1.0
+          },
+          "required_items": {
+            "diagnostic_tools": 1
+          },
+          "requires_crew": true,
+          "role_bonus": {},
+          "crew_role_bonus": {},
+          "success_chance": 1.0,
+          "success_effects": {
+            "condition": null,
+            "treatment": 2,
+            "resources": {},
+            "solar_efficiency": 0.0,
+            "oxygen_efficiency": 0.0,
+            "water_recovery_efficiency": 0.0,
+            "co2_efficiency": 0.0,
+            "crew_health": 5,
+            "target": "selected"
+          },
+          "failure_effects": {
+            "condition": null,
+            "treatment": 0,
+            "resources": {},
+            "solar_efficiency": 0.0,
+            "oxygen_efficiency": 0.0,
+            "water_recovery_efficiency": 0.0,
+            "co2_efficiency": 0.0,
+            "crew_health": 0,
+            "target": "selected"
+          },
+          "required_role": null,
+          "minimum_crew": 1,
+          "available": false,
+          "unavailable_reasons": [
+            "Requires 1 Medical diagnostic scanner (not consumed)."
+          ],
+          "eligible_crew": [
+            {
+              "crew_id": "alex",
+              "available": false,
+              "unavailable_reasons": [
+                "Requires 1 Medical diagnostic scanner (not consumed)."
+              ],
+              "success_probability": 1.0
+            },
+            {
+              "crew_id": "maya",
+              "available": false,
+              "unavailable_reasons": [
+                "Requires 1 Medical diagnostic scanner (not consumed)."
+              ],
+              "success_probability": 1.0
+            },
+            {
+              "crew_id": "lin",
+              "available": false,
+              "unavailable_reasons": [
+                "Requires 1 Medical diagnostic scanner (not consumed)."
+              ],
+              "success_probability": 1.0
+            }
+          ],
+          "success_probability": null
+        },
+        {
+          "workload": "light",
+          "support_candidates": [],
+          "id": "rest",
+          "action_type": "event",
+          "objective_rewards": [],
+          "text": "Isolate the filter and rest",
+          "description": "No supplies spent. The crew takes another 5 health damage.",
+          "costs": {},
+          "required_items": {},
+          "requires_crew": false,
+          "role_bonus": {},
+          "crew_role_bonus": {},
+          "success_chance": 1.0,
+          "success_effects": {
+            "condition": null,
+            "treatment": 0,
+            "resources": {},
+            "solar_efficiency": 0.0,
+            "oxygen_efficiency": 0.0,
+            "water_recovery_efficiency": 0.0,
+            "co2_efficiency": 0.0,
+            "crew_health": -5,
+            "target": "all"
+          },
+          "failure_effects": {
+            "condition": null,
+            "treatment": 0,
+            "resources": {},
+            "solar_efficiency": 0.0,
+            "oxygen_efficiency": 0.0,
+            "water_recovery_efficiency": 0.0,
+            "co2_efficiency": 0.0,
+            "crew_health": 0,
+            "target": "selected"
+          },
+          "required_role": null,
+          "minimum_crew": 1,
+          "available": true,
+          "unavailable_reasons": [],
+          "eligible_crew": [],
+          "success_probability": 1.0
+        }
+      ]
+    },
+    "emergency_ration_requirements": {
+      "food": 1.2,
+      "water": 2.4
+    },
+    "depleted_provisions": [],
+    "used_event_ids": [],
+    "flags": {},
+    "history": [],
+    "status": "running",
+    "random_seed": 42,
+    "initial_crew_size": 3,
+    "weeks_completed": 0,
+    "ending": null,
+    "results": null,
+    "science": {
+      "status": "not_started",
+      "completed_objectives": 0,
+      "total_objectives": 3,
+      "research_data": 0.0,
+      "objectives": [
+        {
+          "id": "geology",
+          "title": "Baseline sample collection",
+          "description": "Collect separate geological samples. Successful field sampling counts; generic research points do not.",
+          "target": 2,
+          "qualifying_choices": [
+            "kit_sampling",
+            "basic_sampling",
+            "research_geology"
+          ],
+          "source_url": "https://www.nasa.gov/missions/artemis/nasa-field-geology-training-prepares-artemis-mission-support-teams/",
+          "progress": 0,
+          "completed": false
+        },
+        {
+          "id": "seismology",
+          "title": "Seismic baseline",
+          "description": "Complete detailed analyses of separate seismic records. Simply archiving a signal does not count.",
+          "target": 1,
+          "qualifying_choices": [
+            "analyze_seismic",
+            "research_seismic"
+          ],
+          "source_url": "https://science.nasa.gov/moon/moonquakes/",
+          "progress": 0,
+          "completed": false
+        },
+        {
+          "id": "instruments",
+          "title": "Restore a research instrument",
+          "description": "Restore a research instrument or the research communications link. Routine life-support maintenance does not count.",
+          "target": 1,
+          "qualifying_choices": [
+            "align_antenna",
+            "remote_antenna",
+            "research_instrument"
+          ],
+          "source_url": "https://www.nasa.gov/reference/9-0-hardware-and-equipment-vol-2/",
+          "progress": 0,
+          "completed": false
+        }
+      ]
+    },
+    "assignment_options": [
+      {
+        "workload": "rest",
+        "support_candidates": [],
+        "id": "crew_rest",
+        "action_type": "rest",
+        "objective_rewards": [],
+        "text": "Rest and recuperate",
+        "description": "One week without active work. Adequate actual food and water improve deficit recovery and allow up to 5 condition points of recovery in safe air. Rest creates no supplies and cannot compensate for continued deprivation.",
+        "costs": {},
+        "required_items": {},
+        "requires_crew": true,
+        "role_bonus": {},
+        "crew_role_bonus": {},
+        "success_chance": 1.0,
+        "success_effects": {
+          "condition": null,
+          "treatment": 0,
+          "resources": {},
+          "solar_efficiency": 0.0,
+          "oxygen_efficiency": 0.0,
+          "water_recovery_efficiency": 0.0,
+          "co2_efficiency": 0.0,
+          "crew_health": 0,
+          "target": "selected"
+        },
+        "failure_effects": {
+          "condition": null,
+          "treatment": 0,
+          "resources": {},
+          "solar_efficiency": 0.0,
+          "oxygen_efficiency": 0.0,
+          "water_recovery_efficiency": 0.0,
+          "co2_efficiency": 0.0,
+          "crew_health": 0,
+          "target": "selected"
+        },
+        "required_role": null,
+        "minimum_crew": 1,
+        "available": true,
+        "unavailable_reasons": [],
+        "eligible_crew": [
+          {
+            "crew_id": "alex",
+            "available": true,
+            "unavailable_reasons": [],
+            "success_probability": 1.0
+          },
+          {
+            "crew_id": "maya",
+            "available": true,
+            "unavailable_reasons": [],
+            "success_probability": 1.0
+          },
+          {
+            "crew_id": "lin",
+            "available": true,
+            "unavailable_reasons": [],
+            "success_probability": 1.0
+          }
+        ],
+        "success_probability": null
+      },
+      {
+        "workload": "light",
+        "support_candidates": [],
+        "id": "medical_care",
+        "action_type": "medical",
+        "objective_rewards": [],
+        "text": "Provide medical care",
+        "description": "Reserve caregiver and patient for one week, plus 1 medicine. Stabilizes the chosen condition immediately. A fit medic earns 2 recovery points; another fit caregiver earns 1 (2 with a retained diagnostic scanner). Progress needs full actual provisions and safe air. Both crew are occupied, even if recovery stalls.",
+        "costs": {
+          "medicine": 1.0
+        },
+        "required_items": {},
+        "requires_crew": true,
+        "role_bonus": {},
+        "crew_role_bonus": {},
+        "success_chance": 1.0,
+        "success_effects": {
+          "condition": null,
+          "treatment": 0,
+          "resources": {},
+          "solar_efficiency": 0.0,
+          "oxygen_efficiency": 0.0,
+          "water_recovery_efficiency": 0.0,
+          "co2_efficiency": 0.0,
+          "crew_health": 0,
+          "target": "selected"
+        },
+        "failure_effects": {
+          "condition": null,
+          "treatment": 0,
+          "resources": {},
+          "solar_efficiency": 0.0,
+          "oxygen_efficiency": 0.0,
+          "water_recovery_efficiency": 0.0,
+          "co2_efficiency": 0.0,
+          "crew_health": 0,
+          "target": "selected"
+        },
+        "required_role": null,
+        "minimum_crew": 1,
+        "available": true,
+        "unavailable_reasons": [],
+        "eligible_crew": [
+          {
+            "crew_id": "alex",
+            "available": true,
+            "unavailable_reasons": [],
+            "success_probability": 1.0
+          },
+          {
+            "crew_id": "maya",
+            "available": true,
+            "unavailable_reasons": [],
+            "success_probability": 1.0
+          },
+          {
+            "crew_id": "lin",
+            "available": true,
+            "unavailable_reasons": [],
+            "success_probability": 1.0
+          }
+        ],
+        "success_probability": null
+      },
+      {
+        "workload": "rest",
+        "support_candidates": [],
+        "id": "self_care",
+        "action_type": "medical",
+        "objective_rewards": [],
+        "text": "Self-care and stabilization",
+        "description": "One astronaut and 1 medicine. Available even when critically unfit; treats only their own chosen condition. Stabilizes immediately and earns 1 recovery point with full actual provisions and safe air. No work or incident duty that week.",
+        "costs": {
+          "medicine": 1.0
+        },
+        "required_items": {},
+        "requires_crew": true,
+        "role_bonus": {},
+        "crew_role_bonus": {},
+        "success_chance": 1.0,
+        "success_effects": {
+          "condition": null,
+          "treatment": 0,
+          "resources": {},
+          "solar_efficiency": 0.0,
+          "oxygen_efficiency": 0.0,
+          "water_recovery_efficiency": 0.0,
+          "co2_efficiency": 0.0,
+          "crew_health": 0,
+          "target": "selected"
+        },
+        "failure_effects": {
+          "condition": null,
+          "treatment": 0,
+          "resources": {},
+          "solar_efficiency": 0.0,
+          "oxygen_efficiency": 0.0,
+          "water_recovery_efficiency": 0.0,
+          "co2_efficiency": 0.0,
+          "crew_health": 0,
+          "target": "selected"
+        },
+        "required_role": null,
+        "minimum_crew": 1,
+        "available": true,
+        "unavailable_reasons": [],
+        "eligible_crew": [
+          {
+            "crew_id": "alex",
+            "available": true,
+            "unavailable_reasons": [],
+            "success_probability": 1.0
+          },
+          {
+            "crew_id": "maya",
+            "available": true,
+            "unavailable_reasons": [],
+            "success_probability": 1.0
+          },
+          {
+            "crew_id": "lin",
+            "available": true,
+            "unavailable_reasons": [],
+            "success_probability": 1.0
+          }
+        ],
+        "success_probability": null
+      },
+      {
+        "workload": "eva",
+        "support_candidates": [],
+        "id": "clean_array",
+        "action_type": "maintenance",
+        "objective_rewards": [],
+        "text": "Clean the solar array",
+        "description": "Guaranteed +20 percentage points solar condition. Uses a dust kit and EVA supplies; One-week crew assignment; incident response is separate.",
+        "costs": {
+          "dust_kits": 1.0,
+          "eva_batteries": 1.0,
+          "oxygen": 2.0
+        },
+        "required_items": {},
+        "requires_crew": true,
+        "role_bonus": {},
+        "crew_role_bonus": {},
+        "success_chance": 1.0,
+        "success_effects": {
+          "condition": null,
+          "treatment": 0,
+          "resources": {},
+          "solar_efficiency": 0.2,
+          "oxygen_efficiency": 0.0,
+          "water_recovery_efficiency": 0.0,
+          "co2_efficiency": 0.0,
+          "crew_health": 0,
+          "target": "selected"
+        },
+        "failure_effects": {
+          "condition": null,
+          "treatment": 0,
+          "resources": {},
+          "solar_efficiency": 0.0,
+          "oxygen_efficiency": 0.0,
+          "water_recovery_efficiency": 0.0,
+          "co2_efficiency": 0.0,
+          "crew_health": 0,
+          "target": "selected"
+        },
+        "required_role": null,
+        "minimum_crew": 1,
+        "available": false,
+        "unavailable_reasons": [
+          "Requires at least 1 living astronauts fit for this workload.",
+          "Respiratory irritation: EVA unavailable until recovered; indoor work remains possible.",
+          "Requires 1 dust_kits; available 0.",
+          "The solar array is already at full condition."
+        ],
+        "eligible_crew": [
+          {
+            "crew_id": "alex",
+            "available": false,
+            "unavailable_reasons": [
+              "Requires at least 1 living astronauts fit for this workload.",
+              "Respiratory irritation: EVA unavailable until recovered; indoor work remains possible.",
+              "Requires 1 dust_kits; available 0.",
+              "The solar array is already at full condition."
+            ],
+            "success_probability": 1.0
+          },
+          {
+            "crew_id": "maya",
+            "available": false,
+            "unavailable_reasons": [
+              "Requires at least 1 living astronauts fit for this workload.",
+              "Respiratory irritation: EVA unavailable until recovered; indoor work remains possible.",
+              "Requires 1 dust_kits; available 0.",
+              "The solar array is already at full condition."
+            ],
+            "success_probability": 1.0
+          },
+          {
+            "crew_id": "lin",
+            "available": false,
+            "unavailable_reasons": [
+              "Requires at least 1 living astronauts fit for this workload.",
+              "Respiratory irritation: EVA unavailable until recovered; indoor work remains possible.",
+              "Requires 1 dust_kits; available 0.",
+              "The solar array is already at full condition."
+            ],
+            "success_probability": 1.0
+          }
+        ],
+        "success_probability": null
+      },
+      {
+        "workload": "strenuous",
+        "support_candidates": [],
+        "id": "install_regulator",
+        "action_type": "maintenance",
+        "objective_rewards": [],
+        "text": "Install an oxygen regulator",
+        "description": "Guaranteed +20 percentage points oxygen condition. Uses a regulator and 2 power; One-week crew assignment; incident response is separate.",
+        "costs": {
+          "oxygen_regulators": 1.0,
+          "electricity": 2.0
+        },
+        "required_items": {},
+        "requires_crew": true,
+        "role_bonus": {},
+        "crew_role_bonus": {},
+        "success_chance": 1.0,
+        "success_effects": {
+          "condition": null,
+          "treatment": 0,
+          "resources": {},
+          "solar_efficiency": 0.0,
+          "oxygen_efficiency": 0.2,
+          "water_recovery_efficiency": 0.0,
+          "co2_efficiency": 0.0,
+          "crew_health": 0,
+          "target": "selected"
+        },
+        "failure_effects": {
+          "condition": null,
+          "treatment": 0,
+          "resources": {},
+          "solar_efficiency": 0.0,
+          "oxygen_efficiency": 0.0,
+          "water_recovery_efficiency": 0.0,
+          "co2_efficiency": 0.0,
+          "crew_health": 0,
+          "target": "selected"
+        },
+        "required_role": null,
+        "minimum_crew": 1,
+        "available": false,
+        "unavailable_reasons": [
+          "Requires 1 oxygen_regulators; available 0.",
+          "The oxygen system is already at full condition."
+        ],
+        "eligible_crew": [
+          {
+            "crew_id": "alex",
+            "available": false,
+            "unavailable_reasons": [
+              "Requires 1 oxygen_regulators; available 0.",
+              "The oxygen system is already at full condition."
+            ],
+            "success_probability": 1.0
+          },
+          {
+            "crew_id": "maya",
+            "available": false,
+            "unavailable_reasons": [
+              "Requires 1 oxygen_regulators; available 0.",
+              "The oxygen system is already at full condition."
+            ],
+            "success_probability": 1.0
+          },
+          {
+            "crew_id": "lin",
+            "available": false,
+            "unavailable_reasons": [
+              "Requires 1 oxygen_regulators; available 0.",
+              "The oxygen system is already at full condition."
+            ],
+            "success_probability": 1.0
+          }
+        ],
+        "success_probability": null
+      },
+      {
+        "workload": "light",
+        "support_candidates": [],
+        "id": "service_water_recovery",
+        "action_type": "maintenance",
+        "objective_rewards": [],
+        "text": "Service the water recovery processor",
+        "description": "One repair kit and 2 power guarantee +30 water-recovery condition points. Recovered water comes from the wastewater stock and is available after this week's rations.",
+        "costs": {
+          "repair_kits": 1.0,
+          "electricity": 2.0
+        },
+        "required_items": {},
+        "requires_crew": true,
+        "role_bonus": {},
+        "crew_role_bonus": {},
+        "success_chance": 1.0,
+        "success_effects": {
+          "condition": null,
+          "treatment": 0,
+          "resources": {},
+          "solar_efficiency": 0.0,
+          "oxygen_efficiency": 0.0,
+          "water_recovery_efficiency": 0.3,
+          "co2_efficiency": 0.0,
+          "crew_health": 0,
+          "target": "selected"
+        },
+        "failure_effects": {
+          "condition": null,
+          "treatment": 0,
+          "resources": {},
+          "solar_efficiency": 0.0,
+          "oxygen_efficiency": 0.0,
+          "water_recovery_efficiency": 0.0,
+          "co2_efficiency": 0.0,
+          "crew_health": 0,
+          "target": "selected"
+        },
+        "required_role": null,
+        "minimum_crew": 1,
+        "available": false,
+        "unavailable_reasons": [
+          "This processor is already at full condition."
+        ],
+        "eligible_crew": [
+          {
+            "crew_id": "alex",
+            "available": false,
+            "unavailable_reasons": [
+              "This processor is already at full condition."
+            ],
+            "success_probability": 1.0
+          },
+          {
+            "crew_id": "maya",
+            "available": false,
+            "unavailable_reasons": [
+              "This processor is already at full condition."
+            ],
+            "success_probability": 1.0
+          },
+          {
+            "crew_id": "lin",
+            "available": false,
+            "unavailable_reasons": [
+              "This processor is already at full condition."
+            ],
+            "success_probability": 1.0
+          }
+        ],
+        "success_probability": null
+      },
+      {
+        "workload": "light",
+        "support_candidates": [],
+        "id": "service_co2_scrubber",
+        "action_type": "maintenance",
+        "objective_rewards": [],
+        "text": "Service the carbon dioxide scrubber",
+        "description": "One repair kit and 2 power guarantee +30 scrubber condition points. Removal still requires power; oxygen reserves do not remove CO2.",
+        "costs": {
+          "repair_kits": 1.0,
+          "electricity": 2.0
+        },
+        "required_items": {},
+        "requires_crew": true,
+        "role_bonus": {},
+        "crew_role_bonus": {},
+        "success_chance": 1.0,
+        "success_effects": {
+          "condition": null,
+          "treatment": 0,
+          "resources": {},
+          "solar_efficiency": 0.0,
+          "oxygen_efficiency": 0.0,
+          "water_recovery_efficiency": 0.0,
+          "co2_efficiency": 0.3,
+          "crew_health": 0,
+          "target": "selected"
+        },
+        "failure_effects": {
+          "condition": null,
+          "treatment": 0,
+          "resources": {},
+          "solar_efficiency": 0.0,
+          "oxygen_efficiency": 0.0,
+          "water_recovery_efficiency": 0.0,
+          "co2_efficiency": 0.0,
+          "crew_health": 0,
+          "target": "selected"
+        },
+        "required_role": null,
+        "minimum_crew": 1,
+        "available": false,
+        "unavailable_reasons": [
+          "This processor is already at full condition."
+        ],
+        "eligible_crew": [
+          {
+            "crew_id": "alex",
+            "available": false,
+            "unavailable_reasons": [
+              "This processor is already at full condition."
+            ],
+            "success_probability": 1.0
+          },
+          {
+            "crew_id": "maya",
+            "available": false,
+            "unavailable_reasons": [
+              "This processor is already at full condition."
+            ],
+            "success_probability": 1.0
+          },
+          {
+            "crew_id": "lin",
+            "available": false,
+            "unavailable_reasons": [
+              "This processor is already at full condition."
+            ],
+            "success_probability": 1.0
+          }
+        ],
+        "success_probability": null
+      },
+      {
+        "workload": "eva",
+        "support_candidates": [],
+        "id": "research_geology",
+        "action_type": "research",
+        "objective_rewards": [
+          {
+            "objective_id": "geology",
+            "title": "Baseline sample collection",
+            "amount": 1
+          }
+        ],
+        "text": "Survey a geological sample",
+        "description": "Use the science kit to collect one sample and 2 research data on success. Scientists improve the odds; failure costs the worker 8 health and causes a sprain. One-week crew assignment; incident response is separate.",
+        "costs": {
+          "eva_batteries": 1.0,
+          "oxygen": 2.0
+        },
+        "required_items": {
+          "scientific_tools": 1
+        },
+        "requires_crew": true,
+        "role_bonus": {
+          "scientist": 0.2,
+          "technician": 0.1
+        },
+        "crew_role_bonus": {},
+        "success_chance": 0.75,
+        "success_effects": {
+          "condition": null,
+          "treatment": 0,
+          "resources": {
+            "research_data": 2.0
+          },
+          "solar_efficiency": 0.0,
+          "oxygen_efficiency": 0.0,
+          "water_recovery_efficiency": 0.0,
+          "co2_efficiency": 0.0,
+          "crew_health": 0,
+          "target": "selected"
+        },
+        "failure_effects": {
+          "condition": "sprain",
+          "treatment": 0,
+          "resources": {},
+          "solar_efficiency": 0.0,
+          "oxygen_efficiency": 0.0,
+          "water_recovery_efficiency": 0.0,
+          "co2_efficiency": 0.0,
+          "crew_health": -8,
+          "target": "selected"
+        },
+        "required_role": null,
+        "minimum_crew": 1,
+        "available": false,
+        "unavailable_reasons": [
+          "Requires at least 1 living astronauts fit for this workload.",
+          "Respiratory irritation: EVA unavailable until recovered; indoor work remains possible.",
+          "Requires 1 Field science kit (not consumed)."
+        ],
+        "eligible_crew": [
+          {
+            "crew_id": "alex",
+            "available": false,
+            "unavailable_reasons": [
+              "Requires at least 1 living astronauts fit for this workload.",
+              "Respiratory irritation: EVA unavailable until recovered; indoor work remains possible.",
+              "Requires 1 Field science kit (not consumed)."
+            ],
+            "success_probability": 0.75
+          },
+          {
+            "crew_id": "maya",
+            "available": false,
+            "unavailable_reasons": [
+              "Requires at least 1 living astronauts fit for this workload.",
+              "Respiratory irritation: EVA unavailable until recovered; indoor work remains possible.",
+              "Requires 1 Field science kit (not consumed)."
+            ],
+            "success_probability": 0.7
+          },
+          {
+            "crew_id": "lin",
+            "available": false,
+            "unavailable_reasons": [
+              "Requires at least 1 living astronauts fit for this workload.",
+              "Respiratory irritation: EVA unavailable until recovered; indoor work remains possible.",
+              "Requires 1 Field science kit (not consumed)."
+            ],
+            "success_probability": 0.9
+          }
+        ],
+        "success_probability": null
+      },
+      {
+        "workload": "eva",
+        "support_candidates": [],
+        "id": "research_seismic",
+        "action_type": "research",
+        "objective_rewards": [],
+        "text": "Deploy seismic sensors",
+        "description": "Start a seismic project: 1 deployment week, 3 automatic recording weeks at 2 power each, then 1 crew analysis week. No objective credit until analysis succeeds. Failure causes a sprain and costs 8 health and deployment supplies; the phase can be retried.",
+        "costs": {
+          "electricity": 2.0,
+          "eva_batteries": 1.0,
+          "oxygen": 2.0
+        },
+        "required_items": {
+          "scientific_tools": 1
+        },
+        "requires_crew": true,
+        "role_bonus": {
+          "scientist": 0.2,
+          "technician": 0.1
+        },
+        "crew_role_bonus": {},
+        "success_chance": 0.75,
+        "success_effects": {
+          "condition": null,
+          "treatment": 0,
+          "resources": {},
+          "solar_efficiency": 0.0,
+          "oxygen_efficiency": 0.0,
+          "water_recovery_efficiency": 0.0,
+          "co2_efficiency": 0.0,
+          "crew_health": 0,
+          "target": "selected"
+        },
+        "failure_effects": {
+          "condition": "sprain",
+          "treatment": 0,
+          "resources": {},
+          "solar_efficiency": 0.0,
+          "oxygen_efficiency": 0.0,
+          "water_recovery_efficiency": 0.0,
+          "co2_efficiency": 0.0,
+          "crew_health": -8,
+          "target": "selected"
+        },
+        "required_role": null,
+        "minimum_crew": 1,
+        "available": false,
+        "unavailable_reasons": [
+          "Requires at least 1 living astronauts fit for this workload.",
+          "Respiratory irritation: EVA unavailable until recovered; indoor work remains possible.",
+          "Requires 1 Field science kit (not consumed)."
+        ],
+        "eligible_crew": [
+          {
+            "crew_id": "alex",
+            "available": false,
+            "unavailable_reasons": [
+              "Requires at least 1 living astronauts fit for this workload.",
+              "Respiratory irritation: EVA unavailable until recovered; indoor work remains possible.",
+              "Requires 1 Field science kit (not consumed)."
+            ],
+            "success_probability": 0.75
+          },
+          {
+            "crew_id": "maya",
+            "available": false,
+            "unavailable_reasons": [
+              "Requires at least 1 living astronauts fit for this workload.",
+              "Respiratory irritation: EVA unavailable until recovered; indoor work remains possible.",
+              "Requires 1 Field science kit (not consumed)."
+            ],
+            "success_probability": 0.7
+          },
+          {
+            "crew_id": "lin",
+            "available": false,
+            "unavailable_reasons": [
+              "Requires at least 1 living astronauts fit for this workload.",
+              "Respiratory irritation: EVA unavailable until recovered; indoor work remains possible.",
+              "Requires 1 Field science kit (not consumed)."
+            ],
+            "success_probability": 0.9
+          }
+        ],
+        "success_probability": null
+      },
+      {
+        "workload": "strenuous",
+        "support_candidates": [],
+        "id": "research_instrument",
+        "action_type": "research",
+        "objective_rewards": [
+          {
+            "objective_id": "instruments",
+            "title": "Restore a research instrument",
+            "amount": 1
+          }
+        ],
+        "text": "Restore the next research instrument",
+        "description": "Use a repair kit and science kit to restore one instrument and earn 2 research data on success. Engineers and technicians improve the odds; failure costs the worker 6 health. One-week crew assignment; incident response is separate.",
+        "costs": {
+          "repair_kits": 1.0,
+          "electricity": 2.0
+        },
+        "required_items": {
+          "scientific_tools": 1
+        },
+        "requires_crew": true,
+        "role_bonus": {
+          "engineer": 0.2,
+          "technician": 0.2,
+          "scientist": 0.1
+        },
+        "crew_role_bonus": {},
+        "success_chance": 0.7,
+        "success_effects": {
+          "condition": null,
+          "treatment": 0,
+          "resources": {
+            "research_data": 2.0
+          },
+          "solar_efficiency": 0.0,
+          "oxygen_efficiency": 0.0,
+          "water_recovery_efficiency": 0.0,
+          "co2_efficiency": 0.0,
+          "crew_health": 0,
+          "target": "selected"
+        },
+        "failure_effects": {
+          "condition": null,
+          "treatment": 0,
+          "resources": {},
+          "solar_efficiency": 0.0,
+          "oxygen_efficiency": 0.0,
+          "water_recovery_efficiency": 0.0,
+          "co2_efficiency": 0.0,
+          "crew_health": -6,
+          "target": "selected"
+        },
+        "required_role": null,
+        "minimum_crew": 1,
+        "available": false,
+        "unavailable_reasons": [
+          "Requires 1 Field science kit (not consumed)."
+        ],
+        "eligible_crew": [
+          {
+            "crew_id": "alex",
+            "available": false,
+            "unavailable_reasons": [
+              "Requires 1 Field science kit (not consumed)."
+            ],
+            "success_probability": 0.9
+          },
+          {
+            "crew_id": "maya",
+            "available": false,
+            "unavailable_reasons": [
+              "Requires 1 Field science kit (not consumed)."
+            ],
+            "success_probability": 0.65
+          },
+          {
+            "crew_id": "lin",
+            "available": false,
+            "unavailable_reasons": [
+              "Requires 1 Field science kit (not consumed)."
+            ],
+            "success_probability": 0.75
+          }
+        ],
+        "success_probability": null
+      }
+    ]
+  }
+};
+
+export const medicalAssignmentTurn: TurnResponse = {
+  "game_id": "fixture-game",
+  "state": {
+    "life_support": {
+      "source_url": "https://www.nasa.gov/reference/environmental-control-and-life-support-systems-eclss/",
+      "water_recovery_condition": 0.98,
+      "co2_condition": 0.985,
+      "wastewater": 12.8,
+      "co2_burden": 0.0,
+      "co2_warning_level": 4.0,
+      "recovery_capacity": 4.0,
+      "recovery_yield": 0.8,
+      "water_per_oxygen": 0.1,
+      "oxygen_reserve_weeks": 2.0,
+      "water_recovery_wear": 0.02,
+      "co2_wear": 0.015,
+      "co2_removal_capacity": 6.0,
+      "power_components": {
+        "habitat": 10.0,
+        "water_recovery": 2.0,
+        "oxygen_generation": 4.0,
+        "co2_removal": 2.0
+      }
+    },
+    "energy": {
+      "battery_capacity": 100.0,
+      "stored": 64.0,
+      "priority": "life_support",
+      "life_support_required": 18.0,
+      "solar_day_earth_days": 29.5306,
+      "source_url": "https://svs.gsfc.nasa.gov/12739/",
+      "assumption": "Fictional shared epoch: sunrise at Apollo 11 longitude on mission day zero. Smooth non-polar horizon, equal day/night halves, constant useful output during daylight. Weekly averaging omits terrain shadows, eclipses, seasons, and panel incidence.",
+      "forecast": [
+        {
+          "week": 2,
+          "daylight_fraction": 1.0,
+          "daylight_days": 7.0,
+          "darkness_days": 0.0,
+          "phase": "daylight",
+          "electricity_generated": 48.0
+        },
+        {
+          "week": 3,
+          "daylight_fraction": 0.109329,
+          "daylight_days": 0.7653,
+          "darkness_days": 6.2347,
+          "phase": "mixed",
+          "electricity_generated": 5.247792
+        },
+        {
+          "week": 4,
+          "daylight_fraction": 0.0,
+          "daylight_days": 0.0,
+          "darkness_days": 7.0,
+          "phase": "darkness",
+          "electricity_generated": 0.0
+        },
+        {
+          "week": 5,
+          "daylight_fraction": 0.781343,
+          "daylight_days": 5.4694,
+          "darkness_days": 1.5306,
+          "phase": "mixed",
+          "electricity_generated": 37.504464
+        },
+        {
+          "week": 6,
+          "daylight_fraction": 1.0,
+          "daylight_days": 7.0,
+          "darkness_days": 0.0,
+          "phase": "daylight",
+          "electricity_generated": 48.0
+        },
+        {
+          "week": 7,
+          "daylight_fraction": 0.327986,
+          "daylight_days": 2.2959,
+          "darkness_days": 4.7041,
+          "phase": "mixed",
+          "electricity_generated": 15.743328
+        },
+        {
+          "week": 8,
+          "daylight_fraction": 0.0,
+          "daylight_days": 0.0,
+          "darkness_days": 7.0,
+          "phase": "darkness",
+          "electricity_generated": 0.0
+        },
+        {
+          "week": 9,
+          "daylight_fraction": 0.562686,
+          "daylight_days": 3.9388,
+          "darkness_days": 3.0612,
+          "phase": "mixed",
+          "electricity_generated": 27.008928
+        },
+        {
+          "week": 10,
+          "daylight_fraction": 1.0,
+          "daylight_days": 7.0,
+          "darkness_days": 0.0,
+          "phase": "daylight",
+          "electricity_generated": 48.0
+        },
+        {
+          "week": 11,
+          "daylight_fraction": 0.546643,
+          "daylight_days": 3.8265,
+          "darkness_days": 3.1735,
+          "phase": "mixed",
+          "electricity_generated": 26.238864
+        },
+        {
+          "week": 12,
+          "daylight_fraction": 0.0,
+          "daylight_days": 0.0,
+          "darkness_days": 7.0,
+          "phase": "darkness",
+          "electricity_generated": 0.0
+        }
+      ]
+    },
+    "battery_capacity": 100.0,
+    "power_priority": "life_support",
+    "research_projects": [],
+    "station_id": "alpha",
+    "station_name": "Station Alpha \u2014 Research Base",
+    "difficulty": "standard",
+    "difficulty_rank": 2,
+    "mission_id": "alpha_rotation",
+    "mission_name": "Hold Until Rotation",
+    "current_week": 2,
+    "duration_weeks": 12,
+    "minimum_survivors": 1,
+    "weeks_remaining": 11,
+    "mission_days": {
+      "start": 8,
+      "end": 14
+    },
+    "crew": [
+      {
+        "medical_conditions": [],
+        "nutrition_deficit": 0.0,
+        "hydration_deficit": 0.0,
+        "condition": {
+          "status": "fit",
+          "nutrition_status": "adequate",
+          "hydration_status": "adequate",
+          "can_work": true,
+          "can_do_eva": true,
+          "performance_penalty": 0.0,
+          "restrictions": [],
+          "nutrition_recovery_weeks": 0,
+          "hydration_recovery_weeks": 0,
+          "source_url": "https://www.nasa.gov/reference/risk-of-inadequate-food-and-nutrition/"
+        },
+        "ration_outlook": {
+          "normal": {
+            "nutrition_deficit": 0.0,
+            "hydration_deficit": 0.0,
+            "food_damage": 0,
+            "water_damage": 0
+          },
+          "reduced": {
+            "nutrition_deficit": 0.3,
+            "hydration_deficit": 0.3,
+            "food_damage": 0,
+            "water_damage": 4
+          },
+          "emergency": {
+            "nutrition_deficit": 0.6,
+            "hydration_deficit": 0.6,
+            "food_damage": 0,
+            "water_damage": 28
+          }
+        },
+        "id": "alex",
+        "name": "Alex Vega",
+        "role": "engineer",
+        "health": 92,
+        "positive_trait": "Steady hands: +5 percentage points on assigned event actions.",
+        "negative_trait": "Large appetite: consumes 10% more food.",
+        "food_multiplier": 1.1,
+        "water_multiplier": 1.0,
+        "event_bonus": 0.05,
+        "injury_multiplier": 1.0,
+        "specialty": "Mechanical repair",
+        "training_source": "https://www.nasa.gov/reference/jsc-crew-operations-training/",
+        "action_bonuses": {},
+        "food_shortage_weeks": 0,
+        "water_shortage_weeks": 0,
+        "alive": true,
+        "ration_options": {
+          "normal": {
+            "food": 1.1,
+            "water": 2.0
+          },
+          "reduced": {
+            "food": 0.77,
+            "water": 1.4
+          },
+          "emergency": {
+            "food": 0.44,
+            "water": 0.8
+          }
+        }
+      },
+      {
+        "medical_conditions": [
+          {
+            "kind": "dust_irritation",
+            "remaining": 2,
+            "acquired_week": 1,
+            "stabilized": false,
+            "care_week": 0,
+            "care_points": 0,
+            "title": "Dust-related respiratory irritation",
+            "urgent": false,
+            "rest_weeks": 2,
+            "medic_weeks": 1,
+            "untreated_damage": 1,
+            "source_url": "https://www.nasa.gov/reference/jsc-dust/"
+          }
+        ],
+        "nutrition_deficit": 0.0,
+        "hydration_deficit": 0.0,
+        "condition": {
+          "status": "serious",
+          "nutrition_status": "adequate",
+          "hydration_status": "adequate",
+          "can_work": true,
+          "can_do_eva": false,
+          "performance_penalty": 0.05,
+          "restrictions": [
+            "Respiratory irritation: EVA unavailable until recovered; indoor work remains possible."
+          ],
+          "nutrition_recovery_weeks": 0,
+          "hydration_recovery_weeks": 0,
+          "source_url": "https://www.nasa.gov/reference/risk-of-inadequate-food-and-nutrition/"
+        },
+        "ration_outlook": {
+          "normal": {
+            "nutrition_deficit": 0.0,
+            "hydration_deficit": 0.0,
+            "food_damage": 0,
+            "water_damage": 0
+          },
+          "reduced": {
+            "nutrition_deficit": 0.3,
+            "hydration_deficit": 0.3,
+            "food_damage": 0,
+            "water_damage": 4
+          },
+          "emergency": {
+            "nutrition_deficit": 0.6,
+            "hydration_deficit": 0.6,
+            "food_damage": 0,
+            "water_damage": 28
+          }
+        },
+        "id": "maya",
+        "name": "Maya Okafor",
+        "role": "medic",
+        "health": 87,
+        "positive_trait": "Efficient metabolism: consumes 10% less food.",
+        "negative_trait": "Thirsty: consumes 10% more water.",
+        "food_multiplier": 0.9,
+        "water_multiplier": 1.1,
+        "event_bonus": 0.0,
+        "injury_multiplier": 1.0,
+        "specialty": "Crew medical officer",
+        "training_source": "https://www.nasa.gov/reference/5-0-training/",
+        "action_bonuses": {},
+        "food_shortage_weeks": 0,
+        "water_shortage_weeks": 0,
+        "alive": true,
+        "ration_options": {
+          "normal": {
+            "food": 0.9,
+            "water": 2.2
+          },
+          "reduced": {
+            "food": 0.63,
+            "water": 1.54
+          },
+          "emergency": {
+            "food": 0.36,
+            "water": 0.88
+          }
+        }
+      },
+      {
+        "medical_conditions": [
+          {
+            "kind": "dust_irritation",
+            "remaining": 1,
+            "acquired_week": 1,
+            "stabilized": false,
+            "care_week": 0,
+            "care_points": 0,
+            "title": "Dust-related respiratory irritation",
+            "urgent": false,
+            "rest_weeks": 1,
+            "medic_weeks": 1,
+            "untreated_damage": 1,
+            "source_url": "https://www.nasa.gov/reference/jsc-dust/"
+          }
+        ],
+        "nutrition_deficit": 0.0,
+        "hydration_deficit": 0.0,
+        "condition": {
+          "status": "serious",
+          "nutrition_status": "adequate",
+          "hydration_status": "adequate",
+          "can_work": true,
+          "can_do_eva": false,
+          "performance_penalty": 0.05,
+          "restrictions": [
+            "Respiratory irritation: EVA unavailable until recovered; indoor work remains possible."
+          ],
+          "nutrition_recovery_weeks": 0,
+          "hydration_recovery_weeks": 0,
+          "source_url": "https://www.nasa.gov/reference/risk-of-inadequate-food-and-nutrition/"
+        },
+        "ration_outlook": {
+          "normal": {
+            "nutrition_deficit": 0.0,
+            "hydration_deficit": 0.0,
+            "food_damage": 0,
+            "water_damage": 0
+          },
+          "reduced": {
+            "nutrition_deficit": 0.3,
+            "hydration_deficit": 0.3,
+            "food_damage": 0,
+            "water_damage": 4
+          },
+          "emergency": {
+            "nutrition_deficit": 0.6,
+            "hydration_deficit": 0.6,
+            "food_damage": 0,
+            "water_damage": 28
+          }
+        },
+        "id": "lin",
+        "name": "Lin Park",
+        "role": "scientist",
+        "health": 89,
+        "positive_trait": "Water conscious: consumes 10% less water.",
+        "negative_trait": "Fragile: event injuries cause 20% more damage.",
+        "food_multiplier": 1.0,
+        "water_multiplier": 0.9,
+        "event_bonus": 0.0,
+        "injury_multiplier": 1.2,
+        "specialty": "Field science and calibration",
+        "training_source": "https://www.nasa.gov/missions/artemis/nasa-field-geology-training-prepares-artemis-mission-support-teams/",
+        "action_bonuses": {},
+        "food_shortage_weeks": 0,
+        "water_shortage_weeks": 0,
+        "alive": true,
+        "ration_options": {
+          "normal": {
+            "food": 1.0,
+            "water": 1.8
+          },
+          "reduced": {
+            "food": 0.7,
+            "water": 1.26
+          },
+          "emergency": {
+            "food": 0.4,
+            "water": 0.72
+          }
+        }
+      }
+    ],
+    "resources": {
+      "food": 49.0,
+      "water": 109.2,
+      "oxygen": 21.0,
+      "electricity": 64.0,
+      "medicine": 7.0,
+      "repair_kits": 8.0,
+      "eva_batteries": 8.0,
+      "dust_kits": 0.0,
+      "oxygen_regulators": 0.0,
+      "diagnostic_tools": 0.0,
+      "sealant_packs": 0.0,
+      "scientific_tools": 0.0,
+      "research_data": 0.0,
+      "wastewater": 12.8,
+      "co2": 0.0
+    },
+    "solar_efficiency": 1.0,
+    "oxygen_efficiency": 1.0,
+    "water_recovery_efficiency": 0.98,
+    "co2_efficiency": 0.985,
+    "current_event_id": "crew_recovery",
+    "current_event": {
+      "id": "crew_recovery",
+      "title": "A Week for Recovery",
+      "description": "No major equipment emergency is scheduled. Use the breathing space to support crew health.",
+      "category": "recovery",
+      "science_context": "NASA develops exercise countermeasures for spaceflight. These immediate health gains are fictional; exercise does not instantly reverse injuries.",
+      "source_url": "https://www.nasa.gov/directorates/esdmd/hhp/exercise-physiology-and-countermeasures/",
+      "on_start": {
+        "condition": null,
+        "treatment": 0,
+        "resources": {},
+        "solar_efficiency": 0.0,
+        "oxygen_efficiency": 0.0,
+        "water_recovery_efficiency": 0.0,
+        "co2_efficiency": 0.0,
+        "crew_health": 0,
+        "target": "selected"
+      },
+      "choices": [
+        {
+          "workload": "light",
+          "support_candidates": [],
+          "id": "structured_recovery",
+          "action_type": "event",
+          "objective_rewards": [],
+          "text": "Follow a structured recovery schedule",
+          "description": "Additional food and water support a guaranteed 6-health gain for each survivor.",
+          "costs": {
+            "food": 1.0,
+            "water": 1.0
+          },
+          "required_items": {},
+          "requires_crew": false,
+          "role_bonus": {},
+          "crew_role_bonus": {},
+          "success_chance": 1.0,
+          "success_effects": {
+            "condition": null,
+            "treatment": 0,
+            "resources": {},
+            "solar_efficiency": 0.0,
+            "oxygen_efficiency": 0.0,
+            "water_recovery_efficiency": 0.0,
+            "co2_efficiency": 0.0,
+            "crew_health": 6,
+            "target": "all"
+          },
+          "failure_effects": {
+            "condition": null,
+            "treatment": 0,
+            "resources": {},
+            "solar_efficiency": 0.0,
+            "oxygen_efficiency": 0.0,
+            "water_recovery_efficiency": 0.0,
+            "co2_efficiency": 0.0,
+            "crew_health": 0,
+            "target": "selected"
+          },
+          "required_role": null,
+          "minimum_crew": 1,
+          "available": true,
+          "unavailable_reasons": [],
+          "eligible_crew": [],
+          "success_probability": 1.0
+        },
+        {
+          "workload": "care",
+          "support_candidates": [],
+          "id": "medical_recovery",
+          "action_type": "event",
+          "objective_rewards": [],
+          "text": "Treat one recovering astronaut",
+          "description": "Select a patient and spend 1 medicine. Success gives 5 health, stabilizes one active condition (urgent first), and supplies up to 2 recovery points during survival with full provisions and safe air. Existing role bonuses improve the odds.",
+          "costs": {
+            "medicine": 1.0
+          },
+          "required_items": {},
+          "requires_crew": true,
+          "role_bonus": {},
+          "crew_role_bonus": {
+            "medic": 0.15
+          },
+          "success_chance": 0.75,
+          "success_effects": {
+            "condition": null,
+            "treatment": 2,
+            "resources": {},
+            "solar_efficiency": 0.0,
+            "oxygen_efficiency": 0.0,
+            "water_recovery_efficiency": 0.0,
+            "co2_efficiency": 0.0,
+            "crew_health": 5,
+            "target": "selected"
+          },
+          "failure_effects": {
+            "condition": null,
+            "treatment": 0,
+            "resources": {},
+            "solar_efficiency": 0.0,
+            "oxygen_efficiency": 0.0,
+            "water_recovery_efficiency": 0.0,
+            "co2_efficiency": 0.0,
+            "crew_health": 0,
+            "target": "selected"
+          },
+          "required_role": null,
+          "minimum_crew": 1,
+          "available": true,
+          "unavailable_reasons": [],
+          "eligible_crew": [
+            {
+              "crew_id": "alex",
+              "available": true,
+              "unavailable_reasons": [],
+              "success_probability": 0.95
+            },
+            {
+              "crew_id": "maya",
+              "available": true,
+              "unavailable_reasons": [],
+              "success_probability": 0.9
+            },
+            {
+              "crew_id": "lin",
+              "available": true,
+              "unavailable_reasons": [],
+              "success_probability": 0.9
+            }
+          ],
+          "success_probability": null
+        },
+        {
+          "workload": "light",
+          "support_candidates": [],
+          "id": "routine_recovery",
+          "action_type": "event",
+          "objective_rewards": [],
+          "text": "Keep a light routine",
+          "description": "A small guaranteed 2-health gain for every survivor, with no extra supplies.",
+          "costs": {},
+          "required_items": {},
+          "requires_crew": false,
+          "role_bonus": {},
+          "crew_role_bonus": {},
+          "success_chance": 1.0,
+          "success_effects": {
+            "condition": null,
+            "treatment": 0,
+            "resources": {},
+            "solar_efficiency": 0.0,
+            "oxygen_efficiency": 0.0,
+            "water_recovery_efficiency": 0.0,
+            "co2_efficiency": 0.0,
+            "crew_health": 2,
+            "target": "all"
+          },
+          "failure_effects": {
+            "condition": null,
+            "treatment": 0,
+            "resources": {},
+            "solar_efficiency": 0.0,
+            "oxygen_efficiency": 0.0,
+            "water_recovery_efficiency": 0.0,
+            "co2_efficiency": 0.0,
+            "crew_health": 0,
+            "target": "selected"
+          },
+          "required_role": null,
+          "minimum_crew": 1,
+          "available": true,
+          "unavailable_reasons": [],
+          "eligible_crew": [],
+          "success_probability": 1.0
+        }
+      ]
+    },
+    "emergency_ration_requirements": {
+      "food": 1.2,
+      "water": 2.4
+    },
+    "depleted_provisions": [],
+    "used_event_ids": [
+      "medical_emergency"
+    ],
+    "flags": {},
+    "history": [
+      {
+        "project_updates": [],
+        "assignments": [
+          {
+            "patient_id": "alex",
+            "condition_id": "dust_irritation",
+            "crew_id": "maya",
+            "activity_id": "medical_care",
+            "status": "completed",
+            "outcome": {
+              "support_crew_ids": [],
+              "event_id": "medical_emergency",
+              "choice_id": "medical_care",
+              "choice_text": "Provide medical care",
+              "selected_crew_id": "maya",
+              "success": true,
+              "success_probability": 1.0,
+              "costs": {
+                "medicine": 1.0
+              },
+              "effects": {
+                "medical_changes": [
+                  {
+                    "crew_id": "alex",
+                    "kind": "dust_irritation",
+                    "action": "stabilized",
+                    "reason": null,
+                    "before": {
+                      "kind": "dust_irritation",
+                      "remaining": 2,
+                      "acquired_week": 1,
+                      "stabilized": false,
+                      "care_week": 0,
+                      "care_points": 0
+                    },
+                    "after": {
+                      "kind": "dust_irritation",
+                      "remaining": 2,
+                      "acquired_week": 1,
+                      "stabilized": true,
+                      "care_week": 1,
+                      "care_points": 2
+                    }
+                  }
+                ],
+                "resources": {},
+                "solar_efficiency": 0.0,
+                "oxygen_efficiency": 0.0,
+                "water_recovery_efficiency": 0.0,
+                "co2_efficiency": 0.0,
+                "health_changes": []
+              },
+              "objective_progress": []
+            },
+            "reason": null
+          },
+          {
+            "patient_id": null,
+            "condition_id": null,
+            "crew_id": "lin",
+            "activity_id": "crew_rest",
+            "status": "completed",
+            "outcome": {
+              "support_crew_ids": [],
+              "event_id": "medical_emergency",
+              "choice_id": "crew_rest",
+              "choice_text": "Rest and recuperate",
+              "selected_crew_id": "lin",
+              "success": true,
+              "success_probability": 1.0,
+              "costs": {},
+              "effects": {
+                "medical_changes": [],
+                "resources": {},
+                "solar_efficiency": 0.0,
+                "oxygen_efficiency": 0.0,
+                "water_recovery_efficiency": 0.0,
+                "co2_efficiency": 0.0,
+                "health_changes": []
+              },
+              "objective_progress": []
+            },
+            "reason": null
+          }
+        ],
+        "science_gains": [],
+        "week": 1,
+        "event": {
+          "support_crew_ids": [],
+          "event_id": "medical_emergency",
+          "choice_id": "rest",
+          "choice_text": "Isolate the filter and rest",
+          "selected_crew_id": null,
+          "success": true,
+          "success_probability": 1.0,
+          "costs": {},
+          "effects": {
+            "medical_changes": [],
+            "resources": {},
+            "solar_efficiency": 0.0,
+            "oxygen_efficiency": 0.0,
+            "water_recovery_efficiency": 0.0,
+            "co2_efficiency": 0.0,
+            "health_changes": [
+              {
+                "crew_id": "alex",
+                "before": 92,
+                "after": 87
+              },
+              {
+                "crew_id": "maya",
+                "before": 92,
+                "after": 87
+              },
+              {
+                "crew_id": "lin",
+                "before": 90,
+                "after": 84
+              }
+            ]
+          },
+          "objective_progress": []
+        },
+        "rations": {
+          "alex": {
+            "food": "normal",
+            "water": "normal"
+          },
+          "maya": {
+            "food": "normal",
+            "water": "normal"
+          },
+          "lin": {
+            "food": "normal",
+            "water": "normal"
+          }
+        },
+        "survival": {
+          "life_support": {
+            "wastewater_processed": 4.0,
+            "water_recovered": 3.2,
+            "water_for_oxygen": 0.0,
+            "wastewater_captured": 4.8,
+            "oxygen_generated": 0.0,
+            "co2_produced": 3.0,
+            "co2_removed": 3.0,
+            "co2_remaining": 0.0,
+            "power_components": {
+              "habitat": 10.0,
+              "water_recovery": 2.0,
+              "oxygen_generation": 0.0,
+              "co2_removal": 2.0
+            }
+          },
+          "daylight_fraction": 1.0,
+          "battery_capacity": 100.0,
+          "electricity_curtailed": 0.0,
+          "project_electricity_used": 0.0,
+          "power_priority": "life_support",
+          "ration_requirements": {
+            "food": 3.0,
+            "water": 6.0
+          },
+          "ration_costs": {
+            "food": 3.0,
+            "water": 6.0
+          },
+          "ration_depletion_fractions": {
+            "food": 0.0,
+            "water": 0.0
+          },
+          "electricity_generated": 48.0,
+          "electricity_required": 14.0,
+          "electricity_used": 14.0,
+          "life_support_power_fraction": 1.0,
+          "oxygen_generated": 0.0,
+          "oxygen_required": 9.0,
+          "oxygen_used": 9.0,
+          "oxygen_shortage": 0.0,
+          "health_changes": [
+            {
+              "crew_id": "alex",
+              "before": 87,
+              "after": 92,
+              "medical_penalty": 0,
+              "medical_changes": [
+                {
+                  "crew_id": "alex",
+                  "kind": "dust_irritation",
+                  "action": "resolved",
+                  "reason": null,
+                  "before": {
+                    "kind": "dust_irritation",
+                    "remaining": 2,
+                    "acquired_week": 1,
+                    "stabilized": true,
+                    "care_week": 1,
+                    "care_points": 2
+                  },
+                  "after": null
+                }
+              ],
+              "food_received_fraction": 1.0,
+              "water_received_fraction": 1.0,
+              "nutrition_before": 0.0,
+              "nutrition_after": 0.0,
+              "hydration_before": 0.0,
+              "hydration_after": 0.0,
+              "recovery": 5,
+              "worked": false,
+              "rested": true,
+              "food_penalty": 0,
+              "water_penalty": 0,
+              "oxygen_penalty": 0,
+              "co2_penalty": 0,
+              "died": false
+            },
+            {
+              "crew_id": "maya",
+              "before": 87,
+              "after": 87,
+              "medical_penalty": 0,
+              "medical_changes": [],
+              "food_received_fraction": 1.0,
+              "water_received_fraction": 1.0,
+              "nutrition_before": 0.0,
+              "nutrition_after": 0.0,
+              "hydration_before": 0.0,
+              "hydration_after": 0.0,
+              "recovery": 0,
+              "worked": true,
+              "rested": false,
+              "food_penalty": 0,
+              "water_penalty": 0,
+              "oxygen_penalty": 0,
+              "co2_penalty": 0,
+              "died": false
+            },
+            {
+              "crew_id": "lin",
+              "before": 84,
+              "after": 89,
+              "medical_penalty": 0,
+              "medical_changes": [
+                {
+                  "crew_id": "lin",
+                  "kind": "dust_irritation",
+                  "action": "recovering",
+                  "reason": null,
+                  "before": {
+                    "kind": "dust_irritation",
+                    "remaining": 2,
+                    "acquired_week": 1,
+                    "stabilized": false,
+                    "care_week": 0,
+                    "care_points": 0
+                  },
+                  "after": {
+                    "kind": "dust_irritation",
+                    "remaining": 1,
+                    "acquired_week": 1,
+                    "stabilized": false,
+                    "care_week": 0,
+                    "care_points": 0
+                  }
+                }
+              ],
+              "food_received_fraction": 1.0,
+              "water_received_fraction": 1.0,
+              "nutrition_before": 0.0,
+              "nutrition_after": 0.0,
+              "hydration_before": 0.0,
+              "hydration_after": 0.0,
+              "recovery": 5,
+              "worked": false,
+              "rested": true,
+              "food_penalty": 0,
+              "water_penalty": 0,
+              "oxygen_penalty": 0,
+              "co2_penalty": 0,
+              "died": false
+            }
+          ]
+        },
+        "resource_changes": {
+          "food": -3.0,
+          "water": -2.8,
+          "oxygen": -9.0,
+          "electricity": 34.0,
+          "medicine": -1.0,
+          "repair_kits": 0.0,
+          "eva_batteries": 0.0,
+          "dust_kits": 0.0,
+          "oxygen_regulators": 0.0,
+          "diagnostic_tools": 0.0,
+          "sealant_packs": 0.0,
+          "scientific_tools": 0.0,
+          "research_data": 0.0,
+          "wastewater": 0.8,
+          "co2": 0.0
+        },
+        "deaths": [],
+        "next_event": {
+          "event_id": "crew_recovery",
+          "title": "A Week for Recovery",
+          "effects": {
+            "medical_changes": [],
+            "resources": {},
+            "solar_efficiency": 0.0,
+            "oxygen_efficiency": 0.0,
+            "water_recovery_efficiency": 0.0,
+            "co2_efficiency": 0.0,
+            "health_changes": []
+          }
+        },
+        "ending": null
+      }
+    ],
+    "status": "running",
+    "random_seed": 42,
+    "initial_crew_size": 3,
+    "weeks_completed": 1,
+    "ending": null,
+    "results": null,
+    "science": {
+      "status": "not_started",
+      "completed_objectives": 0,
+      "total_objectives": 3,
+      "research_data": 0.0,
+      "objectives": [
+        {
+          "id": "geology",
+          "title": "Baseline sample collection",
+          "description": "Collect separate geological samples. Successful field sampling counts; generic research points do not.",
+          "target": 2,
+          "qualifying_choices": [
+            "kit_sampling",
+            "basic_sampling",
+            "research_geology"
+          ],
+          "source_url": "https://www.nasa.gov/missions/artemis/nasa-field-geology-training-prepares-artemis-mission-support-teams/",
+          "progress": 0,
+          "completed": false
+        },
+        {
+          "id": "seismology",
+          "title": "Seismic baseline",
+          "description": "Complete detailed analyses of separate seismic records. Simply archiving a signal does not count.",
+          "target": 1,
+          "qualifying_choices": [
+            "analyze_seismic",
+            "research_seismic"
+          ],
+          "source_url": "https://science.nasa.gov/moon/moonquakes/",
+          "progress": 0,
+          "completed": false
+        },
+        {
+          "id": "instruments",
+          "title": "Restore a research instrument",
+          "description": "Restore a research instrument or the research communications link. Routine life-support maintenance does not count.",
+          "target": 1,
+          "qualifying_choices": [
+            "align_antenna",
+            "remote_antenna",
+            "research_instrument"
+          ],
+          "source_url": "https://www.nasa.gov/reference/9-0-hardware-and-equipment-vol-2/",
+          "progress": 0,
+          "completed": false
+        }
+      ]
+    },
+    "assignment_options": [
+      {
+        "workload": "rest",
+        "support_candidates": [],
+        "id": "crew_rest",
+        "action_type": "rest",
+        "objective_rewards": [],
+        "text": "Rest and recuperate",
+        "description": "One week without active work. Adequate actual food and water improve deficit recovery and allow up to 5 condition points of recovery in safe air. Rest creates no supplies and cannot compensate for continued deprivation.",
+        "costs": {},
+        "required_items": {},
+        "requires_crew": true,
+        "role_bonus": {},
+        "crew_role_bonus": {},
+        "success_chance": 1.0,
+        "success_effects": {
+          "condition": null,
+          "treatment": 0,
+          "resources": {},
+          "solar_efficiency": 0.0,
+          "oxygen_efficiency": 0.0,
+          "water_recovery_efficiency": 0.0,
+          "co2_efficiency": 0.0,
+          "crew_health": 0,
+          "target": "selected"
+        },
+        "failure_effects": {
+          "condition": null,
+          "treatment": 0,
+          "resources": {},
+          "solar_efficiency": 0.0,
+          "oxygen_efficiency": 0.0,
+          "water_recovery_efficiency": 0.0,
+          "co2_efficiency": 0.0,
+          "crew_health": 0,
+          "target": "selected"
+        },
+        "required_role": null,
+        "minimum_crew": 1,
+        "available": true,
+        "unavailable_reasons": [],
+        "eligible_crew": [
+          {
+            "crew_id": "alex",
+            "available": true,
+            "unavailable_reasons": [],
+            "success_probability": 1.0
+          },
+          {
+            "crew_id": "maya",
+            "available": true,
+            "unavailable_reasons": [],
+            "success_probability": 1.0
+          },
+          {
+            "crew_id": "lin",
+            "available": true,
+            "unavailable_reasons": [],
+            "success_probability": 1.0
+          }
+        ],
+        "success_probability": null
+      },
+      {
+        "workload": "light",
+        "support_candidates": [],
+        "id": "medical_care",
+        "action_type": "medical",
+        "objective_rewards": [],
+        "text": "Provide medical care",
+        "description": "Reserve caregiver and patient for one week, plus 1 medicine. Stabilizes the chosen condition immediately. A fit medic earns 2 recovery points; another fit caregiver earns 1 (2 with a retained diagnostic scanner). Progress needs full actual provisions and safe air. Both crew are occupied, even if recovery stalls.",
+        "costs": {
+          "medicine": 1.0
+        },
+        "required_items": {},
+        "requires_crew": true,
+        "role_bonus": {},
+        "crew_role_bonus": {},
+        "success_chance": 1.0,
+        "success_effects": {
+          "condition": null,
+          "treatment": 0,
+          "resources": {},
+          "solar_efficiency": 0.0,
+          "oxygen_efficiency": 0.0,
+          "water_recovery_efficiency": 0.0,
+          "co2_efficiency": 0.0,
+          "crew_health": 0,
+          "target": "selected"
+        },
+        "failure_effects": {
+          "condition": null,
+          "treatment": 0,
+          "resources": {},
+          "solar_efficiency": 0.0,
+          "oxygen_efficiency": 0.0,
+          "water_recovery_efficiency": 0.0,
+          "co2_efficiency": 0.0,
+          "crew_health": 0,
+          "target": "selected"
+        },
+        "required_role": null,
+        "minimum_crew": 1,
+        "available": true,
+        "unavailable_reasons": [],
+        "eligible_crew": [
+          {
+            "crew_id": "alex",
+            "available": true,
+            "unavailable_reasons": [],
+            "success_probability": 1.0
+          },
+          {
+            "crew_id": "maya",
+            "available": true,
+            "unavailable_reasons": [],
+            "success_probability": 1.0
+          },
+          {
+            "crew_id": "lin",
+            "available": true,
+            "unavailable_reasons": [],
+            "success_probability": 1.0
+          }
+        ],
+        "success_probability": null
+      },
+      {
+        "workload": "rest",
+        "support_candidates": [],
+        "id": "self_care",
+        "action_type": "medical",
+        "objective_rewards": [],
+        "text": "Self-care and stabilization",
+        "description": "One astronaut and 1 medicine. Available even when critically unfit; treats only their own chosen condition. Stabilizes immediately and earns 1 recovery point with full actual provisions and safe air. No work or incident duty that week.",
+        "costs": {
+          "medicine": 1.0
+        },
+        "required_items": {},
+        "requires_crew": true,
+        "role_bonus": {},
+        "crew_role_bonus": {},
+        "success_chance": 1.0,
+        "success_effects": {
+          "condition": null,
+          "treatment": 0,
+          "resources": {},
+          "solar_efficiency": 0.0,
+          "oxygen_efficiency": 0.0,
+          "water_recovery_efficiency": 0.0,
+          "co2_efficiency": 0.0,
+          "crew_health": 0,
+          "target": "selected"
+        },
+        "failure_effects": {
+          "condition": null,
+          "treatment": 0,
+          "resources": {},
+          "solar_efficiency": 0.0,
+          "oxygen_efficiency": 0.0,
+          "water_recovery_efficiency": 0.0,
+          "co2_efficiency": 0.0,
+          "crew_health": 0,
+          "target": "selected"
+        },
+        "required_role": null,
+        "minimum_crew": 1,
+        "available": true,
+        "unavailable_reasons": [],
+        "eligible_crew": [
+          {
+            "crew_id": "alex",
+            "available": false,
+            "unavailable_reasons": [
+              "Requires a living patient with an active medical condition."
+            ],
+            "success_probability": 1.0
+          },
+          {
+            "crew_id": "maya",
+            "available": true,
+            "unavailable_reasons": [],
+            "success_probability": 1.0
+          },
+          {
+            "crew_id": "lin",
+            "available": true,
+            "unavailable_reasons": [],
+            "success_probability": 1.0
+          }
+        ],
+        "success_probability": null
+      },
+      {
+        "workload": "eva",
+        "support_candidates": [],
+        "id": "clean_array",
+        "action_type": "maintenance",
+        "objective_rewards": [],
+        "text": "Clean the solar array",
+        "description": "Guaranteed +20 percentage points solar condition. Uses a dust kit and EVA supplies; One-week crew assignment; incident response is separate.",
+        "costs": {
+          "dust_kits": 1.0,
+          "eva_batteries": 1.0,
+          "oxygen": 2.0
+        },
+        "required_items": {},
+        "requires_crew": true,
+        "role_bonus": {},
+        "crew_role_bonus": {},
+        "success_chance": 1.0,
+        "success_effects": {
+          "condition": null,
+          "treatment": 0,
+          "resources": {},
+          "solar_efficiency": 0.2,
+          "oxygen_efficiency": 0.0,
+          "water_recovery_efficiency": 0.0,
+          "co2_efficiency": 0.0,
+          "crew_health": 0,
+          "target": "selected"
+        },
+        "failure_effects": {
+          "condition": null,
+          "treatment": 0,
+          "resources": {},
+          "solar_efficiency": 0.0,
+          "oxygen_efficiency": 0.0,
+          "water_recovery_efficiency": 0.0,
+          "co2_efficiency": 0.0,
+          "crew_health": 0,
+          "target": "selected"
+        },
+        "required_role": null,
+        "minimum_crew": 1,
+        "available": false,
+        "unavailable_reasons": [
+          "Requires 1 dust_kits; available 0.",
+          "The solar array is already at full condition.",
+          "Respiratory irritation: EVA unavailable until recovered; indoor work remains possible."
+        ],
+        "eligible_crew": [
+          {
+            "crew_id": "alex",
+            "available": false,
+            "unavailable_reasons": [
+              "Requires 1 dust_kits; available 0.",
+              "The solar array is already at full condition."
+            ],
+            "success_probability": 1.0
+          },
+          {
+            "crew_id": "maya",
+            "available": false,
+            "unavailable_reasons": [
+              "Respiratory irritation: EVA unavailable until recovered; indoor work remains possible.",
+              "Requires 1 dust_kits; available 0.",
+              "The solar array is already at full condition."
+            ],
+            "success_probability": 1.0
+          },
+          {
+            "crew_id": "lin",
+            "available": false,
+            "unavailable_reasons": [
+              "Respiratory irritation: EVA unavailable until recovered; indoor work remains possible.",
+              "Requires 1 dust_kits; available 0.",
+              "The solar array is already at full condition."
+            ],
+            "success_probability": 1.0
+          }
+        ],
+        "success_probability": null
+      },
+      {
+        "workload": "strenuous",
+        "support_candidates": [],
+        "id": "install_regulator",
+        "action_type": "maintenance",
+        "objective_rewards": [],
+        "text": "Install an oxygen regulator",
+        "description": "Guaranteed +20 percentage points oxygen condition. Uses a regulator and 2 power; One-week crew assignment; incident response is separate.",
+        "costs": {
+          "oxygen_regulators": 1.0,
+          "electricity": 2.0
+        },
+        "required_items": {},
+        "requires_crew": true,
+        "role_bonus": {},
+        "crew_role_bonus": {},
+        "success_chance": 1.0,
+        "success_effects": {
+          "condition": null,
+          "treatment": 0,
+          "resources": {},
+          "solar_efficiency": 0.0,
+          "oxygen_efficiency": 0.2,
+          "water_recovery_efficiency": 0.0,
+          "co2_efficiency": 0.0,
+          "crew_health": 0,
+          "target": "selected"
+        },
+        "failure_effects": {
+          "condition": null,
+          "treatment": 0,
+          "resources": {},
+          "solar_efficiency": 0.0,
+          "oxygen_efficiency": 0.0,
+          "water_recovery_efficiency": 0.0,
+          "co2_efficiency": 0.0,
+          "crew_health": 0,
+          "target": "selected"
+        },
+        "required_role": null,
+        "minimum_crew": 1,
+        "available": false,
+        "unavailable_reasons": [
+          "Requires 1 oxygen_regulators; available 0.",
+          "The oxygen system is already at full condition."
+        ],
+        "eligible_crew": [
+          {
+            "crew_id": "alex",
+            "available": false,
+            "unavailable_reasons": [
+              "Requires 1 oxygen_regulators; available 0.",
+              "The oxygen system is already at full condition."
+            ],
+            "success_probability": 1.0
+          },
+          {
+            "crew_id": "maya",
+            "available": false,
+            "unavailable_reasons": [
+              "Requires 1 oxygen_regulators; available 0.",
+              "The oxygen system is already at full condition."
+            ],
+            "success_probability": 1.0
+          },
+          {
+            "crew_id": "lin",
+            "available": false,
+            "unavailable_reasons": [
+              "Requires 1 oxygen_regulators; available 0.",
+              "The oxygen system is already at full condition."
+            ],
+            "success_probability": 1.0
+          }
+        ],
+        "success_probability": null
+      },
+      {
+        "workload": "light",
+        "support_candidates": [],
+        "id": "service_water_recovery",
+        "action_type": "maintenance",
+        "objective_rewards": [],
+        "text": "Service the water recovery processor",
+        "description": "One repair kit and 2 power guarantee +30 water-recovery condition points. Recovered water comes from the wastewater stock and is available after this week's rations.",
+        "costs": {
+          "repair_kits": 1.0,
+          "electricity": 2.0
+        },
+        "required_items": {},
+        "requires_crew": true,
+        "role_bonus": {},
+        "crew_role_bonus": {},
+        "success_chance": 1.0,
+        "success_effects": {
+          "condition": null,
+          "treatment": 0,
+          "resources": {},
+          "solar_efficiency": 0.0,
+          "oxygen_efficiency": 0.0,
+          "water_recovery_efficiency": 0.3,
+          "co2_efficiency": 0.0,
+          "crew_health": 0,
+          "target": "selected"
+        },
+        "failure_effects": {
+          "condition": null,
+          "treatment": 0,
+          "resources": {},
+          "solar_efficiency": 0.0,
+          "oxygen_efficiency": 0.0,
+          "water_recovery_efficiency": 0.0,
+          "co2_efficiency": 0.0,
+          "crew_health": 0,
+          "target": "selected"
+        },
+        "required_role": null,
+        "minimum_crew": 1,
+        "available": true,
+        "unavailable_reasons": [],
+        "eligible_crew": [
+          {
+            "crew_id": "alex",
+            "available": true,
+            "unavailable_reasons": [],
+            "success_probability": 1.0
+          },
+          {
+            "crew_id": "maya",
+            "available": true,
+            "unavailable_reasons": [],
+            "success_probability": 1.0
+          },
+          {
+            "crew_id": "lin",
+            "available": true,
+            "unavailable_reasons": [],
+            "success_probability": 1.0
+          }
+        ],
+        "success_probability": null
+      },
+      {
+        "workload": "light",
+        "support_candidates": [],
+        "id": "service_co2_scrubber",
+        "action_type": "maintenance",
+        "objective_rewards": [],
+        "text": "Service the carbon dioxide scrubber",
+        "description": "One repair kit and 2 power guarantee +30 scrubber condition points. Removal still requires power; oxygen reserves do not remove CO2.",
+        "costs": {
+          "repair_kits": 1.0,
+          "electricity": 2.0
+        },
+        "required_items": {},
+        "requires_crew": true,
+        "role_bonus": {},
+        "crew_role_bonus": {},
+        "success_chance": 1.0,
+        "success_effects": {
+          "condition": null,
+          "treatment": 0,
+          "resources": {},
+          "solar_efficiency": 0.0,
+          "oxygen_efficiency": 0.0,
+          "water_recovery_efficiency": 0.0,
+          "co2_efficiency": 0.3,
+          "crew_health": 0,
+          "target": "selected"
+        },
+        "failure_effects": {
+          "condition": null,
+          "treatment": 0,
+          "resources": {},
+          "solar_efficiency": 0.0,
+          "oxygen_efficiency": 0.0,
+          "water_recovery_efficiency": 0.0,
+          "co2_efficiency": 0.0,
+          "crew_health": 0,
+          "target": "selected"
+        },
+        "required_role": null,
+        "minimum_crew": 1,
+        "available": true,
+        "unavailable_reasons": [],
+        "eligible_crew": [
+          {
+            "crew_id": "alex",
+            "available": true,
+            "unavailable_reasons": [],
+            "success_probability": 1.0
+          },
+          {
+            "crew_id": "maya",
+            "available": true,
+            "unavailable_reasons": [],
+            "success_probability": 1.0
+          },
+          {
+            "crew_id": "lin",
+            "available": true,
+            "unavailable_reasons": [],
+            "success_probability": 1.0
+          }
+        ],
+        "success_probability": null
+      },
+      {
+        "workload": "eva",
+        "support_candidates": [],
+        "id": "research_geology",
+        "action_type": "research",
+        "objective_rewards": [
+          {
+            "objective_id": "geology",
+            "title": "Baseline sample collection",
+            "amount": 1
+          }
+        ],
+        "text": "Survey a geological sample",
+        "description": "Use the science kit to collect one sample and 2 research data on success. Scientists improve the odds; failure costs the worker 8 health and causes a sprain. One-week crew assignment; incident response is separate.",
+        "costs": {
+          "eva_batteries": 1.0,
+          "oxygen": 2.0
+        },
+        "required_items": {
+          "scientific_tools": 1
+        },
+        "requires_crew": true,
+        "role_bonus": {
+          "scientist": 0.2,
+          "technician": 0.1
+        },
+        "crew_role_bonus": {},
+        "success_chance": 0.75,
+        "success_effects": {
+          "condition": null,
+          "treatment": 0,
+          "resources": {
+            "research_data": 2.0
+          },
+          "solar_efficiency": 0.0,
+          "oxygen_efficiency": 0.0,
+          "water_recovery_efficiency": 0.0,
+          "co2_efficiency": 0.0,
+          "crew_health": 0,
+          "target": "selected"
+        },
+        "failure_effects": {
+          "condition": "sprain",
+          "treatment": 0,
+          "resources": {},
+          "solar_efficiency": 0.0,
+          "oxygen_efficiency": 0.0,
+          "water_recovery_efficiency": 0.0,
+          "co2_efficiency": 0.0,
+          "crew_health": -8,
+          "target": "selected"
+        },
+        "required_role": null,
+        "minimum_crew": 1,
+        "available": false,
+        "unavailable_reasons": [
+          "Requires 1 Field science kit (not consumed).",
+          "Respiratory irritation: EVA unavailable until recovered; indoor work remains possible."
+        ],
+        "eligible_crew": [
+          {
+            "crew_id": "alex",
+            "available": false,
+            "unavailable_reasons": [
+              "Requires 1 Field science kit (not consumed)."
+            ],
+            "success_probability": 0.8
+          },
+          {
+            "crew_id": "maya",
+            "available": false,
+            "unavailable_reasons": [
+              "Respiratory irritation: EVA unavailable until recovered; indoor work remains possible.",
+              "Requires 1 Field science kit (not consumed)."
+            ],
+            "success_probability": 0.7
+          },
+          {
+            "crew_id": "lin",
+            "available": false,
+            "unavailable_reasons": [
+              "Respiratory irritation: EVA unavailable until recovered; indoor work remains possible.",
+              "Requires 1 Field science kit (not consumed)."
+            ],
+            "success_probability": 0.9
+          }
+        ],
+        "success_probability": null
+      },
+      {
+        "workload": "eva",
+        "support_candidates": [],
+        "id": "research_seismic",
+        "action_type": "research",
+        "objective_rewards": [],
+        "text": "Deploy seismic sensors",
+        "description": "Start a seismic project: 1 deployment week, 3 automatic recording weeks at 2 power each, then 1 crew analysis week. No objective credit until analysis succeeds. Failure causes a sprain and costs 8 health and deployment supplies; the phase can be retried.",
+        "costs": {
+          "electricity": 2.0,
+          "eva_batteries": 1.0,
+          "oxygen": 2.0
+        },
+        "required_items": {
+          "scientific_tools": 1
+        },
+        "requires_crew": true,
+        "role_bonus": {
+          "scientist": 0.2,
+          "technician": 0.1
+        },
+        "crew_role_bonus": {},
+        "success_chance": 0.75,
+        "success_effects": {
+          "condition": null,
+          "treatment": 0,
+          "resources": {},
+          "solar_efficiency": 0.0,
+          "oxygen_efficiency": 0.0,
+          "water_recovery_efficiency": 0.0,
+          "co2_efficiency": 0.0,
+          "crew_health": 0,
+          "target": "selected"
+        },
+        "failure_effects": {
+          "condition": "sprain",
+          "treatment": 0,
+          "resources": {},
+          "solar_efficiency": 0.0,
+          "oxygen_efficiency": 0.0,
+          "water_recovery_efficiency": 0.0,
+          "co2_efficiency": 0.0,
+          "crew_health": -8,
+          "target": "selected"
+        },
+        "required_role": null,
+        "minimum_crew": 1,
+        "available": false,
+        "unavailable_reasons": [
+          "Requires 1 Field science kit (not consumed).",
+          "Respiratory irritation: EVA unavailable until recovered; indoor work remains possible."
+        ],
+        "eligible_crew": [
+          {
+            "crew_id": "alex",
+            "available": false,
+            "unavailable_reasons": [
+              "Requires 1 Field science kit (not consumed)."
+            ],
+            "success_probability": 0.8
+          },
+          {
+            "crew_id": "maya",
+            "available": false,
+            "unavailable_reasons": [
+              "Respiratory irritation: EVA unavailable until recovered; indoor work remains possible.",
+              "Requires 1 Field science kit (not consumed)."
+            ],
+            "success_probability": 0.7
+          },
+          {
+            "crew_id": "lin",
+            "available": false,
+            "unavailable_reasons": [
+              "Respiratory irritation: EVA unavailable until recovered; indoor work remains possible.",
+              "Requires 1 Field science kit (not consumed)."
+            ],
+            "success_probability": 0.9
+          }
+        ],
+        "success_probability": null
+      },
+      {
+        "workload": "strenuous",
+        "support_candidates": [],
+        "id": "research_instrument",
+        "action_type": "research",
+        "objective_rewards": [
+          {
+            "objective_id": "instruments",
+            "title": "Restore a research instrument",
+            "amount": 1
+          }
+        ],
+        "text": "Restore the next research instrument",
+        "description": "Use a repair kit and science kit to restore one instrument and earn 2 research data on success. Engineers and technicians improve the odds; failure costs the worker 6 health. One-week crew assignment; incident response is separate.",
+        "costs": {
+          "repair_kits": 1.0,
+          "electricity": 2.0
+        },
+        "required_items": {
+          "scientific_tools": 1
+        },
+        "requires_crew": true,
+        "role_bonus": {
+          "engineer": 0.2,
+          "technician": 0.2,
+          "scientist": 0.1
+        },
+        "crew_role_bonus": {},
+        "success_chance": 0.7,
+        "success_effects": {
+          "condition": null,
+          "treatment": 0,
+          "resources": {
+            "research_data": 2.0
+          },
+          "solar_efficiency": 0.0,
+          "oxygen_efficiency": 0.0,
+          "water_recovery_efficiency": 0.0,
+          "co2_efficiency": 0.0,
+          "crew_health": 0,
+          "target": "selected"
+        },
+        "failure_effects": {
+          "condition": null,
+          "treatment": 0,
+          "resources": {},
+          "solar_efficiency": 0.0,
+          "oxygen_efficiency": 0.0,
+          "water_recovery_efficiency": 0.0,
+          "co2_efficiency": 0.0,
+          "crew_health": -6,
+          "target": "selected"
+        },
+        "required_role": null,
+        "minimum_crew": 1,
+        "available": false,
+        "unavailable_reasons": [
+          "Requires 1 Field science kit (not consumed)."
+        ],
+        "eligible_crew": [
+          {
+            "crew_id": "alex",
+            "available": false,
+            "unavailable_reasons": [
+              "Requires 1 Field science kit (not consumed)."
+            ],
+            "success_probability": 0.95
+          },
+          {
+            "crew_id": "maya",
+            "available": false,
+            "unavailable_reasons": [
+              "Requires 1 Field science kit (not consumed)."
+            ],
+            "success_probability": 0.65
+          },
+          {
+            "crew_id": "lin",
+            "available": false,
+            "unavailable_reasons": [
+              "Requires 1 Field science kit (not consumed)."
+            ],
+            "success_probability": 0.75
+          }
+        ],
+        "success_probability": null
+      }
+    ]
+  },
+  "turn_outcome": {
+    "project_updates": [],
+    "assignments": [
+      {
+        "patient_id": "alex",
+        "condition_id": "dust_irritation",
+        "crew_id": "maya",
+        "activity_id": "medical_care",
+        "status": "completed",
+        "outcome": {
+          "support_crew_ids": [],
+          "event_id": "medical_emergency",
+          "choice_id": "medical_care",
+          "choice_text": "Provide medical care",
+          "selected_crew_id": "maya",
+          "success": true,
+          "success_probability": 1.0,
+          "costs": {
+            "medicine": 1.0
+          },
+          "effects": {
+            "medical_changes": [
+              {
+                "crew_id": "alex",
+                "kind": "dust_irritation",
+                "action": "stabilized",
+                "reason": null,
+                "before": {
+                  "kind": "dust_irritation",
+                  "remaining": 2,
+                  "acquired_week": 1,
+                  "stabilized": false,
+                  "care_week": 0,
+                  "care_points": 0
+                },
+                "after": {
+                  "kind": "dust_irritation",
+                  "remaining": 2,
+                  "acquired_week": 1,
+                  "stabilized": true,
+                  "care_week": 1,
+                  "care_points": 2
+                }
+              }
+            ],
+            "resources": {},
+            "solar_efficiency": 0.0,
+            "oxygen_efficiency": 0.0,
+            "water_recovery_efficiency": 0.0,
+            "co2_efficiency": 0.0,
+            "health_changes": []
+          },
+          "objective_progress": []
+        },
+        "reason": null
+      },
+      {
+        "patient_id": null,
+        "condition_id": null,
+        "crew_id": "lin",
+        "activity_id": "crew_rest",
+        "status": "completed",
+        "outcome": {
+          "support_crew_ids": [],
+          "event_id": "medical_emergency",
+          "choice_id": "crew_rest",
+          "choice_text": "Rest and recuperate",
+          "selected_crew_id": "lin",
+          "success": true,
+          "success_probability": 1.0,
+          "costs": {},
+          "effects": {
+            "medical_changes": [],
+            "resources": {},
+            "solar_efficiency": 0.0,
+            "oxygen_efficiency": 0.0,
+            "water_recovery_efficiency": 0.0,
+            "co2_efficiency": 0.0,
+            "health_changes": []
+          },
+          "objective_progress": []
+        },
+        "reason": null
+      }
+    ],
+    "science_gains": [],
+    "week": 1,
+    "event": {
+      "support_crew_ids": [],
+      "event_id": "medical_emergency",
+      "choice_id": "rest",
+      "choice_text": "Isolate the filter and rest",
+      "selected_crew_id": null,
+      "success": true,
+      "success_probability": 1.0,
+      "costs": {},
+      "effects": {
+        "medical_changes": [],
+        "resources": {},
+        "solar_efficiency": 0.0,
+        "oxygen_efficiency": 0.0,
+        "water_recovery_efficiency": 0.0,
+        "co2_efficiency": 0.0,
+        "health_changes": [
+          {
+            "crew_id": "alex",
+            "before": 92,
+            "after": 87
+          },
+          {
+            "crew_id": "maya",
+            "before": 92,
+            "after": 87
+          },
+          {
+            "crew_id": "lin",
+            "before": 90,
+            "after": 84
+          }
+        ]
+      },
+      "objective_progress": []
+    },
+    "rations": {
+      "alex": {
+        "food": "normal",
+        "water": "normal"
+      },
+      "maya": {
+        "food": "normal",
+        "water": "normal"
+      },
+      "lin": {
+        "food": "normal",
+        "water": "normal"
+      }
+    },
+    "survival": {
+      "life_support": {
+        "wastewater_processed": 4.0,
+        "water_recovered": 3.2,
+        "water_for_oxygen": 0.0,
+        "wastewater_captured": 4.8,
+        "oxygen_generated": 0.0,
+        "co2_produced": 3.0,
+        "co2_removed": 3.0,
+        "co2_remaining": 0.0,
+        "power_components": {
+          "habitat": 10.0,
+          "water_recovery": 2.0,
+          "oxygen_generation": 0.0,
+          "co2_removal": 2.0
+        }
+      },
+      "daylight_fraction": 1.0,
+      "battery_capacity": 100.0,
+      "electricity_curtailed": 0.0,
+      "project_electricity_used": 0.0,
+      "power_priority": "life_support",
+      "ration_requirements": {
+        "food": 3.0,
+        "water": 6.0
+      },
+      "ration_costs": {
+        "food": 3.0,
+        "water": 6.0
+      },
+      "ration_depletion_fractions": {
+        "food": 0.0,
+        "water": 0.0
+      },
+      "electricity_generated": 48.0,
+      "electricity_required": 14.0,
+      "electricity_used": 14.0,
+      "life_support_power_fraction": 1.0,
+      "oxygen_generated": 0.0,
+      "oxygen_required": 9.0,
+      "oxygen_used": 9.0,
+      "oxygen_shortage": 0.0,
+      "health_changes": [
+        {
+          "crew_id": "alex",
+          "before": 87,
+          "after": 92,
+          "medical_penalty": 0,
+          "medical_changes": [
+            {
+              "crew_id": "alex",
+              "kind": "dust_irritation",
+              "action": "resolved",
+              "reason": null,
+              "before": {
+                "kind": "dust_irritation",
+                "remaining": 2,
+                "acquired_week": 1,
+                "stabilized": true,
+                "care_week": 1,
+                "care_points": 2
+              },
+              "after": null
+            }
+          ],
+          "food_received_fraction": 1.0,
+          "water_received_fraction": 1.0,
+          "nutrition_before": 0.0,
+          "nutrition_after": 0.0,
+          "hydration_before": 0.0,
+          "hydration_after": 0.0,
+          "recovery": 5,
+          "worked": false,
+          "rested": true,
+          "food_penalty": 0,
+          "water_penalty": 0,
+          "oxygen_penalty": 0,
+          "co2_penalty": 0,
+          "died": false
+        },
+        {
+          "crew_id": "maya",
+          "before": 87,
+          "after": 87,
+          "medical_penalty": 0,
+          "medical_changes": [],
+          "food_received_fraction": 1.0,
+          "water_received_fraction": 1.0,
+          "nutrition_before": 0.0,
+          "nutrition_after": 0.0,
+          "hydration_before": 0.0,
+          "hydration_after": 0.0,
+          "recovery": 0,
+          "worked": true,
+          "rested": false,
+          "food_penalty": 0,
+          "water_penalty": 0,
+          "oxygen_penalty": 0,
+          "co2_penalty": 0,
+          "died": false
+        },
+        {
+          "crew_id": "lin",
+          "before": 84,
+          "after": 89,
+          "medical_penalty": 0,
+          "medical_changes": [
+            {
+              "crew_id": "lin",
+              "kind": "dust_irritation",
+              "action": "recovering",
+              "reason": null,
+              "before": {
+                "kind": "dust_irritation",
+                "remaining": 2,
+                "acquired_week": 1,
+                "stabilized": false,
+                "care_week": 0,
+                "care_points": 0
+              },
+              "after": {
+                "kind": "dust_irritation",
+                "remaining": 1,
+                "acquired_week": 1,
+                "stabilized": false,
+                "care_week": 0,
+                "care_points": 0
+              }
+            }
+          ],
+          "food_received_fraction": 1.0,
+          "water_received_fraction": 1.0,
+          "nutrition_before": 0.0,
+          "nutrition_after": 0.0,
+          "hydration_before": 0.0,
+          "hydration_after": 0.0,
+          "recovery": 5,
+          "worked": false,
+          "rested": true,
+          "food_penalty": 0,
+          "water_penalty": 0,
+          "oxygen_penalty": 0,
+          "co2_penalty": 0,
+          "died": false
+        }
+      ]
+    },
+    "resource_changes": {
+      "food": -3.0,
+      "water": -2.8,
+      "oxygen": -9.0,
+      "electricity": 34.0,
+      "medicine": -1.0,
+      "repair_kits": 0.0,
+      "eva_batteries": 0.0,
+      "dust_kits": 0.0,
+      "oxygen_regulators": 0.0,
+      "diagnostic_tools": 0.0,
+      "sealant_packs": 0.0,
+      "scientific_tools": 0.0,
+      "research_data": 0.0,
+      "wastewater": 0.8,
+      "co2": 0.0
+    },
+    "deaths": [],
+    "next_event": {
+      "event_id": "crew_recovery",
+      "title": "A Week for Recovery",
+      "effects": {
+        "medical_changes": [],
         "resources": {},
         "solar_efficiency": 0.0,
         "oxygen_efficiency": 0.0,
@@ -14302,16 +19917,34 @@ export const opportunityGame: GameResponse = {
     },
     "crew": [
       {
+        "medical_conditions": [
+          {
+            "kind": "dust_irritation",
+            "remaining": 2,
+            "acquired_week": 1,
+            "stabilized": false,
+            "care_week": 0,
+            "care_points": 0,
+            "title": "Dust-related respiratory irritation",
+            "urgent": false,
+            "rest_weeks": 2,
+            "medic_weeks": 1,
+            "untreated_damage": 1,
+            "source_url": "https://www.nasa.gov/reference/jsc-dust/"
+          }
+        ],
         "nutrition_deficit": 0.0,
         "hydration_deficit": 0.0,
         "condition": {
-          "status": "fit",
+          "status": "serious",
           "nutrition_status": "adequate",
           "hydration_status": "adequate",
           "can_work": true,
-          "can_do_eva": true,
-          "performance_penalty": 0.0,
-          "restrictions": [],
+          "can_do_eva": false,
+          "performance_penalty": 0.05,
+          "restrictions": [
+            "Respiratory irritation: EVA unavailable until recovered; indoor work remains possible."
+          ],
           "nutrition_recovery_weeks": 0,
           "hydration_recovery_weeks": 0,
           "source_url": "https://www.nasa.gov/reference/risk-of-inadequate-food-and-nutrition/"
@@ -14368,16 +20001,34 @@ export const opportunityGame: GameResponse = {
         }
       },
       {
+        "medical_conditions": [
+          {
+            "kind": "dust_irritation",
+            "remaining": 2,
+            "acquired_week": 1,
+            "stabilized": false,
+            "care_week": 0,
+            "care_points": 0,
+            "title": "Dust-related respiratory irritation",
+            "urgent": false,
+            "rest_weeks": 2,
+            "medic_weeks": 1,
+            "untreated_damage": 1,
+            "source_url": "https://www.nasa.gov/reference/jsc-dust/"
+          }
+        ],
         "nutrition_deficit": 0.0,
         "hydration_deficit": 0.0,
         "condition": {
-          "status": "fit",
+          "status": "serious",
           "nutrition_status": "adequate",
           "hydration_status": "adequate",
           "can_work": true,
-          "can_do_eva": true,
-          "performance_penalty": 0.0,
-          "restrictions": [],
+          "can_do_eva": false,
+          "performance_penalty": 0.05,
+          "restrictions": [
+            "Respiratory irritation: EVA unavailable until recovered; indoor work remains possible."
+          ],
           "nutrition_recovery_weeks": 0,
           "hydration_recovery_weeks": 0,
           "source_url": "https://www.nasa.gov/reference/risk-of-inadequate-food-and-nutrition/"
@@ -14464,6 +20115,8 @@ export const opportunityGame: GameResponse = {
       "science_context": "Space food systems include packaging and provisioning. This reserve crate is a fictional opportunity, not a real lunar cache.",
       "source_url": "https://www.nasa.gov/directorates/esdmd/hhp/space-food-systems/",
       "on_start": {
+        "condition": null,
+        "treatment": 0,
         "resources": {},
         "solar_efficiency": 0.0,
         "oxygen_efficiency": 0.0,
@@ -14480,7 +20133,7 @@ export const opportunityGame: GameResponse = {
           "action_type": "event",
           "objective_rewards": [],
           "text": "Inspect and reconcile the manifest",
-          "description": "Spend power on inspection. Recover 3 food and 4 water on success; no supplies recovered on failure. Technicians and scientists improve the odds.",
+          "description": "Spend power on inspection. Recover 3 food and 4 water on success; no supplies recovered on failure. Technicians and scientists improve the odds. Failure also exposes the inspector to a fictional gastrointestinal illness from contaminated contents.",
           "costs": {
             "electricity": 1.0
           },
@@ -14493,6 +20146,8 @@ export const opportunityGame: GameResponse = {
           "crew_role_bonus": {},
           "success_chance": 0.75,
           "success_effects": {
+            "condition": null,
+            "treatment": 0,
             "resources": {
               "food": 3.0,
               "water": 4.0
@@ -14505,6 +20160,8 @@ export const opportunityGame: GameResponse = {
             "target": "selected"
           },
           "failure_effects": {
+            "condition": "gastrointestinal_illness",
+            "treatment": 0,
             "resources": {},
             "solar_efficiency": 0.0,
             "oxygen_efficiency": 0.0,
@@ -14522,13 +20179,13 @@ export const opportunityGame: GameResponse = {
               "crew_id": "alex",
               "available": true,
               "unavailable_reasons": [],
-              "success_probability": 0.8
+              "success_probability": 0.75
             },
             {
               "crew_id": "maya",
               "available": true,
               "unavailable_reasons": [],
-              "success_probability": 0.75
+              "success_probability": 0.7
             }
           ],
           "success_probability": null
@@ -14552,6 +20209,8 @@ export const opportunityGame: GameResponse = {
           "crew_role_bonus": {},
           "success_chance": 1.0,
           "success_effects": {
+            "condition": null,
+            "treatment": 0,
             "resources": {
               "food": 2.0,
               "water": 2.0
@@ -14564,6 +20223,8 @@ export const opportunityGame: GameResponse = {
             "target": "selected"
           },
           "failure_effects": {
+            "condition": null,
+            "treatment": 0,
             "resources": {},
             "solar_efficiency": 0.0,
             "oxygen_efficiency": 0.0,
@@ -14613,6 +20274,8 @@ export const opportunityGame: GameResponse = {
           "crew_role_bonus": {},
           "success_chance": 1.0,
           "success_effects": {
+            "condition": null,
+            "treatment": 0,
             "resources": {},
             "solar_efficiency": 0.0,
             "oxygen_efficiency": 0.0,
@@ -14622,6 +20285,8 @@ export const opportunityGame: GameResponse = {
             "target": "selected"
           },
           "failure_effects": {
+            "condition": null,
+            "treatment": 0,
             "resources": {},
             "solar_efficiency": 0.0,
             "oxygen_efficiency": 0.0,
@@ -14664,6 +20329,7 @@ export const opportunityGame: GameResponse = {
           "success_probability": 1.0,
           "costs": {},
           "effects": {
+            "medical_changes": [],
             "resources": {},
             "solar_efficiency": 0.0,
             "oxygen_efficiency": 0.0,
@@ -14741,6 +20407,8 @@ export const opportunityGame: GameResponse = {
               "crew_id": "alex",
               "before": 87,
               "after": 89,
+              "medical_penalty": 0,
+              "medical_changes": [],
               "food_received_fraction": 1.0,
               "water_received_fraction": 1.0,
               "nutrition_before": 0.0,
@@ -14760,6 +20428,8 @@ export const opportunityGame: GameResponse = {
               "crew_id": "maya",
               "before": 87,
               "after": 89,
+              "medical_penalty": 0,
+              "medical_changes": [],
               "food_received_fraction": 1.0,
               "water_received_fraction": 1.0,
               "nutrition_before": 0.0,
@@ -14799,6 +20469,7 @@ export const opportunityGame: GameResponse = {
           "event_id": "inventory_audit",
           "title": "A Crate in the Ledger",
           "effects": {
+            "medical_changes": [],
             "resources": {},
             "solar_efficiency": 0.0,
             "oxygen_efficiency": 0.0,
@@ -14881,6 +20552,8 @@ export const opportunityGame: GameResponse = {
         "crew_role_bonus": {},
         "success_chance": 1.0,
         "success_effects": {
+          "condition": null,
+          "treatment": 0,
           "resources": {},
           "solar_efficiency": 0.0,
           "oxygen_efficiency": 0.0,
@@ -14890,6 +20563,124 @@ export const opportunityGame: GameResponse = {
           "target": "selected"
         },
         "failure_effects": {
+          "condition": null,
+          "treatment": 0,
+          "resources": {},
+          "solar_efficiency": 0.0,
+          "oxygen_efficiency": 0.0,
+          "water_recovery_efficiency": 0.0,
+          "co2_efficiency": 0.0,
+          "crew_health": 0,
+          "target": "selected"
+        },
+        "required_role": null,
+        "minimum_crew": 1,
+        "available": true,
+        "unavailable_reasons": [],
+        "eligible_crew": [
+          {
+            "crew_id": "alex",
+            "available": true,
+            "unavailable_reasons": [],
+            "success_probability": 1.0
+          },
+          {
+            "crew_id": "maya",
+            "available": true,
+            "unavailable_reasons": [],
+            "success_probability": 1.0
+          }
+        ],
+        "success_probability": null
+      },
+      {
+        "workload": "light",
+        "support_candidates": [],
+        "id": "medical_care",
+        "action_type": "medical",
+        "objective_rewards": [],
+        "text": "Provide medical care",
+        "description": "Reserve caregiver and patient for one week, plus 1 medicine. Stabilizes the chosen condition immediately. A fit medic earns 2 recovery points; another fit caregiver earns 1 (2 with a retained diagnostic scanner). Progress needs full actual provisions and safe air. Both crew are occupied, even if recovery stalls.",
+        "costs": {
+          "medicine": 1.0
+        },
+        "required_items": {},
+        "requires_crew": true,
+        "role_bonus": {},
+        "crew_role_bonus": {},
+        "success_chance": 1.0,
+        "success_effects": {
+          "condition": null,
+          "treatment": 0,
+          "resources": {},
+          "solar_efficiency": 0.0,
+          "oxygen_efficiency": 0.0,
+          "water_recovery_efficiency": 0.0,
+          "co2_efficiency": 0.0,
+          "crew_health": 0,
+          "target": "selected"
+        },
+        "failure_effects": {
+          "condition": null,
+          "treatment": 0,
+          "resources": {},
+          "solar_efficiency": 0.0,
+          "oxygen_efficiency": 0.0,
+          "water_recovery_efficiency": 0.0,
+          "co2_efficiency": 0.0,
+          "crew_health": 0,
+          "target": "selected"
+        },
+        "required_role": null,
+        "minimum_crew": 1,
+        "available": true,
+        "unavailable_reasons": [],
+        "eligible_crew": [
+          {
+            "crew_id": "alex",
+            "available": true,
+            "unavailable_reasons": [],
+            "success_probability": 1.0
+          },
+          {
+            "crew_id": "maya",
+            "available": true,
+            "unavailable_reasons": [],
+            "success_probability": 1.0
+          }
+        ],
+        "success_probability": null
+      },
+      {
+        "workload": "rest",
+        "support_candidates": [],
+        "id": "self_care",
+        "action_type": "medical",
+        "objective_rewards": [],
+        "text": "Self-care and stabilization",
+        "description": "One astronaut and 1 medicine. Available even when critically unfit; treats only their own chosen condition. Stabilizes immediately and earns 1 recovery point with full actual provisions and safe air. No work or incident duty that week.",
+        "costs": {
+          "medicine": 1.0
+        },
+        "required_items": {},
+        "requires_crew": true,
+        "role_bonus": {},
+        "crew_role_bonus": {},
+        "success_chance": 1.0,
+        "success_effects": {
+          "condition": null,
+          "treatment": 0,
+          "resources": {},
+          "solar_efficiency": 0.0,
+          "oxygen_efficiency": 0.0,
+          "water_recovery_efficiency": 0.0,
+          "co2_efficiency": 0.0,
+          "crew_health": 0,
+          "target": "selected"
+        },
+        "failure_effects": {
+          "condition": null,
+          "treatment": 0,
           "resources": {},
           "solar_efficiency": 0.0,
           "oxygen_efficiency": 0.0,
@@ -14937,6 +20728,8 @@ export const opportunityGame: GameResponse = {
         "crew_role_bonus": {},
         "success_chance": 1.0,
         "success_effects": {
+          "condition": null,
+          "treatment": 0,
           "resources": {},
           "solar_efficiency": 0.2,
           "oxygen_efficiency": 0.0,
@@ -14946,6 +20739,8 @@ export const opportunityGame: GameResponse = {
           "target": "selected"
         },
         "failure_effects": {
+          "condition": null,
+          "treatment": 0,
           "resources": {},
           "solar_efficiency": 0.0,
           "oxygen_efficiency": 0.0,
@@ -14958,6 +20753,8 @@ export const opportunityGame: GameResponse = {
         "minimum_crew": 1,
         "available": false,
         "unavailable_reasons": [
+          "Requires at least 1 living astronauts fit for this workload.",
+          "Respiratory irritation: EVA unavailable until recovered; indoor work remains possible.",
           "Requires 1 dust_kits; available 0.",
           "The solar array is already at full condition."
         ],
@@ -14966,6 +20763,8 @@ export const opportunityGame: GameResponse = {
             "crew_id": "alex",
             "available": false,
             "unavailable_reasons": [
+              "Requires at least 1 living astronauts fit for this workload.",
+              "Respiratory irritation: EVA unavailable until recovered; indoor work remains possible.",
               "Requires 1 dust_kits; available 0.",
               "The solar array is already at full condition."
             ],
@@ -14975,6 +20774,8 @@ export const opportunityGame: GameResponse = {
             "crew_id": "maya",
             "available": false,
             "unavailable_reasons": [
+              "Requires at least 1 living astronauts fit for this workload.",
+              "Respiratory irritation: EVA unavailable until recovered; indoor work remains possible.",
               "Requires 1 dust_kits; available 0.",
               "The solar array is already at full condition."
             ],
@@ -15001,6 +20802,8 @@ export const opportunityGame: GameResponse = {
         "crew_role_bonus": {},
         "success_chance": 1.0,
         "success_effects": {
+          "condition": null,
+          "treatment": 0,
           "resources": {},
           "solar_efficiency": 0.0,
           "oxygen_efficiency": 0.2,
@@ -15010,6 +20813,8 @@ export const opportunityGame: GameResponse = {
           "target": "selected"
         },
         "failure_effects": {
+          "condition": null,
+          "treatment": 0,
           "resources": {},
           "solar_efficiency": 0.0,
           "oxygen_efficiency": 0.0,
@@ -15065,6 +20870,8 @@ export const opportunityGame: GameResponse = {
         "crew_role_bonus": {},
         "success_chance": 1.0,
         "success_effects": {
+          "condition": null,
+          "treatment": 0,
           "resources": {},
           "solar_efficiency": 0.0,
           "oxygen_efficiency": 0.0,
@@ -15074,6 +20881,8 @@ export const opportunityGame: GameResponse = {
           "target": "selected"
         },
         "failure_effects": {
+          "condition": null,
+          "treatment": 0,
           "resources": {},
           "solar_efficiency": 0.0,
           "oxygen_efficiency": 0.0,
@@ -15120,6 +20929,8 @@ export const opportunityGame: GameResponse = {
         "crew_role_bonus": {},
         "success_chance": 1.0,
         "success_effects": {
+          "condition": null,
+          "treatment": 0,
           "resources": {},
           "solar_efficiency": 0.0,
           "oxygen_efficiency": 0.0,
@@ -15129,6 +20940,8 @@ export const opportunityGame: GameResponse = {
           "target": "selected"
         },
         "failure_effects": {
+          "condition": null,
+          "treatment": 0,
           "resources": {},
           "solar_efficiency": 0.0,
           "oxygen_efficiency": 0.0,
@@ -15170,7 +20983,7 @@ export const opportunityGame: GameResponse = {
           }
         ],
         "text": "Survey a geological sample",
-        "description": "Use the science kit to collect one sample and 2 research data on success. Scientists improve the odds; failure costs the worker 8 health. One-week crew assignment; incident response is separate.",
+        "description": "Use the science kit to collect one sample and 2 research data on success. Scientists improve the odds; failure costs the worker 8 health and causes a sprain. One-week crew assignment; incident response is separate.",
         "costs": {
           "eva_batteries": 1.0,
           "oxygen": 2.0
@@ -15186,6 +20999,8 @@ export const opportunityGame: GameResponse = {
         "crew_role_bonus": {},
         "success_chance": 0.75,
         "success_effects": {
+          "condition": null,
+          "treatment": 0,
           "resources": {
             "research_data": 2.0
           },
@@ -15197,6 +21012,8 @@ export const opportunityGame: GameResponse = {
           "target": "selected"
         },
         "failure_effects": {
+          "condition": "sprain",
+          "treatment": 0,
           "resources": {},
           "solar_efficiency": 0.0,
           "oxygen_efficiency": 0.0,
@@ -15209,6 +21026,8 @@ export const opportunityGame: GameResponse = {
         "minimum_crew": 1,
         "available": false,
         "unavailable_reasons": [
+          "Requires at least 1 living astronauts fit for this workload.",
+          "Respiratory irritation: EVA unavailable until recovered; indoor work remains possible.",
           "Requires 1 Field science kit (not consumed)."
         ],
         "eligible_crew": [
@@ -15216,17 +21035,21 @@ export const opportunityGame: GameResponse = {
             "crew_id": "alex",
             "available": false,
             "unavailable_reasons": [
+              "Requires at least 1 living astronauts fit for this workload.",
+              "Respiratory irritation: EVA unavailable until recovered; indoor work remains possible.",
               "Requires 1 Field science kit (not consumed)."
             ],
-            "success_probability": 0.8
+            "success_probability": 0.75
           },
           {
             "crew_id": "maya",
             "available": false,
             "unavailable_reasons": [
+              "Requires at least 1 living astronauts fit for this workload.",
+              "Respiratory irritation: EVA unavailable until recovered; indoor work remains possible.",
               "Requires 1 Field science kit (not consumed)."
             ],
-            "success_probability": 0.75
+            "success_probability": 0.7
           }
         ],
         "success_probability": null
@@ -15238,7 +21061,7 @@ export const opportunityGame: GameResponse = {
         "action_type": "research",
         "objective_rewards": [],
         "text": "Deploy seismic sensors",
-        "description": "Start a seismic project: 1 deployment week, 3 automatic recording weeks at 2 power each, then 1 crew analysis week. No objective credit until analysis succeeds. Failure costs 8 worker health and deployment supplies; the phase can be retried.",
+        "description": "Start a seismic project: 1 deployment week, 3 automatic recording weeks at 2 power each, then 1 crew analysis week. No objective credit until analysis succeeds. Failure causes a sprain and costs 8 health and deployment supplies; the phase can be retried.",
         "costs": {
           "electricity": 2.0,
           "eva_batteries": 1.0,
@@ -15255,6 +21078,8 @@ export const opportunityGame: GameResponse = {
         "crew_role_bonus": {},
         "success_chance": 0.75,
         "success_effects": {
+          "condition": null,
+          "treatment": 0,
           "resources": {},
           "solar_efficiency": 0.0,
           "oxygen_efficiency": 0.0,
@@ -15264,6 +21089,8 @@ export const opportunityGame: GameResponse = {
           "target": "selected"
         },
         "failure_effects": {
+          "condition": "sprain",
+          "treatment": 0,
           "resources": {},
           "solar_efficiency": 0.0,
           "oxygen_efficiency": 0.0,
@@ -15276,6 +21103,8 @@ export const opportunityGame: GameResponse = {
         "minimum_crew": 1,
         "available": false,
         "unavailable_reasons": [
+          "Requires at least 1 living astronauts fit for this workload.",
+          "Respiratory irritation: EVA unavailable until recovered; indoor work remains possible.",
           "Requires 1 Field science kit (not consumed)."
         ],
         "eligible_crew": [
@@ -15283,17 +21112,21 @@ export const opportunityGame: GameResponse = {
             "crew_id": "alex",
             "available": false,
             "unavailable_reasons": [
+              "Requires at least 1 living astronauts fit for this workload.",
+              "Respiratory irritation: EVA unavailable until recovered; indoor work remains possible.",
               "Requires 1 Field science kit (not consumed)."
             ],
-            "success_probability": 0.8
+            "success_probability": 0.75
           },
           {
             "crew_id": "maya",
             "available": false,
             "unavailable_reasons": [
+              "Requires at least 1 living astronauts fit for this workload.",
+              "Respiratory irritation: EVA unavailable until recovered; indoor work remains possible.",
               "Requires 1 Field science kit (not consumed)."
             ],
-            "success_probability": 0.75
+            "success_probability": 0.7
           }
         ],
         "success_probability": null
@@ -15328,6 +21161,8 @@ export const opportunityGame: GameResponse = {
         "crew_role_bonus": {},
         "success_chance": 0.7,
         "success_effects": {
+          "condition": null,
+          "treatment": 0,
           "resources": {
             "research_data": 2.0
           },
@@ -15339,6 +21174,8 @@ export const opportunityGame: GameResponse = {
           "target": "selected"
         },
         "failure_effects": {
+          "condition": null,
+          "treatment": 0,
           "resources": {},
           "solar_efficiency": 0.0,
           "oxygen_efficiency": 0.0,
@@ -15360,7 +21197,7 @@ export const opportunityGame: GameResponse = {
             "unavailable_reasons": [
               "Requires 1 Field science kit (not consumed)."
             ],
-            "success_probability": 0.95
+            "success_probability": 0.9
           },
           {
             "crew_id": "maya",
@@ -15368,7 +21205,7 @@ export const opportunityGame: GameResponse = {
             "unavailable_reasons": [
               "Requires 1 Field science kit (not consumed)."
             ],
-            "success_probability": 0.7
+            "success_probability": 0.65
           }
         ],
         "success_probability": null
@@ -15527,6 +21364,7 @@ export const researchGame: GameResponse = {
     },
     "crew": [
       {
+        "medical_conditions": [],
         "nutrition_deficit": 0.0,
         "hydration_deficit": 0.0,
         "condition": {
@@ -15593,6 +21431,7 @@ export const researchGame: GameResponse = {
         }
       },
       {
+        "medical_conditions": [],
         "nutrition_deficit": 0.0,
         "hydration_deficit": 0.0,
         "condition": {
@@ -15689,6 +21528,8 @@ export const researchGame: GameResponse = {
       "science_context": "Lunar dust can contaminate equipment and complicate surface maintenance.",
       "source_url": "https://www.nasa.gov/reference/jsc-dust/",
       "on_start": {
+        "condition": null,
+        "treatment": 0,
         "resources": {},
         "solar_efficiency": -0.25,
         "oxygen_efficiency": 0.0,
@@ -15705,7 +21546,7 @@ export const researchGame: GameResponse = {
           "action_type": "event",
           "objective_rewards": [],
           "text": "Send the engineer outside",
-          "description": "Requires an engineer. A failed EVA causes injury; supplies are spent either way.",
+          "description": "Requires an engineer. A failed EVA causes injury; supplies are spent either way. Failure also causes a sprain, restricting demanding work until recovered.",
           "costs": {
             "repair_kits": 1.0,
             "eva_batteries": 1.0,
@@ -15719,6 +21560,8 @@ export const researchGame: GameResponse = {
           "crew_role_bonus": {},
           "success_chance": 0.6,
           "success_effects": {
+            "condition": null,
+            "treatment": 0,
             "resources": {},
             "solar_efficiency": 0.25,
             "oxygen_efficiency": 0.0,
@@ -15728,6 +21571,8 @@ export const researchGame: GameResponse = {
             "target": "selected"
           },
           "failure_effects": {
+            "condition": "sprain",
+            "treatment": 0,
             "resources": {},
             "solar_efficiency": 0.0,
             "oxygen_efficiency": 0.0,
@@ -15765,7 +21610,7 @@ export const researchGame: GameResponse = {
           "action_type": "event",
           "objective_rewards": [],
           "text": "Attempt a general repair",
-          "description": "Any living astronaut can try. Failure causes a serious EVA injury.",
+          "description": "Any living astronaut can try. Failure causes a serious EVA injury. Failure also causes a sprain, restricting demanding work until recovered.",
           "costs": {
             "repair_kits": 1.0,
             "eva_batteries": 1.0,
@@ -15780,6 +21625,8 @@ export const researchGame: GameResponse = {
           "crew_role_bonus": {},
           "success_chance": 0.5,
           "success_effects": {
+            "condition": null,
+            "treatment": 0,
             "resources": {},
             "solar_efficiency": 0.25,
             "oxygen_efficiency": 0.0,
@@ -15789,6 +21636,8 @@ export const researchGame: GameResponse = {
             "target": "selected"
           },
           "failure_effects": {
+            "condition": "sprain",
+            "treatment": 0,
             "resources": {},
             "solar_efficiency": 0.0,
             "oxygen_efficiency": 0.0,
@@ -15832,6 +21681,8 @@ export const researchGame: GameResponse = {
           "crew_role_bonus": {},
           "success_chance": 1.0,
           "success_effects": {
+            "condition": null,
+            "treatment": 0,
             "resources": {},
             "solar_efficiency": 0.0,
             "oxygen_efficiency": 0.0,
@@ -15841,6 +21692,8 @@ export const researchGame: GameResponse = {
             "target": "selected"
           },
           "failure_effects": {
+            "condition": null,
+            "treatment": 0,
             "resources": {},
             "solar_efficiency": 0.0,
             "oxygen_efficiency": 0.0,
@@ -15937,6 +21790,8 @@ export const researchGame: GameResponse = {
         "crew_role_bonus": {},
         "success_chance": 1.0,
         "success_effects": {
+          "condition": null,
+          "treatment": 0,
           "resources": {},
           "solar_efficiency": 0.0,
           "oxygen_efficiency": 0.0,
@@ -15946,6 +21801,8 @@ export const researchGame: GameResponse = {
           "target": "selected"
         },
         "failure_effects": {
+          "condition": null,
+          "treatment": 0,
           "resources": {},
           "solar_efficiency": 0.0,
           "oxygen_efficiency": 0.0,
@@ -15993,6 +21850,8 @@ export const researchGame: GameResponse = {
         "crew_role_bonus": {},
         "success_chance": 1.0,
         "success_effects": {
+          "condition": null,
+          "treatment": 0,
           "resources": {},
           "solar_efficiency": 0.2,
           "oxygen_efficiency": 0.0,
@@ -16002,6 +21861,8 @@ export const researchGame: GameResponse = {
           "target": "selected"
         },
         "failure_effects": {
+          "condition": null,
+          "treatment": 0,
           "resources": {},
           "solar_efficiency": 0.0,
           "oxygen_efficiency": 0.0,
@@ -16054,6 +21915,8 @@ export const researchGame: GameResponse = {
         "crew_role_bonus": {},
         "success_chance": 1.0,
         "success_effects": {
+          "condition": null,
+          "treatment": 0,
           "resources": {},
           "solar_efficiency": 0.0,
           "oxygen_efficiency": 0.2,
@@ -16063,6 +21926,8 @@ export const researchGame: GameResponse = {
           "target": "selected"
         },
         "failure_effects": {
+          "condition": null,
+          "treatment": 0,
           "resources": {},
           "solar_efficiency": 0.0,
           "oxygen_efficiency": 0.0,
@@ -16118,6 +21983,8 @@ export const researchGame: GameResponse = {
         "crew_role_bonus": {},
         "success_chance": 1.0,
         "success_effects": {
+          "condition": null,
+          "treatment": 0,
           "resources": {},
           "solar_efficiency": 0.0,
           "oxygen_efficiency": 0.0,
@@ -16127,6 +21994,8 @@ export const researchGame: GameResponse = {
           "target": "selected"
         },
         "failure_effects": {
+          "condition": null,
+          "treatment": 0,
           "resources": {},
           "solar_efficiency": 0.0,
           "oxygen_efficiency": 0.0,
@@ -16179,6 +22048,8 @@ export const researchGame: GameResponse = {
         "crew_role_bonus": {},
         "success_chance": 1.0,
         "success_effects": {
+          "condition": null,
+          "treatment": 0,
           "resources": {},
           "solar_efficiency": 0.0,
           "oxygen_efficiency": 0.0,
@@ -16188,6 +22059,8 @@ export const researchGame: GameResponse = {
           "target": "selected"
         },
         "failure_effects": {
+          "condition": null,
+          "treatment": 0,
           "resources": {},
           "solar_efficiency": 0.0,
           "oxygen_efficiency": 0.0,
@@ -16235,7 +22108,7 @@ export const researchGame: GameResponse = {
           }
         ],
         "text": "Survey a geological sample",
-        "description": "Use the science kit to collect one sample and 2 research data on success. Scientists improve the odds; failure costs the worker 8 health. One-week crew assignment; incident response is separate.",
+        "description": "Use the science kit to collect one sample and 2 research data on success. Scientists improve the odds; failure costs the worker 8 health and causes a sprain. One-week crew assignment; incident response is separate.",
         "costs": {
           "eva_batteries": 1.0,
           "oxygen": 2.0
@@ -16251,6 +22124,8 @@ export const researchGame: GameResponse = {
         "crew_role_bonus": {},
         "success_chance": 0.75,
         "success_effects": {
+          "condition": null,
+          "treatment": 0,
           "resources": {
             "research_data": 2.0
           },
@@ -16262,6 +22137,8 @@ export const researchGame: GameResponse = {
           "target": "selected"
         },
         "failure_effects": {
+          "condition": "sprain",
+          "treatment": 0,
           "resources": {},
           "solar_efficiency": 0.0,
           "oxygen_efficiency": 0.0,
@@ -16297,7 +22174,7 @@ export const researchGame: GameResponse = {
         "action_type": "research",
         "objective_rewards": [],
         "text": "Deploy seismic sensors",
-        "description": "Start a seismic project: 1 deployment week, 3 automatic recording weeks at 2 power each, then 1 crew analysis week. No objective credit until analysis succeeds. Failure costs 8 worker health and deployment supplies; the phase can be retried.",
+        "description": "Start a seismic project: 1 deployment week, 3 automatic recording weeks at 2 power each, then 1 crew analysis week. No objective credit until analysis succeeds. Failure causes a sprain and costs 8 health and deployment supplies; the phase can be retried.",
         "costs": {
           "electricity": 2.0,
           "eva_batteries": 1.0,
@@ -16314,6 +22191,8 @@ export const researchGame: GameResponse = {
         "crew_role_bonus": {},
         "success_chance": 0.75,
         "success_effects": {
+          "condition": null,
+          "treatment": 0,
           "resources": {},
           "solar_efficiency": 0.0,
           "oxygen_efficiency": 0.0,
@@ -16323,6 +22202,8 @@ export const researchGame: GameResponse = {
           "target": "selected"
         },
         "failure_effects": {
+          "condition": "sprain",
+          "treatment": 0,
           "resources": {},
           "solar_efficiency": 0.0,
           "oxygen_efficiency": 0.0,
@@ -16381,6 +22262,8 @@ export const researchGame: GameResponse = {
         "crew_role_bonus": {},
         "success_chance": 0.7,
         "success_effects": {
+          "condition": null,
+          "treatment": 0,
           "resources": {
             "research_data": 2.0
           },
@@ -16392,6 +22275,8 @@ export const researchGame: GameResponse = {
           "target": "selected"
         },
         "failure_effects": {
+          "condition": null,
+          "treatment": 0,
           "resources": {},
           "solar_efficiency": 0.0,
           "oxygen_efficiency": 0.0,
@@ -16566,6 +22451,7 @@ export const researchTurn: TurnResponse = {
     },
     "crew": [
       {
+        "medical_conditions": [],
         "nutrition_deficit": 0.0,
         "hydration_deficit": 0.0,
         "condition": {
@@ -16632,6 +22518,7 @@ export const researchTurn: TurnResponse = {
         }
       },
       {
+        "medical_conditions": [],
         "nutrition_deficit": 0.0,
         "hydration_deficit": 0.0,
         "condition": {
@@ -16728,6 +22615,8 @@ export const researchTurn: TurnResponse = {
       "science_context": "Spacecraft life-support equipment needs maintenance. This regulator failure is a fictional training scenario.",
       "source_url": "https://www.nasa.gov/reference/9-0-hardware-and-equipment-vol-2/",
       "on_start": {
+        "condition": null,
+        "treatment": 0,
         "resources": {},
         "solar_efficiency": 0.0,
         "oxygen_efficiency": -0.25,
@@ -16757,6 +22646,8 @@ export const researchTurn: TurnResponse = {
           "crew_role_bonus": {},
           "success_chance": 0.65,
           "success_effects": {
+            "condition": null,
+            "treatment": 0,
             "resources": {},
             "solar_efficiency": 0.0,
             "oxygen_efficiency": 0.25,
@@ -16766,6 +22657,8 @@ export const researchTurn: TurnResponse = {
             "target": "selected"
           },
           "failure_effects": {
+            "condition": null,
+            "treatment": 0,
             "resources": {},
             "solar_efficiency": 0.0,
             "oxygen_efficiency": 0.0,
@@ -16825,6 +22718,8 @@ export const researchTurn: TurnResponse = {
           "crew_role_bonus": {},
           "success_chance": 0.55,
           "success_effects": {
+            "condition": null,
+            "treatment": 0,
             "resources": {},
             "solar_efficiency": 0.0,
             "oxygen_efficiency": 0.2,
@@ -16834,6 +22729,8 @@ export const researchTurn: TurnResponse = {
             "target": "selected"
           },
           "failure_effects": {
+            "condition": null,
+            "treatment": 0,
             "resources": {},
             "solar_efficiency": 0.0,
             "oxygen_efficiency": -0.1,
@@ -16877,6 +22774,8 @@ export const researchTurn: TurnResponse = {
           "crew_role_bonus": {},
           "success_chance": 1.0,
           "success_effects": {
+            "condition": null,
+            "treatment": 0,
             "resources": {},
             "solar_efficiency": 0.0,
             "oxygen_efficiency": 0.0,
@@ -16886,6 +22785,8 @@ export const researchTurn: TurnResponse = {
             "target": "selected"
           },
           "failure_effects": {
+            "condition": null,
+            "treatment": 0,
             "resources": {},
             "solar_efficiency": 0.0,
             "oxygen_efficiency": 0.0,
@@ -16917,6 +22818,8 @@ export const researchTurn: TurnResponse = {
         "project_updates": [],
         "assignments": [
           {
+            "patient_id": null,
+            "condition_id": null,
             "crew_id": "lin",
             "activity_id": "research_geology",
             "status": "completed",
@@ -16933,6 +22836,7 @@ export const researchTurn: TurnResponse = {
                 "oxygen": 2.0
               },
               "effects": {
+                "medical_changes": [],
                 "resources": {
                   "research_data": 2.0
                 },
@@ -16971,6 +22875,7 @@ export const researchTurn: TurnResponse = {
           "success_probability": 1.0,
           "costs": {},
           "effects": {
+            "medical_changes": [],
             "resources": {},
             "solar_efficiency": 0.0,
             "oxygen_efficiency": 0.0,
@@ -17037,6 +22942,8 @@ export const researchTurn: TurnResponse = {
               "crew_id": "alex",
               "before": 100,
               "after": 100,
+              "medical_penalty": 0,
+              "medical_changes": [],
               "food_received_fraction": 1.0,
               "water_received_fraction": 1.0,
               "nutrition_before": 0.0,
@@ -17056,6 +22963,8 @@ export const researchTurn: TurnResponse = {
               "crew_id": "lin",
               "before": 100,
               "after": 100,
+              "medical_penalty": 0,
+              "medical_changes": [],
               "food_received_fraction": 1.0,
               "water_received_fraction": 1.0,
               "nutrition_before": 0.0,
@@ -17095,6 +23004,7 @@ export const researchTurn: TurnResponse = {
           "event_id": "oxygen_fault",
           "title": "Life Support Alarm",
           "effects": {
+            "medical_changes": [],
             "resources": {},
             "solar_efficiency": 0.0,
             "oxygen_efficiency": -0.25,
@@ -17177,6 +23087,8 @@ export const researchTurn: TurnResponse = {
         "crew_role_bonus": {},
         "success_chance": 1.0,
         "success_effects": {
+          "condition": null,
+          "treatment": 0,
           "resources": {},
           "solar_efficiency": 0.0,
           "oxygen_efficiency": 0.0,
@@ -17186,6 +23098,8 @@ export const researchTurn: TurnResponse = {
           "target": "selected"
         },
         "failure_effects": {
+          "condition": null,
+          "treatment": 0,
           "resources": {},
           "solar_efficiency": 0.0,
           "oxygen_efficiency": 0.0,
@@ -17233,6 +23147,8 @@ export const researchTurn: TurnResponse = {
         "crew_role_bonus": {},
         "success_chance": 1.0,
         "success_effects": {
+          "condition": null,
+          "treatment": 0,
           "resources": {},
           "solar_efficiency": 0.2,
           "oxygen_efficiency": 0.0,
@@ -17242,6 +23158,8 @@ export const researchTurn: TurnResponse = {
           "target": "selected"
         },
         "failure_effects": {
+          "condition": null,
+          "treatment": 0,
           "resources": {},
           "solar_efficiency": 0.0,
           "oxygen_efficiency": 0.0,
@@ -17294,6 +23212,8 @@ export const researchTurn: TurnResponse = {
         "crew_role_bonus": {},
         "success_chance": 1.0,
         "success_effects": {
+          "condition": null,
+          "treatment": 0,
           "resources": {},
           "solar_efficiency": 0.0,
           "oxygen_efficiency": 0.2,
@@ -17303,6 +23223,8 @@ export const researchTurn: TurnResponse = {
           "target": "selected"
         },
         "failure_effects": {
+          "condition": null,
+          "treatment": 0,
           "resources": {},
           "solar_efficiency": 0.0,
           "oxygen_efficiency": 0.0,
@@ -17355,6 +23277,8 @@ export const researchTurn: TurnResponse = {
         "crew_role_bonus": {},
         "success_chance": 1.0,
         "success_effects": {
+          "condition": null,
+          "treatment": 0,
           "resources": {},
           "solar_efficiency": 0.0,
           "oxygen_efficiency": 0.0,
@@ -17364,6 +23288,8 @@ export const researchTurn: TurnResponse = {
           "target": "selected"
         },
         "failure_effects": {
+          "condition": null,
+          "treatment": 0,
           "resources": {},
           "solar_efficiency": 0.0,
           "oxygen_efficiency": 0.0,
@@ -17410,6 +23336,8 @@ export const researchTurn: TurnResponse = {
         "crew_role_bonus": {},
         "success_chance": 1.0,
         "success_effects": {
+          "condition": null,
+          "treatment": 0,
           "resources": {},
           "solar_efficiency": 0.0,
           "oxygen_efficiency": 0.0,
@@ -17419,6 +23347,8 @@ export const researchTurn: TurnResponse = {
           "target": "selected"
         },
         "failure_effects": {
+          "condition": null,
+          "treatment": 0,
           "resources": {},
           "solar_efficiency": 0.0,
           "oxygen_efficiency": 0.0,
@@ -17460,7 +23390,7 @@ export const researchTurn: TurnResponse = {
           }
         ],
         "text": "Survey a geological sample",
-        "description": "Use the science kit to collect one sample and 2 research data on success. Scientists improve the odds; failure costs the worker 8 health. One-week crew assignment; incident response is separate.",
+        "description": "Use the science kit to collect one sample and 2 research data on success. Scientists improve the odds; failure costs the worker 8 health and causes a sprain. One-week crew assignment; incident response is separate.",
         "costs": {
           "eva_batteries": 1.0,
           "oxygen": 2.0
@@ -17476,6 +23406,8 @@ export const researchTurn: TurnResponse = {
         "crew_role_bonus": {},
         "success_chance": 0.75,
         "success_effects": {
+          "condition": null,
+          "treatment": 0,
           "resources": {
             "research_data": 2.0
           },
@@ -17487,6 +23419,8 @@ export const researchTurn: TurnResponse = {
           "target": "selected"
         },
         "failure_effects": {
+          "condition": "sprain",
+          "treatment": 0,
           "resources": {},
           "solar_efficiency": 0.0,
           "oxygen_efficiency": 0.0,
@@ -17522,7 +23456,7 @@ export const researchTurn: TurnResponse = {
         "action_type": "research",
         "objective_rewards": [],
         "text": "Deploy seismic sensors",
-        "description": "Start a seismic project: 1 deployment week, 3 automatic recording weeks at 2 power each, then 1 crew analysis week. No objective credit until analysis succeeds. Failure costs 8 worker health and deployment supplies; the phase can be retried.",
+        "description": "Start a seismic project: 1 deployment week, 3 automatic recording weeks at 2 power each, then 1 crew analysis week. No objective credit until analysis succeeds. Failure causes a sprain and costs 8 health and deployment supplies; the phase can be retried.",
         "costs": {
           "electricity": 2.0,
           "eva_batteries": 1.0,
@@ -17539,6 +23473,8 @@ export const researchTurn: TurnResponse = {
         "crew_role_bonus": {},
         "success_chance": 0.75,
         "success_effects": {
+          "condition": null,
+          "treatment": 0,
           "resources": {},
           "solar_efficiency": 0.0,
           "oxygen_efficiency": 0.0,
@@ -17548,6 +23484,8 @@ export const researchTurn: TurnResponse = {
           "target": "selected"
         },
         "failure_effects": {
+          "condition": "sprain",
+          "treatment": 0,
           "resources": {},
           "solar_efficiency": 0.0,
           "oxygen_efficiency": 0.0,
@@ -17606,6 +23544,8 @@ export const researchTurn: TurnResponse = {
         "crew_role_bonus": {},
         "success_chance": 0.7,
         "success_effects": {
+          "condition": null,
+          "treatment": 0,
           "resources": {
             "research_data": 2.0
           },
@@ -17617,6 +23557,8 @@ export const researchTurn: TurnResponse = {
           "target": "selected"
         },
         "failure_effects": {
+          "condition": null,
+          "treatment": 0,
           "resources": {},
           "solar_efficiency": 0.0,
           "oxygen_efficiency": 0.0,
@@ -17651,6 +23593,8 @@ export const researchTurn: TurnResponse = {
     "project_updates": [],
     "assignments": [
       {
+        "patient_id": null,
+        "condition_id": null,
         "crew_id": "lin",
         "activity_id": "research_geology",
         "status": "completed",
@@ -17667,6 +23611,7 @@ export const researchTurn: TurnResponse = {
             "oxygen": 2.0
           },
           "effects": {
+            "medical_changes": [],
             "resources": {
               "research_data": 2.0
             },
@@ -17705,6 +23650,7 @@ export const researchTurn: TurnResponse = {
       "success_probability": 1.0,
       "costs": {},
       "effects": {
+        "medical_changes": [],
         "resources": {},
         "solar_efficiency": 0.0,
         "oxygen_efficiency": 0.0,
@@ -17771,6 +23717,8 @@ export const researchTurn: TurnResponse = {
           "crew_id": "alex",
           "before": 100,
           "after": 100,
+          "medical_penalty": 0,
+          "medical_changes": [],
           "food_received_fraction": 1.0,
           "water_received_fraction": 1.0,
           "nutrition_before": 0.0,
@@ -17790,6 +23738,8 @@ export const researchTurn: TurnResponse = {
           "crew_id": "lin",
           "before": 100,
           "after": 100,
+          "medical_penalty": 0,
+          "medical_changes": [],
           "food_received_fraction": 1.0,
           "water_received_fraction": 1.0,
           "nutrition_before": 0.0,
@@ -17829,6 +23779,7 @@ export const researchTurn: TurnResponse = {
       "event_id": "oxygen_fault",
       "title": "Life Support Alarm",
       "effects": {
+        "medical_changes": [],
         "resources": {},
         "solar_efficiency": 0.0,
         "oxygen_efficiency": -0.25,
@@ -17847,7 +23798,7 @@ export const researchCompleted: GameResponse = {
     "life_support": {
       "source_url": "https://www.nasa.gov/reference/environmental-control-and-life-support-systems-eclss/",
       "water_recovery_condition": 0.76,
-      "co2_condition": 0.92,
+      "co2_condition": 0.42,
       "wastewater": 5.76,
       "co2_burden": 0.0,
       "co2_warning_level": 4.0,
@@ -17867,7 +23818,7 @@ export const researchCompleted: GameResponse = {
     },
     "energy": {
       "battery_capacity": 100.0,
-      "stored": 54.807532,
+      "stored": 48.807532,
       "priority": "life_support",
       "life_support_required": 16.0,
       "solar_day_earth_days": 29.5306,
@@ -17896,7 +23847,7 @@ export const researchCompleted: GameResponse = {
         "phase_progress": 0,
         "phase_weeks": 0,
         "remaining_weeks": 0,
-        "estimated_completion_week": 8,
+        "estimated_completion_week": 11,
         "within_rotation": true,
         "crew_required": 0,
         "costs": {},
@@ -17921,6 +23872,7 @@ export const researchCompleted: GameResponse = {
     },
     "crew": [
       {
+        "medical_conditions": [],
         "nutrition_deficit": 0.0,
         "hydration_deficit": 0.0,
         "condition": {
@@ -17958,7 +23910,7 @@ export const researchCompleted: GameResponse = {
         "id": "alex",
         "name": "Alex Vega",
         "role": "engineer",
-        "health": 100,
+        "health": 97,
         "positive_trait": "Steady hands: +5 percentage points on assigned event actions.",
         "negative_trait": "Large appetite: consumes 10% more food.",
         "food_multiplier": 1.1,
@@ -17987,6 +23939,7 @@ export const researchCompleted: GameResponse = {
         }
       },
       {
+        "medical_conditions": [],
         "nutrition_deficit": 0.0,
         "hydration_deficit": 0.0,
         "condition": {
@@ -18024,7 +23977,7 @@ export const researchCompleted: GameResponse = {
         "id": "lin",
         "name": "Lin Park",
         "role": "scientist",
-        "health": 92,
+        "health": 96,
         "positive_trait": "Water conscious: consumes 10% less water.",
         "negative_trait": "Fragile: event injuries cause 20% more damage.",
         "food_multiplier": 1.0,
@@ -18055,25 +24008,25 @@ export const researchCompleted: GameResponse = {
     ],
     "resources": {
       "food": 25.8,
-      "water": 88.976,
-      "oxygen": 12.0,
-      "electricity": 54.807532,
+      "water": 86.476,
+      "oxygen": 11.0,
+      "electricity": 48.807532,
       "medicine": 8.0,
-      "repair_kits": 5.0,
+      "repair_kits": 9.0,
       "eva_batteries": 6.0,
       "dust_kits": 0.0,
       "oxygen_regulators": 0.0,
       "diagnostic_tools": 0.0,
       "sealant_packs": 0.0,
       "scientific_tools": 1.0,
-      "research_data": 13.0,
+      "research_data": 9.0,
       "wastewater": 5.76,
       "co2": 0.0
     },
     "solar_efficiency": 0.75,
     "oxygen_efficiency": 0.75,
     "water_recovery_efficiency": 0.76,
-    "co2_efficiency": 0.92,
+    "co2_efficiency": 0.42,
     "current_event_id": null,
     "current_event": null,
     "emergency_ration_requirements": {
@@ -18101,6 +24054,8 @@ export const researchCompleted: GameResponse = {
         "project_updates": [],
         "assignments": [
           {
+            "patient_id": null,
+            "condition_id": null,
             "crew_id": "lin",
             "activity_id": "research_geology",
             "status": "completed",
@@ -18117,6 +24072,7 @@ export const researchCompleted: GameResponse = {
                 "oxygen": 2.0
               },
               "effects": {
+                "medical_changes": [],
                 "resources": {
                   "research_data": 2.0
                 },
@@ -18155,6 +24111,7 @@ export const researchCompleted: GameResponse = {
           "success_probability": 1.0,
           "costs": {},
           "effects": {
+            "medical_changes": [],
             "resources": {},
             "solar_efficiency": 0.0,
             "oxygen_efficiency": 0.0,
@@ -18221,6 +24178,8 @@ export const researchCompleted: GameResponse = {
               "crew_id": "alex",
               "before": 100,
               "after": 100,
+              "medical_penalty": 0,
+              "medical_changes": [],
               "food_received_fraction": 1.0,
               "water_received_fraction": 1.0,
               "nutrition_before": 0.0,
@@ -18240,6 +24199,8 @@ export const researchCompleted: GameResponse = {
               "crew_id": "lin",
               "before": 100,
               "after": 100,
+              "medical_penalty": 0,
+              "medical_changes": [],
               "food_received_fraction": 1.0,
               "water_received_fraction": 1.0,
               "nutrition_before": 0.0,
@@ -18279,6 +24240,7 @@ export const researchCompleted: GameResponse = {
           "event_id": "oxygen_fault",
           "title": "Life Support Alarm",
           "effects": {
+            "medical_changes": [],
             "resources": {},
             "solar_efficiency": 0.0,
             "oxygen_efficiency": -0.25,
@@ -18293,6 +24255,8 @@ export const researchCompleted: GameResponse = {
         "project_updates": [],
         "assignments": [
           {
+            "patient_id": null,
+            "condition_id": null,
             "crew_id": "lin",
             "activity_id": "research_geology",
             "status": "completed",
@@ -18309,6 +24273,23 @@ export const researchCompleted: GameResponse = {
                 "oxygen": 2.0
               },
               "effects": {
+                "medical_changes": [
+                  {
+                    "crew_id": "lin",
+                    "kind": "sprain",
+                    "action": "acquired",
+                    "reason": null,
+                    "before": null,
+                    "after": {
+                      "kind": "sprain",
+                      "remaining": 3,
+                      "acquired_week": 2,
+                      "stabilized": false,
+                      "care_week": 0,
+                      "care_points": 0
+                    }
+                  }
+                ],
                 "resources": {},
                 "solar_efficiency": 0.0,
                 "oxygen_efficiency": 0.0,
@@ -18339,6 +24320,7 @@ export const researchCompleted: GameResponse = {
           "success_probability": 1.0,
           "costs": {},
           "effects": {
+            "medical_changes": [],
             "resources": {},
             "solar_efficiency": 0.0,
             "oxygen_efficiency": 0.0,
@@ -18405,6 +24387,8 @@ export const researchCompleted: GameResponse = {
               "crew_id": "alex",
               "before": 100,
               "after": 100,
+              "medical_penalty": 0,
+              "medical_changes": [],
               "food_received_fraction": 1.0,
               "water_received_fraction": 1.0,
               "nutrition_before": 0.0,
@@ -18424,6 +24408,8 @@ export const researchCompleted: GameResponse = {
               "crew_id": "lin",
               "before": 90,
               "after": 90,
+              "medical_penalty": 0,
+              "medical_changes": [],
               "food_received_fraction": 1.0,
               "water_received_fraction": 1.0,
               "nutrition_before": 0.0,
@@ -18463,6 +24449,38 @@ export const researchCompleted: GameResponse = {
           "event_id": "medical_emergency",
           "title": "Contaminated Air Filter",
           "effects": {
+            "medical_changes": [
+              {
+                "crew_id": "alex",
+                "kind": "dust_irritation",
+                "action": "acquired",
+                "reason": null,
+                "before": null,
+                "after": {
+                  "kind": "dust_irritation",
+                  "remaining": 2,
+                  "acquired_week": 3,
+                  "stabilized": false,
+                  "care_week": 0,
+                  "care_points": 0
+                }
+              },
+              {
+                "crew_id": "lin",
+                "kind": "dust_irritation",
+                "action": "acquired",
+                "reason": null,
+                "before": null,
+                "after": {
+                  "kind": "dust_irritation",
+                  "remaining": 2,
+                  "acquired_week": 3,
+                  "stabilized": false,
+                  "care_week": 0,
+                  "care_points": 0
+                }
+              }
+            ],
             "resources": {},
             "solar_efficiency": 0.0,
             "oxygen_efficiency": 0.0,
@@ -18488,22 +24506,25 @@ export const researchCompleted: GameResponse = {
         "project_updates": [],
         "assignments": [
           {
-            "crew_id": "lin",
-            "activity_id": "research_geology",
+            "patient_id": null,
+            "condition_id": null,
+            "crew_id": "alex",
+            "activity_id": "research_instrument",
             "status": "completed",
             "outcome": {
               "support_crew_ids": [],
               "event_id": "medical_emergency",
-              "choice_id": "research_geology",
-              "choice_text": "Survey a geological sample",
-              "selected_crew_id": "lin",
+              "choice_id": "research_instrument",
+              "choice_text": "Restore the next research instrument",
+              "selected_crew_id": "alex",
               "success": true,
-              "success_probability": 0.95,
+              "success_probability": 0.9,
               "costs": {
-                "eva_batteries": 1.0,
-                "oxygen": 2.0
+                "repair_kits": 1.0,
+                "electricity": 2.0
               },
               "effects": {
+                "medical_changes": [],
                 "resources": {
                   "research_data": 2.0
                 },
@@ -18515,19 +24536,47 @@ export const researchCompleted: GameResponse = {
               },
               "objective_progress": [
                 {
-                  "objective_id": "geology",
-                  "title": "Baseline sample collection",
+                  "objective_id": "instruments",
+                  "title": "Restore a research instrument",
                   "amount": 1
                 }
               ]
+            },
+            "reason": null
+          },
+          {
+            "patient_id": null,
+            "condition_id": null,
+            "crew_id": "lin",
+            "activity_id": "crew_rest",
+            "status": "completed",
+            "outcome": {
+              "support_crew_ids": [],
+              "event_id": "medical_emergency",
+              "choice_id": "crew_rest",
+              "choice_text": "Rest and recuperate",
+              "selected_crew_id": "lin",
+              "success": true,
+              "success_probability": 1.0,
+              "costs": {},
+              "effects": {
+                "medical_changes": [],
+                "resources": {},
+                "solar_efficiency": 0.0,
+                "oxygen_efficiency": 0.0,
+                "water_recovery_efficiency": 0.0,
+                "co2_efficiency": 0.0,
+                "health_changes": []
+              },
+              "objective_progress": []
             },
             "reason": null
           }
         ],
         "science_gains": [
           {
-            "objective_id": "geology",
-            "title": "Baseline sample collection",
+            "objective_id": "instruments",
+            "title": "Restore a research instrument",
             "amount": 1
           }
         ],
@@ -18542,6 +24591,7 @@ export const researchCompleted: GameResponse = {
           "success_probability": 1.0,
           "costs": {},
           "effects": {
+            "medical_changes": [],
             "resources": {},
             "solar_efficiency": 0.0,
             "oxygen_efficiency": 0.0,
@@ -18576,9 +24626,9 @@ export const researchCompleted: GameResponse = {
           "life_support": {
             "wastewater_processed": 3.84,
             "water_recovered": 3.072,
-            "water_for_oxygen": 0.6,
+            "water_for_oxygen": 0.4,
             "wastewater_captured": 3.04,
-            "oxygen_generated": 6.0,
+            "oxygen_generated": 4.0,
             "co2_produced": 2.0,
             "co2_removed": 2.0,
             "co2_remaining": 0.0,
@@ -18610,7 +24660,7 @@ export const researchCompleted: GameResponse = {
           "electricity_required": 16.0,
           "electricity_used": 16.0,
           "life_support_power_fraction": 1.0,
-          "oxygen_generated": 6.0,
+          "oxygen_generated": 4.0,
           "oxygen_required": 6.0,
           "oxygen_used": 6.0,
           "oxygen_shortage": 0.0,
@@ -18618,26 +24668,9 @@ export const researchCompleted: GameResponse = {
             {
               "crew_id": "alex",
               "before": 87,
-              "after": 89,
-              "food_received_fraction": 1.0,
-              "water_received_fraction": 1.0,
-              "nutrition_before": 0.0,
-              "nutrition_after": 0.0,
-              "hydration_before": 0.0,
-              "hydration_after": 0.0,
-              "recovery": 2,
-              "worked": false,
-              "rested": false,
-              "food_penalty": 0,
-              "water_penalty": 0,
-              "oxygen_penalty": 0,
-              "co2_penalty": 0,
-              "died": false
-            },
-            {
-              "crew_id": "lin",
-              "before": 74,
-              "after": 74,
+              "after": 87,
+              "medical_penalty": 0,
+              "medical_changes": [],
               "food_received_fraction": 1.0,
               "water_received_fraction": 1.0,
               "nutrition_before": 0.0,
@@ -18652,17 +24685,83 @@ export const researchCompleted: GameResponse = {
               "oxygen_penalty": 0,
               "co2_penalty": 0,
               "died": false
+            },
+            {
+              "crew_id": "lin",
+              "before": 74,
+              "after": 79,
+              "medical_penalty": 0,
+              "medical_changes": [
+                {
+                  "crew_id": "lin",
+                  "kind": "sprain",
+                  "action": "recovering",
+                  "reason": null,
+                  "before": {
+                    "kind": "sprain",
+                    "remaining": 3,
+                    "acquired_week": 2,
+                    "stabilized": false,
+                    "care_week": 0,
+                    "care_points": 0
+                  },
+                  "after": {
+                    "kind": "sprain",
+                    "remaining": 2,
+                    "acquired_week": 2,
+                    "stabilized": false,
+                    "care_week": 0,
+                    "care_points": 0
+                  }
+                },
+                {
+                  "crew_id": "lin",
+                  "kind": "dust_irritation",
+                  "action": "recovering",
+                  "reason": null,
+                  "before": {
+                    "kind": "dust_irritation",
+                    "remaining": 2,
+                    "acquired_week": 3,
+                    "stabilized": false,
+                    "care_week": 0,
+                    "care_points": 0
+                  },
+                  "after": {
+                    "kind": "dust_irritation",
+                    "remaining": 1,
+                    "acquired_week": 3,
+                    "stabilized": false,
+                    "care_week": 0,
+                    "care_points": 0
+                  }
+                }
+              ],
+              "food_received_fraction": 1.0,
+              "water_received_fraction": 1.0,
+              "nutrition_before": 0.0,
+              "nutrition_after": 0.0,
+              "hydration_before": 0.0,
+              "hydration_after": 0.0,
+              "recovery": 5,
+              "worked": false,
+              "rested": true,
+              "food_penalty": 0,
+              "water_penalty": 0,
+              "oxygen_penalty": 0,
+              "co2_penalty": 0,
+              "died": false
             }
           ]
         },
         "resource_changes": {
           "food": -2.1,
-          "water": -1.328,
+          "water": -1.128,
           "oxygen": -2.0,
-          "electricity": -12.064156,
+          "electricity": -14.064156,
           "medicine": 0.0,
-          "repair_kits": 0.0,
-          "eva_batteries": -1.0,
+          "repair_kits": -1.0,
+          "eva_batteries": 0.0,
           "dust_kits": 0.0,
           "oxygen_regulators": 0.0,
           "diagnostic_tools": 0.0,
@@ -18677,6 +24776,7 @@ export const researchCompleted: GameResponse = {
           "event_id": "inventory_audit",
           "title": "A Crate in the Ledger",
           "effects": {
+            "medical_changes": [],
             "resources": {},
             "solar_efficiency": 0.0,
             "oxygen_efficiency": 0.0,
@@ -18688,32 +24788,53 @@ export const researchCompleted: GameResponse = {
         "ending": null
       },
       {
-        "project_updates": [
-          {
-            "project_id": "seismic-1",
-            "message": "Phase complete; next phase begins next week.",
-            "electricity_used": 0.0
-          }
-        ],
+        "project_updates": [],
         "assignments": [
           {
-            "crew_id": "lin",
-            "activity_id": "research_seismic",
+            "patient_id": null,
+            "condition_id": null,
+            "crew_id": "alex",
+            "activity_id": "crew_rest",
             "status": "completed",
             "outcome": {
               "support_crew_ids": [],
               "event_id": "inventory_audit",
-              "choice_id": "research_seismic",
-              "choice_text": "Deploy seismic sensors",
+              "choice_id": "crew_rest",
+              "choice_text": "Rest and recuperate",
+              "selected_crew_id": "alex",
+              "success": true,
+              "success_probability": 1.0,
+              "costs": {},
+              "effects": {
+                "medical_changes": [],
+                "resources": {},
+                "solar_efficiency": 0.0,
+                "oxygen_efficiency": 0.0,
+                "water_recovery_efficiency": 0.0,
+                "co2_efficiency": 0.0,
+                "health_changes": []
+              },
+              "objective_progress": []
+            },
+            "reason": null
+          },
+          {
+            "patient_id": null,
+            "condition_id": null,
+            "crew_id": "lin",
+            "activity_id": "crew_rest",
+            "status": "completed",
+            "outcome": {
+              "support_crew_ids": [],
+              "event_id": "inventory_audit",
+              "choice_id": "crew_rest",
+              "choice_text": "Rest and recuperate",
               "selected_crew_id": "lin",
               "success": true,
-              "success_probability": 0.95,
-              "costs": {
-                "electricity": 2.0,
-                "eva_batteries": 1.0,
-                "oxygen": 2.0
-              },
+              "success_probability": 1.0,
+              "costs": {},
               "effects": {
+                "medical_changes": [],
                 "resources": {},
                 "solar_efficiency": 0.0,
                 "oxygen_efficiency": 0.0,
@@ -18738,6 +24859,7 @@ export const researchCompleted: GameResponse = {
           "success_probability": 1.0,
           "costs": {},
           "effects": {
+            "medical_changes": [],
             "resources": {},
             "solar_efficiency": 0.0,
             "oxygen_efficiency": 0.0,
@@ -18761,9 +24883,9 @@ export const researchCompleted: GameResponse = {
           "life_support": {
             "wastewater_processed": 3.76,
             "water_recovered": 3.008,
-            "water_for_oxygen": 0.8,
+            "water_for_oxygen": 0.6,
             "wastewater_captured": 3.04,
-            "oxygen_generated": 8.0,
+            "oxygen_generated": 6.0,
             "co2_produced": 2.0,
             "co2_removed": 2.0,
             "co2_remaining": 0.0,
@@ -18795,24 +24917,49 @@ export const researchCompleted: GameResponse = {
           "electricity_required": 16.0,
           "electricity_used": 16.0,
           "life_support_power_fraction": 1.0,
-          "oxygen_generated": 8.0,
+          "oxygen_generated": 6.0,
           "oxygen_required": 6.0,
           "oxygen_used": 6.0,
           "oxygen_shortage": 0.0,
           "health_changes": [
             {
               "crew_id": "alex",
-              "before": 89,
-              "after": 91,
+              "before": 87,
+              "after": 86,
+              "medical_penalty": 1,
+              "medical_changes": [
+                {
+                  "crew_id": "alex",
+                  "kind": "dust_irritation",
+                  "action": "recovering",
+                  "reason": null,
+                  "before": {
+                    "kind": "dust_irritation",
+                    "remaining": 2,
+                    "acquired_week": 3,
+                    "stabilized": false,
+                    "care_week": 0,
+                    "care_points": 0
+                  },
+                  "after": {
+                    "kind": "dust_irritation",
+                    "remaining": 1,
+                    "acquired_week": 3,
+                    "stabilized": false,
+                    "care_week": 0,
+                    "care_points": 0
+                  }
+                }
+              ],
               "food_received_fraction": 1.0,
               "water_received_fraction": 1.0,
               "nutrition_before": 0.0,
               "nutrition_after": 0.0,
               "hydration_before": 0.0,
               "hydration_after": 0.0,
-              "recovery": 2,
+              "recovery": 0,
               "worked": false,
-              "rested": false,
+              "rested": true,
               "food_penalty": 0,
               "water_penalty": 0,
               "oxygen_penalty": 0,
@@ -18821,17 +24968,57 @@ export const researchCompleted: GameResponse = {
             },
             {
               "crew_id": "lin",
-              "before": 74,
-              "after": 74,
+              "before": 79,
+              "after": 84,
+              "medical_penalty": 0,
+              "medical_changes": [
+                {
+                  "crew_id": "lin",
+                  "kind": "sprain",
+                  "action": "recovering",
+                  "reason": null,
+                  "before": {
+                    "kind": "sprain",
+                    "remaining": 2,
+                    "acquired_week": 2,
+                    "stabilized": false,
+                    "care_week": 0,
+                    "care_points": 0
+                  },
+                  "after": {
+                    "kind": "sprain",
+                    "remaining": 1,
+                    "acquired_week": 2,
+                    "stabilized": false,
+                    "care_week": 0,
+                    "care_points": 0
+                  }
+                },
+                {
+                  "crew_id": "lin",
+                  "kind": "dust_irritation",
+                  "action": "resolved",
+                  "reason": null,
+                  "before": {
+                    "kind": "dust_irritation",
+                    "remaining": 1,
+                    "acquired_week": 3,
+                    "stabilized": false,
+                    "care_week": 0,
+                    "care_points": 0
+                  },
+                  "after": null
+                }
+              ],
               "food_received_fraction": 1.0,
               "water_received_fraction": 1.0,
               "nutrition_before": 0.0,
               "nutrition_after": 0.0,
               "hydration_before": 0.0,
               "hydration_after": 0.0,
-              "recovery": 0,
-              "worked": true,
-              "rested": false,
+              "recovery": 5,
+              "worked": false,
+              "rested": true,
               "food_penalty": 0,
               "water_penalty": 0,
               "oxygen_penalty": 0,
@@ -18842,12 +25029,12 @@ export const researchCompleted: GameResponse = {
         },
         "resource_changes": {
           "food": -2.1,
-          "water": -1.592,
+          "water": -1.392,
           "oxygen": 0.0,
-          "electricity": -18.0,
+          "electricity": -16.0,
           "medicine": 0.0,
           "repair_kits": 0.0,
-          "eva_batteries": -1.0,
+          "eva_batteries": 0.0,
           "dust_kits": 0.0,
           "oxygen_regulators": 0.0,
           "diagnostic_tools": 0.0,
@@ -18862,6 +25049,7 @@ export const researchCompleted: GameResponse = {
           "event_id": "crew_recovery",
           "title": "A Week for Recovery",
           "effects": {
+            "medical_changes": [],
             "resources": {},
             "solar_efficiency": 0.0,
             "oxygen_efficiency": 0.0,
@@ -18873,58 +25061,66 @@ export const researchCompleted: GameResponse = {
         "ending": null
       },
       {
-        "project_updates": [
-          {
-            "project_id": "seismic-1",
-            "message": "Recorded one week of seismic activity; no crew occupied.",
-            "electricity_used": 2.0
-          }
-        ],
+        "project_updates": [],
         "assignments": [
           {
+            "patient_id": null,
+            "condition_id": null,
             "crew_id": "alex",
-            "activity_id": "research_instrument",
+            "activity_id": "crew_rest",
             "status": "completed",
             "outcome": {
               "support_crew_ids": [],
               "event_id": "crew_recovery",
-              "choice_id": "research_instrument",
-              "choice_text": "Restore the next research instrument",
+              "choice_id": "crew_rest",
+              "choice_text": "Rest and recuperate",
               "selected_crew_id": "alex",
               "success": true,
-              "success_probability": 0.95,
-              "costs": {
-                "repair_kits": 1.0,
-                "electricity": 2.0
-              },
+              "success_probability": 1.0,
+              "costs": {},
               "effects": {
-                "resources": {
-                  "research_data": 2.0
-                },
+                "medical_changes": [],
+                "resources": {},
                 "solar_efficiency": 0.0,
                 "oxygen_efficiency": 0.0,
                 "water_recovery_efficiency": 0.0,
                 "co2_efficiency": 0.0,
                 "health_changes": []
               },
-              "objective_progress": [
-                {
-                  "objective_id": "instruments",
-                  "title": "Restore a research instrument",
-                  "amount": 1
-                }
-              ]
+              "objective_progress": []
+            },
+            "reason": null
+          },
+          {
+            "patient_id": null,
+            "condition_id": null,
+            "crew_id": "lin",
+            "activity_id": "crew_rest",
+            "status": "completed",
+            "outcome": {
+              "support_crew_ids": [],
+              "event_id": "crew_recovery",
+              "choice_id": "crew_rest",
+              "choice_text": "Rest and recuperate",
+              "selected_crew_id": "lin",
+              "success": true,
+              "success_probability": 1.0,
+              "costs": {},
+              "effects": {
+                "medical_changes": [],
+                "resources": {},
+                "solar_efficiency": 0.0,
+                "oxygen_efficiency": 0.0,
+                "water_recovery_efficiency": 0.0,
+                "co2_efficiency": 0.0,
+                "health_changes": []
+              },
+              "objective_progress": []
             },
             "reason": null
           }
         ],
-        "science_gains": [
-          {
-            "objective_id": "instruments",
-            "title": "Restore a research instrument",
-            "amount": 1
-          }
-        ],
+        "science_gains": [],
         "week": 5,
         "event": {
           "support_crew_ids": [],
@@ -18939,6 +25135,7 @@ export const researchCompleted: GameResponse = {
             "water": 1.0
           },
           "effects": {
+            "medical_changes": [],
             "resources": {},
             "solar_efficiency": 0.0,
             "oxygen_efficiency": 0.0,
@@ -18947,13 +25144,13 @@ export const researchCompleted: GameResponse = {
             "health_changes": [
               {
                 "crew_id": "alex",
-                "before": 91,
-                "after": 97
+                "before": 86,
+                "after": 92
               },
               {
                 "crew_id": "lin",
-                "before": 74,
-                "after": 80
+                "before": 84,
+                "after": 90
               }
             ]
           },
@@ -18989,7 +25186,7 @@ export const researchCompleted: GameResponse = {
           "daylight_fraction": 0.781343,
           "battery_capacity": 100.0,
           "electricity_curtailed": 0.0,
-          "project_electricity_used": 2.0,
+          "project_electricity_used": 0.0,
           "power_priority": "life_support",
           "ration_requirements": {
             "food": 2.1,
@@ -19014,17 +25211,35 @@ export const researchCompleted: GameResponse = {
           "health_changes": [
             {
               "crew_id": "alex",
-              "before": 97,
+              "before": 92,
               "after": 97,
+              "medical_penalty": 0,
+              "medical_changes": [
+                {
+                  "crew_id": "alex",
+                  "kind": "dust_irritation",
+                  "action": "resolved",
+                  "reason": null,
+                  "before": {
+                    "kind": "dust_irritation",
+                    "remaining": 1,
+                    "acquired_week": 3,
+                    "stabilized": false,
+                    "care_week": 0,
+                    "care_points": 0
+                  },
+                  "after": null
+                }
+              ],
               "food_received_fraction": 1.0,
               "water_received_fraction": 1.0,
               "nutrition_before": 0.0,
               "nutrition_after": 0.0,
               "hydration_before": 0.0,
               "hydration_after": 0.0,
-              "recovery": 0,
-              "worked": true,
-              "rested": false,
+              "recovery": 5,
+              "worked": false,
+              "rested": true,
               "food_penalty": 0,
               "water_penalty": 0,
               "oxygen_penalty": 0,
@@ -19033,17 +25248,35 @@ export const researchCompleted: GameResponse = {
             },
             {
               "crew_id": "lin",
-              "before": 80,
-              "after": 82,
+              "before": 90,
+              "after": 95,
+              "medical_penalty": 0,
+              "medical_changes": [
+                {
+                  "crew_id": "lin",
+                  "kind": "sprain",
+                  "action": "resolved",
+                  "reason": null,
+                  "before": {
+                    "kind": "sprain",
+                    "remaining": 1,
+                    "acquired_week": 2,
+                    "stabilized": false,
+                    "care_week": 0,
+                    "care_points": 0
+                  },
+                  "after": null
+                }
+              ],
               "food_received_fraction": 1.0,
               "water_received_fraction": 1.0,
               "nutrition_before": 0.0,
               "nutrition_after": 0.0,
               "hydration_before": 0.0,
               "hydration_after": 0.0,
-              "recovery": 2,
+              "recovery": 5,
               "worked": false,
-              "rested": false,
+              "rested": true,
               "food_penalty": 0,
               "water_penalty": 0,
               "oxygen_penalty": 0,
@@ -19056,16 +25289,16 @@ export const researchCompleted: GameResponse = {
           "food": -3.1,
           "water": -2.456,
           "oxygen": 0.0,
-          "electricity": 8.128348,
+          "electricity": 12.128348,
           "medicine": 0.0,
-          "repair_kits": -1.0,
+          "repair_kits": 0.0,
           "eva_batteries": 0.0,
           "dust_kits": 0.0,
           "oxygen_regulators": 0.0,
           "diagnostic_tools": 0.0,
           "sealant_packs": 0.0,
           "scientific_tools": 0.0,
-          "research_data": 2.0,
+          "research_data": 0.0,
           "wastewater": -0.64,
           "co2": 0.0
         },
@@ -19074,6 +25307,7 @@ export const researchCompleted: GameResponse = {
           "event_id": "seismic_signal",
           "title": "A Signal in the Seismometer",
           "effects": {
+            "medical_changes": [],
             "resources": {},
             "solar_efficiency": 0.0,
             "oxygen_efficiency": 0.0,
@@ -19085,38 +25319,69 @@ export const researchCompleted: GameResponse = {
         "ending": null
       },
       {
-        "project_updates": [
+        "project_updates": [],
+        "assignments": [
           {
-            "project_id": "seismic-1",
-            "message": "Recorded one week of seismic activity; no crew occupied.",
-            "electricity_used": 2.0
+            "patient_id": null,
+            "condition_id": null,
+            "crew_id": "lin",
+            "activity_id": "research_geology",
+            "status": "completed",
+            "outcome": {
+              "support_crew_ids": [],
+              "event_id": "seismic_signal",
+              "choice_id": "research_geology",
+              "choice_text": "Survey a geological sample",
+              "selected_crew_id": "lin",
+              "success": true,
+              "success_probability": 0.95,
+              "costs": {
+                "eva_batteries": 1.0,
+                "oxygen": 2.0
+              },
+              "effects": {
+                "medical_changes": [],
+                "resources": {
+                  "research_data": 2.0
+                },
+                "solar_efficiency": 0.0,
+                "oxygen_efficiency": 0.0,
+                "water_recovery_efficiency": 0.0,
+                "co2_efficiency": 0.0,
+                "health_changes": []
+              },
+              "objective_progress": [
+                {
+                  "objective_id": "geology",
+                  "title": "Baseline sample collection",
+                  "amount": 1
+                }
+              ]
+            },
+            "reason": null
           }
         ],
-        "assignments": [],
         "science_gains": [
           {
-            "objective_id": "seismology",
-            "title": "Seismic baseline",
+            "objective_id": "geology",
+            "title": "Baseline sample collection",
             "amount": 1
           }
         ],
         "week": 6,
         "event": {
-          "support_crew_ids": [
-            "alex"
-          ],
+          "support_crew_ids": [],
           "event_id": "seismic_signal",
-          "choice_id": "analyze_seismic",
-          "choice_text": "Calibrate and analyze the signal",
-          "selected_crew_id": "lin",
+          "choice_id": "archive_seismic",
+          "choice_text": "Archive the raw signal",
+          "selected_crew_id": null,
           "success": true,
-          "success_probability": 0.9,
-          "costs": {
-            "electricity": 2.0
-          },
+          "success_probability": 1.0,
+          "costs": {},
           "effects": {
+            "medical_changes": [],
             "resources": {
-              "research_data": 5.0
+              "research_data": 1.0
             },
             "solar_efficiency": 0.0,
             "oxygen_efficiency": 0.0,
@@ -19124,13 +25389,7 @@ export const researchCompleted: GameResponse = {
             "co2_efficiency": 0.0,
             "health_changes": []
           },
-          "objective_progress": [
-            {
-              "objective_id": "seismology",
-              "title": "Seismic baseline",
-              "amount": 1
-            }
-          ]
+          "objective_progress": []
         },
         "rations": {
           "alex": {
@@ -19146,9 +25405,9 @@ export const researchCompleted: GameResponse = {
           "life_support": {
             "wastewater_processed": 3.6,
             "water_recovered": 2.88,
-            "water_for_oxygen": 0.6,
+            "water_for_oxygen": 0.8,
             "wastewater_captured": 3.04,
-            "oxygen_generated": 6.0,
+            "oxygen_generated": 8.0,
             "co2_produced": 2.0,
             "co2_removed": 2.0,
             "co2_remaining": 0.0,
@@ -19162,7 +25421,7 @@ export const researchCompleted: GameResponse = {
           "daylight_fraction": 1.0,
           "battery_capacity": 100.0,
           "electricity_curtailed": 0.0,
-          "project_electricity_used": 2.0,
+          "project_electricity_used": 0.0,
           "power_priority": "life_support",
           "ration_requirements": {
             "food": 2.1,
@@ -19180,7 +25439,7 @@ export const researchCompleted: GameResponse = {
           "electricity_required": 16.0,
           "electricity_used": 16.0,
           "life_support_power_fraction": 1.0,
-          "oxygen_generated": 6.0,
+          "oxygen_generated": 8.0,
           "oxygen_required": 6.0,
           "oxygen_used": 6.0,
           "oxygen_shortage": 0.0,
@@ -19188,15 +25447,17 @@ export const researchCompleted: GameResponse = {
             {
               "crew_id": "alex",
               "before": 97,
-              "after": 97,
+              "after": 99,
+              "medical_penalty": 0,
+              "medical_changes": [],
               "food_received_fraction": 1.0,
               "water_received_fraction": 1.0,
               "nutrition_before": 0.0,
               "nutrition_after": 0.0,
               "hydration_before": 0.0,
               "hydration_after": 0.0,
-              "recovery": 0,
-              "worked": true,
+              "recovery": 2,
+              "worked": false,
               "rested": false,
               "food_penalty": 0,
               "water_penalty": 0,
@@ -19206,8 +25467,10 @@ export const researchCompleted: GameResponse = {
             },
             {
               "crew_id": "lin",
-              "before": 82,
-              "after": 82,
+              "before": 95,
+              "after": 95,
+              "medical_penalty": 0,
+              "medical_changes": [],
               "food_received_fraction": 1.0,
               "water_received_fraction": 1.0,
               "nutrition_before": 0.0,
@@ -19227,18 +25490,18 @@ export const researchCompleted: GameResponse = {
         },
         "resource_changes": {
           "food": -2.1,
-          "water": -1.52,
+          "water": -1.72,
           "oxygen": 0.0,
-          "electricity": 16.0,
+          "electricity": 20.0,
           "medicine": 0.0,
           "repair_kits": 0.0,
-          "eva_batteries": 0.0,
+          "eva_batteries": -1.0,
           "dust_kits": 0.0,
           "oxygen_regulators": 0.0,
           "diagnostic_tools": 0.0,
           "sealant_packs": 0.0,
           "scientific_tools": 0.0,
-          "research_data": 5.0,
+          "research_data": 3.0,
           "wastewater": -0.56,
           "co2": 0.0
         },
@@ -19247,6 +25510,7 @@ export const researchCompleted: GameResponse = {
           "event_id": "battery_isolation",
           "title": "Battery String Offline",
           "effects": {
+            "medical_changes": [],
             "resources": {
               "electricity": -5.0
             },
@@ -19263,28 +25527,58 @@ export const researchCompleted: GameResponse = {
         "project_updates": [
           {
             "project_id": "seismic-1",
-            "message": "Recorded one week of seismic activity; no crew occupied.",
-            "electricity_used": 2.0
+            "message": "Phase complete; next phase begins next week.",
+            "electricity_used": 0.0
           }
         ],
-        "assignments": [],
+        "assignments": [
+          {
+            "patient_id": null,
+            "condition_id": null,
+            "crew_id": "lin",
+            "activity_id": "research_seismic",
+            "status": "completed",
+            "outcome": {
+              "support_crew_ids": [],
+              "event_id": "battery_isolation",
+              "choice_id": "research_seismic",
+              "choice_text": "Deploy seismic sensors",
+              "selected_crew_id": "lin",
+              "success": true,
+              "success_probability": 0.95,
+              "costs": {
+                "electricity": 2.0,
+                "eva_batteries": 1.0,
+                "oxygen": 2.0
+              },
+              "effects": {
+                "medical_changes": [],
+                "resources": {},
+                "solar_efficiency": 0.0,
+                "oxygen_efficiency": 0.0,
+                "water_recovery_efficiency": 0.0,
+                "co2_efficiency": 0.0,
+                "health_changes": []
+              },
+              "objective_progress": []
+            },
+            "reason": null
+          }
+        ],
         "science_gains": [],
         "week": 7,
         "event": {
           "support_crew_ids": [],
           "event_id": "battery_isolation",
-          "choice_id": "battery_diagnosis",
-          "choice_text": "Diagnose and restore the string",
-          "selected_crew_id": "alex",
+          "choice_id": "battery_accept",
+          "choice_text": "Keep the string isolated",
+          "selected_crew_id": null,
           "success": true,
-          "success_probability": 0.95,
-          "costs": {
-            "repair_kits": 1.0
-          },
+          "success_probability": 1.0,
+          "costs": {},
           "effects": {
-            "resources": {
-              "electricity": 8.0
-            },
+            "medical_changes": [],
+            "resources": {},
             "solar_efficiency": 0.0,
             "oxygen_efficiency": 0.0,
             "water_recovery_efficiency": 0.0,
@@ -19307,9 +25601,9 @@ export const researchCompleted: GameResponse = {
           "life_support": {
             "wastewater_processed": 3.52,
             "water_recovered": 2.816,
-            "water_for_oxygen": 0.6,
+            "water_for_oxygen": 0.8,
             "wastewater_captured": 3.04,
-            "oxygen_generated": 6.0,
+            "oxygen_generated": 8.0,
             "co2_produced": 2.0,
             "co2_removed": 2.0,
             "co2_remaining": 0.0,
@@ -19323,7 +25617,7 @@ export const researchCompleted: GameResponse = {
           "daylight_fraction": 0.327986,
           "battery_capacity": 100.0,
           "electricity_curtailed": 0.0,
-          "project_electricity_used": 2.0,
+          "project_electricity_used": 0.0,
           "power_priority": "life_support",
           "ration_requirements": {
             "food": 2.1,
@@ -19341,15 +25635,38 @@ export const researchCompleted: GameResponse = {
           "electricity_required": 16.0,
           "electricity_used": 16.0,
           "life_support_power_fraction": 1.0,
-          "oxygen_generated": 6.0,
+          "oxygen_generated": 8.0,
           "oxygen_required": 6.0,
           "oxygen_used": 6.0,
           "oxygen_shortage": 0.0,
           "health_changes": [
             {
               "crew_id": "alex",
-              "before": 97,
-              "after": 97,
+              "before": 99,
+              "after": 100,
+              "medical_penalty": 0,
+              "medical_changes": [],
+              "food_received_fraction": 1.0,
+              "water_received_fraction": 1.0,
+              "nutrition_before": 0.0,
+              "nutrition_after": 0.0,
+              "hydration_before": 0.0,
+              "hydration_after": 0.0,
+              "recovery": 1,
+              "worked": false,
+              "rested": false,
+              "food_penalty": 0,
+              "water_penalty": 0,
+              "oxygen_penalty": 0,
+              "co2_penalty": 0,
+              "died": false
+            },
+            {
+              "crew_id": "lin",
+              "before": 95,
+              "after": 95,
+              "medical_penalty": 0,
+              "medical_changes": [],
               "food_received_fraction": 1.0,
               "water_received_fraction": 1.0,
               "nutrition_before": 0.0,
@@ -19364,36 +25681,17 @@ export const researchCompleted: GameResponse = {
               "oxygen_penalty": 0,
               "co2_penalty": 0,
               "died": false
-            },
-            {
-              "crew_id": "lin",
-              "before": 82,
-              "after": 84,
-              "food_received_fraction": 1.0,
-              "water_received_fraction": 1.0,
-              "nutrition_before": 0.0,
-              "nutrition_after": 0.0,
-              "hydration_before": 0.0,
-              "hydration_after": 0.0,
-              "recovery": 2,
-              "worked": false,
-              "rested": false,
-              "food_penalty": 0,
-              "water_penalty": 0,
-              "oxygen_penalty": 0,
-              "co2_penalty": 0,
-              "died": false
             }
           ]
         },
         "resource_changes": {
           "food": -2.1,
-          "water": -1.584,
+          "water": -1.784,
           "oxygen": 0.0,
-          "electricity": 1.807496,
+          "electricity": -6.192504,
           "medicine": 0.0,
-          "repair_kits": -1.0,
-          "eva_batteries": 0.0,
+          "repair_kits": 0.0,
+          "eva_batteries": -1.0,
           "dust_kits": 0.0,
           "oxygen_regulators": 0.0,
           "diagnostic_tools": 0.0,
@@ -19408,6 +25706,7 @@ export const researchCompleted: GameResponse = {
           "event_id": "thermal_control",
           "title": "Thermal Control Warning",
           "effects": {
+            "medical_changes": [],
             "resources": {
               "electricity": -4.0
             },
@@ -19424,41 +25723,11 @@ export const researchCompleted: GameResponse = {
         "project_updates": [
           {
             "project_id": "seismic-1",
-            "message": "Project complete; science recorded.",
-            "electricity_used": 0.0
+            "message": "Recorded one week of seismic activity; no crew occupied.",
+            "electricity_used": 2.0
           }
         ],
-        "assignments": [
-          {
-            "crew_id": "lin",
-            "activity_id": "project:seismic-1",
-            "status": "completed",
-            "outcome": {
-              "support_crew_ids": [],
-              "event_id": "thermal_control",
-              "choice_id": "project:seismic-1",
-              "choice_text": "Analyze recordings (seismic-1)",
-              "selected_crew_id": "lin",
-              "success": true,
-              "success_probability": 0.95,
-              "costs": {
-                "electricity": 2.0
-              },
-              "effects": {
-                "resources": {
-                  "research_data": 2.0
-                },
-                "solar_efficiency": 0.0,
-                "oxygen_efficiency": 0.0,
-                "water_recovery_efficiency": 0.0,
-                "co2_efficiency": 0.0,
-                "health_changes": []
-              },
-              "objective_progress": []
-            },
-            "reason": null
-          }
-        ],
+        "assignments": [],
         "science_gains": [],
         "week": 8,
         "event": {
@@ -19471,6 +25740,7 @@ export const researchCompleted: GameResponse = {
           "success_probability": 1.0,
           "costs": {},
           "effects": {
+            "medical_changes": [],
             "resources": {
               "oxygen": -10.0
             },
@@ -19512,7 +25782,7 @@ export const researchCompleted: GameResponse = {
           "daylight_fraction": 0.0,
           "battery_capacity": 100.0,
           "electricity_curtailed": 0.0,
-          "project_electricity_used": 0.0,
+          "project_electricity_used": 2.0,
           "power_priority": "life_support",
           "ration_requirements": {
             "food": 2.1,
@@ -19537,15 +25807,17 @@ export const researchCompleted: GameResponse = {
           "health_changes": [
             {
               "crew_id": "alex",
-              "before": 97,
-              "after": 99,
+              "before": 100,
+              "after": 100,
+              "medical_penalty": 0,
+              "medical_changes": [],
               "food_received_fraction": 1.0,
               "water_received_fraction": 1.0,
               "nutrition_before": 0.0,
               "nutrition_after": 0.0,
               "hydration_before": 0.0,
               "hydration_after": 0.0,
-              "recovery": 2,
+              "recovery": 0,
               "worked": false,
               "rested": false,
               "food_penalty": 0,
@@ -19556,16 +25828,18 @@ export const researchCompleted: GameResponse = {
             },
             {
               "crew_id": "lin",
-              "before": 84,
-              "after": 84,
+              "before": 95,
+              "after": 97,
+              "medical_penalty": 0,
+              "medical_changes": [],
               "food_received_fraction": 1.0,
               "water_received_fraction": 1.0,
               "nutrition_before": 0.0,
               "nutrition_after": 0.0,
               "hydration_before": 0.0,
               "hydration_after": 0.0,
-              "recovery": 0,
-              "worked": true,
+              "recovery": 2,
+              "worked": false,
               "rested": false,
               "food_penalty": 0,
               "water_penalty": 0,
@@ -19588,7 +25862,7 @@ export const researchCompleted: GameResponse = {
           "diagnostic_tools": 0.0,
           "sealant_packs": 0.0,
           "scientific_tools": 0.0,
-          "research_data": 2.0,
+          "research_data": 0.0,
           "wastewater": -0.4,
           "co2": 0.0
         },
@@ -19597,6 +25871,7 @@ export const researchCompleted: GameResponse = {
           "event_id": "water_line_leak",
           "title": "Water Under the Floor",
           "effects": {
+            "medical_changes": [],
             "resources": {
               "water": -4.0
             },
@@ -19610,25 +25885,28 @@ export const researchCompleted: GameResponse = {
         "ending": null
       },
       {
-        "project_updates": [],
+        "project_updates": [
+          {
+            "project_id": "seismic-1",
+            "message": "Recorded one week of seismic activity; no crew occupied.",
+            "electricity_used": 2.0
+          }
+        ],
         "assignments": [],
         "science_gains": [],
         "week": 9,
         "event": {
           "support_crew_ids": [],
           "event_id": "water_line_leak",
-          "choice_id": "repair_water",
-          "choice_text": "Replace the coupling",
-          "selected_crew_id": "alex",
+          "choice_id": "isolate_water",
+          "choice_text": "Isolate the service reservoir",
+          "selected_crew_id": null,
           "success": true,
-          "success_probability": 0.95,
-          "costs": {
-            "repair_kits": 1.0
-          },
+          "success_probability": 1.0,
+          "costs": {},
           "effects": {
-            "resources": {
-              "water": 2.0
-            },
+            "medical_changes": [],
+            "resources": {},
             "solar_efficiency": 0.0,
             "oxygen_efficiency": 0.0,
             "water_recovery_efficiency": 0.0,
@@ -19667,7 +25945,7 @@ export const researchCompleted: GameResponse = {
           "daylight_fraction": 0.562686,
           "battery_capacity": 100.0,
           "electricity_curtailed": 0.0,
-          "project_electricity_used": 0.0,
+          "project_electricity_used": 2.0,
           "power_priority": "life_support",
           "ration_requirements": {
             "food": 2.1,
@@ -19692,8 +25970,10 @@ export const researchCompleted: GameResponse = {
           "health_changes": [
             {
               "crew_id": "alex",
-              "before": 99,
-              "after": 99,
+              "before": 100,
+              "after": 100,
+              "medical_penalty": 0,
+              "medical_changes": [],
               "food_received_fraction": 1.0,
               "water_received_fraction": 1.0,
               "nutrition_before": 0.0,
@@ -19701,7 +25981,7 @@ export const researchCompleted: GameResponse = {
               "hydration_before": 0.0,
               "hydration_after": 0.0,
               "recovery": 0,
-              "worked": true,
+              "worked": false,
               "rested": false,
               "food_penalty": 0,
               "water_penalty": 0,
@@ -19711,8 +25991,10 @@ export const researchCompleted: GameResponse = {
             },
             {
               "crew_id": "lin",
-              "before": 84,
-              "after": 86,
+              "before": 97,
+              "after": 99,
+              "medical_penalty": 0,
+              "medical_changes": [],
               "food_received_fraction": 1.0,
               "water_received_fraction": 1.0,
               "nutrition_before": 0.0,
@@ -19732,11 +26014,11 @@ export const researchCompleted: GameResponse = {
         },
         "resource_changes": {
           "food": -2.1,
-          "water": -0.162,
+          "water": -2.162,
           "oxygen": 4.5,
-          "electricity": 4.256696,
+          "electricity": 2.256696,
           "medicine": 0.0,
-          "repair_kits": -1.0,
+          "repair_kits": 0.0,
           "eva_batteries": 0.0,
           "dust_kits": 0.0,
           "oxygen_regulators": 0.0,
@@ -19752,6 +26034,7 @@ export const researchCompleted: GameResponse = {
           "event_id": "solar_particle_alert",
           "title": "Shelter Before the Storm",
           "effects": {
+            "medical_changes": [],
             "resources": {},
             "solar_efficiency": 0.0,
             "oxygen_efficiency": 0.0,
@@ -19763,7 +26046,13 @@ export const researchCompleted: GameResponse = {
         "ending": null
       },
       {
-        "project_updates": [],
+        "project_updates": [
+          {
+            "project_id": "seismic-1",
+            "message": "Recorded one week of seismic activity; no crew occupied.",
+            "electricity_used": 2.0
+          }
+        ],
         "assignments": [],
         "science_gains": [],
         "week": 10,
@@ -19780,6 +26069,7 @@ export const researchCompleted: GameResponse = {
             "water": 1.0
           },
           "effects": {
+            "medical_changes": [],
             "resources": {},
             "solar_efficiency": 0.0,
             "oxygen_efficiency": 0.0,
@@ -19819,7 +26109,7 @@ export const researchCompleted: GameResponse = {
           "daylight_fraction": 1.0,
           "battery_capacity": 100.0,
           "electricity_curtailed": 0.0,
-          "project_electricity_used": 0.0,
+          "project_electricity_used": 2.0,
           "power_priority": "life_support",
           "ration_requirements": {
             "food": 2.1,
@@ -19844,8 +26134,31 @@ export const researchCompleted: GameResponse = {
           "health_changes": [
             {
               "crew_id": "alex",
+              "before": 100,
+              "after": 100,
+              "medical_penalty": 0,
+              "medical_changes": [],
+              "food_received_fraction": 1.0,
+              "water_received_fraction": 1.0,
+              "nutrition_before": 0.0,
+              "nutrition_after": 0.0,
+              "hydration_before": 0.0,
+              "hydration_after": 0.0,
+              "recovery": 0,
+              "worked": false,
+              "rested": false,
+              "food_penalty": 0,
+              "water_penalty": 0,
+              "oxygen_penalty": 0,
+              "co2_penalty": 0,
+              "died": false
+            },
+            {
+              "crew_id": "lin",
               "before": 99,
               "after": 100,
+              "medical_penalty": 0,
+              "medical_changes": [],
               "food_received_fraction": 1.0,
               "water_received_fraction": 1.0,
               "nutrition_before": 0.0,
@@ -19860,25 +26173,6 @@ export const researchCompleted: GameResponse = {
               "oxygen_penalty": 0,
               "co2_penalty": 0,
               "died": false
-            },
-            {
-              "crew_id": "lin",
-              "before": 86,
-              "after": 88,
-              "food_received_fraction": 1.0,
-              "water_received_fraction": 1.0,
-              "nutrition_before": 0.0,
-              "nutrition_after": 0.0,
-              "hydration_before": 0.0,
-              "hydration_after": 0.0,
-              "recovery": 2,
-              "worked": false,
-              "rested": false,
-              "food_penalty": 0,
-              "water_penalty": 0,
-              "oxygen_penalty": 0,
-              "co2_penalty": 0,
-              "died": false
             }
           ]
         },
@@ -19886,7 +26180,7 @@ export const researchCompleted: GameResponse = {
           "food": -2.1,
           "water": -2.876,
           "oxygen": 1.0,
-          "electricity": 16.0,
+          "electricity": 14.0,
           "medicine": 0.0,
           "repair_kits": 0.0,
           "eva_batteries": 0.0,
@@ -19904,6 +26198,7 @@ export const researchCompleted: GameResponse = {
           "event_id": "impact_puncture",
           "title": "Pinprick in the Pressure Line",
           "effects": {
+            "medical_changes": [],
             "resources": {
               "oxygen": -4.0
             },
@@ -19917,23 +26212,75 @@ export const researchCompleted: GameResponse = {
         "ending": null
       },
       {
-        "project_updates": [],
-        "assignments": [],
-        "science_gains": [],
+        "project_updates": [
+          {
+            "project_id": "seismic-1",
+            "message": "Project complete; science recorded.",
+            "electricity_used": 0.0
+          }
+        ],
+        "assignments": [
+          {
+            "patient_id": null,
+            "condition_id": null,
+            "crew_id": "lin",
+            "activity_id": "project:seismic-1",
+            "status": "completed",
+            "outcome": {
+              "support_crew_ids": [],
+              "event_id": "impact_puncture",
+              "choice_id": "project:seismic-1",
+              "choice_text": "Analyze recordings (seismic-1)",
+              "selected_crew_id": "lin",
+              "success": true,
+              "success_probability": 0.95,
+              "costs": {
+                "electricity": 2.0
+              },
+              "effects": {
+                "medical_changes": [],
+                "resources": {
+                  "research_data": 2.0
+                },
+                "solar_efficiency": 0.0,
+                "oxygen_efficiency": 0.0,
+                "water_recovery_efficiency": 0.0,
+                "co2_efficiency": 0.0,
+                "health_changes": []
+              },
+              "objective_progress": [
+                {
+                  "objective_id": "seismology",
+                  "title": "Seismic baseline",
+                  "amount": 1
+                }
+              ]
+            },
+            "reason": null
+          }
+        ],
+        "science_gains": [
+          {
+            "objective_id": "seismology",
+            "title": "Seismic baseline",
+            "amount": 1
+          }
+        ],
         "week": 11,
         "event": {
           "support_crew_ids": [],
           "event_id": "impact_puncture",
-          "choice_id": "clamp_pressure",
-          "choice_text": "Fit a repair clamp",
-          "selected_crew_id": "alex",
+          "choice_id": "isolate_pressure",
+          "choice_text": "Isolate the line",
+          "selected_crew_id": null,
           "success": true,
-          "success_probability": 0.95,
-          "costs": {
-            "repair_kits": 1.0
-          },
+          "success_probability": 1.0,
+          "costs": {},
           "effects": {
-            "resources": {},
+            "medical_changes": [],
+            "resources": {
+              "oxygen": -6.0
+            },
             "solar_efficiency": 0.0,
             "oxygen_efficiency": 0.0,
             "water_recovery_efficiency": 0.0,
@@ -19956,9 +26303,9 @@ export const researchCompleted: GameResponse = {
           "life_support": {
             "wastewater_processed": 3.2,
             "water_recovered": 2.56,
-            "water_for_oxygen": 1.0,
+            "water_for_oxygen": 1.05,
             "wastewater_captured": 3.04,
-            "oxygen_generated": 10.0,
+            "oxygen_generated": 10.5,
             "co2_produced": 2.0,
             "co2_removed": 2.0,
             "co2_remaining": 0.0,
@@ -19990,7 +26337,7 @@ export const researchCompleted: GameResponse = {
           "electricity_required": 16.0,
           "electricity_used": 16.0,
           "life_support_power_fraction": 1.0,
-          "oxygen_generated": 10.0,
+          "oxygen_generated": 10.5,
           "oxygen_required": 6.0,
           "oxygen_used": 6.0,
           "oxygen_shortage": 0.0,
@@ -19999,6 +26346,29 @@ export const researchCompleted: GameResponse = {
               "crew_id": "alex",
               "before": 100,
               "after": 100,
+              "medical_penalty": 0,
+              "medical_changes": [],
+              "food_received_fraction": 1.0,
+              "water_received_fraction": 1.0,
+              "nutrition_before": 0.0,
+              "nutrition_after": 0.0,
+              "hydration_before": 0.0,
+              "hydration_after": 0.0,
+              "recovery": 0,
+              "worked": false,
+              "rested": false,
+              "food_penalty": 0,
+              "water_penalty": 0,
+              "oxygen_penalty": 0,
+              "co2_penalty": 0,
+              "died": false
+            },
+            {
+              "crew_id": "lin",
+              "before": 100,
+              "after": 100,
+              "medical_penalty": 0,
+              "medical_changes": [],
               "food_received_fraction": 1.0,
               "water_received_fraction": 1.0,
               "nutrition_before": 0.0,
@@ -20013,42 +26383,23 @@ export const researchCompleted: GameResponse = {
               "oxygen_penalty": 0,
               "co2_penalty": 0,
               "died": false
-            },
-            {
-              "crew_id": "lin",
-              "before": 88,
-              "after": 90,
-              "food_received_fraction": 1.0,
-              "water_received_fraction": 1.0,
-              "nutrition_before": 0.0,
-              "nutrition_after": 0.0,
-              "hydration_before": 0.0,
-              "hydration_after": 0.0,
-              "recovery": 2,
-              "worked": false,
-              "rested": false,
-              "food_penalty": 0,
-              "water_penalty": 0,
-              "oxygen_penalty": 0,
-              "co2_penalty": 0,
-              "died": false
             }
           ]
         },
         "resource_changes": {
           "food": -2.1,
-          "water": -2.24,
-          "oxygen": 4.0,
-          "electricity": 3.679148,
+          "water": -2.29,
+          "oxygen": -1.5,
+          "electricity": 1.679148,
           "medicine": 0.0,
-          "repair_kits": -1.0,
+          "repair_kits": 0.0,
           "eva_batteries": 0.0,
           "dust_kits": 0.0,
           "oxygen_regulators": 0.0,
           "diagnostic_tools": 0.0,
           "sealant_packs": 0.0,
           "scientific_tools": 0.0,
-          "research_data": 0.0,
+          "research_data": 2.0,
           "wastewater": -0.16,
           "co2": 0.0
         },
@@ -20057,6 +26408,7 @@ export const researchCompleted: GameResponse = {
           "event_id": "scrubber_load",
           "title": "Carbon Dioxide Scrubber Load",
           "effects": {
+            "medical_changes": [],
             "resources": {},
             "solar_efficiency": 0.0,
             "oxygen_efficiency": 0.0,
@@ -20075,21 +26427,31 @@ export const researchCompleted: GameResponse = {
         "event": {
           "support_crew_ids": [],
           "event_id": "scrubber_load",
-          "choice_id": "service_scrubber",
-          "choice_text": "Service the scrubber",
-          "selected_crew_id": "alex",
+          "choice_id": "scrubber_risk",
+          "choice_text": "Run at reduced air-processing capacity",
+          "selected_crew_id": null,
           "success": true,
-          "success_probability": 0.95,
-          "costs": {
-            "repair_kits": 1.0
-          },
+          "success_probability": 1.0,
+          "costs": {},
           "effects": {
+            "medical_changes": [],
             "resources": {},
             "solar_efficiency": 0.0,
             "oxygen_efficiency": 0.0,
             "water_recovery_efficiency": 0.0,
-            "co2_efficiency": 0.3,
-            "health_changes": []
+            "co2_efficiency": -0.2,
+            "health_changes": [
+              {
+                "crew_id": "alex",
+                "before": 100,
+                "after": 95
+              },
+              {
+                "crew_id": "lin",
+                "before": 100,
+                "after": 94
+              }
+            ]
           },
           "objective_progress": []
         },
@@ -20107,9 +26469,9 @@ export const researchCompleted: GameResponse = {
           "life_support": {
             "wastewater_processed": 3.12,
             "water_recovered": 2.496,
-            "water_for_oxygen": 0.6,
+            "water_for_oxygen": 1.05,
             "wastewater_captured": 3.04,
-            "oxygen_generated": 6.0,
+            "oxygen_generated": 10.5,
             "co2_produced": 2.0,
             "co2_removed": 2.0,
             "co2_remaining": 0.0,
@@ -20141,23 +26503,25 @@ export const researchCompleted: GameResponse = {
           "electricity_required": 16.0,
           "electricity_used": 16.0,
           "life_support_power_fraction": 1.0,
-          "oxygen_generated": 6.0,
+          "oxygen_generated": 10.5,
           "oxygen_required": 6.0,
           "oxygen_used": 6.0,
           "oxygen_shortage": 0.0,
           "health_changes": [
             {
               "crew_id": "alex",
-              "before": 100,
-              "after": 100,
+              "before": 95,
+              "after": 97,
+              "medical_penalty": 0,
+              "medical_changes": [],
               "food_received_fraction": 1.0,
               "water_received_fraction": 1.0,
               "nutrition_before": 0.0,
               "nutrition_after": 0.0,
               "hydration_before": 0.0,
               "hydration_after": 0.0,
-              "recovery": 0,
-              "worked": true,
+              "recovery": 2,
+              "worked": false,
               "rested": false,
               "food_penalty": 0,
               "water_penalty": 0,
@@ -20167,8 +26531,10 @@ export const researchCompleted: GameResponse = {
             },
             {
               "crew_id": "lin",
-              "before": 90,
-              "after": 92,
+              "before": 94,
+              "after": 96,
+              "medical_penalty": 0,
+              "medical_changes": [],
               "food_received_fraction": 1.0,
               "water_received_fraction": 1.0,
               "nutrition_before": 0.0,
@@ -20188,11 +26554,11 @@ export const researchCompleted: GameResponse = {
         },
         "resource_changes": {
           "food": -2.1,
-          "water": -1.904,
-          "oxygen": 0.0,
+          "water": -2.354,
+          "oxygen": 4.5,
           "electricity": -16.0,
           "medicine": 0.0,
-          "repair_kits": -1.0,
+          "repair_kits": 0.0,
           "eva_batteries": 0.0,
           "dust_kits": 0.0,
           "oxygen_regulators": 0.0,
@@ -20227,7 +26593,7 @@ export const researchCompleted: GameResponse = {
         "status": "complete",
         "completed_objectives": 3,
         "total_objectives": 3,
-        "research_data": 13.0,
+        "research_data": 9.0,
         "objectives": [
           {
             "id": "geology",
@@ -20277,7 +26643,7 @@ export const researchCompleted: GameResponse = {
       "status": "complete",
       "completed_objectives": 3,
       "total_objectives": 3,
-      "research_data": 13.0,
+      "research_data": 9.0,
       "objectives": [
         {
           "id": "geology",
@@ -20468,6 +26834,7 @@ export const supportGame: GameResponse = {
     },
     "crew": [
       {
+        "medical_conditions": [],
         "nutrition_deficit": 0.0,
         "hydration_deficit": 0.0,
         "condition": {
@@ -20534,6 +26901,7 @@ export const supportGame: GameResponse = {
         }
       },
       {
+        "medical_conditions": [],
         "nutrition_deficit": 0.0,
         "hydration_deficit": 0.0,
         "condition": {
@@ -20600,6 +26968,7 @@ export const supportGame: GameResponse = {
         }
       },
       {
+        "medical_conditions": [],
         "nutrition_deficit": 0.0,
         "hydration_deficit": 0.0,
         "condition": {
@@ -20666,6 +27035,7 @@ export const supportGame: GameResponse = {
         }
       },
       {
+        "medical_conditions": [],
         "nutrition_deficit": 0.0,
         "hydration_deficit": 0.0,
         "condition": {
@@ -20762,6 +27132,8 @@ export const supportGame: GameResponse = {
       "science_context": "Spacecraft life-support equipment needs maintenance. This regulator failure is a fictional training scenario.",
       "source_url": "https://www.nasa.gov/reference/9-0-hardware-and-equipment-vol-2/",
       "on_start": {
+        "condition": null,
+        "treatment": 0,
         "resources": {},
         "solar_efficiency": 0.0,
         "oxygen_efficiency": -0.25,
@@ -20791,6 +27163,8 @@ export const supportGame: GameResponse = {
           "crew_role_bonus": {},
           "success_chance": 0.65,
           "success_effects": {
+            "condition": null,
+            "treatment": 0,
             "resources": {},
             "solar_efficiency": 0.0,
             "oxygen_efficiency": 0.25,
@@ -20800,6 +27174,8 @@ export const supportGame: GameResponse = {
             "target": "selected"
           },
           "failure_effects": {
+            "condition": null,
+            "treatment": 0,
             "resources": {},
             "solar_efficiency": 0.0,
             "oxygen_efficiency": 0.0,
@@ -20881,6 +27257,8 @@ export const supportGame: GameResponse = {
           "crew_role_bonus": {},
           "success_chance": 0.55,
           "success_effects": {
+            "condition": null,
+            "treatment": 0,
             "resources": {},
             "solar_efficiency": 0.0,
             "oxygen_efficiency": 0.2,
@@ -20890,6 +27268,8 @@ export const supportGame: GameResponse = {
             "target": "selected"
           },
           "failure_effects": {
+            "condition": null,
+            "treatment": 0,
             "resources": {},
             "solar_efficiency": 0.0,
             "oxygen_efficiency": -0.1,
@@ -20945,6 +27325,8 @@ export const supportGame: GameResponse = {
           "crew_role_bonus": {},
           "success_chance": 1.0,
           "success_effects": {
+            "condition": null,
+            "treatment": 0,
             "resources": {},
             "solar_efficiency": 0.0,
             "oxygen_efficiency": 0.0,
@@ -20954,6 +27336,8 @@ export const supportGame: GameResponse = {
             "target": "selected"
           },
           "failure_effects": {
+            "condition": null,
+            "treatment": 0,
             "resources": {},
             "solar_efficiency": 0.0,
             "oxygen_efficiency": 0.0,
@@ -20996,6 +27380,7 @@ export const supportGame: GameResponse = {
           "success_probability": 1.0,
           "costs": {},
           "effects": {
+            "medical_changes": [],
             "resources": {},
             "solar_efficiency": 0.0,
             "oxygen_efficiency": 0.0,
@@ -21070,6 +27455,8 @@ export const supportGame: GameResponse = {
               "crew_id": "alex",
               "before": 100,
               "after": 100,
+              "medical_penalty": 0,
+              "medical_changes": [],
               "food_received_fraction": 1.0,
               "water_received_fraction": 1.0,
               "nutrition_before": 0.0,
@@ -21089,6 +27476,8 @@ export const supportGame: GameResponse = {
               "crew_id": "lin",
               "before": 100,
               "after": 100,
+              "medical_penalty": 0,
+              "medical_changes": [],
               "food_received_fraction": 1.0,
               "water_received_fraction": 1.0,
               "nutrition_before": 0.0,
@@ -21108,6 +27497,8 @@ export const supportGame: GameResponse = {
               "crew_id": "sam",
               "before": 100,
               "after": 100,
+              "medical_penalty": 0,
+              "medical_changes": [],
               "food_received_fraction": 1.0,
               "water_received_fraction": 1.0,
               "nutrition_before": 0.0,
@@ -21127,6 +27518,8 @@ export const supportGame: GameResponse = {
               "crew_id": "maya",
               "before": 100,
               "after": 100,
+              "medical_penalty": 0,
+              "medical_changes": [],
               "food_received_fraction": 1.0,
               "water_received_fraction": 1.0,
               "nutrition_before": 0.0,
@@ -21166,6 +27559,7 @@ export const supportGame: GameResponse = {
           "event_id": "oxygen_fault",
           "title": "Life Support Alarm",
           "effects": {
+            "medical_changes": [],
             "resources": {},
             "solar_efficiency": 0.0,
             "oxygen_efficiency": -0.25,
@@ -21248,6 +27642,8 @@ export const supportGame: GameResponse = {
         "crew_role_bonus": {},
         "success_chance": 1.0,
         "success_effects": {
+          "condition": null,
+          "treatment": 0,
           "resources": {},
           "solar_efficiency": 0.0,
           "oxygen_efficiency": 0.0,
@@ -21257,6 +27653,8 @@ export const supportGame: GameResponse = {
           "target": "selected"
         },
         "failure_effects": {
+          "condition": null,
+          "treatment": 0,
           "resources": {},
           "solar_efficiency": 0.0,
           "oxygen_efficiency": 0.0,
@@ -21316,6 +27714,8 @@ export const supportGame: GameResponse = {
         "crew_role_bonus": {},
         "success_chance": 1.0,
         "success_effects": {
+          "condition": null,
+          "treatment": 0,
           "resources": {},
           "solar_efficiency": 0.2,
           "oxygen_efficiency": 0.0,
@@ -21325,6 +27725,8 @@ export const supportGame: GameResponse = {
           "target": "selected"
         },
         "failure_effects": {
+          "condition": null,
+          "treatment": 0,
           "resources": {},
           "solar_efficiency": 0.0,
           "oxygen_efficiency": 0.0,
@@ -21393,6 +27795,8 @@ export const supportGame: GameResponse = {
         "crew_role_bonus": {},
         "success_chance": 1.0,
         "success_effects": {
+          "condition": null,
+          "treatment": 0,
           "resources": {},
           "solar_efficiency": 0.0,
           "oxygen_efficiency": 0.2,
@@ -21402,6 +27806,8 @@ export const supportGame: GameResponse = {
           "target": "selected"
         },
         "failure_effects": {
+          "condition": null,
+          "treatment": 0,
           "resources": {},
           "solar_efficiency": 0.0,
           "oxygen_efficiency": 0.0,
@@ -21470,6 +27876,8 @@ export const supportGame: GameResponse = {
         "crew_role_bonus": {},
         "success_chance": 1.0,
         "success_effects": {
+          "condition": null,
+          "treatment": 0,
           "resources": {},
           "solar_efficiency": 0.0,
           "oxygen_efficiency": 0.0,
@@ -21479,6 +27887,8 @@ export const supportGame: GameResponse = {
           "target": "selected"
         },
         "failure_effects": {
+          "condition": null,
+          "treatment": 0,
           "resources": {},
           "solar_efficiency": 0.0,
           "oxygen_efficiency": 0.0,
@@ -21537,6 +27947,8 @@ export const supportGame: GameResponse = {
         "crew_role_bonus": {},
         "success_chance": 1.0,
         "success_effects": {
+          "condition": null,
+          "treatment": 0,
           "resources": {},
           "solar_efficiency": 0.0,
           "oxygen_efficiency": 0.0,
@@ -21546,6 +27958,8 @@ export const supportGame: GameResponse = {
           "target": "selected"
         },
         "failure_effects": {
+          "condition": null,
+          "treatment": 0,
           "resources": {},
           "solar_efficiency": 0.0,
           "oxygen_efficiency": 0.0,
@@ -21599,7 +28013,7 @@ export const supportGame: GameResponse = {
           }
         ],
         "text": "Survey a geological sample",
-        "description": "Use the science kit to collect one sample and 2 research data on success. Scientists improve the odds; failure costs the worker 8 health. One-week crew assignment; incident response is separate.",
+        "description": "Use the science kit to collect one sample and 2 research data on success. Scientists improve the odds; failure costs the worker 8 health and causes a sprain. One-week crew assignment; incident response is separate.",
         "costs": {
           "eva_batteries": 1.0,
           "oxygen": 2.0
@@ -21615,6 +28029,8 @@ export const supportGame: GameResponse = {
         "crew_role_bonus": {},
         "success_chance": 0.75,
         "success_effects": {
+          "condition": null,
+          "treatment": 0,
           "resources": {
             "research_data": 2.0
           },
@@ -21626,6 +28042,8 @@ export const supportGame: GameResponse = {
           "target": "selected"
         },
         "failure_effects": {
+          "condition": "sprain",
+          "treatment": 0,
           "resources": {},
           "solar_efficiency": 0.0,
           "oxygen_efficiency": 0.0,
@@ -21673,7 +28091,7 @@ export const supportGame: GameResponse = {
         "action_type": "research",
         "objective_rewards": [],
         "text": "Deploy seismic sensors",
-        "description": "Start a seismic project: 1 deployment week, 3 automatic recording weeks at 2 power each, then 1 crew analysis week. No objective credit until analysis succeeds. Failure costs 8 worker health and deployment supplies; the phase can be retried.",
+        "description": "Start a seismic project: 1 deployment week, 3 automatic recording weeks at 2 power each, then 1 crew analysis week. No objective credit until analysis succeeds. Failure causes a sprain and costs 8 health and deployment supplies; the phase can be retried.",
         "costs": {
           "electricity": 2.0,
           "eva_batteries": 1.0,
@@ -21690,6 +28108,8 @@ export const supportGame: GameResponse = {
         "crew_role_bonus": {},
         "success_chance": 0.75,
         "success_effects": {
+          "condition": null,
+          "treatment": 0,
           "resources": {},
           "solar_efficiency": 0.0,
           "oxygen_efficiency": 0.0,
@@ -21699,6 +28119,8 @@ export const supportGame: GameResponse = {
           "target": "selected"
         },
         "failure_effects": {
+          "condition": "sprain",
+          "treatment": 0,
           "resources": {},
           "solar_efficiency": 0.0,
           "oxygen_efficiency": 0.0,
@@ -21769,6 +28191,8 @@ export const supportGame: GameResponse = {
         "crew_role_bonus": {},
         "success_chance": 0.7,
         "success_effects": {
+          "condition": null,
+          "treatment": 0,
           "resources": {
             "research_data": 2.0
           },
@@ -21780,6 +28204,8 @@ export const supportGame: GameResponse = {
           "target": "selected"
         },
         "failure_effects": {
+          "condition": null,
+          "treatment": 0,
           "resources": {},
           "solar_efficiency": 0.0,
           "oxygen_efficiency": 0.0,
@@ -21958,16 +28384,34 @@ export const parallelTurn: TurnResponse = {
     },
     "crew": [
       {
+        "medical_conditions": [
+          {
+            "kind": "dust_irritation",
+            "remaining": 2,
+            "acquired_week": 3,
+            "stabilized": false,
+            "care_week": 0,
+            "care_points": 0,
+            "title": "Dust-related respiratory irritation",
+            "urgent": false,
+            "rest_weeks": 2,
+            "medic_weeks": 1,
+            "untreated_damage": 1,
+            "source_url": "https://www.nasa.gov/reference/jsc-dust/"
+          }
+        ],
         "nutrition_deficit": 0.0,
         "hydration_deficit": 0.0,
         "condition": {
-          "status": "fit",
+          "status": "serious",
           "nutrition_status": "adequate",
           "hydration_status": "adequate",
           "can_work": true,
-          "can_do_eva": true,
-          "performance_penalty": 0.0,
-          "restrictions": [],
+          "can_do_eva": false,
+          "performance_penalty": 0.05,
+          "restrictions": [
+            "Respiratory irritation: EVA unavailable until recovered; indoor work remains possible."
+          ],
           "nutrition_recovery_weeks": 0,
           "hydration_recovery_weeks": 0,
           "source_url": "https://www.nasa.gov/reference/risk-of-inadequate-food-and-nutrition/"
@@ -22024,16 +28468,34 @@ export const parallelTurn: TurnResponse = {
         }
       },
       {
+        "medical_conditions": [
+          {
+            "kind": "dust_irritation",
+            "remaining": 2,
+            "acquired_week": 3,
+            "stabilized": false,
+            "care_week": 0,
+            "care_points": 0,
+            "title": "Dust-related respiratory irritation",
+            "urgent": false,
+            "rest_weeks": 2,
+            "medic_weeks": 1,
+            "untreated_damage": 1,
+            "source_url": "https://www.nasa.gov/reference/jsc-dust/"
+          }
+        ],
         "nutrition_deficit": 0.0,
         "hydration_deficit": 0.0,
         "condition": {
-          "status": "fit",
+          "status": "serious",
           "nutrition_status": "adequate",
           "hydration_status": "adequate",
           "can_work": true,
-          "can_do_eva": true,
-          "performance_penalty": 0.0,
-          "restrictions": [],
+          "can_do_eva": false,
+          "performance_penalty": 0.05,
+          "restrictions": [
+            "Respiratory irritation: EVA unavailable until recovered; indoor work remains possible."
+          ],
           "nutrition_recovery_weeks": 0,
           "hydration_recovery_weeks": 0,
           "source_url": "https://www.nasa.gov/reference/risk-of-inadequate-food-and-nutrition/"
@@ -22090,16 +28552,34 @@ export const parallelTurn: TurnResponse = {
         }
       },
       {
+        "medical_conditions": [
+          {
+            "kind": "dust_irritation",
+            "remaining": 2,
+            "acquired_week": 3,
+            "stabilized": false,
+            "care_week": 0,
+            "care_points": 0,
+            "title": "Dust-related respiratory irritation",
+            "urgent": false,
+            "rest_weeks": 2,
+            "medic_weeks": 1,
+            "untreated_damage": 1,
+            "source_url": "https://www.nasa.gov/reference/jsc-dust/"
+          }
+        ],
         "nutrition_deficit": 0.0,
         "hydration_deficit": 0.0,
         "condition": {
-          "status": "fit",
+          "status": "serious",
           "nutrition_status": "adequate",
           "hydration_status": "adequate",
           "can_work": true,
-          "can_do_eva": true,
-          "performance_penalty": 0.0,
-          "restrictions": [],
+          "can_do_eva": false,
+          "performance_penalty": 0.05,
+          "restrictions": [
+            "Respiratory irritation: EVA unavailable until recovered; indoor work remains possible."
+          ],
           "nutrition_recovery_weeks": 0,
           "hydration_recovery_weeks": 0,
           "source_url": "https://www.nasa.gov/reference/risk-of-inadequate-food-and-nutrition/"
@@ -22156,16 +28636,34 @@ export const parallelTurn: TurnResponse = {
         }
       },
       {
+        "medical_conditions": [
+          {
+            "kind": "dust_irritation",
+            "remaining": 2,
+            "acquired_week": 3,
+            "stabilized": false,
+            "care_week": 0,
+            "care_points": 0,
+            "title": "Dust-related respiratory irritation",
+            "urgent": false,
+            "rest_weeks": 2,
+            "medic_weeks": 1,
+            "untreated_damage": 1,
+            "source_url": "https://www.nasa.gov/reference/jsc-dust/"
+          }
+        ],
         "nutrition_deficit": 0.0,
         "hydration_deficit": 0.0,
         "condition": {
-          "status": "fit",
+          "status": "serious",
           "nutrition_status": "adequate",
           "hydration_status": "adequate",
           "can_work": true,
-          "can_do_eva": true,
-          "performance_penalty": 0.0,
-          "restrictions": [],
+          "can_do_eva": false,
+          "performance_penalty": 0.05,
+          "restrictions": [
+            "Respiratory irritation: EVA unavailable until recovered; indoor work remains possible."
+          ],
           "nutrition_recovery_weeks": 0,
           "hydration_recovery_weeks": 0,
           "source_url": "https://www.nasa.gov/reference/risk-of-inadequate-food-and-nutrition/"
@@ -22247,11 +28745,13 @@ export const parallelTurn: TurnResponse = {
     "current_event": {
       "id": "medical_emergency",
       "title": "Contaminated Air Filter",
-      "description": "An irritant escapes a filter. Every living astronaut loses 8 health on discovery.",
+      "description": "An irritant escapes a filter. Every living astronaut loses 8 health on discovery. All living crew develop dust-related respiratory irritation; named conditions need recovery as well as symptom relief.",
       "category": "hazard",
       "science_context": "Dust management matters for cabin cleanliness. The irritant incident and health changes here are fictional.",
       "source_url": "https://www.nasa.gov/reference/jsc-dust/",
       "on_start": {
+        "condition": "dust_irritation",
+        "treatment": 0,
         "resources": {},
         "solar_efficiency": 0.0,
         "oxygen_efficiency": 0.0,
@@ -22268,7 +28768,7 @@ export const parallelTurn: TurnResponse = {
           "action_type": "event",
           "objective_rewards": [],
           "text": "Treat an affected astronaut",
-          "description": "Select a patient. A living medic improves treatment. Failed treatment does not restore health.",
+          "description": "Select a patient. A living medic improves success. Costs 1 medicine; success gives 5 health, stabilizes one active condition (urgent first), and supplies up to 2 recovery points at survival with full provisions and safe air. Failure costs 5 health.",
           "costs": {
             "medicine": 1.0
           },
@@ -22280,15 +28780,19 @@ export const parallelTurn: TurnResponse = {
           },
           "success_chance": 0.7,
           "success_effects": {
+            "condition": null,
+            "treatment": 2,
             "resources": {},
             "solar_efficiency": 0.0,
             "oxygen_efficiency": 0.0,
             "water_recovery_efficiency": 0.0,
             "co2_efficiency": 0.0,
-            "crew_health": 30,
+            "crew_health": 5,
             "target": "selected"
           },
           "failure_effects": {
+            "condition": null,
+            "treatment": 0,
             "resources": {},
             "solar_efficiency": 0.0,
             "oxygen_efficiency": 0.0,
@@ -22330,7 +28834,7 @@ export const parallelTurn: TurnResponse = {
           "success_probability": null
         },
         {
-          "workload": "strenuous",
+          "workload": "light",
           "support_candidates": [
             {
               "crew_id": "alex",
@@ -22369,6 +28873,8 @@ export const parallelTurn: TurnResponse = {
           "crew_role_bonus": {},
           "success_chance": 0.75,
           "success_effects": {
+            "condition": null,
+            "treatment": 0,
             "resources": {},
             "solar_efficiency": 0.0,
             "oxygen_efficiency": 0.0,
@@ -22378,6 +28884,8 @@ export const parallelTurn: TurnResponse = {
             "target": "all"
           },
           "failure_effects": {
+            "condition": null,
+            "treatment": 0,
             "resources": {},
             "solar_efficiency": 0.0,
             "oxygen_efficiency": 0.0,
@@ -22397,7 +28905,7 @@ export const parallelTurn: TurnResponse = {
               "unavailable_reasons": [
                 "Requires a living medic."
               ],
-              "success_probability": 0.8
+              "success_probability": 0.75
             },
             {
               "crew_id": "lin",
@@ -22405,7 +28913,7 @@ export const parallelTurn: TurnResponse = {
               "unavailable_reasons": [
                 "Requires a living medic."
               ],
-              "success_probability": 0.75
+              "success_probability": 0.7
             },
             {
               "crew_id": "sam",
@@ -22413,13 +28921,13 @@ export const parallelTurn: TurnResponse = {
               "unavailable_reasons": [
                 "Requires a living medic."
               ],
-              "success_probability": 0.7
+              "success_probability": 0.65
             },
             {
               "crew_id": "maya",
               "available": true,
               "unavailable_reasons": [],
-              "success_probability": 0.95
+              "success_probability": 0.9
             }
           ],
           "success_probability": null
@@ -22431,7 +28939,7 @@ export const parallelTurn: TurnResponse = {
           "action_type": "event",
           "objective_rewards": [],
           "text": "Use scanner-guided treatment",
-          "description": "Guaranteed 20-health recovery for the selected patient. Consumes medicine; the scanner is retained.",
+          "description": "Use the retained scanner and 1 medicine for guaranteed 5-health symptom relief and stabilization of one active condition (urgent first). Up to 2 recovery points apply during survival with full provisions and safe air.",
           "costs": {
             "medicine": 1.0
           },
@@ -22443,15 +28951,19 @@ export const parallelTurn: TurnResponse = {
           "crew_role_bonus": {},
           "success_chance": 1.0,
           "success_effects": {
+            "condition": null,
+            "treatment": 2,
             "resources": {},
             "solar_efficiency": 0.0,
             "oxygen_efficiency": 0.0,
             "water_recovery_efficiency": 0.0,
             "co2_efficiency": 0.0,
-            "crew_health": 20,
+            "crew_health": 5,
             "target": "selected"
           },
           "failure_effects": {
+            "condition": null,
+            "treatment": 0,
             "resources": {},
             "solar_efficiency": 0.0,
             "oxygen_efficiency": 0.0,
@@ -22517,6 +29029,8 @@ export const parallelTurn: TurnResponse = {
           "crew_role_bonus": {},
           "success_chance": 1.0,
           "success_effects": {
+            "condition": null,
+            "treatment": 0,
             "resources": {},
             "solar_efficiency": 0.0,
             "oxygen_efficiency": 0.0,
@@ -22526,6 +29040,8 @@ export const parallelTurn: TurnResponse = {
             "target": "all"
           },
           "failure_effects": {
+            "condition": null,
+            "treatment": 0,
             "resources": {},
             "solar_efficiency": 0.0,
             "oxygen_efficiency": 0.0,
@@ -22569,6 +29085,7 @@ export const parallelTurn: TurnResponse = {
           "success_probability": 1.0,
           "costs": {},
           "effects": {
+            "medical_changes": [],
             "resources": {},
             "solar_efficiency": 0.0,
             "oxygen_efficiency": 0.0,
@@ -22643,6 +29160,8 @@ export const parallelTurn: TurnResponse = {
               "crew_id": "alex",
               "before": 100,
               "after": 100,
+              "medical_penalty": 0,
+              "medical_changes": [],
               "food_received_fraction": 1.0,
               "water_received_fraction": 1.0,
               "nutrition_before": 0.0,
@@ -22662,6 +29181,8 @@ export const parallelTurn: TurnResponse = {
               "crew_id": "lin",
               "before": 100,
               "after": 100,
+              "medical_penalty": 0,
+              "medical_changes": [],
               "food_received_fraction": 1.0,
               "water_received_fraction": 1.0,
               "nutrition_before": 0.0,
@@ -22681,6 +29202,8 @@ export const parallelTurn: TurnResponse = {
               "crew_id": "sam",
               "before": 100,
               "after": 100,
+              "medical_penalty": 0,
+              "medical_changes": [],
               "food_received_fraction": 1.0,
               "water_received_fraction": 1.0,
               "nutrition_before": 0.0,
@@ -22700,6 +29223,8 @@ export const parallelTurn: TurnResponse = {
               "crew_id": "maya",
               "before": 100,
               "after": 100,
+              "medical_penalty": 0,
+              "medical_changes": [],
               "food_received_fraction": 1.0,
               "water_received_fraction": 1.0,
               "nutrition_before": 0.0,
@@ -22739,6 +29264,7 @@ export const parallelTurn: TurnResponse = {
           "event_id": "oxygen_fault",
           "title": "Life Support Alarm",
           "effects": {
+            "medical_changes": [],
             "resources": {},
             "solar_efficiency": 0.0,
             "oxygen_efficiency": -0.25,
@@ -22753,6 +29279,8 @@ export const parallelTurn: TurnResponse = {
         "project_updates": [],
         "assignments": [
           {
+            "patient_id": null,
+            "condition_id": null,
             "crew_id": "sam",
             "activity_id": "research_geology",
             "status": "completed",
@@ -22769,6 +29297,7 @@ export const parallelTurn: TurnResponse = {
                 "oxygen": 2.0
               },
               "effects": {
+                "medical_changes": [],
                 "resources": {
                   "research_data": 2.0
                 },
@@ -22789,6 +29318,8 @@ export const parallelTurn: TurnResponse = {
             "reason": null
           },
           {
+            "patient_id": null,
+            "condition_id": null,
             "crew_id": "maya",
             "activity_id": "research_instrument",
             "status": "completed",
@@ -22805,6 +29336,7 @@ export const parallelTurn: TurnResponse = {
                 "electricity": 2.0
               },
               "effects": {
+                "medical_changes": [],
                 "resources": {
                   "research_data": 2.0
                 },
@@ -22852,6 +29384,7 @@ export const parallelTurn: TurnResponse = {
             "electricity": 3.0
           },
           "effects": {
+            "medical_changes": [],
             "resources": {},
             "solar_efficiency": 0.0,
             "oxygen_efficiency": 0.2,
@@ -22926,6 +29459,8 @@ export const parallelTurn: TurnResponse = {
               "crew_id": "alex",
               "before": 100,
               "after": 100,
+              "medical_penalty": 0,
+              "medical_changes": [],
               "food_received_fraction": 1.0,
               "water_received_fraction": 1.0,
               "nutrition_before": 0.0,
@@ -22945,6 +29480,8 @@ export const parallelTurn: TurnResponse = {
               "crew_id": "lin",
               "before": 100,
               "after": 100,
+              "medical_penalty": 0,
+              "medical_changes": [],
               "food_received_fraction": 1.0,
               "water_received_fraction": 1.0,
               "nutrition_before": 0.0,
@@ -22964,6 +29501,8 @@ export const parallelTurn: TurnResponse = {
               "crew_id": "sam",
               "before": 100,
               "after": 100,
+              "medical_penalty": 0,
+              "medical_changes": [],
               "food_received_fraction": 1.0,
               "water_received_fraction": 1.0,
               "nutrition_before": 0.0,
@@ -22983,6 +29522,8 @@ export const parallelTurn: TurnResponse = {
               "crew_id": "maya",
               "before": 100,
               "after": 100,
+              "medical_penalty": 0,
+              "medical_changes": [],
               "food_received_fraction": 1.0,
               "water_received_fraction": 1.0,
               "nutrition_before": 0.0,
@@ -23022,6 +29563,68 @@ export const parallelTurn: TurnResponse = {
           "event_id": "medical_emergency",
           "title": "Contaminated Air Filter",
           "effects": {
+            "medical_changes": [
+              {
+                "crew_id": "alex",
+                "kind": "dust_irritation",
+                "action": "acquired",
+                "reason": null,
+                "before": null,
+                "after": {
+                  "kind": "dust_irritation",
+                  "remaining": 2,
+                  "acquired_week": 3,
+                  "stabilized": false,
+                  "care_week": 0,
+                  "care_points": 0
+                }
+              },
+              {
+                "crew_id": "lin",
+                "kind": "dust_irritation",
+                "action": "acquired",
+                "reason": null,
+                "before": null,
+                "after": {
+                  "kind": "dust_irritation",
+                  "remaining": 2,
+                  "acquired_week": 3,
+                  "stabilized": false,
+                  "care_week": 0,
+                  "care_points": 0
+                }
+              },
+              {
+                "crew_id": "sam",
+                "kind": "dust_irritation",
+                "action": "acquired",
+                "reason": null,
+                "before": null,
+                "after": {
+                  "kind": "dust_irritation",
+                  "remaining": 2,
+                  "acquired_week": 3,
+                  "stabilized": false,
+                  "care_week": 0,
+                  "care_points": 0
+                }
+              },
+              {
+                "crew_id": "maya",
+                "kind": "dust_irritation",
+                "action": "acquired",
+                "reason": null,
+                "before": null,
+                "after": {
+                  "kind": "dust_irritation",
+                  "remaining": 2,
+                  "acquired_week": 3,
+                  "stabilized": false,
+                  "care_week": 0,
+                  "care_points": 0
+                }
+              }
+            ],
             "resources": {},
             "solar_efficiency": 0.0,
             "oxygen_efficiency": 0.0,
@@ -23125,6 +29728,8 @@ export const parallelTurn: TurnResponse = {
         "crew_role_bonus": {},
         "success_chance": 1.0,
         "success_effects": {
+          "condition": null,
+          "treatment": 0,
           "resources": {},
           "solar_efficiency": 0.0,
           "oxygen_efficiency": 0.0,
@@ -23134,6 +29739,148 @@ export const parallelTurn: TurnResponse = {
           "target": "selected"
         },
         "failure_effects": {
+          "condition": null,
+          "treatment": 0,
+          "resources": {},
+          "solar_efficiency": 0.0,
+          "oxygen_efficiency": 0.0,
+          "water_recovery_efficiency": 0.0,
+          "co2_efficiency": 0.0,
+          "crew_health": 0,
+          "target": "selected"
+        },
+        "required_role": null,
+        "minimum_crew": 1,
+        "available": true,
+        "unavailable_reasons": [],
+        "eligible_crew": [
+          {
+            "crew_id": "alex",
+            "available": true,
+            "unavailable_reasons": [],
+            "success_probability": 1.0
+          },
+          {
+            "crew_id": "lin",
+            "available": true,
+            "unavailable_reasons": [],
+            "success_probability": 1.0
+          },
+          {
+            "crew_id": "sam",
+            "available": true,
+            "unavailable_reasons": [],
+            "success_probability": 1.0
+          },
+          {
+            "crew_id": "maya",
+            "available": true,
+            "unavailable_reasons": [],
+            "success_probability": 1.0
+          }
+        ],
+        "success_probability": null
+      },
+      {
+        "workload": "light",
+        "support_candidates": [],
+        "id": "medical_care",
+        "action_type": "medical",
+        "objective_rewards": [],
+        "text": "Provide medical care",
+        "description": "Reserve caregiver and patient for one week, plus 1 medicine. Stabilizes the chosen condition immediately. A fit medic earns 2 recovery points; another fit caregiver earns 1 (2 with a retained diagnostic scanner). Progress needs full actual provisions and safe air. Both crew are occupied, even if recovery stalls.",
+        "costs": {
+          "medicine": 1.0
+        },
+        "required_items": {},
+        "requires_crew": true,
+        "role_bonus": {},
+        "crew_role_bonus": {},
+        "success_chance": 1.0,
+        "success_effects": {
+          "condition": null,
+          "treatment": 0,
+          "resources": {},
+          "solar_efficiency": 0.0,
+          "oxygen_efficiency": 0.0,
+          "water_recovery_efficiency": 0.0,
+          "co2_efficiency": 0.0,
+          "crew_health": 0,
+          "target": "selected"
+        },
+        "failure_effects": {
+          "condition": null,
+          "treatment": 0,
+          "resources": {},
+          "solar_efficiency": 0.0,
+          "oxygen_efficiency": 0.0,
+          "water_recovery_efficiency": 0.0,
+          "co2_efficiency": 0.0,
+          "crew_health": 0,
+          "target": "selected"
+        },
+        "required_role": null,
+        "minimum_crew": 1,
+        "available": true,
+        "unavailable_reasons": [],
+        "eligible_crew": [
+          {
+            "crew_id": "alex",
+            "available": true,
+            "unavailable_reasons": [],
+            "success_probability": 1.0
+          },
+          {
+            "crew_id": "lin",
+            "available": true,
+            "unavailable_reasons": [],
+            "success_probability": 1.0
+          },
+          {
+            "crew_id": "sam",
+            "available": true,
+            "unavailable_reasons": [],
+            "success_probability": 1.0
+          },
+          {
+            "crew_id": "maya",
+            "available": true,
+            "unavailable_reasons": [],
+            "success_probability": 1.0
+          }
+        ],
+        "success_probability": null
+      },
+      {
+        "workload": "rest",
+        "support_candidates": [],
+        "id": "self_care",
+        "action_type": "medical",
+        "objective_rewards": [],
+        "text": "Self-care and stabilization",
+        "description": "One astronaut and 1 medicine. Available even when critically unfit; treats only their own chosen condition. Stabilizes immediately and earns 1 recovery point with full actual provisions and safe air. No work or incident duty that week.",
+        "costs": {
+          "medicine": 1.0
+        },
+        "required_items": {},
+        "requires_crew": true,
+        "role_bonus": {},
+        "crew_role_bonus": {},
+        "success_chance": 1.0,
+        "success_effects": {
+          "condition": null,
+          "treatment": 0,
+          "resources": {},
+          "solar_efficiency": 0.0,
+          "oxygen_efficiency": 0.0,
+          "water_recovery_efficiency": 0.0,
+          "co2_efficiency": 0.0,
+          "crew_health": 0,
+          "target": "selected"
+        },
+        "failure_effects": {
+          "condition": null,
+          "treatment": 0,
           "resources": {},
           "solar_efficiency": 0.0,
           "oxygen_efficiency": 0.0,
@@ -23193,6 +29940,8 @@ export const parallelTurn: TurnResponse = {
         "crew_role_bonus": {},
         "success_chance": 1.0,
         "success_effects": {
+          "condition": null,
+          "treatment": 0,
           "resources": {},
           "solar_efficiency": 0.2,
           "oxygen_efficiency": 0.0,
@@ -23202,6 +29951,8 @@ export const parallelTurn: TurnResponse = {
           "target": "selected"
         },
         "failure_effects": {
+          "condition": null,
+          "treatment": 0,
           "resources": {},
           "solar_efficiency": 0.0,
           "oxygen_efficiency": 0.0,
@@ -23214,6 +29965,8 @@ export const parallelTurn: TurnResponse = {
         "minimum_crew": 1,
         "available": false,
         "unavailable_reasons": [
+          "Requires at least 1 living astronauts fit for this workload.",
+          "Respiratory irritation: EVA unavailable until recovered; indoor work remains possible.",
           "Requires 1 dust_kits; available 0."
         ],
         "eligible_crew": [
@@ -23221,6 +29974,8 @@ export const parallelTurn: TurnResponse = {
             "crew_id": "alex",
             "available": false,
             "unavailable_reasons": [
+              "Requires at least 1 living astronauts fit for this workload.",
+              "Respiratory irritation: EVA unavailable until recovered; indoor work remains possible.",
               "Requires 1 dust_kits; available 0."
             ],
             "success_probability": 1.0
@@ -23229,6 +29984,8 @@ export const parallelTurn: TurnResponse = {
             "crew_id": "lin",
             "available": false,
             "unavailable_reasons": [
+              "Requires at least 1 living astronauts fit for this workload.",
+              "Respiratory irritation: EVA unavailable until recovered; indoor work remains possible.",
               "Requires 1 dust_kits; available 0."
             ],
             "success_probability": 1.0
@@ -23237,6 +29994,8 @@ export const parallelTurn: TurnResponse = {
             "crew_id": "sam",
             "available": false,
             "unavailable_reasons": [
+              "Requires at least 1 living astronauts fit for this workload.",
+              "Respiratory irritation: EVA unavailable until recovered; indoor work remains possible.",
               "Requires 1 dust_kits; available 0."
             ],
             "success_probability": 1.0
@@ -23245,6 +30004,8 @@ export const parallelTurn: TurnResponse = {
             "crew_id": "maya",
             "available": false,
             "unavailable_reasons": [
+              "Requires at least 1 living astronauts fit for this workload.",
+              "Respiratory irritation: EVA unavailable until recovered; indoor work remains possible.",
               "Requires 1 dust_kits; available 0."
             ],
             "success_probability": 1.0
@@ -23270,6 +30031,8 @@ export const parallelTurn: TurnResponse = {
         "crew_role_bonus": {},
         "success_chance": 1.0,
         "success_effects": {
+          "condition": null,
+          "treatment": 0,
           "resources": {},
           "solar_efficiency": 0.0,
           "oxygen_efficiency": 0.2,
@@ -23279,6 +30042,8 @@ export const parallelTurn: TurnResponse = {
           "target": "selected"
         },
         "failure_effects": {
+          "condition": null,
+          "treatment": 0,
           "resources": {},
           "solar_efficiency": 0.0,
           "oxygen_efficiency": 0.0,
@@ -23347,6 +30112,8 @@ export const parallelTurn: TurnResponse = {
         "crew_role_bonus": {},
         "success_chance": 1.0,
         "success_effects": {
+          "condition": null,
+          "treatment": 0,
           "resources": {},
           "solar_efficiency": 0.0,
           "oxygen_efficiency": 0.0,
@@ -23356,6 +30123,8 @@ export const parallelTurn: TurnResponse = {
           "target": "selected"
         },
         "failure_effects": {
+          "condition": null,
+          "treatment": 0,
           "resources": {},
           "solar_efficiency": 0.0,
           "oxygen_efficiency": 0.0,
@@ -23414,6 +30183,8 @@ export const parallelTurn: TurnResponse = {
         "crew_role_bonus": {},
         "success_chance": 1.0,
         "success_effects": {
+          "condition": null,
+          "treatment": 0,
           "resources": {},
           "solar_efficiency": 0.0,
           "oxygen_efficiency": 0.0,
@@ -23423,6 +30194,8 @@ export const parallelTurn: TurnResponse = {
           "target": "selected"
         },
         "failure_effects": {
+          "condition": null,
+          "treatment": 0,
           "resources": {},
           "solar_efficiency": 0.0,
           "oxygen_efficiency": 0.0,
@@ -23476,7 +30249,7 @@ export const parallelTurn: TurnResponse = {
           }
         ],
         "text": "Survey a geological sample",
-        "description": "Use the science kit to collect one sample and 2 research data on success. Scientists improve the odds; failure costs the worker 8 health. One-week crew assignment; incident response is separate.",
+        "description": "Use the science kit to collect one sample and 2 research data on success. Scientists improve the odds; failure costs the worker 8 health and causes a sprain. One-week crew assignment; incident response is separate.",
         "costs": {
           "eva_batteries": 1.0,
           "oxygen": 2.0
@@ -23492,6 +30265,8 @@ export const parallelTurn: TurnResponse = {
         "crew_role_bonus": {},
         "success_chance": 0.75,
         "success_effects": {
+          "condition": null,
+          "treatment": 0,
           "resources": {
             "research_data": 2.0
           },
@@ -23503,6 +30278,8 @@ export const parallelTurn: TurnResponse = {
           "target": "selected"
         },
         "failure_effects": {
+          "condition": "sprain",
+          "treatment": 0,
           "resources": {},
           "solar_efficiency": 0.0,
           "oxygen_efficiency": 0.0,
@@ -23513,32 +30290,47 @@ export const parallelTurn: TurnResponse = {
         },
         "required_role": null,
         "minimum_crew": 1,
-        "available": true,
-        "unavailable_reasons": [],
+        "available": false,
+        "unavailable_reasons": [
+          "Requires at least 1 living astronauts fit for this workload.",
+          "Respiratory irritation: EVA unavailable until recovered; indoor work remains possible."
+        ],
         "eligible_crew": [
           {
             "crew_id": "alex",
-            "available": true,
-            "unavailable_reasons": [],
-            "success_probability": 0.8
+            "available": false,
+            "unavailable_reasons": [
+              "Requires at least 1 living astronauts fit for this workload.",
+              "Respiratory irritation: EVA unavailable until recovered; indoor work remains possible."
+            ],
+            "success_probability": 0.75
           },
           {
             "crew_id": "lin",
-            "available": true,
-            "unavailable_reasons": [],
-            "success_probability": 0.95
+            "available": false,
+            "unavailable_reasons": [
+              "Requires at least 1 living astronauts fit for this workload.",
+              "Respiratory irritation: EVA unavailable until recovered; indoor work remains possible."
+            ],
+            "success_probability": 0.9
           },
           {
             "crew_id": "sam",
-            "available": true,
-            "unavailable_reasons": [],
-            "success_probability": 0.8
+            "available": false,
+            "unavailable_reasons": [
+              "Requires at least 1 living astronauts fit for this workload.",
+              "Respiratory irritation: EVA unavailable until recovered; indoor work remains possible."
+            ],
+            "success_probability": 0.75
           },
           {
             "crew_id": "maya",
-            "available": true,
-            "unavailable_reasons": [],
-            "success_probability": 0.75
+            "available": false,
+            "unavailable_reasons": [
+              "Requires at least 1 living astronauts fit for this workload.",
+              "Respiratory irritation: EVA unavailable until recovered; indoor work remains possible."
+            ],
+            "success_probability": 0.7
           }
         ],
         "success_probability": null
@@ -23550,7 +30342,7 @@ export const parallelTurn: TurnResponse = {
         "action_type": "research",
         "objective_rewards": [],
         "text": "Deploy seismic sensors",
-        "description": "Start a seismic project: 1 deployment week, 3 automatic recording weeks at 2 power each, then 1 crew analysis week. No objective credit until analysis succeeds. Failure costs 8 worker health and deployment supplies; the phase can be retried.",
+        "description": "Start a seismic project: 1 deployment week, 3 automatic recording weeks at 2 power each, then 1 crew analysis week. No objective credit until analysis succeeds. Failure causes a sprain and costs 8 health and deployment supplies; the phase can be retried.",
         "costs": {
           "electricity": 2.0,
           "eva_batteries": 1.0,
@@ -23567,6 +30359,8 @@ export const parallelTurn: TurnResponse = {
         "crew_role_bonus": {},
         "success_chance": 0.75,
         "success_effects": {
+          "condition": null,
+          "treatment": 0,
           "resources": {},
           "solar_efficiency": 0.0,
           "oxygen_efficiency": 0.0,
@@ -23576,6 +30370,8 @@ export const parallelTurn: TurnResponse = {
           "target": "selected"
         },
         "failure_effects": {
+          "condition": "sprain",
+          "treatment": 0,
           "resources": {},
           "solar_efficiency": 0.0,
           "oxygen_efficiency": 0.0,
@@ -23586,32 +30382,47 @@ export const parallelTurn: TurnResponse = {
         },
         "required_role": null,
         "minimum_crew": 1,
-        "available": true,
-        "unavailable_reasons": [],
+        "available": false,
+        "unavailable_reasons": [
+          "Requires at least 1 living astronauts fit for this workload.",
+          "Respiratory irritation: EVA unavailable until recovered; indoor work remains possible."
+        ],
         "eligible_crew": [
           {
             "crew_id": "alex",
-            "available": true,
-            "unavailable_reasons": [],
-            "success_probability": 0.8
+            "available": false,
+            "unavailable_reasons": [
+              "Requires at least 1 living astronauts fit for this workload.",
+              "Respiratory irritation: EVA unavailable until recovered; indoor work remains possible."
+            ],
+            "success_probability": 0.75
           },
           {
             "crew_id": "lin",
-            "available": true,
-            "unavailable_reasons": [],
-            "success_probability": 0.95
+            "available": false,
+            "unavailable_reasons": [
+              "Requires at least 1 living astronauts fit for this workload.",
+              "Respiratory irritation: EVA unavailable until recovered; indoor work remains possible."
+            ],
+            "success_probability": 0.9
           },
           {
             "crew_id": "sam",
-            "available": true,
-            "unavailable_reasons": [],
-            "success_probability": 0.8
+            "available": false,
+            "unavailable_reasons": [
+              "Requires at least 1 living astronauts fit for this workload.",
+              "Respiratory irritation: EVA unavailable until recovered; indoor work remains possible."
+            ],
+            "success_probability": 0.75
           },
           {
             "crew_id": "maya",
-            "available": true,
-            "unavailable_reasons": [],
-            "success_probability": 0.75
+            "available": false,
+            "unavailable_reasons": [
+              "Requires at least 1 living astronauts fit for this workload.",
+              "Respiratory irritation: EVA unavailable until recovered; indoor work remains possible."
+            ],
+            "success_probability": 0.7
           }
         ],
         "success_probability": null
@@ -23622,6 +30433,8 @@ export const parallelTurn: TurnResponse = {
     "project_updates": [],
     "assignments": [
       {
+        "patient_id": null,
+        "condition_id": null,
         "crew_id": "sam",
         "activity_id": "research_geology",
         "status": "completed",
@@ -23638,6 +30451,7 @@ export const parallelTurn: TurnResponse = {
             "oxygen": 2.0
           },
           "effects": {
+            "medical_changes": [],
             "resources": {
               "research_data": 2.0
             },
@@ -23658,6 +30472,8 @@ export const parallelTurn: TurnResponse = {
         "reason": null
       },
       {
+        "patient_id": null,
+        "condition_id": null,
         "crew_id": "maya",
         "activity_id": "research_instrument",
         "status": "completed",
@@ -23674,6 +30490,7 @@ export const parallelTurn: TurnResponse = {
             "electricity": 2.0
           },
           "effects": {
+            "medical_changes": [],
             "resources": {
               "research_data": 2.0
             },
@@ -23721,6 +30538,7 @@ export const parallelTurn: TurnResponse = {
         "electricity": 3.0
       },
       "effects": {
+        "medical_changes": [],
         "resources": {},
         "solar_efficiency": 0.0,
         "oxygen_efficiency": 0.2,
@@ -23795,6 +30613,8 @@ export const parallelTurn: TurnResponse = {
           "crew_id": "alex",
           "before": 100,
           "after": 100,
+          "medical_penalty": 0,
+          "medical_changes": [],
           "food_received_fraction": 1.0,
           "water_received_fraction": 1.0,
           "nutrition_before": 0.0,
@@ -23814,6 +30634,8 @@ export const parallelTurn: TurnResponse = {
           "crew_id": "lin",
           "before": 100,
           "after": 100,
+          "medical_penalty": 0,
+          "medical_changes": [],
           "food_received_fraction": 1.0,
           "water_received_fraction": 1.0,
           "nutrition_before": 0.0,
@@ -23833,6 +30655,8 @@ export const parallelTurn: TurnResponse = {
           "crew_id": "sam",
           "before": 100,
           "after": 100,
+          "medical_penalty": 0,
+          "medical_changes": [],
           "food_received_fraction": 1.0,
           "water_received_fraction": 1.0,
           "nutrition_before": 0.0,
@@ -23852,6 +30676,8 @@ export const parallelTurn: TurnResponse = {
           "crew_id": "maya",
           "before": 100,
           "after": 100,
+          "medical_penalty": 0,
+          "medical_changes": [],
           "food_received_fraction": 1.0,
           "water_received_fraction": 1.0,
           "nutrition_before": 0.0,
@@ -23891,6 +30717,68 @@ export const parallelTurn: TurnResponse = {
       "event_id": "medical_emergency",
       "title": "Contaminated Air Filter",
       "effects": {
+        "medical_changes": [
+          {
+            "crew_id": "alex",
+            "kind": "dust_irritation",
+            "action": "acquired",
+            "reason": null,
+            "before": null,
+            "after": {
+              "kind": "dust_irritation",
+              "remaining": 2,
+              "acquired_week": 3,
+              "stabilized": false,
+              "care_week": 0,
+              "care_points": 0
+            }
+          },
+          {
+            "crew_id": "lin",
+            "kind": "dust_irritation",
+            "action": "acquired",
+            "reason": null,
+            "before": null,
+            "after": {
+              "kind": "dust_irritation",
+              "remaining": 2,
+              "acquired_week": 3,
+              "stabilized": false,
+              "care_week": 0,
+              "care_points": 0
+            }
+          },
+          {
+            "crew_id": "sam",
+            "kind": "dust_irritation",
+            "action": "acquired",
+            "reason": null,
+            "before": null,
+            "after": {
+              "kind": "dust_irritation",
+              "remaining": 2,
+              "acquired_week": 3,
+              "stabilized": false,
+              "care_week": 0,
+              "care_points": 0
+            }
+          },
+          {
+            "crew_id": "maya",
+            "kind": "dust_irritation",
+            "action": "acquired",
+            "reason": null,
+            "before": null,
+            "after": {
+              "kind": "dust_irritation",
+              "remaining": 2,
+              "acquired_week": 3,
+              "stabilized": false,
+              "care_week": 0,
+              "care_points": 0
+            }
+          }
+        ],
         "resources": {},
         "solar_efficiency": 0.0,
         "oxygen_efficiency": 0.0,
@@ -24086,6 +30974,7 @@ export const projectRecording: GameResponse = {
     },
     "crew": [
       {
+        "medical_conditions": [],
         "nutrition_deficit": 0.0,
         "hydration_deficit": 0.0,
         "condition": {
@@ -24152,6 +31041,7 @@ export const projectRecording: GameResponse = {
         }
       },
       {
+        "medical_conditions": [],
         "nutrition_deficit": 0.0,
         "hydration_deficit": 0.0,
         "condition": {
@@ -24248,6 +31138,8 @@ export const projectRecording: GameResponse = {
       "science_context": "Spacecraft life-support equipment needs maintenance. This regulator failure is a fictional training scenario.",
       "source_url": "https://www.nasa.gov/reference/9-0-hardware-and-equipment-vol-2/",
       "on_start": {
+        "condition": null,
+        "treatment": 0,
         "resources": {},
         "solar_efficiency": 0.0,
         "oxygen_efficiency": -0.25,
@@ -24277,6 +31169,8 @@ export const projectRecording: GameResponse = {
           "crew_role_bonus": {},
           "success_chance": 0.65,
           "success_effects": {
+            "condition": null,
+            "treatment": 0,
             "resources": {},
             "solar_efficiency": 0.0,
             "oxygen_efficiency": 0.25,
@@ -24286,6 +31180,8 @@ export const projectRecording: GameResponse = {
             "target": "selected"
           },
           "failure_effects": {
+            "condition": null,
+            "treatment": 0,
             "resources": {},
             "solar_efficiency": 0.0,
             "oxygen_efficiency": 0.0,
@@ -24345,6 +31241,8 @@ export const projectRecording: GameResponse = {
           "crew_role_bonus": {},
           "success_chance": 0.55,
           "success_effects": {
+            "condition": null,
+            "treatment": 0,
             "resources": {},
             "solar_efficiency": 0.0,
             "oxygen_efficiency": 0.2,
@@ -24354,6 +31252,8 @@ export const projectRecording: GameResponse = {
             "target": "selected"
           },
           "failure_effects": {
+            "condition": null,
+            "treatment": 0,
             "resources": {},
             "solar_efficiency": 0.0,
             "oxygen_efficiency": -0.1,
@@ -24397,6 +31297,8 @@ export const projectRecording: GameResponse = {
           "crew_role_bonus": {},
           "success_chance": 1.0,
           "success_effects": {
+            "condition": null,
+            "treatment": 0,
             "resources": {},
             "solar_efficiency": 0.0,
             "oxygen_efficiency": 0.0,
@@ -24406,6 +31308,8 @@ export const projectRecording: GameResponse = {
             "target": "selected"
           },
           "failure_effects": {
+            "condition": null,
+            "treatment": 0,
             "resources": {},
             "solar_efficiency": 0.0,
             "oxygen_efficiency": 0.0,
@@ -24443,6 +31347,8 @@ export const projectRecording: GameResponse = {
         ],
         "assignments": [
           {
+            "patient_id": null,
+            "condition_id": null,
             "crew_id": "lin",
             "activity_id": "research_seismic",
             "status": "completed",
@@ -24460,6 +31366,7 @@ export const projectRecording: GameResponse = {
                 "oxygen": 2.0
               },
               "effects": {
+                "medical_changes": [],
                 "resources": {},
                 "solar_efficiency": 0.0,
                 "oxygen_efficiency": 0.0,
@@ -24484,6 +31391,7 @@ export const projectRecording: GameResponse = {
           "success_probability": 1.0,
           "costs": {},
           "effects": {
+            "medical_changes": [],
             "resources": {},
             "solar_efficiency": 0.0,
             "oxygen_efficiency": 0.0,
@@ -24550,6 +31458,8 @@ export const projectRecording: GameResponse = {
               "crew_id": "alex",
               "before": 100,
               "after": 100,
+              "medical_penalty": 0,
+              "medical_changes": [],
               "food_received_fraction": 1.0,
               "water_received_fraction": 1.0,
               "nutrition_before": 0.0,
@@ -24569,6 +31479,8 @@ export const projectRecording: GameResponse = {
               "crew_id": "lin",
               "before": 100,
               "after": 100,
+              "medical_penalty": 0,
+              "medical_changes": [],
               "food_received_fraction": 1.0,
               "water_received_fraction": 1.0,
               "nutrition_before": 0.0,
@@ -24608,6 +31520,7 @@ export const projectRecording: GameResponse = {
           "event_id": "oxygen_fault",
           "title": "Life Support Alarm",
           "effects": {
+            "medical_changes": [],
             "resources": {},
             "solar_efficiency": 0.0,
             "oxygen_efficiency": -0.25,
@@ -24690,6 +31603,8 @@ export const projectRecording: GameResponse = {
         "crew_role_bonus": {},
         "success_chance": 1.0,
         "success_effects": {
+          "condition": null,
+          "treatment": 0,
           "resources": {},
           "solar_efficiency": 0.0,
           "oxygen_efficiency": 0.0,
@@ -24699,6 +31614,8 @@ export const projectRecording: GameResponse = {
           "target": "selected"
         },
         "failure_effects": {
+          "condition": null,
+          "treatment": 0,
           "resources": {},
           "solar_efficiency": 0.0,
           "oxygen_efficiency": 0.0,
@@ -24746,6 +31663,8 @@ export const projectRecording: GameResponse = {
         "crew_role_bonus": {},
         "success_chance": 1.0,
         "success_effects": {
+          "condition": null,
+          "treatment": 0,
           "resources": {},
           "solar_efficiency": 0.2,
           "oxygen_efficiency": 0.0,
@@ -24755,6 +31674,8 @@ export const projectRecording: GameResponse = {
           "target": "selected"
         },
         "failure_effects": {
+          "condition": null,
+          "treatment": 0,
           "resources": {},
           "solar_efficiency": 0.0,
           "oxygen_efficiency": 0.0,
@@ -24807,6 +31728,8 @@ export const projectRecording: GameResponse = {
         "crew_role_bonus": {},
         "success_chance": 1.0,
         "success_effects": {
+          "condition": null,
+          "treatment": 0,
           "resources": {},
           "solar_efficiency": 0.0,
           "oxygen_efficiency": 0.2,
@@ -24816,6 +31739,8 @@ export const projectRecording: GameResponse = {
           "target": "selected"
         },
         "failure_effects": {
+          "condition": null,
+          "treatment": 0,
           "resources": {},
           "solar_efficiency": 0.0,
           "oxygen_efficiency": 0.0,
@@ -24868,6 +31793,8 @@ export const projectRecording: GameResponse = {
         "crew_role_bonus": {},
         "success_chance": 1.0,
         "success_effects": {
+          "condition": null,
+          "treatment": 0,
           "resources": {},
           "solar_efficiency": 0.0,
           "oxygen_efficiency": 0.0,
@@ -24877,6 +31804,8 @@ export const projectRecording: GameResponse = {
           "target": "selected"
         },
         "failure_effects": {
+          "condition": null,
+          "treatment": 0,
           "resources": {},
           "solar_efficiency": 0.0,
           "oxygen_efficiency": 0.0,
@@ -24923,6 +31852,8 @@ export const projectRecording: GameResponse = {
         "crew_role_bonus": {},
         "success_chance": 1.0,
         "success_effects": {
+          "condition": null,
+          "treatment": 0,
           "resources": {},
           "solar_efficiency": 0.0,
           "oxygen_efficiency": 0.0,
@@ -24932,6 +31863,8 @@ export const projectRecording: GameResponse = {
           "target": "selected"
         },
         "failure_effects": {
+          "condition": null,
+          "treatment": 0,
           "resources": {},
           "solar_efficiency": 0.0,
           "oxygen_efficiency": 0.0,
@@ -24973,7 +31906,7 @@ export const projectRecording: GameResponse = {
           }
         ],
         "text": "Survey a geological sample",
-        "description": "Use the science kit to collect one sample and 2 research data on success. Scientists improve the odds; failure costs the worker 8 health. One-week crew assignment; incident response is separate.",
+        "description": "Use the science kit to collect one sample and 2 research data on success. Scientists improve the odds; failure costs the worker 8 health and causes a sprain. One-week crew assignment; incident response is separate.",
         "costs": {
           "eva_batteries": 1.0,
           "oxygen": 2.0
@@ -24989,6 +31922,8 @@ export const projectRecording: GameResponse = {
         "crew_role_bonus": {},
         "success_chance": 0.75,
         "success_effects": {
+          "condition": null,
+          "treatment": 0,
           "resources": {
             "research_data": 2.0
           },
@@ -25000,6 +31935,8 @@ export const projectRecording: GameResponse = {
           "target": "selected"
         },
         "failure_effects": {
+          "condition": "sprain",
+          "treatment": 0,
           "resources": {},
           "solar_efficiency": 0.0,
           "oxygen_efficiency": 0.0,
@@ -25058,6 +31995,8 @@ export const projectRecording: GameResponse = {
         "crew_role_bonus": {},
         "success_chance": 0.7,
         "success_effects": {
+          "condition": null,
+          "treatment": 0,
           "resources": {
             "research_data": 2.0
           },
@@ -25069,6 +32008,8 @@ export const projectRecording: GameResponse = {
           "target": "selected"
         },
         "failure_effects": {
+          "condition": null,
+          "treatment": 0,
           "resources": {},
           "solar_efficiency": 0.0,
           "oxygen_efficiency": 0.0,
@@ -25255,16 +32196,34 @@ export const projectPaused: GameResponse = {
     },
     "crew": [
       {
+        "medical_conditions": [
+          {
+            "kind": "dust_irritation",
+            "remaining": 2,
+            "acquired_week": 3,
+            "stabilized": false,
+            "care_week": 0,
+            "care_points": 0,
+            "title": "Dust-related respiratory irritation",
+            "urgent": false,
+            "rest_weeks": 2,
+            "medic_weeks": 1,
+            "untreated_damage": 1,
+            "source_url": "https://www.nasa.gov/reference/jsc-dust/"
+          }
+        ],
         "nutrition_deficit": 0.0,
         "hydration_deficit": 0.0,
         "condition": {
-          "status": "fit",
+          "status": "serious",
           "nutrition_status": "adequate",
           "hydration_status": "adequate",
           "can_work": true,
-          "can_do_eva": true,
-          "performance_penalty": 0.0,
-          "restrictions": [],
+          "can_do_eva": false,
+          "performance_penalty": 0.05,
+          "restrictions": [
+            "Respiratory irritation: EVA unavailable until recovered; indoor work remains possible."
+          ],
           "nutrition_recovery_weeks": 0,
           "hydration_recovery_weeks": 0,
           "source_url": "https://www.nasa.gov/reference/risk-of-inadequate-food-and-nutrition/"
@@ -25321,16 +32280,34 @@ export const projectPaused: GameResponse = {
         }
       },
       {
+        "medical_conditions": [
+          {
+            "kind": "dust_irritation",
+            "remaining": 2,
+            "acquired_week": 3,
+            "stabilized": false,
+            "care_week": 0,
+            "care_points": 0,
+            "title": "Dust-related respiratory irritation",
+            "urgent": false,
+            "rest_weeks": 2,
+            "medic_weeks": 1,
+            "untreated_damage": 1,
+            "source_url": "https://www.nasa.gov/reference/jsc-dust/"
+          }
+        ],
         "nutrition_deficit": 0.0,
         "hydration_deficit": 0.0,
         "condition": {
-          "status": "fit",
+          "status": "serious",
           "nutrition_status": "adequate",
           "hydration_status": "adequate",
           "can_work": true,
-          "can_do_eva": true,
-          "performance_penalty": 0.0,
-          "restrictions": [],
+          "can_do_eva": false,
+          "performance_penalty": 0.05,
+          "restrictions": [
+            "Respiratory irritation: EVA unavailable until recovered; indoor work remains possible."
+          ],
           "nutrition_recovery_weeks": 0,
           "hydration_recovery_weeks": 0,
           "source_url": "https://www.nasa.gov/reference/risk-of-inadequate-food-and-nutrition/"
@@ -25412,11 +32389,13 @@ export const projectPaused: GameResponse = {
     "current_event": {
       "id": "medical_emergency",
       "title": "Contaminated Air Filter",
-      "description": "An irritant escapes a filter. Every living astronaut loses 8 health on discovery.",
+      "description": "An irritant escapes a filter. Every living astronaut loses 8 health on discovery. All living crew develop dust-related respiratory irritation; named conditions need recovery as well as symptom relief.",
       "category": "hazard",
       "science_context": "Dust management matters for cabin cleanliness. The irritant incident and health changes here are fictional.",
       "source_url": "https://www.nasa.gov/reference/jsc-dust/",
       "on_start": {
+        "condition": "dust_irritation",
+        "treatment": 0,
         "resources": {},
         "solar_efficiency": 0.0,
         "oxygen_efficiency": 0.0,
@@ -25433,7 +32412,7 @@ export const projectPaused: GameResponse = {
           "action_type": "event",
           "objective_rewards": [],
           "text": "Treat an affected astronaut",
-          "description": "Select a patient. A living medic improves treatment. Failed treatment does not restore health.",
+          "description": "Select a patient. A living medic improves success. Costs 1 medicine; success gives 5 health, stabilizes one active condition (urgent first), and supplies up to 2 recovery points at survival with full provisions and safe air. Failure costs 5 health.",
           "costs": {
             "medicine": 1.0
           },
@@ -25445,15 +32424,19 @@ export const projectPaused: GameResponse = {
           },
           "success_chance": 0.7,
           "success_effects": {
+            "condition": null,
+            "treatment": 2,
             "resources": {},
             "solar_efficiency": 0.0,
             "oxygen_efficiency": 0.0,
             "water_recovery_efficiency": 0.0,
             "co2_efficiency": 0.0,
-            "crew_health": 30,
+            "crew_health": 5,
             "target": "selected"
           },
           "failure_effects": {
+            "condition": null,
+            "treatment": 0,
             "resources": {},
             "solar_efficiency": 0.0,
             "oxygen_efficiency": 0.0,
@@ -25483,7 +32466,7 @@ export const projectPaused: GameResponse = {
           "success_probability": null
         },
         {
-          "workload": "strenuous",
+          "workload": "light",
           "support_candidates": [
             {
               "crew_id": "alex",
@@ -25512,6 +32495,8 @@ export const projectPaused: GameResponse = {
           "crew_role_bonus": {},
           "success_chance": 0.75,
           "success_effects": {
+            "condition": null,
+            "treatment": 0,
             "resources": {},
             "solar_efficiency": 0.0,
             "oxygen_efficiency": 0.0,
@@ -25521,6 +32506,8 @@ export const projectPaused: GameResponse = {
             "target": "all"
           },
           "failure_effects": {
+            "condition": null,
+            "treatment": 0,
             "resources": {},
             "solar_efficiency": 0.0,
             "oxygen_efficiency": 0.0,
@@ -25542,7 +32529,7 @@ export const projectPaused: GameResponse = {
               "unavailable_reasons": [
                 "Requires a living medic."
               ],
-              "success_probability": 0.8
+              "success_probability": 0.75
             },
             {
               "crew_id": "lin",
@@ -25550,7 +32537,7 @@ export const projectPaused: GameResponse = {
               "unavailable_reasons": [
                 "Requires a living medic."
               ],
-              "success_probability": 0.75
+              "success_probability": 0.7
             }
           ],
           "success_probability": null
@@ -25562,7 +32549,7 @@ export const projectPaused: GameResponse = {
           "action_type": "event",
           "objective_rewards": [],
           "text": "Use scanner-guided treatment",
-          "description": "Guaranteed 20-health recovery for the selected patient. Consumes medicine; the scanner is retained.",
+          "description": "Use the retained scanner and 1 medicine for guaranteed 5-health symptom relief and stabilization of one active condition (urgent first). Up to 2 recovery points apply during survival with full provisions and safe air.",
           "costs": {
             "medicine": 1.0
           },
@@ -25574,15 +32561,19 @@ export const projectPaused: GameResponse = {
           "crew_role_bonus": {},
           "success_chance": 1.0,
           "success_effects": {
+            "condition": null,
+            "treatment": 2,
             "resources": {},
             "solar_efficiency": 0.0,
             "oxygen_efficiency": 0.0,
             "water_recovery_efficiency": 0.0,
             "co2_efficiency": 0.0,
-            "crew_health": 20,
+            "crew_health": 5,
             "target": "selected"
           },
           "failure_effects": {
+            "condition": null,
+            "treatment": 0,
             "resources": {},
             "solar_efficiency": 0.0,
             "oxygen_efficiency": 0.0,
@@ -25632,6 +32623,8 @@ export const projectPaused: GameResponse = {
           "crew_role_bonus": {},
           "success_chance": 1.0,
           "success_effects": {
+            "condition": null,
+            "treatment": 0,
             "resources": {},
             "solar_efficiency": 0.0,
             "oxygen_efficiency": 0.0,
@@ -25641,6 +32634,8 @@ export const projectPaused: GameResponse = {
             "target": "all"
           },
           "failure_effects": {
+            "condition": null,
+            "treatment": 0,
             "resources": {},
             "solar_efficiency": 0.0,
             "oxygen_efficiency": 0.0,
@@ -25679,6 +32674,8 @@ export const projectPaused: GameResponse = {
         ],
         "assignments": [
           {
+            "patient_id": null,
+            "condition_id": null,
             "crew_id": "lin",
             "activity_id": "research_seismic",
             "status": "completed",
@@ -25696,6 +32693,7 @@ export const projectPaused: GameResponse = {
                 "oxygen": 2.0
               },
               "effects": {
+                "medical_changes": [],
                 "resources": {},
                 "solar_efficiency": 0.0,
                 "oxygen_efficiency": 0.0,
@@ -25720,6 +32718,7 @@ export const projectPaused: GameResponse = {
           "success_probability": 1.0,
           "costs": {},
           "effects": {
+            "medical_changes": [],
             "resources": {},
             "solar_efficiency": 0.0,
             "oxygen_efficiency": 0.0,
@@ -25786,6 +32785,8 @@ export const projectPaused: GameResponse = {
               "crew_id": "alex",
               "before": 100,
               "after": 100,
+              "medical_penalty": 0,
+              "medical_changes": [],
               "food_received_fraction": 1.0,
               "water_received_fraction": 1.0,
               "nutrition_before": 0.0,
@@ -25805,6 +32806,8 @@ export const projectPaused: GameResponse = {
               "crew_id": "lin",
               "before": 100,
               "after": 100,
+              "medical_penalty": 0,
+              "medical_changes": [],
               "food_received_fraction": 1.0,
               "water_received_fraction": 1.0,
               "nutrition_before": 0.0,
@@ -25844,6 +32847,7 @@ export const projectPaused: GameResponse = {
           "event_id": "oxygen_fault",
           "title": "Life Support Alarm",
           "effects": {
+            "medical_changes": [],
             "resources": {},
             "solar_efficiency": 0.0,
             "oxygen_efficiency": -0.25,
@@ -25875,6 +32879,7 @@ export const projectPaused: GameResponse = {
           "success_probability": 1.0,
           "costs": {},
           "effects": {
+            "medical_changes": [],
             "resources": {},
             "solar_efficiency": 0.0,
             "oxygen_efficiency": 0.0,
@@ -25941,6 +32946,8 @@ export const projectPaused: GameResponse = {
               "crew_id": "alex",
               "before": 100,
               "after": 100,
+              "medical_penalty": 0,
+              "medical_changes": [],
               "food_received_fraction": 1.0,
               "water_received_fraction": 1.0,
               "nutrition_before": 0.0,
@@ -25960,6 +32967,8 @@ export const projectPaused: GameResponse = {
               "crew_id": "lin",
               "before": 100,
               "after": 100,
+              "medical_penalty": 0,
+              "medical_changes": [],
               "food_received_fraction": 1.0,
               "water_received_fraction": 1.0,
               "nutrition_before": 0.0,
@@ -25999,6 +33008,38 @@ export const projectPaused: GameResponse = {
           "event_id": "medical_emergency",
           "title": "Contaminated Air Filter",
           "effects": {
+            "medical_changes": [
+              {
+                "crew_id": "alex",
+                "kind": "dust_irritation",
+                "action": "acquired",
+                "reason": null,
+                "before": null,
+                "after": {
+                  "kind": "dust_irritation",
+                  "remaining": 2,
+                  "acquired_week": 3,
+                  "stabilized": false,
+                  "care_week": 0,
+                  "care_points": 0
+                }
+              },
+              {
+                "crew_id": "lin",
+                "kind": "dust_irritation",
+                "action": "acquired",
+                "reason": null,
+                "before": null,
+                "after": {
+                  "kind": "dust_irritation",
+                  "remaining": 2,
+                  "acquired_week": 3,
+                  "stabilized": false,
+                  "care_week": 0,
+                  "care_points": 0
+                }
+              }
+            ],
             "resources": {},
             "solar_efficiency": 0.0,
             "oxygen_efficiency": 0.0,
@@ -26092,6 +33133,8 @@ export const projectPaused: GameResponse = {
         "crew_role_bonus": {},
         "success_chance": 1.0,
         "success_effects": {
+          "condition": null,
+          "treatment": 0,
           "resources": {},
           "solar_efficiency": 0.0,
           "oxygen_efficiency": 0.0,
@@ -26101,6 +33144,124 @@ export const projectPaused: GameResponse = {
           "target": "selected"
         },
         "failure_effects": {
+          "condition": null,
+          "treatment": 0,
+          "resources": {},
+          "solar_efficiency": 0.0,
+          "oxygen_efficiency": 0.0,
+          "water_recovery_efficiency": 0.0,
+          "co2_efficiency": 0.0,
+          "crew_health": 0,
+          "target": "selected"
+        },
+        "required_role": null,
+        "minimum_crew": 1,
+        "available": true,
+        "unavailable_reasons": [],
+        "eligible_crew": [
+          {
+            "crew_id": "alex",
+            "available": true,
+            "unavailable_reasons": [],
+            "success_probability": 1.0
+          },
+          {
+            "crew_id": "lin",
+            "available": true,
+            "unavailable_reasons": [],
+            "success_probability": 1.0
+          }
+        ],
+        "success_probability": null
+      },
+      {
+        "workload": "light",
+        "support_candidates": [],
+        "id": "medical_care",
+        "action_type": "medical",
+        "objective_rewards": [],
+        "text": "Provide medical care",
+        "description": "Reserve caregiver and patient for one week, plus 1 medicine. Stabilizes the chosen condition immediately. A fit medic earns 2 recovery points; another fit caregiver earns 1 (2 with a retained diagnostic scanner). Progress needs full actual provisions and safe air. Both crew are occupied, even if recovery stalls.",
+        "costs": {
+          "medicine": 1.0
+        },
+        "required_items": {},
+        "requires_crew": true,
+        "role_bonus": {},
+        "crew_role_bonus": {},
+        "success_chance": 1.0,
+        "success_effects": {
+          "condition": null,
+          "treatment": 0,
+          "resources": {},
+          "solar_efficiency": 0.0,
+          "oxygen_efficiency": 0.0,
+          "water_recovery_efficiency": 0.0,
+          "co2_efficiency": 0.0,
+          "crew_health": 0,
+          "target": "selected"
+        },
+        "failure_effects": {
+          "condition": null,
+          "treatment": 0,
+          "resources": {},
+          "solar_efficiency": 0.0,
+          "oxygen_efficiency": 0.0,
+          "water_recovery_efficiency": 0.0,
+          "co2_efficiency": 0.0,
+          "crew_health": 0,
+          "target": "selected"
+        },
+        "required_role": null,
+        "minimum_crew": 1,
+        "available": true,
+        "unavailable_reasons": [],
+        "eligible_crew": [
+          {
+            "crew_id": "alex",
+            "available": true,
+            "unavailable_reasons": [],
+            "success_probability": 1.0
+          },
+          {
+            "crew_id": "lin",
+            "available": true,
+            "unavailable_reasons": [],
+            "success_probability": 1.0
+          }
+        ],
+        "success_probability": null
+      },
+      {
+        "workload": "rest",
+        "support_candidates": [],
+        "id": "self_care",
+        "action_type": "medical",
+        "objective_rewards": [],
+        "text": "Self-care and stabilization",
+        "description": "One astronaut and 1 medicine. Available even when critically unfit; treats only their own chosen condition. Stabilizes immediately and earns 1 recovery point with full actual provisions and safe air. No work or incident duty that week.",
+        "costs": {
+          "medicine": 1.0
+        },
+        "required_items": {},
+        "requires_crew": true,
+        "role_bonus": {},
+        "crew_role_bonus": {},
+        "success_chance": 1.0,
+        "success_effects": {
+          "condition": null,
+          "treatment": 0,
+          "resources": {},
+          "solar_efficiency": 0.0,
+          "oxygen_efficiency": 0.0,
+          "water_recovery_efficiency": 0.0,
+          "co2_efficiency": 0.0,
+          "crew_health": 0,
+          "target": "selected"
+        },
+        "failure_effects": {
+          "condition": null,
+          "treatment": 0,
           "resources": {},
           "solar_efficiency": 0.0,
           "oxygen_efficiency": 0.0,
@@ -26148,6 +33309,8 @@ export const projectPaused: GameResponse = {
         "crew_role_bonus": {},
         "success_chance": 1.0,
         "success_effects": {
+          "condition": null,
+          "treatment": 0,
           "resources": {},
           "solar_efficiency": 0.2,
           "oxygen_efficiency": 0.0,
@@ -26157,6 +33320,8 @@ export const projectPaused: GameResponse = {
           "target": "selected"
         },
         "failure_effects": {
+          "condition": null,
+          "treatment": 0,
           "resources": {},
           "solar_efficiency": 0.0,
           "oxygen_efficiency": 0.0,
@@ -26169,6 +33334,8 @@ export const projectPaused: GameResponse = {
         "minimum_crew": 1,
         "available": false,
         "unavailable_reasons": [
+          "Requires at least 1 living astronauts fit for this workload.",
+          "Respiratory irritation: EVA unavailable until recovered; indoor work remains possible.",
           "Requires 1 dust_kits; available 0."
         ],
         "eligible_crew": [
@@ -26176,6 +33343,8 @@ export const projectPaused: GameResponse = {
             "crew_id": "alex",
             "available": false,
             "unavailable_reasons": [
+              "Requires at least 1 living astronauts fit for this workload.",
+              "Respiratory irritation: EVA unavailable until recovered; indoor work remains possible.",
               "Requires 1 dust_kits; available 0."
             ],
             "success_probability": 1.0
@@ -26184,6 +33353,8 @@ export const projectPaused: GameResponse = {
             "crew_id": "lin",
             "available": false,
             "unavailable_reasons": [
+              "Requires at least 1 living astronauts fit for this workload.",
+              "Respiratory irritation: EVA unavailable until recovered; indoor work remains possible.",
               "Requires 1 dust_kits; available 0."
             ],
             "success_probability": 1.0
@@ -26209,6 +33380,8 @@ export const projectPaused: GameResponse = {
         "crew_role_bonus": {},
         "success_chance": 1.0,
         "success_effects": {
+          "condition": null,
+          "treatment": 0,
           "resources": {},
           "solar_efficiency": 0.0,
           "oxygen_efficiency": 0.2,
@@ -26218,6 +33391,8 @@ export const projectPaused: GameResponse = {
           "target": "selected"
         },
         "failure_effects": {
+          "condition": null,
+          "treatment": 0,
           "resources": {},
           "solar_efficiency": 0.0,
           "oxygen_efficiency": 0.0,
@@ -26270,6 +33445,8 @@ export const projectPaused: GameResponse = {
         "crew_role_bonus": {},
         "success_chance": 1.0,
         "success_effects": {
+          "condition": null,
+          "treatment": 0,
           "resources": {},
           "solar_efficiency": 0.0,
           "oxygen_efficiency": 0.0,
@@ -26279,6 +33456,8 @@ export const projectPaused: GameResponse = {
           "target": "selected"
         },
         "failure_effects": {
+          "condition": null,
+          "treatment": 0,
           "resources": {},
           "solar_efficiency": 0.0,
           "oxygen_efficiency": 0.0,
@@ -26325,6 +33504,8 @@ export const projectPaused: GameResponse = {
         "crew_role_bonus": {},
         "success_chance": 1.0,
         "success_effects": {
+          "condition": null,
+          "treatment": 0,
           "resources": {},
           "solar_efficiency": 0.0,
           "oxygen_efficiency": 0.0,
@@ -26334,6 +33515,8 @@ export const projectPaused: GameResponse = {
           "target": "selected"
         },
         "failure_effects": {
+          "condition": null,
+          "treatment": 0,
           "resources": {},
           "solar_efficiency": 0.0,
           "oxygen_efficiency": 0.0,
@@ -26375,7 +33558,7 @@ export const projectPaused: GameResponse = {
           }
         ],
         "text": "Survey a geological sample",
-        "description": "Use the science kit to collect one sample and 2 research data on success. Scientists improve the odds; failure costs the worker 8 health. One-week crew assignment; incident response is separate.",
+        "description": "Use the science kit to collect one sample and 2 research data on success. Scientists improve the odds; failure costs the worker 8 health and causes a sprain. One-week crew assignment; incident response is separate.",
         "costs": {
           "eva_batteries": 1.0,
           "oxygen": 2.0
@@ -26391,6 +33574,8 @@ export const projectPaused: GameResponse = {
         "crew_role_bonus": {},
         "success_chance": 0.75,
         "success_effects": {
+          "condition": null,
+          "treatment": 0,
           "resources": {
             "research_data": 2.0
           },
@@ -26402,6 +33587,8 @@ export const projectPaused: GameResponse = {
           "target": "selected"
         },
         "failure_effects": {
+          "condition": "sprain",
+          "treatment": 0,
           "resources": {},
           "solar_efficiency": 0.0,
           "oxygen_efficiency": 0.0,
@@ -26412,20 +33599,29 @@ export const projectPaused: GameResponse = {
         },
         "required_role": null,
         "minimum_crew": 1,
-        "available": true,
-        "unavailable_reasons": [],
+        "available": false,
+        "unavailable_reasons": [
+          "Requires at least 1 living astronauts fit for this workload.",
+          "Respiratory irritation: EVA unavailable until recovered; indoor work remains possible."
+        ],
         "eligible_crew": [
           {
             "crew_id": "alex",
-            "available": true,
-            "unavailable_reasons": [],
-            "success_probability": 0.8
+            "available": false,
+            "unavailable_reasons": [
+              "Requires at least 1 living astronauts fit for this workload.",
+              "Respiratory irritation: EVA unavailable until recovered; indoor work remains possible."
+            ],
+            "success_probability": 0.75
           },
           {
             "crew_id": "lin",
-            "available": true,
-            "unavailable_reasons": [],
-            "success_probability": 0.95
+            "available": false,
+            "unavailable_reasons": [
+              "Requires at least 1 living astronauts fit for this workload.",
+              "Respiratory irritation: EVA unavailable until recovered; indoor work remains possible."
+            ],
+            "success_probability": 0.9
           }
         ],
         "success_probability": null
@@ -26460,6 +33656,8 @@ export const projectPaused: GameResponse = {
         "crew_role_bonus": {},
         "success_chance": 0.7,
         "success_effects": {
+          "condition": null,
+          "treatment": 0,
           "resources": {
             "research_data": 2.0
           },
@@ -26471,6 +33669,8 @@ export const projectPaused: GameResponse = {
           "target": "selected"
         },
         "failure_effects": {
+          "condition": null,
+          "treatment": 0,
           "resources": {},
           "solar_efficiency": 0.0,
           "oxygen_efficiency": 0.0,
@@ -26488,13 +33688,13 @@ export const projectPaused: GameResponse = {
             "crew_id": "alex",
             "available": true,
             "unavailable_reasons": [],
-            "success_probability": 0.95
+            "success_probability": 0.9
           },
           {
             "crew_id": "lin",
             "available": true,
             "unavailable_reasons": [],
-            "success_probability": 0.8
+            "success_probability": 0.75
           }
         ],
         "success_probability": null
@@ -26635,16 +33835,34 @@ export const projectAnalysis: GameResponse = {
     },
     "crew": [
       {
+        "medical_conditions": [
+          {
+            "kind": "dust_irritation",
+            "remaining": 2,
+            "acquired_week": 3,
+            "stabilized": false,
+            "care_week": 0,
+            "care_points": 0,
+            "title": "Dust-related respiratory irritation",
+            "urgent": false,
+            "rest_weeks": 2,
+            "medic_weeks": 1,
+            "untreated_damage": 1,
+            "source_url": "https://www.nasa.gov/reference/jsc-dust/"
+          }
+        ],
         "nutrition_deficit": 0.0,
         "hydration_deficit": 0.0,
         "condition": {
-          "status": "fit",
+          "status": "serious",
           "nutrition_status": "adequate",
           "hydration_status": "adequate",
           "can_work": true,
-          "can_do_eva": true,
-          "performance_penalty": 0.0,
-          "restrictions": [],
+          "can_do_eva": false,
+          "performance_penalty": 0.05,
+          "restrictions": [
+            "Respiratory irritation: EVA unavailable until recovered; indoor work remains possible."
+          ],
           "nutrition_recovery_weeks": 0,
           "hydration_recovery_weeks": 0,
           "source_url": "https://www.nasa.gov/reference/risk-of-inadequate-food-and-nutrition/"
@@ -26672,7 +33890,7 @@ export const projectAnalysis: GameResponse = {
         "id": "alex",
         "name": "Alex Vega",
         "role": "engineer",
-        "health": 99,
+        "health": 93,
         "positive_trait": "Steady hands: +5 percentage points on assigned event actions.",
         "negative_trait": "Large appetite: consumes 10% more food.",
         "food_multiplier": 1.1,
@@ -26701,16 +33919,34 @@ export const projectAnalysis: GameResponse = {
         }
       },
       {
+        "medical_conditions": [
+          {
+            "kind": "dust_irritation",
+            "remaining": 2,
+            "acquired_week": 3,
+            "stabilized": false,
+            "care_week": 0,
+            "care_points": 0,
+            "title": "Dust-related respiratory irritation",
+            "urgent": false,
+            "rest_weeks": 2,
+            "medic_weeks": 1,
+            "untreated_damage": 1,
+            "source_url": "https://www.nasa.gov/reference/jsc-dust/"
+          }
+        ],
         "nutrition_deficit": 0.0,
         "hydration_deficit": 0.0,
         "condition": {
-          "status": "fit",
+          "status": "serious",
           "nutrition_status": "adequate",
           "hydration_status": "adequate",
           "can_work": true,
-          "can_do_eva": true,
-          "performance_penalty": 0.0,
-          "restrictions": [],
+          "can_do_eva": false,
+          "performance_penalty": 0.05,
+          "restrictions": [
+            "Respiratory irritation: EVA unavailable until recovered; indoor work remains possible."
+          ],
           "nutrition_recovery_weeks": 0,
           "hydration_recovery_weeks": 0,
           "source_url": "https://www.nasa.gov/reference/risk-of-inadequate-food-and-nutrition/"
@@ -26738,7 +33974,7 @@ export const projectAnalysis: GameResponse = {
         "id": "lin",
         "name": "Lin Park",
         "role": "scientist",
-        "health": 96,
+        "health": 90,
         "positive_trait": "Water conscious: consumes 10% less water.",
         "negative_trait": "Fragile: event injuries cause 20% more damage.",
         "food_multiplier": 1.0,
@@ -26797,6 +34033,8 @@ export const projectAnalysis: GameResponse = {
       "science_context": "Apollo seismometers recorded moonquakes. Their origins include tidal effects, impacts, and thermal changes.",
       "source_url": "https://science.nasa.gov/moon/moonquakes/",
       "on_start": {
+        "condition": null,
+        "treatment": 0,
         "resources": {},
         "solar_efficiency": 0.0,
         "oxygen_efficiency": 0.0,
@@ -26844,6 +34082,8 @@ export const projectAnalysis: GameResponse = {
           "crew_role_bonus": {},
           "success_chance": 0.7,
           "success_effects": {
+            "condition": null,
+            "treatment": 0,
             "resources": {
               "research_data": 5.0
             },
@@ -26855,6 +34095,8 @@ export const projectAnalysis: GameResponse = {
             "target": "selected"
           },
           "failure_effects": {
+            "condition": null,
+            "treatment": 0,
             "resources": {
               "electricity": -2.0
             },
@@ -26874,13 +34116,13 @@ export const projectAnalysis: GameResponse = {
               "crew_id": "alex",
               "available": true,
               "unavailable_reasons": [],
-              "success_probability": 0.75
+              "success_probability": 0.7
             },
             {
               "crew_id": "lin",
               "available": true,
               "unavailable_reasons": [],
-              "success_probability": 0.9
+              "success_probability": 0.85
             }
           ],
           "success_probability": null
@@ -26900,6 +34142,8 @@ export const projectAnalysis: GameResponse = {
           "crew_role_bonus": {},
           "success_chance": 1.0,
           "success_effects": {
+            "condition": null,
+            "treatment": 0,
             "resources": {
               "research_data": 1.0
             },
@@ -26911,6 +34155,8 @@ export const projectAnalysis: GameResponse = {
             "target": "selected"
           },
           "failure_effects": {
+            "condition": null,
+            "treatment": 0,
             "resources": {},
             "solar_efficiency": 0.0,
             "oxygen_efficiency": 0.0,
@@ -26941,6 +34187,8 @@ export const projectAnalysis: GameResponse = {
           "crew_role_bonus": {},
           "success_chance": 1.0,
           "success_effects": {
+            "condition": null,
+            "treatment": 0,
             "resources": {},
             "solar_efficiency": 0.0,
             "oxygen_efficiency": 0.0,
@@ -26950,6 +34198,8 @@ export const projectAnalysis: GameResponse = {
             "target": "selected"
           },
           "failure_effects": {
+            "condition": null,
+            "treatment": 0,
             "resources": {},
             "solar_efficiency": 0.0,
             "oxygen_efficiency": 0.0,
@@ -26991,6 +34241,8 @@ export const projectAnalysis: GameResponse = {
         ],
         "assignments": [
           {
+            "patient_id": null,
+            "condition_id": null,
             "crew_id": "lin",
             "activity_id": "research_seismic",
             "status": "completed",
@@ -27008,6 +34260,7 @@ export const projectAnalysis: GameResponse = {
                 "oxygen": 2.0
               },
               "effects": {
+                "medical_changes": [],
                 "resources": {},
                 "solar_efficiency": 0.0,
                 "oxygen_efficiency": 0.0,
@@ -27032,6 +34285,7 @@ export const projectAnalysis: GameResponse = {
           "success_probability": 1.0,
           "costs": {},
           "effects": {
+            "medical_changes": [],
             "resources": {},
             "solar_efficiency": 0.0,
             "oxygen_efficiency": 0.0,
@@ -27098,6 +34352,8 @@ export const projectAnalysis: GameResponse = {
               "crew_id": "alex",
               "before": 100,
               "after": 100,
+              "medical_penalty": 0,
+              "medical_changes": [],
               "food_received_fraction": 1.0,
               "water_received_fraction": 1.0,
               "nutrition_before": 0.0,
@@ -27117,6 +34373,8 @@ export const projectAnalysis: GameResponse = {
               "crew_id": "lin",
               "before": 100,
               "after": 100,
+              "medical_penalty": 0,
+              "medical_changes": [],
               "food_received_fraction": 1.0,
               "water_received_fraction": 1.0,
               "nutrition_before": 0.0,
@@ -27156,6 +34414,7 @@ export const projectAnalysis: GameResponse = {
           "event_id": "oxygen_fault",
           "title": "Life Support Alarm",
           "effects": {
+            "medical_changes": [],
             "resources": {},
             "solar_efficiency": 0.0,
             "oxygen_efficiency": -0.25,
@@ -27187,6 +34446,7 @@ export const projectAnalysis: GameResponse = {
           "success_probability": 1.0,
           "costs": {},
           "effects": {
+            "medical_changes": [],
             "resources": {},
             "solar_efficiency": 0.0,
             "oxygen_efficiency": 0.0,
@@ -27253,6 +34513,8 @@ export const projectAnalysis: GameResponse = {
               "crew_id": "alex",
               "before": 100,
               "after": 100,
+              "medical_penalty": 0,
+              "medical_changes": [],
               "food_received_fraction": 1.0,
               "water_received_fraction": 1.0,
               "nutrition_before": 0.0,
@@ -27272,6 +34534,8 @@ export const projectAnalysis: GameResponse = {
               "crew_id": "lin",
               "before": 100,
               "after": 100,
+              "medical_penalty": 0,
+              "medical_changes": [],
               "food_received_fraction": 1.0,
               "water_received_fraction": 1.0,
               "nutrition_before": 0.0,
@@ -27311,6 +34575,38 @@ export const projectAnalysis: GameResponse = {
           "event_id": "medical_emergency",
           "title": "Contaminated Air Filter",
           "effects": {
+            "medical_changes": [
+              {
+                "crew_id": "alex",
+                "kind": "dust_irritation",
+                "action": "acquired",
+                "reason": null,
+                "before": null,
+                "after": {
+                  "kind": "dust_irritation",
+                  "remaining": 2,
+                  "acquired_week": 3,
+                  "stabilized": false,
+                  "care_week": 0,
+                  "care_points": 0
+                }
+              },
+              {
+                "crew_id": "lin",
+                "kind": "dust_irritation",
+                "action": "acquired",
+                "reason": null,
+                "before": null,
+                "after": {
+                  "kind": "dust_irritation",
+                  "remaining": 2,
+                  "acquired_week": 3,
+                  "stabilized": false,
+                  "care_week": 0,
+                  "care_points": 0
+                }
+              }
+            ],
             "resources": {},
             "solar_efficiency": 0.0,
             "oxygen_efficiency": 0.0,
@@ -27358,6 +34654,7 @@ export const projectAnalysis: GameResponse = {
           "success_probability": 1.0,
           "costs": {},
           "effects": {
+            "medical_changes": [],
             "resources": {},
             "solar_efficiency": 0.0,
             "oxygen_efficiency": 0.0,
@@ -27435,6 +34732,8 @@ export const projectAnalysis: GameResponse = {
               "crew_id": "alex",
               "before": 87,
               "after": 89,
+              "medical_penalty": 0,
+              "medical_changes": [],
               "food_received_fraction": 1.0,
               "water_received_fraction": 1.0,
               "nutrition_before": 0.0,
@@ -27454,6 +34753,8 @@ export const projectAnalysis: GameResponse = {
               "crew_id": "lin",
               "before": 84,
               "after": 86,
+              "medical_penalty": 0,
+              "medical_changes": [],
               "food_received_fraction": 1.0,
               "water_received_fraction": 1.0,
               "nutrition_before": 0.0,
@@ -27493,6 +34794,7 @@ export const projectAnalysis: GameResponse = {
           "event_id": "inventory_audit",
           "title": "A Crate in the Ledger",
           "effects": {
+            "medical_changes": [],
             "resources": {},
             "solar_efficiency": 0.0,
             "oxygen_efficiency": 0.0,
@@ -27524,6 +34826,7 @@ export const projectAnalysis: GameResponse = {
           "success_probability": 1.0,
           "costs": {},
           "effects": {
+            "medical_changes": [],
             "resources": {},
             "solar_efficiency": 0.0,
             "oxygen_efficiency": 0.0,
@@ -27589,14 +34892,16 @@ export const projectAnalysis: GameResponse = {
             {
               "crew_id": "alex",
               "before": 89,
-              "after": 91,
+              "after": 88,
+              "medical_penalty": 1,
+              "medical_changes": [],
               "food_received_fraction": 1.0,
               "water_received_fraction": 1.0,
               "nutrition_before": 0.0,
               "nutrition_after": 0.0,
               "hydration_before": 0.0,
               "hydration_after": 0.0,
-              "recovery": 2,
+              "recovery": 0,
               "worked": false,
               "rested": false,
               "food_penalty": 0,
@@ -27608,14 +34913,16 @@ export const projectAnalysis: GameResponse = {
             {
               "crew_id": "lin",
               "before": 86,
-              "after": 88,
+              "after": 85,
+              "medical_penalty": 1,
+              "medical_changes": [],
               "food_received_fraction": 1.0,
               "water_received_fraction": 1.0,
               "nutrition_before": 0.0,
               "nutrition_after": 0.0,
               "hydration_before": 0.0,
               "hydration_after": 0.0,
-              "recovery": 2,
+              "recovery": 0,
               "worked": false,
               "rested": false,
               "food_penalty": 0,
@@ -27648,6 +34955,7 @@ export const projectAnalysis: GameResponse = {
           "event_id": "crew_recovery",
           "title": "A Week for Recovery",
           "effects": {
+            "medical_changes": [],
             "resources": {},
             "solar_efficiency": 0.0,
             "oxygen_efficiency": 0.0,
@@ -27682,6 +34990,7 @@ export const projectAnalysis: GameResponse = {
             "water": 1.0
           },
           "effects": {
+            "medical_changes": [],
             "resources": {},
             "solar_efficiency": 0.0,
             "oxygen_efficiency": 0.0,
@@ -27690,13 +34999,13 @@ export const projectAnalysis: GameResponse = {
             "health_changes": [
               {
                 "crew_id": "alex",
-                "before": 91,
-                "after": 97
+                "before": 88,
+                "after": 94
               },
               {
                 "crew_id": "lin",
-                "before": 88,
-                "after": 94
+                "before": 85,
+                "after": 91
               }
             ]
           },
@@ -27757,15 +35066,17 @@ export const projectAnalysis: GameResponse = {
           "health_changes": [
             {
               "crew_id": "alex",
-              "before": 97,
-              "after": 99,
+              "before": 94,
+              "after": 93,
+              "medical_penalty": 1,
+              "medical_changes": [],
               "food_received_fraction": 1.0,
               "water_received_fraction": 1.0,
               "nutrition_before": 0.0,
               "nutrition_after": 0.0,
               "hydration_before": 0.0,
               "hydration_after": 0.0,
-              "recovery": 2,
+              "recovery": 0,
               "worked": false,
               "rested": false,
               "food_penalty": 0,
@@ -27776,15 +35087,17 @@ export const projectAnalysis: GameResponse = {
             },
             {
               "crew_id": "lin",
-              "before": 94,
-              "after": 96,
+              "before": 91,
+              "after": 90,
+              "medical_penalty": 1,
+              "medical_changes": [],
               "food_received_fraction": 1.0,
               "water_received_fraction": 1.0,
               "nutrition_before": 0.0,
               "nutrition_after": 0.0,
               "hydration_before": 0.0,
               "hydration_after": 0.0,
-              "recovery": 2,
+              "recovery": 0,
               "worked": false,
               "rested": false,
               "food_penalty": 0,
@@ -27817,6 +35130,7 @@ export const projectAnalysis: GameResponse = {
           "event_id": "seismic_signal",
           "title": "A Signal in the Seismometer",
           "effects": {
+            "medical_changes": [],
             "resources": {},
             "solar_efficiency": 0.0,
             "oxygen_efficiency": 0.0,
@@ -27899,6 +35213,8 @@ export const projectAnalysis: GameResponse = {
         "crew_role_bonus": {},
         "success_chance": 1.0,
         "success_effects": {
+          "condition": null,
+          "treatment": 0,
           "resources": {},
           "solar_efficiency": 0.0,
           "oxygen_efficiency": 0.0,
@@ -27908,6 +35224,124 @@ export const projectAnalysis: GameResponse = {
           "target": "selected"
         },
         "failure_effects": {
+          "condition": null,
+          "treatment": 0,
+          "resources": {},
+          "solar_efficiency": 0.0,
+          "oxygen_efficiency": 0.0,
+          "water_recovery_efficiency": 0.0,
+          "co2_efficiency": 0.0,
+          "crew_health": 0,
+          "target": "selected"
+        },
+        "required_role": null,
+        "minimum_crew": 1,
+        "available": true,
+        "unavailable_reasons": [],
+        "eligible_crew": [
+          {
+            "crew_id": "alex",
+            "available": true,
+            "unavailable_reasons": [],
+            "success_probability": 1.0
+          },
+          {
+            "crew_id": "lin",
+            "available": true,
+            "unavailable_reasons": [],
+            "success_probability": 1.0
+          }
+        ],
+        "success_probability": null
+      },
+      {
+        "workload": "light",
+        "support_candidates": [],
+        "id": "medical_care",
+        "action_type": "medical",
+        "objective_rewards": [],
+        "text": "Provide medical care",
+        "description": "Reserve caregiver and patient for one week, plus 1 medicine. Stabilizes the chosen condition immediately. A fit medic earns 2 recovery points; another fit caregiver earns 1 (2 with a retained diagnostic scanner). Progress needs full actual provisions and safe air. Both crew are occupied, even if recovery stalls.",
+        "costs": {
+          "medicine": 1.0
+        },
+        "required_items": {},
+        "requires_crew": true,
+        "role_bonus": {},
+        "crew_role_bonus": {},
+        "success_chance": 1.0,
+        "success_effects": {
+          "condition": null,
+          "treatment": 0,
+          "resources": {},
+          "solar_efficiency": 0.0,
+          "oxygen_efficiency": 0.0,
+          "water_recovery_efficiency": 0.0,
+          "co2_efficiency": 0.0,
+          "crew_health": 0,
+          "target": "selected"
+        },
+        "failure_effects": {
+          "condition": null,
+          "treatment": 0,
+          "resources": {},
+          "solar_efficiency": 0.0,
+          "oxygen_efficiency": 0.0,
+          "water_recovery_efficiency": 0.0,
+          "co2_efficiency": 0.0,
+          "crew_health": 0,
+          "target": "selected"
+        },
+        "required_role": null,
+        "minimum_crew": 1,
+        "available": true,
+        "unavailable_reasons": [],
+        "eligible_crew": [
+          {
+            "crew_id": "alex",
+            "available": true,
+            "unavailable_reasons": [],
+            "success_probability": 1.0
+          },
+          {
+            "crew_id": "lin",
+            "available": true,
+            "unavailable_reasons": [],
+            "success_probability": 1.0
+          }
+        ],
+        "success_probability": null
+      },
+      {
+        "workload": "rest",
+        "support_candidates": [],
+        "id": "self_care",
+        "action_type": "medical",
+        "objective_rewards": [],
+        "text": "Self-care and stabilization",
+        "description": "One astronaut and 1 medicine. Available even when critically unfit; treats only their own chosen condition. Stabilizes immediately and earns 1 recovery point with full actual provisions and safe air. No work or incident duty that week.",
+        "costs": {
+          "medicine": 1.0
+        },
+        "required_items": {},
+        "requires_crew": true,
+        "role_bonus": {},
+        "crew_role_bonus": {},
+        "success_chance": 1.0,
+        "success_effects": {
+          "condition": null,
+          "treatment": 0,
+          "resources": {},
+          "solar_efficiency": 0.0,
+          "oxygen_efficiency": 0.0,
+          "water_recovery_efficiency": 0.0,
+          "co2_efficiency": 0.0,
+          "crew_health": 0,
+          "target": "selected"
+        },
+        "failure_effects": {
+          "condition": null,
+          "treatment": 0,
           "resources": {},
           "solar_efficiency": 0.0,
           "oxygen_efficiency": 0.0,
@@ -27955,6 +35389,8 @@ export const projectAnalysis: GameResponse = {
         "crew_role_bonus": {},
         "success_chance": 1.0,
         "success_effects": {
+          "condition": null,
+          "treatment": 0,
           "resources": {},
           "solar_efficiency": 0.2,
           "oxygen_efficiency": 0.0,
@@ -27964,6 +35400,8 @@ export const projectAnalysis: GameResponse = {
           "target": "selected"
         },
         "failure_effects": {
+          "condition": null,
+          "treatment": 0,
           "resources": {},
           "solar_efficiency": 0.0,
           "oxygen_efficiency": 0.0,
@@ -27976,6 +35414,8 @@ export const projectAnalysis: GameResponse = {
         "minimum_crew": 1,
         "available": false,
         "unavailable_reasons": [
+          "Requires at least 1 living astronauts fit for this workload.",
+          "Respiratory irritation: EVA unavailable until recovered; indoor work remains possible.",
           "Requires 1 dust_kits; available 0."
         ],
         "eligible_crew": [
@@ -27983,6 +35423,8 @@ export const projectAnalysis: GameResponse = {
             "crew_id": "alex",
             "available": false,
             "unavailable_reasons": [
+              "Requires at least 1 living astronauts fit for this workload.",
+              "Respiratory irritation: EVA unavailable until recovered; indoor work remains possible.",
               "Requires 1 dust_kits; available 0."
             ],
             "success_probability": 1.0
@@ -27991,6 +35433,8 @@ export const projectAnalysis: GameResponse = {
             "crew_id": "lin",
             "available": false,
             "unavailable_reasons": [
+              "Requires at least 1 living astronauts fit for this workload.",
+              "Respiratory irritation: EVA unavailable until recovered; indoor work remains possible.",
               "Requires 1 dust_kits; available 0."
             ],
             "success_probability": 1.0
@@ -28016,6 +35460,8 @@ export const projectAnalysis: GameResponse = {
         "crew_role_bonus": {},
         "success_chance": 1.0,
         "success_effects": {
+          "condition": null,
+          "treatment": 0,
           "resources": {},
           "solar_efficiency": 0.0,
           "oxygen_efficiency": 0.2,
@@ -28025,6 +35471,8 @@ export const projectAnalysis: GameResponse = {
           "target": "selected"
         },
         "failure_effects": {
+          "condition": null,
+          "treatment": 0,
           "resources": {},
           "solar_efficiency": 0.0,
           "oxygen_efficiency": 0.0,
@@ -28077,6 +35525,8 @@ export const projectAnalysis: GameResponse = {
         "crew_role_bonus": {},
         "success_chance": 1.0,
         "success_effects": {
+          "condition": null,
+          "treatment": 0,
           "resources": {},
           "solar_efficiency": 0.0,
           "oxygen_efficiency": 0.0,
@@ -28086,6 +35536,8 @@ export const projectAnalysis: GameResponse = {
           "target": "selected"
         },
         "failure_effects": {
+          "condition": null,
+          "treatment": 0,
           "resources": {},
           "solar_efficiency": 0.0,
           "oxygen_efficiency": 0.0,
@@ -28132,6 +35584,8 @@ export const projectAnalysis: GameResponse = {
         "crew_role_bonus": {},
         "success_chance": 1.0,
         "success_effects": {
+          "condition": null,
+          "treatment": 0,
           "resources": {},
           "solar_efficiency": 0.0,
           "oxygen_efficiency": 0.0,
@@ -28141,6 +35595,8 @@ export const projectAnalysis: GameResponse = {
           "target": "selected"
         },
         "failure_effects": {
+          "condition": null,
+          "treatment": 0,
           "resources": {},
           "solar_efficiency": 0.0,
           "oxygen_efficiency": 0.0,
@@ -28182,7 +35638,7 @@ export const projectAnalysis: GameResponse = {
           }
         ],
         "text": "Survey a geological sample",
-        "description": "Use the science kit to collect one sample and 2 research data on success. Scientists improve the odds; failure costs the worker 8 health. One-week crew assignment; incident response is separate.",
+        "description": "Use the science kit to collect one sample and 2 research data on success. Scientists improve the odds; failure costs the worker 8 health and causes a sprain. One-week crew assignment; incident response is separate.",
         "costs": {
           "eva_batteries": 1.0,
           "oxygen": 2.0
@@ -28198,6 +35654,8 @@ export const projectAnalysis: GameResponse = {
         "crew_role_bonus": {},
         "success_chance": 0.75,
         "success_effects": {
+          "condition": null,
+          "treatment": 0,
           "resources": {
             "research_data": 2.0
           },
@@ -28209,6 +35667,8 @@ export const projectAnalysis: GameResponse = {
           "target": "selected"
         },
         "failure_effects": {
+          "condition": "sprain",
+          "treatment": 0,
           "resources": {},
           "solar_efficiency": 0.0,
           "oxygen_efficiency": 0.0,
@@ -28219,20 +35679,29 @@ export const projectAnalysis: GameResponse = {
         },
         "required_role": null,
         "minimum_crew": 1,
-        "available": true,
-        "unavailable_reasons": [],
+        "available": false,
+        "unavailable_reasons": [
+          "Requires at least 1 living astronauts fit for this workload.",
+          "Respiratory irritation: EVA unavailable until recovered; indoor work remains possible."
+        ],
         "eligible_crew": [
           {
             "crew_id": "alex",
-            "available": true,
-            "unavailable_reasons": [],
-            "success_probability": 0.8
+            "available": false,
+            "unavailable_reasons": [
+              "Requires at least 1 living astronauts fit for this workload.",
+              "Respiratory irritation: EVA unavailable until recovered; indoor work remains possible."
+            ],
+            "success_probability": 0.75
           },
           {
             "crew_id": "lin",
-            "available": true,
-            "unavailable_reasons": [],
-            "success_probability": 0.95
+            "available": false,
+            "unavailable_reasons": [
+              "Requires at least 1 living astronauts fit for this workload.",
+              "Respiratory irritation: EVA unavailable until recovered; indoor work remains possible."
+            ],
+            "success_probability": 0.9
           }
         ],
         "success_probability": null
@@ -28267,6 +35736,8 @@ export const projectAnalysis: GameResponse = {
         "crew_role_bonus": {},
         "success_chance": 0.7,
         "success_effects": {
+          "condition": null,
+          "treatment": 0,
           "resources": {
             "research_data": 2.0
           },
@@ -28278,6 +35749,8 @@ export const projectAnalysis: GameResponse = {
           "target": "selected"
         },
         "failure_effects": {
+          "condition": null,
+          "treatment": 0,
           "resources": {},
           "solar_efficiency": 0.0,
           "oxygen_efficiency": 0.0,
@@ -28295,13 +35768,13 @@ export const projectAnalysis: GameResponse = {
             "crew_id": "alex",
             "available": true,
             "unavailable_reasons": [],
-            "success_probability": 0.95
+            "success_probability": 0.9
           },
           {
             "crew_id": "lin",
             "available": true,
             "unavailable_reasons": [],
-            "success_probability": 0.8
+            "success_probability": 0.75
           }
         ],
         "success_probability": null
@@ -28334,6 +35807,8 @@ export const projectAnalysis: GameResponse = {
         "crew_role_bonus": {},
         "success_chance": 0.75,
         "success_effects": {
+          "condition": null,
+          "treatment": 0,
           "resources": {
             "research_data": 2.0
           },
@@ -28345,6 +35820,8 @@ export const projectAnalysis: GameResponse = {
           "target": "selected"
         },
         "failure_effects": {
+          "condition": null,
+          "treatment": 0,
           "resources": {
             "electricity": -2.0
           },
@@ -28364,13 +35841,13 @@ export const projectAnalysis: GameResponse = {
             "crew_id": "alex",
             "available": true,
             "unavailable_reasons": [],
-            "success_probability": 0.8
+            "success_probability": 0.75
           },
           {
             "crew_id": "lin",
             "available": true,
             "unavailable_reasons": [],
-            "success_probability": 0.95
+            "success_probability": 0.9
           }
         ],
         "success_probability": null
@@ -28499,16 +35976,34 @@ export const projectCompleted: GameResponse = {
     },
     "crew": [
       {
+        "medical_conditions": [
+          {
+            "kind": "dust_irritation",
+            "remaining": 2,
+            "acquired_week": 3,
+            "stabilized": false,
+            "care_week": 0,
+            "care_points": 0,
+            "title": "Dust-related respiratory irritation",
+            "urgent": false,
+            "rest_weeks": 2,
+            "medic_weeks": 1,
+            "untreated_damage": 1,
+            "source_url": "https://www.nasa.gov/reference/jsc-dust/"
+          }
+        ],
         "nutrition_deficit": 0.0,
         "hydration_deficit": 0.0,
         "condition": {
-          "status": "fit",
+          "status": "serious",
           "nutrition_status": "adequate",
           "hydration_status": "adequate",
           "can_work": true,
-          "can_do_eva": true,
-          "performance_penalty": 0.0,
-          "restrictions": [],
+          "can_do_eva": false,
+          "performance_penalty": 0.05,
+          "restrictions": [
+            "Respiratory irritation: EVA unavailable until recovered; indoor work remains possible."
+          ],
           "nutrition_recovery_weeks": 0,
           "hydration_recovery_weeks": 0,
           "source_url": "https://www.nasa.gov/reference/risk-of-inadequate-food-and-nutrition/"
@@ -28536,7 +36031,7 @@ export const projectCompleted: GameResponse = {
         "id": "alex",
         "name": "Alex Vega",
         "role": "engineer",
-        "health": 100,
+        "health": 92,
         "positive_trait": "Steady hands: +5 percentage points on assigned event actions.",
         "negative_trait": "Large appetite: consumes 10% more food.",
         "food_multiplier": 1.1,
@@ -28565,16 +36060,34 @@ export const projectCompleted: GameResponse = {
         }
       },
       {
+        "medical_conditions": [
+          {
+            "kind": "dust_irritation",
+            "remaining": 2,
+            "acquired_week": 3,
+            "stabilized": false,
+            "care_week": 0,
+            "care_points": 0,
+            "title": "Dust-related respiratory irritation",
+            "urgent": false,
+            "rest_weeks": 2,
+            "medic_weeks": 1,
+            "untreated_damage": 1,
+            "source_url": "https://www.nasa.gov/reference/jsc-dust/"
+          }
+        ],
         "nutrition_deficit": 0.0,
         "hydration_deficit": 0.0,
         "condition": {
-          "status": "fit",
+          "status": "serious",
           "nutrition_status": "adequate",
           "hydration_status": "adequate",
           "can_work": true,
-          "can_do_eva": true,
-          "performance_penalty": 0.0,
-          "restrictions": [],
+          "can_do_eva": false,
+          "performance_penalty": 0.05,
+          "restrictions": [
+            "Respiratory irritation: EVA unavailable until recovered; indoor work remains possible."
+          ],
           "nutrition_recovery_weeks": 0,
           "hydration_recovery_weeks": 0,
           "source_url": "https://www.nasa.gov/reference/risk-of-inadequate-food-and-nutrition/"
@@ -28602,7 +36115,7 @@ export const projectCompleted: GameResponse = {
         "id": "lin",
         "name": "Lin Park",
         "role": "scientist",
-        "health": 96,
+        "health": 89,
         "positive_trait": "Water conscious: consumes 10% less water.",
         "negative_trait": "Fragile: event injuries cause 20% more damage.",
         "food_multiplier": 1.0,
@@ -28661,6 +36174,8 @@ export const projectCompleted: GameResponse = {
       "science_context": "Spaceflight hardware needs inspection and fault handling. The isolated battery and energy amounts are fictional.",
       "source_url": "https://www.nasa.gov/reference/9-0-hardware-and-equipment-vol-2/",
       "on_start": {
+        "condition": null,
+        "treatment": 0,
         "resources": {
           "electricity": -5.0
         },
@@ -28692,6 +36207,8 @@ export const projectCompleted: GameResponse = {
           "crew_role_bonus": {},
           "success_chance": 0.65,
           "success_effects": {
+            "condition": null,
+            "treatment": 0,
             "resources": {
               "electricity": 8.0
             },
@@ -28703,6 +36220,8 @@ export const projectCompleted: GameResponse = {
             "target": "selected"
           },
           "failure_effects": {
+            "condition": null,
+            "treatment": 0,
             "resources": {},
             "solar_efficiency": 0.0,
             "oxygen_efficiency": 0.0,
@@ -28720,13 +36239,13 @@ export const projectCompleted: GameResponse = {
               "crew_id": "alex",
               "available": true,
               "unavailable_reasons": [],
-              "success_probability": 0.95
+              "success_probability": 0.9
             },
             {
               "crew_id": "lin",
               "available": true,
               "unavailable_reasons": [],
-              "success_probability": 0.65
+              "success_probability": 0.6
             }
           ],
           "success_probability": null
@@ -28750,6 +36269,8 @@ export const projectCompleted: GameResponse = {
           "crew_role_bonus": {},
           "success_chance": 1.0,
           "success_effects": {
+            "condition": null,
+            "treatment": 0,
             "resources": {
               "electricity": 3.0
             },
@@ -28761,6 +36282,8 @@ export const projectCompleted: GameResponse = {
             "target": "selected"
           },
           "failure_effects": {
+            "condition": null,
+            "treatment": 0,
             "resources": {},
             "solar_efficiency": 0.0,
             "oxygen_efficiency": 0.0,
@@ -28804,6 +36327,8 @@ export const projectCompleted: GameResponse = {
           "crew_role_bonus": {},
           "success_chance": 1.0,
           "success_effects": {
+            "condition": null,
+            "treatment": 0,
             "resources": {},
             "solar_efficiency": 0.0,
             "oxygen_efficiency": 0.0,
@@ -28813,6 +36338,8 @@ export const projectCompleted: GameResponse = {
             "target": "selected"
           },
           "failure_effects": {
+            "condition": null,
+            "treatment": 0,
             "resources": {},
             "solar_efficiency": 0.0,
             "oxygen_efficiency": 0.0,
@@ -28855,6 +36382,8 @@ export const projectCompleted: GameResponse = {
         ],
         "assignments": [
           {
+            "patient_id": null,
+            "condition_id": null,
             "crew_id": "lin",
             "activity_id": "research_seismic",
             "status": "completed",
@@ -28872,6 +36401,7 @@ export const projectCompleted: GameResponse = {
                 "oxygen": 2.0
               },
               "effects": {
+                "medical_changes": [],
                 "resources": {},
                 "solar_efficiency": 0.0,
                 "oxygen_efficiency": 0.0,
@@ -28896,6 +36426,7 @@ export const projectCompleted: GameResponse = {
           "success_probability": 1.0,
           "costs": {},
           "effects": {
+            "medical_changes": [],
             "resources": {},
             "solar_efficiency": 0.0,
             "oxygen_efficiency": 0.0,
@@ -28962,6 +36493,8 @@ export const projectCompleted: GameResponse = {
               "crew_id": "alex",
               "before": 100,
               "after": 100,
+              "medical_penalty": 0,
+              "medical_changes": [],
               "food_received_fraction": 1.0,
               "water_received_fraction": 1.0,
               "nutrition_before": 0.0,
@@ -28981,6 +36514,8 @@ export const projectCompleted: GameResponse = {
               "crew_id": "lin",
               "before": 100,
               "after": 100,
+              "medical_penalty": 0,
+              "medical_changes": [],
               "food_received_fraction": 1.0,
               "water_received_fraction": 1.0,
               "nutrition_before": 0.0,
@@ -29020,6 +36555,7 @@ export const projectCompleted: GameResponse = {
           "event_id": "oxygen_fault",
           "title": "Life Support Alarm",
           "effects": {
+            "medical_changes": [],
             "resources": {},
             "solar_efficiency": 0.0,
             "oxygen_efficiency": -0.25,
@@ -29051,6 +36587,7 @@ export const projectCompleted: GameResponse = {
           "success_probability": 1.0,
           "costs": {},
           "effects": {
+            "medical_changes": [],
             "resources": {},
             "solar_efficiency": 0.0,
             "oxygen_efficiency": 0.0,
@@ -29117,6 +36654,8 @@ export const projectCompleted: GameResponse = {
               "crew_id": "alex",
               "before": 100,
               "after": 100,
+              "medical_penalty": 0,
+              "medical_changes": [],
               "food_received_fraction": 1.0,
               "water_received_fraction": 1.0,
               "nutrition_before": 0.0,
@@ -29136,6 +36675,8 @@ export const projectCompleted: GameResponse = {
               "crew_id": "lin",
               "before": 100,
               "after": 100,
+              "medical_penalty": 0,
+              "medical_changes": [],
               "food_received_fraction": 1.0,
               "water_received_fraction": 1.0,
               "nutrition_before": 0.0,
@@ -29175,6 +36716,38 @@ export const projectCompleted: GameResponse = {
           "event_id": "medical_emergency",
           "title": "Contaminated Air Filter",
           "effects": {
+            "medical_changes": [
+              {
+                "crew_id": "alex",
+                "kind": "dust_irritation",
+                "action": "acquired",
+                "reason": null,
+                "before": null,
+                "after": {
+                  "kind": "dust_irritation",
+                  "remaining": 2,
+                  "acquired_week": 3,
+                  "stabilized": false,
+                  "care_week": 0,
+                  "care_points": 0
+                }
+              },
+              {
+                "crew_id": "lin",
+                "kind": "dust_irritation",
+                "action": "acquired",
+                "reason": null,
+                "before": null,
+                "after": {
+                  "kind": "dust_irritation",
+                  "remaining": 2,
+                  "acquired_week": 3,
+                  "stabilized": false,
+                  "care_week": 0,
+                  "care_points": 0
+                }
+              }
+            ],
             "resources": {},
             "solar_efficiency": 0.0,
             "oxygen_efficiency": 0.0,
@@ -29222,6 +36795,7 @@ export const projectCompleted: GameResponse = {
           "success_probability": 1.0,
           "costs": {},
           "effects": {
+            "medical_changes": [],
             "resources": {},
             "solar_efficiency": 0.0,
             "oxygen_efficiency": 0.0,
@@ -29299,6 +36873,8 @@ export const projectCompleted: GameResponse = {
               "crew_id": "alex",
               "before": 87,
               "after": 89,
+              "medical_penalty": 0,
+              "medical_changes": [],
               "food_received_fraction": 1.0,
               "water_received_fraction": 1.0,
               "nutrition_before": 0.0,
@@ -29318,6 +36894,8 @@ export const projectCompleted: GameResponse = {
               "crew_id": "lin",
               "before": 84,
               "after": 86,
+              "medical_penalty": 0,
+              "medical_changes": [],
               "food_received_fraction": 1.0,
               "water_received_fraction": 1.0,
               "nutrition_before": 0.0,
@@ -29357,6 +36935,7 @@ export const projectCompleted: GameResponse = {
           "event_id": "inventory_audit",
           "title": "A Crate in the Ledger",
           "effects": {
+            "medical_changes": [],
             "resources": {},
             "solar_efficiency": 0.0,
             "oxygen_efficiency": 0.0,
@@ -29388,6 +36967,7 @@ export const projectCompleted: GameResponse = {
           "success_probability": 1.0,
           "costs": {},
           "effects": {
+            "medical_changes": [],
             "resources": {},
             "solar_efficiency": 0.0,
             "oxygen_efficiency": 0.0,
@@ -29453,14 +37033,16 @@ export const projectCompleted: GameResponse = {
             {
               "crew_id": "alex",
               "before": 89,
-              "after": 91,
+              "after": 88,
+              "medical_penalty": 1,
+              "medical_changes": [],
               "food_received_fraction": 1.0,
               "water_received_fraction": 1.0,
               "nutrition_before": 0.0,
               "nutrition_after": 0.0,
               "hydration_before": 0.0,
               "hydration_after": 0.0,
-              "recovery": 2,
+              "recovery": 0,
               "worked": false,
               "rested": false,
               "food_penalty": 0,
@@ -29472,14 +37054,16 @@ export const projectCompleted: GameResponse = {
             {
               "crew_id": "lin",
               "before": 86,
-              "after": 88,
+              "after": 85,
+              "medical_penalty": 1,
+              "medical_changes": [],
               "food_received_fraction": 1.0,
               "water_received_fraction": 1.0,
               "nutrition_before": 0.0,
               "nutrition_after": 0.0,
               "hydration_before": 0.0,
               "hydration_after": 0.0,
-              "recovery": 2,
+              "recovery": 0,
               "worked": false,
               "rested": false,
               "food_penalty": 0,
@@ -29512,6 +37096,7 @@ export const projectCompleted: GameResponse = {
           "event_id": "crew_recovery",
           "title": "A Week for Recovery",
           "effects": {
+            "medical_changes": [],
             "resources": {},
             "solar_efficiency": 0.0,
             "oxygen_efficiency": 0.0,
@@ -29546,6 +37131,7 @@ export const projectCompleted: GameResponse = {
             "water": 1.0
           },
           "effects": {
+            "medical_changes": [],
             "resources": {},
             "solar_efficiency": 0.0,
             "oxygen_efficiency": 0.0,
@@ -29554,13 +37140,13 @@ export const projectCompleted: GameResponse = {
             "health_changes": [
               {
                 "crew_id": "alex",
-                "before": 91,
-                "after": 97
+                "before": 88,
+                "after": 94
               },
               {
                 "crew_id": "lin",
-                "before": 88,
-                "after": 94
+                "before": 85,
+                "after": 91
               }
             ]
           },
@@ -29621,15 +37207,17 @@ export const projectCompleted: GameResponse = {
           "health_changes": [
             {
               "crew_id": "alex",
-              "before": 97,
-              "after": 99,
+              "before": 94,
+              "after": 93,
+              "medical_penalty": 1,
+              "medical_changes": [],
               "food_received_fraction": 1.0,
               "water_received_fraction": 1.0,
               "nutrition_before": 0.0,
               "nutrition_after": 0.0,
               "hydration_before": 0.0,
               "hydration_after": 0.0,
-              "recovery": 2,
+              "recovery": 0,
               "worked": false,
               "rested": false,
               "food_penalty": 0,
@@ -29640,15 +37228,17 @@ export const projectCompleted: GameResponse = {
             },
             {
               "crew_id": "lin",
-              "before": 94,
-              "after": 96,
+              "before": 91,
+              "after": 90,
+              "medical_penalty": 1,
+              "medical_changes": [],
               "food_received_fraction": 1.0,
               "water_received_fraction": 1.0,
               "nutrition_before": 0.0,
               "nutrition_after": 0.0,
               "hydration_before": 0.0,
               "hydration_after": 0.0,
-              "recovery": 2,
+              "recovery": 0,
               "worked": false,
               "rested": false,
               "food_penalty": 0,
@@ -29681,6 +37271,7 @@ export const projectCompleted: GameResponse = {
           "event_id": "seismic_signal",
           "title": "A Signal in the Seismometer",
           "effects": {
+            "medical_changes": [],
             "resources": {},
             "solar_efficiency": 0.0,
             "oxygen_efficiency": 0.0,
@@ -29701,6 +37292,8 @@ export const projectCompleted: GameResponse = {
         ],
         "assignments": [
           {
+            "patient_id": null,
+            "condition_id": null,
             "crew_id": "lin",
             "activity_id": "project:seismic-1",
             "status": "completed",
@@ -29711,11 +37304,12 @@ export const projectCompleted: GameResponse = {
               "choice_text": "Analyze recordings (seismic-1)",
               "selected_crew_id": "lin",
               "success": true,
-              "success_probability": 0.95,
+              "success_probability": 0.9,
               "costs": {
                 "electricity": 2.0
               },
               "effects": {
+                "medical_changes": [],
                 "resources": {
                   "research_data": 2.0
                 },
@@ -29754,6 +37348,7 @@ export const projectCompleted: GameResponse = {
           "success_probability": 1.0,
           "costs": {},
           "effects": {
+            "medical_changes": [],
             "resources": {
               "research_data": 1.0
             },
@@ -29820,15 +37415,17 @@ export const projectCompleted: GameResponse = {
           "health_changes": [
             {
               "crew_id": "alex",
-              "before": 99,
-              "after": 100,
+              "before": 93,
+              "after": 92,
+              "medical_penalty": 1,
+              "medical_changes": [],
               "food_received_fraction": 1.0,
               "water_received_fraction": 1.0,
               "nutrition_before": 0.0,
               "nutrition_after": 0.0,
               "hydration_before": 0.0,
               "hydration_after": 0.0,
-              "recovery": 1,
+              "recovery": 0,
               "worked": false,
               "rested": false,
               "food_penalty": 0,
@@ -29839,8 +37436,10 @@ export const projectCompleted: GameResponse = {
             },
             {
               "crew_id": "lin",
-              "before": 96,
-              "after": 96,
+              "before": 90,
+              "after": 89,
+              "medical_penalty": 1,
+              "medical_changes": [],
               "food_received_fraction": 1.0,
               "water_received_fraction": 1.0,
               "nutrition_before": 0.0,
@@ -29880,6 +37479,7 @@ export const projectCompleted: GameResponse = {
           "event_id": "battery_isolation",
           "title": "Battery String Offline",
           "effects": {
+            "medical_changes": [],
             "resources": {
               "electricity": -5.0
             },
@@ -29964,6 +37564,8 @@ export const projectCompleted: GameResponse = {
         "crew_role_bonus": {},
         "success_chance": 1.0,
         "success_effects": {
+          "condition": null,
+          "treatment": 0,
           "resources": {},
           "solar_efficiency": 0.0,
           "oxygen_efficiency": 0.0,
@@ -29973,6 +37575,124 @@ export const projectCompleted: GameResponse = {
           "target": "selected"
         },
         "failure_effects": {
+          "condition": null,
+          "treatment": 0,
+          "resources": {},
+          "solar_efficiency": 0.0,
+          "oxygen_efficiency": 0.0,
+          "water_recovery_efficiency": 0.0,
+          "co2_efficiency": 0.0,
+          "crew_health": 0,
+          "target": "selected"
+        },
+        "required_role": null,
+        "minimum_crew": 1,
+        "available": true,
+        "unavailable_reasons": [],
+        "eligible_crew": [
+          {
+            "crew_id": "alex",
+            "available": true,
+            "unavailable_reasons": [],
+            "success_probability": 1.0
+          },
+          {
+            "crew_id": "lin",
+            "available": true,
+            "unavailable_reasons": [],
+            "success_probability": 1.0
+          }
+        ],
+        "success_probability": null
+      },
+      {
+        "workload": "light",
+        "support_candidates": [],
+        "id": "medical_care",
+        "action_type": "medical",
+        "objective_rewards": [],
+        "text": "Provide medical care",
+        "description": "Reserve caregiver and patient for one week, plus 1 medicine. Stabilizes the chosen condition immediately. A fit medic earns 2 recovery points; another fit caregiver earns 1 (2 with a retained diagnostic scanner). Progress needs full actual provisions and safe air. Both crew are occupied, even if recovery stalls.",
+        "costs": {
+          "medicine": 1.0
+        },
+        "required_items": {},
+        "requires_crew": true,
+        "role_bonus": {},
+        "crew_role_bonus": {},
+        "success_chance": 1.0,
+        "success_effects": {
+          "condition": null,
+          "treatment": 0,
+          "resources": {},
+          "solar_efficiency": 0.0,
+          "oxygen_efficiency": 0.0,
+          "water_recovery_efficiency": 0.0,
+          "co2_efficiency": 0.0,
+          "crew_health": 0,
+          "target": "selected"
+        },
+        "failure_effects": {
+          "condition": null,
+          "treatment": 0,
+          "resources": {},
+          "solar_efficiency": 0.0,
+          "oxygen_efficiency": 0.0,
+          "water_recovery_efficiency": 0.0,
+          "co2_efficiency": 0.0,
+          "crew_health": 0,
+          "target": "selected"
+        },
+        "required_role": null,
+        "minimum_crew": 1,
+        "available": true,
+        "unavailable_reasons": [],
+        "eligible_crew": [
+          {
+            "crew_id": "alex",
+            "available": true,
+            "unavailable_reasons": [],
+            "success_probability": 1.0
+          },
+          {
+            "crew_id": "lin",
+            "available": true,
+            "unavailable_reasons": [],
+            "success_probability": 1.0
+          }
+        ],
+        "success_probability": null
+      },
+      {
+        "workload": "rest",
+        "support_candidates": [],
+        "id": "self_care",
+        "action_type": "medical",
+        "objective_rewards": [],
+        "text": "Self-care and stabilization",
+        "description": "One astronaut and 1 medicine. Available even when critically unfit; treats only their own chosen condition. Stabilizes immediately and earns 1 recovery point with full actual provisions and safe air. No work or incident duty that week.",
+        "costs": {
+          "medicine": 1.0
+        },
+        "required_items": {},
+        "requires_crew": true,
+        "role_bonus": {},
+        "crew_role_bonus": {},
+        "success_chance": 1.0,
+        "success_effects": {
+          "condition": null,
+          "treatment": 0,
+          "resources": {},
+          "solar_efficiency": 0.0,
+          "oxygen_efficiency": 0.0,
+          "water_recovery_efficiency": 0.0,
+          "co2_efficiency": 0.0,
+          "crew_health": 0,
+          "target": "selected"
+        },
+        "failure_effects": {
+          "condition": null,
+          "treatment": 0,
           "resources": {},
           "solar_efficiency": 0.0,
           "oxygen_efficiency": 0.0,
@@ -30020,6 +37740,8 @@ export const projectCompleted: GameResponse = {
         "crew_role_bonus": {},
         "success_chance": 1.0,
         "success_effects": {
+          "condition": null,
+          "treatment": 0,
           "resources": {},
           "solar_efficiency": 0.2,
           "oxygen_efficiency": 0.0,
@@ -30029,6 +37751,8 @@ export const projectCompleted: GameResponse = {
           "target": "selected"
         },
         "failure_effects": {
+          "condition": null,
+          "treatment": 0,
           "resources": {},
           "solar_efficiency": 0.0,
           "oxygen_efficiency": 0.0,
@@ -30041,6 +37765,8 @@ export const projectCompleted: GameResponse = {
         "minimum_crew": 1,
         "available": false,
         "unavailable_reasons": [
+          "Requires at least 1 living astronauts fit for this workload.",
+          "Respiratory irritation: EVA unavailable until recovered; indoor work remains possible.",
           "Requires 1 dust_kits; available 0."
         ],
         "eligible_crew": [
@@ -30048,6 +37774,8 @@ export const projectCompleted: GameResponse = {
             "crew_id": "alex",
             "available": false,
             "unavailable_reasons": [
+              "Requires at least 1 living astronauts fit for this workload.",
+              "Respiratory irritation: EVA unavailable until recovered; indoor work remains possible.",
               "Requires 1 dust_kits; available 0."
             ],
             "success_probability": 1.0
@@ -30056,6 +37784,8 @@ export const projectCompleted: GameResponse = {
             "crew_id": "lin",
             "available": false,
             "unavailable_reasons": [
+              "Requires at least 1 living astronauts fit for this workload.",
+              "Respiratory irritation: EVA unavailable until recovered; indoor work remains possible.",
               "Requires 1 dust_kits; available 0."
             ],
             "success_probability": 1.0
@@ -30081,6 +37811,8 @@ export const projectCompleted: GameResponse = {
         "crew_role_bonus": {},
         "success_chance": 1.0,
         "success_effects": {
+          "condition": null,
+          "treatment": 0,
           "resources": {},
           "solar_efficiency": 0.0,
           "oxygen_efficiency": 0.2,
@@ -30090,6 +37822,8 @@ export const projectCompleted: GameResponse = {
           "target": "selected"
         },
         "failure_effects": {
+          "condition": null,
+          "treatment": 0,
           "resources": {},
           "solar_efficiency": 0.0,
           "oxygen_efficiency": 0.0,
@@ -30142,6 +37876,8 @@ export const projectCompleted: GameResponse = {
         "crew_role_bonus": {},
         "success_chance": 1.0,
         "success_effects": {
+          "condition": null,
+          "treatment": 0,
           "resources": {},
           "solar_efficiency": 0.0,
           "oxygen_efficiency": 0.0,
@@ -30151,6 +37887,8 @@ export const projectCompleted: GameResponse = {
           "target": "selected"
         },
         "failure_effects": {
+          "condition": null,
+          "treatment": 0,
           "resources": {},
           "solar_efficiency": 0.0,
           "oxygen_efficiency": 0.0,
@@ -30197,6 +37935,8 @@ export const projectCompleted: GameResponse = {
         "crew_role_bonus": {},
         "success_chance": 1.0,
         "success_effects": {
+          "condition": null,
+          "treatment": 0,
           "resources": {},
           "solar_efficiency": 0.0,
           "oxygen_efficiency": 0.0,
@@ -30206,6 +37946,8 @@ export const projectCompleted: GameResponse = {
           "target": "selected"
         },
         "failure_effects": {
+          "condition": null,
+          "treatment": 0,
           "resources": {},
           "solar_efficiency": 0.0,
           "oxygen_efficiency": 0.0,
@@ -30247,7 +37989,7 @@ export const projectCompleted: GameResponse = {
           }
         ],
         "text": "Survey a geological sample",
-        "description": "Use the science kit to collect one sample and 2 research data on success. Scientists improve the odds; failure costs the worker 8 health. One-week crew assignment; incident response is separate.",
+        "description": "Use the science kit to collect one sample and 2 research data on success. Scientists improve the odds; failure costs the worker 8 health and causes a sprain. One-week crew assignment; incident response is separate.",
         "costs": {
           "eva_batteries": 1.0,
           "oxygen": 2.0
@@ -30263,6 +38005,8 @@ export const projectCompleted: GameResponse = {
         "crew_role_bonus": {},
         "success_chance": 0.75,
         "success_effects": {
+          "condition": null,
+          "treatment": 0,
           "resources": {
             "research_data": 2.0
           },
@@ -30274,6 +38018,8 @@ export const projectCompleted: GameResponse = {
           "target": "selected"
         },
         "failure_effects": {
+          "condition": "sprain",
+          "treatment": 0,
           "resources": {},
           "solar_efficiency": 0.0,
           "oxygen_efficiency": 0.0,
@@ -30284,20 +38030,29 @@ export const projectCompleted: GameResponse = {
         },
         "required_role": null,
         "minimum_crew": 1,
-        "available": true,
-        "unavailable_reasons": [],
+        "available": false,
+        "unavailable_reasons": [
+          "Requires at least 1 living astronauts fit for this workload.",
+          "Respiratory irritation: EVA unavailable until recovered; indoor work remains possible."
+        ],
         "eligible_crew": [
           {
             "crew_id": "alex",
-            "available": true,
-            "unavailable_reasons": [],
-            "success_probability": 0.8
+            "available": false,
+            "unavailable_reasons": [
+              "Requires at least 1 living astronauts fit for this workload.",
+              "Respiratory irritation: EVA unavailable until recovered; indoor work remains possible."
+            ],
+            "success_probability": 0.75
           },
           {
             "crew_id": "lin",
-            "available": true,
-            "unavailable_reasons": [],
-            "success_probability": 0.95
+            "available": false,
+            "unavailable_reasons": [
+              "Requires at least 1 living astronauts fit for this workload.",
+              "Respiratory irritation: EVA unavailable until recovered; indoor work remains possible."
+            ],
+            "success_probability": 0.9
           }
         ],
         "success_probability": null
@@ -30332,6 +38087,8 @@ export const projectCompleted: GameResponse = {
         "crew_role_bonus": {},
         "success_chance": 0.7,
         "success_effects": {
+          "condition": null,
+          "treatment": 0,
           "resources": {
             "research_data": 2.0
           },
@@ -30343,6 +38100,8 @@ export const projectCompleted: GameResponse = {
           "target": "selected"
         },
         "failure_effects": {
+          "condition": null,
+          "treatment": 0,
           "resources": {},
           "solar_efficiency": 0.0,
           "oxygen_efficiency": 0.0,
@@ -30360,13 +38119,13 @@ export const projectCompleted: GameResponse = {
             "crew_id": "alex",
             "available": true,
             "unavailable_reasons": [],
-            "success_probability": 0.95
+            "success_probability": 0.9
           },
           {
             "crew_id": "lin",
             "available": true,
             "unavailable_reasons": [],
-            "success_probability": 0.8
+            "success_probability": 0.75
           }
         ],
         "success_probability": null
@@ -30529,16 +38288,34 @@ export const projectPauseTurn: TurnResponse = {
     },
     "crew": [
       {
+        "medical_conditions": [
+          {
+            "kind": "dust_irritation",
+            "remaining": 2,
+            "acquired_week": 3,
+            "stabilized": false,
+            "care_week": 0,
+            "care_points": 0,
+            "title": "Dust-related respiratory irritation",
+            "urgent": false,
+            "rest_weeks": 2,
+            "medic_weeks": 1,
+            "untreated_damage": 1,
+            "source_url": "https://www.nasa.gov/reference/jsc-dust/"
+          }
+        ],
         "nutrition_deficit": 0.0,
         "hydration_deficit": 0.0,
         "condition": {
-          "status": "fit",
+          "status": "serious",
           "nutrition_status": "adequate",
           "hydration_status": "adequate",
           "can_work": true,
-          "can_do_eva": true,
-          "performance_penalty": 0.0,
-          "restrictions": [],
+          "can_do_eva": false,
+          "performance_penalty": 0.05,
+          "restrictions": [
+            "Respiratory irritation: EVA unavailable until recovered; indoor work remains possible."
+          ],
           "nutrition_recovery_weeks": 0,
           "hydration_recovery_weeks": 0,
           "source_url": "https://www.nasa.gov/reference/risk-of-inadequate-food-and-nutrition/"
@@ -30595,16 +38372,34 @@ export const projectPauseTurn: TurnResponse = {
         }
       },
       {
+        "medical_conditions": [
+          {
+            "kind": "dust_irritation",
+            "remaining": 2,
+            "acquired_week": 3,
+            "stabilized": false,
+            "care_week": 0,
+            "care_points": 0,
+            "title": "Dust-related respiratory irritation",
+            "urgent": false,
+            "rest_weeks": 2,
+            "medic_weeks": 1,
+            "untreated_damage": 1,
+            "source_url": "https://www.nasa.gov/reference/jsc-dust/"
+          }
+        ],
         "nutrition_deficit": 0.0,
         "hydration_deficit": 0.0,
         "condition": {
-          "status": "fit",
+          "status": "serious",
           "nutrition_status": "adequate",
           "hydration_status": "adequate",
           "can_work": true,
-          "can_do_eva": true,
-          "performance_penalty": 0.0,
-          "restrictions": [],
+          "can_do_eva": false,
+          "performance_penalty": 0.05,
+          "restrictions": [
+            "Respiratory irritation: EVA unavailable until recovered; indoor work remains possible."
+          ],
           "nutrition_recovery_weeks": 0,
           "hydration_recovery_weeks": 0,
           "source_url": "https://www.nasa.gov/reference/risk-of-inadequate-food-and-nutrition/"
@@ -30686,11 +38481,13 @@ export const projectPauseTurn: TurnResponse = {
     "current_event": {
       "id": "medical_emergency",
       "title": "Contaminated Air Filter",
-      "description": "An irritant escapes a filter. Every living astronaut loses 8 health on discovery.",
+      "description": "An irritant escapes a filter. Every living astronaut loses 8 health on discovery. All living crew develop dust-related respiratory irritation; named conditions need recovery as well as symptom relief.",
       "category": "hazard",
       "science_context": "Dust management matters for cabin cleanliness. The irritant incident and health changes here are fictional.",
       "source_url": "https://www.nasa.gov/reference/jsc-dust/",
       "on_start": {
+        "condition": "dust_irritation",
+        "treatment": 0,
         "resources": {},
         "solar_efficiency": 0.0,
         "oxygen_efficiency": 0.0,
@@ -30707,7 +38504,7 @@ export const projectPauseTurn: TurnResponse = {
           "action_type": "event",
           "objective_rewards": [],
           "text": "Treat an affected astronaut",
-          "description": "Select a patient. A living medic improves treatment. Failed treatment does not restore health.",
+          "description": "Select a patient. A living medic improves success. Costs 1 medicine; success gives 5 health, stabilizes one active condition (urgent first), and supplies up to 2 recovery points at survival with full provisions and safe air. Failure costs 5 health.",
           "costs": {
             "medicine": 1.0
           },
@@ -30719,15 +38516,19 @@ export const projectPauseTurn: TurnResponse = {
           },
           "success_chance": 0.7,
           "success_effects": {
+            "condition": null,
+            "treatment": 2,
             "resources": {},
             "solar_efficiency": 0.0,
             "oxygen_efficiency": 0.0,
             "water_recovery_efficiency": 0.0,
             "co2_efficiency": 0.0,
-            "crew_health": 30,
+            "crew_health": 5,
             "target": "selected"
           },
           "failure_effects": {
+            "condition": null,
+            "treatment": 0,
             "resources": {},
             "solar_efficiency": 0.0,
             "oxygen_efficiency": 0.0,
@@ -30757,7 +38558,7 @@ export const projectPauseTurn: TurnResponse = {
           "success_probability": null
         },
         {
-          "workload": "strenuous",
+          "workload": "light",
           "support_candidates": [
             {
               "crew_id": "alex",
@@ -30786,6 +38587,8 @@ export const projectPauseTurn: TurnResponse = {
           "crew_role_bonus": {},
           "success_chance": 0.75,
           "success_effects": {
+            "condition": null,
+            "treatment": 0,
             "resources": {},
             "solar_efficiency": 0.0,
             "oxygen_efficiency": 0.0,
@@ -30795,6 +38598,8 @@ export const projectPauseTurn: TurnResponse = {
             "target": "all"
           },
           "failure_effects": {
+            "condition": null,
+            "treatment": 0,
             "resources": {},
             "solar_efficiency": 0.0,
             "oxygen_efficiency": 0.0,
@@ -30816,7 +38621,7 @@ export const projectPauseTurn: TurnResponse = {
               "unavailable_reasons": [
                 "Requires a living medic."
               ],
-              "success_probability": 0.8
+              "success_probability": 0.75
             },
             {
               "crew_id": "lin",
@@ -30824,7 +38629,7 @@ export const projectPauseTurn: TurnResponse = {
               "unavailable_reasons": [
                 "Requires a living medic."
               ],
-              "success_probability": 0.75
+              "success_probability": 0.7
             }
           ],
           "success_probability": null
@@ -30836,7 +38641,7 @@ export const projectPauseTurn: TurnResponse = {
           "action_type": "event",
           "objective_rewards": [],
           "text": "Use scanner-guided treatment",
-          "description": "Guaranteed 20-health recovery for the selected patient. Consumes medicine; the scanner is retained.",
+          "description": "Use the retained scanner and 1 medicine for guaranteed 5-health symptom relief and stabilization of one active condition (urgent first). Up to 2 recovery points apply during survival with full provisions and safe air.",
           "costs": {
             "medicine": 1.0
           },
@@ -30848,15 +38653,19 @@ export const projectPauseTurn: TurnResponse = {
           "crew_role_bonus": {},
           "success_chance": 1.0,
           "success_effects": {
+            "condition": null,
+            "treatment": 2,
             "resources": {},
             "solar_efficiency": 0.0,
             "oxygen_efficiency": 0.0,
             "water_recovery_efficiency": 0.0,
             "co2_efficiency": 0.0,
-            "crew_health": 20,
+            "crew_health": 5,
             "target": "selected"
           },
           "failure_effects": {
+            "condition": null,
+            "treatment": 0,
             "resources": {},
             "solar_efficiency": 0.0,
             "oxygen_efficiency": 0.0,
@@ -30906,6 +38715,8 @@ export const projectPauseTurn: TurnResponse = {
           "crew_role_bonus": {},
           "success_chance": 1.0,
           "success_effects": {
+            "condition": null,
+            "treatment": 0,
             "resources": {},
             "solar_efficiency": 0.0,
             "oxygen_efficiency": 0.0,
@@ -30915,6 +38726,8 @@ export const projectPauseTurn: TurnResponse = {
             "target": "all"
           },
           "failure_effects": {
+            "condition": null,
+            "treatment": 0,
             "resources": {},
             "solar_efficiency": 0.0,
             "oxygen_efficiency": 0.0,
@@ -30953,6 +38766,8 @@ export const projectPauseTurn: TurnResponse = {
         ],
         "assignments": [
           {
+            "patient_id": null,
+            "condition_id": null,
             "crew_id": "lin",
             "activity_id": "research_seismic",
             "status": "completed",
@@ -30970,6 +38785,7 @@ export const projectPauseTurn: TurnResponse = {
                 "oxygen": 2.0
               },
               "effects": {
+                "medical_changes": [],
                 "resources": {},
                 "solar_efficiency": 0.0,
                 "oxygen_efficiency": 0.0,
@@ -30994,6 +38810,7 @@ export const projectPauseTurn: TurnResponse = {
           "success_probability": 1.0,
           "costs": {},
           "effects": {
+            "medical_changes": [],
             "resources": {},
             "solar_efficiency": 0.0,
             "oxygen_efficiency": 0.0,
@@ -31060,6 +38877,8 @@ export const projectPauseTurn: TurnResponse = {
               "crew_id": "alex",
               "before": 100,
               "after": 100,
+              "medical_penalty": 0,
+              "medical_changes": [],
               "food_received_fraction": 1.0,
               "water_received_fraction": 1.0,
               "nutrition_before": 0.0,
@@ -31079,6 +38898,8 @@ export const projectPauseTurn: TurnResponse = {
               "crew_id": "lin",
               "before": 100,
               "after": 100,
+              "medical_penalty": 0,
+              "medical_changes": [],
               "food_received_fraction": 1.0,
               "water_received_fraction": 1.0,
               "nutrition_before": 0.0,
@@ -31118,6 +38939,7 @@ export const projectPauseTurn: TurnResponse = {
           "event_id": "oxygen_fault",
           "title": "Life Support Alarm",
           "effects": {
+            "medical_changes": [],
             "resources": {},
             "solar_efficiency": 0.0,
             "oxygen_efficiency": -0.25,
@@ -31149,6 +38971,7 @@ export const projectPauseTurn: TurnResponse = {
           "success_probability": 1.0,
           "costs": {},
           "effects": {
+            "medical_changes": [],
             "resources": {},
             "solar_efficiency": 0.0,
             "oxygen_efficiency": 0.0,
@@ -31215,6 +39038,8 @@ export const projectPauseTurn: TurnResponse = {
               "crew_id": "alex",
               "before": 100,
               "after": 100,
+              "medical_penalty": 0,
+              "medical_changes": [],
               "food_received_fraction": 1.0,
               "water_received_fraction": 1.0,
               "nutrition_before": 0.0,
@@ -31234,6 +39059,8 @@ export const projectPauseTurn: TurnResponse = {
               "crew_id": "lin",
               "before": 100,
               "after": 100,
+              "medical_penalty": 0,
+              "medical_changes": [],
               "food_received_fraction": 1.0,
               "water_received_fraction": 1.0,
               "nutrition_before": 0.0,
@@ -31273,6 +39100,38 @@ export const projectPauseTurn: TurnResponse = {
           "event_id": "medical_emergency",
           "title": "Contaminated Air Filter",
           "effects": {
+            "medical_changes": [
+              {
+                "crew_id": "alex",
+                "kind": "dust_irritation",
+                "action": "acquired",
+                "reason": null,
+                "before": null,
+                "after": {
+                  "kind": "dust_irritation",
+                  "remaining": 2,
+                  "acquired_week": 3,
+                  "stabilized": false,
+                  "care_week": 0,
+                  "care_points": 0
+                }
+              },
+              {
+                "crew_id": "lin",
+                "kind": "dust_irritation",
+                "action": "acquired",
+                "reason": null,
+                "before": null,
+                "after": {
+                  "kind": "dust_irritation",
+                  "remaining": 2,
+                  "acquired_week": 3,
+                  "stabilized": false,
+                  "care_week": 0,
+                  "care_points": 0
+                }
+              }
+            ],
             "resources": {},
             "solar_efficiency": 0.0,
             "oxygen_efficiency": 0.0,
@@ -31366,6 +39225,8 @@ export const projectPauseTurn: TurnResponse = {
         "crew_role_bonus": {},
         "success_chance": 1.0,
         "success_effects": {
+          "condition": null,
+          "treatment": 0,
           "resources": {},
           "solar_efficiency": 0.0,
           "oxygen_efficiency": 0.0,
@@ -31375,6 +39236,124 @@ export const projectPauseTurn: TurnResponse = {
           "target": "selected"
         },
         "failure_effects": {
+          "condition": null,
+          "treatment": 0,
+          "resources": {},
+          "solar_efficiency": 0.0,
+          "oxygen_efficiency": 0.0,
+          "water_recovery_efficiency": 0.0,
+          "co2_efficiency": 0.0,
+          "crew_health": 0,
+          "target": "selected"
+        },
+        "required_role": null,
+        "minimum_crew": 1,
+        "available": true,
+        "unavailable_reasons": [],
+        "eligible_crew": [
+          {
+            "crew_id": "alex",
+            "available": true,
+            "unavailable_reasons": [],
+            "success_probability": 1.0
+          },
+          {
+            "crew_id": "lin",
+            "available": true,
+            "unavailable_reasons": [],
+            "success_probability": 1.0
+          }
+        ],
+        "success_probability": null
+      },
+      {
+        "workload": "light",
+        "support_candidates": [],
+        "id": "medical_care",
+        "action_type": "medical",
+        "objective_rewards": [],
+        "text": "Provide medical care",
+        "description": "Reserve caregiver and patient for one week, plus 1 medicine. Stabilizes the chosen condition immediately. A fit medic earns 2 recovery points; another fit caregiver earns 1 (2 with a retained diagnostic scanner). Progress needs full actual provisions and safe air. Both crew are occupied, even if recovery stalls.",
+        "costs": {
+          "medicine": 1.0
+        },
+        "required_items": {},
+        "requires_crew": true,
+        "role_bonus": {},
+        "crew_role_bonus": {},
+        "success_chance": 1.0,
+        "success_effects": {
+          "condition": null,
+          "treatment": 0,
+          "resources": {},
+          "solar_efficiency": 0.0,
+          "oxygen_efficiency": 0.0,
+          "water_recovery_efficiency": 0.0,
+          "co2_efficiency": 0.0,
+          "crew_health": 0,
+          "target": "selected"
+        },
+        "failure_effects": {
+          "condition": null,
+          "treatment": 0,
+          "resources": {},
+          "solar_efficiency": 0.0,
+          "oxygen_efficiency": 0.0,
+          "water_recovery_efficiency": 0.0,
+          "co2_efficiency": 0.0,
+          "crew_health": 0,
+          "target": "selected"
+        },
+        "required_role": null,
+        "minimum_crew": 1,
+        "available": true,
+        "unavailable_reasons": [],
+        "eligible_crew": [
+          {
+            "crew_id": "alex",
+            "available": true,
+            "unavailable_reasons": [],
+            "success_probability": 1.0
+          },
+          {
+            "crew_id": "lin",
+            "available": true,
+            "unavailable_reasons": [],
+            "success_probability": 1.0
+          }
+        ],
+        "success_probability": null
+      },
+      {
+        "workload": "rest",
+        "support_candidates": [],
+        "id": "self_care",
+        "action_type": "medical",
+        "objective_rewards": [],
+        "text": "Self-care and stabilization",
+        "description": "One astronaut and 1 medicine. Available even when critically unfit; treats only their own chosen condition. Stabilizes immediately and earns 1 recovery point with full actual provisions and safe air. No work or incident duty that week.",
+        "costs": {
+          "medicine": 1.0
+        },
+        "required_items": {},
+        "requires_crew": true,
+        "role_bonus": {},
+        "crew_role_bonus": {},
+        "success_chance": 1.0,
+        "success_effects": {
+          "condition": null,
+          "treatment": 0,
+          "resources": {},
+          "solar_efficiency": 0.0,
+          "oxygen_efficiency": 0.0,
+          "water_recovery_efficiency": 0.0,
+          "co2_efficiency": 0.0,
+          "crew_health": 0,
+          "target": "selected"
+        },
+        "failure_effects": {
+          "condition": null,
+          "treatment": 0,
           "resources": {},
           "solar_efficiency": 0.0,
           "oxygen_efficiency": 0.0,
@@ -31422,6 +39401,8 @@ export const projectPauseTurn: TurnResponse = {
         "crew_role_bonus": {},
         "success_chance": 1.0,
         "success_effects": {
+          "condition": null,
+          "treatment": 0,
           "resources": {},
           "solar_efficiency": 0.2,
           "oxygen_efficiency": 0.0,
@@ -31431,6 +39412,8 @@ export const projectPauseTurn: TurnResponse = {
           "target": "selected"
         },
         "failure_effects": {
+          "condition": null,
+          "treatment": 0,
           "resources": {},
           "solar_efficiency": 0.0,
           "oxygen_efficiency": 0.0,
@@ -31443,6 +39426,8 @@ export const projectPauseTurn: TurnResponse = {
         "minimum_crew": 1,
         "available": false,
         "unavailable_reasons": [
+          "Requires at least 1 living astronauts fit for this workload.",
+          "Respiratory irritation: EVA unavailable until recovered; indoor work remains possible.",
           "Requires 1 dust_kits; available 0."
         ],
         "eligible_crew": [
@@ -31450,6 +39435,8 @@ export const projectPauseTurn: TurnResponse = {
             "crew_id": "alex",
             "available": false,
             "unavailable_reasons": [
+              "Requires at least 1 living astronauts fit for this workload.",
+              "Respiratory irritation: EVA unavailable until recovered; indoor work remains possible.",
               "Requires 1 dust_kits; available 0."
             ],
             "success_probability": 1.0
@@ -31458,6 +39445,8 @@ export const projectPauseTurn: TurnResponse = {
             "crew_id": "lin",
             "available": false,
             "unavailable_reasons": [
+              "Requires at least 1 living astronauts fit for this workload.",
+              "Respiratory irritation: EVA unavailable until recovered; indoor work remains possible.",
               "Requires 1 dust_kits; available 0."
             ],
             "success_probability": 1.0
@@ -31483,6 +39472,8 @@ export const projectPauseTurn: TurnResponse = {
         "crew_role_bonus": {},
         "success_chance": 1.0,
         "success_effects": {
+          "condition": null,
+          "treatment": 0,
           "resources": {},
           "solar_efficiency": 0.0,
           "oxygen_efficiency": 0.2,
@@ -31492,6 +39483,8 @@ export const projectPauseTurn: TurnResponse = {
           "target": "selected"
         },
         "failure_effects": {
+          "condition": null,
+          "treatment": 0,
           "resources": {},
           "solar_efficiency": 0.0,
           "oxygen_efficiency": 0.0,
@@ -31544,6 +39537,8 @@ export const projectPauseTurn: TurnResponse = {
         "crew_role_bonus": {},
         "success_chance": 1.0,
         "success_effects": {
+          "condition": null,
+          "treatment": 0,
           "resources": {},
           "solar_efficiency": 0.0,
           "oxygen_efficiency": 0.0,
@@ -31553,6 +39548,8 @@ export const projectPauseTurn: TurnResponse = {
           "target": "selected"
         },
         "failure_effects": {
+          "condition": null,
+          "treatment": 0,
           "resources": {},
           "solar_efficiency": 0.0,
           "oxygen_efficiency": 0.0,
@@ -31599,6 +39596,8 @@ export const projectPauseTurn: TurnResponse = {
         "crew_role_bonus": {},
         "success_chance": 1.0,
         "success_effects": {
+          "condition": null,
+          "treatment": 0,
           "resources": {},
           "solar_efficiency": 0.0,
           "oxygen_efficiency": 0.0,
@@ -31608,6 +39607,8 @@ export const projectPauseTurn: TurnResponse = {
           "target": "selected"
         },
         "failure_effects": {
+          "condition": null,
+          "treatment": 0,
           "resources": {},
           "solar_efficiency": 0.0,
           "oxygen_efficiency": 0.0,
@@ -31649,7 +39650,7 @@ export const projectPauseTurn: TurnResponse = {
           }
         ],
         "text": "Survey a geological sample",
-        "description": "Use the science kit to collect one sample and 2 research data on success. Scientists improve the odds; failure costs the worker 8 health. One-week crew assignment; incident response is separate.",
+        "description": "Use the science kit to collect one sample and 2 research data on success. Scientists improve the odds; failure costs the worker 8 health and causes a sprain. One-week crew assignment; incident response is separate.",
         "costs": {
           "eva_batteries": 1.0,
           "oxygen": 2.0
@@ -31665,6 +39666,8 @@ export const projectPauseTurn: TurnResponse = {
         "crew_role_bonus": {},
         "success_chance": 0.75,
         "success_effects": {
+          "condition": null,
+          "treatment": 0,
           "resources": {
             "research_data": 2.0
           },
@@ -31676,6 +39679,8 @@ export const projectPauseTurn: TurnResponse = {
           "target": "selected"
         },
         "failure_effects": {
+          "condition": "sprain",
+          "treatment": 0,
           "resources": {},
           "solar_efficiency": 0.0,
           "oxygen_efficiency": 0.0,
@@ -31686,20 +39691,29 @@ export const projectPauseTurn: TurnResponse = {
         },
         "required_role": null,
         "minimum_crew": 1,
-        "available": true,
-        "unavailable_reasons": [],
+        "available": false,
+        "unavailable_reasons": [
+          "Requires at least 1 living astronauts fit for this workload.",
+          "Respiratory irritation: EVA unavailable until recovered; indoor work remains possible."
+        ],
         "eligible_crew": [
           {
             "crew_id": "alex",
-            "available": true,
-            "unavailable_reasons": [],
-            "success_probability": 0.8
+            "available": false,
+            "unavailable_reasons": [
+              "Requires at least 1 living astronauts fit for this workload.",
+              "Respiratory irritation: EVA unavailable until recovered; indoor work remains possible."
+            ],
+            "success_probability": 0.75
           },
           {
             "crew_id": "lin",
-            "available": true,
-            "unavailable_reasons": [],
-            "success_probability": 0.95
+            "available": false,
+            "unavailable_reasons": [
+              "Requires at least 1 living astronauts fit for this workload.",
+              "Respiratory irritation: EVA unavailable until recovered; indoor work remains possible."
+            ],
+            "success_probability": 0.9
           }
         ],
         "success_probability": null
@@ -31734,6 +39748,8 @@ export const projectPauseTurn: TurnResponse = {
         "crew_role_bonus": {},
         "success_chance": 0.7,
         "success_effects": {
+          "condition": null,
+          "treatment": 0,
           "resources": {
             "research_data": 2.0
           },
@@ -31745,6 +39761,8 @@ export const projectPauseTurn: TurnResponse = {
           "target": "selected"
         },
         "failure_effects": {
+          "condition": null,
+          "treatment": 0,
           "resources": {},
           "solar_efficiency": 0.0,
           "oxygen_efficiency": 0.0,
@@ -31762,13 +39780,13 @@ export const projectPauseTurn: TurnResponse = {
             "crew_id": "alex",
             "available": true,
             "unavailable_reasons": [],
-            "success_probability": 0.95
+            "success_probability": 0.9
           },
           {
             "crew_id": "lin",
             "available": true,
             "unavailable_reasons": [],
-            "success_probability": 0.8
+            "success_probability": 0.75
           }
         ],
         "success_probability": null
@@ -31796,6 +39814,7 @@ export const projectPauseTurn: TurnResponse = {
       "success_probability": 1.0,
       "costs": {},
       "effects": {
+        "medical_changes": [],
         "resources": {},
         "solar_efficiency": 0.0,
         "oxygen_efficiency": 0.0,
@@ -31862,6 +39881,8 @@ export const projectPauseTurn: TurnResponse = {
           "crew_id": "alex",
           "before": 100,
           "after": 100,
+          "medical_penalty": 0,
+          "medical_changes": [],
           "food_received_fraction": 1.0,
           "water_received_fraction": 1.0,
           "nutrition_before": 0.0,
@@ -31881,6 +39902,8 @@ export const projectPauseTurn: TurnResponse = {
           "crew_id": "lin",
           "before": 100,
           "after": 100,
+          "medical_penalty": 0,
+          "medical_changes": [],
           "food_received_fraction": 1.0,
           "water_received_fraction": 1.0,
           "nutrition_before": 0.0,
@@ -31920,6 +39943,38 @@ export const projectPauseTurn: TurnResponse = {
       "event_id": "medical_emergency",
       "title": "Contaminated Air Filter",
       "effects": {
+        "medical_changes": [
+          {
+            "crew_id": "alex",
+            "kind": "dust_irritation",
+            "action": "acquired",
+            "reason": null,
+            "before": null,
+            "after": {
+              "kind": "dust_irritation",
+              "remaining": 2,
+              "acquired_week": 3,
+              "stabilized": false,
+              "care_week": 0,
+              "care_points": 0
+            }
+          },
+          {
+            "crew_id": "lin",
+            "kind": "dust_irritation",
+            "action": "acquired",
+            "reason": null,
+            "before": null,
+            "after": {
+              "kind": "dust_irritation",
+              "remaining": 2,
+              "acquired_week": 3,
+              "stabilized": false,
+              "care_week": 0,
+              "care_points": 0
+            }
+          }
+        ],
         "resources": {},
         "solar_efficiency": 0.0,
         "oxygen_efficiency": 0.0,
@@ -32005,16 +40060,34 @@ export const completed: GameResponse = {
     },
     "crew": [
       {
+        "medical_conditions": [
+          {
+            "kind": "gastrointestinal_illness",
+            "remaining": 3,
+            "acquired_week": 9,
+            "stabilized": false,
+            "care_week": 0,
+            "care_points": 0,
+            "title": "Gastrointestinal illness",
+            "urgent": false,
+            "rest_weeks": 3,
+            "medic_weeks": 2,
+            "untreated_damage": 3,
+            "source_url": "https://www.nasa.gov/reference/appendix-e-health-and-medical-care-technical-requirements/"
+          }
+        ],
         "nutrition_deficit": 0.0,
         "hydration_deficit": 0.0,
         "condition": {
-          "status": "fit",
+          "status": "serious",
           "nutrition_status": "adequate",
           "hydration_status": "adequate",
           "can_work": true,
-          "can_do_eva": true,
-          "performance_penalty": 0.0,
-          "restrictions": [],
+          "can_do_eva": false,
+          "performance_penalty": 0.08,
+          "restrictions": [
+            "Active injury or illness: light duties only until the condition resolves."
+          ],
           "nutrition_recovery_weeks": 0,
           "hydration_recovery_weeks": 0,
           "source_url": "https://www.nasa.gov/reference/risk-of-inadequate-food-and-nutrition/"
@@ -32042,7 +40115,7 @@ export const completed: GameResponse = {
         "id": "alex",
         "name": "Alex Vega",
         "role": "engineer",
-        "health": 100,
+        "health": 91,
         "positive_trait": "Steady hands: +5 percentage points on assigned event actions.",
         "negative_trait": "Large appetite: consumes 10% more food.",
         "food_multiplier": 1.1,
@@ -32071,16 +40144,34 @@ export const completed: GameResponse = {
         }
       },
       {
+        "medical_conditions": [
+          {
+            "kind": "dust_irritation",
+            "remaining": 2,
+            "acquired_week": 1,
+            "stabilized": false,
+            "care_week": 0,
+            "care_points": 0,
+            "title": "Dust-related respiratory irritation",
+            "urgent": false,
+            "rest_weeks": 2,
+            "medic_weeks": 1,
+            "untreated_damage": 1,
+            "source_url": "https://www.nasa.gov/reference/jsc-dust/"
+          }
+        ],
         "nutrition_deficit": 0.0,
         "hydration_deficit": 0.0,
         "condition": {
-          "status": "fit",
+          "status": "serious",
           "nutrition_status": "adequate",
           "hydration_status": "adequate",
           "can_work": true,
-          "can_do_eva": true,
-          "performance_penalty": 0.0,
-          "restrictions": [],
+          "can_do_eva": false,
+          "performance_penalty": 0.05,
+          "restrictions": [
+            "Respiratory irritation: EVA unavailable until recovered; indoor work remains possible."
+          ],
           "nutrition_recovery_weeks": 0,
           "hydration_recovery_weeks": 0,
           "source_url": "https://www.nasa.gov/reference/risk-of-inadequate-food-and-nutrition/"
@@ -32108,7 +40199,7 @@ export const completed: GameResponse = {
         "id": "maya",
         "name": "Maya Okafor",
         "role": "medic",
-        "health": 100,
+        "health": 89,
         "positive_trait": "Efficient metabolism: consumes 10% less food.",
         "negative_trait": "Thirsty: consumes 10% more water.",
         "food_multiplier": 0.9,
@@ -32198,6 +40289,30 @@ export const completed: GameResponse = {
             "medicine": 1.0
           },
           "effects": {
+            "medical_changes": [
+              {
+                "crew_id": "alex",
+                "kind": "dust_irritation",
+                "action": "stabilized",
+                "reason": null,
+                "before": {
+                  "kind": "dust_irritation",
+                  "remaining": 2,
+                  "acquired_week": 1,
+                  "stabilized": false,
+                  "care_week": 0,
+                  "care_points": 0
+                },
+                "after": {
+                  "kind": "dust_irritation",
+                  "remaining": 2,
+                  "acquired_week": 1,
+                  "stabilized": true,
+                  "care_week": 1,
+                  "care_points": 2
+                }
+              }
+            ],
             "resources": {},
             "solar_efficiency": 0.0,
             "oxygen_efficiency": 0.0,
@@ -32207,7 +40322,7 @@ export const completed: GameResponse = {
               {
                 "crew_id": "alex",
                 "before": 92,
-                "after": 100
+                "after": 97
               }
             ]
           },
@@ -32268,17 +40383,35 @@ export const completed: GameResponse = {
           "health_changes": [
             {
               "crew_id": "alex",
-              "before": 100,
+              "before": 97,
               "after": 100,
+              "medical_penalty": 0,
+              "medical_changes": [
+                {
+                  "crew_id": "alex",
+                  "kind": "dust_irritation",
+                  "action": "resolved",
+                  "reason": null,
+                  "before": {
+                    "kind": "dust_irritation",
+                    "remaining": 2,
+                    "acquired_week": 1,
+                    "stabilized": true,
+                    "care_week": 1,
+                    "care_points": 2
+                  },
+                  "after": null
+                }
+              ],
               "food_received_fraction": 1.0,
               "water_received_fraction": 1.0,
               "nutrition_before": 0.0,
               "nutrition_after": 0.0,
               "hydration_before": 0.0,
               "hydration_after": 0.0,
-              "recovery": 0,
+              "recovery": 3,
               "worked": false,
-              "rested": false,
+              "rested": true,
               "food_penalty": 0,
               "water_penalty": 0,
               "oxygen_penalty": 0,
@@ -32289,6 +40422,8 @@ export const completed: GameResponse = {
               "crew_id": "maya",
               "before": 92,
               "after": 94,
+              "medical_penalty": 0,
+              "medical_changes": [],
               "food_received_fraction": 1.0,
               "water_received_fraction": 1.0,
               "nutrition_before": 0.0,
@@ -32328,6 +40463,7 @@ export const completed: GameResponse = {
           "event_id": "crew_recovery",
           "title": "A Week for Recovery",
           "effects": {
+            "medical_changes": [],
             "resources": {},
             "solar_efficiency": 0.0,
             "oxygen_efficiency": 0.0,
@@ -32356,6 +40492,7 @@ export const completed: GameResponse = {
             "water": 1.0
           },
           "effects": {
+            "medical_changes": [],
             "resources": {},
             "solar_efficiency": 0.0,
             "oxygen_efficiency": 0.0,
@@ -32428,6 +40565,8 @@ export const completed: GameResponse = {
               "crew_id": "alex",
               "before": 100,
               "after": 100,
+              "medical_penalty": 0,
+              "medical_changes": [],
               "food_received_fraction": 1.0,
               "water_received_fraction": 1.0,
               "nutrition_before": 0.0,
@@ -32446,7 +40585,9 @@ export const completed: GameResponse = {
             {
               "crew_id": "maya",
               "before": 100,
-              "after": 100,
+              "after": 99,
+              "medical_penalty": 1,
+              "medical_changes": [],
               "food_received_fraction": 1.0,
               "water_received_fraction": 1.0,
               "nutrition_before": 0.0,
@@ -32486,6 +40627,7 @@ export const completed: GameResponse = {
           "event_id": "oxygen_fault",
           "title": "Life Support Alarm",
           "effects": {
+            "medical_changes": [],
             "resources": {},
             "solar_efficiency": 0.0,
             "oxygen_efficiency": -0.25,
@@ -32513,6 +40655,7 @@ export const completed: GameResponse = {
             "repair_kits": 1.0
           },
           "effects": {
+            "medical_changes": [],
             "resources": {},
             "solar_efficiency": 0.0,
             "oxygen_efficiency": 0.25,
@@ -32579,6 +40722,8 @@ export const completed: GameResponse = {
               "crew_id": "alex",
               "before": 100,
               "after": 100,
+              "medical_penalty": 0,
+              "medical_changes": [],
               "food_received_fraction": 1.0,
               "water_received_fraction": 1.0,
               "nutrition_before": 0.0,
@@ -32596,8 +40741,10 @@ export const completed: GameResponse = {
             },
             {
               "crew_id": "maya",
-              "before": 100,
-              "after": 100,
+              "before": 99,
+              "after": 98,
+              "medical_penalty": 1,
+              "medical_changes": [],
               "food_received_fraction": 1.0,
               "water_received_fraction": 1.0,
               "nutrition_before": 0.0,
@@ -32637,6 +40784,7 @@ export const completed: GameResponse = {
           "event_id": "antenna_drift",
           "title": "Antenna Off Target",
           "effects": {
+            "medical_changes": [],
             "resources": {},
             "solar_efficiency": 0.0,
             "oxygen_efficiency": 0.0,
@@ -32671,6 +40819,7 @@ export const completed: GameResponse = {
             "oxygen": 2.0
           },
           "effects": {
+            "medical_changes": [],
             "resources": {
               "research_data": 2.0
             },
@@ -32745,6 +40894,8 @@ export const completed: GameResponse = {
               "crew_id": "alex",
               "before": 100,
               "after": 100,
+              "medical_penalty": 0,
+              "medical_changes": [],
               "food_received_fraction": 1.0,
               "water_received_fraction": 1.0,
               "nutrition_before": 0.0,
@@ -32762,8 +40913,10 @@ export const completed: GameResponse = {
             },
             {
               "crew_id": "maya",
-              "before": 100,
-              "after": 100,
+              "before": 98,
+              "after": 97,
+              "medical_penalty": 1,
+              "medical_changes": [],
               "food_received_fraction": 1.0,
               "water_received_fraction": 1.0,
               "nutrition_before": 0.0,
@@ -32803,6 +40956,7 @@ export const completed: GameResponse = {
           "event_id": "solar_failure",
           "title": "Dust on the Array",
           "effects": {
+            "medical_changes": [],
             "resources": {},
             "solar_efficiency": -0.25,
             "oxygen_efficiency": 0.0,
@@ -32832,6 +40986,7 @@ export const completed: GameResponse = {
             "oxygen": 2.0
           },
           "effects": {
+            "medical_changes": [],
             "resources": {},
             "solar_efficiency": 0.25,
             "oxygen_efficiency": 0.0,
@@ -32898,6 +41053,8 @@ export const completed: GameResponse = {
               "crew_id": "alex",
               "before": 100,
               "after": 100,
+              "medical_penalty": 0,
+              "medical_changes": [],
               "food_received_fraction": 1.0,
               "water_received_fraction": 1.0,
               "nutrition_before": 0.0,
@@ -32915,8 +41072,10 @@ export const completed: GameResponse = {
             },
             {
               "crew_id": "maya",
-              "before": 100,
-              "after": 100,
+              "before": 97,
+              "after": 96,
+              "medical_penalty": 1,
+              "medical_changes": [],
               "food_received_fraction": 1.0,
               "water_received_fraction": 1.0,
               "nutrition_before": 0.0,
@@ -32956,6 +41115,7 @@ export const completed: GameResponse = {
           "event_id": "water_line_leak",
           "title": "Water Under the Floor",
           "effects": {
+            "medical_changes": [],
             "resources": {
               "water": -4.0
             },
@@ -32985,6 +41145,7 @@ export const completed: GameResponse = {
             "repair_kits": 1.0
           },
           "effects": {
+            "medical_changes": [],
             "resources": {
               "water": 2.0
             },
@@ -33053,6 +41214,8 @@ export const completed: GameResponse = {
               "crew_id": "alex",
               "before": 100,
               "after": 100,
+              "medical_penalty": 0,
+              "medical_changes": [],
               "food_received_fraction": 1.0,
               "water_received_fraction": 1.0,
               "nutrition_before": 0.0,
@@ -33070,8 +41233,10 @@ export const completed: GameResponse = {
             },
             {
               "crew_id": "maya",
-              "before": 100,
-              "after": 100,
+              "before": 96,
+              "after": 95,
+              "medical_penalty": 1,
+              "medical_changes": [],
               "food_received_fraction": 1.0,
               "water_received_fraction": 1.0,
               "nutrition_before": 0.0,
@@ -33111,6 +41276,7 @@ export const completed: GameResponse = {
           "event_id": "solar_particle_alert",
           "title": "Shelter Before the Storm",
           "effects": {
+            "medical_changes": [],
             "resources": {},
             "solar_efficiency": 0.0,
             "oxygen_efficiency": 0.0,
@@ -33139,6 +41305,7 @@ export const completed: GameResponse = {
             "water": 1.0
           },
           "effects": {
+            "medical_changes": [],
             "resources": {},
             "solar_efficiency": 0.0,
             "oxygen_efficiency": 0.0,
@@ -33205,6 +41372,8 @@ export const completed: GameResponse = {
               "crew_id": "alex",
               "before": 100,
               "after": 100,
+              "medical_penalty": 0,
+              "medical_changes": [],
               "food_received_fraction": 1.0,
               "water_received_fraction": 1.0,
               "nutrition_before": 0.0,
@@ -33222,8 +41391,10 @@ export const completed: GameResponse = {
             },
             {
               "crew_id": "maya",
-              "before": 100,
-              "after": 100,
+              "before": 95,
+              "after": 94,
+              "medical_penalty": 1,
+              "medical_changes": [],
               "food_received_fraction": 1.0,
               "water_received_fraction": 1.0,
               "nutrition_before": 0.0,
@@ -33263,6 +41434,7 @@ export const completed: GameResponse = {
           "event_id": "impact_puncture",
           "title": "Pinprick in the Pressure Line",
           "effects": {
+            "medical_changes": [],
             "resources": {
               "oxygen": -4.0
             },
@@ -33292,6 +41464,7 @@ export const completed: GameResponse = {
             "repair_kits": 1.0
           },
           "effects": {
+            "medical_changes": [],
             "resources": {},
             "solar_efficiency": 0.0,
             "oxygen_efficiency": 0.0,
@@ -33358,6 +41531,8 @@ export const completed: GameResponse = {
               "crew_id": "alex",
               "before": 100,
               "after": 100,
+              "medical_penalty": 0,
+              "medical_changes": [],
               "food_received_fraction": 1.0,
               "water_received_fraction": 1.0,
               "nutrition_before": 0.0,
@@ -33375,8 +41550,10 @@ export const completed: GameResponse = {
             },
             {
               "crew_id": "maya",
-              "before": 100,
-              "after": 100,
+              "before": 94,
+              "after": 93,
+              "medical_penalty": 1,
+              "medical_changes": [],
               "food_received_fraction": 1.0,
               "water_received_fraction": 1.0,
               "nutrition_before": 0.0,
@@ -33416,6 +41593,7 @@ export const completed: GameResponse = {
           "event_id": "inventory_audit",
           "title": "A Crate in the Ledger",
           "effects": {
+            "medical_changes": [],
             "resources": {},
             "solar_efficiency": 0.0,
             "oxygen_efficiency": 0.0,
@@ -33443,6 +41621,23 @@ export const completed: GameResponse = {
             "electricity": 1.0
           },
           "effects": {
+            "medical_changes": [
+              {
+                "crew_id": "alex",
+                "kind": "gastrointestinal_illness",
+                "action": "acquired",
+                "reason": null,
+                "before": null,
+                "after": {
+                  "kind": "gastrointestinal_illness",
+                  "remaining": 3,
+                  "acquired_week": 9,
+                  "stabilized": false,
+                  "care_week": 0,
+                  "care_points": 0
+                }
+              }
+            ],
             "resources": {},
             "solar_efficiency": 0.0,
             "oxygen_efficiency": 0.0,
@@ -33509,6 +41704,8 @@ export const completed: GameResponse = {
               "crew_id": "alex",
               "before": 100,
               "after": 100,
+              "medical_penalty": 0,
+              "medical_changes": [],
               "food_received_fraction": 1.0,
               "water_received_fraction": 1.0,
               "nutrition_before": 0.0,
@@ -33526,8 +41723,10 @@ export const completed: GameResponse = {
             },
             {
               "crew_id": "maya",
-              "before": 100,
-              "after": 100,
+              "before": 93,
+              "after": 92,
+              "medical_penalty": 1,
+              "medical_changes": [],
               "food_received_fraction": 1.0,
               "water_received_fraction": 1.0,
               "nutrition_before": 0.0,
@@ -33567,6 +41766,7 @@ export const completed: GameResponse = {
           "event_id": "scrubber_load",
           "title": "Carbon Dioxide Scrubber Load",
           "effects": {
+            "medical_changes": [],
             "resources": {},
             "solar_efficiency": 0.0,
             "oxygen_efficiency": 0.0,
@@ -33587,13 +41787,14 @@ export const completed: GameResponse = {
           "event_id": "scrubber_load",
           "choice_id": "service_scrubber",
           "choice_text": "Service the scrubber",
-          "selected_crew_id": "alex",
+          "selected_crew_id": "maya",
           "success": true,
-          "success_probability": 0.95,
+          "success_probability": 0.65,
           "costs": {
             "repair_kits": 1.0
           },
           "effects": {
+            "medical_changes": [],
             "resources": {},
             "solar_efficiency": 0.0,
             "oxygen_efficiency": 0.0,
@@ -33659,7 +41860,9 @@ export const completed: GameResponse = {
             {
               "crew_id": "alex",
               "before": 100,
-              "after": 100,
+              "after": 97,
+              "medical_penalty": 3,
+              "medical_changes": [],
               "food_received_fraction": 1.0,
               "water_received_fraction": 1.0,
               "nutrition_before": 0.0,
@@ -33667,7 +41870,7 @@ export const completed: GameResponse = {
               "hydration_before": 0.0,
               "hydration_after": 0.0,
               "recovery": 0,
-              "worked": true,
+              "worked": false,
               "rested": false,
               "food_penalty": 0,
               "water_penalty": 0,
@@ -33677,8 +41880,10 @@ export const completed: GameResponse = {
             },
             {
               "crew_id": "maya",
-              "before": 100,
-              "after": 100,
+              "before": 92,
+              "after": 91,
+              "medical_penalty": 1,
+              "medical_changes": [],
               "food_received_fraction": 1.0,
               "water_received_fraction": 1.0,
               "nutrition_before": 0.0,
@@ -33686,7 +41891,7 @@ export const completed: GameResponse = {
               "hydration_before": 0.0,
               "hydration_after": 0.0,
               "recovery": 0,
-              "worked": false,
+              "worked": true,
               "rested": false,
               "food_penalty": 0,
               "water_penalty": 0,
@@ -33718,6 +41923,7 @@ export const completed: GameResponse = {
           "event_id": "seismic_signal",
           "title": "A Signal in the Seismometer",
           "effects": {
+            "medical_changes": [],
             "resources": {},
             "solar_efficiency": 0.0,
             "oxygen_efficiency": 0.0,
@@ -33743,6 +41949,7 @@ export const completed: GameResponse = {
           "success_probability": 1.0,
           "costs": {},
           "effects": {
+            "medical_changes": [],
             "resources": {
               "research_data": 1.0
             },
@@ -33809,8 +42016,10 @@ export const completed: GameResponse = {
           "health_changes": [
             {
               "crew_id": "alex",
-              "before": 100,
-              "after": 100,
+              "before": 97,
+              "after": 94,
+              "medical_penalty": 3,
+              "medical_changes": [],
               "food_received_fraction": 1.0,
               "water_received_fraction": 1.0,
               "nutrition_before": 0.0,
@@ -33828,8 +42037,10 @@ export const completed: GameResponse = {
             },
             {
               "crew_id": "maya",
-              "before": 100,
-              "after": 100,
+              "before": 91,
+              "after": 90,
+              "medical_penalty": 1,
+              "medical_changes": [],
               "food_received_fraction": 1.0,
               "water_received_fraction": 1.0,
               "nutrition_before": 0.0,
@@ -33869,6 +42080,7 @@ export const completed: GameResponse = {
           "event_id": "battery_isolation",
           "title": "Battery String Offline",
           "effects": {
+            "medical_changes": [],
             "resources": {
               "electricity": -5.0
             },
@@ -33891,13 +42103,14 @@ export const completed: GameResponse = {
           "event_id": "battery_isolation",
           "choice_id": "battery_diagnosis",
           "choice_text": "Diagnose and restore the string",
-          "selected_crew_id": "alex",
+          "selected_crew_id": "maya",
           "success": true,
-          "success_probability": 0.95,
+          "success_probability": 0.6,
           "costs": {
             "repair_kits": 1.0
           },
           "effects": {
+            "medical_changes": [],
             "resources": {
               "electricity": 5.0
             },
@@ -33964,8 +42177,10 @@ export const completed: GameResponse = {
           "health_changes": [
             {
               "crew_id": "alex",
-              "before": 100,
-              "after": 100,
+              "before": 94,
+              "after": 91,
+              "medical_penalty": 3,
+              "medical_changes": [],
               "food_received_fraction": 1.0,
               "water_received_fraction": 1.0,
               "nutrition_before": 0.0,
@@ -33973,7 +42188,7 @@ export const completed: GameResponse = {
               "hydration_before": 0.0,
               "hydration_after": 0.0,
               "recovery": 0,
-              "worked": true,
+              "worked": false,
               "rested": false,
               "food_penalty": 0,
               "water_penalty": 0,
@@ -33983,8 +42198,10 @@ export const completed: GameResponse = {
             },
             {
               "crew_id": "maya",
-              "before": 100,
-              "after": 100,
+              "before": 90,
+              "after": 89,
+              "medical_penalty": 1,
+              "medical_changes": [],
               "food_received_fraction": 1.0,
               "water_received_fraction": 1.0,
               "nutrition_before": 0.0,
@@ -33992,7 +42209,7 @@ export const completed: GameResponse = {
               "hydration_before": 0.0,
               "hydration_after": 0.0,
               "recovery": 0,
-              "worked": false,
+              "worked": true,
               "rested": false,
               "food_penalty": 0,
               "water_penalty": 0,
@@ -34252,6 +42469,22 @@ export const failed: GameResponse = {
     },
     "crew": [
       {
+        "medical_conditions": [
+          {
+            "kind": "dust_irritation",
+            "remaining": 2,
+            "acquired_week": 1,
+            "stabilized": false,
+            "care_week": 0,
+            "care_points": 0,
+            "title": "Dust-related respiratory irritation",
+            "urgent": false,
+            "rest_weeks": 2,
+            "medic_weeks": 1,
+            "untreated_damage": 1,
+            "source_url": "https://www.nasa.gov/reference/jsc-dust/"
+          }
+        ],
         "nutrition_deficit": 1.25,
         "hydration_deficit": 1.32375,
         "condition": {
@@ -34288,6 +42521,22 @@ export const failed: GameResponse = {
         "ration_options": {}
       },
       {
+        "medical_conditions": [
+          {
+            "kind": "dust_irritation",
+            "remaining": 2,
+            "acquired_week": 1,
+            "stabilized": false,
+            "care_week": 0,
+            "care_points": 0,
+            "title": "Dust-related respiratory irritation",
+            "urgent": false,
+            "rest_weeks": 2,
+            "medic_weeks": 1,
+            "untreated_damage": 1,
+            "source_url": "https://www.nasa.gov/reference/jsc-dust/"
+          }
+        ],
         "nutrition_deficit": 1.25,
         "hydration_deficit": 1.32375,
         "condition": {
@@ -34324,6 +42573,22 @@ export const failed: GameResponse = {
         "ration_options": {}
       },
       {
+        "medical_conditions": [
+          {
+            "kind": "dust_irritation",
+            "remaining": 2,
+            "acquired_week": 1,
+            "stabilized": false,
+            "care_week": 0,
+            "care_points": 0,
+            "title": "Dust-related respiratory irritation",
+            "urgent": false,
+            "rest_weeks": 2,
+            "medic_weeks": 1,
+            "untreated_damage": 1,
+            "source_url": "https://www.nasa.gov/reference/jsc-dust/"
+          }
+        ],
         "nutrition_deficit": 1.25,
         "hydration_deficit": 1.32375,
         "condition": {
@@ -34360,6 +42625,22 @@ export const failed: GameResponse = {
         "ration_options": {}
       },
       {
+        "medical_conditions": [
+          {
+            "kind": "dust_irritation",
+            "remaining": 2,
+            "acquired_week": 1,
+            "stabilized": false,
+            "care_week": 0,
+            "care_points": 0,
+            "title": "Dust-related respiratory irritation",
+            "urgent": false,
+            "rest_weeks": 2,
+            "medic_weeks": 1,
+            "untreated_damage": 1,
+            "source_url": "https://www.nasa.gov/reference/jsc-dust/"
+          }
+        ],
         "nutrition_deficit": 1.25,
         "hydration_deficit": 1.32375,
         "condition": {
@@ -34451,6 +42732,7 @@ export const failed: GameResponse = {
           "success_probability": 1.0,
           "costs": {},
           "effects": {
+            "medical_changes": [],
             "resources": {},
             "solar_efficiency": 0.0,
             "oxygen_efficiency": 0.0,
@@ -34546,6 +42828,8 @@ export const failed: GameResponse = {
               "crew_id": "alex",
               "before": 87,
               "after": 89,
+              "medical_penalty": 0,
+              "medical_changes": [],
               "food_received_fraction": 1.0,
               "water_received_fraction": 1.0,
               "nutrition_before": 0.0,
@@ -34565,6 +42849,8 @@ export const failed: GameResponse = {
               "crew_id": "maya",
               "before": 87,
               "after": 89,
+              "medical_penalty": 0,
+              "medical_changes": [],
               "food_received_fraction": 1.0,
               "water_received_fraction": 1.0,
               "nutrition_before": 0.0,
@@ -34584,6 +42870,8 @@ export const failed: GameResponse = {
               "crew_id": "lin",
               "before": 84,
               "after": 86,
+              "medical_penalty": 0,
+              "medical_changes": [],
               "food_received_fraction": 1.0,
               "water_received_fraction": 1.0,
               "nutrition_before": 0.0,
@@ -34603,6 +42891,8 @@ export const failed: GameResponse = {
               "crew_id": "sam",
               "before": 89,
               "after": 91,
+              "medical_penalty": 0,
+              "medical_changes": [],
               "food_received_fraction": 1.0,
               "water_received_fraction": 1.0,
               "nutrition_before": 0.0,
@@ -34642,6 +42932,7 @@ export const failed: GameResponse = {
           "event_id": "crew_recovery",
           "title": "A Week for Recovery",
           "effects": {
+            "medical_changes": [],
             "resources": {},
             "solar_efficiency": 0.0,
             "oxygen_efficiency": 0.0,
@@ -34670,6 +42961,7 @@ export const failed: GameResponse = {
             "water": 1.0
           },
           "effects": {
+            "medical_changes": [],
             "resources": {},
             "solar_efficiency": 0.0,
             "oxygen_efficiency": 0.0,
@@ -34764,14 +43056,16 @@ export const failed: GameResponse = {
             {
               "crew_id": "alex",
               "before": 95,
-              "after": 97,
+              "after": 94,
+              "medical_penalty": 1,
+              "medical_changes": [],
               "food_received_fraction": 1.0,
               "water_received_fraction": 1.0,
               "nutrition_before": 0.0,
               "nutrition_after": 0.0,
               "hydration_before": 0.0,
               "hydration_after": 0.0,
-              "recovery": 2,
+              "recovery": 0,
               "worked": false,
               "rested": false,
               "food_penalty": 0,
@@ -34783,14 +43077,16 @@ export const failed: GameResponse = {
             {
               "crew_id": "maya",
               "before": 95,
-              "after": 97,
+              "after": 94,
+              "medical_penalty": 1,
+              "medical_changes": [],
               "food_received_fraction": 1.0,
               "water_received_fraction": 1.0,
               "nutrition_before": 0.0,
               "nutrition_after": 0.0,
               "hydration_before": 0.0,
               "hydration_after": 0.0,
-              "recovery": 2,
+              "recovery": 0,
               "worked": false,
               "rested": false,
               "food_penalty": 0,
@@ -34802,14 +43098,16 @@ export const failed: GameResponse = {
             {
               "crew_id": "lin",
               "before": 92,
-              "after": 94,
+              "after": 91,
+              "medical_penalty": 1,
+              "medical_changes": [],
               "food_received_fraction": 1.0,
               "water_received_fraction": 1.0,
               "nutrition_before": 0.0,
               "nutrition_after": 0.0,
               "hydration_before": 0.0,
               "hydration_after": 0.0,
-              "recovery": 2,
+              "recovery": 0,
               "worked": false,
               "rested": false,
               "food_penalty": 0,
@@ -34821,14 +43119,16 @@ export const failed: GameResponse = {
             {
               "crew_id": "sam",
               "before": 97,
-              "after": 99,
+              "after": 96,
+              "medical_penalty": 1,
+              "medical_changes": [],
               "food_received_fraction": 1.0,
               "water_received_fraction": 1.0,
               "nutrition_before": 0.0,
               "nutrition_after": 0.0,
               "hydration_before": 0.0,
               "hydration_after": 0.0,
-              "recovery": 2,
+              "recovery": 0,
               "worked": false,
               "rested": false,
               "food_penalty": 0,
@@ -34861,6 +43161,7 @@ export const failed: GameResponse = {
           "event_id": "oxygen_fault",
           "title": "Life Support Alarm",
           "effects": {
+            "medical_changes": [],
             "resources": {},
             "solar_efficiency": 0.0,
             "oxygen_efficiency": -0.25,
@@ -34886,6 +43187,7 @@ export const failed: GameResponse = {
           "success_probability": 1.0,
           "costs": {},
           "effects": {
+            "medical_changes": [],
             "resources": {},
             "solar_efficiency": 0.0,
             "oxygen_efficiency": 0.0,
@@ -34958,15 +43260,17 @@ export const failed: GameResponse = {
           "health_changes": [
             {
               "crew_id": "alex",
-              "before": 97,
-              "after": 99,
+              "before": 94,
+              "after": 93,
+              "medical_penalty": 1,
+              "medical_changes": [],
               "food_received_fraction": 1.0,
               "water_received_fraction": 1.0,
               "nutrition_before": 0.0,
               "nutrition_after": 0.0,
               "hydration_before": 0.0,
               "hydration_after": 0.0,
-              "recovery": 2,
+              "recovery": 0,
               "worked": false,
               "rested": false,
               "food_penalty": 0,
@@ -34977,15 +43281,17 @@ export const failed: GameResponse = {
             },
             {
               "crew_id": "maya",
-              "before": 97,
-              "after": 99,
+              "before": 94,
+              "after": 93,
+              "medical_penalty": 1,
+              "medical_changes": [],
               "food_received_fraction": 1.0,
               "water_received_fraction": 1.0,
               "nutrition_before": 0.0,
               "nutrition_after": 0.0,
               "hydration_before": 0.0,
               "hydration_after": 0.0,
-              "recovery": 2,
+              "recovery": 0,
               "worked": false,
               "rested": false,
               "food_penalty": 0,
@@ -34996,15 +43302,17 @@ export const failed: GameResponse = {
             },
             {
               "crew_id": "lin",
-              "before": 94,
-              "after": 96,
+              "before": 91,
+              "after": 90,
+              "medical_penalty": 1,
+              "medical_changes": [],
               "food_received_fraction": 1.0,
               "water_received_fraction": 1.0,
               "nutrition_before": 0.0,
               "nutrition_after": 0.0,
               "hydration_before": 0.0,
               "hydration_after": 0.0,
-              "recovery": 2,
+              "recovery": 0,
               "worked": false,
               "rested": false,
               "food_penalty": 0,
@@ -35015,15 +43323,17 @@ export const failed: GameResponse = {
             },
             {
               "crew_id": "sam",
-              "before": 99,
-              "after": 100,
+              "before": 96,
+              "after": 95,
+              "medical_penalty": 1,
+              "medical_changes": [],
               "food_received_fraction": 1.0,
               "water_received_fraction": 1.0,
               "nutrition_before": 0.0,
               "nutrition_after": 0.0,
               "hydration_before": 0.0,
               "hydration_after": 0.0,
-              "recovery": 1,
+              "recovery": 0,
               "worked": false,
               "rested": false,
               "food_penalty": 0,
@@ -35056,6 +43366,7 @@ export const failed: GameResponse = {
           "event_id": "antenna_drift",
           "title": "Antenna Off Target",
           "effects": {
+            "medical_changes": [],
             "resources": {},
             "solar_efficiency": 0.0,
             "oxygen_efficiency": 0.0,
@@ -35081,6 +43392,7 @@ export const failed: GameResponse = {
           "success_probability": 1.0,
           "costs": {},
           "effects": {
+            "medical_changes": [],
             "resources": {},
             "solar_efficiency": 0.0,
             "oxygen_efficiency": 0.0,
@@ -35153,15 +43465,17 @@ export const failed: GameResponse = {
           "health_changes": [
             {
               "crew_id": "alex",
-              "before": 99,
-              "after": 100,
+              "before": 93,
+              "after": 92,
+              "medical_penalty": 1,
+              "medical_changes": [],
               "food_received_fraction": 1.0,
               "water_received_fraction": 1.0,
               "nutrition_before": 0.0,
               "nutrition_after": 0.0,
               "hydration_before": 0.0,
               "hydration_after": 0.0,
-              "recovery": 1,
+              "recovery": 0,
               "worked": false,
               "rested": false,
               "food_penalty": 0,
@@ -35172,15 +43486,17 @@ export const failed: GameResponse = {
             },
             {
               "crew_id": "maya",
-              "before": 99,
-              "after": 100,
+              "before": 93,
+              "after": 92,
+              "medical_penalty": 1,
+              "medical_changes": [],
               "food_received_fraction": 1.0,
               "water_received_fraction": 1.0,
               "nutrition_before": 0.0,
               "nutrition_after": 0.0,
               "hydration_before": 0.0,
               "hydration_after": 0.0,
-              "recovery": 1,
+              "recovery": 0,
               "worked": false,
               "rested": false,
               "food_penalty": 0,
@@ -35191,15 +43507,17 @@ export const failed: GameResponse = {
             },
             {
               "crew_id": "lin",
-              "before": 96,
-              "after": 98,
+              "before": 90,
+              "after": 89,
+              "medical_penalty": 1,
+              "medical_changes": [],
               "food_received_fraction": 1.0,
               "water_received_fraction": 1.0,
               "nutrition_before": 0.0,
               "nutrition_after": 0.0,
               "hydration_before": 0.0,
               "hydration_after": 0.0,
-              "recovery": 2,
+              "recovery": 0,
               "worked": false,
               "rested": false,
               "food_penalty": 0,
@@ -35210,8 +43528,10 @@ export const failed: GameResponse = {
             },
             {
               "crew_id": "sam",
-              "before": 100,
-              "after": 100,
+              "before": 95,
+              "after": 94,
+              "medical_penalty": 1,
+              "medical_changes": [],
               "food_received_fraction": 1.0,
               "water_received_fraction": 1.0,
               "nutrition_before": 0.0,
@@ -35251,6 +43571,7 @@ export const failed: GameResponse = {
           "event_id": "solar_failure",
           "title": "Dust on the Array",
           "effects": {
+            "medical_changes": [],
             "resources": {},
             "solar_efficiency": -0.25,
             "oxygen_efficiency": 0.0,
@@ -35276,6 +43597,7 @@ export const failed: GameResponse = {
           "success_probability": 1.0,
           "costs": {},
           "effects": {
+            "medical_changes": [],
             "resources": {},
             "solar_efficiency": 0.0,
             "oxygen_efficiency": 0.0,
@@ -35348,8 +43670,10 @@ export const failed: GameResponse = {
           "health_changes": [
             {
               "crew_id": "alex",
-              "before": 100,
-              "after": 72,
+              "before": 92,
+              "after": 63,
+              "medical_penalty": 1,
+              "medical_changes": [],
               "food_received_fraction": 0.4,
               "water_received_fraction": 0.4,
               "nutrition_before": 0.0,
@@ -35367,8 +43691,10 @@ export const failed: GameResponse = {
             },
             {
               "crew_id": "maya",
-              "before": 100,
-              "after": 72,
+              "before": 92,
+              "after": 63,
+              "medical_penalty": 1,
+              "medical_changes": [],
               "food_received_fraction": 0.4,
               "water_received_fraction": 0.4,
               "nutrition_before": 0.0,
@@ -35386,8 +43712,10 @@ export const failed: GameResponse = {
             },
             {
               "crew_id": "lin",
-              "before": 98,
-              "after": 70,
+              "before": 89,
+              "after": 60,
+              "medical_penalty": 1,
+              "medical_changes": [],
               "food_received_fraction": 0.4,
               "water_received_fraction": 0.4,
               "nutrition_before": 0.0,
@@ -35405,8 +43733,10 @@ export const failed: GameResponse = {
             },
             {
               "crew_id": "sam",
-              "before": 100,
-              "after": 72,
+              "before": 94,
+              "after": 65,
+              "medical_penalty": 1,
+              "medical_changes": [],
               "food_received_fraction": 0.4,
               "water_received_fraction": 0.4,
               "nutrition_before": 0.0,
@@ -35446,6 +43776,7 @@ export const failed: GameResponse = {
           "event_id": "water_line_leak",
           "title": "Water Under the Floor",
           "effects": {
+            "medical_changes": [],
             "resources": {
               "water": -4.0
             },
@@ -35473,6 +43804,7 @@ export const failed: GameResponse = {
           "success_probability": 1.0,
           "costs": {},
           "effects": {
+            "medical_changes": [],
             "resources": {},
             "solar_efficiency": 0.0,
             "oxygen_efficiency": 0.0,
@@ -35545,8 +43877,10 @@ export const failed: GameResponse = {
           "health_changes": [
             {
               "crew_id": "alex",
-              "before": 72,
+              "before": 63,
               "after": 0,
+              "medical_penalty": 1,
+              "medical_changes": [],
               "food_received_fraction": 0.35,
               "water_received_fraction": 0.27625,
               "nutrition_before": 0.6,
@@ -35564,8 +43898,10 @@ export const failed: GameResponse = {
             },
             {
               "crew_id": "maya",
-              "before": 72,
+              "before": 63,
               "after": 0,
+              "medical_penalty": 1,
+              "medical_changes": [],
               "food_received_fraction": 0.35,
               "water_received_fraction": 0.27625,
               "nutrition_before": 0.6,
@@ -35583,8 +43919,10 @@ export const failed: GameResponse = {
             },
             {
               "crew_id": "lin",
-              "before": 70,
+              "before": 60,
               "after": 0,
+              "medical_penalty": 1,
+              "medical_changes": [],
               "food_received_fraction": 0.35,
               "water_received_fraction": 0.27625,
               "nutrition_before": 0.6,
@@ -35602,8 +43940,10 @@ export const failed: GameResponse = {
             },
             {
               "crew_id": "sam",
-              "before": 72,
+              "before": 65,
               "after": 0,
+              "medical_penalty": 1,
+              "medical_changes": [],
               "food_received_fraction": 0.35,
               "water_received_fraction": 0.27625,
               "nutrition_before": 0.6,

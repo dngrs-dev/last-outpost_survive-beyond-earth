@@ -5,6 +5,7 @@ import { ApiError } from '../api/client';
 import { ResearchProjects } from '../components/ResearchProjects';
 import { EnergyPanel } from '../components/EnergyPanel';
 import { LifeSupportPanel } from '../components/LifeSupportPanel';
+import { MedicalAssignmentFields, type MedicalTarget } from '../components/MedicalAssignmentFields';
 import { Header } from '../components/Header';
 import { ResearchObjectives } from '../components/ResearchObjectives';
 import { ResourceCard } from '../components/ResourceCard';
@@ -40,6 +41,7 @@ export const GamePage: React.FC = () => {
   const [powerPriority, setPowerPriority] = useState<"life_support" | "research">("life_support");
   const [projectOrders, setProjectOrders] = useState<Record<string, "pause" | "resume" | "interrupt">>({});
   const [assignments, setAssignments] = useState<Record<string, string>>({});
+  const [medicalTargets, setMedicalTargets] = useState<Record<string, MedicalTarget>>({});
 
   // Modal debrief state
   const [latestOutcome, setLatestOutcome] = useState<TurnOutcome | null>(null);
@@ -96,6 +98,7 @@ export const GamePage: React.FC = () => {
     setRations(initialRations);
     setSupportCrew([]);
     setAssignments({});
+    setMedicalTargets({});
     setProjectOrders({});
     setPowerPriority(gameState.energy.priority);
     setSelectedChoiceId('');
@@ -178,7 +181,7 @@ export const GamePage: React.FC = () => {
       support_crew_ids: supportCrew.slice(),
       power_priority: powerPriority,
       project_orders: Object.entries(projectOrders).map(([project_id, action]) => ({project_id, action})),
-      assignments: Object.entries(assignments).filter(([, activity]) => activity).map(([crew_id, activity_id]) => ({crew_id, activity_id})),
+      assignments: Object.entries(assignments).filter(([, activity]) => activity).map(([crew_id, activity_id]) => ({crew_id, activity_id, ...(['medical_care', 'self_care'].includes(activity_id) ? medicalTargets[crew_id] : {})})),
     };
     submissionInFlight.current = true;
     setPendingTurn(decision);
@@ -295,12 +298,33 @@ export const GamePage: React.FC = () => {
   if (projectWork.some(o => ['pause', 'interrupt'].includes(projectOrders[o.activity.id.replace('project:', '')]))) planIssues.push('Remove the assignment before pausing or interrupting its project.');
   if (supportCrew.some(id => !activeChoice?.support_candidates.some(candidate => candidate.crew_id === id && candidate.available))) planIssues.push('Some support crew are unfit for this workload.');
   if (supportCrew.length !== requiredSupport) planIssues.push(`Select exactly ${requiredSupport} support astronauts for this response.`);
-  if (new Set(incidentCrew).size !== incidentCrew.length || orderedActivities.some(order => incidentCrew.includes(order.crewId))) planIssues.push('Each astronaut can perform only one main job this week.');
+  const booked = [...incidentCrew, ...orderedActivities.flatMap(order => {
+    const patient = order.activity?.action_type === 'medical' ? medicalTargets[order.crewId]?.patient_id : undefined;
+    return patient && patient !== order.crewId ? [order.crewId, patient] : [order.crewId];
+  })];
+  if (new Set(booked).size !== booked.length) planIssues.push('Each astronaut can perform only one main job this week.');
+  for (const order of orderedActivities.filter(o => o.activity?.action_type === 'medical')) {
+    const target = medicalTargets[order.crewId];
+    if (!target || !livingCrew.some(c => c.id === target.patient_id && c.medical_conditions.some(m => m.kind === target.condition_id))) planIssues.push('Select a patient and active condition for each medical assignment.');
+  }
   for (const order of orderedActivities) if (!order.activity?.eligible_crew.find(c => c.crew_id === order.crewId)?.available) planIssues.push('An assignment is unavailable for its astronaut.');
   for (const [resource, cost] of Object.entries(weeklyCosts)) {
     const emergency = (resource === 'food' || resource === 'water') && livingCrew.every(c => rations[c.id]?.[resource] === 'emergency');
     if (cost > state.resources[resource] + 0.000001 && (!emergency || (actionCosts[resource] || 0) > state.resources[resource] + 0.000001)) planIssues.push(`Combined plan exceeds available ${resource.replace(/_/g, ' ')}.`);
   }
+
+  const changeAssignment = (crewId: string, activityId: string) => {
+    setAssignments(prev => ({ ...prev, [crewId]: activityId }));
+    setMedicalTargets(prev => {
+      const next = { ...prev };
+      delete next[crewId];
+      if (['medical_care', 'self_care'].includes(activityId)) {
+        const patient = livingCrew.find(c => (activityId === 'self_care' ? c.id === crewId : c.id !== crewId) && c.medical_conditions.length);
+        if (patient) next[crewId] = { patient_id: patient.id, condition_id: patient.medical_conditions[0].kind };
+      }
+      return next;
+    });
+  };
 
   return (
     <div className="app-container">
@@ -428,7 +452,7 @@ export const GamePage: React.FC = () => {
         </fieldset>}
         {livingCrew.map(crew => <div key={crew.id} style={{ margin: '0.75rem 0' }}>
           <label htmlFor={`work-${crew.id}`}>{crew.name} - {incidentCrew.includes(crew.id) ? 'Incident response' : crew.condition.can_work ? 'Available for work' : 'Rest or care only'}</label>{' '}
-          <select id={`work-${crew.id}`} aria-label={`Assignment for ${crew.name}`} disabled={decisionLocked} value={assignments[crew.id] || ''} onChange={e => setAssignments(prev => ({...prev, [crew.id]: e.target.value}))}>
+          <select id={`work-${crew.id}`} aria-label={`Assignment for ${crew.name}`} disabled={decisionLocked} value={assignments[crew.id] || ''} onChange={e => changeAssignment(crew.id, e.target.value)}>
             <option value="">{crew.condition.can_work ? 'Routine duties' : 'Unassigned recovery'}</option>
             {state.assignment_options.map(activity => {
               const candidate = activity.eligible_crew.find(c => c.crew_id === crew.id);
@@ -437,6 +461,7 @@ export const GamePage: React.FC = () => {
               </option>;
             })}
           </select>
+          {['medical_care', 'self_care'].includes(assignments[crew.id]) && <MedicalAssignmentFields worker={crew} self={assignments[crew.id] === 'self_care'} crew={livingCrew} value={medicalTargets[crew.id]} disabled={decisionLocked} onChange={target => setMedicalTargets(prev => ({ ...prev, [crew.id]: target }))} />}
         </div>)}
         <details><summary>Assignment requirements and costs</summary>
           {state.assignment_options.map(activity => <div key={activity.id}><h3>{activity.text}</h3><p>{activity.description}</p><p>Costs: {Object.entries(activity.costs).map(([id, value]) => `${value} ${id.replace(/_/g, ' ')}`).join(', ')}. Equipment retained: {Object.entries(activity.required_items).map(([id, value]) => `${value} ${id.replace(/_/g, ' ')}`).join(', ') || 'none'}.</p>{activity.objective_rewards.map(g => <p key={g.objective_id}>On success: +{g.amount} toward {g.title} (capped at target).</p>)}</div>)}

@@ -251,6 +251,7 @@ export const ResultsPage: React.FC = () => {
               </div>
               <div style={{ fontSize: '0.75rem', color: 'var(--text-muted)', marginTop: '0.4rem' }}>
                 <p>Condition: {member.condition.status}; nutrition {member.condition.nutrition_status}, hydration {member.condition.hydration_status}.</p>
+                {member.medical_conditions.map(condition => <p key={condition.kind}>{condition.title}: {condition.remaining} recovery points unresolved{condition.urgent && member.alive ? '; urgent stabilization needed' : ''}.</p>)}
                 {member.positive_trait}
               </div>
             </div>
