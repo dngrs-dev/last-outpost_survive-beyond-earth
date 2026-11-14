@@ -1,5 +1,18 @@
 # LAST OUTPOST - Game Design and Technical Specification
 
+> Scope update: the separate `/moon/` archive now uses sourced historical Apollo
+> locations and a NASA color map. It is an exploration and mission-selection layer;
+> six distinct fictional outposts now share the survival engine, with separate
+> 8-18-week missions, starting conditions, and visible difficulty. See `lunar-data.md` for
+> sources and the boundary between real records and game rules. The original
+> exclusions of real coordinates/3D below apply to the initial survival prototype,
+> not this subsequently requested archive.
+
+> The later outpost-expansion request supersedes the original Alpha-only scope
+> below. Current outposts are Alpha, Oceanus, Fra Mauro, Hadley, Descartes, and
+> Taurus; older roadmap names are historical plans. No new station-specific
+> crafting or simulation subsystems are included.
+
 ## 1. Project Overview
 
 **Project name:** LAST OUTPOST  

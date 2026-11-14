@@ -19,7 +19,8 @@ def test_catalog(client):
     response = client.get("/api/catalog")
     assert response.status_code == 200
     catalog = response.json()
-    assert [station["id"] for station in catalog["stations"]] == ["alpha"]
+    assert len(catalog["stations"]) == 6
+    assert len({station["lunar_site_id"] for station in catalog["stations"]}) == 6
     assert len(catalog["crew"]) == 4
     assert len(catalog["items"]) == 6
     assert catalog["limits"]["max_crew"] == 4

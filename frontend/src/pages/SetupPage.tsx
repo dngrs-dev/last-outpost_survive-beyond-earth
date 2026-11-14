@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { Link, useNavigate, useSearchParams } from 'react-router-dom';
 import { fetchCatalog, createGame } from '../api/game';
 import { Header } from '../components/Header';
 import { CrewCard } from '../components/CrewCard';
@@ -8,6 +8,9 @@ import type { CatalogResponse, CrewDefinition } from '../types/game';
 
 export const SetupPage: React.FC = () => {
   const navigate = useNavigate();
+  const [params] = useSearchParams();
+  const lunarSiteId = params.get('lunar_site');
+  const requestedStationId = params.get('station');
   const [catalog, setCatalog] = useState<CatalogResponse | null>(null);
   const [loading, setLoading] = useState<boolean>(true);
   const [submitting, setSubmitting] = useState<boolean>(false);
@@ -32,8 +35,13 @@ export const SetupPage: React.FC = () => {
       .then((data) => {
         if (mounted) {
           setCatalog(data);
-          if (data.stations.length > 0) {
-            setSelectedStationId(data.stations[0].id);
+          const selected = requestedStationId
+            ? data.stations.find((entry) => entry.id === requestedStationId && (!lunarSiteId || entry.lunar_site_id === lunarSiteId))
+            : data.stations.find((entry) => lunarSiteId ? entry.lunar_site_id === lunarSiteId : entry.id === 'alpha');
+          if (selected) setSelectedStationId(selected.id);
+          else {
+            setSelectedStationId(data.stations[0]?.id || '');
+            setError('The selected outpost was not found. Choose an available outpost.');
           }
           setLoading(false);
         }
@@ -47,7 +55,7 @@ export const SetupPage: React.FC = () => {
     return () => {
       mounted = false;
     };
-  }, []);
+  }, [lunarSiteId, requestedStationId]);
 
   const handleToggleCrew = (id: string) => {
     setSelectedCrewIds((prev) => {
@@ -81,8 +89,8 @@ export const SetupPage: React.FC = () => {
 
   const handleStartMission = async (e: React.FormEvent) => {
     e.preventDefault();
-    if (selectedCrewIds.length === 0) {
-      setError('You must select at least one astronaut.');
+    if (selectedCrewIds.length < minCrew) {
+      setError(`This mission requires at least ${minCrew} astronauts.`);
       return;
     }
 
@@ -138,6 +146,7 @@ export const SetupPage: React.FC = () => {
   const station = catalog?.stations.find((s) => s.id === selectedStationId);
   const mission = catalog?.missions.find((m) => m.id === station?.mission_id);
   const maxCrew = catalog?.limits.max_crew || 4;
+  const minCrew = mission?.minimum_survivors || 1;
 
   // Mass & Volume calculations
   const totalMass = (catalog?.items || []).reduce((acc, item) => {
@@ -149,19 +158,29 @@ export const SetupPage: React.FC = () => {
 
   const isMassExceeded = totalMass > (catalog?.limits.max_cargo_mass_kg || 500);
   const isVolumeExceeded = totalVolume > (catalog?.limits.max_cargo_volume_l || 450);
-  const isCrewInvalid = selectedCrewIds.length < 1 || selectedCrewIds.length > maxCrew;
-  const canLaunch = !isMassExceeded && !isVolumeExceeded && !isCrewInvalid && !submitting;
+  const isCrewInvalid = selectedCrewIds.length < minCrew || selectedCrewIds.length > maxCrew;
+  const canLaunch = !isMassExceeded && !isVolumeExceeded && !isCrewInvalid && !submitting && !!station && !!mission;
 
   return (
     <div className="app-container">
       <Header />
 
       <form onSubmit={handleStartMission}>
+        {(lunarSiteId || requestedStationId) && station && <section className="alert alert-info" aria-label="Selected lunar mission" style={{ display: 'block' }}>
+          <strong>{station.name} selected</strong>
+          <p>{mission?.duration_weeks}-week mission / {station.difficulty} difficulty. Outpost conditions and survival rules are fictional; the landing site is historical.</p>
+          <Link to={`/moon/?site=${station.lunar_site_id}`}>Return to this landing site</Link>
+        </section>}
         {/* Mission & Station Briefing Card */}
         <div className="card" style={{ marginBottom: '1.5rem' }}>
           <div className="card-title">
             <span>🌙 LUNAR MISSION BRIEFING</span>
-            <span className="badge badge-cyan">{station?.name}</span>
+            <label htmlFor="station-select">Outpost
+              <select id="station-select" value={selectedStationId} disabled={submitting}
+                onChange={(event) => { setSelectedStationId(event.target.value); setError(null); }}>
+                {catalog?.stations.map((entry) => <option key={entry.id} value={entry.id}>{entry.name} / {entry.difficulty}</option>)}
+              </select>
+            </label>
           </div>
 
           <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))', gap: '1.5rem' }}>
@@ -173,7 +192,7 @@ export const SetupPage: React.FC = () => {
                 <strong>Objective:</strong> {mission?.description || 'Survive 12 weeks until next crew rotation.'}
               </div>
               <div style={{ fontSize: '0.85rem', color: 'var(--text-muted)', marginTop: '0.25rem' }}>
-                <strong>Mission Duration:</strong> {mission?.duration_weeks || 12} Weeks (84 Days) |{' '}
+                <strong>Mission Duration:</strong> {mission?.duration_weeks || 12} Weeks ({(mission?.duration_weeks || 12) * 7} Days) |{' '}
                 <strong>Required Survivors:</strong> At least {mission?.minimum_survivors || 1}
               </div>
             </div>
@@ -188,15 +207,18 @@ export const SetupPage: React.FC = () => {
               }}
             >
               <div style={{ fontWeight: 700, color: 'var(--color-cyan)', marginBottom: '0.4rem' }}>
-                STATION ALPHA STARTING SPECS:
+                {station?.name.toUpperCase()} STARTING SPECS:
               </div>
               <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '0.3rem' }}>
                 <div>Food reserve: {station?.starting_resources.food}u</div>
                 <div>Water reserve: {station?.starting_resources.water}u</div>
                 <div>Oxygen reserve: {station?.starting_resources.oxygen}u</div>
                 <div>Electricity: {station?.starting_resources.electricity}u</div>
-                <div>Solar generation: +{station?.energy_per_week}u/wk</div>
-                <div>Oxygen generator: +{station?.oxygen_per_week}u/wk</div>
+                <div>Solar capacity: +{station?.energy_per_week}u/wk</div>
+                <div>Solar condition: {Math.round((station?.solar_efficiency ?? 1) * 100)}%</div>
+                <div>Oxygen capacity: +{station?.oxygen_per_week}u/wk</div>
+                <div>Oxygen condition: {Math.round((station?.oxygen_efficiency ?? 1) * 100)}%</div>
+                <div>Difficulty: {station?.difficulty} ({station?.difficulty_rank}/5)</div>
               </div>
             </div>
           </div>
@@ -221,7 +243,7 @@ export const SetupPage: React.FC = () => {
           </div>
 
           <p style={{ fontSize: '0.85rem', color: 'var(--text-muted)', marginBottom: '1rem' }}>
-            Choose between 1 and {maxCrew} astronauts. More crew members provide specialized skills for critical station repairs,
+            Choose between {minCrew} and {maxCrew} astronauts. More crew members provide specialized skills for critical station repairs,
             but significantly increase weekly food and water consumption.
           </p>
 

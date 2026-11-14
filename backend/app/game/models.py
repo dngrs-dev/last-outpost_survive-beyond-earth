@@ -20,6 +20,12 @@ class Station(Definition):
     starting_resources: dict[str, float]
     energy_per_week: float
     oxygen_per_week: float
+    solar_efficiency: float = 1.0
+    oxygen_efficiency: float = 1.0
+    difficulty: Literal["easy", "standard", "hard", "severe", "extreme"] = "standard"
+    difficulty_rank: int = 2
+    challenge: str = "Balanced supplies and equipment failures."
+    lunar_site_id: str | None = None
 
 
 @dataclass(frozen=True)

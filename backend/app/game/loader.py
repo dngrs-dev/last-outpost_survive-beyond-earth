@@ -77,6 +77,9 @@ def load_definitions(data_dir: Path = DEFAULT_DATA) -> Definitions:
         loaded[filename] = {entry.id: entry for entry in entries}
     definitions = Definitions(**loaded)
 
+    site_ids = [s.lunar_site_id for s in definitions.stations.values() if s.lunar_site_id]
+    _require(len(site_ids) == len(set(site_ids)), "Stations must have unique lunar landing sites")
+
     for station in definitions.stations.values():
         _require(station.mission_id in definitions.missions, f"{station.id}: unknown mission")
         _resources(station.starting_resources, station.id)
@@ -87,6 +90,15 @@ def load_definitions(data_dir: Path = DEFAULT_DATA) -> Definitions:
         _require(
             _number(station.energy_per_week) and _number(station.oxygen_per_week),
             f"{station.id}: invalid production",
+        )
+        _require(
+            _number(station.solar_efficiency, 0, 1) and _number(station.oxygen_efficiency, 0, 1),
+            f"{station.id}: invalid starting system condition",
+        )
+        difficulty_ranks = {"easy": 1, "standard": 2, "hard": 3, "severe": 4, "extreme": 5}
+        _require(
+            station.difficulty_rank == difficulty_ranks[station.difficulty],
+            f"{station.id}: difficulty label and rank do not match",
         )
     for mission in definitions.missions.values():
         _require(mission.duration_weeks > 0, f"{mission.id}: invalid duration")

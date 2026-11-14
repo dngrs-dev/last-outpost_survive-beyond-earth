@@ -11,6 +11,7 @@ from app.api.routes import router
 from app.game.engine import GameEngine
 from app.game.loader import load_definitions
 from app.game.models import Definitions, GameError
+from app.moon import load_moon_catalog
 from app.storage import GameStore
 
 
@@ -18,6 +19,14 @@ def create_app(definitions: Definitions | None = None) -> FastAPI:
     @asynccontextmanager
     async def lifespan(application: FastAPI):
         application.state.store = GameStore(GameEngine(definitions or load_definitions()))
+        application.state.moon, application.state.moon_etag = load_moon_catalog()
+        stations = application.state.store.engine.definitions.stations
+        for site in application.state.moon.sites:
+            station = stations.get(site.training_station_id)
+            if station is None or station.lunar_site_id != site.id:
+                raise ValueError(f"Lunar site {site.id} has no matching playable outpost")
+            if station.mission_id != site.training_mission_id:
+                raise ValueError(f"Lunar site {site.id} has an incorrect mission reference")
         yield
 
     application = FastAPI(title="LAST OUTPOST", version="0.1.0", lifespan=lifespan)

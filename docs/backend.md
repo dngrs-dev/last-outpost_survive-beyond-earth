@@ -1,7 +1,7 @@
 # Backend guide
 
 The backend implements Stages 1–5 in [the game specification](game-design.md): Station Alpha, four selectable astronauts,
-six cargo types, twelve weekly turns, three JSON events, rationing, health, and all
+six cargo types, configurable weekly missions, three JSON events, rationing, health, and all
 four endings. A React frontend consumes this API. All balancing values are
 fictional gameplay units.
 
@@ -153,3 +153,33 @@ retry resolves that submission. A definite validation rejection unlocks editing;
 a `409` triggers a fresh game-state fetch. Reloading the page fetches current
 server state, but does not preserve unsent form edits. Active missions opened
 through a results URL redirect to gameplay.
+
+## Playable outpost contracts
+
+The shared engine supports six missions. Definitions are in `stations.json` and
+`missions.json`; each site maps to one unique station. These are fictional game
+configurations. Difficulty is an authored 1-5 rating, not a NASA environmental metric
+or a guarantee of outcome. Crew size, loadout, and decisions remain significant.
+
+| Outpost | Landing site | Weeks | Difficulty | Food / water | Solar / oxygen condition | Solar / oxygen capacity per week |
+|---|---|---:|---|---|---|---|
+| Alpha | Apollo 11 | 12 | Standard (2) | 20 / 32 | 100% / 100% | 24 / 14 |
+| Oceanus | Apollo 12 | 8 | Easy (1) | 30 / 52 | 95% / 95% | 28 / 16 |
+| Fra Mauro | Apollo 14 | 10 | Standard (2) | 26 / 36 | 85% / 90% | 24 / 15 |
+| Hadley | Apollo 15 | 14 | Hard (3) | 32 / 46 | 80% / 80% | 26 / 15 |
+| Descartes | Apollo 16 | 16 | Severe (4) | 38 / 54 | 70% / 85% | 24 / 16 |
+| Taurus | Apollo 17 | 18 | Extreme (5) | 44 / 62 | 65% / 75% | 25 / 15 |
+
+Generation capacity is multiplied by current system efficiency. Oxygen output
+also depends on power availability. Starting efficiencies apply before the first
+event's discovery damage. Cargo is added to the selected station's reserves.
+The three longest contracts require at least two astronauts at launch and two
+survivors for a successful handover; one survivor can still earn an emergency
+handover. End conditions use the selected mission's duration rather than a
+hardcoded twelve weeks. Game responses include difficulty alongside station and
+mission identity.
+
+The viewport-sized deployment console uses independent roster, globe, briefing,
+and launch modules. Mission / Systems / History tabs keep details in place;
+constrained screens can scroll the active information module without moving the
+launch bar, and mobile users switch between map and briefing.

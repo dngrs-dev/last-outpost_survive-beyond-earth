@@ -183,6 +183,8 @@ class TurnOutcomeResponse(BaseModel):
 class GameStateResponse(BaseModel):
     station_id: str
     station_name: str
+    difficulty: str
+    difficulty_rank: int
     mission_id: str
     mission_name: str
     current_week: int

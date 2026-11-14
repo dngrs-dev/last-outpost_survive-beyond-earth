@@ -6,6 +6,7 @@ interface HeaderProps {
   currentWeek?: number;
   durationWeeks?: number;
   missionDays?: { start: number; end: number };
+  difficulty?: string;
 }
 
 export const Header: React.FC<HeaderProps> = ({
@@ -13,6 +14,7 @@ export const Header: React.FC<HeaderProps> = ({
   currentWeek,
   durationWeeks = 12,
   missionDays,
+  difficulty,
 }) => {
   return (
     <header className="app-header">
@@ -21,7 +23,7 @@ export const Header: React.FC<HeaderProps> = ({
         <div>
           <div className="brand-title">
             LAST OUTPOST
-            <span className="brand-badge">ALPHA</span>
+            <span className="brand-badge">LUNA</span>
           </div>
           <div style={{ fontSize: '0.75rem', color: 'var(--text-muted)' }}>
             Lunar Survival Mission Simulator
@@ -30,6 +32,7 @@ export const Header: React.FC<HeaderProps> = ({
       </Link>
 
       <div className="header-meta">
+        <Link to="/moon/" style={{ color: 'var(--color-cyan)', marginRight: '1rem', fontSize: '0.8rem' }}>Explore the Moon ↗</Link>
         {currentWeek !== undefined ? (
           <div style={{ display: 'flex', gap: '1rem', alignItems: 'center' }}>
             <div style={{ textAlign: 'right' }}>
@@ -43,6 +46,7 @@ export const Header: React.FC<HeaderProps> = ({
               )}
             </div>
             {stationName && <span className="badge badge-cyan">{stationName}</span>}
+            {difficulty && <span className="badge badge-neutral">{difficulty}</span>}
           </div>
         ) : (
           <span className="badge badge-neutral">MISSION PREPARATION</span>

@@ -5,11 +5,19 @@ and manage a fictional research station until the next crew rotation.
 
 ## Current status
 
-The first playable version is complete: Station Alpha, four selectable astronauts,
-six cargo types, twelve weekly turns, three narrative events, individual rationing,
+Six fictional lunar outposts are playable, with missions lasting 8 to 18 weeks,
+four selectable astronauts, six cargo types, three shared narrative events, individual rationing,
 oxygen and electricity simulation, crew health/death, and four mission endings.
 The game is playable through both the FastAPI REST backend and the React frontend.
 All balancing values are fictional gameplay units.
+
+The `/moon/` deployment console places a distinct fictional outpost at each real
+Apollo landing site. Compare difficulty, reserves, system condition, generation,
+and relief deadlines using Mission / Systems / History modules. The launch bar
+opens preparation for the selected outpost. The selector fits the viewport; small
+screens switch between the map and briefing. The root page still defaults to Alpha.
+Historical data and imagery remain sourced; outpost conditions are fictional game
+values. No NASA API key or external request is needed during play.
 
 ## Run locally
 
@@ -74,6 +82,10 @@ npm run build
   architecture, intended project structure, scope, and development roadmap.
 - [Backend guide](docs/backend.md): API examples, turn order, balancing rules,
   configuration, and prototype limitations.
+- [Lunar data guide](docs/lunar-data.md): sources, cached downloads, coordinate
+  conventions, and manual refresh instructions.
+- [Third-party notices](THIRD_PARTY_NOTICES.md): attribution and reuse terms for the
+  committed NASA texture and factual data.
 - [Agent instructions](AGENTS.md): workflow for coding agents working in this repository.
 
 The backend uses Python and FastAPI. The frontend uses React, TypeScript,

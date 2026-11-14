@@ -1,6 +1,6 @@
 from typing import Annotated
 
-from fastapi import APIRouter, Depends, Request
+from fastapi import APIRouter, Depends, Request, Response
 
 from app.api.schemas import (
     CatalogResponse,
@@ -10,6 +10,7 @@ from app.api.schemas import (
     SubmitTurnRequest,
     TurnResponse,
 )
+from app.moon import MoonCatalog
 from app.storage import GameStore
 
 router = APIRouter(prefix="/api")
@@ -21,6 +22,15 @@ def get_store(request: Request) -> GameStore:
 
 Store = Annotated[GameStore, Depends(get_store)]
 ERRORS = {404: {"model": ErrorResponse}, 409: {"model": ErrorResponse}}
+
+
+@router.get("/moon", response_model=MoonCatalog)
+def moon_catalog(request: Request, response: Response):
+    headers = {"Cache-Control": "public, max-age=86400", "ETag": request.app.state.moon_etag}
+    if request.headers.get("if-none-match") == request.app.state.moon_etag:
+        return Response(status_code=304, headers=headers)
+    response.headers.update(headers)
+    return request.app.state.moon
 
 
 @router.get("/catalog", response_model=CatalogResponse)

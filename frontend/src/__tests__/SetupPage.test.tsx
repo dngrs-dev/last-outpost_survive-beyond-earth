@@ -21,7 +21,7 @@ describe('SetupPage', () => {
     expect(screen.getByText(/ESTABLISHING SATELLITE UPLINK/i)).toBeInTheDocument();
 
     await waitFor(() => {
-      expect(screen.getByText('Station Alpha — Research Base')).toBeInTheDocument();
+      expect(screen.getByRole('combobox', { name: 'Outpost' })).toHaveValue('alpha');
     });
 
     expect(screen.getByText('Alex Vega')).toBeInTheDocument();

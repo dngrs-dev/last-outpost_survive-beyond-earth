@@ -4,7 +4,71 @@
     "name": "Hold Until Rotation",
     "description": "Survive 84 Earth days and hand over an operational research station.",
     "duration_weeks": 12,
-    "event_ids": ["solar_failure", "oxygen_fault", "medical_emergency"],
+    "event_ids": [
+      "solar_failure",
+      "oxygen_fault",
+      "medical_emergency"
+    ],
     "minimum_survivors": 1
+  },
+  {
+    "id": "oceanus_relief",
+    "name": "First Command",
+    "description": "A well-stocked station and an early relief window. A good first command.",
+    "duration_weeks": 8,
+    "event_ids": [
+      "solar_failure",
+      "oxygen_fault",
+      "medical_emergency"
+    ],
+    "minimum_survivors": 1
+  },
+  {
+    "id": "fra_mauro_watch",
+    "name": "Highland Watch",
+    "description": "A worn solar array and limited water. Pack for ten weeks of careful maintenance.",
+    "duration_weeks": 10,
+    "event_ids": [
+      "solar_failure",
+      "oxygen_fault",
+      "medical_emergency"
+    ],
+    "minimum_survivors": 1
+  },
+  {
+    "id": "hadley_survey",
+    "name": "Extended Survey",
+    "description": "A long research watch with aging life support. Two crew must make the handover.",
+    "duration_weeks": 14,
+    "event_ids": [
+      "solar_failure",
+      "oxygen_fault",
+      "medical_emergency"
+    ],
+    "minimum_survivors": 2
+  },
+  {
+    "id": "descartes_endurance",
+    "name": "Power on the Edge",
+    "description": "Weak solar output strains power reserves. Endure sixteen weeks with two survivors.",
+    "duration_weeks": 16,
+    "event_ids": [
+      "solar_failure",
+      "oxygen_fault",
+      "medical_emergency"
+    ],
+    "minimum_survivors": 2
+  },
+  {
+    "id": "taurus_longwatch",
+    "name": "The Long Watch",
+    "description": "The longest rotation, damaged systems, and little stored power. Keep two crew alive.",
+    "duration_weeks": 18,
+    "event_ids": [
+      "solar_failure",
+      "oxygen_fault",
+      "medical_emergency"
+    ],
+    "minimum_survivors": 2
   }
 ]

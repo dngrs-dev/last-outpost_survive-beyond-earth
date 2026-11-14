@@ -8,6 +8,12 @@ export interface StationDefinition {
   starting_resources: Record<string, number>;
   energy_per_week: number;
   oxygen_per_week: number;
+  solar_efficiency: number;
+  oxygen_efficiency: number;
+  difficulty: 'easy' | 'standard' | 'hard' | 'severe' | 'extreme';
+  difficulty_rank: number;
+  challenge: string;
+  lunar_site_id: string | null;
 }
 
 export interface MissionDefinition {
@@ -224,6 +230,8 @@ export type TurnHistoryEntry = TurnOutcome;
 export interface GameStateResponse {
   station_id: string;
   station_name: string;
+  difficulty: string;
+  difficulty_rank: number;
   mission_id: string;
   mission_name: string;
   current_week: number;

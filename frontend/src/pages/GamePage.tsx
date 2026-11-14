@@ -262,6 +262,7 @@ export const GamePage: React.FC = () => {
         currentWeek={state.current_week}
         durationWeeks={state.duration_weeks}
         missionDays={state.mission_days}
+        difficulty={state.difficulty}
       />
 
       {error && <div className="alert alert-danger">{error}</div>}

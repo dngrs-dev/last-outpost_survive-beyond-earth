@@ -3,11 +3,13 @@ import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom';
 import { SetupPage } from './pages/SetupPage';
 import { GamePage } from './pages/GamePage';
 import { ResultsPage } from './pages/ResultsPage';
+import { MoonPage } from './pages/MoonPage';
 
 export const App: React.FC = () => {
   return (
     <BrowserRouter>
       <Routes>
+        <Route path="/moon/" element={<MoonPage />} />
         <Route path="/" element={<SetupPage />} />
         <Route path="/game/:gameId" element={<GamePage />} />
         <Route path="/results/:gameId" element={<ResultsPage />} />

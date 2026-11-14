@@ -5,10 +5,136 @@
     "description": "A fictional lunar research outpost. Keep its crew alive until rotation.",
     "mission_id": "alpha_rotation",
     "starting_resources": {
-      "food": 20, "water": 32, "oxygen": 30, "electricity": 30,
-      "medicine": 1, "repair_kits": 1, "eva_batteries": 1
+      "food": 20,
+      "water": 32,
+      "oxygen": 30,
+      "electricity": 30,
+      "medicine": 1,
+      "repair_kits": 1,
+      "eva_batteries": 1
     },
     "energy_per_week": 24,
-    "oxygen_per_week": 14
+    "oxygen_per_week": 14,
+    "lunar_site_id": "apollo-11",
+    "solar_efficiency": 1.0,
+    "oxygen_efficiency": 1.0,
+    "difficulty": "standard",
+    "difficulty_rank": 2,
+    "challenge": "A balanced 12-week rotation. Bring enough provisions without neglecting repairs."
+  },
+  {
+    "id": "oceanus",
+    "name": "Oceanus Outpost",
+    "description": "A fictional survival outpost at the Apollo 12 landing site.",
+    "mission_id": "oceanus_relief",
+    "starting_resources": {
+      "food": 30,
+      "water": 52,
+      "oxygen": 35,
+      "electricity": 40,
+      "medicine": 2,
+      "repair_kits": 2,
+      "eva_batteries": 2
+    },
+    "energy_per_week": 28,
+    "oxygen_per_week": 16,
+    "solar_efficiency": 0.95,
+    "oxygen_efficiency": 0.95,
+    "difficulty": "easy",
+    "difficulty_rank": 1,
+    "challenge": "A well-stocked station and an early relief window. A good first command.",
+    "lunar_site_id": "apollo-12"
+  },
+  {
+    "id": "fra_mauro",
+    "name": "Fra Mauro Outpost",
+    "description": "A fictional survival outpost at the Apollo 14 landing site.",
+    "mission_id": "fra_mauro_watch",
+    "starting_resources": {
+      "food": 26,
+      "water": 36,
+      "oxygen": 28,
+      "electricity": 22,
+      "medicine": 2,
+      "repair_kits": 2,
+      "eva_batteries": 2
+    },
+    "energy_per_week": 24,
+    "oxygen_per_week": 15,
+    "solar_efficiency": 0.85,
+    "oxygen_efficiency": 0.9,
+    "difficulty": "standard",
+    "difficulty_rank": 2,
+    "challenge": "A worn solar array and limited water. Pack for ten weeks of careful maintenance.",
+    "lunar_site_id": "apollo-14"
+  },
+  {
+    "id": "hadley",
+    "name": "Hadley Outpost",
+    "description": "A fictional survival outpost at the Apollo 15 landing site.",
+    "mission_id": "hadley_survey",
+    "starting_resources": {
+      "food": 32,
+      "water": 46,
+      "oxygen": 32,
+      "electricity": 24,
+      "medicine": 1,
+      "repair_kits": 1,
+      "eva_batteries": 1
+    },
+    "energy_per_week": 26,
+    "oxygen_per_week": 15,
+    "solar_efficiency": 0.8,
+    "oxygen_efficiency": 0.8,
+    "difficulty": "hard",
+    "difficulty_rank": 3,
+    "challenge": "A long research watch with aging life support. Two crew must make the handover.",
+    "lunar_site_id": "apollo-15"
+  },
+  {
+    "id": "descartes",
+    "name": "Descartes Outpost",
+    "description": "A fictional survival outpost at the Apollo 16 landing site.",
+    "mission_id": "descartes_endurance",
+    "starting_resources": {
+      "food": 38,
+      "water": 54,
+      "oxygen": 40,
+      "electricity": 20,
+      "medicine": 1,
+      "repair_kits": 1,
+      "eva_batteries": 1
+    },
+    "energy_per_week": 24,
+    "oxygen_per_week": 16,
+    "solar_efficiency": 0.7,
+    "oxygen_efficiency": 0.85,
+    "difficulty": "severe",
+    "difficulty_rank": 4,
+    "challenge": "Weak solar output strains power reserves. Endure sixteen weeks with two survivors.",
+    "lunar_site_id": "apollo-16"
+  },
+  {
+    "id": "taurus",
+    "name": "Taurus Outpost",
+    "description": "A fictional survival outpost at the Apollo 17 landing site.",
+    "mission_id": "taurus_longwatch",
+    "starting_resources": {
+      "food": 44,
+      "water": 62,
+      "oxygen": 45,
+      "electricity": 18,
+      "medicine": 1,
+      "repair_kits": 1,
+      "eva_batteries": 1
+    },
+    "energy_per_week": 25,
+    "oxygen_per_week": 15,
+    "solar_efficiency": 0.65,
+    "oxygen_efficiency": 0.75,
+    "difficulty": "extreme",
+    "difficulty_rank": 5,
+    "challenge": "The longest rotation, damaged systems, and little stored power. Keep two crew alive.",
+    "lunar_site_id": "apollo-17"
   }
 ]

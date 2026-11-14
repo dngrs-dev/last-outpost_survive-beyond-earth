@@ -60,6 +60,11 @@ class GameEngine:
             raise GameError("Unknown astronaut in crew selection.")
         self.calculate_cargo(cargo)
         station = self.definitions.stations[station_id]
+        mission = self.definitions.missions[station.mission_id]
+        if len(crew_ids) < mission.minimum_survivors:
+            raise GameError(
+                f"This mission requires at least {mission.minimum_survivors} astronauts."
+            )
         resources = station.starting_resources.copy()
         for item_id, quantity in cargo.items():
             item = self.definitions.items[item_id]
@@ -70,8 +75,8 @@ class GameEngine:
             current_week=1,
             crew=[deepcopy(self.definitions.crew[crew_id]) for crew_id in crew_ids],
             resources=resources,
-            solar_efficiency=1.0,
-            oxygen_efficiency=1.0,
+            solar_efficiency=station.solar_efficiency,
+            oxygen_efficiency=station.oxygen_efficiency,
             current_event_id=None,
             used_event_ids=[],
             flags={},
@@ -244,6 +249,8 @@ class GameEngine:
             **asdict(state),
             "crew": crew_views,
             "station_name": self.definitions.stations[state.station_id].name,
+            "difficulty": self.definitions.stations[state.station_id].difficulty,
+            "difficulty_rank": self.definitions.stations[state.station_id].difficulty_rank,
             "mission_name": mission.name,
             "duration_weeks": mission.duration_weeks,
             "minimum_survivors": mission.minimum_survivors,
