@@ -1,0 +1,322 @@
+import React, { useEffect, useState } from 'react';
+import { useNavigate } from 'react-router-dom';
+import { fetchCatalog, createGame } from '../api/game';
+import { Header } from '../components/Header';
+import { CrewCard } from '../components/CrewCard';
+import { CargoSelector } from '../components/CargoSelector';
+import type { CatalogResponse, CrewDefinition } from '../types/game';
+
+export const SetupPage: React.FC = () => {
+  const navigate = useNavigate();
+  const [catalog, setCatalog] = useState<CatalogResponse | null>(null);
+  const [loading, setLoading] = useState<boolean>(true);
+  const [submitting, setSubmitting] = useState<boolean>(false);
+  const [error, setError] = useState<string | null>(null);
+
+  // Form state
+  const [selectedStationId, setSelectedStationId] = useState<string>('alpha');
+  const [selectedCrewIds, setSelectedCrewIds] = useState<string[]>(['alex', 'maya', 'lin', 'sam']);
+  const [cargo, setCargo] = useState<Record<string, number>>({
+    food_packs: 8,
+    water_containers: 16,
+    medicine_kits: 7,
+    repair_kits: 7,
+    eva_batteries: 7,
+    oxygen_tanks: 4,
+  });
+  const [seed, setSeed] = useState<string>('42');
+
+  useEffect(() => {
+    let mounted = true;
+    fetchCatalog()
+      .then((data) => {
+        if (mounted) {
+          setCatalog(data);
+          if (data.stations.length > 0) {
+            setSelectedStationId(data.stations[0].id);
+          }
+          setLoading(false);
+        }
+      })
+      .catch((err) => {
+        if (mounted) {
+          setError(err.message || 'Failed to load mission catalog from backend.');
+          setLoading(false);
+        }
+      });
+    return () => {
+      mounted = false;
+    };
+  }, []);
+
+  const handleToggleCrew = (id: string) => {
+    setSelectedCrewIds((prev) => {
+      if (prev.includes(id)) {
+        return prev.filter((c) => c !== id);
+      } else {
+        const maxCrew = catalog?.limits.max_crew || 4;
+        if (prev.length >= maxCrew) return prev;
+        return [...prev, id];
+      }
+    });
+  };
+
+  const handleCargoChange = (itemId: string, qty: number) => {
+    setCargo((prev) => ({
+      ...prev,
+      [itemId]: qty,
+    }));
+  };
+
+  const applyRecommendedLoadout = () => {
+    setCargo({
+      food_packs: 8,
+      water_containers: 16,
+      medicine_kits: 7,
+      repair_kits: 7,
+      eva_batteries: 7,
+      oxygen_tanks: 4,
+    });
+  };
+
+  const handleStartMission = async (e: React.FormEvent) => {
+    e.preventDefault();
+    if (selectedCrewIds.length === 0) {
+      setError('You must select at least one astronaut.');
+      return;
+    }
+
+    setSubmitting(true);
+    setError(null);
+
+    try {
+      const parsedSeed = seed.trim() ? parseInt(seed.trim(), 10) : undefined;
+      const game = await createGame({
+        station_id: selectedStationId,
+        crew_ids: selectedCrewIds,
+        cargo,
+        random_seed: isNaN(parsedSeed as number) ? undefined : parsedSeed,
+      });
+
+      navigate(`/game/${game.game_id}`);
+    } catch (err: any) {
+      setError(err.message || 'Failed to initiate mission. Check payload limits.');
+      setSubmitting(false);
+    }
+  };
+
+  if (loading) {
+    return (
+      <div className="app-container">
+        <Header />
+        <div style={{ textAlign: 'center', padding: '4rem', color: 'var(--color-cyan)' }}>
+          <div style={{ fontSize: '2rem', marginBottom: '1rem' }}>⌛</div>
+          <div>ESTABLISHING SATELLITE UPLINK TO LUNAR CATALOG...</div>
+        </div>
+      </div>
+    );
+  }
+
+  if (error && !catalog) {
+    return (
+      <div className="app-container">
+        <Header />
+        <div className="alert alert-danger" style={{ margin: '2rem 0' }}>
+          <strong>Communication Error:</strong> {error}
+        </div>
+        <button
+          type="button"
+          className="btn btn-secondary"
+          onClick={() => window.location.reload()}
+        >
+          RETRY CONNECTION
+        </button>
+      </div>
+    );
+  }
+
+  const station = catalog?.stations.find((s) => s.id === selectedStationId);
+  const mission = catalog?.missions.find((m) => m.id === station?.mission_id);
+  const maxCrew = catalog?.limits.max_crew || 4;
+
+  // Mass & Volume calculations
+  const totalMass = (catalog?.items || []).reduce((acc, item) => {
+    return acc + item.weight_kg * (cargo[item.id] || 0);
+  }, 0);
+  const totalVolume = (catalog?.items || []).reduce((acc, item) => {
+    return acc + item.volume_l * (cargo[item.id] || 0);
+  }, 0);
+
+  const isMassExceeded = totalMass > (catalog?.limits.max_cargo_mass_kg || 500);
+  const isVolumeExceeded = totalVolume > (catalog?.limits.max_cargo_volume_l || 450);
+  const isCrewInvalid = selectedCrewIds.length < 1 || selectedCrewIds.length > maxCrew;
+  const canLaunch = !isMassExceeded && !isVolumeExceeded && !isCrewInvalid && !submitting;
+
+  return (
+    <div className="app-container">
+      <Header />
+
+      <form onSubmit={handleStartMission}>
+        {/* Mission & Station Briefing Card */}
+        <div className="card" style={{ marginBottom: '1.5rem' }}>
+          <div className="card-title">
+            <span>🌙 LUNAR MISSION BRIEFING</span>
+            <span className="badge badge-cyan">{station?.name}</span>
+          </div>
+
+          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))', gap: '1.5rem' }}>
+            <div>
+              <p style={{ color: 'var(--text-main)', marginBottom: '0.75rem' }}>
+                {station?.description}
+              </p>
+              <div style={{ fontSize: '0.85rem', color: 'var(--text-muted)' }}>
+                <strong>Objective:</strong> {mission?.description || 'Survive 12 weeks until next crew rotation.'}
+              </div>
+              <div style={{ fontSize: '0.85rem', color: 'var(--text-muted)', marginTop: '0.25rem' }}>
+                <strong>Mission Duration:</strong> {mission?.duration_weeks || 12} Weeks (84 Days) |{' '}
+                <strong>Required Survivors:</strong> At least {mission?.minimum_survivors || 1}
+              </div>
+            </div>
+
+            <div
+              style={{
+                background: 'var(--bg-secondary)',
+                padding: '0.75rem 1rem',
+                borderRadius: 'var(--border-radius)',
+                fontSize: '0.85rem',
+                fontFamily: 'var(--font-mono)',
+              }}
+            >
+              <div style={{ fontWeight: 700, color: 'var(--color-cyan)', marginBottom: '0.4rem' }}>
+                STATION ALPHA STARTING SPECS:
+              </div>
+              <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '0.3rem' }}>
+                <div>Food reserve: {station?.starting_resources.food}u</div>
+                <div>Water reserve: {station?.starting_resources.water}u</div>
+                <div>Oxygen reserve: {station?.starting_resources.oxygen}u</div>
+                <div>Electricity: {station?.starting_resources.electricity}u</div>
+                <div>Solar generation: +{station?.energy_per_week}u/wk</div>
+                <div>Oxygen generator: +{station?.oxygen_per_week}u/wk</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        {/* Crew Selection Card */}
+        <div className="card" style={{ marginBottom: '1.5rem' }}>
+          <div className="card-title">
+            <span>👨‍🚀 SELECT EXPEDITION CREW</span>
+            <div style={{ display: 'flex', gap: '0.5rem', alignItems: 'center' }}>
+              <span className={`badge ${isCrewInvalid ? 'badge-red' : 'badge-green'}`}>
+                {selectedCrewIds.length} / {maxCrew} ASTRONAUTS
+              </span>
+              <button
+                type="button"
+                className="btn btn-secondary btn-sm"
+                onClick={() => setSelectedCrewIds((catalog?.crew || []).map((c) => c.id))}
+              >
+                SELECT ALL
+              </button>
+            </div>
+          </div>
+
+          <p style={{ fontSize: '0.85rem', color: 'var(--text-muted)', marginBottom: '1rem' }}>
+            Choose between 1 and {maxCrew} astronauts. More crew members provide specialized skills for critical station repairs,
+            but significantly increase weekly food and water consumption.
+          </p>
+
+          <div className="crew-grid">
+            {(catalog?.crew || []).map((member: CrewDefinition) => {
+              const isSelected = selectedCrewIds.includes(member.id);
+              // Map to CrewResponse shape for UI card
+              const crewShape = {
+                ...member,
+                food_shortage_weeks: 0,
+                water_shortage_weeks: 0,
+                alive: true,
+                ration_options: {
+                  normal: { food: 1, water: 1 },
+                  reduced: { food: 0.5, water: 0.5 },
+                  emergency: { food: 0, water: 0 },
+                },
+              };
+
+              return (
+                <CrewCard
+                  key={member.id}
+                  crew={crewShape}
+                  isInteractive
+                  isSelected={isSelected}
+                  onToggleSelect={handleToggleCrew}
+                />
+              );
+            })}
+          </div>
+        </div>
+
+        {/* Cargo Selection Component */}
+        {catalog && (
+          <CargoSelector
+            items={catalog.items}
+            limits={catalog.limits}
+            cargo={cargo}
+            onChangeCargo={handleCargoChange}
+            disabled={submitting}
+          />
+        )}
+
+        {/* Mission Parameters & Start Launch */}
+        <div className="card" style={{ marginBottom: '1.5rem' }}>
+          <div className="card-title">
+            <span>🚀 FLIGHT PARAMETERS & AUTHORIZATION</span>
+            <button
+              type="button"
+              className="btn btn-secondary btn-sm"
+              onClick={applyRecommendedLoadout}
+            >
+              APPLY RECOMMENDED CARGO
+            </button>
+          </div>
+
+          <div style={{ display: 'flex', flexWrap: 'wrap', gap: '1rem', alignItems: 'center', marginBottom: '1rem' }}>
+            <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
+              <label style={{ fontSize: '0.85rem', color: 'var(--text-muted)' }}>
+                Mission Random Seed (Deterministic Simulation):
+              </label>
+              <input
+                type="text"
+                value={seed}
+                onChange={(e) => setSeed(e.target.value)}
+                style={{ width: '120px' }}
+                placeholder="42"
+              />
+              <button
+                type="button"
+                className="btn btn-secondary btn-sm"
+                onClick={() => setSeed(String(Math.floor(Math.random() * 999999)))}
+              >
+                RANDOMIZE
+              </button>
+            </div>
+          </div>
+
+          {error && <div className="alert alert-danger">{error}</div>}
+
+          <div style={{ display: 'flex', justifyContent: 'flex-end', alignItems: 'center', gap: '1rem' }}>
+            <button
+              type="submit"
+              disabled={!canLaunch}
+              className="btn btn-primary btn-lg"
+            >
+              {submitting ? 'INITIALIZING MISSION...' : 'LAUNCH EXPEDITION TO MOON →'}
+            </button>
+          </div>
+        </div>
+      </form>
+
+      <footer className="app-footer">
+        NASA Space Apps Challenge 2026 — Station Alpha Mission Simulator
+      </footer>
+    </div>
+  );
+};
