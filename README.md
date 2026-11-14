@@ -16,6 +16,8 @@ projects span deployment, three automatic recording weeks, and crew analysis;
 projects can be paused, resumed, or reassigned without losing completed work.
 NASA-based lunar timing and cached site longitudes drive weekly daylight forecasts;
 finite batteries and selectable power priorities make dark-week preparation matter.
+Powered water recovery, water-fed oxygen generation, and a separate CO2 scrubber
+connect resource planning with maintenance and cabin health.
 The game is playable through both the FastAPI REST backend and the React frontend.
 All balancing values are fictional gameplay units.
 
@@ -96,6 +98,8 @@ npm run build
   character profiles, cargo tradeoffs, and maintenance actions.
 - [Event library](docs/events.md): all fifteen scenarios, NASA references, equipment,
   research rewards, and gameplay boundaries.
+- [Connected life support](docs/life-support.md): the ISS-inspired water/oxygen/CO2
+  loop, fictional rates, maintenance, and health consequences.
 - [Sunlight and energy](docs/energy.md): NASA-based timing, explicit model assumptions,
   batteries, forecasts, and power priorities.
 - [Research projects](docs/projects.md): seismic phases, controls, power, failure,

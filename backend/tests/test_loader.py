@@ -51,6 +51,9 @@ def test_duplicate_ids(data_dir, filename):
         ("stations", "energy_per_week", -1),
         ("stations", "battery_capacity", 0),
         ("stations", "longitude_deg", 181),
+        ("stations", "water_recovery_efficiency", 1.5),
+        ("stations", "co2_efficiency", -0.1),
+        ("stations", "co2_removal_per_week", 0),
         ("crew", "unexpected", True),
     ],
 )
@@ -71,6 +74,8 @@ def test_invalid_configuration(data_dir, filename, field, value):
         ("role_bonus", {"pilot": 0.2}),
         ("success_effects", {"execute": "bad()"}),
         ("success_effects", {"oxygen_efficiency": 3}),
+        ("success_effects", {"water_recovery_efficiency": 2}),
+        ("success_effects", {"co2_efficiency": -2}),
         ("success_effects", {"resources": {"fuel": 2}}),
     ],
 )

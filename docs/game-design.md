@@ -44,6 +44,11 @@
 > Batteries have fixed capacities; players prioritize life support or recording.
 > See `energy.md` for source boundaries and current generation/turn-order rules.
 
+> Life-support update: powered wastewater recovery feeds the clean-water stock,
+> and powered oxygen generation consumes water up to a crew reserve target. CO2
+> removal has its own condition and persistent burden; crew can maintain both new
+> processors. See `life-support.md` for the NASA inspiration and fictional rules.
+
 **Project name:** LAST OUTPOST  
 **Subtitle:** Lunar Survival  
 **Genre:** Turn-based survival, strategy, resource management, decision-making  

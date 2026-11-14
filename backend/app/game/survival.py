@@ -4,6 +4,7 @@ from copy import deepcopy
 from math import ceil
 
 from app.game.energy import daylight_fraction
+from app.game.life_support import operating_plan, process_systems
 from app.game.models import CrewMember, GameError, GameState, LightingModel, Ration, Station
 from app.game.projects import advance_recording
 from app.game.rules import (
@@ -83,7 +84,8 @@ def simulate_week(
 
     sunlight = daylight_fraction(station, lighting, result.current_week)
     power_generated = station.energy_per_week * result.solar_efficiency * sunlight
-    power_required = rules.base_electricity_use + rules.crew_electricity_use * len(living)
+    system_plan = operating_plan(result, station, rules)
+    power_required = system_plan["power_required"]
     available_power = result.resources["electricity"] + power_generated
     project_budget = (
         max(0, available_power - power_required)
@@ -100,7 +102,10 @@ def simulate_week(
     spilled = max(0.0, remainder - result.battery_capacity)
     result.resources["electricity"] = round(min(result.battery_capacity, remainder), 6)
 
-    oxygen_generated = station.oxygen_per_week * result.oxygen_efficiency * power_fraction
+    systems = process_systems(
+        result, station, rules, system_plan, power_fraction, actual_costs["water"]
+    )
+    oxygen_generated = systems["oxygen_generated"]
     oxygen_required = rules.oxygen_per_week * len(living)
     available_oxygen = result.resources["oxygen"] + oxygen_generated
     oxygen_used = min(available_oxygen, oxygen_required)
@@ -109,6 +114,8 @@ def simulate_week(
     oxygen_penalty = ceil(rules.oxygen_shortage_penalty * oxygen_fraction)
     result.resources["oxygen"] = round(max(0.0, available_oxygen - oxygen_used), 6)
 
+    co2_excess = max(0, result.resources["co2"] / rules.co2_warning_burden - 1)
+    co2_penalty = min(rules.co2_max_penalty, ceil(co2_excess * rules.co2_penalty_per_excess))
     health_changes = []
     for crew in living:
         before = crew.health
@@ -133,7 +140,7 @@ def simulate_week(
             penalties[resource] = (
                 schedule[level] + repeated + ceil(depletion_penalty * depletion_fractions[resource])
             )
-        crew.health = max(0, crew.health - sum(penalties.values()) - oxygen_penalty)
+        crew.health = max(0, crew.health - sum(penalties.values()) - oxygen_penalty - co2_penalty)
         health_changes.append(
             {
                 "crew_id": crew.id,
@@ -142,10 +149,12 @@ def simulate_week(
                 "food_penalty": penalties["food"],
                 "water_penalty": penalties["water"],
                 "oxygen_penalty": oxygen_penalty,
+                "co2_penalty": co2_penalty,
                 "died": not crew.alive,
             }
         )
     report = {
+        "life_support": systems,
         "ration_requirements": costs,
         "ration_costs": actual_costs,
         "ration_depletion_fractions": depletion_fractions,

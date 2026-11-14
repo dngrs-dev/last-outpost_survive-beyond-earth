@@ -54,7 +54,7 @@ def test_battery_overflow_conserves_energy_and_cannot_be_stored(quiet_engine, st
     after, report = quiet_engine.advance_week(state, 1, normal_rations(state), "continue")
     power = report["survival"]
     assert after.resources["electricity"] == state.battery_capacity == 100
-    assert power["electricity_curtailed"] == 31
+    assert power["electricity_curtailed"] == 35
     assert (
         99 + power["electricity_generated"]
         == power["electricity_used"]
@@ -69,7 +69,7 @@ def test_full_darkness_drains_the_battery_without_solar(quiet_engine, state):
     state.resources["electricity"] = 40
     after, report = quiet_engine.advance_week(state, 4, normal_rations(state), "continue")
     assert report["survival"]["electricity_generated"] == 0
-    assert after.resources["electricity"] == 24
+    assert after.resources["electricity"] == 28
 
 
 def test_priority_trades_recording_against_oxygen_in_a_low_battery_night(quiet_engine, state):

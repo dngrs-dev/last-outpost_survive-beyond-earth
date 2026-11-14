@@ -96,6 +96,13 @@ would exceed capacity. Positive incident gains are also capped.
 6. Store the remaining electricity up to battery capacity. Report excess solar
    energy as curtailed/discarded electricity; it cannot accumulate indefinitely.
 
+The essential power budget now has habitat, water-recovery, oxygen-generation,
+and CO2-removal components. Processor demand can fall when there is no wastewater
+to treat or oxygen reserves are adequate. The allocated fraction powers all active
+processors; research-first can affect water recovery and CO2 handling as well as
+oxygen. See [connected life support](life-support.md) for ordering and rates.
+
+
 The selected priority persists until changed and is part of the atomic weekly
 request and retry receipt. An invalid priority rejects the request; changing a
 priority on an already-used request ID is a conflict. Project pauses, crew orders,

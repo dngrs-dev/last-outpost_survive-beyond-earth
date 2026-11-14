@@ -667,7 +667,9 @@ export const catalog: CatalogResponse = {
         "diagnostic_tools": 0.0,
         "sealant_packs": 0.0,
         "scientific_tools": 0.0,
-        "research_data": 0.0
+        "research_data": 0.0,
+        "wastewater": 12.0,
+        "co2": 0.0
       },
       "energy_per_week": 48.0,
       "oxygen_per_week": 14.0,
@@ -678,7 +680,10 @@ export const catalog: CatalogResponse = {
       "challenge": "A balanced 12-week rotation. Bring enough provisions without neglecting repairs.",
       "lunar_site_id": "apollo-11",
       "longitude_deg": 23.47314,
-      "battery_capacity": 100.0
+      "battery_capacity": 100.0,
+      "water_recovery_efficiency": 1.0,
+      "co2_efficiency": 1.0,
+      "co2_removal_per_week": 6.0
     },
     {
       "id": "oceanus",
@@ -698,7 +703,9 @@ export const catalog: CatalogResponse = {
         "diagnostic_tools": 0.0,
         "sealant_packs": 0.0,
         "scientific_tools": 0.0,
-        "research_data": 0.0
+        "research_data": 0.0,
+        "wastewater": 12.0,
+        "co2": 0.0
       },
       "energy_per_week": 56.0,
       "oxygen_per_week": 16.0,
@@ -709,7 +716,10 @@ export const catalog: CatalogResponse = {
       "challenge": "A well-stocked station and an early relief window. A good first command.",
       "lunar_site_id": "apollo-12",
       "longitude_deg": -23.4219,
-      "battery_capacity": 110.0
+      "battery_capacity": 110.0,
+      "water_recovery_efficiency": 1.0,
+      "co2_efficiency": 1.0,
+      "co2_removal_per_week": 6.0
     },
     {
       "id": "fra_mauro",
@@ -729,7 +739,9 @@ export const catalog: CatalogResponse = {
         "diagnostic_tools": 0.0,
         "sealant_packs": 0.0,
         "scientific_tools": 0.0,
-        "research_data": 0.0
+        "research_data": 0.0,
+        "wastewater": 12.0,
+        "co2": 0.0
       },
       "energy_per_week": 48.0,
       "oxygen_per_week": 15.0,
@@ -740,7 +752,10 @@ export const catalog: CatalogResponse = {
       "challenge": "A worn solar array and limited water. Pack for ten weeks of careful maintenance.",
       "lunar_site_id": "apollo-14",
       "longitude_deg": -17.47194,
-      "battery_capacity": 90.0
+      "battery_capacity": 90.0,
+      "water_recovery_efficiency": 0.95,
+      "co2_efficiency": 0.95,
+      "co2_removal_per_week": 6.0
     },
     {
       "id": "hadley",
@@ -760,7 +775,9 @@ export const catalog: CatalogResponse = {
         "diagnostic_tools": 0.0,
         "sealant_packs": 0.0,
         "scientific_tools": 0.0,
-        "research_data": 0.0
+        "research_data": 0.0,
+        "wastewater": 12.0,
+        "co2": 0.0
       },
       "energy_per_week": 52.0,
       "oxygen_per_week": 15.0,
@@ -771,7 +788,10 @@ export const catalog: CatalogResponse = {
       "challenge": "A long research watch with aging life support. Two crew must make the handover.",
       "lunar_site_id": "apollo-15",
       "longitude_deg": 3.6333,
-      "battery_capacity": 100.0
+      "battery_capacity": 100.0,
+      "water_recovery_efficiency": 0.9,
+      "co2_efficiency": 0.9,
+      "co2_removal_per_week": 6.0
     },
     {
       "id": "descartes",
@@ -791,7 +811,9 @@ export const catalog: CatalogResponse = {
         "diagnostic_tools": 0.0,
         "sealant_packs": 0.0,
         "scientific_tools": 0.0,
-        "research_data": 0.0
+        "research_data": 0.0,
+        "wastewater": 12.0,
+        "co2": 0.0
       },
       "energy_per_week": 48.0,
       "oxygen_per_week": 16.0,
@@ -802,7 +824,10 @@ export const catalog: CatalogResponse = {
       "challenge": "Weak solar output strains power reserves. Endure sixteen weeks with two survivors.",
       "lunar_site_id": "apollo-16",
       "longitude_deg": 15.5011,
-      "battery_capacity": 85.0
+      "battery_capacity": 85.0,
+      "water_recovery_efficiency": 0.85,
+      "co2_efficiency": 0.85,
+      "co2_removal_per_week": 6.0
     },
     {
       "id": "taurus",
@@ -822,7 +847,9 @@ export const catalog: CatalogResponse = {
         "diagnostic_tools": 0.0,
         "sealant_packs": 0.0,
         "scientific_tools": 0.0,
-        "research_data": 0.0
+        "research_data": 0.0,
+        "wastewater": 12.0,
+        "co2": 0.0
       },
       "energy_per_week": 50.0,
       "oxygen_per_week": 15.0,
@@ -833,7 +860,10 @@ export const catalog: CatalogResponse = {
       "challenge": "The longest rotation, damaged systems, and little stored power. Keep two crew alive.",
       "lunar_site_id": "apollo-17",
       "longitude_deg": 30.7723,
-      "battery_capacity": 80.0
+      "battery_capacity": 80.0,
+      "water_recovery_efficiency": 0.8,
+      "co2_efficiency": 0.8,
+      "co2_removal_per_week": 6.0
     }
   ],
   "missions": [
@@ -1734,11 +1764,32 @@ export const moonArchive: MoonCatalog = {
 export const energyPriorityGame: GameResponse = {
   "game_id": "fixture-game",
   "state": {
+    "life_support": {
+      "source_url": "https://www.nasa.gov/reference/environmental-control-and-life-support-systems-eclss/",
+      "water_recovery_condition": 1.0,
+      "co2_condition": 1.0,
+      "wastewater": 12.0,
+      "co2_burden": 0.0,
+      "co2_warning_level": 4.0,
+      "recovery_capacity": 4.0,
+      "recovery_yield": 0.8,
+      "water_per_oxygen": 0.1,
+      "oxygen_reserve_weeks": 2.0,
+      "water_recovery_wear": 0.02,
+      "co2_wear": 0.015,
+      "co2_removal_capacity": 6.0,
+      "power_components": {
+        "habitat": 8.0,
+        "water_recovery": 2.0,
+        "oxygen_generation": 0.0,
+        "co2_removal": 2.0
+      }
+    },
     "energy": {
       "battery_capacity": 100.0,
       "stored": 30.0,
       "priority": "life_support",
-      "life_support_required": 16.0,
+      "life_support_required": 12.0,
       "solar_day_earth_days": 29.5306,
       "source_url": "https://svs.gsfc.nasa.gov/12739/",
       "assumption": "Fictional shared epoch: sunrise at Apollo 11 longitude on mission day zero. Smooth non-polar horizon, equal day/night halves, constant useful output during daylight. Weekly averaging omits terrain shadows, eclipses, seasons, and panel incidence.",
@@ -1937,10 +1988,14 @@ export const energyPriorityGame: GameResponse = {
       "diagnostic_tools": 0.0,
       "sealant_packs": 0.0,
       "scientific_tools": 0.0,
-      "research_data": 0.0
+      "research_data": 0.0,
+      "wastewater": 12.0,
+      "co2": 0.0
     },
     "solar_efficiency": 1.0,
     "oxygen_efficiency": 1.0,
+    "water_recovery_efficiency": 1.0,
+    "co2_efficiency": 1.0,
     "current_event_id": "medical_emergency",
     "current_event": {
       "id": "medical_emergency",
@@ -1953,6 +2008,8 @@ export const energyPriorityGame: GameResponse = {
         "resources": {},
         "solar_efficiency": 0.0,
         "oxygen_efficiency": 0.0,
+        "water_recovery_efficiency": 0.0,
+        "co2_efficiency": 0.0,
         "crew_health": -8,
         "target": "all"
       },
@@ -1977,6 +2034,8 @@ export const energyPriorityGame: GameResponse = {
             "resources": {},
             "solar_efficiency": 0.0,
             "oxygen_efficiency": 0.0,
+            "water_recovery_efficiency": 0.0,
+            "co2_efficiency": 0.0,
             "crew_health": 30,
             "target": "selected"
           },
@@ -1984,6 +2043,8 @@ export const energyPriorityGame: GameResponse = {
             "resources": {},
             "solar_efficiency": 0.0,
             "oxygen_efficiency": 0.0,
+            "water_recovery_efficiency": 0.0,
+            "co2_efficiency": 0.0,
             "crew_health": -5,
             "target": "selected"
           },
@@ -2027,6 +2088,8 @@ export const energyPriorityGame: GameResponse = {
             "resources": {},
             "solar_efficiency": 0.0,
             "oxygen_efficiency": 0.0,
+            "water_recovery_efficiency": 0.0,
+            "co2_efficiency": 0.0,
             "crew_health": 15,
             "target": "all"
           },
@@ -2034,6 +2097,8 @@ export const energyPriorityGame: GameResponse = {
             "resources": {},
             "solar_efficiency": 0.0,
             "oxygen_efficiency": 0.0,
+            "water_recovery_efficiency": 0.0,
+            "co2_efficiency": 0.0,
             "crew_health": -5,
             "target": "all"
           },
@@ -2079,6 +2144,8 @@ export const energyPriorityGame: GameResponse = {
             "resources": {},
             "solar_efficiency": 0.0,
             "oxygen_efficiency": 0.0,
+            "water_recovery_efficiency": 0.0,
+            "co2_efficiency": 0.0,
             "crew_health": 20,
             "target": "selected"
           },
@@ -2086,6 +2153,8 @@ export const energyPriorityGame: GameResponse = {
             "resources": {},
             "solar_efficiency": 0.0,
             "oxygen_efficiency": 0.0,
+            "water_recovery_efficiency": 0.0,
+            "co2_efficiency": 0.0,
             "crew_health": 0,
             "target": "selected"
           },
@@ -2131,6 +2200,8 @@ export const energyPriorityGame: GameResponse = {
             "resources": {},
             "solar_efficiency": 0.0,
             "oxygen_efficiency": 0.0,
+            "water_recovery_efficiency": 0.0,
+            "co2_efficiency": 0.0,
             "crew_health": -5,
             "target": "all"
           },
@@ -2138,6 +2209,8 @@ export const energyPriorityGame: GameResponse = {
             "resources": {},
             "solar_efficiency": 0.0,
             "oxygen_efficiency": 0.0,
+            "water_recovery_efficiency": 0.0,
+            "co2_efficiency": 0.0,
             "crew_health": 0,
             "target": "selected"
           },
@@ -2234,6 +2307,8 @@ export const energyPriorityGame: GameResponse = {
           "resources": {},
           "solar_efficiency": 0.2,
           "oxygen_efficiency": 0.0,
+          "water_recovery_efficiency": 0.0,
+          "co2_efficiency": 0.0,
           "crew_health": 0,
           "target": "selected"
         },
@@ -2241,6 +2316,8 @@ export const energyPriorityGame: GameResponse = {
           "resources": {},
           "solar_efficiency": 0.0,
           "oxygen_efficiency": 0.0,
+          "water_recovery_efficiency": 0.0,
+          "co2_efficiency": 0.0,
           "crew_health": 0,
           "target": "selected"
         },
@@ -2292,6 +2369,8 @@ export const energyPriorityGame: GameResponse = {
           "resources": {},
           "solar_efficiency": 0.0,
           "oxygen_efficiency": 0.2,
+          "water_recovery_efficiency": 0.0,
+          "co2_efficiency": 0.0,
           "crew_health": 0,
           "target": "selected"
         },
@@ -2299,6 +2378,8 @@ export const energyPriorityGame: GameResponse = {
           "resources": {},
           "solar_efficiency": 0.0,
           "oxygen_efficiency": 0.0,
+          "water_recovery_efficiency": 0.0,
+          "co2_efficiency": 0.0,
           "crew_health": 0,
           "target": "selected"
         },
@@ -2325,6 +2406,124 @@ export const energyPriorityGame: GameResponse = {
             "unavailable_reasons": [
               "Requires 1 oxygen_regulators; available 0.",
               "The oxygen system is already at full condition."
+            ],
+            "success_probability": 1.0
+          }
+        ],
+        "success_probability": null
+      },
+      {
+        "id": "service_water_recovery",
+        "action_type": "maintenance",
+        "objective_rewards": [],
+        "text": "Service the water recovery processor",
+        "description": "One repair kit and 2 power guarantee +30 water-recovery condition points. Recovered water comes from the wastewater stock and is available after this week's rations.",
+        "costs": {
+          "repair_kits": 1.0,
+          "electricity": 2.0
+        },
+        "required_items": {},
+        "requires_crew": true,
+        "role_bonus": {},
+        "crew_role_bonus": {},
+        "success_chance": 1.0,
+        "success_effects": {
+          "resources": {},
+          "solar_efficiency": 0.0,
+          "oxygen_efficiency": 0.0,
+          "water_recovery_efficiency": 0.3,
+          "co2_efficiency": 0.0,
+          "crew_health": 0,
+          "target": "selected"
+        },
+        "failure_effects": {
+          "resources": {},
+          "solar_efficiency": 0.0,
+          "oxygen_efficiency": 0.0,
+          "water_recovery_efficiency": 0.0,
+          "co2_efficiency": 0.0,
+          "crew_health": 0,
+          "target": "selected"
+        },
+        "required_role": null,
+        "minimum_crew": 1,
+        "available": false,
+        "unavailable_reasons": [
+          "This processor is already at full condition."
+        ],
+        "eligible_crew": [
+          {
+            "crew_id": "alex",
+            "available": false,
+            "unavailable_reasons": [
+              "This processor is already at full condition."
+            ],
+            "success_probability": 1.0
+          },
+          {
+            "crew_id": "maya",
+            "available": false,
+            "unavailable_reasons": [
+              "This processor is already at full condition."
+            ],
+            "success_probability": 1.0
+          }
+        ],
+        "success_probability": null
+      },
+      {
+        "id": "service_co2_scrubber",
+        "action_type": "maintenance",
+        "objective_rewards": [],
+        "text": "Service the carbon dioxide scrubber",
+        "description": "One repair kit and 2 power guarantee +30 scrubber condition points. Removal still requires power; oxygen reserves do not remove CO2.",
+        "costs": {
+          "repair_kits": 1.0,
+          "electricity": 2.0
+        },
+        "required_items": {},
+        "requires_crew": true,
+        "role_bonus": {},
+        "crew_role_bonus": {},
+        "success_chance": 1.0,
+        "success_effects": {
+          "resources": {},
+          "solar_efficiency": 0.0,
+          "oxygen_efficiency": 0.0,
+          "water_recovery_efficiency": 0.0,
+          "co2_efficiency": 0.3,
+          "crew_health": 0,
+          "target": "selected"
+        },
+        "failure_effects": {
+          "resources": {},
+          "solar_efficiency": 0.0,
+          "oxygen_efficiency": 0.0,
+          "water_recovery_efficiency": 0.0,
+          "co2_efficiency": 0.0,
+          "crew_health": 0,
+          "target": "selected"
+        },
+        "required_role": null,
+        "minimum_crew": 1,
+        "available": false,
+        "unavailable_reasons": [
+          "This processor is already at full condition."
+        ],
+        "eligible_crew": [
+          {
+            "crew_id": "alex",
+            "available": false,
+            "unavailable_reasons": [
+              "This processor is already at full condition."
+            ],
+            "success_probability": 1.0
+          },
+          {
+            "crew_id": "maya",
+            "available": false,
+            "unavailable_reasons": [
+              "This processor is already at full condition."
             ],
             "success_probability": 1.0
           }
@@ -2363,6 +2562,8 @@ export const energyPriorityGame: GameResponse = {
           },
           "solar_efficiency": 0.0,
           "oxygen_efficiency": 0.0,
+          "water_recovery_efficiency": 0.0,
+          "co2_efficiency": 0.0,
           "crew_health": 0,
           "target": "selected"
         },
@@ -2370,6 +2571,8 @@ export const energyPriorityGame: GameResponse = {
           "resources": {},
           "solar_efficiency": 0.0,
           "oxygen_efficiency": 0.0,
+          "water_recovery_efficiency": 0.0,
+          "co2_efficiency": 0.0,
           "crew_health": -8,
           "target": "selected"
         },
@@ -2424,6 +2627,8 @@ export const energyPriorityGame: GameResponse = {
           "resources": {},
           "solar_efficiency": 0.0,
           "oxygen_efficiency": 0.0,
+          "water_recovery_efficiency": 0.0,
+          "co2_efficiency": 0.0,
           "crew_health": 0,
           "target": "selected"
         },
@@ -2431,6 +2636,8 @@ export const energyPriorityGame: GameResponse = {
           "resources": {},
           "solar_efficiency": 0.0,
           "oxygen_efficiency": 0.0,
+          "water_recovery_efficiency": 0.0,
+          "co2_efficiency": 0.0,
           "crew_health": -8,
           "target": "selected"
         },
@@ -2493,6 +2700,8 @@ export const energyPriorityGame: GameResponse = {
           },
           "solar_efficiency": 0.0,
           "oxygen_efficiency": 0.0,
+          "water_recovery_efficiency": 0.0,
+          "co2_efficiency": 0.0,
           "crew_health": 0,
           "target": "selected"
         },
@@ -2500,6 +2709,8 @@ export const energyPriorityGame: GameResponse = {
           "resources": {},
           "solar_efficiency": 0.0,
           "oxygen_efficiency": 0.0,
+          "water_recovery_efficiency": 0.0,
+          "co2_efficiency": 0.0,
           "crew_health": -6,
           "target": "selected"
         },
@@ -2536,11 +2747,32 @@ export const energyPriorityGame: GameResponse = {
 export const energyPriorityTurn: TurnResponse = {
   "game_id": "fixture-game",
   "state": {
+    "life_support": {
+      "source_url": "https://www.nasa.gov/reference/environmental-control-and-life-support-systems-eclss/",
+      "water_recovery_condition": 0.98,
+      "co2_condition": 0.985,
+      "wastewater": 11.36,
+      "co2_burden": 0.0,
+      "co2_warning_level": 4.0,
+      "recovery_capacity": 4.0,
+      "recovery_yield": 0.8,
+      "water_per_oxygen": 0.1,
+      "oxygen_reserve_weeks": 2.0,
+      "water_recovery_wear": 0.02,
+      "co2_wear": 0.015,
+      "co2_removal_capacity": 6.0,
+      "power_components": {
+        "habitat": 8.0,
+        "water_recovery": 2.0,
+        "oxygen_generation": 0.0,
+        "co2_removal": 2.0
+      }
+    },
     "energy": {
       "battery_capacity": 100.0,
-      "stored": 62.0,
+      "stored": 66.0,
       "priority": "research",
-      "life_support_required": 16.0,
+      "life_support_required": 12.0,
       "solar_day_earth_days": 29.5306,
       "source_url": "https://svs.gsfc.nasa.gov/12739/",
       "assumption": "Fictional shared epoch: sunrise at Apollo 11 longitude on mission day zero. Smooth non-polar horizon, equal day/night halves, constant useful output during daylight. Weekly averaging omits terrain shadows, eclipses, seasons, and panel incidence.",
@@ -2720,9 +2952,9 @@ export const energyPriorityTurn: TurnResponse = {
     ],
     "resources": {
       "food": 50.0,
-      "water": 107.8,
-      "oxygen": 38.0,
-      "electricity": 62.0,
+      "water": 111.0,
+      "oxygen": 24.0,
+      "electricity": 66.0,
       "medicine": 7.0,
       "repair_kits": 8.0,
       "eva_batteries": 8.0,
@@ -2731,10 +2963,14 @@ export const energyPriorityTurn: TurnResponse = {
       "diagnostic_tools": 0.0,
       "sealant_packs": 0.0,
       "scientific_tools": 0.0,
-      "research_data": 0.0
+      "research_data": 0.0,
+      "wastewater": 11.36,
+      "co2": 0.0
     },
     "solar_efficiency": 1.0,
     "oxygen_efficiency": 1.0,
+    "water_recovery_efficiency": 0.98,
+    "co2_efficiency": 0.985,
     "current_event_id": "crew_recovery",
     "current_event": {
       "id": "crew_recovery",
@@ -2747,6 +2983,8 @@ export const energyPriorityTurn: TurnResponse = {
         "resources": {},
         "solar_efficiency": 0.0,
         "oxygen_efficiency": 0.0,
+        "water_recovery_efficiency": 0.0,
+        "co2_efficiency": 0.0,
         "crew_health": 0,
         "target": "selected"
       },
@@ -2770,6 +3008,8 @@ export const energyPriorityTurn: TurnResponse = {
             "resources": {},
             "solar_efficiency": 0.0,
             "oxygen_efficiency": 0.0,
+            "water_recovery_efficiency": 0.0,
+            "co2_efficiency": 0.0,
             "crew_health": 6,
             "target": "all"
           },
@@ -2777,6 +3017,8 @@ export const energyPriorityTurn: TurnResponse = {
             "resources": {},
             "solar_efficiency": 0.0,
             "oxygen_efficiency": 0.0,
+            "water_recovery_efficiency": 0.0,
+            "co2_efficiency": 0.0,
             "crew_health": 0,
             "target": "selected"
           },
@@ -2807,6 +3049,8 @@ export const energyPriorityTurn: TurnResponse = {
             "resources": {},
             "solar_efficiency": 0.0,
             "oxygen_efficiency": 0.0,
+            "water_recovery_efficiency": 0.0,
+            "co2_efficiency": 0.0,
             "crew_health": 20,
             "target": "selected"
           },
@@ -2814,6 +3058,8 @@ export const energyPriorityTurn: TurnResponse = {
             "resources": {},
             "solar_efficiency": 0.0,
             "oxygen_efficiency": 0.0,
+            "water_recovery_efficiency": 0.0,
+            "co2_efficiency": 0.0,
             "crew_health": 0,
             "target": "selected"
           },
@@ -2853,6 +3099,8 @@ export const energyPriorityTurn: TurnResponse = {
             "resources": {},
             "solar_efficiency": 0.0,
             "oxygen_efficiency": 0.0,
+            "water_recovery_efficiency": 0.0,
+            "co2_efficiency": 0.0,
             "crew_health": 2,
             "target": "all"
           },
@@ -2860,6 +3108,8 @@ export const energyPriorityTurn: TurnResponse = {
             "resources": {},
             "solar_efficiency": 0.0,
             "oxygen_efficiency": 0.0,
+            "water_recovery_efficiency": 0.0,
+            "co2_efficiency": 0.0,
             "crew_health": 0,
             "target": "selected"
           },
@@ -2902,6 +3152,8 @@ export const energyPriorityTurn: TurnResponse = {
             "resources": {},
             "solar_efficiency": 0.0,
             "oxygen_efficiency": 0.0,
+            "water_recovery_efficiency": 0.0,
+            "co2_efficiency": 0.0,
             "health_changes": [
               {
                 "crew_id": "alex",
@@ -2923,6 +3175,22 @@ export const energyPriorityTurn: TurnResponse = {
           }
         },
         "survival": {
+          "life_support": {
+            "wastewater_processed": 4.0,
+            "water_recovered": 3.2,
+            "water_for_oxygen": 0.0,
+            "wastewater_captured": 3.36,
+            "oxygen_generated": 0.0,
+            "co2_produced": 2.0,
+            "co2_removed": 2.0,
+            "co2_remaining": 0.0,
+            "power_components": {
+              "habitat": 8.0,
+              "water_recovery": 2.0,
+              "oxygen_generation": 0.0,
+              "co2_removal": 2.0
+            }
+          },
           "daylight_fraction": 1.0,
           "battery_capacity": 100.0,
           "electricity_curtailed": 0.0,
@@ -2941,10 +3209,10 @@ export const energyPriorityTurn: TurnResponse = {
             "water": 0.0
           },
           "electricity_generated": 48.0,
-          "electricity_required": 16.0,
-          "electricity_used": 16.0,
+          "electricity_required": 12.0,
+          "electricity_used": 12.0,
           "life_support_power_fraction": 1.0,
-          "oxygen_generated": 14.0,
+          "oxygen_generated": 0.0,
           "oxygen_required": 6.0,
           "oxygen_used": 6.0,
           "oxygen_shortage": 0.0,
@@ -2956,6 +3224,7 @@ export const energyPriorityTurn: TurnResponse = {
               "food_penalty": 0,
               "water_penalty": 0,
               "oxygen_penalty": 0,
+              "co2_penalty": 0,
               "died": false
             },
             {
@@ -2965,15 +3234,16 @@ export const energyPriorityTurn: TurnResponse = {
               "food_penalty": 0,
               "water_penalty": 0,
               "oxygen_penalty": 0,
+              "co2_penalty": 0,
               "died": false
             }
           ]
         },
         "resource_changes": {
           "food": -2.0,
-          "water": -4.2,
-          "oxygen": 8.0,
-          "electricity": 32.0,
+          "water": -1.0,
+          "oxygen": -6.0,
+          "electricity": 36.0,
           "medicine": -1.0,
           "repair_kits": 0.0,
           "eva_batteries": 0.0,
@@ -2982,7 +3252,9 @@ export const energyPriorityTurn: TurnResponse = {
           "diagnostic_tools": 0.0,
           "sealant_packs": 0.0,
           "scientific_tools": 0.0,
-          "research_data": 0.0
+          "research_data": 0.0,
+          "wastewater": -0.64,
+          "co2": 0.0
         },
         "deaths": [],
         "next_event": {
@@ -2992,6 +3264,8 @@ export const energyPriorityTurn: TurnResponse = {
             "resources": {},
             "solar_efficiency": 0.0,
             "oxygen_efficiency": 0.0,
+            "water_recovery_efficiency": 0.0,
+            "co2_efficiency": 0.0,
             "health_changes": []
           }
         },
@@ -3074,6 +3348,8 @@ export const energyPriorityTurn: TurnResponse = {
           "resources": {},
           "solar_efficiency": 0.2,
           "oxygen_efficiency": 0.0,
+          "water_recovery_efficiency": 0.0,
+          "co2_efficiency": 0.0,
           "crew_health": 0,
           "target": "selected"
         },
@@ -3081,6 +3357,8 @@ export const energyPriorityTurn: TurnResponse = {
           "resources": {},
           "solar_efficiency": 0.0,
           "oxygen_efficiency": 0.0,
+          "water_recovery_efficiency": 0.0,
+          "co2_efficiency": 0.0,
           "crew_health": 0,
           "target": "selected"
         },
@@ -3132,6 +3410,8 @@ export const energyPriorityTurn: TurnResponse = {
           "resources": {},
           "solar_efficiency": 0.0,
           "oxygen_efficiency": 0.2,
+          "water_recovery_efficiency": 0.0,
+          "co2_efficiency": 0.0,
           "crew_health": 0,
           "target": "selected"
         },
@@ -3139,6 +3419,8 @@ export const energyPriorityTurn: TurnResponse = {
           "resources": {},
           "solar_efficiency": 0.0,
           "oxygen_efficiency": 0.0,
+          "water_recovery_efficiency": 0.0,
+          "co2_efficiency": 0.0,
           "crew_health": 0,
           "target": "selected"
         },
@@ -3166,6 +3448,112 @@ export const energyPriorityTurn: TurnResponse = {
               "Requires 1 oxygen_regulators; available 0.",
               "The oxygen system is already at full condition."
             ],
+            "success_probability": 1.0
+          }
+        ],
+        "success_probability": null
+      },
+      {
+        "id": "service_water_recovery",
+        "action_type": "maintenance",
+        "objective_rewards": [],
+        "text": "Service the water recovery processor",
+        "description": "One repair kit and 2 power guarantee +30 water-recovery condition points. Recovered water comes from the wastewater stock and is available after this week's rations.",
+        "costs": {
+          "repair_kits": 1.0,
+          "electricity": 2.0
+        },
+        "required_items": {},
+        "requires_crew": true,
+        "role_bonus": {},
+        "crew_role_bonus": {},
+        "success_chance": 1.0,
+        "success_effects": {
+          "resources": {},
+          "solar_efficiency": 0.0,
+          "oxygen_efficiency": 0.0,
+          "water_recovery_efficiency": 0.3,
+          "co2_efficiency": 0.0,
+          "crew_health": 0,
+          "target": "selected"
+        },
+        "failure_effects": {
+          "resources": {},
+          "solar_efficiency": 0.0,
+          "oxygen_efficiency": 0.0,
+          "water_recovery_efficiency": 0.0,
+          "co2_efficiency": 0.0,
+          "crew_health": 0,
+          "target": "selected"
+        },
+        "required_role": null,
+        "minimum_crew": 1,
+        "available": true,
+        "unavailable_reasons": [],
+        "eligible_crew": [
+          {
+            "crew_id": "alex",
+            "available": true,
+            "unavailable_reasons": [],
+            "success_probability": 1.0
+          },
+          {
+            "crew_id": "maya",
+            "available": true,
+            "unavailable_reasons": [],
+            "success_probability": 1.0
+          }
+        ],
+        "success_probability": null
+      },
+      {
+        "id": "service_co2_scrubber",
+        "action_type": "maintenance",
+        "objective_rewards": [],
+        "text": "Service the carbon dioxide scrubber",
+        "description": "One repair kit and 2 power guarantee +30 scrubber condition points. Removal still requires power; oxygen reserves do not remove CO2.",
+        "costs": {
+          "repair_kits": 1.0,
+          "electricity": 2.0
+        },
+        "required_items": {},
+        "requires_crew": true,
+        "role_bonus": {},
+        "crew_role_bonus": {},
+        "success_chance": 1.0,
+        "success_effects": {
+          "resources": {},
+          "solar_efficiency": 0.0,
+          "oxygen_efficiency": 0.0,
+          "water_recovery_efficiency": 0.0,
+          "co2_efficiency": 0.3,
+          "crew_health": 0,
+          "target": "selected"
+        },
+        "failure_effects": {
+          "resources": {},
+          "solar_efficiency": 0.0,
+          "oxygen_efficiency": 0.0,
+          "water_recovery_efficiency": 0.0,
+          "co2_efficiency": 0.0,
+          "crew_health": 0,
+          "target": "selected"
+        },
+        "required_role": null,
+        "minimum_crew": 1,
+        "available": true,
+        "unavailable_reasons": [],
+        "eligible_crew": [
+          {
+            "crew_id": "alex",
+            "available": true,
+            "unavailable_reasons": [],
+            "success_probability": 1.0
+          },
+          {
+            "crew_id": "maya",
+            "available": true,
+            "unavailable_reasons": [],
             "success_probability": 1.0
           }
         ],
@@ -3203,6 +3591,8 @@ export const energyPriorityTurn: TurnResponse = {
           },
           "solar_efficiency": 0.0,
           "oxygen_efficiency": 0.0,
+          "water_recovery_efficiency": 0.0,
+          "co2_efficiency": 0.0,
           "crew_health": 0,
           "target": "selected"
         },
@@ -3210,6 +3600,8 @@ export const energyPriorityTurn: TurnResponse = {
           "resources": {},
           "solar_efficiency": 0.0,
           "oxygen_efficiency": 0.0,
+          "water_recovery_efficiency": 0.0,
+          "co2_efficiency": 0.0,
           "crew_health": -8,
           "target": "selected"
         },
@@ -3264,6 +3656,8 @@ export const energyPriorityTurn: TurnResponse = {
           "resources": {},
           "solar_efficiency": 0.0,
           "oxygen_efficiency": 0.0,
+          "water_recovery_efficiency": 0.0,
+          "co2_efficiency": 0.0,
           "crew_health": 0,
           "target": "selected"
         },
@@ -3271,6 +3665,8 @@ export const energyPriorityTurn: TurnResponse = {
           "resources": {},
           "solar_efficiency": 0.0,
           "oxygen_efficiency": 0.0,
+          "water_recovery_efficiency": 0.0,
+          "co2_efficiency": 0.0,
           "crew_health": -8,
           "target": "selected"
         },
@@ -3333,6 +3729,8 @@ export const energyPriorityTurn: TurnResponse = {
           },
           "solar_efficiency": 0.0,
           "oxygen_efficiency": 0.0,
+          "water_recovery_efficiency": 0.0,
+          "co2_efficiency": 0.0,
           "crew_health": 0,
           "target": "selected"
         },
@@ -3340,6 +3738,8 @@ export const energyPriorityTurn: TurnResponse = {
           "resources": {},
           "solar_efficiency": 0.0,
           "oxygen_efficiency": 0.0,
+          "water_recovery_efficiency": 0.0,
+          "co2_efficiency": 0.0,
           "crew_health": -6,
           "target": "selected"
         },
@@ -3391,6 +3791,8 @@ export const energyPriorityTurn: TurnResponse = {
         "resources": {},
         "solar_efficiency": 0.0,
         "oxygen_efficiency": 0.0,
+        "water_recovery_efficiency": 0.0,
+        "co2_efficiency": 0.0,
         "health_changes": [
           {
             "crew_id": "alex",
@@ -3412,6 +3814,22 @@ export const energyPriorityTurn: TurnResponse = {
       }
     },
     "survival": {
+      "life_support": {
+        "wastewater_processed": 4.0,
+        "water_recovered": 3.2,
+        "water_for_oxygen": 0.0,
+        "wastewater_captured": 3.36,
+        "oxygen_generated": 0.0,
+        "co2_produced": 2.0,
+        "co2_removed": 2.0,
+        "co2_remaining": 0.0,
+        "power_components": {
+          "habitat": 8.0,
+          "water_recovery": 2.0,
+          "oxygen_generation": 0.0,
+          "co2_removal": 2.0
+        }
+      },
       "daylight_fraction": 1.0,
       "battery_capacity": 100.0,
       "electricity_curtailed": 0.0,
@@ -3430,10 +3848,10 @@ export const energyPriorityTurn: TurnResponse = {
         "water": 0.0
       },
       "electricity_generated": 48.0,
-      "electricity_required": 16.0,
-      "electricity_used": 16.0,
+      "electricity_required": 12.0,
+      "electricity_used": 12.0,
       "life_support_power_fraction": 1.0,
-      "oxygen_generated": 14.0,
+      "oxygen_generated": 0.0,
       "oxygen_required": 6.0,
       "oxygen_used": 6.0,
       "oxygen_shortage": 0.0,
@@ -3445,6 +3863,7 @@ export const energyPriorityTurn: TurnResponse = {
           "food_penalty": 0,
           "water_penalty": 0,
           "oxygen_penalty": 0,
+          "co2_penalty": 0,
           "died": false
         },
         {
@@ -3454,15 +3873,16 @@ export const energyPriorityTurn: TurnResponse = {
           "food_penalty": 0,
           "water_penalty": 0,
           "oxygen_penalty": 0,
+          "co2_penalty": 0,
           "died": false
         }
       ]
     },
     "resource_changes": {
       "food": -2.0,
-      "water": -4.2,
-      "oxygen": 8.0,
-      "electricity": 32.0,
+      "water": -1.0,
+      "oxygen": -6.0,
+      "electricity": 36.0,
       "medicine": -1.0,
       "repair_kits": 0.0,
       "eva_batteries": 0.0,
@@ -3471,7 +3891,9 @@ export const energyPriorityTurn: TurnResponse = {
       "diagnostic_tools": 0.0,
       "sealant_packs": 0.0,
       "scientific_tools": 0.0,
-      "research_data": 0.0
+      "research_data": 0.0,
+      "wastewater": -0.64,
+      "co2": 0.0
     },
     "deaths": [],
     "next_event": {
@@ -3481,6 +3903,8 @@ export const energyPriorityTurn: TurnResponse = {
         "resources": {},
         "solar_efficiency": 0.0,
         "oxygen_efficiency": 0.0,
+        "water_recovery_efficiency": 0.0,
+        "co2_efficiency": 0.0,
         "health_changes": []
       }
     },
@@ -3491,11 +3915,32 @@ export const energyPriorityTurn: TurnResponse = {
 export const game: GameResponse = {
   "game_id": "fixture-game",
   "state": {
+    "life_support": {
+      "source_url": "https://www.nasa.gov/reference/environmental-control-and-life-support-systems-eclss/",
+      "water_recovery_condition": 1.0,
+      "co2_condition": 1.0,
+      "wastewater": 12.0,
+      "co2_burden": 0.0,
+      "co2_warning_level": 4.0,
+      "recovery_capacity": 4.0,
+      "recovery_yield": 0.8,
+      "water_per_oxygen": 0.1,
+      "oxygen_reserve_weeks": 2.0,
+      "water_recovery_wear": 0.02,
+      "co2_wear": 0.015,
+      "co2_removal_capacity": 6.0,
+      "power_components": {
+        "habitat": 8.0,
+        "water_recovery": 2.0,
+        "oxygen_generation": 0.0,
+        "co2_removal": 2.0
+      }
+    },
     "energy": {
       "battery_capacity": 100.0,
       "stored": 30.0,
       "priority": "life_support",
-      "life_support_required": 16.0,
+      "life_support_required": 12.0,
       "solar_day_earth_days": 29.5306,
       "source_url": "https://svs.gsfc.nasa.gov/12739/",
       "assumption": "Fictional shared epoch: sunrise at Apollo 11 longitude on mission day zero. Smooth non-polar horizon, equal day/night halves, constant useful output during daylight. Weekly averaging omits terrain shadows, eclipses, seasons, and panel incidence.",
@@ -3694,10 +4139,14 @@ export const game: GameResponse = {
       "diagnostic_tools": 0.0,
       "sealant_packs": 0.0,
       "scientific_tools": 0.0,
-      "research_data": 0.0
+      "research_data": 0.0,
+      "wastewater": 12.0,
+      "co2": 0.0
     },
     "solar_efficiency": 0.75,
     "oxygen_efficiency": 1.0,
+    "water_recovery_efficiency": 1.0,
+    "co2_efficiency": 1.0,
     "current_event_id": "solar_failure",
     "current_event": {
       "id": "solar_failure",
@@ -3710,6 +4159,8 @@ export const game: GameResponse = {
         "resources": {},
         "solar_efficiency": -0.25,
         "oxygen_efficiency": 0.0,
+        "water_recovery_efficiency": 0.0,
+        "co2_efficiency": 0.0,
         "crew_health": 0,
         "target": "selected"
       },
@@ -3736,6 +4187,8 @@ export const game: GameResponse = {
             "resources": {},
             "solar_efficiency": 0.25,
             "oxygen_efficiency": 0.0,
+            "water_recovery_efficiency": 0.0,
+            "co2_efficiency": 0.0,
             "crew_health": 0,
             "target": "selected"
           },
@@ -3743,6 +4196,8 @@ export const game: GameResponse = {
             "resources": {},
             "solar_efficiency": 0.0,
             "oxygen_efficiency": 0.0,
+            "water_recovery_efficiency": 0.0,
+            "co2_efficiency": 0.0,
             "crew_health": -25,
             "target": "selected"
           },
@@ -3791,6 +4246,8 @@ export const game: GameResponse = {
             "resources": {},
             "solar_efficiency": 0.25,
             "oxygen_efficiency": 0.0,
+            "water_recovery_efficiency": 0.0,
+            "co2_efficiency": 0.0,
             "crew_health": 0,
             "target": "selected"
           },
@@ -3798,6 +4255,8 @@ export const game: GameResponse = {
             "resources": {},
             "solar_efficiency": 0.0,
             "oxygen_efficiency": 0.0,
+            "water_recovery_efficiency": 0.0,
+            "co2_efficiency": 0.0,
             "crew_health": -40,
             "target": "selected"
           },
@@ -3837,6 +4296,8 @@ export const game: GameResponse = {
             "resources": {},
             "solar_efficiency": 0.0,
             "oxygen_efficiency": 0.0,
+            "water_recovery_efficiency": 0.0,
+            "co2_efficiency": 0.0,
             "crew_health": 0,
             "target": "selected"
           },
@@ -3844,6 +4305,8 @@ export const game: GameResponse = {
             "resources": {},
             "solar_efficiency": 0.0,
             "oxygen_efficiency": 0.0,
+            "water_recovery_efficiency": 0.0,
+            "co2_efficiency": 0.0,
             "crew_health": 0,
             "target": "selected"
           },
@@ -3940,6 +4403,8 @@ export const game: GameResponse = {
           "resources": {},
           "solar_efficiency": 0.2,
           "oxygen_efficiency": 0.0,
+          "water_recovery_efficiency": 0.0,
+          "co2_efficiency": 0.0,
           "crew_health": 0,
           "target": "selected"
         },
@@ -3947,6 +4412,8 @@ export const game: GameResponse = {
           "resources": {},
           "solar_efficiency": 0.0,
           "oxygen_efficiency": 0.0,
+          "water_recovery_efficiency": 0.0,
+          "co2_efficiency": 0.0,
           "crew_health": 0,
           "target": "selected"
         },
@@ -3995,6 +4462,8 @@ export const game: GameResponse = {
           "resources": {},
           "solar_efficiency": 0.0,
           "oxygen_efficiency": 0.2,
+          "water_recovery_efficiency": 0.0,
+          "co2_efficiency": 0.0,
           "crew_health": 0,
           "target": "selected"
         },
@@ -4002,6 +4471,8 @@ export const game: GameResponse = {
           "resources": {},
           "solar_efficiency": 0.0,
           "oxygen_efficiency": 0.0,
+          "water_recovery_efficiency": 0.0,
+          "co2_efficiency": 0.0,
           "crew_health": 0,
           "target": "selected"
         },
@@ -4028,6 +4499,124 @@ export const game: GameResponse = {
             "unavailable_reasons": [
               "Requires 1 oxygen_regulators; available 0.",
               "The oxygen system is already at full condition."
+            ],
+            "success_probability": 1.0
+          }
+        ],
+        "success_probability": null
+      },
+      {
+        "id": "service_water_recovery",
+        "action_type": "maintenance",
+        "objective_rewards": [],
+        "text": "Service the water recovery processor",
+        "description": "One repair kit and 2 power guarantee +30 water-recovery condition points. Recovered water comes from the wastewater stock and is available after this week's rations.",
+        "costs": {
+          "repair_kits": 1.0,
+          "electricity": 2.0
+        },
+        "required_items": {},
+        "requires_crew": true,
+        "role_bonus": {},
+        "crew_role_bonus": {},
+        "success_chance": 1.0,
+        "success_effects": {
+          "resources": {},
+          "solar_efficiency": 0.0,
+          "oxygen_efficiency": 0.0,
+          "water_recovery_efficiency": 0.3,
+          "co2_efficiency": 0.0,
+          "crew_health": 0,
+          "target": "selected"
+        },
+        "failure_effects": {
+          "resources": {},
+          "solar_efficiency": 0.0,
+          "oxygen_efficiency": 0.0,
+          "water_recovery_efficiency": 0.0,
+          "co2_efficiency": 0.0,
+          "crew_health": 0,
+          "target": "selected"
+        },
+        "required_role": null,
+        "minimum_crew": 1,
+        "available": false,
+        "unavailable_reasons": [
+          "This processor is already at full condition."
+        ],
+        "eligible_crew": [
+          {
+            "crew_id": "alex",
+            "available": false,
+            "unavailable_reasons": [
+              "This processor is already at full condition."
+            ],
+            "success_probability": 1.0
+          },
+          {
+            "crew_id": "maya",
+            "available": false,
+            "unavailable_reasons": [
+              "This processor is already at full condition."
+            ],
+            "success_probability": 1.0
+          }
+        ],
+        "success_probability": null
+      },
+      {
+        "id": "service_co2_scrubber",
+        "action_type": "maintenance",
+        "objective_rewards": [],
+        "text": "Service the carbon dioxide scrubber",
+        "description": "One repair kit and 2 power guarantee +30 scrubber condition points. Removal still requires power; oxygen reserves do not remove CO2.",
+        "costs": {
+          "repair_kits": 1.0,
+          "electricity": 2.0
+        },
+        "required_items": {},
+        "requires_crew": true,
+        "role_bonus": {},
+        "crew_role_bonus": {},
+        "success_chance": 1.0,
+        "success_effects": {
+          "resources": {},
+          "solar_efficiency": 0.0,
+          "oxygen_efficiency": 0.0,
+          "water_recovery_efficiency": 0.0,
+          "co2_efficiency": 0.3,
+          "crew_health": 0,
+          "target": "selected"
+        },
+        "failure_effects": {
+          "resources": {},
+          "solar_efficiency": 0.0,
+          "oxygen_efficiency": 0.0,
+          "water_recovery_efficiency": 0.0,
+          "co2_efficiency": 0.0,
+          "crew_health": 0,
+          "target": "selected"
+        },
+        "required_role": null,
+        "minimum_crew": 1,
+        "available": false,
+        "unavailable_reasons": [
+          "This processor is already at full condition."
+        ],
+        "eligible_crew": [
+          {
+            "crew_id": "alex",
+            "available": false,
+            "unavailable_reasons": [
+              "This processor is already at full condition."
+            ],
+            "success_probability": 1.0
+          },
+          {
+            "crew_id": "maya",
+            "available": false,
+            "unavailable_reasons": [
+              "This processor is already at full condition."
             ],
             "success_probability": 1.0
           }
@@ -4066,6 +4655,8 @@ export const game: GameResponse = {
           },
           "solar_efficiency": 0.0,
           "oxygen_efficiency": 0.0,
+          "water_recovery_efficiency": 0.0,
+          "co2_efficiency": 0.0,
           "crew_health": 0,
           "target": "selected"
         },
@@ -4073,6 +4664,8 @@ export const game: GameResponse = {
           "resources": {},
           "solar_efficiency": 0.0,
           "oxygen_efficiency": 0.0,
+          "water_recovery_efficiency": 0.0,
+          "co2_efficiency": 0.0,
           "crew_health": -8,
           "target": "selected"
         },
@@ -4127,6 +4720,8 @@ export const game: GameResponse = {
           "resources": {},
           "solar_efficiency": 0.0,
           "oxygen_efficiency": 0.0,
+          "water_recovery_efficiency": 0.0,
+          "co2_efficiency": 0.0,
           "crew_health": 0,
           "target": "selected"
         },
@@ -4134,6 +4729,8 @@ export const game: GameResponse = {
           "resources": {},
           "solar_efficiency": 0.0,
           "oxygen_efficiency": 0.0,
+          "water_recovery_efficiency": 0.0,
+          "co2_efficiency": 0.0,
           "crew_health": -8,
           "target": "selected"
         },
@@ -4196,6 +4793,8 @@ export const game: GameResponse = {
           },
           "solar_efficiency": 0.0,
           "oxygen_efficiency": 0.0,
+          "water_recovery_efficiency": 0.0,
+          "co2_efficiency": 0.0,
           "crew_health": 0,
           "target": "selected"
         },
@@ -4203,6 +4802,8 @@ export const game: GameResponse = {
           "resources": {},
           "solar_efficiency": 0.0,
           "oxygen_efficiency": 0.0,
+          "water_recovery_efficiency": 0.0,
+          "co2_efficiency": 0.0,
           "crew_health": -6,
           "target": "selected"
         },
@@ -4239,11 +4840,32 @@ export const game: GameResponse = {
 export const turn: TurnResponse = {
   "game_id": "fixture-game",
   "state": {
+    "life_support": {
+      "source_url": "https://www.nasa.gov/reference/environmental-control-and-life-support-systems-eclss/",
+      "water_recovery_condition": 0.98,
+      "co2_condition": 0.985,
+      "wastewater": 11.36,
+      "co2_burden": 0.0,
+      "co2_warning_level": 4.0,
+      "recovery_capacity": 4.0,
+      "recovery_yield": 0.8,
+      "water_per_oxygen": 0.1,
+      "oxygen_reserve_weeks": 2.0,
+      "water_recovery_wear": 0.02,
+      "co2_wear": 0.015,
+      "co2_removal_capacity": 6.0,
+      "power_components": {
+        "habitat": 8.0,
+        "water_recovery": 2.0,
+        "oxygen_generation": 0.0,
+        "co2_removal": 2.0
+      }
+    },
     "energy": {
       "battery_capacity": 100.0,
-      "stored": 50.0,
+      "stored": 54.0,
       "priority": "life_support",
-      "life_support_required": 16.0,
+      "life_support_required": 12.0,
       "solar_day_earth_days": 29.5306,
       "source_url": "https://svs.gsfc.nasa.gov/12739/",
       "assumption": "Fictional shared epoch: sunrise at Apollo 11 longitude on mission day zero. Smooth non-polar horizon, equal day/night halves, constant useful output during daylight. Weekly averaging omits terrain shadows, eclipses, seasons, and panel incidence.",
@@ -4423,9 +5045,9 @@ export const turn: TurnResponse = {
     ],
     "resources": {
       "food": 50.33,
-      "water": 107.8,
-      "oxygen": 36.0,
-      "electricity": 50.0,
+      "water": 111.0,
+      "oxygen": 22.0,
+      "electricity": 54.0,
       "medicine": 8.0,
       "repair_kits": 7.0,
       "eva_batteries": 7.0,
@@ -4434,10 +5056,14 @@ export const turn: TurnResponse = {
       "diagnostic_tools": 0.0,
       "sealant_packs": 0.0,
       "scientific_tools": 0.0,
-      "research_data": 0.0
+      "research_data": 0.0,
+      "wastewater": 11.36,
+      "co2": 0.0
     },
     "solar_efficiency": 0.75,
     "oxygen_efficiency": 1.0,
+    "water_recovery_efficiency": 0.98,
+    "co2_efficiency": 0.985,
     "current_event_id": "medical_emergency",
     "current_event": {
       "id": "medical_emergency",
@@ -4450,6 +5076,8 @@ export const turn: TurnResponse = {
         "resources": {},
         "solar_efficiency": 0.0,
         "oxygen_efficiency": 0.0,
+        "water_recovery_efficiency": 0.0,
+        "co2_efficiency": 0.0,
         "crew_health": -8,
         "target": "all"
       },
@@ -4474,6 +5102,8 @@ export const turn: TurnResponse = {
             "resources": {},
             "solar_efficiency": 0.0,
             "oxygen_efficiency": 0.0,
+            "water_recovery_efficiency": 0.0,
+            "co2_efficiency": 0.0,
             "crew_health": 30,
             "target": "selected"
           },
@@ -4481,6 +5111,8 @@ export const turn: TurnResponse = {
             "resources": {},
             "solar_efficiency": 0.0,
             "oxygen_efficiency": 0.0,
+            "water_recovery_efficiency": 0.0,
+            "co2_efficiency": 0.0,
             "crew_health": -5,
             "target": "selected"
           },
@@ -4524,6 +5156,8 @@ export const turn: TurnResponse = {
             "resources": {},
             "solar_efficiency": 0.0,
             "oxygen_efficiency": 0.0,
+            "water_recovery_efficiency": 0.0,
+            "co2_efficiency": 0.0,
             "crew_health": 15,
             "target": "all"
           },
@@ -4531,6 +5165,8 @@ export const turn: TurnResponse = {
             "resources": {},
             "solar_efficiency": 0.0,
             "oxygen_efficiency": 0.0,
+            "water_recovery_efficiency": 0.0,
+            "co2_efficiency": 0.0,
             "crew_health": -5,
             "target": "all"
           },
@@ -4576,6 +5212,8 @@ export const turn: TurnResponse = {
             "resources": {},
             "solar_efficiency": 0.0,
             "oxygen_efficiency": 0.0,
+            "water_recovery_efficiency": 0.0,
+            "co2_efficiency": 0.0,
             "crew_health": 20,
             "target": "selected"
           },
@@ -4583,6 +5221,8 @@ export const turn: TurnResponse = {
             "resources": {},
             "solar_efficiency": 0.0,
             "oxygen_efficiency": 0.0,
+            "water_recovery_efficiency": 0.0,
+            "co2_efficiency": 0.0,
             "crew_health": 0,
             "target": "selected"
           },
@@ -4628,6 +5268,8 @@ export const turn: TurnResponse = {
             "resources": {},
             "solar_efficiency": 0.0,
             "oxygen_efficiency": 0.0,
+            "water_recovery_efficiency": 0.0,
+            "co2_efficiency": 0.0,
             "crew_health": -5,
             "target": "all"
           },
@@ -4635,6 +5277,8 @@ export const turn: TurnResponse = {
             "resources": {},
             "solar_efficiency": 0.0,
             "oxygen_efficiency": 0.0,
+            "water_recovery_efficiency": 0.0,
+            "co2_efficiency": 0.0,
             "crew_health": 0,
             "target": "selected"
           },
@@ -4679,6 +5323,8 @@ export const turn: TurnResponse = {
             "resources": {},
             "solar_efficiency": 0.0,
             "oxygen_efficiency": 0.0,
+            "water_recovery_efficiency": 0.0,
+            "co2_efficiency": 0.0,
             "health_changes": [
               {
                 "crew_id": "alex",
@@ -4700,6 +5346,22 @@ export const turn: TurnResponse = {
           }
         },
         "survival": {
+          "life_support": {
+            "wastewater_processed": 4.0,
+            "water_recovered": 3.2,
+            "water_for_oxygen": 0.0,
+            "wastewater_captured": 3.36,
+            "oxygen_generated": 0.0,
+            "co2_produced": 2.0,
+            "co2_removed": 2.0,
+            "co2_remaining": 0.0,
+            "power_components": {
+              "habitat": 8.0,
+              "water_recovery": 2.0,
+              "oxygen_generation": 0.0,
+              "co2_removal": 2.0
+            }
+          },
           "daylight_fraction": 1.0,
           "battery_capacity": 100.0,
           "electricity_curtailed": 0.0,
@@ -4718,10 +5380,10 @@ export const turn: TurnResponse = {
             "water": 0.0
           },
           "electricity_generated": 36.0,
-          "electricity_required": 16.0,
-          "electricity_used": 16.0,
+          "electricity_required": 12.0,
+          "electricity_used": 12.0,
           "life_support_power_fraction": 1.0,
-          "oxygen_generated": 14.0,
+          "oxygen_generated": 0.0,
           "oxygen_required": 6.0,
           "oxygen_used": 6.0,
           "oxygen_shortage": 0.0,
@@ -4733,6 +5395,7 @@ export const turn: TurnResponse = {
               "food_penalty": 2,
               "water_penalty": 0,
               "oxygen_penalty": 0,
+              "co2_penalty": 0,
               "died": false
             },
             {
@@ -4742,15 +5405,16 @@ export const turn: TurnResponse = {
               "food_penalty": 0,
               "water_penalty": 0,
               "oxygen_penalty": 0,
+              "co2_penalty": 0,
               "died": false
             }
           ]
         },
         "resource_changes": {
           "food": -1.67,
-          "water": -4.2,
-          "oxygen": 6.0,
-          "electricity": 20.0,
+          "water": -1.0,
+          "oxygen": -8.0,
+          "electricity": 24.0,
           "medicine": 0.0,
           "repair_kits": -1.0,
           "eva_batteries": -1.0,
@@ -4759,7 +5423,9 @@ export const turn: TurnResponse = {
           "diagnostic_tools": 0.0,
           "sealant_packs": 0.0,
           "scientific_tools": 0.0,
-          "research_data": 0.0
+          "research_data": 0.0,
+          "wastewater": -0.64,
+          "co2": 0.0
         },
         "deaths": [],
         "next_event": {
@@ -4769,6 +5435,8 @@ export const turn: TurnResponse = {
             "resources": {},
             "solar_efficiency": 0.0,
             "oxygen_efficiency": 0.0,
+            "water_recovery_efficiency": 0.0,
+            "co2_efficiency": 0.0,
             "health_changes": [
               {
                 "crew_id": "alex",
@@ -4862,6 +5530,8 @@ export const turn: TurnResponse = {
           "resources": {},
           "solar_efficiency": 0.2,
           "oxygen_efficiency": 0.0,
+          "water_recovery_efficiency": 0.0,
+          "co2_efficiency": 0.0,
           "crew_health": 0,
           "target": "selected"
         },
@@ -4869,6 +5539,8 @@ export const turn: TurnResponse = {
           "resources": {},
           "solar_efficiency": 0.0,
           "oxygen_efficiency": 0.0,
+          "water_recovery_efficiency": 0.0,
+          "co2_efficiency": 0.0,
           "crew_health": 0,
           "target": "selected"
         },
@@ -4917,6 +5589,8 @@ export const turn: TurnResponse = {
           "resources": {},
           "solar_efficiency": 0.0,
           "oxygen_efficiency": 0.2,
+          "water_recovery_efficiency": 0.0,
+          "co2_efficiency": 0.0,
           "crew_health": 0,
           "target": "selected"
         },
@@ -4924,6 +5598,8 @@ export const turn: TurnResponse = {
           "resources": {},
           "solar_efficiency": 0.0,
           "oxygen_efficiency": 0.0,
+          "water_recovery_efficiency": 0.0,
+          "co2_efficiency": 0.0,
           "crew_health": 0,
           "target": "selected"
         },
@@ -4951,6 +5627,112 @@ export const turn: TurnResponse = {
               "Requires 1 oxygen_regulators; available 0.",
               "The oxygen system is already at full condition."
             ],
+            "success_probability": 1.0
+          }
+        ],
+        "success_probability": null
+      },
+      {
+        "id": "service_water_recovery",
+        "action_type": "maintenance",
+        "objective_rewards": [],
+        "text": "Service the water recovery processor",
+        "description": "One repair kit and 2 power guarantee +30 water-recovery condition points. Recovered water comes from the wastewater stock and is available after this week's rations.",
+        "costs": {
+          "repair_kits": 1.0,
+          "electricity": 2.0
+        },
+        "required_items": {},
+        "requires_crew": true,
+        "role_bonus": {},
+        "crew_role_bonus": {},
+        "success_chance": 1.0,
+        "success_effects": {
+          "resources": {},
+          "solar_efficiency": 0.0,
+          "oxygen_efficiency": 0.0,
+          "water_recovery_efficiency": 0.3,
+          "co2_efficiency": 0.0,
+          "crew_health": 0,
+          "target": "selected"
+        },
+        "failure_effects": {
+          "resources": {},
+          "solar_efficiency": 0.0,
+          "oxygen_efficiency": 0.0,
+          "water_recovery_efficiency": 0.0,
+          "co2_efficiency": 0.0,
+          "crew_health": 0,
+          "target": "selected"
+        },
+        "required_role": null,
+        "minimum_crew": 1,
+        "available": true,
+        "unavailable_reasons": [],
+        "eligible_crew": [
+          {
+            "crew_id": "alex",
+            "available": true,
+            "unavailable_reasons": [],
+            "success_probability": 1.0
+          },
+          {
+            "crew_id": "maya",
+            "available": true,
+            "unavailable_reasons": [],
+            "success_probability": 1.0
+          }
+        ],
+        "success_probability": null
+      },
+      {
+        "id": "service_co2_scrubber",
+        "action_type": "maintenance",
+        "objective_rewards": [],
+        "text": "Service the carbon dioxide scrubber",
+        "description": "One repair kit and 2 power guarantee +30 scrubber condition points. Removal still requires power; oxygen reserves do not remove CO2.",
+        "costs": {
+          "repair_kits": 1.0,
+          "electricity": 2.0
+        },
+        "required_items": {},
+        "requires_crew": true,
+        "role_bonus": {},
+        "crew_role_bonus": {},
+        "success_chance": 1.0,
+        "success_effects": {
+          "resources": {},
+          "solar_efficiency": 0.0,
+          "oxygen_efficiency": 0.0,
+          "water_recovery_efficiency": 0.0,
+          "co2_efficiency": 0.3,
+          "crew_health": 0,
+          "target": "selected"
+        },
+        "failure_effects": {
+          "resources": {},
+          "solar_efficiency": 0.0,
+          "oxygen_efficiency": 0.0,
+          "water_recovery_efficiency": 0.0,
+          "co2_efficiency": 0.0,
+          "crew_health": 0,
+          "target": "selected"
+        },
+        "required_role": null,
+        "minimum_crew": 1,
+        "available": true,
+        "unavailable_reasons": [],
+        "eligible_crew": [
+          {
+            "crew_id": "alex",
+            "available": true,
+            "unavailable_reasons": [],
+            "success_probability": 1.0
+          },
+          {
+            "crew_id": "maya",
+            "available": true,
+            "unavailable_reasons": [],
             "success_probability": 1.0
           }
         ],
@@ -4988,6 +5770,8 @@ export const turn: TurnResponse = {
           },
           "solar_efficiency": 0.0,
           "oxygen_efficiency": 0.0,
+          "water_recovery_efficiency": 0.0,
+          "co2_efficiency": 0.0,
           "crew_health": 0,
           "target": "selected"
         },
@@ -4995,6 +5779,8 @@ export const turn: TurnResponse = {
           "resources": {},
           "solar_efficiency": 0.0,
           "oxygen_efficiency": 0.0,
+          "water_recovery_efficiency": 0.0,
+          "co2_efficiency": 0.0,
           "crew_health": -8,
           "target": "selected"
         },
@@ -5049,6 +5835,8 @@ export const turn: TurnResponse = {
           "resources": {},
           "solar_efficiency": 0.0,
           "oxygen_efficiency": 0.0,
+          "water_recovery_efficiency": 0.0,
+          "co2_efficiency": 0.0,
           "crew_health": 0,
           "target": "selected"
         },
@@ -5056,6 +5844,8 @@ export const turn: TurnResponse = {
           "resources": {},
           "solar_efficiency": 0.0,
           "oxygen_efficiency": 0.0,
+          "water_recovery_efficiency": 0.0,
+          "co2_efficiency": 0.0,
           "crew_health": -8,
           "target": "selected"
         },
@@ -5118,6 +5908,8 @@ export const turn: TurnResponse = {
           },
           "solar_efficiency": 0.0,
           "oxygen_efficiency": 0.0,
+          "water_recovery_efficiency": 0.0,
+          "co2_efficiency": 0.0,
           "crew_health": 0,
           "target": "selected"
         },
@@ -5125,6 +5917,8 @@ export const turn: TurnResponse = {
           "resources": {},
           "solar_efficiency": 0.0,
           "oxygen_efficiency": 0.0,
+          "water_recovery_efficiency": 0.0,
+          "co2_efficiency": 0.0,
           "crew_health": -6,
           "target": "selected"
         },
@@ -5178,6 +5972,8 @@ export const turn: TurnResponse = {
         "resources": {},
         "solar_efficiency": 0.0,
         "oxygen_efficiency": 0.0,
+        "water_recovery_efficiency": 0.0,
+        "co2_efficiency": 0.0,
         "health_changes": [
           {
             "crew_id": "alex",
@@ -5199,6 +5995,22 @@ export const turn: TurnResponse = {
       }
     },
     "survival": {
+      "life_support": {
+        "wastewater_processed": 4.0,
+        "water_recovered": 3.2,
+        "water_for_oxygen": 0.0,
+        "wastewater_captured": 3.36,
+        "oxygen_generated": 0.0,
+        "co2_produced": 2.0,
+        "co2_removed": 2.0,
+        "co2_remaining": 0.0,
+        "power_components": {
+          "habitat": 8.0,
+          "water_recovery": 2.0,
+          "oxygen_generation": 0.0,
+          "co2_removal": 2.0
+        }
+      },
       "daylight_fraction": 1.0,
       "battery_capacity": 100.0,
       "electricity_curtailed": 0.0,
@@ -5217,10 +6029,10 @@ export const turn: TurnResponse = {
         "water": 0.0
       },
       "electricity_generated": 36.0,
-      "electricity_required": 16.0,
-      "electricity_used": 16.0,
+      "electricity_required": 12.0,
+      "electricity_used": 12.0,
       "life_support_power_fraction": 1.0,
-      "oxygen_generated": 14.0,
+      "oxygen_generated": 0.0,
       "oxygen_required": 6.0,
       "oxygen_used": 6.0,
       "oxygen_shortage": 0.0,
@@ -5232,6 +6044,7 @@ export const turn: TurnResponse = {
           "food_penalty": 2,
           "water_penalty": 0,
           "oxygen_penalty": 0,
+          "co2_penalty": 0,
           "died": false
         },
         {
@@ -5241,15 +6054,16 @@ export const turn: TurnResponse = {
           "food_penalty": 0,
           "water_penalty": 0,
           "oxygen_penalty": 0,
+          "co2_penalty": 0,
           "died": false
         }
       ]
     },
     "resource_changes": {
       "food": -1.67,
-      "water": -4.2,
-      "oxygen": 6.0,
-      "electricity": 20.0,
+      "water": -1.0,
+      "oxygen": -8.0,
+      "electricity": 24.0,
       "medicine": 0.0,
       "repair_kits": -1.0,
       "eva_batteries": -1.0,
@@ -5258,7 +6072,9 @@ export const turn: TurnResponse = {
       "diagnostic_tools": 0.0,
       "sealant_packs": 0.0,
       "scientific_tools": 0.0,
-      "research_data": 0.0
+      "research_data": 0.0,
+      "wastewater": -0.64,
+      "co2": 0.0
     },
     "deaths": [],
     "next_event": {
@@ -5268,6 +6084,8 @@ export const turn: TurnResponse = {
         "resources": {},
         "solar_efficiency": 0.0,
         "oxygen_efficiency": 0.0,
+        "water_recovery_efficiency": 0.0,
+        "co2_efficiency": 0.0,
         "health_changes": [
           {
             "crew_id": "alex",
@@ -5289,11 +6107,32 @@ export const turn: TurnResponse = {
 export const medicalGame: GameResponse = {
   "game_id": "fixture-game",
   "state": {
+    "life_support": {
+      "source_url": "https://www.nasa.gov/reference/environmental-control-and-life-support-systems-eclss/",
+      "water_recovery_condition": 1.0,
+      "co2_condition": 1.0,
+      "wastewater": 12.0,
+      "co2_burden": 0.0,
+      "co2_warning_level": 4.0,
+      "recovery_capacity": 4.0,
+      "recovery_yield": 0.8,
+      "water_per_oxygen": 0.1,
+      "oxygen_reserve_weeks": 2.0,
+      "water_recovery_wear": 0.02,
+      "co2_wear": 0.015,
+      "co2_removal_capacity": 6.0,
+      "power_components": {
+        "habitat": 8.0,
+        "water_recovery": 2.0,
+        "oxygen_generation": 0.0,
+        "co2_removal": 2.0
+      }
+    },
     "energy": {
       "battery_capacity": 100.0,
       "stored": 30.0,
       "priority": "life_support",
-      "life_support_required": 16.0,
+      "life_support_required": 12.0,
       "solar_day_earth_days": 29.5306,
       "source_url": "https://svs.gsfc.nasa.gov/12739/",
       "assumption": "Fictional shared epoch: sunrise at Apollo 11 longitude on mission day zero. Smooth non-polar horizon, equal day/night halves, constant useful output during daylight. Weekly averaging omits terrain shadows, eclipses, seasons, and panel incidence.",
@@ -5492,10 +6331,14 @@ export const medicalGame: GameResponse = {
       "diagnostic_tools": 0.0,
       "sealant_packs": 0.0,
       "scientific_tools": 0.0,
-      "research_data": 0.0
+      "research_data": 0.0,
+      "wastewater": 12.0,
+      "co2": 0.0
     },
     "solar_efficiency": 1.0,
     "oxygen_efficiency": 1.0,
+    "water_recovery_efficiency": 1.0,
+    "co2_efficiency": 1.0,
     "current_event_id": "medical_emergency",
     "current_event": {
       "id": "medical_emergency",
@@ -5508,6 +6351,8 @@ export const medicalGame: GameResponse = {
         "resources": {},
         "solar_efficiency": 0.0,
         "oxygen_efficiency": 0.0,
+        "water_recovery_efficiency": 0.0,
+        "co2_efficiency": 0.0,
         "crew_health": -8,
         "target": "all"
       },
@@ -5532,6 +6377,8 @@ export const medicalGame: GameResponse = {
             "resources": {},
             "solar_efficiency": 0.0,
             "oxygen_efficiency": 0.0,
+            "water_recovery_efficiency": 0.0,
+            "co2_efficiency": 0.0,
             "crew_health": 30,
             "target": "selected"
           },
@@ -5539,6 +6386,8 @@ export const medicalGame: GameResponse = {
             "resources": {},
             "solar_efficiency": 0.0,
             "oxygen_efficiency": 0.0,
+            "water_recovery_efficiency": 0.0,
+            "co2_efficiency": 0.0,
             "crew_health": -5,
             "target": "selected"
           },
@@ -5582,6 +6431,8 @@ export const medicalGame: GameResponse = {
             "resources": {},
             "solar_efficiency": 0.0,
             "oxygen_efficiency": 0.0,
+            "water_recovery_efficiency": 0.0,
+            "co2_efficiency": 0.0,
             "crew_health": 15,
             "target": "all"
           },
@@ -5589,6 +6440,8 @@ export const medicalGame: GameResponse = {
             "resources": {},
             "solar_efficiency": 0.0,
             "oxygen_efficiency": 0.0,
+            "water_recovery_efficiency": 0.0,
+            "co2_efficiency": 0.0,
             "crew_health": -5,
             "target": "all"
           },
@@ -5634,6 +6487,8 @@ export const medicalGame: GameResponse = {
             "resources": {},
             "solar_efficiency": 0.0,
             "oxygen_efficiency": 0.0,
+            "water_recovery_efficiency": 0.0,
+            "co2_efficiency": 0.0,
             "crew_health": 20,
             "target": "selected"
           },
@@ -5641,6 +6496,8 @@ export const medicalGame: GameResponse = {
             "resources": {},
             "solar_efficiency": 0.0,
             "oxygen_efficiency": 0.0,
+            "water_recovery_efficiency": 0.0,
+            "co2_efficiency": 0.0,
             "crew_health": 0,
             "target": "selected"
           },
@@ -5686,6 +6543,8 @@ export const medicalGame: GameResponse = {
             "resources": {},
             "solar_efficiency": 0.0,
             "oxygen_efficiency": 0.0,
+            "water_recovery_efficiency": 0.0,
+            "co2_efficiency": 0.0,
             "crew_health": -5,
             "target": "all"
           },
@@ -5693,6 +6552,8 @@ export const medicalGame: GameResponse = {
             "resources": {},
             "solar_efficiency": 0.0,
             "oxygen_efficiency": 0.0,
+            "water_recovery_efficiency": 0.0,
+            "co2_efficiency": 0.0,
             "crew_health": 0,
             "target": "selected"
           },
@@ -5789,6 +6650,8 @@ export const medicalGame: GameResponse = {
           "resources": {},
           "solar_efficiency": 0.2,
           "oxygen_efficiency": 0.0,
+          "water_recovery_efficiency": 0.0,
+          "co2_efficiency": 0.0,
           "crew_health": 0,
           "target": "selected"
         },
@@ -5796,6 +6659,8 @@ export const medicalGame: GameResponse = {
           "resources": {},
           "solar_efficiency": 0.0,
           "oxygen_efficiency": 0.0,
+          "water_recovery_efficiency": 0.0,
+          "co2_efficiency": 0.0,
           "crew_health": 0,
           "target": "selected"
         },
@@ -5847,6 +6712,8 @@ export const medicalGame: GameResponse = {
           "resources": {},
           "solar_efficiency": 0.0,
           "oxygen_efficiency": 0.2,
+          "water_recovery_efficiency": 0.0,
+          "co2_efficiency": 0.0,
           "crew_health": 0,
           "target": "selected"
         },
@@ -5854,6 +6721,8 @@ export const medicalGame: GameResponse = {
           "resources": {},
           "solar_efficiency": 0.0,
           "oxygen_efficiency": 0.0,
+          "water_recovery_efficiency": 0.0,
+          "co2_efficiency": 0.0,
           "crew_health": 0,
           "target": "selected"
         },
@@ -5880,6 +6749,124 @@ export const medicalGame: GameResponse = {
             "unavailable_reasons": [
               "Requires 1 oxygen_regulators; available 0.",
               "The oxygen system is already at full condition."
+            ],
+            "success_probability": 1.0
+          }
+        ],
+        "success_probability": null
+      },
+      {
+        "id": "service_water_recovery",
+        "action_type": "maintenance",
+        "objective_rewards": [],
+        "text": "Service the water recovery processor",
+        "description": "One repair kit and 2 power guarantee +30 water-recovery condition points. Recovered water comes from the wastewater stock and is available after this week's rations.",
+        "costs": {
+          "repair_kits": 1.0,
+          "electricity": 2.0
+        },
+        "required_items": {},
+        "requires_crew": true,
+        "role_bonus": {},
+        "crew_role_bonus": {},
+        "success_chance": 1.0,
+        "success_effects": {
+          "resources": {},
+          "solar_efficiency": 0.0,
+          "oxygen_efficiency": 0.0,
+          "water_recovery_efficiency": 0.3,
+          "co2_efficiency": 0.0,
+          "crew_health": 0,
+          "target": "selected"
+        },
+        "failure_effects": {
+          "resources": {},
+          "solar_efficiency": 0.0,
+          "oxygen_efficiency": 0.0,
+          "water_recovery_efficiency": 0.0,
+          "co2_efficiency": 0.0,
+          "crew_health": 0,
+          "target": "selected"
+        },
+        "required_role": null,
+        "minimum_crew": 1,
+        "available": false,
+        "unavailable_reasons": [
+          "This processor is already at full condition."
+        ],
+        "eligible_crew": [
+          {
+            "crew_id": "alex",
+            "available": false,
+            "unavailable_reasons": [
+              "This processor is already at full condition."
+            ],
+            "success_probability": 1.0
+          },
+          {
+            "crew_id": "maya",
+            "available": false,
+            "unavailable_reasons": [
+              "This processor is already at full condition."
+            ],
+            "success_probability": 1.0
+          }
+        ],
+        "success_probability": null
+      },
+      {
+        "id": "service_co2_scrubber",
+        "action_type": "maintenance",
+        "objective_rewards": [],
+        "text": "Service the carbon dioxide scrubber",
+        "description": "One repair kit and 2 power guarantee +30 scrubber condition points. Removal still requires power; oxygen reserves do not remove CO2.",
+        "costs": {
+          "repair_kits": 1.0,
+          "electricity": 2.0
+        },
+        "required_items": {},
+        "requires_crew": true,
+        "role_bonus": {},
+        "crew_role_bonus": {},
+        "success_chance": 1.0,
+        "success_effects": {
+          "resources": {},
+          "solar_efficiency": 0.0,
+          "oxygen_efficiency": 0.0,
+          "water_recovery_efficiency": 0.0,
+          "co2_efficiency": 0.3,
+          "crew_health": 0,
+          "target": "selected"
+        },
+        "failure_effects": {
+          "resources": {},
+          "solar_efficiency": 0.0,
+          "oxygen_efficiency": 0.0,
+          "water_recovery_efficiency": 0.0,
+          "co2_efficiency": 0.0,
+          "crew_health": 0,
+          "target": "selected"
+        },
+        "required_role": null,
+        "minimum_crew": 1,
+        "available": false,
+        "unavailable_reasons": [
+          "This processor is already at full condition."
+        ],
+        "eligible_crew": [
+          {
+            "crew_id": "alex",
+            "available": false,
+            "unavailable_reasons": [
+              "This processor is already at full condition."
+            ],
+            "success_probability": 1.0
+          },
+          {
+            "crew_id": "maya",
+            "available": false,
+            "unavailable_reasons": [
+              "This processor is already at full condition."
             ],
             "success_probability": 1.0
           }
@@ -5918,6 +6905,8 @@ export const medicalGame: GameResponse = {
           },
           "solar_efficiency": 0.0,
           "oxygen_efficiency": 0.0,
+          "water_recovery_efficiency": 0.0,
+          "co2_efficiency": 0.0,
           "crew_health": 0,
           "target": "selected"
         },
@@ -5925,6 +6914,8 @@ export const medicalGame: GameResponse = {
           "resources": {},
           "solar_efficiency": 0.0,
           "oxygen_efficiency": 0.0,
+          "water_recovery_efficiency": 0.0,
+          "co2_efficiency": 0.0,
           "crew_health": -8,
           "target": "selected"
         },
@@ -5979,6 +6970,8 @@ export const medicalGame: GameResponse = {
           "resources": {},
           "solar_efficiency": 0.0,
           "oxygen_efficiency": 0.0,
+          "water_recovery_efficiency": 0.0,
+          "co2_efficiency": 0.0,
           "crew_health": 0,
           "target": "selected"
         },
@@ -5986,6 +6979,8 @@ export const medicalGame: GameResponse = {
           "resources": {},
           "solar_efficiency": 0.0,
           "oxygen_efficiency": 0.0,
+          "water_recovery_efficiency": 0.0,
+          "co2_efficiency": 0.0,
           "crew_health": -8,
           "target": "selected"
         },
@@ -6048,6 +7043,8 @@ export const medicalGame: GameResponse = {
           },
           "solar_efficiency": 0.0,
           "oxygen_efficiency": 0.0,
+          "water_recovery_efficiency": 0.0,
+          "co2_efficiency": 0.0,
           "crew_health": 0,
           "target": "selected"
         },
@@ -6055,6 +7052,8 @@ export const medicalGame: GameResponse = {
           "resources": {},
           "solar_efficiency": 0.0,
           "oxygen_efficiency": 0.0,
+          "water_recovery_efficiency": 0.0,
+          "co2_efficiency": 0.0,
           "crew_health": -6,
           "target": "selected"
         },
@@ -6091,11 +7090,32 @@ export const medicalGame: GameResponse = {
 export const treatment: TurnResponse = {
   "game_id": "fixture-game",
   "state": {
+    "life_support": {
+      "source_url": "https://www.nasa.gov/reference/environmental-control-and-life-support-systems-eclss/",
+      "water_recovery_condition": 0.98,
+      "co2_condition": 0.985,
+      "wastewater": 11.36,
+      "co2_burden": 0.0,
+      "co2_warning_level": 4.0,
+      "recovery_capacity": 4.0,
+      "recovery_yield": 0.8,
+      "water_per_oxygen": 0.1,
+      "oxygen_reserve_weeks": 2.0,
+      "water_recovery_wear": 0.02,
+      "co2_wear": 0.015,
+      "co2_removal_capacity": 6.0,
+      "power_components": {
+        "habitat": 8.0,
+        "water_recovery": 2.0,
+        "oxygen_generation": 0.0,
+        "co2_removal": 2.0
+      }
+    },
     "energy": {
       "battery_capacity": 100.0,
-      "stored": 62.0,
+      "stored": 66.0,
       "priority": "life_support",
-      "life_support_required": 16.0,
+      "life_support_required": 12.0,
       "solar_day_earth_days": 29.5306,
       "source_url": "https://svs.gsfc.nasa.gov/12739/",
       "assumption": "Fictional shared epoch: sunrise at Apollo 11 longitude on mission day zero. Smooth non-polar horizon, equal day/night halves, constant useful output during daylight. Weekly averaging omits terrain shadows, eclipses, seasons, and panel incidence.",
@@ -6275,9 +7295,9 @@ export const treatment: TurnResponse = {
     ],
     "resources": {
       "food": 50.0,
-      "water": 107.8,
-      "oxygen": 38.0,
-      "electricity": 62.0,
+      "water": 111.0,
+      "oxygen": 24.0,
+      "electricity": 66.0,
       "medicine": 7.0,
       "repair_kits": 8.0,
       "eva_batteries": 8.0,
@@ -6286,10 +7306,14 @@ export const treatment: TurnResponse = {
       "diagnostic_tools": 0.0,
       "sealant_packs": 0.0,
       "scientific_tools": 0.0,
-      "research_data": 0.0
+      "research_data": 0.0,
+      "wastewater": 11.36,
+      "co2": 0.0
     },
     "solar_efficiency": 1.0,
     "oxygen_efficiency": 1.0,
+    "water_recovery_efficiency": 0.98,
+    "co2_efficiency": 0.985,
     "current_event_id": "crew_recovery",
     "current_event": {
       "id": "crew_recovery",
@@ -6302,6 +7326,8 @@ export const treatment: TurnResponse = {
         "resources": {},
         "solar_efficiency": 0.0,
         "oxygen_efficiency": 0.0,
+        "water_recovery_efficiency": 0.0,
+        "co2_efficiency": 0.0,
         "crew_health": 0,
         "target": "selected"
       },
@@ -6325,6 +7351,8 @@ export const treatment: TurnResponse = {
             "resources": {},
             "solar_efficiency": 0.0,
             "oxygen_efficiency": 0.0,
+            "water_recovery_efficiency": 0.0,
+            "co2_efficiency": 0.0,
             "crew_health": 6,
             "target": "all"
           },
@@ -6332,6 +7360,8 @@ export const treatment: TurnResponse = {
             "resources": {},
             "solar_efficiency": 0.0,
             "oxygen_efficiency": 0.0,
+            "water_recovery_efficiency": 0.0,
+            "co2_efficiency": 0.0,
             "crew_health": 0,
             "target": "selected"
           },
@@ -6362,6 +7392,8 @@ export const treatment: TurnResponse = {
             "resources": {},
             "solar_efficiency": 0.0,
             "oxygen_efficiency": 0.0,
+            "water_recovery_efficiency": 0.0,
+            "co2_efficiency": 0.0,
             "crew_health": 20,
             "target": "selected"
           },
@@ -6369,6 +7401,8 @@ export const treatment: TurnResponse = {
             "resources": {},
             "solar_efficiency": 0.0,
             "oxygen_efficiency": 0.0,
+            "water_recovery_efficiency": 0.0,
+            "co2_efficiency": 0.0,
             "crew_health": 0,
             "target": "selected"
           },
@@ -6408,6 +7442,8 @@ export const treatment: TurnResponse = {
             "resources": {},
             "solar_efficiency": 0.0,
             "oxygen_efficiency": 0.0,
+            "water_recovery_efficiency": 0.0,
+            "co2_efficiency": 0.0,
             "crew_health": 2,
             "target": "all"
           },
@@ -6415,6 +7451,8 @@ export const treatment: TurnResponse = {
             "resources": {},
             "solar_efficiency": 0.0,
             "oxygen_efficiency": 0.0,
+            "water_recovery_efficiency": 0.0,
+            "co2_efficiency": 0.0,
             "crew_health": 0,
             "target": "selected"
           },
@@ -6457,6 +7495,8 @@ export const treatment: TurnResponse = {
             "resources": {},
             "solar_efficiency": 0.0,
             "oxygen_efficiency": 0.0,
+            "water_recovery_efficiency": 0.0,
+            "co2_efficiency": 0.0,
             "health_changes": [
               {
                 "crew_id": "alex",
@@ -6478,6 +7518,22 @@ export const treatment: TurnResponse = {
           }
         },
         "survival": {
+          "life_support": {
+            "wastewater_processed": 4.0,
+            "water_recovered": 3.2,
+            "water_for_oxygen": 0.0,
+            "wastewater_captured": 3.36,
+            "oxygen_generated": 0.0,
+            "co2_produced": 2.0,
+            "co2_removed": 2.0,
+            "co2_remaining": 0.0,
+            "power_components": {
+              "habitat": 8.0,
+              "water_recovery": 2.0,
+              "oxygen_generation": 0.0,
+              "co2_removal": 2.0
+            }
+          },
           "daylight_fraction": 1.0,
           "battery_capacity": 100.0,
           "electricity_curtailed": 0.0,
@@ -6496,10 +7552,10 @@ export const treatment: TurnResponse = {
             "water": 0.0
           },
           "electricity_generated": 48.0,
-          "electricity_required": 16.0,
-          "electricity_used": 16.0,
+          "electricity_required": 12.0,
+          "electricity_used": 12.0,
           "life_support_power_fraction": 1.0,
-          "oxygen_generated": 14.0,
+          "oxygen_generated": 0.0,
           "oxygen_required": 6.0,
           "oxygen_used": 6.0,
           "oxygen_shortage": 0.0,
@@ -6511,6 +7567,7 @@ export const treatment: TurnResponse = {
               "food_penalty": 0,
               "water_penalty": 0,
               "oxygen_penalty": 0,
+              "co2_penalty": 0,
               "died": false
             },
             {
@@ -6520,15 +7577,16 @@ export const treatment: TurnResponse = {
               "food_penalty": 0,
               "water_penalty": 0,
               "oxygen_penalty": 0,
+              "co2_penalty": 0,
               "died": false
             }
           ]
         },
         "resource_changes": {
           "food": -2.0,
-          "water": -4.2,
-          "oxygen": 8.0,
-          "electricity": 32.0,
+          "water": -1.0,
+          "oxygen": -6.0,
+          "electricity": 36.0,
           "medicine": -1.0,
           "repair_kits": 0.0,
           "eva_batteries": 0.0,
@@ -6537,7 +7595,9 @@ export const treatment: TurnResponse = {
           "diagnostic_tools": 0.0,
           "sealant_packs": 0.0,
           "scientific_tools": 0.0,
-          "research_data": 0.0
+          "research_data": 0.0,
+          "wastewater": -0.64,
+          "co2": 0.0
         },
         "deaths": [],
         "next_event": {
@@ -6547,6 +7607,8 @@ export const treatment: TurnResponse = {
             "resources": {},
             "solar_efficiency": 0.0,
             "oxygen_efficiency": 0.0,
+            "water_recovery_efficiency": 0.0,
+            "co2_efficiency": 0.0,
             "health_changes": []
           }
         },
@@ -6629,6 +7691,8 @@ export const treatment: TurnResponse = {
           "resources": {},
           "solar_efficiency": 0.2,
           "oxygen_efficiency": 0.0,
+          "water_recovery_efficiency": 0.0,
+          "co2_efficiency": 0.0,
           "crew_health": 0,
           "target": "selected"
         },
@@ -6636,6 +7700,8 @@ export const treatment: TurnResponse = {
           "resources": {},
           "solar_efficiency": 0.0,
           "oxygen_efficiency": 0.0,
+          "water_recovery_efficiency": 0.0,
+          "co2_efficiency": 0.0,
           "crew_health": 0,
           "target": "selected"
         },
@@ -6687,6 +7753,8 @@ export const treatment: TurnResponse = {
           "resources": {},
           "solar_efficiency": 0.0,
           "oxygen_efficiency": 0.2,
+          "water_recovery_efficiency": 0.0,
+          "co2_efficiency": 0.0,
           "crew_health": 0,
           "target": "selected"
         },
@@ -6694,6 +7762,8 @@ export const treatment: TurnResponse = {
           "resources": {},
           "solar_efficiency": 0.0,
           "oxygen_efficiency": 0.0,
+          "water_recovery_efficiency": 0.0,
+          "co2_efficiency": 0.0,
           "crew_health": 0,
           "target": "selected"
         },
@@ -6721,6 +7791,112 @@ export const treatment: TurnResponse = {
               "Requires 1 oxygen_regulators; available 0.",
               "The oxygen system is already at full condition."
             ],
+            "success_probability": 1.0
+          }
+        ],
+        "success_probability": null
+      },
+      {
+        "id": "service_water_recovery",
+        "action_type": "maintenance",
+        "objective_rewards": [],
+        "text": "Service the water recovery processor",
+        "description": "One repair kit and 2 power guarantee +30 water-recovery condition points. Recovered water comes from the wastewater stock and is available after this week's rations.",
+        "costs": {
+          "repair_kits": 1.0,
+          "electricity": 2.0
+        },
+        "required_items": {},
+        "requires_crew": true,
+        "role_bonus": {},
+        "crew_role_bonus": {},
+        "success_chance": 1.0,
+        "success_effects": {
+          "resources": {},
+          "solar_efficiency": 0.0,
+          "oxygen_efficiency": 0.0,
+          "water_recovery_efficiency": 0.3,
+          "co2_efficiency": 0.0,
+          "crew_health": 0,
+          "target": "selected"
+        },
+        "failure_effects": {
+          "resources": {},
+          "solar_efficiency": 0.0,
+          "oxygen_efficiency": 0.0,
+          "water_recovery_efficiency": 0.0,
+          "co2_efficiency": 0.0,
+          "crew_health": 0,
+          "target": "selected"
+        },
+        "required_role": null,
+        "minimum_crew": 1,
+        "available": true,
+        "unavailable_reasons": [],
+        "eligible_crew": [
+          {
+            "crew_id": "alex",
+            "available": true,
+            "unavailable_reasons": [],
+            "success_probability": 1.0
+          },
+          {
+            "crew_id": "maya",
+            "available": true,
+            "unavailable_reasons": [],
+            "success_probability": 1.0
+          }
+        ],
+        "success_probability": null
+      },
+      {
+        "id": "service_co2_scrubber",
+        "action_type": "maintenance",
+        "objective_rewards": [],
+        "text": "Service the carbon dioxide scrubber",
+        "description": "One repair kit and 2 power guarantee +30 scrubber condition points. Removal still requires power; oxygen reserves do not remove CO2.",
+        "costs": {
+          "repair_kits": 1.0,
+          "electricity": 2.0
+        },
+        "required_items": {},
+        "requires_crew": true,
+        "role_bonus": {},
+        "crew_role_bonus": {},
+        "success_chance": 1.0,
+        "success_effects": {
+          "resources": {},
+          "solar_efficiency": 0.0,
+          "oxygen_efficiency": 0.0,
+          "water_recovery_efficiency": 0.0,
+          "co2_efficiency": 0.3,
+          "crew_health": 0,
+          "target": "selected"
+        },
+        "failure_effects": {
+          "resources": {},
+          "solar_efficiency": 0.0,
+          "oxygen_efficiency": 0.0,
+          "water_recovery_efficiency": 0.0,
+          "co2_efficiency": 0.0,
+          "crew_health": 0,
+          "target": "selected"
+        },
+        "required_role": null,
+        "minimum_crew": 1,
+        "available": true,
+        "unavailable_reasons": [],
+        "eligible_crew": [
+          {
+            "crew_id": "alex",
+            "available": true,
+            "unavailable_reasons": [],
+            "success_probability": 1.0
+          },
+          {
+            "crew_id": "maya",
+            "available": true,
+            "unavailable_reasons": [],
             "success_probability": 1.0
           }
         ],
@@ -6758,6 +7934,8 @@ export const treatment: TurnResponse = {
           },
           "solar_efficiency": 0.0,
           "oxygen_efficiency": 0.0,
+          "water_recovery_efficiency": 0.0,
+          "co2_efficiency": 0.0,
           "crew_health": 0,
           "target": "selected"
         },
@@ -6765,6 +7943,8 @@ export const treatment: TurnResponse = {
           "resources": {},
           "solar_efficiency": 0.0,
           "oxygen_efficiency": 0.0,
+          "water_recovery_efficiency": 0.0,
+          "co2_efficiency": 0.0,
           "crew_health": -8,
           "target": "selected"
         },
@@ -6819,6 +7999,8 @@ export const treatment: TurnResponse = {
           "resources": {},
           "solar_efficiency": 0.0,
           "oxygen_efficiency": 0.0,
+          "water_recovery_efficiency": 0.0,
+          "co2_efficiency": 0.0,
           "crew_health": 0,
           "target": "selected"
         },
@@ -6826,6 +8008,8 @@ export const treatment: TurnResponse = {
           "resources": {},
           "solar_efficiency": 0.0,
           "oxygen_efficiency": 0.0,
+          "water_recovery_efficiency": 0.0,
+          "co2_efficiency": 0.0,
           "crew_health": -8,
           "target": "selected"
         },
@@ -6888,6 +8072,8 @@ export const treatment: TurnResponse = {
           },
           "solar_efficiency": 0.0,
           "oxygen_efficiency": 0.0,
+          "water_recovery_efficiency": 0.0,
+          "co2_efficiency": 0.0,
           "crew_health": 0,
           "target": "selected"
         },
@@ -6895,6 +8081,8 @@ export const treatment: TurnResponse = {
           "resources": {},
           "solar_efficiency": 0.0,
           "oxygen_efficiency": 0.0,
+          "water_recovery_efficiency": 0.0,
+          "co2_efficiency": 0.0,
           "crew_health": -6,
           "target": "selected"
         },
@@ -6946,6 +8134,8 @@ export const treatment: TurnResponse = {
         "resources": {},
         "solar_efficiency": 0.0,
         "oxygen_efficiency": 0.0,
+        "water_recovery_efficiency": 0.0,
+        "co2_efficiency": 0.0,
         "health_changes": [
           {
             "crew_id": "alex",
@@ -6967,6 +8157,22 @@ export const treatment: TurnResponse = {
       }
     },
     "survival": {
+      "life_support": {
+        "wastewater_processed": 4.0,
+        "water_recovered": 3.2,
+        "water_for_oxygen": 0.0,
+        "wastewater_captured": 3.36,
+        "oxygen_generated": 0.0,
+        "co2_produced": 2.0,
+        "co2_removed": 2.0,
+        "co2_remaining": 0.0,
+        "power_components": {
+          "habitat": 8.0,
+          "water_recovery": 2.0,
+          "oxygen_generation": 0.0,
+          "co2_removal": 2.0
+        }
+      },
       "daylight_fraction": 1.0,
       "battery_capacity": 100.0,
       "electricity_curtailed": 0.0,
@@ -6985,10 +8191,10 @@ export const treatment: TurnResponse = {
         "water": 0.0
       },
       "electricity_generated": 48.0,
-      "electricity_required": 16.0,
-      "electricity_used": 16.0,
+      "electricity_required": 12.0,
+      "electricity_used": 12.0,
       "life_support_power_fraction": 1.0,
-      "oxygen_generated": 14.0,
+      "oxygen_generated": 0.0,
       "oxygen_required": 6.0,
       "oxygen_used": 6.0,
       "oxygen_shortage": 0.0,
@@ -7000,6 +8206,7 @@ export const treatment: TurnResponse = {
           "food_penalty": 0,
           "water_penalty": 0,
           "oxygen_penalty": 0,
+          "co2_penalty": 0,
           "died": false
         },
         {
@@ -7009,15 +8216,16 @@ export const treatment: TurnResponse = {
           "food_penalty": 0,
           "water_penalty": 0,
           "oxygen_penalty": 0,
+          "co2_penalty": 0,
           "died": false
         }
       ]
     },
     "resource_changes": {
       "food": -2.0,
-      "water": -4.2,
-      "oxygen": 8.0,
-      "electricity": 32.0,
+      "water": -1.0,
+      "oxygen": -6.0,
+      "electricity": 36.0,
       "medicine": -1.0,
       "repair_kits": 0.0,
       "eva_batteries": 0.0,
@@ -7026,7 +8234,9 @@ export const treatment: TurnResponse = {
       "diagnostic_tools": 0.0,
       "sealant_packs": 0.0,
       "scientific_tools": 0.0,
-      "research_data": 0.0
+      "research_data": 0.0,
+      "wastewater": -0.64,
+      "co2": 0.0
     },
     "deaths": [],
     "next_event": {
@@ -7036,6 +8246,8 @@ export const treatment: TurnResponse = {
         "resources": {},
         "solar_efficiency": 0.0,
         "oxygen_efficiency": 0.0,
+        "water_recovery_efficiency": 0.0,
+        "co2_efficiency": 0.0,
         "health_changes": []
       }
     },
@@ -7046,11 +8258,32 @@ export const treatment: TurnResponse = {
 export const opportunityGame: GameResponse = {
   "game_id": "fixture-game",
   "state": {
+    "life_support": {
+      "source_url": "https://www.nasa.gov/reference/environmental-control-and-life-support-systems-eclss/",
+      "water_recovery_condition": 0.98,
+      "co2_condition": 0.985,
+      "wastewater": 11.36,
+      "co2_burden": 0.0,
+      "co2_warning_level": 4.0,
+      "recovery_capacity": 4.0,
+      "recovery_yield": 0.8,
+      "water_per_oxygen": 0.1,
+      "oxygen_reserve_weeks": 2.0,
+      "water_recovery_wear": 0.02,
+      "co2_wear": 0.015,
+      "co2_removal_capacity": 6.0,
+      "power_components": {
+        "habitat": 8.0,
+        "water_recovery": 2.0,
+        "oxygen_generation": 0.0,
+        "co2_removal": 2.0
+      }
+    },
     "energy": {
       "battery_capacity": 100.0,
-      "stored": 62.0,
+      "stored": 66.0,
       "priority": "life_support",
-      "life_support_required": 16.0,
+      "life_support_required": 12.0,
       "solar_day_earth_days": 29.5306,
       "source_url": "https://svs.gsfc.nasa.gov/12739/",
       "assumption": "Fictional shared epoch: sunrise at Apollo 11 longitude on mission day zero. Smooth non-polar horizon, equal day/night halves, constant useful output during daylight. Weekly averaging omits terrain shadows, eclipses, seasons, and panel incidence.",
@@ -7230,9 +8463,9 @@ export const opportunityGame: GameResponse = {
     ],
     "resources": {
       "food": 50.0,
-      "water": 107.8,
-      "oxygen": 38.0,
-      "electricity": 62.0,
+      "water": 111.0,
+      "oxygen": 24.0,
+      "electricity": 66.0,
       "medicine": 8.0,
       "repair_kits": 8.0,
       "eva_batteries": 8.0,
@@ -7241,10 +8474,14 @@ export const opportunityGame: GameResponse = {
       "diagnostic_tools": 0.0,
       "sealant_packs": 0.0,
       "scientific_tools": 0.0,
-      "research_data": 0.0
+      "research_data": 0.0,
+      "wastewater": 11.36,
+      "co2": 0.0
     },
     "solar_efficiency": 1.0,
     "oxygen_efficiency": 1.0,
+    "water_recovery_efficiency": 0.98,
+    "co2_efficiency": 0.985,
     "current_event_id": "inventory_audit",
     "current_event": {
       "id": "inventory_audit",
@@ -7257,6 +8494,8 @@ export const opportunityGame: GameResponse = {
         "resources": {},
         "solar_efficiency": 0.0,
         "oxygen_efficiency": 0.0,
+        "water_recovery_efficiency": 0.0,
+        "co2_efficiency": 0.0,
         "crew_health": 0,
         "target": "selected"
       },
@@ -7285,6 +8524,8 @@ export const opportunityGame: GameResponse = {
             },
             "solar_efficiency": 0.0,
             "oxygen_efficiency": 0.0,
+            "water_recovery_efficiency": 0.0,
+            "co2_efficiency": 0.0,
             "crew_health": 0,
             "target": "selected"
           },
@@ -7292,6 +8533,8 @@ export const opportunityGame: GameResponse = {
             "resources": {},
             "solar_efficiency": 0.0,
             "oxygen_efficiency": 0.0,
+            "water_recovery_efficiency": 0.0,
+            "co2_efficiency": 0.0,
             "crew_health": 0,
             "target": "selected"
           },
@@ -7338,6 +8581,8 @@ export const opportunityGame: GameResponse = {
             },
             "solar_efficiency": 0.0,
             "oxygen_efficiency": 0.0,
+            "water_recovery_efficiency": 0.0,
+            "co2_efficiency": 0.0,
             "crew_health": 0,
             "target": "selected"
           },
@@ -7345,6 +8590,8 @@ export const opportunityGame: GameResponse = {
             "resources": {},
             "solar_efficiency": 0.0,
             "oxygen_efficiency": 0.0,
+            "water_recovery_efficiency": 0.0,
+            "co2_efficiency": 0.0,
             "crew_health": 0,
             "target": "selected"
           },
@@ -7390,6 +8637,8 @@ export const opportunityGame: GameResponse = {
             "resources": {},
             "solar_efficiency": 0.0,
             "oxygen_efficiency": 0.0,
+            "water_recovery_efficiency": 0.0,
+            "co2_efficiency": 0.0,
             "crew_health": 0,
             "target": "selected"
           },
@@ -7397,6 +8646,8 @@ export const opportunityGame: GameResponse = {
             "resources": {},
             "solar_efficiency": 0.0,
             "oxygen_efficiency": 0.0,
+            "water_recovery_efficiency": 0.0,
+            "co2_efficiency": 0.0,
             "crew_health": 0,
             "target": "selected"
           },
@@ -7437,6 +8688,8 @@ export const opportunityGame: GameResponse = {
             "resources": {},
             "solar_efficiency": 0.0,
             "oxygen_efficiency": 0.0,
+            "water_recovery_efficiency": 0.0,
+            "co2_efficiency": 0.0,
             "health_changes": [
               {
                 "crew_id": "alex",
@@ -7463,6 +8716,22 @@ export const opportunityGame: GameResponse = {
           }
         },
         "survival": {
+          "life_support": {
+            "wastewater_processed": 4.0,
+            "water_recovered": 3.2,
+            "water_for_oxygen": 0.0,
+            "wastewater_captured": 3.36,
+            "oxygen_generated": 0.0,
+            "co2_produced": 2.0,
+            "co2_removed": 2.0,
+            "co2_remaining": 0.0,
+            "power_components": {
+              "habitat": 8.0,
+              "water_recovery": 2.0,
+              "oxygen_generation": 0.0,
+              "co2_removal": 2.0
+            }
+          },
           "daylight_fraction": 1.0,
           "battery_capacity": 100.0,
           "electricity_curtailed": 0.0,
@@ -7481,10 +8750,10 @@ export const opportunityGame: GameResponse = {
             "water": 0.0
           },
           "electricity_generated": 48.0,
-          "electricity_required": 16.0,
-          "electricity_used": 16.0,
+          "electricity_required": 12.0,
+          "electricity_used": 12.0,
           "life_support_power_fraction": 1.0,
-          "oxygen_generated": 14.0,
+          "oxygen_generated": 0.0,
           "oxygen_required": 6.0,
           "oxygen_used": 6.0,
           "oxygen_shortage": 0.0,
@@ -7496,6 +8765,7 @@ export const opportunityGame: GameResponse = {
               "food_penalty": 0,
               "water_penalty": 0,
               "oxygen_penalty": 0,
+              "co2_penalty": 0,
               "died": false
             },
             {
@@ -7505,15 +8775,16 @@ export const opportunityGame: GameResponse = {
               "food_penalty": 0,
               "water_penalty": 0,
               "oxygen_penalty": 0,
+              "co2_penalty": 0,
               "died": false
             }
           ]
         },
         "resource_changes": {
           "food": -2.0,
-          "water": -4.2,
-          "oxygen": 8.0,
-          "electricity": 32.0,
+          "water": -1.0,
+          "oxygen": -6.0,
+          "electricity": 36.0,
           "medicine": 0.0,
           "repair_kits": 0.0,
           "eva_batteries": 0.0,
@@ -7522,7 +8793,9 @@ export const opportunityGame: GameResponse = {
           "diagnostic_tools": 0.0,
           "sealant_packs": 0.0,
           "scientific_tools": 0.0,
-          "research_data": 0.0
+          "research_data": 0.0,
+          "wastewater": -0.64,
+          "co2": 0.0
         },
         "deaths": [],
         "next_event": {
@@ -7532,6 +8805,8 @@ export const opportunityGame: GameResponse = {
             "resources": {},
             "solar_efficiency": 0.0,
             "oxygen_efficiency": 0.0,
+            "water_recovery_efficiency": 0.0,
+            "co2_efficiency": 0.0,
             "health_changes": []
           }
         },
@@ -7614,6 +8889,8 @@ export const opportunityGame: GameResponse = {
           "resources": {},
           "solar_efficiency": 0.2,
           "oxygen_efficiency": 0.0,
+          "water_recovery_efficiency": 0.0,
+          "co2_efficiency": 0.0,
           "crew_health": 0,
           "target": "selected"
         },
@@ -7621,6 +8898,8 @@ export const opportunityGame: GameResponse = {
           "resources": {},
           "solar_efficiency": 0.0,
           "oxygen_efficiency": 0.0,
+          "water_recovery_efficiency": 0.0,
+          "co2_efficiency": 0.0,
           "crew_health": 0,
           "target": "selected"
         },
@@ -7672,6 +8951,8 @@ export const opportunityGame: GameResponse = {
           "resources": {},
           "solar_efficiency": 0.0,
           "oxygen_efficiency": 0.2,
+          "water_recovery_efficiency": 0.0,
+          "co2_efficiency": 0.0,
           "crew_health": 0,
           "target": "selected"
         },
@@ -7679,6 +8960,8 @@ export const opportunityGame: GameResponse = {
           "resources": {},
           "solar_efficiency": 0.0,
           "oxygen_efficiency": 0.0,
+          "water_recovery_efficiency": 0.0,
+          "co2_efficiency": 0.0,
           "crew_health": 0,
           "target": "selected"
         },
@@ -7706,6 +8989,112 @@ export const opportunityGame: GameResponse = {
               "Requires 1 oxygen_regulators; available 0.",
               "The oxygen system is already at full condition."
             ],
+            "success_probability": 1.0
+          }
+        ],
+        "success_probability": null
+      },
+      {
+        "id": "service_water_recovery",
+        "action_type": "maintenance",
+        "objective_rewards": [],
+        "text": "Service the water recovery processor",
+        "description": "One repair kit and 2 power guarantee +30 water-recovery condition points. Recovered water comes from the wastewater stock and is available after this week's rations.",
+        "costs": {
+          "repair_kits": 1.0,
+          "electricity": 2.0
+        },
+        "required_items": {},
+        "requires_crew": true,
+        "role_bonus": {},
+        "crew_role_bonus": {},
+        "success_chance": 1.0,
+        "success_effects": {
+          "resources": {},
+          "solar_efficiency": 0.0,
+          "oxygen_efficiency": 0.0,
+          "water_recovery_efficiency": 0.3,
+          "co2_efficiency": 0.0,
+          "crew_health": 0,
+          "target": "selected"
+        },
+        "failure_effects": {
+          "resources": {},
+          "solar_efficiency": 0.0,
+          "oxygen_efficiency": 0.0,
+          "water_recovery_efficiency": 0.0,
+          "co2_efficiency": 0.0,
+          "crew_health": 0,
+          "target": "selected"
+        },
+        "required_role": null,
+        "minimum_crew": 1,
+        "available": true,
+        "unavailable_reasons": [],
+        "eligible_crew": [
+          {
+            "crew_id": "alex",
+            "available": true,
+            "unavailable_reasons": [],
+            "success_probability": 1.0
+          },
+          {
+            "crew_id": "maya",
+            "available": true,
+            "unavailable_reasons": [],
+            "success_probability": 1.0
+          }
+        ],
+        "success_probability": null
+      },
+      {
+        "id": "service_co2_scrubber",
+        "action_type": "maintenance",
+        "objective_rewards": [],
+        "text": "Service the carbon dioxide scrubber",
+        "description": "One repair kit and 2 power guarantee +30 scrubber condition points. Removal still requires power; oxygen reserves do not remove CO2.",
+        "costs": {
+          "repair_kits": 1.0,
+          "electricity": 2.0
+        },
+        "required_items": {},
+        "requires_crew": true,
+        "role_bonus": {},
+        "crew_role_bonus": {},
+        "success_chance": 1.0,
+        "success_effects": {
+          "resources": {},
+          "solar_efficiency": 0.0,
+          "oxygen_efficiency": 0.0,
+          "water_recovery_efficiency": 0.0,
+          "co2_efficiency": 0.3,
+          "crew_health": 0,
+          "target": "selected"
+        },
+        "failure_effects": {
+          "resources": {},
+          "solar_efficiency": 0.0,
+          "oxygen_efficiency": 0.0,
+          "water_recovery_efficiency": 0.0,
+          "co2_efficiency": 0.0,
+          "crew_health": 0,
+          "target": "selected"
+        },
+        "required_role": null,
+        "minimum_crew": 1,
+        "available": true,
+        "unavailable_reasons": [],
+        "eligible_crew": [
+          {
+            "crew_id": "alex",
+            "available": true,
+            "unavailable_reasons": [],
+            "success_probability": 1.0
+          },
+          {
+            "crew_id": "maya",
+            "available": true,
+            "unavailable_reasons": [],
             "success_probability": 1.0
           }
         ],
@@ -7743,6 +9132,8 @@ export const opportunityGame: GameResponse = {
           },
           "solar_efficiency": 0.0,
           "oxygen_efficiency": 0.0,
+          "water_recovery_efficiency": 0.0,
+          "co2_efficiency": 0.0,
           "crew_health": 0,
           "target": "selected"
         },
@@ -7750,6 +9141,8 @@ export const opportunityGame: GameResponse = {
           "resources": {},
           "solar_efficiency": 0.0,
           "oxygen_efficiency": 0.0,
+          "water_recovery_efficiency": 0.0,
+          "co2_efficiency": 0.0,
           "crew_health": -8,
           "target": "selected"
         },
@@ -7804,6 +9197,8 @@ export const opportunityGame: GameResponse = {
           "resources": {},
           "solar_efficiency": 0.0,
           "oxygen_efficiency": 0.0,
+          "water_recovery_efficiency": 0.0,
+          "co2_efficiency": 0.0,
           "crew_health": 0,
           "target": "selected"
         },
@@ -7811,6 +9206,8 @@ export const opportunityGame: GameResponse = {
           "resources": {},
           "solar_efficiency": 0.0,
           "oxygen_efficiency": 0.0,
+          "water_recovery_efficiency": 0.0,
+          "co2_efficiency": 0.0,
           "crew_health": -8,
           "target": "selected"
         },
@@ -7873,6 +9270,8 @@ export const opportunityGame: GameResponse = {
           },
           "solar_efficiency": 0.0,
           "oxygen_efficiency": 0.0,
+          "water_recovery_efficiency": 0.0,
+          "co2_efficiency": 0.0,
           "crew_health": 0,
           "target": "selected"
         },
@@ -7880,6 +9279,8 @@ export const opportunityGame: GameResponse = {
           "resources": {},
           "solar_efficiency": 0.0,
           "oxygen_efficiency": 0.0,
+          "water_recovery_efficiency": 0.0,
+          "co2_efficiency": 0.0,
           "crew_health": -6,
           "target": "selected"
         },
@@ -7916,11 +9317,32 @@ export const opportunityGame: GameResponse = {
 export const researchGame: GameResponse = {
   "game_id": "fixture-game",
   "state": {
+    "life_support": {
+      "source_url": "https://www.nasa.gov/reference/environmental-control-and-life-support-systems-eclss/",
+      "water_recovery_condition": 1.0,
+      "co2_condition": 1.0,
+      "wastewater": 12.0,
+      "co2_burden": 0.0,
+      "co2_warning_level": 4.0,
+      "recovery_capacity": 4.0,
+      "recovery_yield": 0.8,
+      "water_per_oxygen": 0.1,
+      "oxygen_reserve_weeks": 2.0,
+      "water_recovery_wear": 0.02,
+      "co2_wear": 0.015,
+      "co2_removal_capacity": 6.0,
+      "power_components": {
+        "habitat": 8.0,
+        "water_recovery": 2.0,
+        "oxygen_generation": 0.0,
+        "co2_removal": 2.0
+      }
+    },
     "energy": {
       "battery_capacity": 100.0,
       "stored": 30.0,
       "priority": "life_support",
-      "life_support_required": 16.0,
+      "life_support_required": 12.0,
       "solar_day_earth_days": 29.5306,
       "source_url": "https://svs.gsfc.nasa.gov/12739/",
       "assumption": "Fictional shared epoch: sunrise at Apollo 11 longitude on mission day zero. Smooth non-polar horizon, equal day/night halves, constant useful output during daylight. Weekly averaging omits terrain shadows, eclipses, seasons, and panel incidence.",
@@ -8119,10 +9541,14 @@ export const researchGame: GameResponse = {
       "diagnostic_tools": 0.0,
       "sealant_packs": 0.0,
       "scientific_tools": 1.0,
-      "research_data": 0.0
+      "research_data": 0.0,
+      "wastewater": 12.0,
+      "co2": 0.0
     },
     "solar_efficiency": 0.75,
     "oxygen_efficiency": 1.0,
+    "water_recovery_efficiency": 1.0,
+    "co2_efficiency": 1.0,
     "current_event_id": "solar_failure",
     "current_event": {
       "id": "solar_failure",
@@ -8135,6 +9561,8 @@ export const researchGame: GameResponse = {
         "resources": {},
         "solar_efficiency": -0.25,
         "oxygen_efficiency": 0.0,
+        "water_recovery_efficiency": 0.0,
+        "co2_efficiency": 0.0,
         "crew_health": 0,
         "target": "selected"
       },
@@ -8161,6 +9589,8 @@ export const researchGame: GameResponse = {
             "resources": {},
             "solar_efficiency": 0.25,
             "oxygen_efficiency": 0.0,
+            "water_recovery_efficiency": 0.0,
+            "co2_efficiency": 0.0,
             "crew_health": 0,
             "target": "selected"
           },
@@ -8168,6 +9598,8 @@ export const researchGame: GameResponse = {
             "resources": {},
             "solar_efficiency": 0.0,
             "oxygen_efficiency": 0.0,
+            "water_recovery_efficiency": 0.0,
+            "co2_efficiency": 0.0,
             "crew_health": -25,
             "target": "selected"
           },
@@ -8216,6 +9648,8 @@ export const researchGame: GameResponse = {
             "resources": {},
             "solar_efficiency": 0.25,
             "oxygen_efficiency": 0.0,
+            "water_recovery_efficiency": 0.0,
+            "co2_efficiency": 0.0,
             "crew_health": 0,
             "target": "selected"
           },
@@ -8223,6 +9657,8 @@ export const researchGame: GameResponse = {
             "resources": {},
             "solar_efficiency": 0.0,
             "oxygen_efficiency": 0.0,
+            "water_recovery_efficiency": 0.0,
+            "co2_efficiency": 0.0,
             "crew_health": -40,
             "target": "selected"
           },
@@ -8262,6 +9698,8 @@ export const researchGame: GameResponse = {
             "resources": {},
             "solar_efficiency": 0.0,
             "oxygen_efficiency": 0.0,
+            "water_recovery_efficiency": 0.0,
+            "co2_efficiency": 0.0,
             "crew_health": 0,
             "target": "selected"
           },
@@ -8269,6 +9707,8 @@ export const researchGame: GameResponse = {
             "resources": {},
             "solar_efficiency": 0.0,
             "oxygen_efficiency": 0.0,
+            "water_recovery_efficiency": 0.0,
+            "co2_efficiency": 0.0,
             "crew_health": 0,
             "target": "selected"
           },
@@ -8365,6 +9805,8 @@ export const researchGame: GameResponse = {
           "resources": {},
           "solar_efficiency": 0.2,
           "oxygen_efficiency": 0.0,
+          "water_recovery_efficiency": 0.0,
+          "co2_efficiency": 0.0,
           "crew_health": 0,
           "target": "selected"
         },
@@ -8372,6 +9814,8 @@ export const researchGame: GameResponse = {
           "resources": {},
           "solar_efficiency": 0.0,
           "oxygen_efficiency": 0.0,
+          "water_recovery_efficiency": 0.0,
+          "co2_efficiency": 0.0,
           "crew_health": 0,
           "target": "selected"
         },
@@ -8420,6 +9864,8 @@ export const researchGame: GameResponse = {
           "resources": {},
           "solar_efficiency": 0.0,
           "oxygen_efficiency": 0.2,
+          "water_recovery_efficiency": 0.0,
+          "co2_efficiency": 0.0,
           "crew_health": 0,
           "target": "selected"
         },
@@ -8427,6 +9873,8 @@ export const researchGame: GameResponse = {
           "resources": {},
           "solar_efficiency": 0.0,
           "oxygen_efficiency": 0.0,
+          "water_recovery_efficiency": 0.0,
+          "co2_efficiency": 0.0,
           "crew_health": 0,
           "target": "selected"
         },
@@ -8453,6 +9901,124 @@ export const researchGame: GameResponse = {
             "unavailable_reasons": [
               "Requires 1 oxygen_regulators; available 0.",
               "The oxygen system is already at full condition."
+            ],
+            "success_probability": 1.0
+          }
+        ],
+        "success_probability": null
+      },
+      {
+        "id": "service_water_recovery",
+        "action_type": "maintenance",
+        "objective_rewards": [],
+        "text": "Service the water recovery processor",
+        "description": "One repair kit and 2 power guarantee +30 water-recovery condition points. Recovered water comes from the wastewater stock and is available after this week's rations.",
+        "costs": {
+          "repair_kits": 1.0,
+          "electricity": 2.0
+        },
+        "required_items": {},
+        "requires_crew": true,
+        "role_bonus": {},
+        "crew_role_bonus": {},
+        "success_chance": 1.0,
+        "success_effects": {
+          "resources": {},
+          "solar_efficiency": 0.0,
+          "oxygen_efficiency": 0.0,
+          "water_recovery_efficiency": 0.3,
+          "co2_efficiency": 0.0,
+          "crew_health": 0,
+          "target": "selected"
+        },
+        "failure_effects": {
+          "resources": {},
+          "solar_efficiency": 0.0,
+          "oxygen_efficiency": 0.0,
+          "water_recovery_efficiency": 0.0,
+          "co2_efficiency": 0.0,
+          "crew_health": 0,
+          "target": "selected"
+        },
+        "required_role": null,
+        "minimum_crew": 1,
+        "available": false,
+        "unavailable_reasons": [
+          "This processor is already at full condition."
+        ],
+        "eligible_crew": [
+          {
+            "crew_id": "alex",
+            "available": false,
+            "unavailable_reasons": [
+              "This processor is already at full condition."
+            ],
+            "success_probability": 1.0
+          },
+          {
+            "crew_id": "lin",
+            "available": false,
+            "unavailable_reasons": [
+              "This processor is already at full condition."
+            ],
+            "success_probability": 1.0
+          }
+        ],
+        "success_probability": null
+      },
+      {
+        "id": "service_co2_scrubber",
+        "action_type": "maintenance",
+        "objective_rewards": [],
+        "text": "Service the carbon dioxide scrubber",
+        "description": "One repair kit and 2 power guarantee +30 scrubber condition points. Removal still requires power; oxygen reserves do not remove CO2.",
+        "costs": {
+          "repair_kits": 1.0,
+          "electricity": 2.0
+        },
+        "required_items": {},
+        "requires_crew": true,
+        "role_bonus": {},
+        "crew_role_bonus": {},
+        "success_chance": 1.0,
+        "success_effects": {
+          "resources": {},
+          "solar_efficiency": 0.0,
+          "oxygen_efficiency": 0.0,
+          "water_recovery_efficiency": 0.0,
+          "co2_efficiency": 0.3,
+          "crew_health": 0,
+          "target": "selected"
+        },
+        "failure_effects": {
+          "resources": {},
+          "solar_efficiency": 0.0,
+          "oxygen_efficiency": 0.0,
+          "water_recovery_efficiency": 0.0,
+          "co2_efficiency": 0.0,
+          "crew_health": 0,
+          "target": "selected"
+        },
+        "required_role": null,
+        "minimum_crew": 1,
+        "available": false,
+        "unavailable_reasons": [
+          "This processor is already at full condition."
+        ],
+        "eligible_crew": [
+          {
+            "crew_id": "alex",
+            "available": false,
+            "unavailable_reasons": [
+              "This processor is already at full condition."
+            ],
+            "success_probability": 1.0
+          },
+          {
+            "crew_id": "lin",
+            "available": false,
+            "unavailable_reasons": [
+              "This processor is already at full condition."
             ],
             "success_probability": 1.0
           }
@@ -8491,6 +10057,8 @@ export const researchGame: GameResponse = {
           },
           "solar_efficiency": 0.0,
           "oxygen_efficiency": 0.0,
+          "water_recovery_efficiency": 0.0,
+          "co2_efficiency": 0.0,
           "crew_health": 0,
           "target": "selected"
         },
@@ -8498,6 +10066,8 @@ export const researchGame: GameResponse = {
           "resources": {},
           "solar_efficiency": 0.0,
           "oxygen_efficiency": 0.0,
+          "water_recovery_efficiency": 0.0,
+          "co2_efficiency": 0.0,
           "crew_health": -8,
           "target": "selected"
         },
@@ -8546,6 +10116,8 @@ export const researchGame: GameResponse = {
           "resources": {},
           "solar_efficiency": 0.0,
           "oxygen_efficiency": 0.0,
+          "water_recovery_efficiency": 0.0,
+          "co2_efficiency": 0.0,
           "crew_health": 0,
           "target": "selected"
         },
@@ -8553,6 +10125,8 @@ export const researchGame: GameResponse = {
           "resources": {},
           "solar_efficiency": 0.0,
           "oxygen_efficiency": 0.0,
+          "water_recovery_efficiency": 0.0,
+          "co2_efficiency": 0.0,
           "crew_health": -8,
           "target": "selected"
         },
@@ -8609,6 +10183,8 @@ export const researchGame: GameResponse = {
           },
           "solar_efficiency": 0.0,
           "oxygen_efficiency": 0.0,
+          "water_recovery_efficiency": 0.0,
+          "co2_efficiency": 0.0,
           "crew_health": 0,
           "target": "selected"
         },
@@ -8616,6 +10192,8 @@ export const researchGame: GameResponse = {
           "resources": {},
           "solar_efficiency": 0.0,
           "oxygen_efficiency": 0.0,
+          "water_recovery_efficiency": 0.0,
+          "co2_efficiency": 0.0,
           "crew_health": -6,
           "target": "selected"
         },
@@ -8646,11 +10224,32 @@ export const researchGame: GameResponse = {
 export const researchTurn: TurnResponse = {
   "game_id": "fixture-game",
   "state": {
+    "life_support": {
+      "source_url": "https://www.nasa.gov/reference/environmental-control-and-life-support-systems-eclss/",
+      "water_recovery_condition": 0.98,
+      "co2_condition": 0.985,
+      "wastewater": 11.04,
+      "co2_burden": 0.0,
+      "co2_warning_level": 4.0,
+      "recovery_capacity": 4.0,
+      "recovery_yield": 0.8,
+      "water_per_oxygen": 0.1,
+      "oxygen_reserve_weeks": 2.0,
+      "water_recovery_wear": 0.02,
+      "co2_wear": 0.015,
+      "co2_removal_capacity": 6.0,
+      "power_components": {
+        "habitat": 8.0,
+        "water_recovery": 2.0,
+        "oxygen_generation": 0.0,
+        "co2_removal": 2.0
+      }
+    },
     "energy": {
       "battery_capacity": 100.0,
-      "stored": 50.0,
+      "stored": 54.0,
       "priority": "life_support",
-      "life_support_required": 16.0,
+      "life_support_required": 12.0,
       "solar_day_earth_days": 29.5306,
       "source_url": "https://svs.gsfc.nasa.gov/12739/",
       "assumption": "Fictional shared epoch: sunrise at Apollo 11 longitude on mission day zero. Smooth non-polar horizon, equal day/night halves, constant useful output during daylight. Weekly averaging omits terrain shadows, eclipses, seasons, and panel incidence.",
@@ -8830,9 +10429,9 @@ export const researchTurn: TurnResponse = {
     ],
     "resources": {
       "food": 49.9,
-      "water": 108.2,
-      "oxygen": 36.0,
-      "electricity": 50.0,
+      "water": 111.4,
+      "oxygen": 22.0,
+      "electricity": 54.0,
       "medicine": 8.0,
       "repair_kits": 10.0,
       "eva_batteries": 9.0,
@@ -8841,10 +10440,14 @@ export const researchTurn: TurnResponse = {
       "diagnostic_tools": 0.0,
       "sealant_packs": 0.0,
       "scientific_tools": 1.0,
-      "research_data": 2.0
+      "research_data": 2.0,
+      "wastewater": 11.04,
+      "co2": 0.0
     },
     "solar_efficiency": 0.75,
     "oxygen_efficiency": 0.75,
+    "water_recovery_efficiency": 0.98,
+    "co2_efficiency": 0.985,
     "current_event_id": "oxygen_fault",
     "current_event": {
       "id": "oxygen_fault",
@@ -8857,6 +10460,8 @@ export const researchTurn: TurnResponse = {
         "resources": {},
         "solar_efficiency": 0.0,
         "oxygen_efficiency": -0.25,
+        "water_recovery_efficiency": 0.0,
+        "co2_efficiency": 0.0,
         "crew_health": 0,
         "target": "selected"
       },
@@ -8882,6 +10487,8 @@ export const researchTurn: TurnResponse = {
             "resources": {},
             "solar_efficiency": 0.0,
             "oxygen_efficiency": 0.25,
+            "water_recovery_efficiency": 0.0,
+            "co2_efficiency": 0.0,
             "crew_health": 0,
             "target": "selected"
           },
@@ -8889,6 +10496,8 @@ export const researchTurn: TurnResponse = {
             "resources": {},
             "solar_efficiency": 0.0,
             "oxygen_efficiency": 0.0,
+            "water_recovery_efficiency": 0.0,
+            "co2_efficiency": 0.0,
             "crew_health": -15,
             "target": "selected"
           },
@@ -8933,6 +10542,8 @@ export const researchTurn: TurnResponse = {
             "resources": {},
             "solar_efficiency": 0.0,
             "oxygen_efficiency": 0.2,
+            "water_recovery_efficiency": 0.0,
+            "co2_efficiency": 0.0,
             "crew_health": 0,
             "target": "selected"
           },
@@ -8940,6 +10551,8 @@ export const researchTurn: TurnResponse = {
             "resources": {},
             "solar_efficiency": 0.0,
             "oxygen_efficiency": -0.1,
+            "water_recovery_efficiency": 0.0,
+            "co2_efficiency": 0.0,
             "crew_health": 0,
             "target": "selected"
           },
@@ -8979,6 +10592,8 @@ export const researchTurn: TurnResponse = {
             "resources": {},
             "solar_efficiency": 0.0,
             "oxygen_efficiency": 0.0,
+            "water_recovery_efficiency": 0.0,
+            "co2_efficiency": 0.0,
             "crew_health": 0,
             "target": "selected"
           },
@@ -8986,6 +10601,8 @@ export const researchTurn: TurnResponse = {
             "resources": {},
             "solar_efficiency": 0.0,
             "oxygen_efficiency": 0.0,
+            "water_recovery_efficiency": 0.0,
+            "co2_efficiency": 0.0,
             "crew_health": 0,
             "target": "selected"
           },
@@ -9033,6 +10650,8 @@ export const researchTurn: TurnResponse = {
                 },
                 "solar_efficiency": 0.0,
                 "oxygen_efficiency": 0.0,
+                "water_recovery_efficiency": 0.0,
+                "co2_efficiency": 0.0,
                 "health_changes": []
               },
               "objective_progress": [
@@ -9067,6 +10686,8 @@ export const researchTurn: TurnResponse = {
             "resources": {},
             "solar_efficiency": 0.0,
             "oxygen_efficiency": 0.0,
+            "water_recovery_efficiency": 0.0,
+            "co2_efficiency": 0.0,
             "health_changes": []
           },
           "objective_progress": []
@@ -9082,6 +10703,22 @@ export const researchTurn: TurnResponse = {
           }
         },
         "survival": {
+          "life_support": {
+            "wastewater_processed": 4.0,
+            "water_recovered": 3.2,
+            "water_for_oxygen": 0.0,
+            "wastewater_captured": 3.04,
+            "oxygen_generated": 0.0,
+            "co2_produced": 2.0,
+            "co2_removed": 2.0,
+            "co2_remaining": 0.0,
+            "power_components": {
+              "habitat": 8.0,
+              "water_recovery": 2.0,
+              "oxygen_generation": 0.0,
+              "co2_removal": 2.0
+            }
+          },
           "daylight_fraction": 1.0,
           "battery_capacity": 100.0,
           "electricity_curtailed": 0.0,
@@ -9100,10 +10737,10 @@ export const researchTurn: TurnResponse = {
             "water": 0.0
           },
           "electricity_generated": 36.0,
-          "electricity_required": 16.0,
-          "electricity_used": 16.0,
+          "electricity_required": 12.0,
+          "electricity_used": 12.0,
           "life_support_power_fraction": 1.0,
-          "oxygen_generated": 14.0,
+          "oxygen_generated": 0.0,
           "oxygen_required": 6.0,
           "oxygen_used": 6.0,
           "oxygen_shortage": 0.0,
@@ -9115,6 +10752,7 @@ export const researchTurn: TurnResponse = {
               "food_penalty": 0,
               "water_penalty": 0,
               "oxygen_penalty": 0,
+              "co2_penalty": 0,
               "died": false
             },
             {
@@ -9124,15 +10762,16 @@ export const researchTurn: TurnResponse = {
               "food_penalty": 0,
               "water_penalty": 0,
               "oxygen_penalty": 0,
+              "co2_penalty": 0,
               "died": false
             }
           ]
         },
         "resource_changes": {
           "food": -2.1,
-          "water": -3.8,
-          "oxygen": 6.0,
-          "electricity": 20.0,
+          "water": -0.6,
+          "oxygen": -8.0,
+          "electricity": 24.0,
           "medicine": 0.0,
           "repair_kits": 0.0,
           "eva_batteries": -1.0,
@@ -9141,7 +10780,9 @@ export const researchTurn: TurnResponse = {
           "diagnostic_tools": 0.0,
           "sealant_packs": 0.0,
           "scientific_tools": 0.0,
-          "research_data": 2.0
+          "research_data": 2.0,
+          "wastewater": -0.96,
+          "co2": 0.0
         },
         "deaths": [],
         "next_event": {
@@ -9151,6 +10792,8 @@ export const researchTurn: TurnResponse = {
             "resources": {},
             "solar_efficiency": 0.0,
             "oxygen_efficiency": -0.25,
+            "water_recovery_efficiency": 0.0,
+            "co2_efficiency": 0.0,
             "health_changes": []
           }
         },
@@ -9233,6 +10876,8 @@ export const researchTurn: TurnResponse = {
           "resources": {},
           "solar_efficiency": 0.2,
           "oxygen_efficiency": 0.0,
+          "water_recovery_efficiency": 0.0,
+          "co2_efficiency": 0.0,
           "crew_health": 0,
           "target": "selected"
         },
@@ -9240,6 +10885,8 @@ export const researchTurn: TurnResponse = {
           "resources": {},
           "solar_efficiency": 0.0,
           "oxygen_efficiency": 0.0,
+          "water_recovery_efficiency": 0.0,
+          "co2_efficiency": 0.0,
           "crew_health": 0,
           "target": "selected"
         },
@@ -9288,6 +10935,8 @@ export const researchTurn: TurnResponse = {
           "resources": {},
           "solar_efficiency": 0.0,
           "oxygen_efficiency": 0.2,
+          "water_recovery_efficiency": 0.0,
+          "co2_efficiency": 0.0,
           "crew_health": 0,
           "target": "selected"
         },
@@ -9295,6 +10944,8 @@ export const researchTurn: TurnResponse = {
           "resources": {},
           "solar_efficiency": 0.0,
           "oxygen_efficiency": 0.0,
+          "water_recovery_efficiency": 0.0,
+          "co2_efficiency": 0.0,
           "crew_health": 0,
           "target": "selected"
         },
@@ -9319,6 +10970,112 @@ export const researchTurn: TurnResponse = {
             "unavailable_reasons": [
               "Requires 1 oxygen_regulators; available 0."
             ],
+            "success_probability": 1.0
+          }
+        ],
+        "success_probability": null
+      },
+      {
+        "id": "service_water_recovery",
+        "action_type": "maintenance",
+        "objective_rewards": [],
+        "text": "Service the water recovery processor",
+        "description": "One repair kit and 2 power guarantee +30 water-recovery condition points. Recovered water comes from the wastewater stock and is available after this week's rations.",
+        "costs": {
+          "repair_kits": 1.0,
+          "electricity": 2.0
+        },
+        "required_items": {},
+        "requires_crew": true,
+        "role_bonus": {},
+        "crew_role_bonus": {},
+        "success_chance": 1.0,
+        "success_effects": {
+          "resources": {},
+          "solar_efficiency": 0.0,
+          "oxygen_efficiency": 0.0,
+          "water_recovery_efficiency": 0.3,
+          "co2_efficiency": 0.0,
+          "crew_health": 0,
+          "target": "selected"
+        },
+        "failure_effects": {
+          "resources": {},
+          "solar_efficiency": 0.0,
+          "oxygen_efficiency": 0.0,
+          "water_recovery_efficiency": 0.0,
+          "co2_efficiency": 0.0,
+          "crew_health": 0,
+          "target": "selected"
+        },
+        "required_role": null,
+        "minimum_crew": 1,
+        "available": true,
+        "unavailable_reasons": [],
+        "eligible_crew": [
+          {
+            "crew_id": "alex",
+            "available": true,
+            "unavailable_reasons": [],
+            "success_probability": 1.0
+          },
+          {
+            "crew_id": "lin",
+            "available": true,
+            "unavailable_reasons": [],
+            "success_probability": 1.0
+          }
+        ],
+        "success_probability": null
+      },
+      {
+        "id": "service_co2_scrubber",
+        "action_type": "maintenance",
+        "objective_rewards": [],
+        "text": "Service the carbon dioxide scrubber",
+        "description": "One repair kit and 2 power guarantee +30 scrubber condition points. Removal still requires power; oxygen reserves do not remove CO2.",
+        "costs": {
+          "repair_kits": 1.0,
+          "electricity": 2.0
+        },
+        "required_items": {},
+        "requires_crew": true,
+        "role_bonus": {},
+        "crew_role_bonus": {},
+        "success_chance": 1.0,
+        "success_effects": {
+          "resources": {},
+          "solar_efficiency": 0.0,
+          "oxygen_efficiency": 0.0,
+          "water_recovery_efficiency": 0.0,
+          "co2_efficiency": 0.3,
+          "crew_health": 0,
+          "target": "selected"
+        },
+        "failure_effects": {
+          "resources": {},
+          "solar_efficiency": 0.0,
+          "oxygen_efficiency": 0.0,
+          "water_recovery_efficiency": 0.0,
+          "co2_efficiency": 0.0,
+          "crew_health": 0,
+          "target": "selected"
+        },
+        "required_role": null,
+        "minimum_crew": 1,
+        "available": true,
+        "unavailable_reasons": [],
+        "eligible_crew": [
+          {
+            "crew_id": "alex",
+            "available": true,
+            "unavailable_reasons": [],
+            "success_probability": 1.0
+          },
+          {
+            "crew_id": "lin",
+            "available": true,
+            "unavailable_reasons": [],
             "success_probability": 1.0
           }
         ],
@@ -9356,6 +11113,8 @@ export const researchTurn: TurnResponse = {
           },
           "solar_efficiency": 0.0,
           "oxygen_efficiency": 0.0,
+          "water_recovery_efficiency": 0.0,
+          "co2_efficiency": 0.0,
           "crew_health": 0,
           "target": "selected"
         },
@@ -9363,6 +11122,8 @@ export const researchTurn: TurnResponse = {
           "resources": {},
           "solar_efficiency": 0.0,
           "oxygen_efficiency": 0.0,
+          "water_recovery_efficiency": 0.0,
+          "co2_efficiency": 0.0,
           "crew_health": -8,
           "target": "selected"
         },
@@ -9411,6 +11172,8 @@ export const researchTurn: TurnResponse = {
           "resources": {},
           "solar_efficiency": 0.0,
           "oxygen_efficiency": 0.0,
+          "water_recovery_efficiency": 0.0,
+          "co2_efficiency": 0.0,
           "crew_health": 0,
           "target": "selected"
         },
@@ -9418,6 +11181,8 @@ export const researchTurn: TurnResponse = {
           "resources": {},
           "solar_efficiency": 0.0,
           "oxygen_efficiency": 0.0,
+          "water_recovery_efficiency": 0.0,
+          "co2_efficiency": 0.0,
           "crew_health": -8,
           "target": "selected"
         },
@@ -9474,6 +11239,8 @@ export const researchTurn: TurnResponse = {
           },
           "solar_efficiency": 0.0,
           "oxygen_efficiency": 0.0,
+          "water_recovery_efficiency": 0.0,
+          "co2_efficiency": 0.0,
           "crew_health": 0,
           "target": "selected"
         },
@@ -9481,6 +11248,8 @@ export const researchTurn: TurnResponse = {
           "resources": {},
           "solar_efficiency": 0.0,
           "oxygen_efficiency": 0.0,
+          "water_recovery_efficiency": 0.0,
+          "co2_efficiency": 0.0,
           "crew_health": -6,
           "target": "selected"
         },
@@ -9531,6 +11300,8 @@ export const researchTurn: TurnResponse = {
             },
             "solar_efficiency": 0.0,
             "oxygen_efficiency": 0.0,
+            "water_recovery_efficiency": 0.0,
+            "co2_efficiency": 0.0,
             "health_changes": []
           },
           "objective_progress": [
@@ -9565,6 +11336,8 @@ export const researchTurn: TurnResponse = {
         "resources": {},
         "solar_efficiency": 0.0,
         "oxygen_efficiency": 0.0,
+        "water_recovery_efficiency": 0.0,
+        "co2_efficiency": 0.0,
         "health_changes": []
       },
       "objective_progress": []
@@ -9580,6 +11353,22 @@ export const researchTurn: TurnResponse = {
       }
     },
     "survival": {
+      "life_support": {
+        "wastewater_processed": 4.0,
+        "water_recovered": 3.2,
+        "water_for_oxygen": 0.0,
+        "wastewater_captured": 3.04,
+        "oxygen_generated": 0.0,
+        "co2_produced": 2.0,
+        "co2_removed": 2.0,
+        "co2_remaining": 0.0,
+        "power_components": {
+          "habitat": 8.0,
+          "water_recovery": 2.0,
+          "oxygen_generation": 0.0,
+          "co2_removal": 2.0
+        }
+      },
       "daylight_fraction": 1.0,
       "battery_capacity": 100.0,
       "electricity_curtailed": 0.0,
@@ -9598,10 +11387,10 @@ export const researchTurn: TurnResponse = {
         "water": 0.0
       },
       "electricity_generated": 36.0,
-      "electricity_required": 16.0,
-      "electricity_used": 16.0,
+      "electricity_required": 12.0,
+      "electricity_used": 12.0,
       "life_support_power_fraction": 1.0,
-      "oxygen_generated": 14.0,
+      "oxygen_generated": 0.0,
       "oxygen_required": 6.0,
       "oxygen_used": 6.0,
       "oxygen_shortage": 0.0,
@@ -9613,6 +11402,7 @@ export const researchTurn: TurnResponse = {
           "food_penalty": 0,
           "water_penalty": 0,
           "oxygen_penalty": 0,
+          "co2_penalty": 0,
           "died": false
         },
         {
@@ -9622,15 +11412,16 @@ export const researchTurn: TurnResponse = {
           "food_penalty": 0,
           "water_penalty": 0,
           "oxygen_penalty": 0,
+          "co2_penalty": 0,
           "died": false
         }
       ]
     },
     "resource_changes": {
       "food": -2.1,
-      "water": -3.8,
-      "oxygen": 6.0,
-      "electricity": 20.0,
+      "water": -0.6,
+      "oxygen": -8.0,
+      "electricity": 24.0,
       "medicine": 0.0,
       "repair_kits": 0.0,
       "eva_batteries": -1.0,
@@ -9639,7 +11430,9 @@ export const researchTurn: TurnResponse = {
       "diagnostic_tools": 0.0,
       "sealant_packs": 0.0,
       "scientific_tools": 0.0,
-      "research_data": 2.0
+      "research_data": 2.0,
+      "wastewater": -0.96,
+      "co2": 0.0
     },
     "deaths": [],
     "next_event": {
@@ -9649,6 +11442,8 @@ export const researchTurn: TurnResponse = {
         "resources": {},
         "solar_efficiency": 0.0,
         "oxygen_efficiency": -0.25,
+        "water_recovery_efficiency": 0.0,
+        "co2_efficiency": 0.0,
         "health_changes": []
       }
     },
@@ -9659,9 +11454,30 @@ export const researchTurn: TurnResponse = {
 export const researchCompleted: GameResponse = {
   "game_id": "fixture-game",
   "state": {
+    "life_support": {
+      "source_url": "https://www.nasa.gov/reference/environmental-control-and-life-support-systems-eclss/",
+      "water_recovery_condition": 0.76,
+      "co2_condition": 0.92,
+      "wastewater": 5.76,
+      "co2_burden": 0.0,
+      "co2_warning_level": 4.0,
+      "recovery_capacity": 4.0,
+      "recovery_yield": 0.8,
+      "water_per_oxygen": 0.1,
+      "oxygen_reserve_weeks": 2.0,
+      "water_recovery_wear": 0.02,
+      "co2_wear": 0.015,
+      "co2_removal_capacity": 6.0,
+      "power_components": {
+        "habitat": 8.0,
+        "water_recovery": 2.0,
+        "oxygen_generation": 4.0,
+        "co2_removal": 2.0
+      }
+    },
     "energy": {
       "battery_capacity": 100.0,
-      "stored": 46.807532,
+      "stored": 54.807532,
       "priority": "life_support",
       "life_support_required": 16.0,
       "solar_day_earth_days": 29.5306,
@@ -9781,9 +11597,9 @@ export const researchCompleted: GameResponse = {
     ],
     "resources": {
       "food": 25.8,
-      "water": 62.4,
-      "oxygen": 65.5,
-      "electricity": 46.807532,
+      "water": 88.976,
+      "oxygen": 12.0,
+      "electricity": 54.807532,
       "medicine": 8.0,
       "repair_kits": 5.0,
       "eva_batteries": 6.0,
@@ -9792,10 +11608,14 @@ export const researchCompleted: GameResponse = {
       "diagnostic_tools": 0.0,
       "sealant_packs": 0.0,
       "scientific_tools": 1.0,
-      "research_data": 13.0
+      "research_data": 13.0,
+      "wastewater": 5.76,
+      "co2": 0.0
     },
     "solar_efficiency": 0.75,
     "oxygen_efficiency": 0.75,
+    "water_recovery_efficiency": 0.76,
+    "co2_efficiency": 0.92,
     "current_event_id": null,
     "current_event": null,
     "emergency_ration_requirements": {
@@ -9844,6 +11664,8 @@ export const researchCompleted: GameResponse = {
                 },
                 "solar_efficiency": 0.0,
                 "oxygen_efficiency": 0.0,
+                "water_recovery_efficiency": 0.0,
+                "co2_efficiency": 0.0,
                 "health_changes": []
               },
               "objective_progress": [
@@ -9878,6 +11700,8 @@ export const researchCompleted: GameResponse = {
             "resources": {},
             "solar_efficiency": 0.0,
             "oxygen_efficiency": 0.0,
+            "water_recovery_efficiency": 0.0,
+            "co2_efficiency": 0.0,
             "health_changes": []
           },
           "objective_progress": []
@@ -9893,6 +11717,22 @@ export const researchCompleted: GameResponse = {
           }
         },
         "survival": {
+          "life_support": {
+            "wastewater_processed": 4.0,
+            "water_recovered": 3.2,
+            "water_for_oxygen": 0.0,
+            "wastewater_captured": 3.04,
+            "oxygen_generated": 0.0,
+            "co2_produced": 2.0,
+            "co2_removed": 2.0,
+            "co2_remaining": 0.0,
+            "power_components": {
+              "habitat": 8.0,
+              "water_recovery": 2.0,
+              "oxygen_generation": 0.0,
+              "co2_removal": 2.0
+            }
+          },
           "daylight_fraction": 1.0,
           "battery_capacity": 100.0,
           "electricity_curtailed": 0.0,
@@ -9911,10 +11751,10 @@ export const researchCompleted: GameResponse = {
             "water": 0.0
           },
           "electricity_generated": 36.0,
-          "electricity_required": 16.0,
-          "electricity_used": 16.0,
+          "electricity_required": 12.0,
+          "electricity_used": 12.0,
           "life_support_power_fraction": 1.0,
-          "oxygen_generated": 14.0,
+          "oxygen_generated": 0.0,
           "oxygen_required": 6.0,
           "oxygen_used": 6.0,
           "oxygen_shortage": 0.0,
@@ -9926,6 +11766,7 @@ export const researchCompleted: GameResponse = {
               "food_penalty": 0,
               "water_penalty": 0,
               "oxygen_penalty": 0,
+              "co2_penalty": 0,
               "died": false
             },
             {
@@ -9935,15 +11776,16 @@ export const researchCompleted: GameResponse = {
               "food_penalty": 0,
               "water_penalty": 0,
               "oxygen_penalty": 0,
+              "co2_penalty": 0,
               "died": false
             }
           ]
         },
         "resource_changes": {
           "food": -2.1,
-          "water": -3.8,
-          "oxygen": 6.0,
-          "electricity": 20.0,
+          "water": -0.6,
+          "oxygen": -8.0,
+          "electricity": 24.0,
           "medicine": 0.0,
           "repair_kits": 0.0,
           "eva_batteries": -1.0,
@@ -9952,7 +11794,9 @@ export const researchCompleted: GameResponse = {
           "diagnostic_tools": 0.0,
           "sealant_packs": 0.0,
           "scientific_tools": 0.0,
-          "research_data": 2.0
+          "research_data": 2.0,
+          "wastewater": -0.96,
+          "co2": 0.0
         },
         "deaths": [],
         "next_event": {
@@ -9962,6 +11806,8 @@ export const researchCompleted: GameResponse = {
             "resources": {},
             "solar_efficiency": 0.0,
             "oxygen_efficiency": -0.25,
+            "water_recovery_efficiency": 0.0,
+            "co2_efficiency": 0.0,
             "health_changes": []
           }
         },
@@ -9990,6 +11836,8 @@ export const researchCompleted: GameResponse = {
                 "resources": {},
                 "solar_efficiency": 0.0,
                 "oxygen_efficiency": 0.0,
+                "water_recovery_efficiency": 0.0,
+                "co2_efficiency": 0.0,
                 "health_changes": [
                   {
                     "crew_id": "lin",
@@ -10018,6 +11866,8 @@ export const researchCompleted: GameResponse = {
             "resources": {},
             "solar_efficiency": 0.0,
             "oxygen_efficiency": 0.0,
+            "water_recovery_efficiency": 0.0,
+            "co2_efficiency": 0.0,
             "health_changes": []
           },
           "objective_progress": []
@@ -10033,6 +11883,22 @@ export const researchCompleted: GameResponse = {
           }
         },
         "survival": {
+          "life_support": {
+            "wastewater_processed": 3.92,
+            "water_recovered": 3.136,
+            "water_for_oxygen": 0.0,
+            "wastewater_captured": 3.04,
+            "oxygen_generated": 0.0,
+            "co2_produced": 2.0,
+            "co2_removed": 2.0,
+            "co2_remaining": 0.0,
+            "power_components": {
+              "habitat": 8.0,
+              "water_recovery": 2.0,
+              "oxygen_generation": 0.0,
+              "co2_removal": 2.0
+            }
+          },
           "daylight_fraction": 1.0,
           "battery_capacity": 100.0,
           "electricity_curtailed": 0.0,
@@ -10051,10 +11917,10 @@ export const researchCompleted: GameResponse = {
             "water": 0.0
           },
           "electricity_generated": 36.0,
-          "electricity_required": 16.0,
-          "electricity_used": 16.0,
+          "electricity_required": 12.0,
+          "electricity_used": 12.0,
           "life_support_power_fraction": 1.0,
-          "oxygen_generated": 10.5,
+          "oxygen_generated": 0.0,
           "oxygen_required": 6.0,
           "oxygen_used": 6.0,
           "oxygen_shortage": 0.0,
@@ -10066,6 +11932,7 @@ export const researchCompleted: GameResponse = {
               "food_penalty": 0,
               "water_penalty": 0,
               "oxygen_penalty": 0,
+              "co2_penalty": 0,
               "died": false
             },
             {
@@ -10075,15 +11942,16 @@ export const researchCompleted: GameResponse = {
               "food_penalty": 0,
               "water_penalty": 0,
               "oxygen_penalty": 0,
+              "co2_penalty": 0,
               "died": false
             }
           ]
         },
         "resource_changes": {
           "food": -2.1,
-          "water": -3.8,
-          "oxygen": 2.5,
-          "electricity": 20.0,
+          "water": -0.664,
+          "oxygen": -8.0,
+          "electricity": 24.0,
           "medicine": 0.0,
           "repair_kits": 0.0,
           "eva_batteries": -1.0,
@@ -10092,7 +11960,9 @@ export const researchCompleted: GameResponse = {
           "diagnostic_tools": 0.0,
           "sealant_packs": 0.0,
           "scientific_tools": 0.0,
-          "research_data": 0.0
+          "research_data": 0.0,
+          "wastewater": -0.88,
+          "co2": 0.0
         },
         "deaths": [],
         "next_event": {
@@ -10102,6 +11972,8 @@ export const researchCompleted: GameResponse = {
             "resources": {},
             "solar_efficiency": 0.0,
             "oxygen_efficiency": 0.0,
+            "water_recovery_efficiency": 0.0,
+            "co2_efficiency": 0.0,
             "health_changes": [
               {
                 "crew_id": "alex",
@@ -10143,6 +12015,8 @@ export const researchCompleted: GameResponse = {
                 },
                 "solar_efficiency": 0.0,
                 "oxygen_efficiency": 0.0,
+                "water_recovery_efficiency": 0.0,
+                "co2_efficiency": 0.0,
                 "health_changes": []
               },
               "objective_progress": [
@@ -10177,6 +12051,8 @@ export const researchCompleted: GameResponse = {
             "resources": {},
             "solar_efficiency": 0.0,
             "oxygen_efficiency": 0.0,
+            "water_recovery_efficiency": 0.0,
+            "co2_efficiency": 0.0,
             "health_changes": [
               {
                 "crew_id": "alex",
@@ -10203,6 +12079,22 @@ export const researchCompleted: GameResponse = {
           }
         },
         "survival": {
+          "life_support": {
+            "wastewater_processed": 3.84,
+            "water_recovered": 3.072,
+            "water_for_oxygen": 0.6,
+            "wastewater_captured": 3.04,
+            "oxygen_generated": 6.0,
+            "co2_produced": 2.0,
+            "co2_removed": 2.0,
+            "co2_remaining": 0.0,
+            "power_components": {
+              "habitat": 8.0,
+              "water_recovery": 2.0,
+              "oxygen_generation": 4.0,
+              "co2_removal": 2.0
+            }
+          },
           "daylight_fraction": 0.109329,
           "battery_capacity": 100.0,
           "electricity_curtailed": 0.0,
@@ -10224,7 +12116,7 @@ export const researchCompleted: GameResponse = {
           "electricity_required": 16.0,
           "electricity_used": 16.0,
           "life_support_power_fraction": 1.0,
-          "oxygen_generated": 10.5,
+          "oxygen_generated": 6.0,
           "oxygen_required": 6.0,
           "oxygen_used": 6.0,
           "oxygen_shortage": 0.0,
@@ -10236,6 +12128,7 @@ export const researchCompleted: GameResponse = {
               "food_penalty": 0,
               "water_penalty": 0,
               "oxygen_penalty": 0,
+              "co2_penalty": 0,
               "died": false
             },
             {
@@ -10245,14 +12138,15 @@ export const researchCompleted: GameResponse = {
               "food_penalty": 0,
               "water_penalty": 0,
               "oxygen_penalty": 0,
+              "co2_penalty": 0,
               "died": false
             }
           ]
         },
         "resource_changes": {
           "food": -2.1,
-          "water": -3.8,
-          "oxygen": 2.5,
+          "water": -1.328,
+          "oxygen": -2.0,
           "electricity": -12.064156,
           "medicine": 0.0,
           "repair_kits": 0.0,
@@ -10262,7 +12156,9 @@ export const researchCompleted: GameResponse = {
           "diagnostic_tools": 0.0,
           "sealant_packs": 0.0,
           "scientific_tools": 0.0,
-          "research_data": 2.0
+          "research_data": 2.0,
+          "wastewater": -0.8,
+          "co2": 0.0
         },
         "deaths": [],
         "next_event": {
@@ -10272,6 +12168,8 @@ export const researchCompleted: GameResponse = {
             "resources": {},
             "solar_efficiency": 0.0,
             "oxygen_efficiency": 0.0,
+            "water_recovery_efficiency": 0.0,
+            "co2_efficiency": 0.0,
             "health_changes": []
           }
         },
@@ -10307,6 +12205,8 @@ export const researchCompleted: GameResponse = {
                 "resources": {},
                 "solar_efficiency": 0.0,
                 "oxygen_efficiency": 0.0,
+                "water_recovery_efficiency": 0.0,
+                "co2_efficiency": 0.0,
                 "health_changes": []
               },
               "objective_progress": []
@@ -10329,6 +12229,8 @@ export const researchCompleted: GameResponse = {
             "resources": {},
             "solar_efficiency": 0.0,
             "oxygen_efficiency": 0.0,
+            "water_recovery_efficiency": 0.0,
+            "co2_efficiency": 0.0,
             "health_changes": []
           },
           "objective_progress": []
@@ -10344,6 +12246,22 @@ export const researchCompleted: GameResponse = {
           }
         },
         "survival": {
+          "life_support": {
+            "wastewater_processed": 3.76,
+            "water_recovered": 3.008,
+            "water_for_oxygen": 0.8,
+            "wastewater_captured": 3.04,
+            "oxygen_generated": 8.0,
+            "co2_produced": 2.0,
+            "co2_removed": 2.0,
+            "co2_remaining": 0.0,
+            "power_components": {
+              "habitat": 8.0,
+              "water_recovery": 2.0,
+              "oxygen_generation": 4.0,
+              "co2_removal": 2.0
+            }
+          },
           "daylight_fraction": 0.0,
           "battery_capacity": 100.0,
           "electricity_curtailed": 0.0,
@@ -10365,7 +12283,7 @@ export const researchCompleted: GameResponse = {
           "electricity_required": 16.0,
           "electricity_used": 16.0,
           "life_support_power_fraction": 1.0,
-          "oxygen_generated": 10.5,
+          "oxygen_generated": 8.0,
           "oxygen_required": 6.0,
           "oxygen_used": 6.0,
           "oxygen_shortage": 0.0,
@@ -10377,6 +12295,7 @@ export const researchCompleted: GameResponse = {
               "food_penalty": 0,
               "water_penalty": 0,
               "oxygen_penalty": 0,
+              "co2_penalty": 0,
               "died": false
             },
             {
@@ -10386,14 +12305,15 @@ export const researchCompleted: GameResponse = {
               "food_penalty": 0,
               "water_penalty": 0,
               "oxygen_penalty": 0,
+              "co2_penalty": 0,
               "died": false
             }
           ]
         },
         "resource_changes": {
           "food": -2.1,
-          "water": -3.8,
-          "oxygen": 2.5,
+          "water": -1.592,
+          "oxygen": 0.0,
           "electricity": -18.0,
           "medicine": 0.0,
           "repair_kits": 0.0,
@@ -10403,7 +12323,9 @@ export const researchCompleted: GameResponse = {
           "diagnostic_tools": 0.0,
           "sealant_packs": 0.0,
           "scientific_tools": 0.0,
-          "research_data": 0.0
+          "research_data": 0.0,
+          "wastewater": -0.72,
+          "co2": 0.0
         },
         "deaths": [],
         "next_event": {
@@ -10413,6 +12335,8 @@ export const researchCompleted: GameResponse = {
             "resources": {},
             "solar_efficiency": 0.0,
             "oxygen_efficiency": 0.0,
+            "water_recovery_efficiency": 0.0,
+            "co2_efficiency": 0.0,
             "health_changes": []
           }
         },
@@ -10449,6 +12373,8 @@ export const researchCompleted: GameResponse = {
                 },
                 "solar_efficiency": 0.0,
                 "oxygen_efficiency": 0.0,
+                "water_recovery_efficiency": 0.0,
+                "co2_efficiency": 0.0,
                 "health_changes": []
               },
               "objective_progress": [
@@ -10486,6 +12412,8 @@ export const researchCompleted: GameResponse = {
             "resources": {},
             "solar_efficiency": 0.0,
             "oxygen_efficiency": 0.0,
+            "water_recovery_efficiency": 0.0,
+            "co2_efficiency": 0.0,
             "health_changes": [
               {
                 "crew_id": "alex",
@@ -10512,6 +12440,22 @@ export const researchCompleted: GameResponse = {
           }
         },
         "survival": {
+          "life_support": {
+            "wastewater_processed": 3.68,
+            "water_recovered": 2.944,
+            "water_for_oxygen": 0.6,
+            "wastewater_captured": 3.04,
+            "oxygen_generated": 6.0,
+            "co2_produced": 2.0,
+            "co2_removed": 2.0,
+            "co2_remaining": 0.0,
+            "power_components": {
+              "habitat": 8.0,
+              "water_recovery": 2.0,
+              "oxygen_generation": 4.0,
+              "co2_removal": 2.0
+            }
+          },
           "daylight_fraction": 0.781343,
           "battery_capacity": 100.0,
           "electricity_curtailed": 0.0,
@@ -10533,7 +12477,7 @@ export const researchCompleted: GameResponse = {
           "electricity_required": 16.0,
           "electricity_used": 16.0,
           "life_support_power_fraction": 1.0,
-          "oxygen_generated": 10.5,
+          "oxygen_generated": 6.0,
           "oxygen_required": 6.0,
           "oxygen_used": 6.0,
           "oxygen_shortage": 0.0,
@@ -10545,6 +12489,7 @@ export const researchCompleted: GameResponse = {
               "food_penalty": 0,
               "water_penalty": 0,
               "oxygen_penalty": 0,
+              "co2_penalty": 0,
               "died": false
             },
             {
@@ -10554,14 +12499,15 @@ export const researchCompleted: GameResponse = {
               "food_penalty": 0,
               "water_penalty": 0,
               "oxygen_penalty": 0,
+              "co2_penalty": 0,
               "died": false
             }
           ]
         },
         "resource_changes": {
           "food": -3.1,
-          "water": -4.8,
-          "oxygen": 4.5,
+          "water": -2.456,
+          "oxygen": 0.0,
           "electricity": 8.128348,
           "medicine": 0.0,
           "repair_kits": -1.0,
@@ -10571,7 +12517,9 @@ export const researchCompleted: GameResponse = {
           "diagnostic_tools": 0.0,
           "sealant_packs": 0.0,
           "scientific_tools": 0.0,
-          "research_data": 2.0
+          "research_data": 2.0,
+          "wastewater": -0.64,
+          "co2": 0.0
         },
         "deaths": [],
         "next_event": {
@@ -10581,6 +12529,8 @@ export const researchCompleted: GameResponse = {
             "resources": {},
             "solar_efficiency": 0.0,
             "oxygen_efficiency": 0.0,
+            "water_recovery_efficiency": 0.0,
+            "co2_efficiency": 0.0,
             "health_changes": []
           }
         },
@@ -10622,6 +12572,8 @@ export const researchCompleted: GameResponse = {
             },
             "solar_efficiency": 0.0,
             "oxygen_efficiency": 0.0,
+            "water_recovery_efficiency": 0.0,
+            "co2_efficiency": 0.0,
             "health_changes": []
           },
           "objective_progress": [
@@ -10643,6 +12595,22 @@ export const researchCompleted: GameResponse = {
           }
         },
         "survival": {
+          "life_support": {
+            "wastewater_processed": 3.6,
+            "water_recovered": 2.88,
+            "water_for_oxygen": 0.6,
+            "wastewater_captured": 3.04,
+            "oxygen_generated": 6.0,
+            "co2_produced": 2.0,
+            "co2_removed": 2.0,
+            "co2_remaining": 0.0,
+            "power_components": {
+              "habitat": 8.0,
+              "water_recovery": 2.0,
+              "oxygen_generation": 4.0,
+              "co2_removal": 2.0
+            }
+          },
           "daylight_fraction": 1.0,
           "battery_capacity": 100.0,
           "electricity_curtailed": 0.0,
@@ -10664,7 +12632,7 @@ export const researchCompleted: GameResponse = {
           "electricity_required": 16.0,
           "electricity_used": 16.0,
           "life_support_power_fraction": 1.0,
-          "oxygen_generated": 10.5,
+          "oxygen_generated": 6.0,
           "oxygen_required": 6.0,
           "oxygen_used": 6.0,
           "oxygen_shortage": 0.0,
@@ -10676,6 +12644,7 @@ export const researchCompleted: GameResponse = {
               "food_penalty": 0,
               "water_penalty": 0,
               "oxygen_penalty": 0,
+              "co2_penalty": 0,
               "died": false
             },
             {
@@ -10685,14 +12654,15 @@ export const researchCompleted: GameResponse = {
               "food_penalty": 0,
               "water_penalty": 0,
               "oxygen_penalty": 0,
+              "co2_penalty": 0,
               "died": false
             }
           ]
         },
         "resource_changes": {
           "food": -2.1,
-          "water": -3.8,
-          "oxygen": 4.5,
+          "water": -1.52,
+          "oxygen": 0.0,
           "electricity": 16.0,
           "medicine": 0.0,
           "repair_kits": 0.0,
@@ -10702,7 +12672,9 @@ export const researchCompleted: GameResponse = {
           "diagnostic_tools": 0.0,
           "sealant_packs": 0.0,
           "scientific_tools": 0.0,
-          "research_data": 5.0
+          "research_data": 5.0,
+          "wastewater": -0.56,
+          "co2": 0.0
         },
         "deaths": [],
         "next_event": {
@@ -10714,6 +12686,8 @@ export const researchCompleted: GameResponse = {
             },
             "solar_efficiency": 0.0,
             "oxygen_efficiency": 0.0,
+            "water_recovery_efficiency": 0.0,
+            "co2_efficiency": 0.0,
             "health_changes": []
           }
         },
@@ -10747,6 +12721,8 @@ export const researchCompleted: GameResponse = {
             },
             "solar_efficiency": 0.0,
             "oxygen_efficiency": 0.0,
+            "water_recovery_efficiency": 0.0,
+            "co2_efficiency": 0.0,
             "health_changes": []
           },
           "objective_progress": []
@@ -10762,6 +12738,22 @@ export const researchCompleted: GameResponse = {
           }
         },
         "survival": {
+          "life_support": {
+            "wastewater_processed": 3.52,
+            "water_recovered": 2.816,
+            "water_for_oxygen": 0.6,
+            "wastewater_captured": 3.04,
+            "oxygen_generated": 6.0,
+            "co2_produced": 2.0,
+            "co2_removed": 2.0,
+            "co2_remaining": 0.0,
+            "power_components": {
+              "habitat": 8.0,
+              "water_recovery": 2.0,
+              "oxygen_generation": 4.0,
+              "co2_removal": 2.0
+            }
+          },
           "daylight_fraction": 0.327986,
           "battery_capacity": 100.0,
           "electricity_curtailed": 0.0,
@@ -10783,7 +12775,7 @@ export const researchCompleted: GameResponse = {
           "electricity_required": 16.0,
           "electricity_used": 16.0,
           "life_support_power_fraction": 1.0,
-          "oxygen_generated": 10.5,
+          "oxygen_generated": 6.0,
           "oxygen_required": 6.0,
           "oxygen_used": 6.0,
           "oxygen_shortage": 0.0,
@@ -10795,6 +12787,7 @@ export const researchCompleted: GameResponse = {
               "food_penalty": 0,
               "water_penalty": 0,
               "oxygen_penalty": 0,
+              "co2_penalty": 0,
               "died": false
             },
             {
@@ -10804,14 +12797,15 @@ export const researchCompleted: GameResponse = {
               "food_penalty": 0,
               "water_penalty": 0,
               "oxygen_penalty": 0,
+              "co2_penalty": 0,
               "died": false
             }
           ]
         },
         "resource_changes": {
           "food": -2.1,
-          "water": -3.8,
-          "oxygen": 4.5,
+          "water": -1.584,
+          "oxygen": 0.0,
           "electricity": 1.807496,
           "medicine": 0.0,
           "repair_kits": -1.0,
@@ -10821,7 +12815,9 @@ export const researchCompleted: GameResponse = {
           "diagnostic_tools": 0.0,
           "sealant_packs": 0.0,
           "scientific_tools": 0.0,
-          "research_data": 0.0
+          "research_data": 0.0,
+          "wastewater": -0.48,
+          "co2": 0.0
         },
         "deaths": [],
         "next_event": {
@@ -10833,6 +12829,8 @@ export const researchCompleted: GameResponse = {
             },
             "solar_efficiency": 0.0,
             "oxygen_efficiency": 0.0,
+            "water_recovery_efficiency": 0.0,
+            "co2_efficiency": 0.0,
             "health_changes": []
           }
         },
@@ -10868,6 +12866,8 @@ export const researchCompleted: GameResponse = {
                 },
                 "solar_efficiency": 0.0,
                 "oxygen_efficiency": 0.0,
+                "water_recovery_efficiency": 0.0,
+                "co2_efficiency": 0.0,
                 "health_changes": []
               },
               "objective_progress": []
@@ -10892,6 +12892,8 @@ export const researchCompleted: GameResponse = {
             },
             "solar_efficiency": 0.0,
             "oxygen_efficiency": 0.0,
+            "water_recovery_efficiency": 0.0,
+            "co2_efficiency": 0.0,
             "health_changes": []
           },
           "objective_progress": []
@@ -10907,6 +12909,22 @@ export const researchCompleted: GameResponse = {
           }
         },
         "survival": {
+          "life_support": {
+            "wastewater_processed": 3.44,
+            "water_recovered": 2.752,
+            "water_for_oxygen": 1.05,
+            "wastewater_captured": 3.04,
+            "oxygen_generated": 10.5,
+            "co2_produced": 2.0,
+            "co2_removed": 2.0,
+            "co2_remaining": 0.0,
+            "power_components": {
+              "habitat": 8.0,
+              "water_recovery": 2.0,
+              "oxygen_generation": 4.0,
+              "co2_removal": 2.0
+            }
+          },
           "daylight_fraction": 0.0,
           "battery_capacity": 100.0,
           "electricity_curtailed": 0.0,
@@ -10940,6 +12958,7 @@ export const researchCompleted: GameResponse = {
               "food_penalty": 0,
               "water_penalty": 0,
               "oxygen_penalty": 0,
+              "co2_penalty": 0,
               "died": false
             },
             {
@@ -10949,13 +12968,14 @@ export const researchCompleted: GameResponse = {
               "food_penalty": 0,
               "water_penalty": 0,
               "oxygen_penalty": 0,
+              "co2_penalty": 0,
               "died": false
             }
           ]
         },
         "resource_changes": {
           "food": -2.1,
-          "water": -3.8,
+          "water": -2.098,
           "oxygen": -5.5,
           "electricity": -18.0,
           "medicine": 0.0,
@@ -10966,7 +12986,9 @@ export const researchCompleted: GameResponse = {
           "diagnostic_tools": 0.0,
           "sealant_packs": 0.0,
           "scientific_tools": 0.0,
-          "research_data": 2.0
+          "research_data": 2.0,
+          "wastewater": -0.4,
+          "co2": 0.0
         },
         "deaths": [],
         "next_event": {
@@ -10978,6 +13000,8 @@ export const researchCompleted: GameResponse = {
             },
             "solar_efficiency": 0.0,
             "oxygen_efficiency": 0.0,
+            "water_recovery_efficiency": 0.0,
+            "co2_efficiency": 0.0,
             "health_changes": []
           }
         },
@@ -11005,6 +13029,8 @@ export const researchCompleted: GameResponse = {
             },
             "solar_efficiency": 0.0,
             "oxygen_efficiency": 0.0,
+            "water_recovery_efficiency": 0.0,
+            "co2_efficiency": 0.0,
             "health_changes": []
           },
           "objective_progress": []
@@ -11020,6 +13046,22 @@ export const researchCompleted: GameResponse = {
           }
         },
         "survival": {
+          "life_support": {
+            "wastewater_processed": 3.36,
+            "water_recovered": 2.688,
+            "water_for_oxygen": 1.05,
+            "wastewater_captured": 3.04,
+            "oxygen_generated": 10.5,
+            "co2_produced": 2.0,
+            "co2_removed": 2.0,
+            "co2_remaining": 0.0,
+            "power_components": {
+              "habitat": 8.0,
+              "water_recovery": 2.0,
+              "oxygen_generation": 4.0,
+              "co2_removal": 2.0
+            }
+          },
           "daylight_fraction": 0.562686,
           "battery_capacity": 100.0,
           "electricity_curtailed": 0.0,
@@ -11053,6 +13095,7 @@ export const researchCompleted: GameResponse = {
               "food_penalty": 0,
               "water_penalty": 0,
               "oxygen_penalty": 0,
+              "co2_penalty": 0,
               "died": false
             },
             {
@@ -11062,13 +13105,14 @@ export const researchCompleted: GameResponse = {
               "food_penalty": 0,
               "water_penalty": 0,
               "oxygen_penalty": 0,
+              "co2_penalty": 0,
               "died": false
             }
           ]
         },
         "resource_changes": {
           "food": -2.1,
-          "water": -1.8,
+          "water": -0.162,
           "oxygen": 4.5,
           "electricity": 4.256696,
           "medicine": 0.0,
@@ -11079,7 +13123,9 @@ export const researchCompleted: GameResponse = {
           "diagnostic_tools": 0.0,
           "sealant_packs": 0.0,
           "scientific_tools": 0.0,
-          "research_data": 0.0
+          "research_data": 0.0,
+          "wastewater": -0.32,
+          "co2": 0.0
         },
         "deaths": [],
         "next_event": {
@@ -11089,6 +13135,8 @@ export const researchCompleted: GameResponse = {
             "resources": {},
             "solar_efficiency": 0.0,
             "oxygen_efficiency": 0.0,
+            "water_recovery_efficiency": 0.0,
+            "co2_efficiency": 0.0,
             "health_changes": []
           }
         },
@@ -11115,6 +13163,8 @@ export const researchCompleted: GameResponse = {
             "resources": {},
             "solar_efficiency": 0.0,
             "oxygen_efficiency": 0.0,
+            "water_recovery_efficiency": 0.0,
+            "co2_efficiency": 0.0,
             "health_changes": []
           },
           "objective_progress": []
@@ -11130,6 +13180,22 @@ export const researchCompleted: GameResponse = {
           }
         },
         "survival": {
+          "life_support": {
+            "wastewater_processed": 3.28,
+            "water_recovered": 2.624,
+            "water_for_oxygen": 0.7,
+            "wastewater_captured": 3.04,
+            "oxygen_generated": 7.0,
+            "co2_produced": 2.0,
+            "co2_removed": 2.0,
+            "co2_remaining": 0.0,
+            "power_components": {
+              "habitat": 8.0,
+              "water_recovery": 2.0,
+              "oxygen_generation": 4.0,
+              "co2_removal": 2.0
+            }
+          },
           "daylight_fraction": 1.0,
           "battery_capacity": 100.0,
           "electricity_curtailed": 0.0,
@@ -11151,7 +13217,7 @@ export const researchCompleted: GameResponse = {
           "electricity_required": 16.0,
           "electricity_used": 16.0,
           "life_support_power_fraction": 1.0,
-          "oxygen_generated": 10.5,
+          "oxygen_generated": 7.0,
           "oxygen_required": 6.0,
           "oxygen_used": 6.0,
           "oxygen_shortage": 0.0,
@@ -11163,6 +13229,7 @@ export const researchCompleted: GameResponse = {
               "food_penalty": 0,
               "water_penalty": 0,
               "oxygen_penalty": 0,
+              "co2_penalty": 0,
               "died": false
             },
             {
@@ -11172,14 +13239,15 @@ export const researchCompleted: GameResponse = {
               "food_penalty": 0,
               "water_penalty": 0,
               "oxygen_penalty": 0,
+              "co2_penalty": 0,
               "died": false
             }
           ]
         },
         "resource_changes": {
           "food": -2.1,
-          "water": -4.8,
-          "oxygen": 4.5,
+          "water": -2.876,
+          "oxygen": 1.0,
           "electricity": 16.0,
           "medicine": 0.0,
           "repair_kits": 0.0,
@@ -11189,7 +13257,9 @@ export const researchCompleted: GameResponse = {
           "diagnostic_tools": 0.0,
           "sealant_packs": 0.0,
           "scientific_tools": 0.0,
-          "research_data": 0.0
+          "research_data": 0.0,
+          "wastewater": -0.24,
+          "co2": 0.0
         },
         "deaths": [],
         "next_event": {
@@ -11201,6 +13271,8 @@ export const researchCompleted: GameResponse = {
             },
             "solar_efficiency": 0.0,
             "oxygen_efficiency": 0.0,
+            "water_recovery_efficiency": 0.0,
+            "co2_efficiency": 0.0,
             "health_changes": []
           }
         },
@@ -11226,6 +13298,8 @@ export const researchCompleted: GameResponse = {
             "resources": {},
             "solar_efficiency": 0.0,
             "oxygen_efficiency": 0.0,
+            "water_recovery_efficiency": 0.0,
+            "co2_efficiency": 0.0,
             "health_changes": []
           },
           "objective_progress": []
@@ -11241,6 +13315,22 @@ export const researchCompleted: GameResponse = {
           }
         },
         "survival": {
+          "life_support": {
+            "wastewater_processed": 3.2,
+            "water_recovered": 2.56,
+            "water_for_oxygen": 1.0,
+            "wastewater_captured": 3.04,
+            "oxygen_generated": 10.0,
+            "co2_produced": 2.0,
+            "co2_removed": 2.0,
+            "co2_remaining": 0.0,
+            "power_components": {
+              "habitat": 8.0,
+              "water_recovery": 2.0,
+              "oxygen_generation": 4.0,
+              "co2_removal": 2.0
+            }
+          },
           "daylight_fraction": 0.546643,
           "battery_capacity": 100.0,
           "electricity_curtailed": 0.0,
@@ -11262,7 +13352,7 @@ export const researchCompleted: GameResponse = {
           "electricity_required": 16.0,
           "electricity_used": 16.0,
           "life_support_power_fraction": 1.0,
-          "oxygen_generated": 10.5,
+          "oxygen_generated": 10.0,
           "oxygen_required": 6.0,
           "oxygen_used": 6.0,
           "oxygen_shortage": 0.0,
@@ -11274,6 +13364,7 @@ export const researchCompleted: GameResponse = {
               "food_penalty": 0,
               "water_penalty": 0,
               "oxygen_penalty": 0,
+              "co2_penalty": 0,
               "died": false
             },
             {
@@ -11283,14 +13374,15 @@ export const researchCompleted: GameResponse = {
               "food_penalty": 0,
               "water_penalty": 0,
               "oxygen_penalty": 0,
+              "co2_penalty": 0,
               "died": false
             }
           ]
         },
         "resource_changes": {
           "food": -2.1,
-          "water": -3.8,
-          "oxygen": 4.5,
+          "water": -2.24,
+          "oxygen": 4.0,
           "electricity": 3.679148,
           "medicine": 0.0,
           "repair_kits": -1.0,
@@ -11300,7 +13392,9 @@ export const researchCompleted: GameResponse = {
           "diagnostic_tools": 0.0,
           "sealant_packs": 0.0,
           "scientific_tools": 0.0,
-          "research_data": 0.0
+          "research_data": 0.0,
+          "wastewater": -0.16,
+          "co2": 0.0
         },
         "deaths": [],
         "next_event": {
@@ -11310,6 +13404,8 @@ export const researchCompleted: GameResponse = {
             "resources": {},
             "solar_efficiency": 0.0,
             "oxygen_efficiency": 0.0,
+            "water_recovery_efficiency": 0.0,
+            "co2_efficiency": -0.2,
             "health_changes": []
           }
         },
@@ -11335,6 +13431,8 @@ export const researchCompleted: GameResponse = {
             "resources": {},
             "solar_efficiency": 0.0,
             "oxygen_efficiency": 0.0,
+            "water_recovery_efficiency": 0.0,
+            "co2_efficiency": 0.3,
             "health_changes": []
           },
           "objective_progress": []
@@ -11350,6 +13448,22 @@ export const researchCompleted: GameResponse = {
           }
         },
         "survival": {
+          "life_support": {
+            "wastewater_processed": 3.12,
+            "water_recovered": 2.496,
+            "water_for_oxygen": 0.6,
+            "wastewater_captured": 3.04,
+            "oxygen_generated": 6.0,
+            "co2_produced": 2.0,
+            "co2_removed": 2.0,
+            "co2_remaining": 0.0,
+            "power_components": {
+              "habitat": 8.0,
+              "water_recovery": 2.0,
+              "oxygen_generation": 4.0,
+              "co2_removal": 2.0
+            }
+          },
           "daylight_fraction": 0.0,
           "battery_capacity": 100.0,
           "electricity_curtailed": 0.0,
@@ -11371,7 +13485,7 @@ export const researchCompleted: GameResponse = {
           "electricity_required": 16.0,
           "electricity_used": 16.0,
           "life_support_power_fraction": 1.0,
-          "oxygen_generated": 10.5,
+          "oxygen_generated": 6.0,
           "oxygen_required": 6.0,
           "oxygen_used": 6.0,
           "oxygen_shortage": 0.0,
@@ -11383,6 +13497,7 @@ export const researchCompleted: GameResponse = {
               "food_penalty": 0,
               "water_penalty": 0,
               "oxygen_penalty": 0,
+              "co2_penalty": 0,
               "died": false
             },
             {
@@ -11392,14 +13507,15 @@ export const researchCompleted: GameResponse = {
               "food_penalty": 0,
               "water_penalty": 0,
               "oxygen_penalty": 0,
+              "co2_penalty": 0,
               "died": false
             }
           ]
         },
         "resource_changes": {
           "food": -2.1,
-          "water": -3.8,
-          "oxygen": 4.5,
+          "water": -1.904,
+          "oxygen": 0.0,
           "electricity": -16.0,
           "medicine": 0.0,
           "repair_kits": -1.0,
@@ -11409,7 +13525,9 @@ export const researchCompleted: GameResponse = {
           "diagnostic_tools": 0.0,
           "sealant_packs": 0.0,
           "scientific_tools": 0.0,
-          "research_data": 0.0
+          "research_data": 0.0,
+          "wastewater": -0.08,
+          "co2": 0.0
         },
         "deaths": [],
         "next_event": null,
@@ -11537,6 +13655,27 @@ export const researchCompleted: GameResponse = {
 export const supportGame: GameResponse = {
   "game_id": "fixture-game",
   "state": {
+    "life_support": {
+      "source_url": "https://www.nasa.gov/reference/environmental-control-and-life-support-systems-eclss/",
+      "water_recovery_condition": 0.98,
+      "co2_condition": 0.985,
+      "wastewater": 14.4,
+      "co2_burden": 0.0,
+      "co2_warning_level": 4.0,
+      "recovery_capacity": 4.0,
+      "recovery_yield": 0.8,
+      "water_per_oxygen": 0.1,
+      "oxygen_reserve_weeks": 2.0,
+      "water_recovery_wear": 0.02,
+      "co2_wear": 0.015,
+      "co2_removal_capacity": 6.0,
+      "power_components": {
+        "habitat": 12.0,
+        "water_recovery": 2.0,
+        "oxygen_generation": 4.0,
+        "co2_removal": 2.0
+      }
+    },
     "energy": {
       "battery_capacity": 100.0,
       "stored": 46.0,
@@ -11785,8 +13924,8 @@ export const supportGame: GameResponse = {
     ],
     "resources": {
       "food": 48.0,
-      "water": 104.0,
-      "oxygen": 32.0,
+      "water": 106.6,
+      "oxygen": 24.0,
       "electricity": 46.0,
       "medicine": 8.0,
       "repair_kits": 10.0,
@@ -11796,10 +13935,14 @@ export const supportGame: GameResponse = {
       "diagnostic_tools": 0.0,
       "sealant_packs": 0.0,
       "scientific_tools": 1.0,
-      "research_data": 0.0
+      "research_data": 0.0,
+      "wastewater": 14.4,
+      "co2": 0.0
     },
     "solar_efficiency": 0.75,
     "oxygen_efficiency": 0.75,
+    "water_recovery_efficiency": 0.98,
+    "co2_efficiency": 0.985,
     "current_event_id": "oxygen_fault",
     "current_event": {
       "id": "oxygen_fault",
@@ -11812,6 +13955,8 @@ export const supportGame: GameResponse = {
         "resources": {},
         "solar_efficiency": 0.0,
         "oxygen_efficiency": -0.25,
+        "water_recovery_efficiency": 0.0,
+        "co2_efficiency": 0.0,
         "crew_health": 0,
         "target": "selected"
       },
@@ -11837,6 +13982,8 @@ export const supportGame: GameResponse = {
             "resources": {},
             "solar_efficiency": 0.0,
             "oxygen_efficiency": 0.25,
+            "water_recovery_efficiency": 0.0,
+            "co2_efficiency": 0.0,
             "crew_health": 0,
             "target": "selected"
           },
@@ -11844,6 +13991,8 @@ export const supportGame: GameResponse = {
             "resources": {},
             "solar_efficiency": 0.0,
             "oxygen_efficiency": 0.0,
+            "water_recovery_efficiency": 0.0,
+            "co2_efficiency": 0.0,
             "crew_health": -15,
             "target": "selected"
           },
@@ -11900,6 +14049,8 @@ export const supportGame: GameResponse = {
             "resources": {},
             "solar_efficiency": 0.0,
             "oxygen_efficiency": 0.2,
+            "water_recovery_efficiency": 0.0,
+            "co2_efficiency": 0.0,
             "crew_health": 0,
             "target": "selected"
           },
@@ -11907,6 +14058,8 @@ export const supportGame: GameResponse = {
             "resources": {},
             "solar_efficiency": 0.0,
             "oxygen_efficiency": -0.1,
+            "water_recovery_efficiency": 0.0,
+            "co2_efficiency": 0.0,
             "crew_health": 0,
             "target": "selected"
           },
@@ -11958,6 +14111,8 @@ export const supportGame: GameResponse = {
             "resources": {},
             "solar_efficiency": 0.0,
             "oxygen_efficiency": 0.0,
+            "water_recovery_efficiency": 0.0,
+            "co2_efficiency": 0.0,
             "crew_health": 0,
             "target": "selected"
           },
@@ -11965,6 +14120,8 @@ export const supportGame: GameResponse = {
             "resources": {},
             "solar_efficiency": 0.0,
             "oxygen_efficiency": 0.0,
+            "water_recovery_efficiency": 0.0,
+            "co2_efficiency": 0.0,
             "crew_health": 0,
             "target": "selected"
           },
@@ -12005,6 +14162,8 @@ export const supportGame: GameResponse = {
             "resources": {},
             "solar_efficiency": 0.0,
             "oxygen_efficiency": 0.0,
+            "water_recovery_efficiency": 0.0,
+            "co2_efficiency": 0.0,
             "health_changes": []
           },
           "objective_progress": []
@@ -12028,6 +14187,22 @@ export const supportGame: GameResponse = {
           }
         },
         "survival": {
+          "life_support": {
+            "wastewater_processed": 4.0,
+            "water_recovered": 3.2,
+            "water_for_oxygen": 0.6,
+            "wastewater_captured": 6.4,
+            "oxygen_generated": 6.0,
+            "co2_produced": 4.0,
+            "co2_removed": 4.0,
+            "co2_remaining": 0.0,
+            "power_components": {
+              "habitat": 12.0,
+              "water_recovery": 2.0,
+              "oxygen_generation": 4.0,
+              "co2_removal": 2.0
+            }
+          },
           "daylight_fraction": 1.0,
           "battery_capacity": 100.0,
           "electricity_curtailed": 0.0,
@@ -12049,7 +14224,7 @@ export const supportGame: GameResponse = {
           "electricity_required": 20.0,
           "electricity_used": 20.0,
           "life_support_power_fraction": 1.0,
-          "oxygen_generated": 14.0,
+          "oxygen_generated": 6.0,
           "oxygen_required": 12.0,
           "oxygen_used": 12.0,
           "oxygen_shortage": 0.0,
@@ -12061,6 +14236,7 @@ export const supportGame: GameResponse = {
               "food_penalty": 0,
               "water_penalty": 0,
               "oxygen_penalty": 0,
+              "co2_penalty": 0,
               "died": false
             },
             {
@@ -12070,6 +14246,7 @@ export const supportGame: GameResponse = {
               "food_penalty": 0,
               "water_penalty": 0,
               "oxygen_penalty": 0,
+              "co2_penalty": 0,
               "died": false
             },
             {
@@ -12079,6 +14256,7 @@ export const supportGame: GameResponse = {
               "food_penalty": 0,
               "water_penalty": 0,
               "oxygen_penalty": 0,
+              "co2_penalty": 0,
               "died": false
             },
             {
@@ -12088,14 +14266,15 @@ export const supportGame: GameResponse = {
               "food_penalty": 0,
               "water_penalty": 0,
               "oxygen_penalty": 0,
+              "co2_penalty": 0,
               "died": false
             }
           ]
         },
         "resource_changes": {
           "food": -4.0,
-          "water": -8.0,
-          "oxygen": 2.0,
+          "water": -5.4,
+          "oxygen": -6.0,
           "electricity": 16.0,
           "medicine": 0.0,
           "repair_kits": 0.0,
@@ -12105,7 +14284,9 @@ export const supportGame: GameResponse = {
           "diagnostic_tools": 0.0,
           "sealant_packs": 0.0,
           "scientific_tools": 0.0,
-          "research_data": 0.0
+          "research_data": 0.0,
+          "wastewater": 2.4,
+          "co2": 0.0
         },
         "deaths": [],
         "next_event": {
@@ -12115,6 +14296,8 @@ export const supportGame: GameResponse = {
             "resources": {},
             "solar_efficiency": 0.0,
             "oxygen_efficiency": -0.25,
+            "water_recovery_efficiency": 0.0,
+            "co2_efficiency": 0.0,
             "health_changes": []
           }
         },
@@ -12197,6 +14380,8 @@ export const supportGame: GameResponse = {
           "resources": {},
           "solar_efficiency": 0.2,
           "oxygen_efficiency": 0.0,
+          "water_recovery_efficiency": 0.0,
+          "co2_efficiency": 0.0,
           "crew_health": 0,
           "target": "selected"
         },
@@ -12204,6 +14389,8 @@ export const supportGame: GameResponse = {
           "resources": {},
           "solar_efficiency": 0.0,
           "oxygen_efficiency": 0.0,
+          "water_recovery_efficiency": 0.0,
+          "co2_efficiency": 0.0,
           "crew_health": 0,
           "target": "selected"
         },
@@ -12268,6 +14455,8 @@ export const supportGame: GameResponse = {
           "resources": {},
           "solar_efficiency": 0.0,
           "oxygen_efficiency": 0.2,
+          "water_recovery_efficiency": 0.0,
+          "co2_efficiency": 0.0,
           "crew_health": 0,
           "target": "selected"
         },
@@ -12275,6 +14464,8 @@ export const supportGame: GameResponse = {
           "resources": {},
           "solar_efficiency": 0.0,
           "oxygen_efficiency": 0.0,
+          "water_recovery_efficiency": 0.0,
+          "co2_efficiency": 0.0,
           "crew_health": 0,
           "target": "selected"
         },
@@ -12321,6 +14512,136 @@ export const supportGame: GameResponse = {
         "success_probability": null
       },
       {
+        "id": "service_water_recovery",
+        "action_type": "maintenance",
+        "objective_rewards": [],
+        "text": "Service the water recovery processor",
+        "description": "One repair kit and 2 power guarantee +30 water-recovery condition points. Recovered water comes from the wastewater stock and is available after this week's rations.",
+        "costs": {
+          "repair_kits": 1.0,
+          "electricity": 2.0
+        },
+        "required_items": {},
+        "requires_crew": true,
+        "role_bonus": {},
+        "crew_role_bonus": {},
+        "success_chance": 1.0,
+        "success_effects": {
+          "resources": {},
+          "solar_efficiency": 0.0,
+          "oxygen_efficiency": 0.0,
+          "water_recovery_efficiency": 0.3,
+          "co2_efficiency": 0.0,
+          "crew_health": 0,
+          "target": "selected"
+        },
+        "failure_effects": {
+          "resources": {},
+          "solar_efficiency": 0.0,
+          "oxygen_efficiency": 0.0,
+          "water_recovery_efficiency": 0.0,
+          "co2_efficiency": 0.0,
+          "crew_health": 0,
+          "target": "selected"
+        },
+        "required_role": null,
+        "minimum_crew": 1,
+        "available": true,
+        "unavailable_reasons": [],
+        "eligible_crew": [
+          {
+            "crew_id": "alex",
+            "available": true,
+            "unavailable_reasons": [],
+            "success_probability": 1.0
+          },
+          {
+            "crew_id": "lin",
+            "available": true,
+            "unavailable_reasons": [],
+            "success_probability": 1.0
+          },
+          {
+            "crew_id": "sam",
+            "available": true,
+            "unavailable_reasons": [],
+            "success_probability": 1.0
+          },
+          {
+            "crew_id": "maya",
+            "available": true,
+            "unavailable_reasons": [],
+            "success_probability": 1.0
+          }
+        ],
+        "success_probability": null
+      },
+      {
+        "id": "service_co2_scrubber",
+        "action_type": "maintenance",
+        "objective_rewards": [],
+        "text": "Service the carbon dioxide scrubber",
+        "description": "One repair kit and 2 power guarantee +30 scrubber condition points. Removal still requires power; oxygen reserves do not remove CO2.",
+        "costs": {
+          "repair_kits": 1.0,
+          "electricity": 2.0
+        },
+        "required_items": {},
+        "requires_crew": true,
+        "role_bonus": {},
+        "crew_role_bonus": {},
+        "success_chance": 1.0,
+        "success_effects": {
+          "resources": {},
+          "solar_efficiency": 0.0,
+          "oxygen_efficiency": 0.0,
+          "water_recovery_efficiency": 0.0,
+          "co2_efficiency": 0.3,
+          "crew_health": 0,
+          "target": "selected"
+        },
+        "failure_effects": {
+          "resources": {},
+          "solar_efficiency": 0.0,
+          "oxygen_efficiency": 0.0,
+          "water_recovery_efficiency": 0.0,
+          "co2_efficiency": 0.0,
+          "crew_health": 0,
+          "target": "selected"
+        },
+        "required_role": null,
+        "minimum_crew": 1,
+        "available": true,
+        "unavailable_reasons": [],
+        "eligible_crew": [
+          {
+            "crew_id": "alex",
+            "available": true,
+            "unavailable_reasons": [],
+            "success_probability": 1.0
+          },
+          {
+            "crew_id": "lin",
+            "available": true,
+            "unavailable_reasons": [],
+            "success_probability": 1.0
+          },
+          {
+            "crew_id": "sam",
+            "available": true,
+            "unavailable_reasons": [],
+            "success_probability": 1.0
+          },
+          {
+            "crew_id": "maya",
+            "available": true,
+            "unavailable_reasons": [],
+            "success_probability": 1.0
+          }
+        ],
+        "success_probability": null
+      },
+      {
         "id": "research_geology",
         "action_type": "research",
         "objective_rewards": [
@@ -12352,6 +14673,8 @@ export const supportGame: GameResponse = {
           },
           "solar_efficiency": 0.0,
           "oxygen_efficiency": 0.0,
+          "water_recovery_efficiency": 0.0,
+          "co2_efficiency": 0.0,
           "crew_health": 0,
           "target": "selected"
         },
@@ -12359,6 +14682,8 @@ export const supportGame: GameResponse = {
           "resources": {},
           "solar_efficiency": 0.0,
           "oxygen_efficiency": 0.0,
+          "water_recovery_efficiency": 0.0,
+          "co2_efficiency": 0.0,
           "crew_health": -8,
           "target": "selected"
         },
@@ -12419,6 +14744,8 @@ export const supportGame: GameResponse = {
           "resources": {},
           "solar_efficiency": 0.0,
           "oxygen_efficiency": 0.0,
+          "water_recovery_efficiency": 0.0,
+          "co2_efficiency": 0.0,
           "crew_health": 0,
           "target": "selected"
         },
@@ -12426,6 +14753,8 @@ export const supportGame: GameResponse = {
           "resources": {},
           "solar_efficiency": 0.0,
           "oxygen_efficiency": 0.0,
+          "water_recovery_efficiency": 0.0,
+          "co2_efficiency": 0.0,
           "crew_health": -8,
           "target": "selected"
         },
@@ -12494,6 +14823,8 @@ export const supportGame: GameResponse = {
           },
           "solar_efficiency": 0.0,
           "oxygen_efficiency": 0.0,
+          "water_recovery_efficiency": 0.0,
+          "co2_efficiency": 0.0,
           "crew_health": 0,
           "target": "selected"
         },
@@ -12501,6 +14832,8 @@ export const supportGame: GameResponse = {
           "resources": {},
           "solar_efficiency": 0.0,
           "oxygen_efficiency": 0.0,
+          "water_recovery_efficiency": 0.0,
+          "co2_efficiency": 0.0,
           "crew_health": -6,
           "target": "selected"
         },
@@ -12543,6 +14876,27 @@ export const supportGame: GameResponse = {
 export const parallelTurn: TurnResponse = {
   "game_id": "fixture-game",
   "state": {
+    "life_support": {
+      "source_url": "https://www.nasa.gov/reference/environmental-control-and-life-support-systems-eclss/",
+      "water_recovery_condition": 0.96,
+      "co2_condition": 0.97,
+      "wastewater": 16.88,
+      "co2_burden": 0.0,
+      "co2_warning_level": 4.0,
+      "recovery_capacity": 4.0,
+      "recovery_yield": 0.8,
+      "water_per_oxygen": 0.1,
+      "oxygen_reserve_weeks": 2.0,
+      "water_recovery_wear": 0.02,
+      "co2_wear": 0.015,
+      "co2_removal_capacity": 6.0,
+      "power_components": {
+        "habitat": 12.0,
+        "water_recovery": 2.0,
+        "oxygen_generation": 4.0,
+        "co2_removal": 2.0
+      }
+    },
     "energy": {
       "battery_capacity": 100.0,
       "stored": 57.0,
@@ -12783,8 +15137,8 @@ export const parallelTurn: TurnResponse = {
     ],
     "resources": {
       "food": 44.0,
-      "water": 96.0,
-      "oxygen": 31.3,
+      "water": 100.406,
+      "oxygen": 23.3,
       "electricity": 57.0,
       "medicine": 8.0,
       "repair_kits": 9.0,
@@ -12794,10 +15148,14 @@ export const parallelTurn: TurnResponse = {
       "diagnostic_tools": 0.0,
       "sealant_packs": 0.0,
       "scientific_tools": 1.0,
-      "research_data": 4.0
+      "research_data": 4.0,
+      "wastewater": 16.88,
+      "co2": 0.0
     },
     "solar_efficiency": 0.75,
     "oxygen_efficiency": 0.95,
+    "water_recovery_efficiency": 0.96,
+    "co2_efficiency": 0.97,
     "current_event_id": "medical_emergency",
     "current_event": {
       "id": "medical_emergency",
@@ -12810,6 +15168,8 @@ export const parallelTurn: TurnResponse = {
         "resources": {},
         "solar_efficiency": 0.0,
         "oxygen_efficiency": 0.0,
+        "water_recovery_efficiency": 0.0,
+        "co2_efficiency": 0.0,
         "crew_health": -8,
         "target": "all"
       },
@@ -12834,6 +15194,8 @@ export const parallelTurn: TurnResponse = {
             "resources": {},
             "solar_efficiency": 0.0,
             "oxygen_efficiency": 0.0,
+            "water_recovery_efficiency": 0.0,
+            "co2_efficiency": 0.0,
             "crew_health": 30,
             "target": "selected"
           },
@@ -12841,6 +15203,8 @@ export const parallelTurn: TurnResponse = {
             "resources": {},
             "solar_efficiency": 0.0,
             "oxygen_efficiency": 0.0,
+            "water_recovery_efficiency": 0.0,
+            "co2_efficiency": 0.0,
             "crew_health": -5,
             "target": "selected"
           },
@@ -12896,6 +15260,8 @@ export const parallelTurn: TurnResponse = {
             "resources": {},
             "solar_efficiency": 0.0,
             "oxygen_efficiency": 0.0,
+            "water_recovery_efficiency": 0.0,
+            "co2_efficiency": 0.0,
             "crew_health": 15,
             "target": "all"
           },
@@ -12903,6 +15269,8 @@ export const parallelTurn: TurnResponse = {
             "resources": {},
             "solar_efficiency": 0.0,
             "oxygen_efficiency": 0.0,
+            "water_recovery_efficiency": 0.0,
+            "co2_efficiency": 0.0,
             "crew_health": -5,
             "target": "all"
           },
@@ -12964,6 +15332,8 @@ export const parallelTurn: TurnResponse = {
             "resources": {},
             "solar_efficiency": 0.0,
             "oxygen_efficiency": 0.0,
+            "water_recovery_efficiency": 0.0,
+            "co2_efficiency": 0.0,
             "crew_health": 20,
             "target": "selected"
           },
@@ -12971,6 +15341,8 @@ export const parallelTurn: TurnResponse = {
             "resources": {},
             "solar_efficiency": 0.0,
             "oxygen_efficiency": 0.0,
+            "water_recovery_efficiency": 0.0,
+            "co2_efficiency": 0.0,
             "crew_health": 0,
             "target": "selected"
           },
@@ -13032,6 +15404,8 @@ export const parallelTurn: TurnResponse = {
             "resources": {},
             "solar_efficiency": 0.0,
             "oxygen_efficiency": 0.0,
+            "water_recovery_efficiency": 0.0,
+            "co2_efficiency": 0.0,
             "crew_health": -5,
             "target": "all"
           },
@@ -13039,6 +15413,8 @@ export const parallelTurn: TurnResponse = {
             "resources": {},
             "solar_efficiency": 0.0,
             "oxygen_efficiency": 0.0,
+            "water_recovery_efficiency": 0.0,
+            "co2_efficiency": 0.0,
             "crew_health": 0,
             "target": "selected"
           },
@@ -13080,6 +15456,8 @@ export const parallelTurn: TurnResponse = {
             "resources": {},
             "solar_efficiency": 0.0,
             "oxygen_efficiency": 0.0,
+            "water_recovery_efficiency": 0.0,
+            "co2_efficiency": 0.0,
             "health_changes": []
           },
           "objective_progress": []
@@ -13103,6 +15481,22 @@ export const parallelTurn: TurnResponse = {
           }
         },
         "survival": {
+          "life_support": {
+            "wastewater_processed": 4.0,
+            "water_recovered": 3.2,
+            "water_for_oxygen": 0.6,
+            "wastewater_captured": 6.4,
+            "oxygen_generated": 6.0,
+            "co2_produced": 4.0,
+            "co2_removed": 4.0,
+            "co2_remaining": 0.0,
+            "power_components": {
+              "habitat": 12.0,
+              "water_recovery": 2.0,
+              "oxygen_generation": 4.0,
+              "co2_removal": 2.0
+            }
+          },
           "daylight_fraction": 1.0,
           "battery_capacity": 100.0,
           "electricity_curtailed": 0.0,
@@ -13124,7 +15518,7 @@ export const parallelTurn: TurnResponse = {
           "electricity_required": 20.0,
           "electricity_used": 20.0,
           "life_support_power_fraction": 1.0,
-          "oxygen_generated": 14.0,
+          "oxygen_generated": 6.0,
           "oxygen_required": 12.0,
           "oxygen_used": 12.0,
           "oxygen_shortage": 0.0,
@@ -13136,6 +15530,7 @@ export const parallelTurn: TurnResponse = {
               "food_penalty": 0,
               "water_penalty": 0,
               "oxygen_penalty": 0,
+              "co2_penalty": 0,
               "died": false
             },
             {
@@ -13145,6 +15540,7 @@ export const parallelTurn: TurnResponse = {
               "food_penalty": 0,
               "water_penalty": 0,
               "oxygen_penalty": 0,
+              "co2_penalty": 0,
               "died": false
             },
             {
@@ -13154,6 +15550,7 @@ export const parallelTurn: TurnResponse = {
               "food_penalty": 0,
               "water_penalty": 0,
               "oxygen_penalty": 0,
+              "co2_penalty": 0,
               "died": false
             },
             {
@@ -13163,14 +15560,15 @@ export const parallelTurn: TurnResponse = {
               "food_penalty": 0,
               "water_penalty": 0,
               "oxygen_penalty": 0,
+              "co2_penalty": 0,
               "died": false
             }
           ]
         },
         "resource_changes": {
           "food": -4.0,
-          "water": -8.0,
-          "oxygen": 2.0,
+          "water": -5.4,
+          "oxygen": -6.0,
           "electricity": 16.0,
           "medicine": 0.0,
           "repair_kits": 0.0,
@@ -13180,7 +15578,9 @@ export const parallelTurn: TurnResponse = {
           "diagnostic_tools": 0.0,
           "sealant_packs": 0.0,
           "scientific_tools": 0.0,
-          "research_data": 0.0
+          "research_data": 0.0,
+          "wastewater": 2.4,
+          "co2": 0.0
         },
         "deaths": [],
         "next_event": {
@@ -13190,6 +15590,8 @@ export const parallelTurn: TurnResponse = {
             "resources": {},
             "solar_efficiency": 0.0,
             "oxygen_efficiency": -0.25,
+            "water_recovery_efficiency": 0.0,
+            "co2_efficiency": 0.0,
             "health_changes": []
           }
         },
@@ -13220,6 +15622,8 @@ export const parallelTurn: TurnResponse = {
                 },
                 "solar_efficiency": 0.0,
                 "oxygen_efficiency": 0.0,
+                "water_recovery_efficiency": 0.0,
+                "co2_efficiency": 0.0,
                 "health_changes": []
               },
               "objective_progress": [
@@ -13254,6 +15658,8 @@ export const parallelTurn: TurnResponse = {
                 },
                 "solar_efficiency": 0.0,
                 "oxygen_efficiency": 0.0,
+                "water_recovery_efficiency": 0.0,
+                "co2_efficiency": 0.0,
                 "health_changes": []
               },
               "objective_progress": [
@@ -13297,6 +15703,8 @@ export const parallelTurn: TurnResponse = {
             "resources": {},
             "solar_efficiency": 0.0,
             "oxygen_efficiency": 0.2,
+            "water_recovery_efficiency": 0.0,
+            "co2_efficiency": 0.0,
             "health_changes": []
           },
           "objective_progress": []
@@ -13320,6 +15728,22 @@ export const parallelTurn: TurnResponse = {
           }
         },
         "survival": {
+          "life_support": {
+            "wastewater_processed": 3.92,
+            "water_recovered": 3.136,
+            "water_for_oxygen": 1.33,
+            "wastewater_captured": 6.4,
+            "oxygen_generated": 13.3,
+            "co2_produced": 4.0,
+            "co2_removed": 4.0,
+            "co2_remaining": 0.0,
+            "power_components": {
+              "habitat": 12.0,
+              "water_recovery": 2.0,
+              "oxygen_generation": 4.0,
+              "co2_removal": 2.0
+            }
+          },
           "daylight_fraction": 1.0,
           "battery_capacity": 100.0,
           "electricity_curtailed": 0.0,
@@ -13353,6 +15777,7 @@ export const parallelTurn: TurnResponse = {
               "food_penalty": 0,
               "water_penalty": 0,
               "oxygen_penalty": 0,
+              "co2_penalty": 0,
               "died": false
             },
             {
@@ -13362,6 +15787,7 @@ export const parallelTurn: TurnResponse = {
               "food_penalty": 0,
               "water_penalty": 0,
               "oxygen_penalty": 0,
+              "co2_penalty": 0,
               "died": false
             },
             {
@@ -13371,6 +15797,7 @@ export const parallelTurn: TurnResponse = {
               "food_penalty": 0,
               "water_penalty": 0,
               "oxygen_penalty": 0,
+              "co2_penalty": 0,
               "died": false
             },
             {
@@ -13380,13 +15807,14 @@ export const parallelTurn: TurnResponse = {
               "food_penalty": 0,
               "water_penalty": 0,
               "oxygen_penalty": 0,
+              "co2_penalty": 0,
               "died": false
             }
           ]
         },
         "resource_changes": {
           "food": -4.0,
-          "water": -8.0,
+          "water": -6.194,
           "oxygen": -0.7,
           "electricity": 11.0,
           "medicine": 0.0,
@@ -13397,7 +15825,9 @@ export const parallelTurn: TurnResponse = {
           "diagnostic_tools": 0.0,
           "sealant_packs": 0.0,
           "scientific_tools": 0.0,
-          "research_data": 4.0
+          "research_data": 4.0,
+          "wastewater": 2.48,
+          "co2": 0.0
         },
         "deaths": [],
         "next_event": {
@@ -13407,6 +15837,8 @@ export const parallelTurn: TurnResponse = {
             "resources": {},
             "solar_efficiency": 0.0,
             "oxygen_efficiency": 0.0,
+            "water_recovery_efficiency": 0.0,
+            "co2_efficiency": 0.0,
             "health_changes": [
               {
                 "crew_id": "alex",
@@ -13510,6 +15942,8 @@ export const parallelTurn: TurnResponse = {
           "resources": {},
           "solar_efficiency": 0.2,
           "oxygen_efficiency": 0.0,
+          "water_recovery_efficiency": 0.0,
+          "co2_efficiency": 0.0,
           "crew_health": 0,
           "target": "selected"
         },
@@ -13517,6 +15951,8 @@ export const parallelTurn: TurnResponse = {
           "resources": {},
           "solar_efficiency": 0.0,
           "oxygen_efficiency": 0.0,
+          "water_recovery_efficiency": 0.0,
+          "co2_efficiency": 0.0,
           "crew_health": 0,
           "target": "selected"
         },
@@ -13581,6 +16017,8 @@ export const parallelTurn: TurnResponse = {
           "resources": {},
           "solar_efficiency": 0.0,
           "oxygen_efficiency": 0.2,
+          "water_recovery_efficiency": 0.0,
+          "co2_efficiency": 0.0,
           "crew_health": 0,
           "target": "selected"
         },
@@ -13588,6 +16026,8 @@ export const parallelTurn: TurnResponse = {
           "resources": {},
           "solar_efficiency": 0.0,
           "oxygen_efficiency": 0.0,
+          "water_recovery_efficiency": 0.0,
+          "co2_efficiency": 0.0,
           "crew_health": 0,
           "target": "selected"
         },
@@ -13634,6 +16074,136 @@ export const parallelTurn: TurnResponse = {
         "success_probability": null
       },
       {
+        "id": "service_water_recovery",
+        "action_type": "maintenance",
+        "objective_rewards": [],
+        "text": "Service the water recovery processor",
+        "description": "One repair kit and 2 power guarantee +30 water-recovery condition points. Recovered water comes from the wastewater stock and is available after this week's rations.",
+        "costs": {
+          "repair_kits": 1.0,
+          "electricity": 2.0
+        },
+        "required_items": {},
+        "requires_crew": true,
+        "role_bonus": {},
+        "crew_role_bonus": {},
+        "success_chance": 1.0,
+        "success_effects": {
+          "resources": {},
+          "solar_efficiency": 0.0,
+          "oxygen_efficiency": 0.0,
+          "water_recovery_efficiency": 0.3,
+          "co2_efficiency": 0.0,
+          "crew_health": 0,
+          "target": "selected"
+        },
+        "failure_effects": {
+          "resources": {},
+          "solar_efficiency": 0.0,
+          "oxygen_efficiency": 0.0,
+          "water_recovery_efficiency": 0.0,
+          "co2_efficiency": 0.0,
+          "crew_health": 0,
+          "target": "selected"
+        },
+        "required_role": null,
+        "minimum_crew": 1,
+        "available": true,
+        "unavailable_reasons": [],
+        "eligible_crew": [
+          {
+            "crew_id": "alex",
+            "available": true,
+            "unavailable_reasons": [],
+            "success_probability": 1.0
+          },
+          {
+            "crew_id": "lin",
+            "available": true,
+            "unavailable_reasons": [],
+            "success_probability": 1.0
+          },
+          {
+            "crew_id": "sam",
+            "available": true,
+            "unavailable_reasons": [],
+            "success_probability": 1.0
+          },
+          {
+            "crew_id": "maya",
+            "available": true,
+            "unavailable_reasons": [],
+            "success_probability": 1.0
+          }
+        ],
+        "success_probability": null
+      },
+      {
+        "id": "service_co2_scrubber",
+        "action_type": "maintenance",
+        "objective_rewards": [],
+        "text": "Service the carbon dioxide scrubber",
+        "description": "One repair kit and 2 power guarantee +30 scrubber condition points. Removal still requires power; oxygen reserves do not remove CO2.",
+        "costs": {
+          "repair_kits": 1.0,
+          "electricity": 2.0
+        },
+        "required_items": {},
+        "requires_crew": true,
+        "role_bonus": {},
+        "crew_role_bonus": {},
+        "success_chance": 1.0,
+        "success_effects": {
+          "resources": {},
+          "solar_efficiency": 0.0,
+          "oxygen_efficiency": 0.0,
+          "water_recovery_efficiency": 0.0,
+          "co2_efficiency": 0.3,
+          "crew_health": 0,
+          "target": "selected"
+        },
+        "failure_effects": {
+          "resources": {},
+          "solar_efficiency": 0.0,
+          "oxygen_efficiency": 0.0,
+          "water_recovery_efficiency": 0.0,
+          "co2_efficiency": 0.0,
+          "crew_health": 0,
+          "target": "selected"
+        },
+        "required_role": null,
+        "minimum_crew": 1,
+        "available": true,
+        "unavailable_reasons": [],
+        "eligible_crew": [
+          {
+            "crew_id": "alex",
+            "available": true,
+            "unavailable_reasons": [],
+            "success_probability": 1.0
+          },
+          {
+            "crew_id": "lin",
+            "available": true,
+            "unavailable_reasons": [],
+            "success_probability": 1.0
+          },
+          {
+            "crew_id": "sam",
+            "available": true,
+            "unavailable_reasons": [],
+            "success_probability": 1.0
+          },
+          {
+            "crew_id": "maya",
+            "available": true,
+            "unavailable_reasons": [],
+            "success_probability": 1.0
+          }
+        ],
+        "success_probability": null
+      },
+      {
         "id": "research_geology",
         "action_type": "research",
         "objective_rewards": [
@@ -13665,6 +16235,8 @@ export const parallelTurn: TurnResponse = {
           },
           "solar_efficiency": 0.0,
           "oxygen_efficiency": 0.0,
+          "water_recovery_efficiency": 0.0,
+          "co2_efficiency": 0.0,
           "crew_health": 0,
           "target": "selected"
         },
@@ -13672,6 +16244,8 @@ export const parallelTurn: TurnResponse = {
           "resources": {},
           "solar_efficiency": 0.0,
           "oxygen_efficiency": 0.0,
+          "water_recovery_efficiency": 0.0,
+          "co2_efficiency": 0.0,
           "crew_health": -8,
           "target": "selected"
         },
@@ -13732,6 +16306,8 @@ export const parallelTurn: TurnResponse = {
           "resources": {},
           "solar_efficiency": 0.0,
           "oxygen_efficiency": 0.0,
+          "water_recovery_efficiency": 0.0,
+          "co2_efficiency": 0.0,
           "crew_health": 0,
           "target": "selected"
         },
@@ -13739,6 +16315,8 @@ export const parallelTurn: TurnResponse = {
           "resources": {},
           "solar_efficiency": 0.0,
           "oxygen_efficiency": 0.0,
+          "water_recovery_efficiency": 0.0,
+          "co2_efficiency": 0.0,
           "crew_health": -8,
           "target": "selected"
         },
@@ -13801,6 +16379,8 @@ export const parallelTurn: TurnResponse = {
             },
             "solar_efficiency": 0.0,
             "oxygen_efficiency": 0.0,
+            "water_recovery_efficiency": 0.0,
+            "co2_efficiency": 0.0,
             "health_changes": []
           },
           "objective_progress": [
@@ -13835,6 +16415,8 @@ export const parallelTurn: TurnResponse = {
             },
             "solar_efficiency": 0.0,
             "oxygen_efficiency": 0.0,
+            "water_recovery_efficiency": 0.0,
+            "co2_efficiency": 0.0,
             "health_changes": []
           },
           "objective_progress": [
@@ -13878,6 +16460,8 @@ export const parallelTurn: TurnResponse = {
         "resources": {},
         "solar_efficiency": 0.0,
         "oxygen_efficiency": 0.2,
+        "water_recovery_efficiency": 0.0,
+        "co2_efficiency": 0.0,
         "health_changes": []
       },
       "objective_progress": []
@@ -13901,6 +16485,22 @@ export const parallelTurn: TurnResponse = {
       }
     },
     "survival": {
+      "life_support": {
+        "wastewater_processed": 3.92,
+        "water_recovered": 3.136,
+        "water_for_oxygen": 1.33,
+        "wastewater_captured": 6.4,
+        "oxygen_generated": 13.3,
+        "co2_produced": 4.0,
+        "co2_removed": 4.0,
+        "co2_remaining": 0.0,
+        "power_components": {
+          "habitat": 12.0,
+          "water_recovery": 2.0,
+          "oxygen_generation": 4.0,
+          "co2_removal": 2.0
+        }
+      },
       "daylight_fraction": 1.0,
       "battery_capacity": 100.0,
       "electricity_curtailed": 0.0,
@@ -13934,6 +16534,7 @@ export const parallelTurn: TurnResponse = {
           "food_penalty": 0,
           "water_penalty": 0,
           "oxygen_penalty": 0,
+          "co2_penalty": 0,
           "died": false
         },
         {
@@ -13943,6 +16544,7 @@ export const parallelTurn: TurnResponse = {
           "food_penalty": 0,
           "water_penalty": 0,
           "oxygen_penalty": 0,
+          "co2_penalty": 0,
           "died": false
         },
         {
@@ -13952,6 +16554,7 @@ export const parallelTurn: TurnResponse = {
           "food_penalty": 0,
           "water_penalty": 0,
           "oxygen_penalty": 0,
+          "co2_penalty": 0,
           "died": false
         },
         {
@@ -13961,13 +16564,14 @@ export const parallelTurn: TurnResponse = {
           "food_penalty": 0,
           "water_penalty": 0,
           "oxygen_penalty": 0,
+          "co2_penalty": 0,
           "died": false
         }
       ]
     },
     "resource_changes": {
       "food": -4.0,
-      "water": -8.0,
+      "water": -6.194,
       "oxygen": -0.7,
       "electricity": 11.0,
       "medicine": 0.0,
@@ -13978,7 +16582,9 @@ export const parallelTurn: TurnResponse = {
       "diagnostic_tools": 0.0,
       "sealant_packs": 0.0,
       "scientific_tools": 0.0,
-      "research_data": 4.0
+      "research_data": 4.0,
+      "wastewater": 2.48,
+      "co2": 0.0
     },
     "deaths": [],
     "next_event": {
@@ -13988,6 +16594,8 @@ export const parallelTurn: TurnResponse = {
         "resources": {},
         "solar_efficiency": 0.0,
         "oxygen_efficiency": 0.0,
+        "water_recovery_efficiency": 0.0,
+        "co2_efficiency": 0.0,
         "health_changes": [
           {
             "crew_id": "alex",
@@ -14019,11 +16627,32 @@ export const parallelTurn: TurnResponse = {
 export const projectRecording: GameResponse = {
   "game_id": "fixture-game",
   "state": {
+    "life_support": {
+      "source_url": "https://www.nasa.gov/reference/environmental-control-and-life-support-systems-eclss/",
+      "water_recovery_condition": 0.98,
+      "co2_condition": 0.985,
+      "wastewater": 11.04,
+      "co2_burden": 0.0,
+      "co2_warning_level": 4.0,
+      "recovery_capacity": 4.0,
+      "recovery_yield": 0.8,
+      "water_per_oxygen": 0.1,
+      "oxygen_reserve_weeks": 2.0,
+      "water_recovery_wear": 0.02,
+      "co2_wear": 0.015,
+      "co2_removal_capacity": 6.0,
+      "power_components": {
+        "habitat": 8.0,
+        "water_recovery": 2.0,
+        "oxygen_generation": 0.0,
+        "co2_removal": 2.0
+      }
+    },
     "energy": {
       "battery_capacity": 100.0,
-      "stored": 48.0,
+      "stored": 52.0,
       "priority": "life_support",
-      "life_support_required": 16.0,
+      "life_support_required": 12.0,
       "solar_day_earth_days": 29.5306,
       "source_url": "https://svs.gsfc.nasa.gov/12739/",
       "assumption": "Fictional shared epoch: sunrise at Apollo 11 longitude on mission day zero. Smooth non-polar horizon, equal day/night halves, constant useful output during daylight. Weekly averaging omits terrain shadows, eclipses, seasons, and panel incidence.",
@@ -14223,9 +16852,9 @@ export const projectRecording: GameResponse = {
     ],
     "resources": {
       "food": 49.9,
-      "water": 108.2,
-      "oxygen": 36.0,
-      "electricity": 48.0,
+      "water": 111.4,
+      "oxygen": 22.0,
+      "electricity": 52.0,
       "medicine": 8.0,
       "repair_kits": 10.0,
       "eva_batteries": 9.0,
@@ -14234,10 +16863,14 @@ export const projectRecording: GameResponse = {
       "diagnostic_tools": 0.0,
       "sealant_packs": 0.0,
       "scientific_tools": 1.0,
-      "research_data": 0.0
+      "research_data": 0.0,
+      "wastewater": 11.04,
+      "co2": 0.0
     },
     "solar_efficiency": 0.75,
     "oxygen_efficiency": 0.75,
+    "water_recovery_efficiency": 0.98,
+    "co2_efficiency": 0.985,
     "current_event_id": "oxygen_fault",
     "current_event": {
       "id": "oxygen_fault",
@@ -14250,6 +16883,8 @@ export const projectRecording: GameResponse = {
         "resources": {},
         "solar_efficiency": 0.0,
         "oxygen_efficiency": -0.25,
+        "water_recovery_efficiency": 0.0,
+        "co2_efficiency": 0.0,
         "crew_health": 0,
         "target": "selected"
       },
@@ -14275,6 +16910,8 @@ export const projectRecording: GameResponse = {
             "resources": {},
             "solar_efficiency": 0.0,
             "oxygen_efficiency": 0.25,
+            "water_recovery_efficiency": 0.0,
+            "co2_efficiency": 0.0,
             "crew_health": 0,
             "target": "selected"
           },
@@ -14282,6 +16919,8 @@ export const projectRecording: GameResponse = {
             "resources": {},
             "solar_efficiency": 0.0,
             "oxygen_efficiency": 0.0,
+            "water_recovery_efficiency": 0.0,
+            "co2_efficiency": 0.0,
             "crew_health": -15,
             "target": "selected"
           },
@@ -14326,6 +16965,8 @@ export const projectRecording: GameResponse = {
             "resources": {},
             "solar_efficiency": 0.0,
             "oxygen_efficiency": 0.2,
+            "water_recovery_efficiency": 0.0,
+            "co2_efficiency": 0.0,
             "crew_health": 0,
             "target": "selected"
           },
@@ -14333,6 +16974,8 @@ export const projectRecording: GameResponse = {
             "resources": {},
             "solar_efficiency": 0.0,
             "oxygen_efficiency": -0.1,
+            "water_recovery_efficiency": 0.0,
+            "co2_efficiency": 0.0,
             "crew_health": 0,
             "target": "selected"
           },
@@ -14372,6 +17015,8 @@ export const projectRecording: GameResponse = {
             "resources": {},
             "solar_efficiency": 0.0,
             "oxygen_efficiency": 0.0,
+            "water_recovery_efficiency": 0.0,
+            "co2_efficiency": 0.0,
             "crew_health": 0,
             "target": "selected"
           },
@@ -14379,6 +17024,8 @@ export const projectRecording: GameResponse = {
             "resources": {},
             "solar_efficiency": 0.0,
             "oxygen_efficiency": 0.0,
+            "water_recovery_efficiency": 0.0,
+            "co2_efficiency": 0.0,
             "crew_health": 0,
             "target": "selected"
           },
@@ -14431,6 +17078,8 @@ export const projectRecording: GameResponse = {
                 "resources": {},
                 "solar_efficiency": 0.0,
                 "oxygen_efficiency": 0.0,
+                "water_recovery_efficiency": 0.0,
+                "co2_efficiency": 0.0,
                 "health_changes": []
               },
               "objective_progress": []
@@ -14453,6 +17102,8 @@ export const projectRecording: GameResponse = {
             "resources": {},
             "solar_efficiency": 0.0,
             "oxygen_efficiency": 0.0,
+            "water_recovery_efficiency": 0.0,
+            "co2_efficiency": 0.0,
             "health_changes": []
           },
           "objective_progress": []
@@ -14468,6 +17119,22 @@ export const projectRecording: GameResponse = {
           }
         },
         "survival": {
+          "life_support": {
+            "wastewater_processed": 4.0,
+            "water_recovered": 3.2,
+            "water_for_oxygen": 0.0,
+            "wastewater_captured": 3.04,
+            "oxygen_generated": 0.0,
+            "co2_produced": 2.0,
+            "co2_removed": 2.0,
+            "co2_remaining": 0.0,
+            "power_components": {
+              "habitat": 8.0,
+              "water_recovery": 2.0,
+              "oxygen_generation": 0.0,
+              "co2_removal": 2.0
+            }
+          },
           "daylight_fraction": 1.0,
           "battery_capacity": 100.0,
           "electricity_curtailed": 0.0,
@@ -14486,10 +17153,10 @@ export const projectRecording: GameResponse = {
             "water": 0.0
           },
           "electricity_generated": 36.0,
-          "electricity_required": 16.0,
-          "electricity_used": 16.0,
+          "electricity_required": 12.0,
+          "electricity_used": 12.0,
           "life_support_power_fraction": 1.0,
-          "oxygen_generated": 14.0,
+          "oxygen_generated": 0.0,
           "oxygen_required": 6.0,
           "oxygen_used": 6.0,
           "oxygen_shortage": 0.0,
@@ -14501,6 +17168,7 @@ export const projectRecording: GameResponse = {
               "food_penalty": 0,
               "water_penalty": 0,
               "oxygen_penalty": 0,
+              "co2_penalty": 0,
               "died": false
             },
             {
@@ -14510,15 +17178,16 @@ export const projectRecording: GameResponse = {
               "food_penalty": 0,
               "water_penalty": 0,
               "oxygen_penalty": 0,
+              "co2_penalty": 0,
               "died": false
             }
           ]
         },
         "resource_changes": {
           "food": -2.1,
-          "water": -3.8,
-          "oxygen": 6.0,
-          "electricity": 18.0,
+          "water": -0.6,
+          "oxygen": -8.0,
+          "electricity": 22.0,
           "medicine": 0.0,
           "repair_kits": 0.0,
           "eva_batteries": -1.0,
@@ -14527,7 +17196,9 @@ export const projectRecording: GameResponse = {
           "diagnostic_tools": 0.0,
           "sealant_packs": 0.0,
           "scientific_tools": 0.0,
-          "research_data": 0.0
+          "research_data": 0.0,
+          "wastewater": -0.96,
+          "co2": 0.0
         },
         "deaths": [],
         "next_event": {
@@ -14537,6 +17208,8 @@ export const projectRecording: GameResponse = {
             "resources": {},
             "solar_efficiency": 0.0,
             "oxygen_efficiency": -0.25,
+            "water_recovery_efficiency": 0.0,
+            "co2_efficiency": 0.0,
             "health_changes": []
           }
         },
@@ -14619,6 +17292,8 @@ export const projectRecording: GameResponse = {
           "resources": {},
           "solar_efficiency": 0.2,
           "oxygen_efficiency": 0.0,
+          "water_recovery_efficiency": 0.0,
+          "co2_efficiency": 0.0,
           "crew_health": 0,
           "target": "selected"
         },
@@ -14626,6 +17301,8 @@ export const projectRecording: GameResponse = {
           "resources": {},
           "solar_efficiency": 0.0,
           "oxygen_efficiency": 0.0,
+          "water_recovery_efficiency": 0.0,
+          "co2_efficiency": 0.0,
           "crew_health": 0,
           "target": "selected"
         },
@@ -14674,6 +17351,8 @@ export const projectRecording: GameResponse = {
           "resources": {},
           "solar_efficiency": 0.0,
           "oxygen_efficiency": 0.2,
+          "water_recovery_efficiency": 0.0,
+          "co2_efficiency": 0.0,
           "crew_health": 0,
           "target": "selected"
         },
@@ -14681,6 +17360,8 @@ export const projectRecording: GameResponse = {
           "resources": {},
           "solar_efficiency": 0.0,
           "oxygen_efficiency": 0.0,
+          "water_recovery_efficiency": 0.0,
+          "co2_efficiency": 0.0,
           "crew_health": 0,
           "target": "selected"
         },
@@ -14705,6 +17386,112 @@ export const projectRecording: GameResponse = {
             "unavailable_reasons": [
               "Requires 1 oxygen_regulators; available 0."
             ],
+            "success_probability": 1.0
+          }
+        ],
+        "success_probability": null
+      },
+      {
+        "id": "service_water_recovery",
+        "action_type": "maintenance",
+        "objective_rewards": [],
+        "text": "Service the water recovery processor",
+        "description": "One repair kit and 2 power guarantee +30 water-recovery condition points. Recovered water comes from the wastewater stock and is available after this week's rations.",
+        "costs": {
+          "repair_kits": 1.0,
+          "electricity": 2.0
+        },
+        "required_items": {},
+        "requires_crew": true,
+        "role_bonus": {},
+        "crew_role_bonus": {},
+        "success_chance": 1.0,
+        "success_effects": {
+          "resources": {},
+          "solar_efficiency": 0.0,
+          "oxygen_efficiency": 0.0,
+          "water_recovery_efficiency": 0.3,
+          "co2_efficiency": 0.0,
+          "crew_health": 0,
+          "target": "selected"
+        },
+        "failure_effects": {
+          "resources": {},
+          "solar_efficiency": 0.0,
+          "oxygen_efficiency": 0.0,
+          "water_recovery_efficiency": 0.0,
+          "co2_efficiency": 0.0,
+          "crew_health": 0,
+          "target": "selected"
+        },
+        "required_role": null,
+        "minimum_crew": 1,
+        "available": true,
+        "unavailable_reasons": [],
+        "eligible_crew": [
+          {
+            "crew_id": "alex",
+            "available": true,
+            "unavailable_reasons": [],
+            "success_probability": 1.0
+          },
+          {
+            "crew_id": "lin",
+            "available": true,
+            "unavailable_reasons": [],
+            "success_probability": 1.0
+          }
+        ],
+        "success_probability": null
+      },
+      {
+        "id": "service_co2_scrubber",
+        "action_type": "maintenance",
+        "objective_rewards": [],
+        "text": "Service the carbon dioxide scrubber",
+        "description": "One repair kit and 2 power guarantee +30 scrubber condition points. Removal still requires power; oxygen reserves do not remove CO2.",
+        "costs": {
+          "repair_kits": 1.0,
+          "electricity": 2.0
+        },
+        "required_items": {},
+        "requires_crew": true,
+        "role_bonus": {},
+        "crew_role_bonus": {},
+        "success_chance": 1.0,
+        "success_effects": {
+          "resources": {},
+          "solar_efficiency": 0.0,
+          "oxygen_efficiency": 0.0,
+          "water_recovery_efficiency": 0.0,
+          "co2_efficiency": 0.3,
+          "crew_health": 0,
+          "target": "selected"
+        },
+        "failure_effects": {
+          "resources": {},
+          "solar_efficiency": 0.0,
+          "oxygen_efficiency": 0.0,
+          "water_recovery_efficiency": 0.0,
+          "co2_efficiency": 0.0,
+          "crew_health": 0,
+          "target": "selected"
+        },
+        "required_role": null,
+        "minimum_crew": 1,
+        "available": true,
+        "unavailable_reasons": [],
+        "eligible_crew": [
+          {
+            "crew_id": "alex",
+            "available": true,
+            "unavailable_reasons": [],
+            "success_probability": 1.0
+          },
+          {
+            "crew_id": "lin",
+            "available": true,
+            "unavailable_reasons": [],
             "success_probability": 1.0
           }
         ],
@@ -14742,6 +17529,8 @@ export const projectRecording: GameResponse = {
           },
           "solar_efficiency": 0.0,
           "oxygen_efficiency": 0.0,
+          "water_recovery_efficiency": 0.0,
+          "co2_efficiency": 0.0,
           "crew_health": 0,
           "target": "selected"
         },
@@ -14749,6 +17538,8 @@ export const projectRecording: GameResponse = {
           "resources": {},
           "solar_efficiency": 0.0,
           "oxygen_efficiency": 0.0,
+          "water_recovery_efficiency": 0.0,
+          "co2_efficiency": 0.0,
           "crew_health": -8,
           "target": "selected"
         },
@@ -14805,6 +17596,8 @@ export const projectRecording: GameResponse = {
           },
           "solar_efficiency": 0.0,
           "oxygen_efficiency": 0.0,
+          "water_recovery_efficiency": 0.0,
+          "co2_efficiency": 0.0,
           "crew_health": 0,
           "target": "selected"
         },
@@ -14812,6 +17605,8 @@ export const projectRecording: GameResponse = {
           "resources": {},
           "solar_efficiency": 0.0,
           "oxygen_efficiency": 0.0,
+          "water_recovery_efficiency": 0.0,
+          "co2_efficiency": 0.0,
           "crew_health": -6,
           "target": "selected"
         },
@@ -14842,9 +17637,30 @@ export const projectRecording: GameResponse = {
 export const projectPaused: GameResponse = {
   "game_id": "fixture-game",
   "state": {
+    "life_support": {
+      "source_url": "https://www.nasa.gov/reference/environmental-control-and-life-support-systems-eclss/",
+      "water_recovery_condition": 0.96,
+      "co2_condition": 0.97,
+      "wastewater": 10.16,
+      "co2_burden": 0.0,
+      "co2_warning_level": 4.0,
+      "recovery_capacity": 4.0,
+      "recovery_yield": 0.8,
+      "water_per_oxygen": 0.1,
+      "oxygen_reserve_weeks": 2.0,
+      "water_recovery_wear": 0.02,
+      "co2_wear": 0.015,
+      "co2_removal_capacity": 6.0,
+      "power_components": {
+        "habitat": 8.0,
+        "water_recovery": 2.0,
+        "oxygen_generation": 4.0,
+        "co2_removal": 2.0
+      }
+    },
     "energy": {
       "battery_capacity": 100.0,
-      "stored": 68.0,
+      "stored": 76.0,
       "priority": "life_support",
       "life_support_required": 16.0,
       "solar_day_earth_days": 29.5306,
@@ -15038,9 +17854,9 @@ export const projectPaused: GameResponse = {
     ],
     "resources": {
       "food": 47.8,
-      "water": 104.4,
-      "oxygen": 40.5,
-      "electricity": 68.0,
+      "water": 110.736,
+      "oxygen": 16.0,
+      "electricity": 76.0,
       "medicine": 8.0,
       "repair_kits": 10.0,
       "eva_batteries": 9.0,
@@ -15049,10 +17865,14 @@ export const projectPaused: GameResponse = {
       "diagnostic_tools": 0.0,
       "sealant_packs": 0.0,
       "scientific_tools": 1.0,
-      "research_data": 0.0
+      "research_data": 0.0,
+      "wastewater": 10.16,
+      "co2": 0.0
     },
     "solar_efficiency": 0.75,
     "oxygen_efficiency": 0.75,
+    "water_recovery_efficiency": 0.96,
+    "co2_efficiency": 0.97,
     "current_event_id": "medical_emergency",
     "current_event": {
       "id": "medical_emergency",
@@ -15065,6 +17885,8 @@ export const projectPaused: GameResponse = {
         "resources": {},
         "solar_efficiency": 0.0,
         "oxygen_efficiency": 0.0,
+        "water_recovery_efficiency": 0.0,
+        "co2_efficiency": 0.0,
         "crew_health": -8,
         "target": "all"
       },
@@ -15089,6 +17911,8 @@ export const projectPaused: GameResponse = {
             "resources": {},
             "solar_efficiency": 0.0,
             "oxygen_efficiency": 0.0,
+            "water_recovery_efficiency": 0.0,
+            "co2_efficiency": 0.0,
             "crew_health": 30,
             "target": "selected"
           },
@@ -15096,6 +17920,8 @@ export const projectPaused: GameResponse = {
             "resources": {},
             "solar_efficiency": 0.0,
             "oxygen_efficiency": 0.0,
+            "water_recovery_efficiency": 0.0,
+            "co2_efficiency": 0.0,
             "crew_health": -5,
             "target": "selected"
           },
@@ -15139,6 +17965,8 @@ export const projectPaused: GameResponse = {
             "resources": {},
             "solar_efficiency": 0.0,
             "oxygen_efficiency": 0.0,
+            "water_recovery_efficiency": 0.0,
+            "co2_efficiency": 0.0,
             "crew_health": 15,
             "target": "all"
           },
@@ -15146,6 +17974,8 @@ export const projectPaused: GameResponse = {
             "resources": {},
             "solar_efficiency": 0.0,
             "oxygen_efficiency": 0.0,
+            "water_recovery_efficiency": 0.0,
+            "co2_efficiency": 0.0,
             "crew_health": -5,
             "target": "all"
           },
@@ -15195,6 +18025,8 @@ export const projectPaused: GameResponse = {
             "resources": {},
             "solar_efficiency": 0.0,
             "oxygen_efficiency": 0.0,
+            "water_recovery_efficiency": 0.0,
+            "co2_efficiency": 0.0,
             "crew_health": 20,
             "target": "selected"
           },
@@ -15202,6 +18034,8 @@ export const projectPaused: GameResponse = {
             "resources": {},
             "solar_efficiency": 0.0,
             "oxygen_efficiency": 0.0,
+            "water_recovery_efficiency": 0.0,
+            "co2_efficiency": 0.0,
             "crew_health": 0,
             "target": "selected"
           },
@@ -15247,6 +18081,8 @@ export const projectPaused: GameResponse = {
             "resources": {},
             "solar_efficiency": 0.0,
             "oxygen_efficiency": 0.0,
+            "water_recovery_efficiency": 0.0,
+            "co2_efficiency": 0.0,
             "crew_health": -5,
             "target": "all"
           },
@@ -15254,6 +18090,8 @@ export const projectPaused: GameResponse = {
             "resources": {},
             "solar_efficiency": 0.0,
             "oxygen_efficiency": 0.0,
+            "water_recovery_efficiency": 0.0,
+            "co2_efficiency": 0.0,
             "crew_health": 0,
             "target": "selected"
           },
@@ -15307,6 +18145,8 @@ export const projectPaused: GameResponse = {
                 "resources": {},
                 "solar_efficiency": 0.0,
                 "oxygen_efficiency": 0.0,
+                "water_recovery_efficiency": 0.0,
+                "co2_efficiency": 0.0,
                 "health_changes": []
               },
               "objective_progress": []
@@ -15329,6 +18169,8 @@ export const projectPaused: GameResponse = {
             "resources": {},
             "solar_efficiency": 0.0,
             "oxygen_efficiency": 0.0,
+            "water_recovery_efficiency": 0.0,
+            "co2_efficiency": 0.0,
             "health_changes": []
           },
           "objective_progress": []
@@ -15344,6 +18186,22 @@ export const projectPaused: GameResponse = {
           }
         },
         "survival": {
+          "life_support": {
+            "wastewater_processed": 4.0,
+            "water_recovered": 3.2,
+            "water_for_oxygen": 0.0,
+            "wastewater_captured": 3.04,
+            "oxygen_generated": 0.0,
+            "co2_produced": 2.0,
+            "co2_removed": 2.0,
+            "co2_remaining": 0.0,
+            "power_components": {
+              "habitat": 8.0,
+              "water_recovery": 2.0,
+              "oxygen_generation": 0.0,
+              "co2_removal": 2.0
+            }
+          },
           "daylight_fraction": 1.0,
           "battery_capacity": 100.0,
           "electricity_curtailed": 0.0,
@@ -15362,10 +18220,10 @@ export const projectPaused: GameResponse = {
             "water": 0.0
           },
           "electricity_generated": 36.0,
-          "electricity_required": 16.0,
-          "electricity_used": 16.0,
+          "electricity_required": 12.0,
+          "electricity_used": 12.0,
           "life_support_power_fraction": 1.0,
-          "oxygen_generated": 14.0,
+          "oxygen_generated": 0.0,
           "oxygen_required": 6.0,
           "oxygen_used": 6.0,
           "oxygen_shortage": 0.0,
@@ -15377,6 +18235,7 @@ export const projectPaused: GameResponse = {
               "food_penalty": 0,
               "water_penalty": 0,
               "oxygen_penalty": 0,
+              "co2_penalty": 0,
               "died": false
             },
             {
@@ -15386,15 +18245,16 @@ export const projectPaused: GameResponse = {
               "food_penalty": 0,
               "water_penalty": 0,
               "oxygen_penalty": 0,
+              "co2_penalty": 0,
               "died": false
             }
           ]
         },
         "resource_changes": {
           "food": -2.1,
-          "water": -3.8,
-          "oxygen": 6.0,
-          "electricity": 18.0,
+          "water": -0.6,
+          "oxygen": -8.0,
+          "electricity": 22.0,
           "medicine": 0.0,
           "repair_kits": 0.0,
           "eva_batteries": -1.0,
@@ -15403,7 +18263,9 @@ export const projectPaused: GameResponse = {
           "diagnostic_tools": 0.0,
           "sealant_packs": 0.0,
           "scientific_tools": 0.0,
-          "research_data": 0.0
+          "research_data": 0.0,
+          "wastewater": -0.96,
+          "co2": 0.0
         },
         "deaths": [],
         "next_event": {
@@ -15413,6 +18275,8 @@ export const projectPaused: GameResponse = {
             "resources": {},
             "solar_efficiency": 0.0,
             "oxygen_efficiency": -0.25,
+            "water_recovery_efficiency": 0.0,
+            "co2_efficiency": 0.0,
             "health_changes": []
           }
         },
@@ -15442,6 +18306,8 @@ export const projectPaused: GameResponse = {
             "resources": {},
             "solar_efficiency": 0.0,
             "oxygen_efficiency": 0.0,
+            "water_recovery_efficiency": 0.0,
+            "co2_efficiency": 0.0,
             "health_changes": []
           },
           "objective_progress": []
@@ -15457,6 +18323,22 @@ export const projectPaused: GameResponse = {
           }
         },
         "survival": {
+          "life_support": {
+            "wastewater_processed": 3.92,
+            "water_recovered": 3.136,
+            "water_for_oxygen": 0.0,
+            "wastewater_captured": 3.04,
+            "oxygen_generated": 0.0,
+            "co2_produced": 2.0,
+            "co2_removed": 2.0,
+            "co2_remaining": 0.0,
+            "power_components": {
+              "habitat": 8.0,
+              "water_recovery": 2.0,
+              "oxygen_generation": 0.0,
+              "co2_removal": 2.0
+            }
+          },
           "daylight_fraction": 1.0,
           "battery_capacity": 100.0,
           "electricity_curtailed": 0.0,
@@ -15475,10 +18357,10 @@ export const projectPaused: GameResponse = {
             "water": 0.0
           },
           "electricity_generated": 36.0,
-          "electricity_required": 16.0,
-          "electricity_used": 16.0,
+          "electricity_required": 12.0,
+          "electricity_used": 12.0,
           "life_support_power_fraction": 1.0,
-          "oxygen_generated": 10.5,
+          "oxygen_generated": 0.0,
           "oxygen_required": 6.0,
           "oxygen_used": 6.0,
           "oxygen_shortage": 0.0,
@@ -15490,6 +18372,7 @@ export const projectPaused: GameResponse = {
               "food_penalty": 0,
               "water_penalty": 0,
               "oxygen_penalty": 0,
+              "co2_penalty": 0,
               "died": false
             },
             {
@@ -15499,15 +18382,16 @@ export const projectPaused: GameResponse = {
               "food_penalty": 0,
               "water_penalty": 0,
               "oxygen_penalty": 0,
+              "co2_penalty": 0,
               "died": false
             }
           ]
         },
         "resource_changes": {
           "food": -2.1,
-          "water": -3.8,
-          "oxygen": 4.5,
-          "electricity": 20.0,
+          "water": -0.664,
+          "oxygen": -6.0,
+          "electricity": 24.0,
           "medicine": 0.0,
           "repair_kits": 0.0,
           "eva_batteries": 0.0,
@@ -15516,7 +18400,9 @@ export const projectPaused: GameResponse = {
           "diagnostic_tools": 0.0,
           "sealant_packs": 0.0,
           "scientific_tools": 0.0,
-          "research_data": 0.0
+          "research_data": 0.0,
+          "wastewater": -0.88,
+          "co2": 0.0
         },
         "deaths": [],
         "next_event": {
@@ -15526,6 +18412,8 @@ export const projectPaused: GameResponse = {
             "resources": {},
             "solar_efficiency": 0.0,
             "oxygen_efficiency": 0.0,
+            "water_recovery_efficiency": 0.0,
+            "co2_efficiency": 0.0,
             "health_changes": [
               {
                 "crew_id": "alex",
@@ -15619,6 +18507,8 @@ export const projectPaused: GameResponse = {
           "resources": {},
           "solar_efficiency": 0.2,
           "oxygen_efficiency": 0.0,
+          "water_recovery_efficiency": 0.0,
+          "co2_efficiency": 0.0,
           "crew_health": 0,
           "target": "selected"
         },
@@ -15626,6 +18516,8 @@ export const projectPaused: GameResponse = {
           "resources": {},
           "solar_efficiency": 0.0,
           "oxygen_efficiency": 0.0,
+          "water_recovery_efficiency": 0.0,
+          "co2_efficiency": 0.0,
           "crew_health": 0,
           "target": "selected"
         },
@@ -15674,6 +18566,8 @@ export const projectPaused: GameResponse = {
           "resources": {},
           "solar_efficiency": 0.0,
           "oxygen_efficiency": 0.2,
+          "water_recovery_efficiency": 0.0,
+          "co2_efficiency": 0.0,
           "crew_health": 0,
           "target": "selected"
         },
@@ -15681,6 +18575,8 @@ export const projectPaused: GameResponse = {
           "resources": {},
           "solar_efficiency": 0.0,
           "oxygen_efficiency": 0.0,
+          "water_recovery_efficiency": 0.0,
+          "co2_efficiency": 0.0,
           "crew_health": 0,
           "target": "selected"
         },
@@ -15705,6 +18601,112 @@ export const projectPaused: GameResponse = {
             "unavailable_reasons": [
               "Requires 1 oxygen_regulators; available 0."
             ],
+            "success_probability": 1.0
+          }
+        ],
+        "success_probability": null
+      },
+      {
+        "id": "service_water_recovery",
+        "action_type": "maintenance",
+        "objective_rewards": [],
+        "text": "Service the water recovery processor",
+        "description": "One repair kit and 2 power guarantee +30 water-recovery condition points. Recovered water comes from the wastewater stock and is available after this week's rations.",
+        "costs": {
+          "repair_kits": 1.0,
+          "electricity": 2.0
+        },
+        "required_items": {},
+        "requires_crew": true,
+        "role_bonus": {},
+        "crew_role_bonus": {},
+        "success_chance": 1.0,
+        "success_effects": {
+          "resources": {},
+          "solar_efficiency": 0.0,
+          "oxygen_efficiency": 0.0,
+          "water_recovery_efficiency": 0.3,
+          "co2_efficiency": 0.0,
+          "crew_health": 0,
+          "target": "selected"
+        },
+        "failure_effects": {
+          "resources": {},
+          "solar_efficiency": 0.0,
+          "oxygen_efficiency": 0.0,
+          "water_recovery_efficiency": 0.0,
+          "co2_efficiency": 0.0,
+          "crew_health": 0,
+          "target": "selected"
+        },
+        "required_role": null,
+        "minimum_crew": 1,
+        "available": true,
+        "unavailable_reasons": [],
+        "eligible_crew": [
+          {
+            "crew_id": "alex",
+            "available": true,
+            "unavailable_reasons": [],
+            "success_probability": 1.0
+          },
+          {
+            "crew_id": "lin",
+            "available": true,
+            "unavailable_reasons": [],
+            "success_probability": 1.0
+          }
+        ],
+        "success_probability": null
+      },
+      {
+        "id": "service_co2_scrubber",
+        "action_type": "maintenance",
+        "objective_rewards": [],
+        "text": "Service the carbon dioxide scrubber",
+        "description": "One repair kit and 2 power guarantee +30 scrubber condition points. Removal still requires power; oxygen reserves do not remove CO2.",
+        "costs": {
+          "repair_kits": 1.0,
+          "electricity": 2.0
+        },
+        "required_items": {},
+        "requires_crew": true,
+        "role_bonus": {},
+        "crew_role_bonus": {},
+        "success_chance": 1.0,
+        "success_effects": {
+          "resources": {},
+          "solar_efficiency": 0.0,
+          "oxygen_efficiency": 0.0,
+          "water_recovery_efficiency": 0.0,
+          "co2_efficiency": 0.3,
+          "crew_health": 0,
+          "target": "selected"
+        },
+        "failure_effects": {
+          "resources": {},
+          "solar_efficiency": 0.0,
+          "oxygen_efficiency": 0.0,
+          "water_recovery_efficiency": 0.0,
+          "co2_efficiency": 0.0,
+          "crew_health": 0,
+          "target": "selected"
+        },
+        "required_role": null,
+        "minimum_crew": 1,
+        "available": true,
+        "unavailable_reasons": [],
+        "eligible_crew": [
+          {
+            "crew_id": "alex",
+            "available": true,
+            "unavailable_reasons": [],
+            "success_probability": 1.0
+          },
+          {
+            "crew_id": "lin",
+            "available": true,
+            "unavailable_reasons": [],
             "success_probability": 1.0
           }
         ],
@@ -15742,6 +18744,8 @@ export const projectPaused: GameResponse = {
           },
           "solar_efficiency": 0.0,
           "oxygen_efficiency": 0.0,
+          "water_recovery_efficiency": 0.0,
+          "co2_efficiency": 0.0,
           "crew_health": 0,
           "target": "selected"
         },
@@ -15749,6 +18753,8 @@ export const projectPaused: GameResponse = {
           "resources": {},
           "solar_efficiency": 0.0,
           "oxygen_efficiency": 0.0,
+          "water_recovery_efficiency": 0.0,
+          "co2_efficiency": 0.0,
           "crew_health": -8,
           "target": "selected"
         },
@@ -15805,6 +18811,8 @@ export const projectPaused: GameResponse = {
           },
           "solar_efficiency": 0.0,
           "oxygen_efficiency": 0.0,
+          "water_recovery_efficiency": 0.0,
+          "co2_efficiency": 0.0,
           "crew_health": 0,
           "target": "selected"
         },
@@ -15812,6 +18820,8 @@ export const projectPaused: GameResponse = {
           "resources": {},
           "solar_efficiency": 0.0,
           "oxygen_efficiency": 0.0,
+          "water_recovery_efficiency": 0.0,
+          "co2_efficiency": 0.0,
           "crew_health": -6,
           "target": "selected"
         },
@@ -15842,9 +18852,30 @@ export const projectPaused: GameResponse = {
 export const projectAnalysis: GameResponse = {
   "game_id": "fixture-game",
   "state": {
+    "life_support": {
+      "source_url": "https://www.nasa.gov/reference/environmental-control-and-life-support-systems-eclss/",
+      "water_recovery_condition": 0.9,
+      "co2_condition": 0.925,
+      "wastewater": 8.0,
+      "co2_burden": 0.0,
+      "co2_warning_level": 4.0,
+      "recovery_capacity": 4.0,
+      "recovery_yield": 0.8,
+      "water_per_oxygen": 0.1,
+      "oxygen_reserve_weeks": 2.0,
+      "water_recovery_wear": 0.02,
+      "co2_wear": 0.015,
+      "co2_removal_capacity": 6.0,
+      "power_components": {
+        "habitat": 8.0,
+        "water_recovery": 2.0,
+        "oxygen_generation": 4.0,
+        "co2_removal": 2.0
+      }
+    },
     "energy": {
       "battery_capacity": 100.0,
-      "stored": 46.064192,
+      "stored": 54.064192,
       "priority": "life_support",
       "life_support_required": 16.0,
       "solar_day_earth_days": 29.5306,
@@ -16016,9 +19047,9 @@ export const projectAnalysis: GameResponse = {
     ],
     "resources": {
       "food": 40.5,
-      "water": 92.0,
-      "oxygen": 54.0,
-      "electricity": 46.064192,
+      "water": 105.96,
+      "oxygen": 12.0,
+      "electricity": 54.064192,
       "medicine": 8.0,
       "repair_kits": 10.0,
       "eva_batteries": 9.0,
@@ -16027,10 +19058,14 @@ export const projectAnalysis: GameResponse = {
       "diagnostic_tools": 0.0,
       "sealant_packs": 0.0,
       "scientific_tools": 1.0,
-      "research_data": 0.0
+      "research_data": 0.0,
+      "wastewater": 8.0,
+      "co2": 0.0
     },
     "solar_efficiency": 0.75,
     "oxygen_efficiency": 0.75,
+    "water_recovery_efficiency": 0.9,
+    "co2_efficiency": 0.925,
     "current_event_id": "seismic_signal",
     "current_event": {
       "id": "seismic_signal",
@@ -16043,6 +19078,8 @@ export const projectAnalysis: GameResponse = {
         "resources": {},
         "solar_efficiency": 0.0,
         "oxygen_efficiency": 0.0,
+        "water_recovery_efficiency": 0.0,
+        "co2_efficiency": 0.0,
         "crew_health": 0,
         "target": "selected"
       },
@@ -16077,6 +19114,8 @@ export const projectAnalysis: GameResponse = {
             },
             "solar_efficiency": 0.0,
             "oxygen_efficiency": 0.0,
+            "water_recovery_efficiency": 0.0,
+            "co2_efficiency": 0.0,
             "crew_health": 0,
             "target": "selected"
           },
@@ -16086,6 +19125,8 @@ export const projectAnalysis: GameResponse = {
             },
             "solar_efficiency": 0.0,
             "oxygen_efficiency": 0.0,
+            "water_recovery_efficiency": 0.0,
+            "co2_efficiency": 0.0,
             "crew_health": 0,
             "target": "selected"
           },
@@ -16127,6 +19168,8 @@ export const projectAnalysis: GameResponse = {
             },
             "solar_efficiency": 0.0,
             "oxygen_efficiency": 0.0,
+            "water_recovery_efficiency": 0.0,
+            "co2_efficiency": 0.0,
             "crew_health": 0,
             "target": "selected"
           },
@@ -16134,6 +19177,8 @@ export const projectAnalysis: GameResponse = {
             "resources": {},
             "solar_efficiency": 0.0,
             "oxygen_efficiency": 0.0,
+            "water_recovery_efficiency": 0.0,
+            "co2_efficiency": 0.0,
             "crew_health": 0,
             "target": "selected"
           },
@@ -16160,6 +19205,8 @@ export const projectAnalysis: GameResponse = {
             "resources": {},
             "solar_efficiency": 0.0,
             "oxygen_efficiency": 0.0,
+            "water_recovery_efficiency": 0.0,
+            "co2_efficiency": 0.0,
             "crew_health": 0,
             "target": "selected"
           },
@@ -16167,6 +19214,8 @@ export const projectAnalysis: GameResponse = {
             "resources": {},
             "solar_efficiency": 0.0,
             "oxygen_efficiency": 0.0,
+            "water_recovery_efficiency": 0.0,
+            "co2_efficiency": 0.0,
             "crew_health": 0,
             "target": "selected"
           },
@@ -16223,6 +19272,8 @@ export const projectAnalysis: GameResponse = {
                 "resources": {},
                 "solar_efficiency": 0.0,
                 "oxygen_efficiency": 0.0,
+                "water_recovery_efficiency": 0.0,
+                "co2_efficiency": 0.0,
                 "health_changes": []
               },
               "objective_progress": []
@@ -16245,6 +19296,8 @@ export const projectAnalysis: GameResponse = {
             "resources": {},
             "solar_efficiency": 0.0,
             "oxygen_efficiency": 0.0,
+            "water_recovery_efficiency": 0.0,
+            "co2_efficiency": 0.0,
             "health_changes": []
           },
           "objective_progress": []
@@ -16260,6 +19313,22 @@ export const projectAnalysis: GameResponse = {
           }
         },
         "survival": {
+          "life_support": {
+            "wastewater_processed": 4.0,
+            "water_recovered": 3.2,
+            "water_for_oxygen": 0.0,
+            "wastewater_captured": 3.04,
+            "oxygen_generated": 0.0,
+            "co2_produced": 2.0,
+            "co2_removed": 2.0,
+            "co2_remaining": 0.0,
+            "power_components": {
+              "habitat": 8.0,
+              "water_recovery": 2.0,
+              "oxygen_generation": 0.0,
+              "co2_removal": 2.0
+            }
+          },
           "daylight_fraction": 1.0,
           "battery_capacity": 100.0,
           "electricity_curtailed": 0.0,
@@ -16278,10 +19347,10 @@ export const projectAnalysis: GameResponse = {
             "water": 0.0
           },
           "electricity_generated": 36.0,
-          "electricity_required": 16.0,
-          "electricity_used": 16.0,
+          "electricity_required": 12.0,
+          "electricity_used": 12.0,
           "life_support_power_fraction": 1.0,
-          "oxygen_generated": 14.0,
+          "oxygen_generated": 0.0,
           "oxygen_required": 6.0,
           "oxygen_used": 6.0,
           "oxygen_shortage": 0.0,
@@ -16293,6 +19362,7 @@ export const projectAnalysis: GameResponse = {
               "food_penalty": 0,
               "water_penalty": 0,
               "oxygen_penalty": 0,
+              "co2_penalty": 0,
               "died": false
             },
             {
@@ -16302,15 +19372,16 @@ export const projectAnalysis: GameResponse = {
               "food_penalty": 0,
               "water_penalty": 0,
               "oxygen_penalty": 0,
+              "co2_penalty": 0,
               "died": false
             }
           ]
         },
         "resource_changes": {
           "food": -2.1,
-          "water": -3.8,
-          "oxygen": 6.0,
-          "electricity": 18.0,
+          "water": -0.6,
+          "oxygen": -8.0,
+          "electricity": 22.0,
           "medicine": 0.0,
           "repair_kits": 0.0,
           "eva_batteries": -1.0,
@@ -16319,7 +19390,9 @@ export const projectAnalysis: GameResponse = {
           "diagnostic_tools": 0.0,
           "sealant_packs": 0.0,
           "scientific_tools": 0.0,
-          "research_data": 0.0
+          "research_data": 0.0,
+          "wastewater": -0.96,
+          "co2": 0.0
         },
         "deaths": [],
         "next_event": {
@@ -16329,6 +19402,8 @@ export const projectAnalysis: GameResponse = {
             "resources": {},
             "solar_efficiency": 0.0,
             "oxygen_efficiency": -0.25,
+            "water_recovery_efficiency": 0.0,
+            "co2_efficiency": 0.0,
             "health_changes": []
           }
         },
@@ -16358,6 +19433,8 @@ export const projectAnalysis: GameResponse = {
             "resources": {},
             "solar_efficiency": 0.0,
             "oxygen_efficiency": 0.0,
+            "water_recovery_efficiency": 0.0,
+            "co2_efficiency": 0.0,
             "health_changes": []
           },
           "objective_progress": []
@@ -16373,6 +19450,22 @@ export const projectAnalysis: GameResponse = {
           }
         },
         "survival": {
+          "life_support": {
+            "wastewater_processed": 3.92,
+            "water_recovered": 3.136,
+            "water_for_oxygen": 0.0,
+            "wastewater_captured": 3.04,
+            "oxygen_generated": 0.0,
+            "co2_produced": 2.0,
+            "co2_removed": 2.0,
+            "co2_remaining": 0.0,
+            "power_components": {
+              "habitat": 8.0,
+              "water_recovery": 2.0,
+              "oxygen_generation": 0.0,
+              "co2_removal": 2.0
+            }
+          },
           "daylight_fraction": 1.0,
           "battery_capacity": 100.0,
           "electricity_curtailed": 0.0,
@@ -16391,10 +19484,10 @@ export const projectAnalysis: GameResponse = {
             "water": 0.0
           },
           "electricity_generated": 36.0,
-          "electricity_required": 16.0,
-          "electricity_used": 16.0,
+          "electricity_required": 12.0,
+          "electricity_used": 12.0,
           "life_support_power_fraction": 1.0,
-          "oxygen_generated": 10.5,
+          "oxygen_generated": 0.0,
           "oxygen_required": 6.0,
           "oxygen_used": 6.0,
           "oxygen_shortage": 0.0,
@@ -16406,6 +19499,7 @@ export const projectAnalysis: GameResponse = {
               "food_penalty": 0,
               "water_penalty": 0,
               "oxygen_penalty": 0,
+              "co2_penalty": 0,
               "died": false
             },
             {
@@ -16415,15 +19509,16 @@ export const projectAnalysis: GameResponse = {
               "food_penalty": 0,
               "water_penalty": 0,
               "oxygen_penalty": 0,
+              "co2_penalty": 0,
               "died": false
             }
           ]
         },
         "resource_changes": {
           "food": -2.1,
-          "water": -3.8,
-          "oxygen": 4.5,
-          "electricity": 20.0,
+          "water": -0.664,
+          "oxygen": -6.0,
+          "electricity": 24.0,
           "medicine": 0.0,
           "repair_kits": 0.0,
           "eva_batteries": 0.0,
@@ -16432,7 +19527,9 @@ export const projectAnalysis: GameResponse = {
           "diagnostic_tools": 0.0,
           "sealant_packs": 0.0,
           "scientific_tools": 0.0,
-          "research_data": 0.0
+          "research_data": 0.0,
+          "wastewater": -0.88,
+          "co2": 0.0
         },
         "deaths": [],
         "next_event": {
@@ -16442,6 +19539,8 @@ export const projectAnalysis: GameResponse = {
             "resources": {},
             "solar_efficiency": 0.0,
             "oxygen_efficiency": 0.0,
+            "water_recovery_efficiency": 0.0,
+            "co2_efficiency": 0.0,
             "health_changes": [
               {
                 "crew_id": "alex",
@@ -16487,6 +19586,8 @@ export const projectAnalysis: GameResponse = {
             "resources": {},
             "solar_efficiency": 0.0,
             "oxygen_efficiency": 0.0,
+            "water_recovery_efficiency": 0.0,
+            "co2_efficiency": 0.0,
             "health_changes": [
               {
                 "crew_id": "alex",
@@ -16513,6 +19614,22 @@ export const projectAnalysis: GameResponse = {
           }
         },
         "survival": {
+          "life_support": {
+            "wastewater_processed": 3.84,
+            "water_recovered": 3.072,
+            "water_for_oxygen": 0.2,
+            "wastewater_captured": 3.04,
+            "oxygen_generated": 2.0,
+            "co2_produced": 2.0,
+            "co2_removed": 2.0,
+            "co2_remaining": 0.0,
+            "power_components": {
+              "habitat": 8.0,
+              "water_recovery": 2.0,
+              "oxygen_generation": 4.0,
+              "co2_removal": 2.0
+            }
+          },
           "daylight_fraction": 0.109329,
           "battery_capacity": 100.0,
           "electricity_curtailed": 0.0,
@@ -16534,7 +19651,7 @@ export const projectAnalysis: GameResponse = {
           "electricity_required": 16.0,
           "electricity_used": 16.0,
           "life_support_power_fraction": 1.0,
-          "oxygen_generated": 10.5,
+          "oxygen_generated": 2.0,
           "oxygen_required": 6.0,
           "oxygen_used": 6.0,
           "oxygen_shortage": 0.0,
@@ -16546,6 +19663,7 @@ export const projectAnalysis: GameResponse = {
               "food_penalty": 0,
               "water_penalty": 0,
               "oxygen_penalty": 0,
+              "co2_penalty": 0,
               "died": false
             },
             {
@@ -16555,14 +19673,15 @@ export const projectAnalysis: GameResponse = {
               "food_penalty": 0,
               "water_penalty": 0,
               "oxygen_penalty": 0,
+              "co2_penalty": 0,
               "died": false
             }
           ]
         },
         "resource_changes": {
           "food": -2.1,
-          "water": -3.8,
-          "oxygen": 4.5,
+          "water": -0.928,
+          "oxygen": -4.0,
           "electricity": -14.064156,
           "medicine": 0.0,
           "repair_kits": 0.0,
@@ -16572,7 +19691,9 @@ export const projectAnalysis: GameResponse = {
           "diagnostic_tools": 0.0,
           "sealant_packs": 0.0,
           "scientific_tools": 0.0,
-          "research_data": 0.0
+          "research_data": 0.0,
+          "wastewater": -0.8,
+          "co2": 0.0
         },
         "deaths": [],
         "next_event": {
@@ -16582,6 +19703,8 @@ export const projectAnalysis: GameResponse = {
             "resources": {},
             "solar_efficiency": 0.0,
             "oxygen_efficiency": 0.0,
+            "water_recovery_efficiency": 0.0,
+            "co2_efficiency": 0.0,
             "health_changes": []
           }
         },
@@ -16611,6 +19734,8 @@ export const projectAnalysis: GameResponse = {
             "resources": {},
             "solar_efficiency": 0.0,
             "oxygen_efficiency": 0.0,
+            "water_recovery_efficiency": 0.0,
+            "co2_efficiency": 0.0,
             "health_changes": []
           },
           "objective_progress": []
@@ -16626,6 +19751,22 @@ export const projectAnalysis: GameResponse = {
           }
         },
         "survival": {
+          "life_support": {
+            "wastewater_processed": 3.76,
+            "water_recovered": 3.008,
+            "water_for_oxygen": 0.6,
+            "wastewater_captured": 3.04,
+            "oxygen_generated": 6.0,
+            "co2_produced": 2.0,
+            "co2_removed": 2.0,
+            "co2_remaining": 0.0,
+            "power_components": {
+              "habitat": 8.0,
+              "water_recovery": 2.0,
+              "oxygen_generation": 4.0,
+              "co2_removal": 2.0
+            }
+          },
           "daylight_fraction": 0.0,
           "battery_capacity": 100.0,
           "electricity_curtailed": 0.0,
@@ -16647,7 +19788,7 @@ export const projectAnalysis: GameResponse = {
           "electricity_required": 16.0,
           "electricity_used": 16.0,
           "life_support_power_fraction": 1.0,
-          "oxygen_generated": 10.5,
+          "oxygen_generated": 6.0,
           "oxygen_required": 6.0,
           "oxygen_used": 6.0,
           "oxygen_shortage": 0.0,
@@ -16659,6 +19800,7 @@ export const projectAnalysis: GameResponse = {
               "food_penalty": 0,
               "water_penalty": 0,
               "oxygen_penalty": 0,
+              "co2_penalty": 0,
               "died": false
             },
             {
@@ -16668,14 +19810,15 @@ export const projectAnalysis: GameResponse = {
               "food_penalty": 0,
               "water_penalty": 0,
               "oxygen_penalty": 0,
+              "co2_penalty": 0,
               "died": false
             }
           ]
         },
         "resource_changes": {
           "food": -2.1,
-          "water": -3.8,
-          "oxygen": 4.5,
+          "water": -1.392,
+          "oxygen": 0.0,
           "electricity": -18.0,
           "medicine": 0.0,
           "repair_kits": 0.0,
@@ -16685,7 +19828,9 @@ export const projectAnalysis: GameResponse = {
           "diagnostic_tools": 0.0,
           "sealant_packs": 0.0,
           "scientific_tools": 0.0,
-          "research_data": 0.0
+          "research_data": 0.0,
+          "wastewater": -0.72,
+          "co2": 0.0
         },
         "deaths": [],
         "next_event": {
@@ -16695,6 +19840,8 @@ export const projectAnalysis: GameResponse = {
             "resources": {},
             "solar_efficiency": 0.0,
             "oxygen_efficiency": 0.0,
+            "water_recovery_efficiency": 0.0,
+            "co2_efficiency": 0.0,
             "health_changes": []
           }
         },
@@ -16727,6 +19874,8 @@ export const projectAnalysis: GameResponse = {
             "resources": {},
             "solar_efficiency": 0.0,
             "oxygen_efficiency": 0.0,
+            "water_recovery_efficiency": 0.0,
+            "co2_efficiency": 0.0,
             "health_changes": [
               {
                 "crew_id": "alex",
@@ -16753,6 +19902,22 @@ export const projectAnalysis: GameResponse = {
           }
         },
         "survival": {
+          "life_support": {
+            "wastewater_processed": 3.68,
+            "water_recovered": 2.944,
+            "water_for_oxygen": 0.6,
+            "wastewater_captured": 3.04,
+            "oxygen_generated": 6.0,
+            "co2_produced": 2.0,
+            "co2_removed": 2.0,
+            "co2_remaining": 0.0,
+            "power_components": {
+              "habitat": 8.0,
+              "water_recovery": 2.0,
+              "oxygen_generation": 4.0,
+              "co2_removal": 2.0
+            }
+          },
           "daylight_fraction": 0.781343,
           "battery_capacity": 100.0,
           "electricity_curtailed": 0.0,
@@ -16774,7 +19939,7 @@ export const projectAnalysis: GameResponse = {
           "electricity_required": 16.0,
           "electricity_used": 16.0,
           "life_support_power_fraction": 1.0,
-          "oxygen_generated": 10.5,
+          "oxygen_generated": 6.0,
           "oxygen_required": 6.0,
           "oxygen_used": 6.0,
           "oxygen_shortage": 0.0,
@@ -16786,6 +19951,7 @@ export const projectAnalysis: GameResponse = {
               "food_penalty": 0,
               "water_penalty": 0,
               "oxygen_penalty": 0,
+              "co2_penalty": 0,
               "died": false
             },
             {
@@ -16795,14 +19961,15 @@ export const projectAnalysis: GameResponse = {
               "food_penalty": 0,
               "water_penalty": 0,
               "oxygen_penalty": 0,
+              "co2_penalty": 0,
               "died": false
             }
           ]
         },
         "resource_changes": {
           "food": -3.1,
-          "water": -4.8,
-          "oxygen": 4.5,
+          "water": -2.456,
+          "oxygen": 0.0,
           "electricity": 10.128348,
           "medicine": 0.0,
           "repair_kits": 0.0,
@@ -16812,7 +19979,9 @@ export const projectAnalysis: GameResponse = {
           "diagnostic_tools": 0.0,
           "sealant_packs": 0.0,
           "scientific_tools": 0.0,
-          "research_data": 0.0
+          "research_data": 0.0,
+          "wastewater": -0.64,
+          "co2": 0.0
         },
         "deaths": [],
         "next_event": {
@@ -16822,6 +19991,8 @@ export const projectAnalysis: GameResponse = {
             "resources": {},
             "solar_efficiency": 0.0,
             "oxygen_efficiency": 0.0,
+            "water_recovery_efficiency": 0.0,
+            "co2_efficiency": 0.0,
             "health_changes": []
           }
         },
@@ -16904,6 +20075,8 @@ export const projectAnalysis: GameResponse = {
           "resources": {},
           "solar_efficiency": 0.2,
           "oxygen_efficiency": 0.0,
+          "water_recovery_efficiency": 0.0,
+          "co2_efficiency": 0.0,
           "crew_health": 0,
           "target": "selected"
         },
@@ -16911,6 +20084,8 @@ export const projectAnalysis: GameResponse = {
           "resources": {},
           "solar_efficiency": 0.0,
           "oxygen_efficiency": 0.0,
+          "water_recovery_efficiency": 0.0,
+          "co2_efficiency": 0.0,
           "crew_health": 0,
           "target": "selected"
         },
@@ -16959,6 +20134,8 @@ export const projectAnalysis: GameResponse = {
           "resources": {},
           "solar_efficiency": 0.0,
           "oxygen_efficiency": 0.2,
+          "water_recovery_efficiency": 0.0,
+          "co2_efficiency": 0.0,
           "crew_health": 0,
           "target": "selected"
         },
@@ -16966,6 +20143,8 @@ export const projectAnalysis: GameResponse = {
           "resources": {},
           "solar_efficiency": 0.0,
           "oxygen_efficiency": 0.0,
+          "water_recovery_efficiency": 0.0,
+          "co2_efficiency": 0.0,
           "crew_health": 0,
           "target": "selected"
         },
@@ -16990,6 +20169,112 @@ export const projectAnalysis: GameResponse = {
             "unavailable_reasons": [
               "Requires 1 oxygen_regulators; available 0."
             ],
+            "success_probability": 1.0
+          }
+        ],
+        "success_probability": null
+      },
+      {
+        "id": "service_water_recovery",
+        "action_type": "maintenance",
+        "objective_rewards": [],
+        "text": "Service the water recovery processor",
+        "description": "One repair kit and 2 power guarantee +30 water-recovery condition points. Recovered water comes from the wastewater stock and is available after this week's rations.",
+        "costs": {
+          "repair_kits": 1.0,
+          "electricity": 2.0
+        },
+        "required_items": {},
+        "requires_crew": true,
+        "role_bonus": {},
+        "crew_role_bonus": {},
+        "success_chance": 1.0,
+        "success_effects": {
+          "resources": {},
+          "solar_efficiency": 0.0,
+          "oxygen_efficiency": 0.0,
+          "water_recovery_efficiency": 0.3,
+          "co2_efficiency": 0.0,
+          "crew_health": 0,
+          "target": "selected"
+        },
+        "failure_effects": {
+          "resources": {},
+          "solar_efficiency": 0.0,
+          "oxygen_efficiency": 0.0,
+          "water_recovery_efficiency": 0.0,
+          "co2_efficiency": 0.0,
+          "crew_health": 0,
+          "target": "selected"
+        },
+        "required_role": null,
+        "minimum_crew": 1,
+        "available": true,
+        "unavailable_reasons": [],
+        "eligible_crew": [
+          {
+            "crew_id": "alex",
+            "available": true,
+            "unavailable_reasons": [],
+            "success_probability": 1.0
+          },
+          {
+            "crew_id": "lin",
+            "available": true,
+            "unavailable_reasons": [],
+            "success_probability": 1.0
+          }
+        ],
+        "success_probability": null
+      },
+      {
+        "id": "service_co2_scrubber",
+        "action_type": "maintenance",
+        "objective_rewards": [],
+        "text": "Service the carbon dioxide scrubber",
+        "description": "One repair kit and 2 power guarantee +30 scrubber condition points. Removal still requires power; oxygen reserves do not remove CO2.",
+        "costs": {
+          "repair_kits": 1.0,
+          "electricity": 2.0
+        },
+        "required_items": {},
+        "requires_crew": true,
+        "role_bonus": {},
+        "crew_role_bonus": {},
+        "success_chance": 1.0,
+        "success_effects": {
+          "resources": {},
+          "solar_efficiency": 0.0,
+          "oxygen_efficiency": 0.0,
+          "water_recovery_efficiency": 0.0,
+          "co2_efficiency": 0.3,
+          "crew_health": 0,
+          "target": "selected"
+        },
+        "failure_effects": {
+          "resources": {},
+          "solar_efficiency": 0.0,
+          "oxygen_efficiency": 0.0,
+          "water_recovery_efficiency": 0.0,
+          "co2_efficiency": 0.0,
+          "crew_health": 0,
+          "target": "selected"
+        },
+        "required_role": null,
+        "minimum_crew": 1,
+        "available": true,
+        "unavailable_reasons": [],
+        "eligible_crew": [
+          {
+            "crew_id": "alex",
+            "available": true,
+            "unavailable_reasons": [],
+            "success_probability": 1.0
+          },
+          {
+            "crew_id": "lin",
+            "available": true,
+            "unavailable_reasons": [],
             "success_probability": 1.0
           }
         ],
@@ -17027,6 +20312,8 @@ export const projectAnalysis: GameResponse = {
           },
           "solar_efficiency": 0.0,
           "oxygen_efficiency": 0.0,
+          "water_recovery_efficiency": 0.0,
+          "co2_efficiency": 0.0,
           "crew_health": 0,
           "target": "selected"
         },
@@ -17034,6 +20321,8 @@ export const projectAnalysis: GameResponse = {
           "resources": {},
           "solar_efficiency": 0.0,
           "oxygen_efficiency": 0.0,
+          "water_recovery_efficiency": 0.0,
+          "co2_efficiency": 0.0,
           "crew_health": -8,
           "target": "selected"
         },
@@ -17090,6 +20379,8 @@ export const projectAnalysis: GameResponse = {
           },
           "solar_efficiency": 0.0,
           "oxygen_efficiency": 0.0,
+          "water_recovery_efficiency": 0.0,
+          "co2_efficiency": 0.0,
           "crew_health": 0,
           "target": "selected"
         },
@@ -17097,6 +20388,8 @@ export const projectAnalysis: GameResponse = {
           "resources": {},
           "solar_efficiency": 0.0,
           "oxygen_efficiency": 0.0,
+          "water_recovery_efficiency": 0.0,
+          "co2_efficiency": 0.0,
           "crew_health": -6,
           "target": "selected"
         },
@@ -17151,6 +20444,8 @@ export const projectAnalysis: GameResponse = {
           },
           "solar_efficiency": 0.0,
           "oxygen_efficiency": 0.0,
+          "water_recovery_efficiency": 0.0,
+          "co2_efficiency": 0.0,
           "crew_health": 0,
           "target": "selected"
         },
@@ -17160,6 +20455,8 @@ export const projectAnalysis: GameResponse = {
           },
           "solar_efficiency": 0.0,
           "oxygen_efficiency": 0.0,
+          "water_recovery_efficiency": 0.0,
+          "co2_efficiency": 0.0,
           "crew_health": 0,
           "target": "selected"
         },
@@ -17190,9 +20487,30 @@ export const projectAnalysis: GameResponse = {
 export const projectCompleted: GameResponse = {
   "game_id": "fixture-game",
   "state": {
+    "life_support": {
+      "source_url": "https://www.nasa.gov/reference/environmental-control-and-life-support-systems-eclss/",
+      "water_recovery_condition": 0.88,
+      "co2_condition": 0.91,
+      "wastewater": 7.44,
+      "co2_burden": 0.0,
+      "co2_warning_level": 4.0,
+      "recovery_capacity": 4.0,
+      "recovery_yield": 0.8,
+      "water_per_oxygen": 0.1,
+      "oxygen_reserve_weeks": 2.0,
+      "water_recovery_wear": 0.02,
+      "co2_wear": 0.015,
+      "co2_removal_capacity": 6.0,
+      "power_components": {
+        "habitat": 8.0,
+        "water_recovery": 2.0,
+        "oxygen_generation": 4.0,
+        "co2_removal": 2.0
+      }
+    },
     "energy": {
       "battery_capacity": 100.0,
-      "stored": 59.064192,
+      "stored": 67.064192,
       "priority": "life_support",
       "life_support_required": 16.0,
       "solar_day_earth_days": 29.5306,
@@ -17352,9 +20670,9 @@ export const projectCompleted: GameResponse = {
     ],
     "resources": {
       "food": 38.4,
-      "water": 88.2,
-      "oxygen": 58.5,
-      "electricity": 59.064192,
+      "water": 104.44,
+      "oxygen": 12.0,
+      "electricity": 67.064192,
       "medicine": 8.0,
       "repair_kits": 10.0,
       "eva_batteries": 9.0,
@@ -17363,10 +20681,14 @@ export const projectCompleted: GameResponse = {
       "diagnostic_tools": 0.0,
       "sealant_packs": 0.0,
       "scientific_tools": 1.0,
-      "research_data": 3.0
+      "research_data": 3.0,
+      "wastewater": 7.44,
+      "co2": 0.0
     },
     "solar_efficiency": 0.75,
     "oxygen_efficiency": 0.75,
+    "water_recovery_efficiency": 0.88,
+    "co2_efficiency": 0.91,
     "current_event_id": "battery_isolation",
     "current_event": {
       "id": "battery_isolation",
@@ -17381,6 +20703,8 @@ export const projectCompleted: GameResponse = {
         },
         "solar_efficiency": 0.0,
         "oxygen_efficiency": 0.0,
+        "water_recovery_efficiency": 0.0,
+        "co2_efficiency": 0.0,
         "crew_health": 0,
         "target": "selected"
       },
@@ -17408,6 +20732,8 @@ export const projectCompleted: GameResponse = {
             },
             "solar_efficiency": 0.0,
             "oxygen_efficiency": 0.0,
+            "water_recovery_efficiency": 0.0,
+            "co2_efficiency": 0.0,
             "crew_health": 0,
             "target": "selected"
           },
@@ -17415,6 +20741,8 @@ export const projectCompleted: GameResponse = {
             "resources": {},
             "solar_efficiency": 0.0,
             "oxygen_efficiency": 0.0,
+            "water_recovery_efficiency": 0.0,
+            "co2_efficiency": 0.0,
             "crew_health": -8,
             "target": "selected"
           },
@@ -17460,6 +20788,8 @@ export const projectCompleted: GameResponse = {
             },
             "solar_efficiency": 0.0,
             "oxygen_efficiency": 0.0,
+            "water_recovery_efficiency": 0.0,
+            "co2_efficiency": 0.0,
             "crew_health": 0,
             "target": "selected"
           },
@@ -17467,6 +20797,8 @@ export const projectCompleted: GameResponse = {
             "resources": {},
             "solar_efficiency": 0.0,
             "oxygen_efficiency": 0.0,
+            "water_recovery_efficiency": 0.0,
+            "co2_efficiency": 0.0,
             "crew_health": 0,
             "target": "selected"
           },
@@ -17506,6 +20838,8 @@ export const projectCompleted: GameResponse = {
             "resources": {},
             "solar_efficiency": 0.0,
             "oxygen_efficiency": 0.0,
+            "water_recovery_efficiency": 0.0,
+            "co2_efficiency": 0.0,
             "crew_health": 0,
             "target": "selected"
           },
@@ -17513,6 +20847,8 @@ export const projectCompleted: GameResponse = {
             "resources": {},
             "solar_efficiency": 0.0,
             "oxygen_efficiency": 0.0,
+            "water_recovery_efficiency": 0.0,
+            "co2_efficiency": 0.0,
             "crew_health": 0,
             "target": "selected"
           },
@@ -17570,6 +20906,8 @@ export const projectCompleted: GameResponse = {
                 "resources": {},
                 "solar_efficiency": 0.0,
                 "oxygen_efficiency": 0.0,
+                "water_recovery_efficiency": 0.0,
+                "co2_efficiency": 0.0,
                 "health_changes": []
               },
               "objective_progress": []
@@ -17592,6 +20930,8 @@ export const projectCompleted: GameResponse = {
             "resources": {},
             "solar_efficiency": 0.0,
             "oxygen_efficiency": 0.0,
+            "water_recovery_efficiency": 0.0,
+            "co2_efficiency": 0.0,
             "health_changes": []
           },
           "objective_progress": []
@@ -17607,6 +20947,22 @@ export const projectCompleted: GameResponse = {
           }
         },
         "survival": {
+          "life_support": {
+            "wastewater_processed": 4.0,
+            "water_recovered": 3.2,
+            "water_for_oxygen": 0.0,
+            "wastewater_captured": 3.04,
+            "oxygen_generated": 0.0,
+            "co2_produced": 2.0,
+            "co2_removed": 2.0,
+            "co2_remaining": 0.0,
+            "power_components": {
+              "habitat": 8.0,
+              "water_recovery": 2.0,
+              "oxygen_generation": 0.0,
+              "co2_removal": 2.0
+            }
+          },
           "daylight_fraction": 1.0,
           "battery_capacity": 100.0,
           "electricity_curtailed": 0.0,
@@ -17625,10 +20981,10 @@ export const projectCompleted: GameResponse = {
             "water": 0.0
           },
           "electricity_generated": 36.0,
-          "electricity_required": 16.0,
-          "electricity_used": 16.0,
+          "electricity_required": 12.0,
+          "electricity_used": 12.0,
           "life_support_power_fraction": 1.0,
-          "oxygen_generated": 14.0,
+          "oxygen_generated": 0.0,
           "oxygen_required": 6.0,
           "oxygen_used": 6.0,
           "oxygen_shortage": 0.0,
@@ -17640,6 +20996,7 @@ export const projectCompleted: GameResponse = {
               "food_penalty": 0,
               "water_penalty": 0,
               "oxygen_penalty": 0,
+              "co2_penalty": 0,
               "died": false
             },
             {
@@ -17649,15 +21006,16 @@ export const projectCompleted: GameResponse = {
               "food_penalty": 0,
               "water_penalty": 0,
               "oxygen_penalty": 0,
+              "co2_penalty": 0,
               "died": false
             }
           ]
         },
         "resource_changes": {
           "food": -2.1,
-          "water": -3.8,
-          "oxygen": 6.0,
-          "electricity": 18.0,
+          "water": -0.6,
+          "oxygen": -8.0,
+          "electricity": 22.0,
           "medicine": 0.0,
           "repair_kits": 0.0,
           "eva_batteries": -1.0,
@@ -17666,7 +21024,9 @@ export const projectCompleted: GameResponse = {
           "diagnostic_tools": 0.0,
           "sealant_packs": 0.0,
           "scientific_tools": 0.0,
-          "research_data": 0.0
+          "research_data": 0.0,
+          "wastewater": -0.96,
+          "co2": 0.0
         },
         "deaths": [],
         "next_event": {
@@ -17676,6 +21036,8 @@ export const projectCompleted: GameResponse = {
             "resources": {},
             "solar_efficiency": 0.0,
             "oxygen_efficiency": -0.25,
+            "water_recovery_efficiency": 0.0,
+            "co2_efficiency": 0.0,
             "health_changes": []
           }
         },
@@ -17705,6 +21067,8 @@ export const projectCompleted: GameResponse = {
             "resources": {},
             "solar_efficiency": 0.0,
             "oxygen_efficiency": 0.0,
+            "water_recovery_efficiency": 0.0,
+            "co2_efficiency": 0.0,
             "health_changes": []
           },
           "objective_progress": []
@@ -17720,6 +21084,22 @@ export const projectCompleted: GameResponse = {
           }
         },
         "survival": {
+          "life_support": {
+            "wastewater_processed": 3.92,
+            "water_recovered": 3.136,
+            "water_for_oxygen": 0.0,
+            "wastewater_captured": 3.04,
+            "oxygen_generated": 0.0,
+            "co2_produced": 2.0,
+            "co2_removed": 2.0,
+            "co2_remaining": 0.0,
+            "power_components": {
+              "habitat": 8.0,
+              "water_recovery": 2.0,
+              "oxygen_generation": 0.0,
+              "co2_removal": 2.0
+            }
+          },
           "daylight_fraction": 1.0,
           "battery_capacity": 100.0,
           "electricity_curtailed": 0.0,
@@ -17738,10 +21118,10 @@ export const projectCompleted: GameResponse = {
             "water": 0.0
           },
           "electricity_generated": 36.0,
-          "electricity_required": 16.0,
-          "electricity_used": 16.0,
+          "electricity_required": 12.0,
+          "electricity_used": 12.0,
           "life_support_power_fraction": 1.0,
-          "oxygen_generated": 10.5,
+          "oxygen_generated": 0.0,
           "oxygen_required": 6.0,
           "oxygen_used": 6.0,
           "oxygen_shortage": 0.0,
@@ -17753,6 +21133,7 @@ export const projectCompleted: GameResponse = {
               "food_penalty": 0,
               "water_penalty": 0,
               "oxygen_penalty": 0,
+              "co2_penalty": 0,
               "died": false
             },
             {
@@ -17762,15 +21143,16 @@ export const projectCompleted: GameResponse = {
               "food_penalty": 0,
               "water_penalty": 0,
               "oxygen_penalty": 0,
+              "co2_penalty": 0,
               "died": false
             }
           ]
         },
         "resource_changes": {
           "food": -2.1,
-          "water": -3.8,
-          "oxygen": 4.5,
-          "electricity": 20.0,
+          "water": -0.664,
+          "oxygen": -6.0,
+          "electricity": 24.0,
           "medicine": 0.0,
           "repair_kits": 0.0,
           "eva_batteries": 0.0,
@@ -17779,7 +21161,9 @@ export const projectCompleted: GameResponse = {
           "diagnostic_tools": 0.0,
           "sealant_packs": 0.0,
           "scientific_tools": 0.0,
-          "research_data": 0.0
+          "research_data": 0.0,
+          "wastewater": -0.88,
+          "co2": 0.0
         },
         "deaths": [],
         "next_event": {
@@ -17789,6 +21173,8 @@ export const projectCompleted: GameResponse = {
             "resources": {},
             "solar_efficiency": 0.0,
             "oxygen_efficiency": 0.0,
+            "water_recovery_efficiency": 0.0,
+            "co2_efficiency": 0.0,
             "health_changes": [
               {
                 "crew_id": "alex",
@@ -17834,6 +21220,8 @@ export const projectCompleted: GameResponse = {
             "resources": {},
             "solar_efficiency": 0.0,
             "oxygen_efficiency": 0.0,
+            "water_recovery_efficiency": 0.0,
+            "co2_efficiency": 0.0,
             "health_changes": [
               {
                 "crew_id": "alex",
@@ -17860,6 +21248,22 @@ export const projectCompleted: GameResponse = {
           }
         },
         "survival": {
+          "life_support": {
+            "wastewater_processed": 3.84,
+            "water_recovered": 3.072,
+            "water_for_oxygen": 0.2,
+            "wastewater_captured": 3.04,
+            "oxygen_generated": 2.0,
+            "co2_produced": 2.0,
+            "co2_removed": 2.0,
+            "co2_remaining": 0.0,
+            "power_components": {
+              "habitat": 8.0,
+              "water_recovery": 2.0,
+              "oxygen_generation": 4.0,
+              "co2_removal": 2.0
+            }
+          },
           "daylight_fraction": 0.109329,
           "battery_capacity": 100.0,
           "electricity_curtailed": 0.0,
@@ -17881,7 +21285,7 @@ export const projectCompleted: GameResponse = {
           "electricity_required": 16.0,
           "electricity_used": 16.0,
           "life_support_power_fraction": 1.0,
-          "oxygen_generated": 10.5,
+          "oxygen_generated": 2.0,
           "oxygen_required": 6.0,
           "oxygen_used": 6.0,
           "oxygen_shortage": 0.0,
@@ -17893,6 +21297,7 @@ export const projectCompleted: GameResponse = {
               "food_penalty": 0,
               "water_penalty": 0,
               "oxygen_penalty": 0,
+              "co2_penalty": 0,
               "died": false
             },
             {
@@ -17902,14 +21307,15 @@ export const projectCompleted: GameResponse = {
               "food_penalty": 0,
               "water_penalty": 0,
               "oxygen_penalty": 0,
+              "co2_penalty": 0,
               "died": false
             }
           ]
         },
         "resource_changes": {
           "food": -2.1,
-          "water": -3.8,
-          "oxygen": 4.5,
+          "water": -0.928,
+          "oxygen": -4.0,
           "electricity": -14.064156,
           "medicine": 0.0,
           "repair_kits": 0.0,
@@ -17919,7 +21325,9 @@ export const projectCompleted: GameResponse = {
           "diagnostic_tools": 0.0,
           "sealant_packs": 0.0,
           "scientific_tools": 0.0,
-          "research_data": 0.0
+          "research_data": 0.0,
+          "wastewater": -0.8,
+          "co2": 0.0
         },
         "deaths": [],
         "next_event": {
@@ -17929,6 +21337,8 @@ export const projectCompleted: GameResponse = {
             "resources": {},
             "solar_efficiency": 0.0,
             "oxygen_efficiency": 0.0,
+            "water_recovery_efficiency": 0.0,
+            "co2_efficiency": 0.0,
             "health_changes": []
           }
         },
@@ -17958,6 +21368,8 @@ export const projectCompleted: GameResponse = {
             "resources": {},
             "solar_efficiency": 0.0,
             "oxygen_efficiency": 0.0,
+            "water_recovery_efficiency": 0.0,
+            "co2_efficiency": 0.0,
             "health_changes": []
           },
           "objective_progress": []
@@ -17973,6 +21385,22 @@ export const projectCompleted: GameResponse = {
           }
         },
         "survival": {
+          "life_support": {
+            "wastewater_processed": 3.76,
+            "water_recovered": 3.008,
+            "water_for_oxygen": 0.6,
+            "wastewater_captured": 3.04,
+            "oxygen_generated": 6.0,
+            "co2_produced": 2.0,
+            "co2_removed": 2.0,
+            "co2_remaining": 0.0,
+            "power_components": {
+              "habitat": 8.0,
+              "water_recovery": 2.0,
+              "oxygen_generation": 4.0,
+              "co2_removal": 2.0
+            }
+          },
           "daylight_fraction": 0.0,
           "battery_capacity": 100.0,
           "electricity_curtailed": 0.0,
@@ -17994,7 +21422,7 @@ export const projectCompleted: GameResponse = {
           "electricity_required": 16.0,
           "electricity_used": 16.0,
           "life_support_power_fraction": 1.0,
-          "oxygen_generated": 10.5,
+          "oxygen_generated": 6.0,
           "oxygen_required": 6.0,
           "oxygen_used": 6.0,
           "oxygen_shortage": 0.0,
@@ -18006,6 +21434,7 @@ export const projectCompleted: GameResponse = {
               "food_penalty": 0,
               "water_penalty": 0,
               "oxygen_penalty": 0,
+              "co2_penalty": 0,
               "died": false
             },
             {
@@ -18015,14 +21444,15 @@ export const projectCompleted: GameResponse = {
               "food_penalty": 0,
               "water_penalty": 0,
               "oxygen_penalty": 0,
+              "co2_penalty": 0,
               "died": false
             }
           ]
         },
         "resource_changes": {
           "food": -2.1,
-          "water": -3.8,
-          "oxygen": 4.5,
+          "water": -1.392,
+          "oxygen": 0.0,
           "electricity": -18.0,
           "medicine": 0.0,
           "repair_kits": 0.0,
@@ -18032,7 +21462,9 @@ export const projectCompleted: GameResponse = {
           "diagnostic_tools": 0.0,
           "sealant_packs": 0.0,
           "scientific_tools": 0.0,
-          "research_data": 0.0
+          "research_data": 0.0,
+          "wastewater": -0.72,
+          "co2": 0.0
         },
         "deaths": [],
         "next_event": {
@@ -18042,6 +21474,8 @@ export const projectCompleted: GameResponse = {
             "resources": {},
             "solar_efficiency": 0.0,
             "oxygen_efficiency": 0.0,
+            "water_recovery_efficiency": 0.0,
+            "co2_efficiency": 0.0,
             "health_changes": []
           }
         },
@@ -18074,6 +21508,8 @@ export const projectCompleted: GameResponse = {
             "resources": {},
             "solar_efficiency": 0.0,
             "oxygen_efficiency": 0.0,
+            "water_recovery_efficiency": 0.0,
+            "co2_efficiency": 0.0,
             "health_changes": [
               {
                 "crew_id": "alex",
@@ -18100,6 +21536,22 @@ export const projectCompleted: GameResponse = {
           }
         },
         "survival": {
+          "life_support": {
+            "wastewater_processed": 3.68,
+            "water_recovered": 2.944,
+            "water_for_oxygen": 0.6,
+            "wastewater_captured": 3.04,
+            "oxygen_generated": 6.0,
+            "co2_produced": 2.0,
+            "co2_removed": 2.0,
+            "co2_remaining": 0.0,
+            "power_components": {
+              "habitat": 8.0,
+              "water_recovery": 2.0,
+              "oxygen_generation": 4.0,
+              "co2_removal": 2.0
+            }
+          },
           "daylight_fraction": 0.781343,
           "battery_capacity": 100.0,
           "electricity_curtailed": 0.0,
@@ -18121,7 +21573,7 @@ export const projectCompleted: GameResponse = {
           "electricity_required": 16.0,
           "electricity_used": 16.0,
           "life_support_power_fraction": 1.0,
-          "oxygen_generated": 10.5,
+          "oxygen_generated": 6.0,
           "oxygen_required": 6.0,
           "oxygen_used": 6.0,
           "oxygen_shortage": 0.0,
@@ -18133,6 +21585,7 @@ export const projectCompleted: GameResponse = {
               "food_penalty": 0,
               "water_penalty": 0,
               "oxygen_penalty": 0,
+              "co2_penalty": 0,
               "died": false
             },
             {
@@ -18142,14 +21595,15 @@ export const projectCompleted: GameResponse = {
               "food_penalty": 0,
               "water_penalty": 0,
               "oxygen_penalty": 0,
+              "co2_penalty": 0,
               "died": false
             }
           ]
         },
         "resource_changes": {
           "food": -3.1,
-          "water": -4.8,
-          "oxygen": 4.5,
+          "water": -2.456,
+          "oxygen": 0.0,
           "electricity": 10.128348,
           "medicine": 0.0,
           "repair_kits": 0.0,
@@ -18159,7 +21613,9 @@ export const projectCompleted: GameResponse = {
           "diagnostic_tools": 0.0,
           "sealant_packs": 0.0,
           "scientific_tools": 0.0,
-          "research_data": 0.0
+          "research_data": 0.0,
+          "wastewater": -0.64,
+          "co2": 0.0
         },
         "deaths": [],
         "next_event": {
@@ -18169,6 +21625,8 @@ export const projectCompleted: GameResponse = {
             "resources": {},
             "solar_efficiency": 0.0,
             "oxygen_efficiency": 0.0,
+            "water_recovery_efficiency": 0.0,
+            "co2_efficiency": 0.0,
             "health_changes": []
           }
         },
@@ -18204,6 +21662,8 @@ export const projectCompleted: GameResponse = {
                 },
                 "solar_efficiency": 0.0,
                 "oxygen_efficiency": 0.0,
+                "water_recovery_efficiency": 0.0,
+                "co2_efficiency": 0.0,
                 "health_changes": []
               },
               "objective_progress": [
@@ -18240,6 +21700,8 @@ export const projectCompleted: GameResponse = {
             },
             "solar_efficiency": 0.0,
             "oxygen_efficiency": 0.0,
+            "water_recovery_efficiency": 0.0,
+            "co2_efficiency": 0.0,
             "health_changes": []
           },
           "objective_progress": []
@@ -18255,6 +21717,22 @@ export const projectCompleted: GameResponse = {
           }
         },
         "survival": {
+          "life_support": {
+            "wastewater_processed": 3.6,
+            "water_recovered": 2.88,
+            "water_for_oxygen": 0.6,
+            "wastewater_captured": 3.04,
+            "oxygen_generated": 6.0,
+            "co2_produced": 2.0,
+            "co2_removed": 2.0,
+            "co2_remaining": 0.0,
+            "power_components": {
+              "habitat": 8.0,
+              "water_recovery": 2.0,
+              "oxygen_generation": 4.0,
+              "co2_removal": 2.0
+            }
+          },
           "daylight_fraction": 1.0,
           "battery_capacity": 100.0,
           "electricity_curtailed": 0.0,
@@ -18276,7 +21754,7 @@ export const projectCompleted: GameResponse = {
           "electricity_required": 16.0,
           "electricity_used": 16.0,
           "life_support_power_fraction": 1.0,
-          "oxygen_generated": 10.5,
+          "oxygen_generated": 6.0,
           "oxygen_required": 6.0,
           "oxygen_used": 6.0,
           "oxygen_shortage": 0.0,
@@ -18288,6 +21766,7 @@ export const projectCompleted: GameResponse = {
               "food_penalty": 0,
               "water_penalty": 0,
               "oxygen_penalty": 0,
+              "co2_penalty": 0,
               "died": false
             },
             {
@@ -18297,14 +21776,15 @@ export const projectCompleted: GameResponse = {
               "food_penalty": 0,
               "water_penalty": 0,
               "oxygen_penalty": 0,
+              "co2_penalty": 0,
               "died": false
             }
           ]
         },
         "resource_changes": {
           "food": -2.1,
-          "water": -3.8,
-          "oxygen": 4.5,
+          "water": -1.52,
+          "oxygen": 0.0,
           "electricity": 18.0,
           "medicine": 0.0,
           "repair_kits": 0.0,
@@ -18314,7 +21794,9 @@ export const projectCompleted: GameResponse = {
           "diagnostic_tools": 0.0,
           "sealant_packs": 0.0,
           "scientific_tools": 0.0,
-          "research_data": 3.0
+          "research_data": 3.0,
+          "wastewater": -0.56,
+          "co2": 0.0
         },
         "deaths": [],
         "next_event": {
@@ -18326,6 +21808,8 @@ export const projectCompleted: GameResponse = {
             },
             "solar_efficiency": 0.0,
             "oxygen_efficiency": 0.0,
+            "water_recovery_efficiency": 0.0,
+            "co2_efficiency": 0.0,
             "health_changes": []
           }
         },
@@ -18408,6 +21892,8 @@ export const projectCompleted: GameResponse = {
           "resources": {},
           "solar_efficiency": 0.2,
           "oxygen_efficiency": 0.0,
+          "water_recovery_efficiency": 0.0,
+          "co2_efficiency": 0.0,
           "crew_health": 0,
           "target": "selected"
         },
@@ -18415,6 +21901,8 @@ export const projectCompleted: GameResponse = {
           "resources": {},
           "solar_efficiency": 0.0,
           "oxygen_efficiency": 0.0,
+          "water_recovery_efficiency": 0.0,
+          "co2_efficiency": 0.0,
           "crew_health": 0,
           "target": "selected"
         },
@@ -18463,6 +21951,8 @@ export const projectCompleted: GameResponse = {
           "resources": {},
           "solar_efficiency": 0.0,
           "oxygen_efficiency": 0.2,
+          "water_recovery_efficiency": 0.0,
+          "co2_efficiency": 0.0,
           "crew_health": 0,
           "target": "selected"
         },
@@ -18470,6 +21960,8 @@ export const projectCompleted: GameResponse = {
           "resources": {},
           "solar_efficiency": 0.0,
           "oxygen_efficiency": 0.0,
+          "water_recovery_efficiency": 0.0,
+          "co2_efficiency": 0.0,
           "crew_health": 0,
           "target": "selected"
         },
@@ -18494,6 +21986,112 @@ export const projectCompleted: GameResponse = {
             "unavailable_reasons": [
               "Requires 1 oxygen_regulators; available 0."
             ],
+            "success_probability": 1.0
+          }
+        ],
+        "success_probability": null
+      },
+      {
+        "id": "service_water_recovery",
+        "action_type": "maintenance",
+        "objective_rewards": [],
+        "text": "Service the water recovery processor",
+        "description": "One repair kit and 2 power guarantee +30 water-recovery condition points. Recovered water comes from the wastewater stock and is available after this week's rations.",
+        "costs": {
+          "repair_kits": 1.0,
+          "electricity": 2.0
+        },
+        "required_items": {},
+        "requires_crew": true,
+        "role_bonus": {},
+        "crew_role_bonus": {},
+        "success_chance": 1.0,
+        "success_effects": {
+          "resources": {},
+          "solar_efficiency": 0.0,
+          "oxygen_efficiency": 0.0,
+          "water_recovery_efficiency": 0.3,
+          "co2_efficiency": 0.0,
+          "crew_health": 0,
+          "target": "selected"
+        },
+        "failure_effects": {
+          "resources": {},
+          "solar_efficiency": 0.0,
+          "oxygen_efficiency": 0.0,
+          "water_recovery_efficiency": 0.0,
+          "co2_efficiency": 0.0,
+          "crew_health": 0,
+          "target": "selected"
+        },
+        "required_role": null,
+        "minimum_crew": 1,
+        "available": true,
+        "unavailable_reasons": [],
+        "eligible_crew": [
+          {
+            "crew_id": "alex",
+            "available": true,
+            "unavailable_reasons": [],
+            "success_probability": 1.0
+          },
+          {
+            "crew_id": "lin",
+            "available": true,
+            "unavailable_reasons": [],
+            "success_probability": 1.0
+          }
+        ],
+        "success_probability": null
+      },
+      {
+        "id": "service_co2_scrubber",
+        "action_type": "maintenance",
+        "objective_rewards": [],
+        "text": "Service the carbon dioxide scrubber",
+        "description": "One repair kit and 2 power guarantee +30 scrubber condition points. Removal still requires power; oxygen reserves do not remove CO2.",
+        "costs": {
+          "repair_kits": 1.0,
+          "electricity": 2.0
+        },
+        "required_items": {},
+        "requires_crew": true,
+        "role_bonus": {},
+        "crew_role_bonus": {},
+        "success_chance": 1.0,
+        "success_effects": {
+          "resources": {},
+          "solar_efficiency": 0.0,
+          "oxygen_efficiency": 0.0,
+          "water_recovery_efficiency": 0.0,
+          "co2_efficiency": 0.3,
+          "crew_health": 0,
+          "target": "selected"
+        },
+        "failure_effects": {
+          "resources": {},
+          "solar_efficiency": 0.0,
+          "oxygen_efficiency": 0.0,
+          "water_recovery_efficiency": 0.0,
+          "co2_efficiency": 0.0,
+          "crew_health": 0,
+          "target": "selected"
+        },
+        "required_role": null,
+        "minimum_crew": 1,
+        "available": true,
+        "unavailable_reasons": [],
+        "eligible_crew": [
+          {
+            "crew_id": "alex",
+            "available": true,
+            "unavailable_reasons": [],
+            "success_probability": 1.0
+          },
+          {
+            "crew_id": "lin",
+            "available": true,
+            "unavailable_reasons": [],
             "success_probability": 1.0
           }
         ],
@@ -18531,6 +22129,8 @@ export const projectCompleted: GameResponse = {
           },
           "solar_efficiency": 0.0,
           "oxygen_efficiency": 0.0,
+          "water_recovery_efficiency": 0.0,
+          "co2_efficiency": 0.0,
           "crew_health": 0,
           "target": "selected"
         },
@@ -18538,6 +22138,8 @@ export const projectCompleted: GameResponse = {
           "resources": {},
           "solar_efficiency": 0.0,
           "oxygen_efficiency": 0.0,
+          "water_recovery_efficiency": 0.0,
+          "co2_efficiency": 0.0,
           "crew_health": -8,
           "target": "selected"
         },
@@ -18594,6 +22196,8 @@ export const projectCompleted: GameResponse = {
           },
           "solar_efficiency": 0.0,
           "oxygen_efficiency": 0.0,
+          "water_recovery_efficiency": 0.0,
+          "co2_efficiency": 0.0,
           "crew_health": 0,
           "target": "selected"
         },
@@ -18601,6 +22205,8 @@ export const projectCompleted: GameResponse = {
           "resources": {},
           "solar_efficiency": 0.0,
           "oxygen_efficiency": 0.0,
+          "water_recovery_efficiency": 0.0,
+          "co2_efficiency": 0.0,
           "crew_health": -6,
           "target": "selected"
         },
@@ -18631,9 +22237,30 @@ export const projectCompleted: GameResponse = {
 export const projectPauseTurn: TurnResponse = {
   "game_id": "fixture-game",
   "state": {
+    "life_support": {
+      "source_url": "https://www.nasa.gov/reference/environmental-control-and-life-support-systems-eclss/",
+      "water_recovery_condition": 0.96,
+      "co2_condition": 0.97,
+      "wastewater": 10.16,
+      "co2_burden": 0.0,
+      "co2_warning_level": 4.0,
+      "recovery_capacity": 4.0,
+      "recovery_yield": 0.8,
+      "water_per_oxygen": 0.1,
+      "oxygen_reserve_weeks": 2.0,
+      "water_recovery_wear": 0.02,
+      "co2_wear": 0.015,
+      "co2_removal_capacity": 6.0,
+      "power_components": {
+        "habitat": 8.0,
+        "water_recovery": 2.0,
+        "oxygen_generation": 4.0,
+        "co2_removal": 2.0
+      }
+    },
     "energy": {
       "battery_capacity": 100.0,
-      "stored": 68.0,
+      "stored": 76.0,
       "priority": "life_support",
       "life_support_required": 16.0,
       "solar_day_earth_days": 29.5306,
@@ -18827,9 +22454,9 @@ export const projectPauseTurn: TurnResponse = {
     ],
     "resources": {
       "food": 47.8,
-      "water": 104.4,
-      "oxygen": 40.5,
-      "electricity": 68.0,
+      "water": 110.736,
+      "oxygen": 16.0,
+      "electricity": 76.0,
       "medicine": 8.0,
       "repair_kits": 10.0,
       "eva_batteries": 9.0,
@@ -18838,10 +22465,14 @@ export const projectPauseTurn: TurnResponse = {
       "diagnostic_tools": 0.0,
       "sealant_packs": 0.0,
       "scientific_tools": 1.0,
-      "research_data": 0.0
+      "research_data": 0.0,
+      "wastewater": 10.16,
+      "co2": 0.0
     },
     "solar_efficiency": 0.75,
     "oxygen_efficiency": 0.75,
+    "water_recovery_efficiency": 0.96,
+    "co2_efficiency": 0.97,
     "current_event_id": "medical_emergency",
     "current_event": {
       "id": "medical_emergency",
@@ -18854,6 +22485,8 @@ export const projectPauseTurn: TurnResponse = {
         "resources": {},
         "solar_efficiency": 0.0,
         "oxygen_efficiency": 0.0,
+        "water_recovery_efficiency": 0.0,
+        "co2_efficiency": 0.0,
         "crew_health": -8,
         "target": "all"
       },
@@ -18878,6 +22511,8 @@ export const projectPauseTurn: TurnResponse = {
             "resources": {},
             "solar_efficiency": 0.0,
             "oxygen_efficiency": 0.0,
+            "water_recovery_efficiency": 0.0,
+            "co2_efficiency": 0.0,
             "crew_health": 30,
             "target": "selected"
           },
@@ -18885,6 +22520,8 @@ export const projectPauseTurn: TurnResponse = {
             "resources": {},
             "solar_efficiency": 0.0,
             "oxygen_efficiency": 0.0,
+            "water_recovery_efficiency": 0.0,
+            "co2_efficiency": 0.0,
             "crew_health": -5,
             "target": "selected"
           },
@@ -18928,6 +22565,8 @@ export const projectPauseTurn: TurnResponse = {
             "resources": {},
             "solar_efficiency": 0.0,
             "oxygen_efficiency": 0.0,
+            "water_recovery_efficiency": 0.0,
+            "co2_efficiency": 0.0,
             "crew_health": 15,
             "target": "all"
           },
@@ -18935,6 +22574,8 @@ export const projectPauseTurn: TurnResponse = {
             "resources": {},
             "solar_efficiency": 0.0,
             "oxygen_efficiency": 0.0,
+            "water_recovery_efficiency": 0.0,
+            "co2_efficiency": 0.0,
             "crew_health": -5,
             "target": "all"
           },
@@ -18984,6 +22625,8 @@ export const projectPauseTurn: TurnResponse = {
             "resources": {},
             "solar_efficiency": 0.0,
             "oxygen_efficiency": 0.0,
+            "water_recovery_efficiency": 0.0,
+            "co2_efficiency": 0.0,
             "crew_health": 20,
             "target": "selected"
           },
@@ -18991,6 +22634,8 @@ export const projectPauseTurn: TurnResponse = {
             "resources": {},
             "solar_efficiency": 0.0,
             "oxygen_efficiency": 0.0,
+            "water_recovery_efficiency": 0.0,
+            "co2_efficiency": 0.0,
             "crew_health": 0,
             "target": "selected"
           },
@@ -19036,6 +22681,8 @@ export const projectPauseTurn: TurnResponse = {
             "resources": {},
             "solar_efficiency": 0.0,
             "oxygen_efficiency": 0.0,
+            "water_recovery_efficiency": 0.0,
+            "co2_efficiency": 0.0,
             "crew_health": -5,
             "target": "all"
           },
@@ -19043,6 +22690,8 @@ export const projectPauseTurn: TurnResponse = {
             "resources": {},
             "solar_efficiency": 0.0,
             "oxygen_efficiency": 0.0,
+            "water_recovery_efficiency": 0.0,
+            "co2_efficiency": 0.0,
             "crew_health": 0,
             "target": "selected"
           },
@@ -19096,6 +22745,8 @@ export const projectPauseTurn: TurnResponse = {
                 "resources": {},
                 "solar_efficiency": 0.0,
                 "oxygen_efficiency": 0.0,
+                "water_recovery_efficiency": 0.0,
+                "co2_efficiency": 0.0,
                 "health_changes": []
               },
               "objective_progress": []
@@ -19118,6 +22769,8 @@ export const projectPauseTurn: TurnResponse = {
             "resources": {},
             "solar_efficiency": 0.0,
             "oxygen_efficiency": 0.0,
+            "water_recovery_efficiency": 0.0,
+            "co2_efficiency": 0.0,
             "health_changes": []
           },
           "objective_progress": []
@@ -19133,6 +22786,22 @@ export const projectPauseTurn: TurnResponse = {
           }
         },
         "survival": {
+          "life_support": {
+            "wastewater_processed": 4.0,
+            "water_recovered": 3.2,
+            "water_for_oxygen": 0.0,
+            "wastewater_captured": 3.04,
+            "oxygen_generated": 0.0,
+            "co2_produced": 2.0,
+            "co2_removed": 2.0,
+            "co2_remaining": 0.0,
+            "power_components": {
+              "habitat": 8.0,
+              "water_recovery": 2.0,
+              "oxygen_generation": 0.0,
+              "co2_removal": 2.0
+            }
+          },
           "daylight_fraction": 1.0,
           "battery_capacity": 100.0,
           "electricity_curtailed": 0.0,
@@ -19151,10 +22820,10 @@ export const projectPauseTurn: TurnResponse = {
             "water": 0.0
           },
           "electricity_generated": 36.0,
-          "electricity_required": 16.0,
-          "electricity_used": 16.0,
+          "electricity_required": 12.0,
+          "electricity_used": 12.0,
           "life_support_power_fraction": 1.0,
-          "oxygen_generated": 14.0,
+          "oxygen_generated": 0.0,
           "oxygen_required": 6.0,
           "oxygen_used": 6.0,
           "oxygen_shortage": 0.0,
@@ -19166,6 +22835,7 @@ export const projectPauseTurn: TurnResponse = {
               "food_penalty": 0,
               "water_penalty": 0,
               "oxygen_penalty": 0,
+              "co2_penalty": 0,
               "died": false
             },
             {
@@ -19175,15 +22845,16 @@ export const projectPauseTurn: TurnResponse = {
               "food_penalty": 0,
               "water_penalty": 0,
               "oxygen_penalty": 0,
+              "co2_penalty": 0,
               "died": false
             }
           ]
         },
         "resource_changes": {
           "food": -2.1,
-          "water": -3.8,
-          "oxygen": 6.0,
-          "electricity": 18.0,
+          "water": -0.6,
+          "oxygen": -8.0,
+          "electricity": 22.0,
           "medicine": 0.0,
           "repair_kits": 0.0,
           "eva_batteries": -1.0,
@@ -19192,7 +22863,9 @@ export const projectPauseTurn: TurnResponse = {
           "diagnostic_tools": 0.0,
           "sealant_packs": 0.0,
           "scientific_tools": 0.0,
-          "research_data": 0.0
+          "research_data": 0.0,
+          "wastewater": -0.96,
+          "co2": 0.0
         },
         "deaths": [],
         "next_event": {
@@ -19202,6 +22875,8 @@ export const projectPauseTurn: TurnResponse = {
             "resources": {},
             "solar_efficiency": 0.0,
             "oxygen_efficiency": -0.25,
+            "water_recovery_efficiency": 0.0,
+            "co2_efficiency": 0.0,
             "health_changes": []
           }
         },
@@ -19231,6 +22906,8 @@ export const projectPauseTurn: TurnResponse = {
             "resources": {},
             "solar_efficiency": 0.0,
             "oxygen_efficiency": 0.0,
+            "water_recovery_efficiency": 0.0,
+            "co2_efficiency": 0.0,
             "health_changes": []
           },
           "objective_progress": []
@@ -19246,6 +22923,22 @@ export const projectPauseTurn: TurnResponse = {
           }
         },
         "survival": {
+          "life_support": {
+            "wastewater_processed": 3.92,
+            "water_recovered": 3.136,
+            "water_for_oxygen": 0.0,
+            "wastewater_captured": 3.04,
+            "oxygen_generated": 0.0,
+            "co2_produced": 2.0,
+            "co2_removed": 2.0,
+            "co2_remaining": 0.0,
+            "power_components": {
+              "habitat": 8.0,
+              "water_recovery": 2.0,
+              "oxygen_generation": 0.0,
+              "co2_removal": 2.0
+            }
+          },
           "daylight_fraction": 1.0,
           "battery_capacity": 100.0,
           "electricity_curtailed": 0.0,
@@ -19264,10 +22957,10 @@ export const projectPauseTurn: TurnResponse = {
             "water": 0.0
           },
           "electricity_generated": 36.0,
-          "electricity_required": 16.0,
-          "electricity_used": 16.0,
+          "electricity_required": 12.0,
+          "electricity_used": 12.0,
           "life_support_power_fraction": 1.0,
-          "oxygen_generated": 10.5,
+          "oxygen_generated": 0.0,
           "oxygen_required": 6.0,
           "oxygen_used": 6.0,
           "oxygen_shortage": 0.0,
@@ -19279,6 +22972,7 @@ export const projectPauseTurn: TurnResponse = {
               "food_penalty": 0,
               "water_penalty": 0,
               "oxygen_penalty": 0,
+              "co2_penalty": 0,
               "died": false
             },
             {
@@ -19288,15 +22982,16 @@ export const projectPauseTurn: TurnResponse = {
               "food_penalty": 0,
               "water_penalty": 0,
               "oxygen_penalty": 0,
+              "co2_penalty": 0,
               "died": false
             }
           ]
         },
         "resource_changes": {
           "food": -2.1,
-          "water": -3.8,
-          "oxygen": 4.5,
-          "electricity": 20.0,
+          "water": -0.664,
+          "oxygen": -6.0,
+          "electricity": 24.0,
           "medicine": 0.0,
           "repair_kits": 0.0,
           "eva_batteries": 0.0,
@@ -19305,7 +23000,9 @@ export const projectPauseTurn: TurnResponse = {
           "diagnostic_tools": 0.0,
           "sealant_packs": 0.0,
           "scientific_tools": 0.0,
-          "research_data": 0.0
+          "research_data": 0.0,
+          "wastewater": -0.88,
+          "co2": 0.0
         },
         "deaths": [],
         "next_event": {
@@ -19315,6 +23012,8 @@ export const projectPauseTurn: TurnResponse = {
             "resources": {},
             "solar_efficiency": 0.0,
             "oxygen_efficiency": 0.0,
+            "water_recovery_efficiency": 0.0,
+            "co2_efficiency": 0.0,
             "health_changes": [
               {
                 "crew_id": "alex",
@@ -19408,6 +23107,8 @@ export const projectPauseTurn: TurnResponse = {
           "resources": {},
           "solar_efficiency": 0.2,
           "oxygen_efficiency": 0.0,
+          "water_recovery_efficiency": 0.0,
+          "co2_efficiency": 0.0,
           "crew_health": 0,
           "target": "selected"
         },
@@ -19415,6 +23116,8 @@ export const projectPauseTurn: TurnResponse = {
           "resources": {},
           "solar_efficiency": 0.0,
           "oxygen_efficiency": 0.0,
+          "water_recovery_efficiency": 0.0,
+          "co2_efficiency": 0.0,
           "crew_health": 0,
           "target": "selected"
         },
@@ -19463,6 +23166,8 @@ export const projectPauseTurn: TurnResponse = {
           "resources": {},
           "solar_efficiency": 0.0,
           "oxygen_efficiency": 0.2,
+          "water_recovery_efficiency": 0.0,
+          "co2_efficiency": 0.0,
           "crew_health": 0,
           "target": "selected"
         },
@@ -19470,6 +23175,8 @@ export const projectPauseTurn: TurnResponse = {
           "resources": {},
           "solar_efficiency": 0.0,
           "oxygen_efficiency": 0.0,
+          "water_recovery_efficiency": 0.0,
+          "co2_efficiency": 0.0,
           "crew_health": 0,
           "target": "selected"
         },
@@ -19494,6 +23201,112 @@ export const projectPauseTurn: TurnResponse = {
             "unavailable_reasons": [
               "Requires 1 oxygen_regulators; available 0."
             ],
+            "success_probability": 1.0
+          }
+        ],
+        "success_probability": null
+      },
+      {
+        "id": "service_water_recovery",
+        "action_type": "maintenance",
+        "objective_rewards": [],
+        "text": "Service the water recovery processor",
+        "description": "One repair kit and 2 power guarantee +30 water-recovery condition points. Recovered water comes from the wastewater stock and is available after this week's rations.",
+        "costs": {
+          "repair_kits": 1.0,
+          "electricity": 2.0
+        },
+        "required_items": {},
+        "requires_crew": true,
+        "role_bonus": {},
+        "crew_role_bonus": {},
+        "success_chance": 1.0,
+        "success_effects": {
+          "resources": {},
+          "solar_efficiency": 0.0,
+          "oxygen_efficiency": 0.0,
+          "water_recovery_efficiency": 0.3,
+          "co2_efficiency": 0.0,
+          "crew_health": 0,
+          "target": "selected"
+        },
+        "failure_effects": {
+          "resources": {},
+          "solar_efficiency": 0.0,
+          "oxygen_efficiency": 0.0,
+          "water_recovery_efficiency": 0.0,
+          "co2_efficiency": 0.0,
+          "crew_health": 0,
+          "target": "selected"
+        },
+        "required_role": null,
+        "minimum_crew": 1,
+        "available": true,
+        "unavailable_reasons": [],
+        "eligible_crew": [
+          {
+            "crew_id": "alex",
+            "available": true,
+            "unavailable_reasons": [],
+            "success_probability": 1.0
+          },
+          {
+            "crew_id": "lin",
+            "available": true,
+            "unavailable_reasons": [],
+            "success_probability": 1.0
+          }
+        ],
+        "success_probability": null
+      },
+      {
+        "id": "service_co2_scrubber",
+        "action_type": "maintenance",
+        "objective_rewards": [],
+        "text": "Service the carbon dioxide scrubber",
+        "description": "One repair kit and 2 power guarantee +30 scrubber condition points. Removal still requires power; oxygen reserves do not remove CO2.",
+        "costs": {
+          "repair_kits": 1.0,
+          "electricity": 2.0
+        },
+        "required_items": {},
+        "requires_crew": true,
+        "role_bonus": {},
+        "crew_role_bonus": {},
+        "success_chance": 1.0,
+        "success_effects": {
+          "resources": {},
+          "solar_efficiency": 0.0,
+          "oxygen_efficiency": 0.0,
+          "water_recovery_efficiency": 0.0,
+          "co2_efficiency": 0.3,
+          "crew_health": 0,
+          "target": "selected"
+        },
+        "failure_effects": {
+          "resources": {},
+          "solar_efficiency": 0.0,
+          "oxygen_efficiency": 0.0,
+          "water_recovery_efficiency": 0.0,
+          "co2_efficiency": 0.0,
+          "crew_health": 0,
+          "target": "selected"
+        },
+        "required_role": null,
+        "minimum_crew": 1,
+        "available": true,
+        "unavailable_reasons": [],
+        "eligible_crew": [
+          {
+            "crew_id": "alex",
+            "available": true,
+            "unavailable_reasons": [],
+            "success_probability": 1.0
+          },
+          {
+            "crew_id": "lin",
+            "available": true,
+            "unavailable_reasons": [],
             "success_probability": 1.0
           }
         ],
@@ -19531,6 +23344,8 @@ export const projectPauseTurn: TurnResponse = {
           },
           "solar_efficiency": 0.0,
           "oxygen_efficiency": 0.0,
+          "water_recovery_efficiency": 0.0,
+          "co2_efficiency": 0.0,
           "crew_health": 0,
           "target": "selected"
         },
@@ -19538,6 +23353,8 @@ export const projectPauseTurn: TurnResponse = {
           "resources": {},
           "solar_efficiency": 0.0,
           "oxygen_efficiency": 0.0,
+          "water_recovery_efficiency": 0.0,
+          "co2_efficiency": 0.0,
           "crew_health": -8,
           "target": "selected"
         },
@@ -19594,6 +23411,8 @@ export const projectPauseTurn: TurnResponse = {
           },
           "solar_efficiency": 0.0,
           "oxygen_efficiency": 0.0,
+          "water_recovery_efficiency": 0.0,
+          "co2_efficiency": 0.0,
           "crew_health": 0,
           "target": "selected"
         },
@@ -19601,6 +23420,8 @@ export const projectPauseTurn: TurnResponse = {
           "resources": {},
           "solar_efficiency": 0.0,
           "oxygen_efficiency": 0.0,
+          "water_recovery_efficiency": 0.0,
+          "co2_efficiency": 0.0,
           "crew_health": -6,
           "target": "selected"
         },
@@ -19650,6 +23471,8 @@ export const projectPauseTurn: TurnResponse = {
         "resources": {},
         "solar_efficiency": 0.0,
         "oxygen_efficiency": 0.0,
+        "water_recovery_efficiency": 0.0,
+        "co2_efficiency": 0.0,
         "health_changes": []
       },
       "objective_progress": []
@@ -19665,6 +23488,22 @@ export const projectPauseTurn: TurnResponse = {
       }
     },
     "survival": {
+      "life_support": {
+        "wastewater_processed": 3.92,
+        "water_recovered": 3.136,
+        "water_for_oxygen": 0.0,
+        "wastewater_captured": 3.04,
+        "oxygen_generated": 0.0,
+        "co2_produced": 2.0,
+        "co2_removed": 2.0,
+        "co2_remaining": 0.0,
+        "power_components": {
+          "habitat": 8.0,
+          "water_recovery": 2.0,
+          "oxygen_generation": 0.0,
+          "co2_removal": 2.0
+        }
+      },
       "daylight_fraction": 1.0,
       "battery_capacity": 100.0,
       "electricity_curtailed": 0.0,
@@ -19683,10 +23522,10 @@ export const projectPauseTurn: TurnResponse = {
         "water": 0.0
       },
       "electricity_generated": 36.0,
-      "electricity_required": 16.0,
-      "electricity_used": 16.0,
+      "electricity_required": 12.0,
+      "electricity_used": 12.0,
       "life_support_power_fraction": 1.0,
-      "oxygen_generated": 10.5,
+      "oxygen_generated": 0.0,
       "oxygen_required": 6.0,
       "oxygen_used": 6.0,
       "oxygen_shortage": 0.0,
@@ -19698,6 +23537,7 @@ export const projectPauseTurn: TurnResponse = {
           "food_penalty": 0,
           "water_penalty": 0,
           "oxygen_penalty": 0,
+          "co2_penalty": 0,
           "died": false
         },
         {
@@ -19707,15 +23547,16 @@ export const projectPauseTurn: TurnResponse = {
           "food_penalty": 0,
           "water_penalty": 0,
           "oxygen_penalty": 0,
+          "co2_penalty": 0,
           "died": false
         }
       ]
     },
     "resource_changes": {
       "food": -2.1,
-      "water": -3.8,
-      "oxygen": 4.5,
-      "electricity": 20.0,
+      "water": -0.664,
+      "oxygen": -6.0,
+      "electricity": 24.0,
       "medicine": 0.0,
       "repair_kits": 0.0,
       "eva_batteries": 0.0,
@@ -19724,7 +23565,9 @@ export const projectPauseTurn: TurnResponse = {
       "diagnostic_tools": 0.0,
       "sealant_packs": 0.0,
       "scientific_tools": 0.0,
-      "research_data": 0.0
+      "research_data": 0.0,
+      "wastewater": -0.88,
+      "co2": 0.0
     },
     "deaths": [],
     "next_event": {
@@ -19734,6 +23577,8 @@ export const projectPauseTurn: TurnResponse = {
         "resources": {},
         "solar_efficiency": 0.0,
         "oxygen_efficiency": 0.0,
+        "water_recovery_efficiency": 0.0,
+        "co2_efficiency": 0.0,
         "health_changes": [
           {
             "crew_id": "alex",
@@ -19755,6 +23600,27 @@ export const projectPauseTurn: TurnResponse = {
 export const completed: GameResponse = {
   "game_id": "fixture-game",
   "state": {
+    "life_support": {
+      "source_url": "https://www.nasa.gov/reference/environmental-control-and-life-support-systems-eclss/",
+      "water_recovery_condition": 0.76,
+      "co2_condition": 0.92,
+      "wastewater": 9.6,
+      "co2_burden": 0.0,
+      "co2_warning_level": 4.0,
+      "recovery_capacity": 4.0,
+      "recovery_yield": 0.8,
+      "water_per_oxygen": 0.1,
+      "oxygen_reserve_weeks": 2.0,
+      "water_recovery_wear": 0.02,
+      "co2_wear": 0.015,
+      "co2_removal_capacity": 6.0,
+      "power_components": {
+        "habitat": 8.0,
+        "water_recovery": 2.0,
+        "oxygen_generation": 4.0,
+        "co2_removal": 2.0
+      }
+    },
     "energy": {
       "battery_capacity": 100.0,
       "stored": 84.0,
@@ -19859,8 +23725,8 @@ export const completed: GameResponse = {
     ],
     "resources": {
       "food": 27.0,
-      "water": 57.6,
-      "oxygen": 118.0,
+      "water": 85.576,
+      "oxygen": 12.0,
       "electricity": 84.0,
       "medicine": 7.0,
       "repair_kits": 2.0,
@@ -19870,10 +23736,14 @@ export const completed: GameResponse = {
       "diagnostic_tools": 0.0,
       "sealant_packs": 0.0,
       "scientific_tools": 0.0,
-      "research_data": 3.0
+      "research_data": 3.0,
+      "wastewater": 9.6,
+      "co2": 0.0
     },
     "solar_efficiency": 1.0,
     "oxygen_efficiency": 1.0,
+    "water_recovery_efficiency": 0.76,
+    "co2_efficiency": 0.92,
     "current_event_id": null,
     "current_event": null,
     "emergency_ration_requirements": {
@@ -19917,6 +23787,8 @@ export const completed: GameResponse = {
             "resources": {},
             "solar_efficiency": 0.0,
             "oxygen_efficiency": 0.0,
+            "water_recovery_efficiency": 0.0,
+            "co2_efficiency": 0.0,
             "health_changes": [
               {
                 "crew_id": "alex",
@@ -19938,6 +23810,22 @@ export const completed: GameResponse = {
           }
         },
         "survival": {
+          "life_support": {
+            "wastewater_processed": 4.0,
+            "water_recovered": 3.2,
+            "water_for_oxygen": 0.0,
+            "wastewater_captured": 3.36,
+            "oxygen_generated": 0.0,
+            "co2_produced": 2.0,
+            "co2_removed": 2.0,
+            "co2_remaining": 0.0,
+            "power_components": {
+              "habitat": 8.0,
+              "water_recovery": 2.0,
+              "oxygen_generation": 0.0,
+              "co2_removal": 2.0
+            }
+          },
           "daylight_fraction": 1.0,
           "battery_capacity": 100.0,
           "electricity_curtailed": 0.0,
@@ -19956,10 +23844,10 @@ export const completed: GameResponse = {
             "water": 0.0
           },
           "electricity_generated": 48.0,
-          "electricity_required": 16.0,
-          "electricity_used": 16.0,
+          "electricity_required": 12.0,
+          "electricity_used": 12.0,
           "life_support_power_fraction": 1.0,
-          "oxygen_generated": 14.0,
+          "oxygen_generated": 0.0,
           "oxygen_required": 6.0,
           "oxygen_used": 6.0,
           "oxygen_shortage": 0.0,
@@ -19971,6 +23859,7 @@ export const completed: GameResponse = {
               "food_penalty": 0,
               "water_penalty": 0,
               "oxygen_penalty": 0,
+              "co2_penalty": 0,
               "died": false
             },
             {
@@ -19980,15 +23869,16 @@ export const completed: GameResponse = {
               "food_penalty": 0,
               "water_penalty": 0,
               "oxygen_penalty": 0,
+              "co2_penalty": 0,
               "died": false
             }
           ]
         },
         "resource_changes": {
           "food": -2.0,
-          "water": -4.2,
-          "oxygen": 8.0,
-          "electricity": 32.0,
+          "water": -1.0,
+          "oxygen": -6.0,
+          "electricity": 36.0,
           "medicine": -1.0,
           "repair_kits": 0.0,
           "eva_batteries": 0.0,
@@ -19997,7 +23887,9 @@ export const completed: GameResponse = {
           "diagnostic_tools": 0.0,
           "sealant_packs": 0.0,
           "scientific_tools": 0.0,
-          "research_data": 0.0
+          "research_data": 0.0,
+          "wastewater": -0.64,
+          "co2": 0.0
         },
         "deaths": [],
         "next_event": {
@@ -20007,6 +23899,8 @@ export const completed: GameResponse = {
             "resources": {},
             "solar_efficiency": 0.0,
             "oxygen_efficiency": 0.0,
+            "water_recovery_efficiency": 0.0,
+            "co2_efficiency": 0.0,
             "health_changes": []
           }
         },
@@ -20033,6 +23927,8 @@ export const completed: GameResponse = {
             "resources": {},
             "solar_efficiency": 0.0,
             "oxygen_efficiency": 0.0,
+            "water_recovery_efficiency": 0.0,
+            "co2_efficiency": 0.0,
             "health_changes": [
               {
                 "crew_id": "maya",
@@ -20054,9 +23950,25 @@ export const completed: GameResponse = {
           }
         },
         "survival": {
+          "life_support": {
+            "wastewater_processed": 3.92,
+            "water_recovered": 3.136,
+            "water_for_oxygen": 0.0,
+            "wastewater_captured": 3.36,
+            "oxygen_generated": 0.0,
+            "co2_produced": 2.0,
+            "co2_removed": 2.0,
+            "co2_remaining": 0.0,
+            "power_components": {
+              "habitat": 8.0,
+              "water_recovery": 2.0,
+              "oxygen_generation": 0.0,
+              "co2_removal": 2.0
+            }
+          },
           "daylight_fraction": 1.0,
           "battery_capacity": 100.0,
-          "electricity_curtailed": 0.0,
+          "electricity_curtailed": 2.0,
           "project_electricity_used": 0.0,
           "power_priority": "life_support",
           "ration_requirements": {
@@ -20072,10 +23984,10 @@ export const completed: GameResponse = {
             "water": 0.0
           },
           "electricity_generated": 48.0,
-          "electricity_required": 16.0,
-          "electricity_used": 16.0,
+          "electricity_required": 12.0,
+          "electricity_used": 12.0,
           "life_support_power_fraction": 1.0,
-          "oxygen_generated": 14.0,
+          "oxygen_generated": 0.0,
           "oxygen_required": 6.0,
           "oxygen_used": 6.0,
           "oxygen_shortage": 0.0,
@@ -20087,6 +23999,7 @@ export const completed: GameResponse = {
               "food_penalty": 0,
               "water_penalty": 0,
               "oxygen_penalty": 0,
+              "co2_penalty": 0,
               "died": false
             },
             {
@@ -20096,15 +24009,16 @@ export const completed: GameResponse = {
               "food_penalty": 0,
               "water_penalty": 0,
               "oxygen_penalty": 0,
+              "co2_penalty": 0,
               "died": false
             }
           ]
         },
         "resource_changes": {
           "food": -3.0,
-          "water": -5.2,
-          "oxygen": 8.0,
-          "electricity": 32.0,
+          "water": -2.064,
+          "oxygen": -6.0,
+          "electricity": 34.0,
           "medicine": 0.0,
           "repair_kits": 0.0,
           "eva_batteries": 0.0,
@@ -20113,7 +24027,9 @@ export const completed: GameResponse = {
           "diagnostic_tools": 0.0,
           "sealant_packs": 0.0,
           "scientific_tools": 0.0,
-          "research_data": 0.0
+          "research_data": 0.0,
+          "wastewater": -0.56,
+          "co2": 0.0
         },
         "deaths": [],
         "next_event": {
@@ -20123,6 +24039,8 @@ export const completed: GameResponse = {
             "resources": {},
             "solar_efficiency": 0.0,
             "oxygen_efficiency": -0.25,
+            "water_recovery_efficiency": 0.0,
+            "co2_efficiency": 0.0,
             "health_changes": []
           }
         },
@@ -20148,6 +24066,8 @@ export const completed: GameResponse = {
             "resources": {},
             "solar_efficiency": 0.0,
             "oxygen_efficiency": 0.25,
+            "water_recovery_efficiency": 0.0,
+            "co2_efficiency": 0.0,
             "health_changes": []
           },
           "objective_progress": []
@@ -20163,6 +24083,22 @@ export const completed: GameResponse = {
           }
         },
         "survival": {
+          "life_support": {
+            "wastewater_processed": 3.84,
+            "water_recovered": 3.072,
+            "water_for_oxygen": 0.0,
+            "wastewater_captured": 3.36,
+            "oxygen_generated": 0.0,
+            "co2_produced": 2.0,
+            "co2_removed": 2.0,
+            "co2_remaining": 0.0,
+            "power_components": {
+              "habitat": 8.0,
+              "water_recovery": 2.0,
+              "oxygen_generation": 0.0,
+              "co2_removal": 2.0
+            }
+          },
           "daylight_fraction": 0.109329,
           "battery_capacity": 100.0,
           "electricity_curtailed": 0.0,
@@ -20181,10 +24117,10 @@ export const completed: GameResponse = {
             "water": 0.0
           },
           "electricity_generated": 5.247792,
-          "electricity_required": 16.0,
-          "electricity_used": 16.0,
+          "electricity_required": 12.0,
+          "electricity_used": 12.0,
           "life_support_power_fraction": 1.0,
-          "oxygen_generated": 14.0,
+          "oxygen_generated": 0.0,
           "oxygen_required": 6.0,
           "oxygen_used": 6.0,
           "oxygen_shortage": 0.0,
@@ -20196,6 +24132,7 @@ export const completed: GameResponse = {
               "food_penalty": 0,
               "water_penalty": 0,
               "oxygen_penalty": 0,
+              "co2_penalty": 0,
               "died": false
             },
             {
@@ -20205,15 +24142,16 @@ export const completed: GameResponse = {
               "food_penalty": 0,
               "water_penalty": 0,
               "oxygen_penalty": 0,
+              "co2_penalty": 0,
               "died": false
             }
           ]
         },
         "resource_changes": {
           "food": -2.0,
-          "water": -4.2,
-          "oxygen": 8.0,
-          "electricity": -10.752208,
+          "water": -1.128,
+          "oxygen": -6.0,
+          "electricity": -6.752208,
           "medicine": 0.0,
           "repair_kits": -1.0,
           "eva_batteries": 0.0,
@@ -20222,7 +24160,9 @@ export const completed: GameResponse = {
           "diagnostic_tools": 0.0,
           "sealant_packs": 0.0,
           "scientific_tools": 0.0,
-          "research_data": 0.0
+          "research_data": 0.0,
+          "wastewater": -0.48,
+          "co2": 0.0
         },
         "deaths": [],
         "next_event": {
@@ -20232,6 +24172,8 @@ export const completed: GameResponse = {
             "resources": {},
             "solar_efficiency": 0.0,
             "oxygen_efficiency": 0.0,
+            "water_recovery_efficiency": 0.0,
+            "co2_efficiency": 0.0,
             "health_changes": []
           }
         },
@@ -20266,6 +24208,8 @@ export const completed: GameResponse = {
             },
             "solar_efficiency": 0.0,
             "oxygen_efficiency": 0.0,
+            "water_recovery_efficiency": 0.0,
+            "co2_efficiency": 0.0,
             "health_changes": []
           },
           "objective_progress": [
@@ -20287,6 +24231,22 @@ export const completed: GameResponse = {
           }
         },
         "survival": {
+          "life_support": {
+            "wastewater_processed": 3.76,
+            "water_recovered": 3.008,
+            "water_for_oxygen": 0.8,
+            "wastewater_captured": 3.36,
+            "oxygen_generated": 8.0,
+            "co2_produced": 2.0,
+            "co2_removed": 2.0,
+            "co2_remaining": 0.0,
+            "power_components": {
+              "habitat": 8.0,
+              "water_recovery": 2.0,
+              "oxygen_generation": 4.0,
+              "co2_removal": 2.0
+            }
+          },
           "daylight_fraction": 0.0,
           "battery_capacity": 100.0,
           "electricity_curtailed": 0.0,
@@ -20308,7 +24268,7 @@ export const completed: GameResponse = {
           "electricity_required": 16.0,
           "electricity_used": 16.0,
           "life_support_power_fraction": 1.0,
-          "oxygen_generated": 14.0,
+          "oxygen_generated": 8.0,
           "oxygen_required": 6.0,
           "oxygen_used": 6.0,
           "oxygen_shortage": 0.0,
@@ -20320,6 +24280,7 @@ export const completed: GameResponse = {
               "food_penalty": 0,
               "water_penalty": 0,
               "oxygen_penalty": 0,
+              "co2_penalty": 0,
               "died": false
             },
             {
@@ -20329,14 +24290,15 @@ export const completed: GameResponse = {
               "food_penalty": 0,
               "water_penalty": 0,
               "oxygen_penalty": 0,
+              "co2_penalty": 0,
               "died": false
             }
           ]
         },
         "resource_changes": {
           "food": -2.0,
-          "water": -4.2,
-          "oxygen": 6.0,
+          "water": -1.992,
+          "oxygen": 0.0,
           "electricity": -16.0,
           "medicine": 0.0,
           "repair_kits": 0.0,
@@ -20346,7 +24308,9 @@ export const completed: GameResponse = {
           "diagnostic_tools": 0.0,
           "sealant_packs": 0.0,
           "scientific_tools": 0.0,
-          "research_data": 2.0
+          "research_data": 2.0,
+          "wastewater": -0.4,
+          "co2": 0.0
         },
         "deaths": [],
         "next_event": {
@@ -20356,6 +24320,8 @@ export const completed: GameResponse = {
             "resources": {},
             "solar_efficiency": -0.25,
             "oxygen_efficiency": 0.0,
+            "water_recovery_efficiency": 0.0,
+            "co2_efficiency": 0.0,
             "health_changes": []
           }
         },
@@ -20383,6 +24349,8 @@ export const completed: GameResponse = {
             "resources": {},
             "solar_efficiency": 0.25,
             "oxygen_efficiency": 0.0,
+            "water_recovery_efficiency": 0.0,
+            "co2_efficiency": 0.0,
             "health_changes": []
           },
           "objective_progress": []
@@ -20398,6 +24366,22 @@ export const completed: GameResponse = {
           }
         },
         "survival": {
+          "life_support": {
+            "wastewater_processed": 3.68,
+            "water_recovered": 2.944,
+            "water_for_oxygen": 0.8,
+            "wastewater_captured": 3.36,
+            "oxygen_generated": 8.0,
+            "co2_produced": 2.0,
+            "co2_removed": 2.0,
+            "co2_remaining": 0.0,
+            "power_components": {
+              "habitat": 8.0,
+              "water_recovery": 2.0,
+              "oxygen_generation": 4.0,
+              "co2_removal": 2.0
+            }
+          },
           "daylight_fraction": 0.781343,
           "battery_capacity": 100.0,
           "electricity_curtailed": 0.0,
@@ -20419,7 +24403,7 @@ export const completed: GameResponse = {
           "electricity_required": 16.0,
           "electricity_used": 16.0,
           "life_support_power_fraction": 1.0,
-          "oxygen_generated": 14.0,
+          "oxygen_generated": 8.0,
           "oxygen_required": 6.0,
           "oxygen_used": 6.0,
           "oxygen_shortage": 0.0,
@@ -20431,6 +24415,7 @@ export const completed: GameResponse = {
               "food_penalty": 0,
               "water_penalty": 0,
               "oxygen_penalty": 0,
+              "co2_penalty": 0,
               "died": false
             },
             {
@@ -20440,14 +24425,15 @@ export const completed: GameResponse = {
               "food_penalty": 0,
               "water_penalty": 0,
               "oxygen_penalty": 0,
+              "co2_penalty": 0,
               "died": false
             }
           ]
         },
         "resource_changes": {
           "food": -2.0,
-          "water": -4.2,
-          "oxygen": 6.0,
+          "water": -2.056,
+          "oxygen": 0.0,
           "electricity": 21.504464,
           "medicine": 0.0,
           "repair_kits": -1.0,
@@ -20457,7 +24443,9 @@ export const completed: GameResponse = {
           "diagnostic_tools": 0.0,
           "sealant_packs": 0.0,
           "scientific_tools": 0.0,
-          "research_data": 0.0
+          "research_data": 0.0,
+          "wastewater": -0.32,
+          "co2": 0.0
         },
         "deaths": [],
         "next_event": {
@@ -20469,6 +24457,8 @@ export const completed: GameResponse = {
             },
             "solar_efficiency": 0.0,
             "oxygen_efficiency": 0.0,
+            "water_recovery_efficiency": 0.0,
+            "co2_efficiency": 0.0,
             "health_changes": []
           }
         },
@@ -20496,6 +24486,8 @@ export const completed: GameResponse = {
             },
             "solar_efficiency": 0.0,
             "oxygen_efficiency": 0.0,
+            "water_recovery_efficiency": 0.0,
+            "co2_efficiency": 0.0,
             "health_changes": []
           },
           "objective_progress": []
@@ -20511,9 +24503,25 @@ export const completed: GameResponse = {
           }
         },
         "survival": {
+          "life_support": {
+            "wastewater_processed": 3.6,
+            "water_recovered": 2.88,
+            "water_for_oxygen": 0.6,
+            "wastewater_captured": 3.36,
+            "oxygen_generated": 6.0,
+            "co2_produced": 2.0,
+            "co2_removed": 2.0,
+            "co2_remaining": 0.0,
+            "power_components": {
+              "habitat": 8.0,
+              "water_recovery": 2.0,
+              "oxygen_generation": 4.0,
+              "co2_removal": 2.0
+            }
+          },
           "daylight_fraction": 1.0,
           "battery_capacity": 100.0,
-          "electricity_curtailed": 20.752256,
+          "electricity_curtailed": 30.752256,
           "project_electricity_used": 0.0,
           "power_priority": "life_support",
           "ration_requirements": {
@@ -20532,7 +24540,7 @@ export const completed: GameResponse = {
           "electricity_required": 16.0,
           "electricity_used": 16.0,
           "life_support_power_fraction": 1.0,
-          "oxygen_generated": 14.0,
+          "oxygen_generated": 6.0,
           "oxygen_required": 6.0,
           "oxygen_used": 6.0,
           "oxygen_shortage": 0.0,
@@ -20544,6 +24552,7 @@ export const completed: GameResponse = {
               "food_penalty": 0,
               "water_penalty": 0,
               "oxygen_penalty": 0,
+              "co2_penalty": 0,
               "died": false
             },
             {
@@ -20553,15 +24562,16 @@ export const completed: GameResponse = {
               "food_penalty": 0,
               "water_penalty": 0,
               "oxygen_penalty": 0,
+              "co2_penalty": 0,
               "died": false
             }
           ]
         },
         "resource_changes": {
           "food": -2.0,
-          "water": -2.2,
-          "oxygen": 8.0,
-          "electricity": 11.247744,
+          "water": 0.08,
+          "oxygen": 0.0,
+          "electricity": 1.247744,
           "medicine": 0.0,
           "repair_kits": -1.0,
           "eva_batteries": 0.0,
@@ -20570,7 +24580,9 @@ export const completed: GameResponse = {
           "diagnostic_tools": 0.0,
           "sealant_packs": 0.0,
           "scientific_tools": 0.0,
-          "research_data": 0.0
+          "research_data": 0.0,
+          "wastewater": -0.24,
+          "co2": 0.0
         },
         "deaths": [],
         "next_event": {
@@ -20580,6 +24592,8 @@ export const completed: GameResponse = {
             "resources": {},
             "solar_efficiency": 0.0,
             "oxygen_efficiency": 0.0,
+            "water_recovery_efficiency": 0.0,
+            "co2_efficiency": 0.0,
             "health_changes": []
           }
         },
@@ -20606,6 +24620,8 @@ export const completed: GameResponse = {
             "resources": {},
             "solar_efficiency": 0.0,
             "oxygen_efficiency": 0.0,
+            "water_recovery_efficiency": 0.0,
+            "co2_efficiency": 0.0,
             "health_changes": []
           },
           "objective_progress": []
@@ -20621,6 +24637,22 @@ export const completed: GameResponse = {
           }
         },
         "survival": {
+          "life_support": {
+            "wastewater_processed": 3.52,
+            "water_recovered": 2.816,
+            "water_for_oxygen": 0.6,
+            "wastewater_captured": 3.36,
+            "oxygen_generated": 6.0,
+            "co2_produced": 2.0,
+            "co2_removed": 2.0,
+            "co2_remaining": 0.0,
+            "power_components": {
+              "habitat": 8.0,
+              "water_recovery": 2.0,
+              "oxygen_generation": 4.0,
+              "co2_removal": 2.0
+            }
+          },
           "daylight_fraction": 0.327986,
           "battery_capacity": 100.0,
           "electricity_curtailed": 0.0,
@@ -20642,7 +24674,7 @@ export const completed: GameResponse = {
           "electricity_required": 16.0,
           "electricity_used": 16.0,
           "life_support_power_fraction": 1.0,
-          "oxygen_generated": 14.0,
+          "oxygen_generated": 6.0,
           "oxygen_required": 6.0,
           "oxygen_used": 6.0,
           "oxygen_shortage": 0.0,
@@ -20654,6 +24686,7 @@ export const completed: GameResponse = {
               "food_penalty": 0,
               "water_penalty": 0,
               "oxygen_penalty": 0,
+              "co2_penalty": 0,
               "died": false
             },
             {
@@ -20663,14 +24696,15 @@ export const completed: GameResponse = {
               "food_penalty": 0,
               "water_penalty": 0,
               "oxygen_penalty": 0,
+              "co2_penalty": 0,
               "died": false
             }
           ]
         },
         "resource_changes": {
           "food": -2.0,
-          "water": -5.2,
-          "oxygen": 8.0,
+          "water": -2.984,
+          "oxygen": 0.0,
           "electricity": -4.256672,
           "medicine": 0.0,
           "repair_kits": 0.0,
@@ -20680,7 +24714,9 @@ export const completed: GameResponse = {
           "diagnostic_tools": 0.0,
           "sealant_packs": 0.0,
           "scientific_tools": 0.0,
-          "research_data": 0.0
+          "research_data": 0.0,
+          "wastewater": -0.16,
+          "co2": 0.0
         },
         "deaths": [],
         "next_event": {
@@ -20692,6 +24728,8 @@ export const completed: GameResponse = {
             },
             "solar_efficiency": 0.0,
             "oxygen_efficiency": 0.0,
+            "water_recovery_efficiency": 0.0,
+            "co2_efficiency": 0.0,
             "health_changes": []
           }
         },
@@ -20717,6 +24755,8 @@ export const completed: GameResponse = {
             "resources": {},
             "solar_efficiency": 0.0,
             "oxygen_efficiency": 0.0,
+            "water_recovery_efficiency": 0.0,
+            "co2_efficiency": 0.0,
             "health_changes": []
           },
           "objective_progress": []
@@ -20732,6 +24772,22 @@ export const completed: GameResponse = {
           }
         },
         "survival": {
+          "life_support": {
+            "wastewater_processed": 3.44,
+            "water_recovered": 2.752,
+            "water_for_oxygen": 1.0,
+            "wastewater_captured": 3.36,
+            "oxygen_generated": 10.0,
+            "co2_produced": 2.0,
+            "co2_removed": 2.0,
+            "co2_remaining": 0.0,
+            "power_components": {
+              "habitat": 8.0,
+              "water_recovery": 2.0,
+              "oxygen_generation": 4.0,
+              "co2_removal": 2.0
+            }
+          },
           "daylight_fraction": 0.0,
           "battery_capacity": 100.0,
           "electricity_curtailed": 0.0,
@@ -20753,7 +24809,7 @@ export const completed: GameResponse = {
           "electricity_required": 16.0,
           "electricity_used": 16.0,
           "life_support_power_fraction": 1.0,
-          "oxygen_generated": 14.0,
+          "oxygen_generated": 10.0,
           "oxygen_required": 6.0,
           "oxygen_used": 6.0,
           "oxygen_shortage": 0.0,
@@ -20765,6 +24821,7 @@ export const completed: GameResponse = {
               "food_penalty": 0,
               "water_penalty": 0,
               "oxygen_penalty": 0,
+              "co2_penalty": 0,
               "died": false
             },
             {
@@ -20774,14 +24831,15 @@ export const completed: GameResponse = {
               "food_penalty": 0,
               "water_penalty": 0,
               "oxygen_penalty": 0,
+              "co2_penalty": 0,
               "died": false
             }
           ]
         },
         "resource_changes": {
           "food": -2.0,
-          "water": -4.2,
-          "oxygen": 8.0,
+          "water": -2.448,
+          "oxygen": 4.0,
           "electricity": -16.0,
           "medicine": 0.0,
           "repair_kits": -1.0,
@@ -20791,7 +24849,9 @@ export const completed: GameResponse = {
           "diagnostic_tools": 0.0,
           "sealant_packs": 0.0,
           "scientific_tools": 0.0,
-          "research_data": 0.0
+          "research_data": 0.0,
+          "wastewater": -0.08,
+          "co2": 0.0
         },
         "deaths": [],
         "next_event": {
@@ -20801,6 +24861,8 @@ export const completed: GameResponse = {
             "resources": {},
             "solar_efficiency": 0.0,
             "oxygen_efficiency": 0.0,
+            "water_recovery_efficiency": 0.0,
+            "co2_efficiency": 0.0,
             "health_changes": []
           }
         },
@@ -20826,6 +24888,8 @@ export const completed: GameResponse = {
             "resources": {},
             "solar_efficiency": 0.0,
             "oxygen_efficiency": 0.0,
+            "water_recovery_efficiency": 0.0,
+            "co2_efficiency": 0.0,
             "health_changes": []
           },
           "objective_progress": []
@@ -20841,6 +24905,22 @@ export const completed: GameResponse = {
           }
         },
         "survival": {
+          "life_support": {
+            "wastewater_processed": 3.36,
+            "water_recovered": 2.688,
+            "water_for_oxygen": 0.6,
+            "wastewater_captured": 3.36,
+            "oxygen_generated": 6.0,
+            "co2_produced": 2.0,
+            "co2_removed": 2.0,
+            "co2_remaining": 0.0,
+            "power_components": {
+              "habitat": 8.0,
+              "water_recovery": 2.0,
+              "oxygen_generation": 4.0,
+              "co2_removal": 2.0
+            }
+          },
           "daylight_fraction": 0.562686,
           "battery_capacity": 100.0,
           "electricity_curtailed": 0.0,
@@ -20862,7 +24942,7 @@ export const completed: GameResponse = {
           "electricity_required": 16.0,
           "electricity_used": 16.0,
           "life_support_power_fraction": 1.0,
-          "oxygen_generated": 14.0,
+          "oxygen_generated": 6.0,
           "oxygen_required": 6.0,
           "oxygen_used": 6.0,
           "oxygen_shortage": 0.0,
@@ -20874,6 +24954,7 @@ export const completed: GameResponse = {
               "food_penalty": 0,
               "water_penalty": 0,
               "oxygen_penalty": 0,
+              "co2_penalty": 0,
               "died": false
             },
             {
@@ -20883,14 +24964,15 @@ export const completed: GameResponse = {
               "food_penalty": 0,
               "water_penalty": 0,
               "oxygen_penalty": 0,
+              "co2_penalty": 0,
               "died": false
             }
           ]
         },
         "resource_changes": {
           "food": -2.0,
-          "water": -4.2,
-          "oxygen": 8.0,
+          "water": -2.112,
+          "oxygen": 0.0,
           "electricity": 10.008928,
           "medicine": 0.0,
           "repair_kits": 0.0,
@@ -20900,7 +24982,9 @@ export const completed: GameResponse = {
           "diagnostic_tools": 0.0,
           "sealant_packs": 0.0,
           "scientific_tools": 0.0,
-          "research_data": 0.0
+          "research_data": 0.0,
+          "wastewater": 0.0,
+          "co2": 0.0
         },
         "deaths": [],
         "next_event": {
@@ -20910,6 +24994,8 @@ export const completed: GameResponse = {
             "resources": {},
             "solar_efficiency": 0.0,
             "oxygen_efficiency": 0.0,
+            "water_recovery_efficiency": 0.0,
+            "co2_efficiency": -0.2,
             "health_changes": []
           }
         },
@@ -20935,6 +25021,8 @@ export const completed: GameResponse = {
             "resources": {},
             "solar_efficiency": 0.0,
             "oxygen_efficiency": 0.0,
+            "water_recovery_efficiency": 0.0,
+            "co2_efficiency": 0.3,
             "health_changes": []
           },
           "objective_progress": []
@@ -20950,6 +25038,22 @@ export const completed: GameResponse = {
           }
         },
         "survival": {
+          "life_support": {
+            "wastewater_processed": 3.28,
+            "water_recovered": 2.624,
+            "water_for_oxygen": 0.6,
+            "wastewater_captured": 3.36,
+            "oxygen_generated": 6.0,
+            "co2_produced": 2.0,
+            "co2_removed": 2.0,
+            "co2_remaining": 0.0,
+            "power_components": {
+              "habitat": 8.0,
+              "water_recovery": 2.0,
+              "oxygen_generation": 4.0,
+              "co2_removal": 2.0
+            }
+          },
           "daylight_fraction": 1.0,
           "battery_capacity": 100.0,
           "electricity_curtailed": 21.752256,
@@ -20971,7 +25075,7 @@ export const completed: GameResponse = {
           "electricity_required": 16.0,
           "electricity_used": 16.0,
           "life_support_power_fraction": 1.0,
-          "oxygen_generated": 14.0,
+          "oxygen_generated": 6.0,
           "oxygen_required": 6.0,
           "oxygen_used": 6.0,
           "oxygen_shortage": 0.0,
@@ -20983,6 +25087,7 @@ export const completed: GameResponse = {
               "food_penalty": 0,
               "water_penalty": 0,
               "oxygen_penalty": 0,
+              "co2_penalty": 0,
               "died": false
             },
             {
@@ -20992,14 +25097,15 @@ export const completed: GameResponse = {
               "food_penalty": 0,
               "water_penalty": 0,
               "oxygen_penalty": 0,
+              "co2_penalty": 0,
               "died": false
             }
           ]
         },
         "resource_changes": {
           "food": -2.0,
-          "water": -4.2,
-          "oxygen": 8.0,
+          "water": -2.176,
+          "oxygen": 0.0,
           "electricity": 10.247744,
           "medicine": 0.0,
           "repair_kits": -1.0,
@@ -21009,7 +25115,9 @@ export const completed: GameResponse = {
           "diagnostic_tools": 0.0,
           "sealant_packs": 0.0,
           "scientific_tools": 0.0,
-          "research_data": 0.0
+          "research_data": 0.0,
+          "wastewater": 0.08,
+          "co2": 0.0
         },
         "deaths": [],
         "next_event": {
@@ -21019,6 +25127,8 @@ export const completed: GameResponse = {
             "resources": {},
             "solar_efficiency": 0.0,
             "oxygen_efficiency": 0.0,
+            "water_recovery_efficiency": 0.0,
+            "co2_efficiency": 0.0,
             "health_changes": []
           }
         },
@@ -21044,6 +25154,8 @@ export const completed: GameResponse = {
             },
             "solar_efficiency": 0.0,
             "oxygen_efficiency": 0.0,
+            "water_recovery_efficiency": 0.0,
+            "co2_efficiency": 0.0,
             "health_changes": []
           },
           "objective_progress": []
@@ -21059,6 +25171,22 @@ export const completed: GameResponse = {
           }
         },
         "survival": {
+          "life_support": {
+            "wastewater_processed": 3.2,
+            "water_recovered": 2.56,
+            "water_for_oxygen": 0.6,
+            "wastewater_captured": 3.36,
+            "oxygen_generated": 6.0,
+            "co2_produced": 2.0,
+            "co2_removed": 2.0,
+            "co2_remaining": 0.0,
+            "power_components": {
+              "habitat": 8.0,
+              "water_recovery": 2.0,
+              "oxygen_generation": 4.0,
+              "co2_removal": 2.0
+            }
+          },
           "daylight_fraction": 0.546643,
           "battery_capacity": 100.0,
           "electricity_curtailed": 10.238864,
@@ -21080,7 +25208,7 @@ export const completed: GameResponse = {
           "electricity_required": 16.0,
           "electricity_used": 16.0,
           "life_support_power_fraction": 1.0,
-          "oxygen_generated": 14.0,
+          "oxygen_generated": 6.0,
           "oxygen_required": 6.0,
           "oxygen_used": 6.0,
           "oxygen_shortage": 0.0,
@@ -21092,6 +25220,7 @@ export const completed: GameResponse = {
               "food_penalty": 0,
               "water_penalty": 0,
               "oxygen_penalty": 0,
+              "co2_penalty": 0,
               "died": false
             },
             {
@@ -21101,14 +25230,15 @@ export const completed: GameResponse = {
               "food_penalty": 0,
               "water_penalty": 0,
               "oxygen_penalty": 0,
+              "co2_penalty": 0,
               "died": false
             }
           ]
         },
         "resource_changes": {
           "food": -2.0,
-          "water": -4.2,
-          "oxygen": 8.0,
+          "water": -2.24,
+          "oxygen": 0.0,
           "electricity": 0.0,
           "medicine": 0.0,
           "repair_kits": 0.0,
@@ -21118,7 +25248,9 @@ export const completed: GameResponse = {
           "diagnostic_tools": 0.0,
           "sealant_packs": 0.0,
           "scientific_tools": 0.0,
-          "research_data": 1.0
+          "research_data": 1.0,
+          "wastewater": 0.16,
+          "co2": 0.0
         },
         "deaths": [],
         "next_event": {
@@ -21130,6 +25262,8 @@ export const completed: GameResponse = {
             },
             "solar_efficiency": 0.0,
             "oxygen_efficiency": 0.0,
+            "water_recovery_efficiency": 0.0,
+            "co2_efficiency": 0.0,
             "health_changes": []
           }
         },
@@ -21157,6 +25291,8 @@ export const completed: GameResponse = {
             },
             "solar_efficiency": 0.0,
             "oxygen_efficiency": 0.0,
+            "water_recovery_efficiency": 0.0,
+            "co2_efficiency": 0.0,
             "health_changes": []
           },
           "objective_progress": []
@@ -21172,6 +25308,22 @@ export const completed: GameResponse = {
           }
         },
         "survival": {
+          "life_support": {
+            "wastewater_processed": 3.12,
+            "water_recovered": 2.496,
+            "water_for_oxygen": 0.6,
+            "wastewater_captured": 3.36,
+            "oxygen_generated": 6.0,
+            "co2_produced": 2.0,
+            "co2_removed": 2.0,
+            "co2_remaining": 0.0,
+            "power_components": {
+              "habitat": 8.0,
+              "water_recovery": 2.0,
+              "oxygen_generation": 4.0,
+              "co2_removal": 2.0
+            }
+          },
           "daylight_fraction": 0.0,
           "battery_capacity": 100.0,
           "electricity_curtailed": 0.0,
@@ -21193,7 +25345,7 @@ export const completed: GameResponse = {
           "electricity_required": 16.0,
           "electricity_used": 16.0,
           "life_support_power_fraction": 1.0,
-          "oxygen_generated": 14.0,
+          "oxygen_generated": 6.0,
           "oxygen_required": 6.0,
           "oxygen_used": 6.0,
           "oxygen_shortage": 0.0,
@@ -21205,6 +25357,7 @@ export const completed: GameResponse = {
               "food_penalty": 0,
               "water_penalty": 0,
               "oxygen_penalty": 0,
+              "co2_penalty": 0,
               "died": false
             },
             {
@@ -21214,14 +25367,15 @@ export const completed: GameResponse = {
               "food_penalty": 0,
               "water_penalty": 0,
               "oxygen_penalty": 0,
+              "co2_penalty": 0,
               "died": false
             }
           ]
         },
         "resource_changes": {
           "food": -2.0,
-          "water": -4.2,
-          "oxygen": 8.0,
+          "water": -2.304,
+          "oxygen": 0.0,
           "electricity": -11.0,
           "medicine": 0.0,
           "repair_kits": -1.0,
@@ -21231,20 +25385,22 @@ export const completed: GameResponse = {
           "diagnostic_tools": 0.0,
           "sealant_packs": 0.0,
           "scientific_tools": 0.0,
-          "research_data": 0.0
+          "research_data": 0.0,
+          "wastewater": 0.24,
+          "co2": 0.0
         },
         "deaths": [],
         "next_event": null,
-        "ending": "perfect_handover"
+        "ending": "successful_handover"
       }
     ],
     "status": "completed",
     "random_seed": 42,
     "initial_crew_size": 2,
     "weeks_completed": 12,
-    "ending": "perfect_handover",
+    "ending": "successful_handover",
     "results": {
-      "ending": "perfect_handover",
+      "ending": "successful_handover",
       "weeks_survived": 12,
       "initial_crew_size": 2,
       "surviving_crew_ids": [
@@ -21359,11 +25515,32 @@ export const completed: GameResponse = {
 export const failed: GameResponse = {
   "game_id": "fixture-game",
   "state": {
+    "life_support": {
+      "source_url": "https://www.nasa.gov/reference/environmental-control-and-life-support-systems-eclss/",
+      "water_recovery_condition": 0.86,
+      "co2_condition": 0.895,
+      "wastewater": 16.272,
+      "co2_burden": 0.0,
+      "co2_warning_level": 4.0,
+      "recovery_capacity": 4.0,
+      "recovery_yield": 0.8,
+      "water_per_oxygen": 0.1,
+      "oxygen_reserve_weeks": 2.0,
+      "water_recovery_wear": 0.02,
+      "co2_wear": 0.015,
+      "co2_removal_capacity": 6.0,
+      "power_components": {
+        "habitat": 4.0,
+        "water_recovery": 2.0,
+        "oxygen_generation": 0.0,
+        "co2_removal": 0.0
+      }
+    },
     "energy": {
       "battery_capacity": 100.0,
-      "stored": 75.183636,
+      "stored": 63.183636,
       "priority": "life_support",
-      "life_support_required": 12.0,
+      "life_support_required": 6.0,
       "solar_day_earth_days": 29.5306,
       "source_url": "https://svs.gsfc.nasa.gov/12739/",
       "assumption": "Fictional shared epoch: sunrise at Apollo 11 longitude on mission day zero. Smooth non-polar horizon, equal day/night halves, constant useful output during daylight. Weekly averaging omits terrain shadows, eclipses, seasons, and panel incidence.",
@@ -21450,7 +25627,7 @@ export const failed: GameResponse = {
         "specialty": "Mechanical repair",
         "training_source": "https://www.nasa.gov/reference/jsc-crew-operations-training/",
         "action_bonuses": {},
-        "food_shortage_weeks": 2,
+        "food_shortage_weeks": 3,
         "water_shortage_weeks": 3,
         "alive": false,
         "ration_options": {}
@@ -21469,7 +25646,7 @@ export const failed: GameResponse = {
         "specialty": "Crew medical officer",
         "training_source": "https://www.nasa.gov/reference/5-0-training/",
         "action_bonuses": {},
-        "food_shortage_weeks": 2,
+        "food_shortage_weeks": 3,
         "water_shortage_weeks": 3,
         "alive": false,
         "ration_options": {}
@@ -21488,7 +25665,7 @@ export const failed: GameResponse = {
         "specialty": "Field science and calibration",
         "training_source": "https://www.nasa.gov/missions/artemis/nasa-field-geology-training-prepares-artemis-mission-support-teams/",
         "action_bonuses": {},
-        "food_shortage_weeks": 2,
+        "food_shortage_weeks": 3,
         "water_shortage_weeks": 3,
         "alive": false,
         "ration_options": {}
@@ -21507,7 +25684,7 @@ export const failed: GameResponse = {
         "specialty": "EVA maintenance",
         "training_source": "https://www.nasa.gov/reference/jsc-crew-operations-training/",
         "action_bonuses": {},
-        "food_shortage_weeks": 2,
+        "food_shortage_weeks": 3,
         "water_shortage_weeks": 3,
         "alive": false,
         "ration_options": {}
@@ -21515,9 +25692,9 @@ export const failed: GameResponse = {
     ],
     "resources": {
       "food": 0.0,
-      "water": 0.0,
-      "oxygen": 38.5,
-      "electricity": 75.183636,
+      "water": 1.766,
+      "oxygen": 16.5,
+      "electricity": 63.183636,
       "medicine": 1.0,
       "repair_kits": 1.0,
       "eva_batteries": 1.0,
@@ -21526,10 +25703,14 @@ export const failed: GameResponse = {
       "diagnostic_tools": 0.0,
       "sealant_packs": 0.0,
       "scientific_tools": 0.0,
-      "research_data": 0.0
+      "research_data": 0.0,
+      "wastewater": 16.272,
+      "co2": 0.0
     },
     "solar_efficiency": 0.75,
     "oxygen_efficiency": 0.75,
+    "water_recovery_efficiency": 0.86,
+    "co2_efficiency": 0.895,
     "current_event_id": null,
     "current_event": null,
     "emergency_ration_requirements": {
@@ -21568,6 +25749,8 @@ export const failed: GameResponse = {
             "resources": {},
             "solar_efficiency": 0.0,
             "oxygen_efficiency": 0.0,
+            "water_recovery_efficiency": 0.0,
+            "co2_efficiency": 0.0,
             "health_changes": [
               {
                 "crew_id": "alex",
@@ -21612,6 +25795,22 @@ export const failed: GameResponse = {
           }
         },
         "survival": {
+          "life_support": {
+            "wastewater_processed": 4.0,
+            "water_recovered": 3.2,
+            "water_for_oxygen": 0.6,
+            "wastewater_captured": 6.4,
+            "oxygen_generated": 6.0,
+            "co2_produced": 4.0,
+            "co2_removed": 4.0,
+            "co2_remaining": 0.0,
+            "power_components": {
+              "habitat": 12.0,
+              "water_recovery": 2.0,
+              "oxygen_generation": 4.0,
+              "co2_removal": 2.0
+            }
+          },
           "daylight_fraction": 1.0,
           "battery_capacity": 100.0,
           "electricity_curtailed": 0.0,
@@ -21633,7 +25832,7 @@ export const failed: GameResponse = {
           "electricity_required": 20.0,
           "electricity_used": 20.0,
           "life_support_power_fraction": 1.0,
-          "oxygen_generated": 14.0,
+          "oxygen_generated": 6.0,
           "oxygen_required": 12.0,
           "oxygen_used": 12.0,
           "oxygen_shortage": 0.0,
@@ -21645,6 +25844,7 @@ export const failed: GameResponse = {
               "food_penalty": 0,
               "water_penalty": 0,
               "oxygen_penalty": 0,
+              "co2_penalty": 0,
               "died": false
             },
             {
@@ -21654,6 +25854,7 @@ export const failed: GameResponse = {
               "food_penalty": 0,
               "water_penalty": 0,
               "oxygen_penalty": 0,
+              "co2_penalty": 0,
               "died": false
             },
             {
@@ -21663,6 +25864,7 @@ export const failed: GameResponse = {
               "food_penalty": 0,
               "water_penalty": 0,
               "oxygen_penalty": 0,
+              "co2_penalty": 0,
               "died": false
             },
             {
@@ -21672,14 +25874,15 @@ export const failed: GameResponse = {
               "food_penalty": 0,
               "water_penalty": 0,
               "oxygen_penalty": 0,
+              "co2_penalty": 0,
               "died": false
             }
           ]
         },
         "resource_changes": {
           "food": -4.0,
-          "water": -8.0,
-          "oxygen": 2.0,
+          "water": -5.4,
+          "oxygen": -6.0,
           "electricity": 28.0,
           "medicine": 0.0,
           "repair_kits": 0.0,
@@ -21689,7 +25892,9 @@ export const failed: GameResponse = {
           "diagnostic_tools": 0.0,
           "sealant_packs": 0.0,
           "scientific_tools": 0.0,
-          "research_data": 0.0
+          "research_data": 0.0,
+          "wastewater": 2.4,
+          "co2": 0.0
         },
         "deaths": [],
         "next_event": {
@@ -21699,6 +25904,8 @@ export const failed: GameResponse = {
             "resources": {},
             "solar_efficiency": 0.0,
             "oxygen_efficiency": 0.0,
+            "water_recovery_efficiency": 0.0,
+            "co2_efficiency": 0.0,
             "health_changes": []
           }
         },
@@ -21725,6 +25932,8 @@ export const failed: GameResponse = {
             "resources": {},
             "solar_efficiency": 0.0,
             "oxygen_efficiency": 0.0,
+            "water_recovery_efficiency": 0.0,
+            "co2_efficiency": 0.0,
             "health_changes": [
               {
                 "crew_id": "alex",
@@ -21769,6 +25978,22 @@ export const failed: GameResponse = {
           }
         },
         "survival": {
+          "life_support": {
+            "wastewater_processed": 3.92,
+            "water_recovered": 3.136,
+            "water_for_oxygen": 1.2,
+            "wastewater_captured": 6.4,
+            "oxygen_generated": 12.0,
+            "co2_produced": 4.0,
+            "co2_removed": 4.0,
+            "co2_remaining": 0.0,
+            "power_components": {
+              "habitat": 12.0,
+              "water_recovery": 2.0,
+              "oxygen_generation": 4.0,
+              "co2_removal": 2.0
+            }
+          },
           "daylight_fraction": 1.0,
           "battery_capacity": 100.0,
           "electricity_curtailed": 0.0,
@@ -21790,7 +26015,7 @@ export const failed: GameResponse = {
           "electricity_required": 20.0,
           "electricity_used": 20.0,
           "life_support_power_fraction": 1.0,
-          "oxygen_generated": 14.0,
+          "oxygen_generated": 12.0,
           "oxygen_required": 12.0,
           "oxygen_used": 12.0,
           "oxygen_shortage": 0.0,
@@ -21802,6 +26027,7 @@ export const failed: GameResponse = {
               "food_penalty": 0,
               "water_penalty": 0,
               "oxygen_penalty": 0,
+              "co2_penalty": 0,
               "died": false
             },
             {
@@ -21811,6 +26037,7 @@ export const failed: GameResponse = {
               "food_penalty": 0,
               "water_penalty": 0,
               "oxygen_penalty": 0,
+              "co2_penalty": 0,
               "died": false
             },
             {
@@ -21820,6 +26047,7 @@ export const failed: GameResponse = {
               "food_penalty": 0,
               "water_penalty": 0,
               "oxygen_penalty": 0,
+              "co2_penalty": 0,
               "died": false
             },
             {
@@ -21829,14 +26057,15 @@ export const failed: GameResponse = {
               "food_penalty": 0,
               "water_penalty": 0,
               "oxygen_penalty": 0,
+              "co2_penalty": 0,
               "died": false
             }
           ]
         },
         "resource_changes": {
           "food": -5.0,
-          "water": -9.0,
-          "oxygen": 2.0,
+          "water": -7.064,
+          "oxygen": 0.0,
           "electricity": 28.0,
           "medicine": 0.0,
           "repair_kits": 0.0,
@@ -21846,7 +26075,9 @@ export const failed: GameResponse = {
           "diagnostic_tools": 0.0,
           "sealant_packs": 0.0,
           "scientific_tools": 0.0,
-          "research_data": 0.0
+          "research_data": 0.0,
+          "wastewater": 2.48,
+          "co2": 0.0
         },
         "deaths": [],
         "next_event": {
@@ -21856,6 +26087,8 @@ export const failed: GameResponse = {
             "resources": {},
             "solar_efficiency": 0.0,
             "oxygen_efficiency": -0.25,
+            "water_recovery_efficiency": 0.0,
+            "co2_efficiency": 0.0,
             "health_changes": []
           }
         },
@@ -21879,6 +26112,8 @@ export const failed: GameResponse = {
             "resources": {},
             "solar_efficiency": 0.0,
             "oxygen_efficiency": 0.0,
+            "water_recovery_efficiency": 0.0,
+            "co2_efficiency": 0.0,
             "health_changes": []
           },
           "objective_progress": []
@@ -21902,6 +26137,22 @@ export const failed: GameResponse = {
           }
         },
         "survival": {
+          "life_support": {
+            "wastewater_processed": 3.84,
+            "water_recovered": 3.072,
+            "water_for_oxygen": 1.05,
+            "wastewater_captured": 6.4,
+            "oxygen_generated": 10.5,
+            "co2_produced": 4.0,
+            "co2_removed": 4.0,
+            "co2_remaining": 0.0,
+            "power_components": {
+              "habitat": 12.0,
+              "water_recovery": 2.0,
+              "oxygen_generation": 4.0,
+              "co2_removal": 2.0
+            }
+          },
           "daylight_fraction": 0.109329,
           "battery_capacity": 100.0,
           "electricity_curtailed": 0.0,
@@ -21935,6 +26186,7 @@ export const failed: GameResponse = {
               "food_penalty": 0,
               "water_penalty": 0,
               "oxygen_penalty": 0,
+              "co2_penalty": 0,
               "died": false
             },
             {
@@ -21944,6 +26196,7 @@ export const failed: GameResponse = {
               "food_penalty": 0,
               "water_penalty": 0,
               "oxygen_penalty": 0,
+              "co2_penalty": 0,
               "died": false
             },
             {
@@ -21953,6 +26206,7 @@ export const failed: GameResponse = {
               "food_penalty": 0,
               "water_penalty": 0,
               "oxygen_penalty": 0,
+              "co2_penalty": 0,
               "died": false
             },
             {
@@ -21962,13 +26216,14 @@ export const failed: GameResponse = {
               "food_penalty": 0,
               "water_penalty": 0,
               "oxygen_penalty": 0,
+              "co2_penalty": 0,
               "died": false
             }
           ]
         },
         "resource_changes": {
           "food": -4.0,
-          "water": -8.0,
+          "water": -5.978,
           "oxygen": -1.5,
           "electricity": -14.752208,
           "medicine": 0.0,
@@ -21979,7 +26234,9 @@ export const failed: GameResponse = {
           "diagnostic_tools": 0.0,
           "sealant_packs": 0.0,
           "scientific_tools": 0.0,
-          "research_data": 0.0
+          "research_data": 0.0,
+          "wastewater": 2.56,
+          "co2": 0.0
         },
         "deaths": [],
         "next_event": {
@@ -21989,6 +26246,8 @@ export const failed: GameResponse = {
             "resources": {},
             "solar_efficiency": 0.0,
             "oxygen_efficiency": 0.0,
+            "water_recovery_efficiency": 0.0,
+            "co2_efficiency": 0.0,
             "health_changes": []
           }
         },
@@ -22012,6 +26271,8 @@ export const failed: GameResponse = {
             "resources": {},
             "solar_efficiency": 0.0,
             "oxygen_efficiency": 0.0,
+            "water_recovery_efficiency": 0.0,
+            "co2_efficiency": 0.0,
             "health_changes": []
           },
           "objective_progress": []
@@ -22019,22 +26280,38 @@ export const failed: GameResponse = {
         "rations": {
           "alex": {
             "food": "normal",
-            "water": "emergency"
+            "water": "normal"
           },
           "maya": {
             "food": "normal",
-            "water": "emergency"
+            "water": "normal"
           },
           "lin": {
             "food": "normal",
-            "water": "emergency"
+            "water": "normal"
           },
           "sam": {
             "food": "normal",
-            "water": "emergency"
+            "water": "normal"
           }
         },
         "survival": {
+          "life_support": {
+            "wastewater_processed": 3.76,
+            "water_recovered": 3.008,
+            "water_for_oxygen": 1.05,
+            "wastewater_captured": 6.4,
+            "oxygen_generated": 10.5,
+            "co2_produced": 4.0,
+            "co2_removed": 4.0,
+            "co2_remaining": 0.0,
+            "power_components": {
+              "habitat": 12.0,
+              "water_recovery": 2.0,
+              "oxygen_generation": 4.0,
+              "co2_removal": 2.0
+            }
+          },
           "daylight_fraction": 0.0,
           "battery_capacity": 100.0,
           "electricity_curtailed": 0.0,
@@ -22042,11 +26319,11 @@ export const failed: GameResponse = {
           "power_priority": "life_support",
           "ration_requirements": {
             "food": 4.0,
-            "water": 3.2
+            "water": 8.0
           },
           "ration_costs": {
             "food": 4.0,
-            "water": 3.2
+            "water": 8.0
           },
           "ration_depletion_fractions": {
             "food": 0.0,
@@ -22064,44 +26341,48 @@ export const failed: GameResponse = {
             {
               "crew_id": "alex",
               "before": 93,
-              "after": 83,
+              "after": 93,
               "food_penalty": 0,
-              "water_penalty": 10,
+              "water_penalty": 0,
               "oxygen_penalty": 0,
+              "co2_penalty": 0,
               "died": false
             },
             {
               "crew_id": "maya",
               "before": 93,
-              "after": 83,
+              "after": 93,
               "food_penalty": 0,
-              "water_penalty": 10,
+              "water_penalty": 0,
               "oxygen_penalty": 0,
+              "co2_penalty": 0,
               "died": false
             },
             {
               "crew_id": "lin",
               "before": 90,
-              "after": 80,
+              "after": 90,
               "food_penalty": 0,
-              "water_penalty": 10,
+              "water_penalty": 0,
               "oxygen_penalty": 0,
+              "co2_penalty": 0,
               "died": false
             },
             {
               "crew_id": "sam",
               "before": 95,
-              "after": 85,
+              "after": 95,
               "food_penalty": 0,
-              "water_penalty": 10,
+              "water_penalty": 0,
               "oxygen_penalty": 0,
+              "co2_penalty": 0,
               "died": false
             }
           ]
         },
         "resource_changes": {
           "food": -4.0,
-          "water": -3.2,
+          "water": -6.042,
           "oxygen": -1.5,
           "electricity": -20.0,
           "medicine": 0.0,
@@ -22112,7 +26393,9 @@ export const failed: GameResponse = {
           "diagnostic_tools": 0.0,
           "sealant_packs": 0.0,
           "scientific_tools": 0.0,
-          "research_data": 0.0
+          "research_data": 0.0,
+          "wastewater": 2.64,
+          "co2": 0.0
         },
         "deaths": [],
         "next_event": {
@@ -22122,6 +26405,8 @@ export const failed: GameResponse = {
             "resources": {},
             "solar_efficiency": -0.25,
             "oxygen_efficiency": 0.0,
+            "water_recovery_efficiency": 0.0,
+            "co2_efficiency": 0.0,
             "health_changes": []
           }
         },
@@ -22145,6 +26430,8 @@ export const failed: GameResponse = {
             "resources": {},
             "solar_efficiency": 0.0,
             "oxygen_efficiency": 0.0,
+            "water_recovery_efficiency": 0.0,
+            "co2_efficiency": 0.0,
             "health_changes": []
           },
           "objective_progress": []
@@ -22168,6 +26455,22 @@ export const failed: GameResponse = {
           }
         },
         "survival": {
+          "life_support": {
+            "wastewater_processed": 3.68,
+            "water_recovered": 2.944,
+            "water_for_oxygen": 1.05,
+            "wastewater_captured": 2.56,
+            "oxygen_generated": 10.5,
+            "co2_produced": 4.0,
+            "co2_removed": 4.0,
+            "co2_remaining": 0.0,
+            "power_components": {
+              "habitat": 12.0,
+              "water_recovery": 2.0,
+              "oxygen_generation": 4.0,
+              "co2_removal": 2.0
+            }
+          },
           "daylight_fraction": 0.781343,
           "battery_capacity": 100.0,
           "electricity_curtailed": 0.0,
@@ -22196,45 +26499,49 @@ export const failed: GameResponse = {
           "health_changes": [
             {
               "crew_id": "alex",
-              "before": 83,
-              "after": 65,
+              "before": 93,
+              "after": 77,
               "food_penalty": 6,
-              "water_penalty": 12,
+              "water_penalty": 10,
               "oxygen_penalty": 0,
+              "co2_penalty": 0,
               "died": false
             },
             {
               "crew_id": "maya",
-              "before": 83,
-              "after": 65,
+              "before": 93,
+              "after": 77,
               "food_penalty": 6,
-              "water_penalty": 12,
+              "water_penalty": 10,
               "oxygen_penalty": 0,
+              "co2_penalty": 0,
               "died": false
             },
             {
               "crew_id": "lin",
-              "before": 80,
-              "after": 62,
+              "before": 90,
+              "after": 74,
               "food_penalty": 6,
-              "water_penalty": 12,
+              "water_penalty": 10,
               "oxygen_penalty": 0,
+              "co2_penalty": 0,
               "died": false
             },
             {
               "crew_id": "sam",
-              "before": 85,
-              "after": 67,
+              "before": 95,
+              "after": 79,
               "food_penalty": 6,
-              "water_penalty": 12,
+              "water_penalty": 10,
               "oxygen_penalty": 0,
+              "co2_penalty": 0,
               "died": false
             }
           ]
         },
         "resource_changes": {
           "food": -1.6,
-          "water": -3.2,
+          "water": -1.306,
           "oxygen": -1.5,
           "electricity": 8.128348,
           "medicine": 0.0,
@@ -22245,7 +26552,9 @@ export const failed: GameResponse = {
           "diagnostic_tools": 0.0,
           "sealant_packs": 0.0,
           "scientific_tools": 0.0,
-          "research_data": 0.0
+          "research_data": 0.0,
+          "wastewater": -1.12,
+          "co2": 0.0
         },
         "deaths": [],
         "next_event": {
@@ -22253,10 +26562,12 @@ export const failed: GameResponse = {
           "title": "Water Under the Floor",
           "effects": {
             "resources": {
-              "water": -0.6
+              "water": -4.0
             },
             "solar_efficiency": 0.0,
             "oxygen_efficiency": 0.0,
+            "water_recovery_efficiency": 0.0,
+            "co2_efficiency": 0.0,
             "health_changes": []
           }
         },
@@ -22280,6 +26591,8 @@ export const failed: GameResponse = {
             "resources": {},
             "solar_efficiency": 0.0,
             "oxygen_efficiency": 0.0,
+            "water_recovery_efficiency": 0.0,
+            "co2_efficiency": 0.0,
             "health_changes": []
           },
           "objective_progress": []
@@ -22303,6 +26616,22 @@ export const failed: GameResponse = {
           }
         },
         "survival": {
+          "life_support": {
+            "wastewater_processed": 3.6,
+            "water_recovered": 2.88,
+            "water_for_oxygen": 1.05,
+            "wastewater_captured": 1.768,
+            "oxygen_generated": 10.5,
+            "co2_produced": 4.0,
+            "co2_removed": 4.0,
+            "co2_remaining": 0.0,
+            "power_components": {
+              "habitat": 12.0,
+              "water_recovery": 2.0,
+              "oxygen_generation": 4.0,
+              "co2_removal": 2.0
+            }
+          },
           "daylight_fraction": 1.0,
           "battery_capacity": 100.0,
           "electricity_curtailed": 0.0,
@@ -22314,11 +26643,11 @@ export const failed: GameResponse = {
           },
           "ration_costs": {
             "food": 1.4,
-            "water": 0.0
+            "water": 2.21
           },
           "ration_depletion_fractions": {
             "food": 0.1250000000000001,
-            "water": 1.0
+            "water": 0.30937500000000007
           },
           "electricity_generated": 36.0,
           "electricity_required": 20.0,
@@ -22331,45 +26660,49 @@ export const failed: GameResponse = {
           "health_changes": [
             {
               "crew_id": "alex",
-              "before": 65,
-              "after": 5,
+              "before": 77,
+              "after": 43,
               "food_penalty": 11,
-              "water_penalty": 49,
+              "water_penalty": 23,
               "oxygen_penalty": 0,
+              "co2_penalty": 0,
               "died": false
             },
             {
               "crew_id": "maya",
-              "before": 65,
-              "after": 5,
+              "before": 77,
+              "after": 43,
               "food_penalty": 11,
-              "water_penalty": 49,
+              "water_penalty": 23,
               "oxygen_penalty": 0,
+              "co2_penalty": 0,
               "died": false
             },
             {
               "crew_id": "lin",
-              "before": 62,
-              "after": 2,
+              "before": 74,
+              "after": 40,
               "food_penalty": 11,
-              "water_penalty": 49,
+              "water_penalty": 23,
               "oxygen_penalty": 0,
+              "co2_penalty": 0,
               "died": false
             },
             {
               "crew_id": "sam",
-              "before": 67,
-              "after": 7,
+              "before": 79,
+              "after": 45,
               "food_penalty": 11,
-              "water_penalty": 49,
+              "water_penalty": 23,
               "oxygen_penalty": 0,
+              "co2_penalty": 0,
               "died": false
             }
           ]
         },
         "resource_changes": {
           "food": -1.4,
-          "water": 0.0,
+          "water": -0.38,
           "oxygen": -1.5,
           "electricity": 16.0,
           "medicine": 0.0,
@@ -22380,7 +26713,9 @@ export const failed: GameResponse = {
           "diagnostic_tools": 0.0,
           "sealant_packs": 0.0,
           "scientific_tools": 0.0,
-          "research_data": 0.0
+          "research_data": 0.0,
+          "wastewater": -1.832,
+          "co2": 0.0
         },
         "deaths": [],
         "next_event": {
@@ -22390,6 +26725,8 @@ export const failed: GameResponse = {
             "resources": {},
             "solar_efficiency": 0.0,
             "oxygen_efficiency": 0.0,
+            "water_recovery_efficiency": 0.0,
+            "co2_efficiency": 0.0,
             "health_changes": []
           }
         },
@@ -22403,38 +26740,22 @@ export const failed: GameResponse = {
         "event": {
           "support_crew_ids": [],
           "event_id": "solar_particle_alert",
-          "choice_id": "storm_wait",
-          "choice_text": "Use existing shielding",
+          "choice_id": "shelter",
+          "choice_text": "Move into the shielded compartment",
           "selected_crew_id": null,
           "success": true,
           "success_probability": 1.0,
-          "costs": {},
+          "costs": {
+            "electricity": 4.0,
+            "water": 1.0
+          },
           "effects": {
             "resources": {},
             "solar_efficiency": 0.0,
             "oxygen_efficiency": 0.0,
-            "health_changes": [
-              {
-                "crew_id": "alex",
-                "before": 5,
-                "after": 0
-              },
-              {
-                "crew_id": "maya",
-                "before": 5,
-                "after": 0
-              },
-              {
-                "crew_id": "lin",
-                "before": 2,
-                "after": 0
-              },
-              {
-                "crew_id": "sam",
-                "before": 7,
-                "after": 0
-              }
-            ]
+            "water_recovery_efficiency": 0.0,
+            "co2_efficiency": 0.0,
+            "health_changes": []
           },
           "objective_progress": []
         },
@@ -22457,38 +26778,95 @@ export const failed: GameResponse = {
           }
         },
         "survival": {
+          "life_support": {
+            "wastewater_processed": 3.52,
+            "water_recovered": 2.816,
+            "water_for_oxygen": 1.05,
+            "wastewater_captured": 0.664,
+            "oxygen_generated": 10.5,
+            "co2_produced": 4.0,
+            "co2_removed": 4.0,
+            "co2_remaining": 0.0,
+            "power_components": {
+              "habitat": 12.0,
+              "water_recovery": 2.0,
+              "oxygen_generation": 4.0,
+              "co2_removal": 2.0
+            }
+          },
           "daylight_fraction": 0.327986,
           "battery_capacity": 100.0,
           "electricity_curtailed": 0.0,
           "project_electricity_used": 0.0,
           "power_priority": "life_support",
           "ration_requirements": {
-            "food": 0.0,
-            "water": 0.0
+            "food": 1.6,
+            "water": 3.2
           },
           "ration_costs": {
             "food": 0.0,
-            "water": 0.0
+            "water": 0.83
           },
           "ration_depletion_fractions": {
-            "food": 0.0,
-            "water": 0.0
+            "food": 1.0,
+            "water": 0.7406250000000001
           },
           "electricity_generated": 11.807496,
-          "electricity_required": 12.0,
-          "electricity_used": 12.0,
+          "electricity_required": 20.0,
+          "electricity_used": 20.0,
           "life_support_power_fraction": 1.0,
           "oxygen_generated": 10.5,
-          "oxygen_required": 0.0,
-          "oxygen_used": 0.0,
+          "oxygen_required": 12.0,
+          "oxygen_used": 12.0,
           "oxygen_shortage": 0.0,
-          "health_changes": []
+          "health_changes": [
+            {
+              "crew_id": "alex",
+              "before": 43,
+              "after": 0,
+              "food_penalty": 30,
+              "water_penalty": 40,
+              "oxygen_penalty": 0,
+              "co2_penalty": 0,
+              "died": true
+            },
+            {
+              "crew_id": "maya",
+              "before": 43,
+              "after": 0,
+              "food_penalty": 30,
+              "water_penalty": 40,
+              "oxygen_penalty": 0,
+              "co2_penalty": 0,
+              "died": true
+            },
+            {
+              "crew_id": "lin",
+              "before": 40,
+              "after": 0,
+              "food_penalty": 30,
+              "water_penalty": 40,
+              "oxygen_penalty": 0,
+              "co2_penalty": 0,
+              "died": true
+            },
+            {
+              "crew_id": "sam",
+              "before": 45,
+              "after": 0,
+              "food_penalty": 30,
+              "water_penalty": 40,
+              "oxygen_penalty": 0,
+              "co2_penalty": 0,
+              "died": true
+            }
+          ]
         },
         "resource_changes": {
           "food": 0.0,
-          "water": 0.0,
-          "oxygen": 10.5,
-          "electricity": -0.192504,
+          "water": -0.064,
+          "oxygen": -1.5,
+          "electricity": -12.192504,
           "medicine": 0.0,
           "repair_kits": 0.0,
           "eva_batteries": 0.0,
@@ -22497,7 +26875,9 @@ export const failed: GameResponse = {
           "diagnostic_tools": 0.0,
           "sealant_packs": 0.0,
           "scientific_tools": 0.0,
-          "research_data": 0.0
+          "research_data": 0.0,
+          "wastewater": -2.856,
+          "co2": 0.0
         },
         "deaths": [
           "alex",

@@ -209,6 +209,9 @@ export const SetupPage: React.FC = () => {
                 <div>Full-daylight solar capacity: +{station?.energy_per_week}u/wk</div>
                 <div>Solar condition: {Math.round((station?.solar_efficiency ?? 1) * 100)}%</div>
                 <div>Oxygen capacity: +{station?.oxygen_per_week}u/wk</div>
+                <div>Water recovery condition: {Math.round((station?.water_recovery_efficiency ?? 1) * 100)}%</div>
+                <div>CO2 scrubber condition: {Math.round((station?.co2_efficiency ?? 1) * 100)}%</div>
+                <div>Wastewater stock: {station?.starting_resources.wastewater}u</div>
                 <div>Oxygen condition: {Math.round((station?.oxygen_efficiency ?? 1) * 100)}%</div>
                 <div>Difficulty: {station?.difficulty} ({station?.difficulty_rank}/5)</div>
               </div>

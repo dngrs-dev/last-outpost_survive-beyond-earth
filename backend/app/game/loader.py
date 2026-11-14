@@ -6,6 +6,7 @@ from pathlib import Path
 
 from pydantic import TypeAdapter, ValidationError
 
+from app.game.life_support import MAINTENANCE_IDS
 from app.game.models import (
     CrewMember,
     Definitions,
@@ -59,7 +60,12 @@ def _resources(values: dict[str, float], context: str, signed: bool = False) -> 
 
 def _effects(effect: Effects, context: str, requires_crew: bool) -> None:
     _resources(effect.resources, context, signed=True)
-    for name in ("solar_efficiency", "oxygen_efficiency"):
+    for name in (
+        "solar_efficiency",
+        "oxygen_efficiency",
+        "water_recovery_efficiency",
+        "co2_efficiency",
+    ):
         _require(_number(getattr(effect, name), -1, 1), f"{context}: invalid {name}")
     _require(-100 <= effect.crew_health <= 100, f"{context}: invalid health effect")
     _require(
@@ -113,6 +119,14 @@ def load_definitions(data_dir: Path = DEFAULT_DATA) -> Definitions:
         _require(
             station.starting_resources.get("electricity", math.inf) <= station.battery_capacity,
             f"{station.id}: starting battery exceeds capacity",
+        )
+        _require(
+            _number(station.water_recovery_efficiency, 0, 1)
+            and _number(station.co2_efficiency, 0, 1),
+            f"{station.id}: invalid processor condition",
+        )
+        _require(
+            _number(station.co2_removal_per_week, 0.001), f"{station.id}: invalid CO2 capacity"
         )
         _resources(station.starting_resources, station.id)
         _require(
@@ -241,7 +255,8 @@ def load_definitions(data_dir: Path = DEFAULT_DATA) -> Definitions:
         for choice in event.choices:
             context = f"{event.id}/{choice.id}"
             _require(
-                choice.id not in {"clean_array", "install_regulator"} | RESEARCH_CHOICE_IDS
+                choice.id
+                not in {"clean_array", "install_regulator"} | RESEARCH_CHOICE_IDS | MAINTENANCE_IDS
                 and not choice.id.startswith("project:"),
                 f"{context}: reserved weekly action ID",
             )

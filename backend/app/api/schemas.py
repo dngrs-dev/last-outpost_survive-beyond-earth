@@ -81,6 +81,8 @@ class EffectsResponse(BaseModel):
     resources: dict[str, float]
     solar_efficiency: float
     oxygen_efficiency: float
+    water_recovery_efficiency: float
+    co2_efficiency: float
     crew_health: int
     target: Literal["selected", "all"]
 
@@ -175,6 +177,8 @@ class AppliedEffectsResponse(BaseModel):
     resources: dict[str, float]
     solar_efficiency: float
     oxygen_efficiency: float
+    water_recovery_efficiency: float
+    co2_efficiency: float
     health_changes: list[HealthChangeResponse]
 
 
@@ -195,10 +199,24 @@ class SurvivalHealthResponse(HealthChangeResponse):
     food_penalty: int
     water_penalty: int
     oxygen_penalty: int
+    co2_penalty: int
     died: bool
 
 
+class LifeSupportTurnResponse(BaseModel):
+    wastewater_processed: float
+    water_recovered: float
+    water_for_oxygen: float
+    wastewater_captured: float
+    oxygen_generated: float
+    co2_produced: float
+    co2_removed: float
+    co2_remaining: float
+    power_components: dict[str, float]
+
+
 class SurvivalResponse(BaseModel):
+    life_support: LifeSupportTurnResponse
     daylight_fraction: float
     battery_capacity: float
     electricity_curtailed: float
@@ -298,7 +316,25 @@ class EnergyResponse(BaseModel):
     forecast: list[SunlightWeekResponse]
 
 
+class LifeSupportResponse(BaseModel):
+    source_url: str
+    water_recovery_condition: float
+    co2_condition: float
+    wastewater: float
+    co2_burden: float
+    co2_warning_level: float
+    recovery_capacity: float
+    recovery_yield: float
+    water_per_oxygen: float
+    oxygen_reserve_weeks: float
+    water_recovery_wear: float
+    co2_wear: float
+    co2_removal_capacity: float
+    power_components: dict[str, float]
+
+
 class GameStateResponse(BaseModel):
+    life_support: LifeSupportResponse
     energy: EnergyResponse
     battery_capacity: float
     power_priority: Literal["life_support", "research"]
@@ -318,6 +354,8 @@ class GameStateResponse(BaseModel):
     resources: dict[str, float]
     solar_efficiency: float
     oxygen_efficiency: float
+    water_recovery_efficiency: float
+    co2_efficiency: float
     current_event_id: str | None
     current_event: EventResponse | None
     emergency_ration_requirements: RationCost

@@ -2,6 +2,7 @@
 
 from math import floor
 
+from app.game.life_support import operating_plan
 from app.game.models import Definitions, GameState, LightingModel, Station
 from app.game.rules import DEFAULT_RULES, Rules
 
@@ -42,8 +43,7 @@ def energy_view(state: GameState, definitions: Definitions, rules: Rules = DEFAU
         "battery_capacity": state.battery_capacity,
         "stored": state.resources["electricity"],
         "priority": state.power_priority,
-        "life_support_required": rules.base_electricity_use
-        + rules.crew_electricity_use * sum(c.alive for c in state.crew),
+        "life_support_required": operating_plan(state, station, rules)["power_required"],
         "solar_day_earth_days": definitions.lighting.solar_day_earth_days,
         "source_url": definitions.lighting.source_url,
         "assumption": definitions.lighting.assumption,

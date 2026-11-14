@@ -521,18 +521,20 @@
   {
     "id": "scrubber_load",
     "title": "Carbon Dioxide Scrubber Load",
-    "description": "Air-quality monitoring detects an overloaded scrubber. Cabin health and equipment need attention.",
-    "source_url": "https://www.nasa.gov/ochmo-tb-004-carbon-dioxide-2/",
-    "science_context": "Removing carbon dioxide and generating oxygen are distinct life-support functions. This game compresses their effects into health and oxygen-system condition.",
+    "description": "Air-quality monitoring detects an overloaded scrubber. CO2-removal condition has fallen by 20 percentage points. Service it, purge accumulated cabin gas, or accept further damage.",
+    "source_url": "https://www.nasa.gov/reference/environmental-control-and-life-support-systems-eclss/",
+    "science_context": "NASA distinguishes carbon-dioxide removal, water recovery, and oxygen generation. This scenario affects a separate CO2 scrubber; all condition, burden, and health values are fictional.",
     "category": "hazard",
     "weight": 1,
     "min_week": 2,
-    "on_start": {},
+    "on_start": {
+      "co2_efficiency": -0.2
+    },
     "choices": [
       {
         "id": "service_scrubber",
         "text": "Service the scrubber",
-        "description": "Spend a repair kit to restore air handling; failure costs every survivor 8 health. Technical skills improve the odds.",
+        "description": "Spend a repair kit. Success restores 30 scrubber condition points; failure costs every survivor 8 health. Technical skills improve the odds.",
         "costs": {
           "repair_kits": 1
         },
@@ -544,7 +546,9 @@
         },
         "minimum_crew": 1,
         "success_chance": 0.7,
-        "success_effects": {},
+        "success_effects": {
+          "co2_efficiency": 0.3
+        },
         "failure_effects": {
           "crew_health": -8,
           "target": "all"
@@ -553,7 +557,7 @@
       {
         "id": "vent_scrubber",
         "text": "Vent and purge the cabin loop",
-        "description": "Spend 8 oxygen on a controlled purge to avoid event injury or lasting system damage.",
+        "description": "Spend 8 oxygen on a purge that removes up to 6 CO2 burden units. It does not repair scrubber condition.",
         "costs": {
           "oxygen": 8
         },
@@ -562,13 +566,17 @@
         "role_bonus": {},
         "minimum_crew": 1,
         "success_chance": 1,
-        "success_effects": {},
+        "success_effects": {
+          "resources": {
+            "co2": -6
+          }
+        },
         "failure_effects": {}
       },
       {
         "id": "scrubber_risk",
         "text": "Run at reduced air-processing capacity",
-        "description": "Lose 10 oxygen-system percentage points and 5 health per survivor; no supplies spent.",
+        "description": "Lose 20 CO2-scrubber condition points and 5 health per survivor. Persistent cabin CO2 may accumulate unless the scrubber is maintained.",
         "costs": {},
         "required_items": {},
         "requires_crew": false,
@@ -576,7 +584,7 @@
         "minimum_crew": 1,
         "success_chance": 1,
         "success_effects": {
-          "oxygen_efficiency": -0.1,
+          "co2_efficiency": -0.2,
           "crew_health": -5,
           "target": "all"
         },

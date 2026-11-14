@@ -27,9 +27,8 @@ def test_station_parameters_initialize_the_real_simulation(quiet_engine, station
         * station.solar_efficiency
         * daylight_fraction(station, quiet_engine.definitions.lighting, 1)
     )
-    assert report["survival"]["oxygen_generated"] == pytest.approx(
-        station.oxygen_per_week * station.oxygen_efficiency
-    )
+    # Launch oxygen stocks exceed the target reserve, so production waits.
+    assert report["survival"]["oxygen_generated"] == 0
     assert after.current_week == 2
     view = quiet_engine.state_view(after)
     assert view["difficulty"] == station.difficulty

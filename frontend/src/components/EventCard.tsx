@@ -35,7 +35,7 @@ export const EventCard: React.FC<EventCardProps> = ({
 
       {/* Initial discovery effects */}
       {(Object.keys(event.on_start.resources).length > 0 || event.on_start.solar_efficiency !== 0 ||
-        event.on_start.oxygen_efficiency !== 0 ||
+        event.on_start.oxygen_efficiency !== 0 || event.on_start.water_recovery_efficiency !== 0 || event.on_start.co2_efficiency !== 0 ||
         event.on_start.crew_health !== 0) && (
         <div className="alert alert-warning" style={{ marginBottom: '1rem' }}>
           <strong>Initial Impact:</strong>{' '}
@@ -52,6 +52,8 @@ export const EventCard: React.FC<EventCardProps> = ({
               {Math.round(event.on_start.oxygen_efficiency * 100)}%.{' '}
             </span>
           )}
+          {event.on_start.water_recovery_efficiency !== 0 && <span>Water recovery condition {Math.round(event.on_start.water_recovery_efficiency * 100)} points. </span>}
+          {event.on_start.co2_efficiency !== 0 && <span>CO2 scrubber condition {Math.round(event.on_start.co2_efficiency * 100)} points. </span>}
           {event.on_start.crew_health !== 0 && (
             <span>
               Crew health {event.on_start.crew_health > 0 ? '+' : ''}

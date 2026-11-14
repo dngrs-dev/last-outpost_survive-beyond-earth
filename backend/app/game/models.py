@@ -28,6 +28,9 @@ class Station(Definition):
     lunar_site_id: str | None = None
     longitude_deg: float = 0
     battery_capacity: float = 100
+    water_recovery_efficiency: float = 1
+    co2_efficiency: float = 1
+    co2_removal_per_week: float = 6
 
 
 @dataclass(frozen=True)
@@ -105,6 +108,8 @@ class Effects(Definition):
     resources: dict[str, float] = field(default_factory=dict)
     solar_efficiency: float = 0.0
     oxygen_efficiency: float = 0.0
+    water_recovery_efficiency: float = 0.0
+    co2_efficiency: float = 0.0
     crew_health: int = 0
     target: Literal["selected", "all"] = "selected"
 
@@ -179,6 +184,8 @@ class GameState:
     projects: list[ResearchProject] = field(default_factory=list)
     battery_capacity: float = 100
     power_priority: Literal["life_support", "research"] = "life_support"
+    water_recovery_efficiency: float = 1
+    co2_efficiency: float = 1
 
 
 @dataclass(frozen=True)

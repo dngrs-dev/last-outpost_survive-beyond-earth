@@ -10,12 +10,15 @@ export interface StationDefinition {
   oxygen_per_week: number;
   solar_efficiency: number;
   oxygen_efficiency: number;
+  water_recovery_efficiency: number;
+  co2_efficiency: number;
   difficulty: 'easy' | 'standard' | 'hard' | 'severe' | 'extreme';
   difficulty_rank: number;
   challenge: string;
   lunar_site_id: string | null;
   longitude_deg: number;
   battery_capacity: number;
+  co2_removal_per_week: number;
 }
 
 export interface ResearchObjectiveDefinition {
@@ -187,6 +190,8 @@ export interface EffectsResponse {
   resources: Record<string, number>;
   solar_efficiency: number;
   oxygen_efficiency: number;
+  water_recovery_efficiency: number;
+  co2_efficiency: number;
   crew_health: number;
   target: 'selected' | 'all';
 }
@@ -256,6 +261,8 @@ export interface AppliedEffects {
   resources: Record<string, number>;
   solar_efficiency: number;
   oxygen_efficiency: number;
+  water_recovery_efficiency: number;
+  co2_efficiency: number;
   health_changes: HealthChange[];
 }
 
@@ -263,6 +270,7 @@ export interface SurvivalHealthChange extends HealthChange {
   food_penalty: number;
   water_penalty: number;
   oxygen_penalty: number;
+  co2_penalty: number;
   died: boolean;
 }
 
@@ -285,6 +293,17 @@ export interface TurnOutcome {
   };
   rations: Record<string, RationRequest>;
   survival: {
+    life_support: {
+      wastewater_processed: number;
+      water_recovered: number;
+      water_for_oxygen: number;
+      wastewater_captured: number;
+      oxygen_generated: number;
+      co2_produced: number;
+      co2_removed: number;
+      co2_remaining: number;
+      power_components: Record<string, number>;
+    };
     daylight_fraction: number;
     battery_capacity: number;
     electricity_curtailed: number;
@@ -333,7 +352,25 @@ export interface ResearchProject {
   message: string;
 }
 
+export interface LifeSupportState {
+  source_url: string;
+  water_recovery_condition: number;
+  co2_condition: number;
+  wastewater: number;
+  co2_burden: number;
+  co2_warning_level: number;
+  recovery_capacity: number;
+  recovery_yield: number;
+  water_per_oxygen: number;
+  oxygen_reserve_weeks: number;
+  water_recovery_wear: number;
+  co2_wear: number;
+  co2_removal_capacity: number;
+  power_components: Record<string, number>;
+}
+
 export interface GameStateResponse {
+  life_support: LifeSupportState;
   energy: EnergyState;
   battery_capacity: number;
   power_priority: "life_support" | "research";
@@ -353,6 +390,8 @@ export interface GameStateResponse {
   resources: Record<string, number>;
   solar_efficiency: number;
   oxygen_efficiency: number;
+  water_recovery_efficiency: number;
+  co2_efficiency: number;
   current_event_id: string | null;
   current_event: EventResponse | null;
   emergency_ration_requirements: RationCost;

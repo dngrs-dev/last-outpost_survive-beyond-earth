@@ -22,9 +22,11 @@ def test_normal_consumption_and_pure_calculation(quiet_engine, state, rations):
     assert state == original
     assert report["ration_costs"] == {"food": 2.0, "water": 4.2}
     assert after.resources["food"] == 18
-    assert after.resources["water"] == pytest.approx(27.8)
-    assert after.resources["oxygen"] == 38  # 30 + 14 - 6
-    assert after.resources["electricity"] == 62  # 30 + 48 - 16
+    assert after.resources["water"] == pytest.approx(31)
+    assert (
+        after.resources["oxygen"] == 24
+    )  # existing oxygen reserve suppresses needless electrolysis
+    assert after.resources["electricity"] == 66  # 30 + 48 - 12 (oxygen generator idle)
     assert [crew.health for crew in after.crew] == [100, 100]
 
 
@@ -69,6 +71,7 @@ def test_repeated_rationing_and_recovery(quiet_engine, state):
 
 def test_power_shortage_reduces_oxygen(quiet_engine, state, rations):
     state.solar_efficiency = 0.125
+    state.resources["oxygen"] = 0
     state.resources["electricity"] = 0
     after, report = run_week(quiet_engine, state, rations)
     assert report["electricity_generated"] == 6
@@ -79,6 +82,7 @@ def test_power_shortage_reduces_oxygen(quiet_engine, state, rations):
 
 def test_oxygen_efficiency(quiet_engine, state, rations):
     state.oxygen_efficiency = 0.5
+    state.resources["oxygen"] = 0
     _, report = run_week(quiet_engine, state, rations)
     assert report["oxygen_generated"] == 7
 

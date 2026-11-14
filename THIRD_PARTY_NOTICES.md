@@ -39,6 +39,14 @@ are original project work, described in [the energy guide](docs/energy.md).
 No additional article text, images, video, logos, or other media were copied for
 this mechanic. Source links and numeric facts do not imply NASA endorsement.
 
+## Life-support engineering references
+
+The resource-loop design uses the [NASA ISS ECLSS overview](https://www.nasa.gov/reference/environmental-control-and-life-support-systems-eclss/)
+as engineering inspiration. All descriptions are original summaries and all lunar
+hardware/rate/health rules are fictional. No NASA article text or media was copied.
+The source is linked in the game and [life-support guide](docs/life-support.md).
+This does not imply NASA validation or endorsement of the simulation.
+
 ## Conditions and scope
 
 The selected dataset and map may be included in this repository with these notices.

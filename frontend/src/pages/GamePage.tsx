@@ -4,6 +4,7 @@ import { fetchGameState, submitTurn } from '../api/game';
 import { ApiError } from '../api/client';
 import { ResearchProjects } from '../components/ResearchProjects';
 import { EnergyPanel } from '../components/EnergyPanel';
+import { LifeSupportPanel } from '../components/LifeSupportPanel';
 import { Header } from '../components/Header';
 import { ResearchObjectives } from '../components/ResearchObjectives';
 import { ResourceCard } from '../components/ResourceCard';
@@ -326,6 +327,8 @@ export const GamePage: React.FC = () => {
       <EnergyPanel forecast={state.energy.forecast} stored={state.energy.stored} capacity={state.energy.battery_capacity}
         demand={state.energy.life_support_required} priority={powerPriority} onPriorityChange={setPowerPriority}
         disabled={decisionLocked} solarDay={state.energy.solar_day_earth_days} sourceUrl={state.energy.source_url} assumption={state.energy.assumption} />
+
+      <LifeSupportPanel systems={state.life_support} />
 
       {/* Station Systems & Efficiencies */}
       <ResearchObjectives objectives={state.science.objectives} science={state.science} />

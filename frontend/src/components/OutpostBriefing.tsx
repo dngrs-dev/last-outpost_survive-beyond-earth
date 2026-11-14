@@ -66,6 +66,8 @@ export function OutpostBriefing({ option, archive }: { option: OutpostOption; ar
         <p>Battery capacity: {station.battery_capacity} power units. Solar capacity applies during daylight; generation falls to zero in full darkness.</p>
         <p className={styles.sectionLabel}>SYSTEM CONDITION</p>
         <Condition label="Solar array" value={station.solar_efficiency} />
+        <Condition label="Water recovery" value={station.water_recovery_efficiency} />
+        <Condition label="CO2 scrubber" value={station.co2_efficiency} />
         <Condition label="Oxygen generator" value={station.oxygen_efficiency} />
         <dl className={styles.generation}>
           <div><dt>Full-daylight solar capacity</dt><dd>{station.energy_per_week} u/week</dd></div>

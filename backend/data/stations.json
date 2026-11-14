@@ -17,7 +17,9 @@
       "diagnostic_tools": 0,
       "sealant_packs": 0,
       "scientific_tools": 0,
-      "research_data": 0
+      "research_data": 0,
+      "wastewater": 12,
+      "co2": 0
     },
     "energy_per_week": 48,
     "oxygen_per_week": 14,
@@ -28,7 +30,10 @@
     "difficulty_rank": 2,
     "challenge": "A balanced 12-week rotation. Bring enough provisions without neglecting repairs.",
     "longitude_deg": 23.47314,
-    "battery_capacity": 100
+    "battery_capacity": 100,
+    "water_recovery_efficiency": 1,
+    "co2_efficiency": 1,
+    "co2_removal_per_week": 6
   },
   {
     "id": "oceanus",
@@ -48,7 +53,9 @@
       "diagnostic_tools": 0,
       "sealant_packs": 0,
       "scientific_tools": 0,
-      "research_data": 0
+      "research_data": 0,
+      "wastewater": 12,
+      "co2": 0
     },
     "energy_per_week": 56,
     "oxygen_per_week": 16,
@@ -59,7 +66,10 @@
     "challenge": "A well-stocked station and an early relief window. A good first command.",
     "lunar_site_id": "apollo-12",
     "longitude_deg": -23.4219,
-    "battery_capacity": 110
+    "battery_capacity": 110,
+    "water_recovery_efficiency": 1,
+    "co2_efficiency": 1,
+    "co2_removal_per_week": 6
   },
   {
     "id": "fra_mauro",
@@ -79,7 +89,9 @@
       "diagnostic_tools": 0,
       "sealant_packs": 0,
       "scientific_tools": 0,
-      "research_data": 0
+      "research_data": 0,
+      "wastewater": 12,
+      "co2": 0
     },
     "energy_per_week": 48,
     "oxygen_per_week": 15,
@@ -90,7 +102,10 @@
     "challenge": "A worn solar array and limited water. Pack for ten weeks of careful maintenance.",
     "lunar_site_id": "apollo-14",
     "longitude_deg": -17.47194,
-    "battery_capacity": 90
+    "battery_capacity": 90,
+    "water_recovery_efficiency": 0.95,
+    "co2_efficiency": 0.95,
+    "co2_removal_per_week": 6
   },
   {
     "id": "hadley",
@@ -110,7 +125,9 @@
       "diagnostic_tools": 0,
       "sealant_packs": 0,
       "scientific_tools": 0,
-      "research_data": 0
+      "research_data": 0,
+      "wastewater": 12,
+      "co2": 0
     },
     "energy_per_week": 52,
     "oxygen_per_week": 15,
@@ -121,7 +138,10 @@
     "challenge": "A long research watch with aging life support. Two crew must make the handover.",
     "lunar_site_id": "apollo-15",
     "longitude_deg": 3.6333,
-    "battery_capacity": 100
+    "battery_capacity": 100,
+    "water_recovery_efficiency": 0.9,
+    "co2_efficiency": 0.9,
+    "co2_removal_per_week": 6
   },
   {
     "id": "descartes",
@@ -141,7 +161,9 @@
       "diagnostic_tools": 0,
       "sealant_packs": 0,
       "scientific_tools": 0,
-      "research_data": 0
+      "research_data": 0,
+      "wastewater": 12,
+      "co2": 0
     },
     "energy_per_week": 48,
     "oxygen_per_week": 16,
@@ -152,7 +174,10 @@
     "challenge": "Weak solar output strains power reserves. Endure sixteen weeks with two survivors.",
     "lunar_site_id": "apollo-16",
     "longitude_deg": 15.5011,
-    "battery_capacity": 85
+    "battery_capacity": 85,
+    "water_recovery_efficiency": 0.85,
+    "co2_efficiency": 0.85,
+    "co2_removal_per_week": 6
   },
   {
     "id": "taurus",
@@ -172,7 +197,9 @@
       "diagnostic_tools": 0,
       "sealant_packs": 0,
       "scientific_tools": 0,
-      "research_data": 0
+      "research_data": 0,
+      "wastewater": 12,
+      "co2": 0
     },
     "energy_per_week": 50,
     "oxygen_per_week": 15,
@@ -183,6 +210,9 @@
     "challenge": "The longest rotation, damaged systems, and little stored power. Keep two crew alive.",
     "lunar_site_id": "apollo-17",
     "longitude_deg": 30.7723,
-    "battery_capacity": 80
+    "battery_capacity": 80,
+    "water_recovery_efficiency": 0.8,
+    "co2_efficiency": 0.8,
+    "co2_removal_per_week": 6
   }
 ]

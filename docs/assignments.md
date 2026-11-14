@@ -78,6 +78,9 @@ activity. Assignment outcomes cannot change the incident roll. Reordered orders,
 reads, failed validation, and exact retried submissions cannot reroll work or
 duplicate costs. Editing is locked during unresolved submissions in the frontend.
 
+Water-recovery and CO2-scrubber service are additional one-week maintenance
+assignments using a repair kit and power. See [life support](life-support.md).
+
 ## Science and reports
 
 The turn has `assignments` outcomes and one combined `science_gains` list.

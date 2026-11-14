@@ -22,6 +22,14 @@ Turns accept optional `power_priority` (`life_support` or `research`); omission
 retains the prior setting. State `energy` includes a forecast and storage limits.
 Catalog `lighting` and `sunlight_forecasts` support launch preparation.
 
+Connected [life support](life-support.md) adds `wastewater` and abstract `co2`
+stocks, water-recovery and scrubber conditions, maintenance assignments, a water
+cost for oxygen, and a two-week oxygen reserve policy. State `life_support`
+provides conditions/rates/source; survival `life_support` reports the actual loop.
+Each survival health record includes `co2_penalty`. Processor power budgets are
+part of essential demand, and new processor condition effects use the same typed
+effect/report contract. All stocks, wear, and exposure resolve within the atomic turn.
+
 Each astronaut has one main job. See [weekly assignments](assignments.md) for the
 request contract, support-crew rules, supply reservations, resolution order, and
 cancellation policy. Research credit from both paths is combined in the turn's
@@ -116,8 +124,8 @@ Turn order and prototype rules:
   selection within that group. Do not repeat either of the previous two events;
   use a quiet week when nothing is eligible.
 - Validate the entire decision before resolving it on a copy. Charge event costs,
-  resolve the incident and assignments, feed surviving crew, generate/use electricity, then
-  generate/use oxygen. Apply ration and oxygen health penalties and check endings.
+  resolve the incident and assignments, feed surviving crew, allocate solar/battery
+  power, recover water, generate oxygen from water, remove CO2, and capture wastewater. Apply ration and oxygen health penalties and check endings.
   Event casualties consume no weekly provisions. A surviving crew then advances
   to the next event. The journal records both the turn and next event's discovery.
 - Repeat rationing increases penalties; normal rations reset the respective
@@ -126,10 +134,10 @@ Turn order and prototype rules:
   astronaut for the depleted resource. Remaining stock is shared proportionally,
   with additional starvation/dehydration damage. This prevents a mission from
   becoming stuck at zero food or water. Normal/reduced overspending is rejected.
-- Perfect handover requires all original crew, health at least 70, both systems
+- Perfect handover requires all original crew, health at least 70, all four systems
   at least 80%, two weeks of food/water/oxygen reserves, at least 12 electricity,
   and a medicine and repair kit. Successful handover requires the mission's
-  survivor target, both systems at least 40%, and half a week of provisions and
+  survivor target, all four systems at least 40%, and half a week of provisions and
   oxygen. Other surviving crews at rotation receive an emergency handover.
   All crew dying, or both systems reaching zero with empty oxygen/electricity
   reserves, causes mission failure.

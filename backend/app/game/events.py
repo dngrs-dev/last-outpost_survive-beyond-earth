@@ -3,6 +3,7 @@
 import random
 from dataclasses import asdict
 
+from app.game.life_support import MAINTENANCE_IDS
 from app.game.models import (
     CrewMember,
     Definitions,
@@ -117,6 +118,11 @@ def apply_effects(state: GameState, effects: Effects, selected: CrewMember | Non
     before_resources = state.resources.copy()
     before_health = {crew.id: crew.health for crew in state.crew}
     before_solar, before_oxygen = state.solar_efficiency, state.oxygen_efficiency
+    before_water, before_co2 = state.water_recovery_efficiency, state.co2_efficiency
+    for field in ("water_recovery_efficiency", "co2_efficiency"):
+        setattr(
+            state, field, round(max(0, min(1, getattr(state, field) + getattr(effects, field))), 6)
+        )
     for resource, amount in effects.resources.items():
         state.resources[resource] = round(max(0.0, state.resources[resource] + amount), 6)
     state.resources["electricity"] = min(state.battery_capacity, state.resources["electricity"])
@@ -134,6 +140,8 @@ def apply_effects(state: GameState, effects: Effects, selected: CrewMember | Non
             if state.resources[name] != value
         },
         "solar_efficiency": round(state.solar_efficiency - before_solar, 6),
+        "water_recovery_efficiency": round(state.water_recovery_efficiency - before_water, 6),
+        "co2_efficiency": round(state.co2_efficiency - before_co2, 6),
         "oxygen_efficiency": round(state.oxygen_efficiency - before_oxygen, 6),
         "health_changes": [
             {"crew_id": crew.id, "before": before_health[crew.id], "after": crew.health}
@@ -173,6 +181,12 @@ def choice_reasons(
         reasons.append("The solar array is already at full condition.")
     if choice.id == "install_regulator" and state.oxygen_efficiency >= 1:
         reasons.append("The oxygen system is already at full condition.")
+    for activity_id, field in (
+        ("service_water_recovery", "water_recovery_efficiency"),
+        ("service_co2_scrubber", "co2_efficiency"),
+    ):
+        if choice.id == activity_id and getattr(state, field) >= 1:
+            reasons.append("This processor is already at full condition.")
     return reasons
 
 
@@ -233,7 +247,7 @@ def choice_views(
                     "research"
                     if choice.id in RESEARCH_CHOICE_IDS or choice.id.startswith("project:")
                     else "maintenance"
-                    if choice in MAINTENANCE_CHOICES
+                    if choice in MAINTENANCE_CHOICES or choice.id in MAINTENANCE_IDS
                     else "event"
                 ),
                 "objective_rewards": objective_rewards(

@@ -21,10 +21,18 @@ def test_week_progression(quiet_engine, state, rations):
 
 def test_full_twelve_week_perfect_handover(quiet_engine):
     state = quiet_engine.create_game(
-        "alpha", ["alex", "maya"], {"food_packs": 5, "water_containers": 8}, 42
+        "alpha", ["alex", "maya"], {"food_packs": 5, "water_containers": 8, "repair_kits": 1}, 42
     )
     for week in range(1, 13):
-        state, _ = quiet_engine.advance_week(state, week, normal_rations(state), "continue")
+        state, _ = quiet_engine.advance_week(
+            state,
+            week,
+            normal_rations(state),
+            "continue",
+            assignments=[{"crew_id": "alex", "activity_id": "service_water_recovery"}]
+            if week == 8
+            else [],
+        )
     assert state.status == "completed"
     assert state.ending == "perfect_handover"
     assert state.current_week == 12

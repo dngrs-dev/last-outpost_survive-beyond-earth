@@ -16,6 +16,7 @@ from app.game.events import (
     resolve_choice,
     select_event,
 )
+from app.game.life_support import MAINTENANCE, life_support_view
 from app.game.models import Definitions, GameError, GameState, Ration
 from app.game.projects import (
     apply_project_orders,
@@ -99,6 +100,8 @@ class GameEngine:
             random_seed=random_seed if random_seed is not None else secrets.randbits(63),
             initial_crew_size=len(crew_ids),
             battery_capacity=station.battery_capacity,
+            water_recovery_efficiency=station.water_recovery_efficiency,
+            co2_efficiency=station.co2_efficiency,
         )
         self.prepare_event(state)
         self.check_game_over(state)
@@ -327,31 +330,39 @@ class GameEngine:
         ):
             state.status, state.ending = "failed", "mission_failure"
             state.flags["failure_reason"] = (
-                "Station uninhabitable: both life-support systems are destroyed, "
+                "Station uninhabitable: solar power and oxygen generation are destroyed, "
                 "with no oxygen or electricity reserves."
             )
         elif state.weeks_completed >= self.definitions.missions[state.mission_id].duration_weeks:
             normal = ration_requirements(
                 state, {crew.id: Ration("normal", "normal") for crew in survivors}, self.rules
             )
-            efficiency = min(state.solar_efficiency, state.oxygen_efficiency)
+            efficiency = min(
+                state.solar_efficiency,
+                state.oxygen_efficiency,
+                state.water_recovery_efficiency,
+                state.co2_efficiency,
+            )
             reserve = min(
                 state.resources["food"] / normal["food"],
                 state.resources["water"] / normal["water"],
                 state.resources["oxygen"] / (len(survivors) * self.rules.oxygen_per_week),
             )
             mission = self.definitions.missions[state.mission_id]
+            breathable = state.resources["co2"] <= self.rules.co2_warning_burden
             if (
-                len(survivors) == state.initial_crew_size
+                breathable
+                and len(survivors) == state.initial_crew_size
                 and all(crew.health >= self.rules.perfect_health for crew in survivors)
                 and efficiency >= self.rules.perfect_efficiency
                 and reserve >= self.rules.perfect_reserve_weeks
-                and state.resources["electricity"] >= self.rules.base_electricity_use
+                and state.resources["electricity"] >= self.rules.perfect_electricity_reserve
                 and all(state.resources[name] >= 1 for name in ("medicine", "repair_kits"))
             ):
                 state.ending = "perfect_handover"
             elif (
-                len(survivors) >= mission.minimum_survivors
+                breathable
+                and len(survivors) >= mission.minimum_survivors
                 and efficiency >= self.rules.operational_efficiency
                 and reserve >= self.rules.emergency_reserve_weeks
             ):
@@ -399,6 +410,7 @@ class GameEngine:
     def assignment_choices(self, state: GameState):
         return [
             *MAINTENANCE_CHOICES,
+            *MAINTENANCE,
             *research_choices(state, self.definitions),
             *project_choices(state),
         ]
@@ -442,6 +454,9 @@ class GameEngine:
                 "end": state.current_week * 7,
             },
             "research_projects": project_views(state, self.definitions),
+            "life_support": life_support_view(
+                state, self.definitions.stations[state.station_id], self.rules
+            ),
             "energy": energy_view(state, self.definitions, self.rules),
             "current_event": event_view(state, self.definitions),
             "assignment_options": choice_views(
