@@ -2,23 +2,24 @@ import type { GameStateResponse } from '../../types/game';
 import type { RoomActor } from './stationLayout';
 import { StationSupplies } from './StationSupplies';
 
-export function StationInterior({ id, state }: { id: string; state: GameStateResponse }) {
+export function StationInterior({ id, state, portrait = false, stageHeight = 760 }: { id: string; state: GameStateResponse; portrait?: boolean; stageHeight?: number }) {
   const dark = state.energy.forecast[0]?.phase === 'darkness';
-  return <svg viewBox="0 0 1000 760" aria-hidden="true" width="100%" height="100%">
+  const floor = portrait ? 900 : 490;
+  return <svg viewBox={`0 0 1000 ${stageHeight}`} aria-hidden="true" width="100%" height="100%">
     <defs>
       <linearGradient id={`${id}-wall`} x2="0" y2="1"><stop stopColor={dark ? '#192e42' : '#294459'} /><stop offset="1" stopColor="#0b1726" /></linearGradient>
       <linearGradient id={`${id}-floor`} x2="0" y2="1"><stop stopColor="#243b4d" /><stop offset="1" stopColor="#080f1c" /></linearGradient>
       <linearGradient id={`${id}-seat`} x2="0" y2="1"><stop stopColor="#526f80" /><stop offset="1" stopColor="#203747" /></linearGradient>
     </defs>
-    <path d="M35 490V160Q35 35 210 25H790Q965 35 965 160V490Z" fill={`url(#${id}-wall)`} stroke="#476276" strokeWidth="5" />
-    <path d="M35 490Q500 365 965 490L1000 760H0Z" fill={`url(#${id}-floor)`} />
-    <path d="M65 490V175Q65 65 220 55H780Q935 65 935 175V490M115 475V190Q115 110 225 100H775Q885 110 885 190V475" fill="none" stroke="#3c586c" strokeWidth="8" />
+    <path d={`M35 ${floor}V160Q35 35 210 25H790Q965 35 965 160V${floor}Z`} fill={`url(#${id}-wall)`} stroke="#476276" strokeWidth="5" />
+    <path d={`M35 ${floor}Q500 ${floor - 125} 965 ${floor}L1000 ${stageHeight}H0Z`} fill={`url(#${id}-floor)`} />
+    <path d={`M65 ${floor}V175Q65 65 220 55H780Q935 65 935 175V${floor}M115 ${floor - 15}V190Q115 110 225 100H775Q885 110 885 190V${floor - 15}`} fill="none" stroke="#3c586c" strokeWidth="8" />
     <path d="M250 75H750" stroke="#a5dce4" strokeWidth="5" strokeLinecap="round" />
     <rect x="365" y="125" width="270" height="130" rx="63" fill="#050e1a" stroke="#5f8298" strokeWidth="4" />
     <path d="M377 232Q490 177 623 234L613 251H387Z" fill={dark ? '#435667' : '#87979c'} />
     <path d="M397 242Q490 211 607 245" fill="none" stroke="#a3b8bd" />
     <circle cx="514" cy="170" r="18" fill="#477da2" stroke="#a5d3dc" />
-    <g stroke="#52758a" strokeWidth="3">
+    <g stroke="#52758a" strokeWidth="3" transform={portrait ? 'translate(0 200)' : undefined}>
       {[250, 460, 670].map((x, index) => <g key={x}>
         <rect x={x - 35} y="240" width="70" height="61" rx="6" fill="#0a2132" />
         <path d={`M${x - 24} 278l12-13 10 8 13-17 12 9`} fill="none" stroke={index === 1 ? '#b3a7e1' : '#83c4cb'} />
@@ -30,27 +31,29 @@ export function StationInterior({ id, state }: { id: string; state: GameStateRes
       <path d="M846 318h30m-15-15v30" stroke="#92cbb5" strokeWidth="6" />
     </g>
     <StationSupplies state={state} />
-    <g stroke="#56778b" strokeWidth="2">
+    <g stroke="#56778b" strokeWidth="2" transform={portrait ? 'translate(0 250)' : undefined}>
       <rect x="60" y="441" width="185" height="285" rx="16" fill="#06111e" />
-      <text x="77" y="462" fill="#b8d4df" fontSize="11" stroke="none" letterSpacing="1.5">SURFACE VIEW</text>
-      <path d="M64 559q70-38 177 1v160H64Z" fill="#53616a" stroke="none" />
-      <path d="m75 658 30-8 24 8 30-6 30 8 39-9M83 699l31-8 33 9 31-5" stroke="#7a8b94" fill="none" />
-      <ellipse cx="150" cy="582" rx="32" ry="11" fill="#35434f" />
-      <circle cx="80" cy="487" r="1" fill="#e1ebea" /><circle cx="221" cy="505" r="1" fill="#e1ebea" />
+      <text x="77" y="462" fill="#b8d4df" fontSize="11" stroke="none" letterSpacing="1.5">AIRLOCK</text>
+      <path d="M80 483h145v218H80Z" fill="#223e50" />
+      <path d="M152 483v218m-57-197h114v176H95Z" fill="none" />
+      <rect x="177" y="577" width="23" height="43" rx="4" fill="#73969d" />
+      <circle cx="188" cy="591" r="4" fill="#b6d6b7" />
     </g>
-    <g fill="#183042" stroke="#668395" strokeWidth="3">
+    <g fill="#183042" stroke="#668395" strokeWidth="3" transform={portrait ? 'translate(0 350)' : undefined}>
       <path d="M300 347Q480 425 660 347V393Q480 471 300 393Z" />
       <path d="M300 337Q480 407 660 337V360Q480 434 300 360Z" fill={`url(#${id}-seat)`} />
+    </g>
+    <g fill="#183042" stroke="#668395" strokeWidth="3" transform={portrait ? 'translate(0 500)' : undefined}>
       <path d="M260 530Q480 622 700 530V579Q480 676 260 579Z" />
       <path d="M260 520Q480 601 700 520V549Q480 636 260 549Z" fill={`url(#${id}-seat)`} />
     </g>
-    <path d="M270 690 375 655M730 690 625 655M300 760 410 690M700 760 590 690" stroke="#355264" strokeWidth="2" opacity=".5" />
+    <path d="M270 690 375 655M730 690 625 655M300 760 410 690M700 760 590 690" transform={portrait ? 'translate(0 500)' : undefined} stroke="#355264" strokeWidth="2" opacity=".5" />
   </svg>;
 }
 
 /** Foreground furniture is drawn once, after people; only the table's own footprint occludes them. */
-export function StationFurniture({ actors }: { actors: RoomActor[] }) {
-  return <svg viewBox="0 0 1000 760" aria-hidden="true" width="100%" height="100%">
+export function StationFurniture({ actors, portrait = false, stageHeight = 760 }: { actors: RoomActor[]; portrait?: boolean; stageHeight?: number }) {
+  return <svg viewBox={`0 0 1000 ${stageHeight}`} aria-hidden="true" width="100%" height="100%">
     {actors.filter(actor => actor.zone === 'work').map(actor => <g key={actor.crew.id} data-part="work-desk" stroke="#7896a8" strokeWidth="2">
       <path d={`M${actor.left + 4} ${actor.top + 113}h92v14h-92Z`} fill="#526c7c" />
       <path d={`M${actor.left + 10} ${actor.top + 128}v65m80-65v65`} stroke="#3d5c70" strokeWidth="6" />
@@ -63,6 +66,7 @@ export function StationFurniture({ actors }: { actors: RoomActor[] }) {
         <path d={`M${actor.left + 12} ${mattressY + 13}v24m${actor.width - 24}-24v24`} stroke="#456779" strokeWidth="5" />
       </g>;
     })}
+    <g transform={portrait ? 'translate(0 500)' : undefined}>
     <ellipse cx="480" cy="705" rx="140" ry="23" fill="#030a13" opacity=".6" />
     <path d="M460 601H500L515 691Q480 712 445 691Z" fill="#294457" stroke="#526f81" strokeWidth="3" />
     <ellipse cx="480" cy="596" rx="134" ry="49" fill="#1c3547" stroke="#7e9ba9" strokeWidth="3" />
@@ -70,5 +74,13 @@ export function StationFurniture({ actors }: { actors: RoomActor[] }) {
     <ellipse cx="480" cy="586" rx="84" ry="28" fill="#2e566a" stroke="#82bcc9" strokeWidth="2" />
     <path d="M438 586H522M480 564V608" stroke="#92cfda" opacity=".5" />
     <circle cx="480" cy="586" r="10" fill="#9bd3d7" opacity=".6" />
+    <path d="M452 539h64v39h-64Z" fill="#142d3e" stroke="#8faeb8" strokeWidth="3" />
+    <path d="M457 545h54v27h-54Z" fill="#304e60" />
+    <path d="m461 564 9-9 9 6 10-12 12 8" fill="none" stroke="#9bd7d0" strokeWidth="2" />
+    <path d="m452 579-11 13h85l-10-13Z" fill="#8caaae" stroke="#4f7284" />
+    <path d="M537 584q15-6 33 0v34q-16-5-33 0Z" fill="#9cbdad" stroke="#48716e" strokeWidth="2" />
+    <path d="M570 584q16-6 33 0v34q-16-5-33 0Z" fill="#c6d1b8" stroke="#48716e" strokeWidth="2" />
+    <path d="M570 584v34" stroke="#305b5b" strokeWidth="3" />
+    </g>
   </svg>;
 }

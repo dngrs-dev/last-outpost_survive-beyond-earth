@@ -36,7 +36,7 @@ export function stationActors(crew: CrewResponse[], activities: CrewActivities):
     const patient = actor.activity.partnerId && actors.get(actor.activity.partnerId);
     if (patient) {
       const lying = patient.activity.pose === 'reclining';
-      move(patient.crew.id, 875, lying ? y + 112 : y, lying ? 170 : 85, lying ? 79 : 185, 'medical');
+      move(patient.crew.id, 875, lying ? y + 45 : y, lying ? 170 : 85, lying ? 79 : 185, 'medical');
       paired.add(patient.crew.id);
     }
     paired.add(actor.crew.id);
@@ -51,7 +51,7 @@ export function stationActors(crew: CrewResponse[], activities: CrewActivities):
     } else if (actor.activity.kind === 'patient') {
       const y = 295 + medicalSlot++ * 190;
       const lying = actor.activity.pose === 'reclining';
-      move(actor.crew.id, 875, lying ? y + 112 : y, lying ? 170 : 85, lying ? 79 : 185, 'medical');
+      move(actor.crew.id, 875, lying ? y + 45 : y, lying ? 170 : 85, lying ? 79 : 185, 'medical');
     } else if (actor.activity.pose === 'reclining') {
       move(actor.crew.id, actor.left + actor.width / 2, actor.top + 100, 170, 79, 'seating');
     } else if (['repair', 'research', 'response'].includes(actor.activity.kind)) {

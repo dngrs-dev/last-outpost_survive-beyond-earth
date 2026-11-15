@@ -1,124 +1,28 @@
-.screen { height: 100vh; height: 100dvh; display: flex; flex-direction: column; overflow: hidden; background: radial-gradient(ellipse at 23% 35%, #1c3545 0, #0d1928 43%, #060d18 80%); color: #e2edf5; }
-.connection { min-height: 100dvh; display: grid; place-content: center; gap: 24px; padding: 32px; }
-.screen button:focus-visible, .screen summary:focus-visible, .screen a:focus-visible { outline: 2px solid #a2f0d7; outline-offset: 3px; }
-.hud { display: flex; align-items: center; justify-content: space-between; gap: 20px; padding: 14px 24px; border-bottom: 1px solid #30465a; background: #081321e8; }
-.mission { display: flex; flex-direction: column; flex-shrink: 0; }
-.mission strong { font-size: 19px; letter-spacing: .08em; }
-.eyebrow { font-size: 11px; letter-spacing: .18em; text-transform: uppercase; color: #93b8cc; }
-.stocks { display: flex; gap: 8px; }
-.stocks button, .lighting { color: #dcecf4; background: #142536; border: 1px solid #365267; border-radius: 8px; padding: 6px 14px; min-height: 48px; text-align: left; }
-.stocks span, .stocks strong, .lighting span, .lighting small { display: block; }
-.stocks span, .lighting span { text-transform: capitalize; font-size: 12px; color: #a9c1d0; }
-.stocks strong { font-family: var(--font-mono); font-size: 18px; }
-.lighting small { font-size: 11px; color: #c3d6e0; }
-.workspace { display: grid; grid-template-columns: minmax(0, 1.35fr) minmax(370px, 1fr); flex: 1; min-height: 0; }
-.habitat { display: flex; flex-direction: column; justify-content: center; min-width: 0; min-height: 0; padding: 14px 10px 12px; }
-.habitat > section { flex: 1; }
-.goals { display: flex; justify-content: space-between; flex-wrap: wrap; gap: 8px; font-size: 12px; padding: 0 12px; color: #a8c0ce; }
-.goals strong { color: #e2edf5; font-weight: 500; margin-left: 5px; }
-.goals button { color: inherit; background: transparent; font-size: inherit; min-height: 32px; }
-.crewStrip { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 7px; padding: 0 8px 12px; }
-.crewStrip button { display: flex; align-items: center; gap: 8px; padding: 8px; border: 1px solid #39546a; border-radius: 8px; background: #102032; color: #e3edf5; text-align: left; min-width: 0; min-height: 52px; }
-.crewStrip button[aria-pressed=true] { border-color: #90d8c0; background: #193f42; }
-.crewStrip svg { width: 22px; height: 22px; color: #9dc9dc; flex-shrink: 0; }
-.crewStrip small { display: block; font-size: 10px; color: #a9bfce; line-height: 1.2; }
-.crewStrip span { overflow-wrap: anywhere; font-size: 13px; }
-.bookmarks { display: grid; grid-template-columns: repeat(5, 1fr); gap: 6px; padding: 0 8px; }
-.bookmarks button { background: #142a3a; border: 1px solid #3e5b70; border-radius: 7px; color: #b9cedd; min-height: 48px; font-size: 13px; }
-.bookmarks button[aria-pressed=true] { background: #254b52; color: #d7fff1; border-color: #85c9bc; }
-.bookmarks span { margin-right: 7px; color: #9cced8; }
-.planner { min-height: 0; display: flex; flex-direction: column; border-left: 1px solid #344b60; background: #091422ee; box-shadow: -15px 0 50px #0003; }
-.steps { display: grid; grid-template-columns: repeat(4, 1fr); flex-shrink: 0; border-bottom: 1px solid #32485a; }
-.steps button { min-height: 65px; padding: 9px 4px; color: #a6bdcd; background: #112133; border-bottom: 3px solid transparent; font-size: 12px; }
-.steps span { display: block; font: 15px var(--font-mono); color: #9ec4d8; }
-.steps button[aria-current=step] { background: #1c3945; border-color: #a1dfcb; color: #e1fff3; }
-.messages { flex-shrink: 0; max-height: 23%; overflow-y: auto; }
-.messages:empty { display: none; }
-.warning { color: #f2ce91; background: #40301e88; border-left: 3px solid #e0b877; padding: 10px 12px; margin: 8px 0; font-size: 13px; }
-.messages .warning { margin: 5px 12px; }
-.panel { flex: 1; min-height: 0; overflow-y: auto; overscroll-behavior: contain; padding: 22px clamp(16px, 2.2vw, 32px) 28px; scrollbar-color: #496879 #0d1b2b; }
-.panelTitle { font-size: 12px; letter-spacing: .15em; text-transform: uppercase; color: #a4c9d9; margin-bottom: 16px; outline: none; }
-.panel h2 { font-size: clamp(21px, 2vw, 28px); line-height: 1.2; margin-bottom: 12px; font-weight: 600; }
-.panel h3 { font-size: 16px; line-height: 1.35; margin-bottom: 5px; }
-.panel p { margin: 9px 0; font-size: 14px; color: #c4d4e0; line-height: 1.55; }
-.panel small { color: #aabfce; font-size: 12px; line-height: 1.5; }
-.panel label { display: flex; flex-direction: column; gap: 7px; font-size: 13px; margin: 12px 0; }
-.panel select { width: 100%; max-width: 100%; font: 14px var(--font-display); min-height: 44px; }
-.panel fieldset { padding: 10px; border: 1px solid #496173; border-radius: 7px; margin-top: 15px; }
-.panel legend { padding: 0 5px; font-size: 13px; }
-.panel details { border-top: 1px solid #31475a; padding: 12px 0; margin-top: 12px; }
-.panel summary { cursor: pointer; color: #a9cddd; font-size: 13px; min-height: 28px; }
-.panel a { color: #a6e4de; }
-.panel :global(.card), .panel :global(.crew-card) { background: #132536; border-color: #385166; padding: 16px; box-shadow: none; }
-.panel :global(.station-inset) { padding: 14px; background: #142536; border: 1px solid #344f63; border-radius: 9px; margin: 14px 0; }
-.panel :global(.station-choices) { display: grid; gap: 10px; margin-top: 18px; }
-.panel :global(.station-choice) { border: 1px solid #3b566d; border-radius: 9px; padding: 13px; background: #112233; }
-.panel :global(.station-choice-selected) { border-color: #96d6bf; background: #1a353d; }
-.panel :global(.station-choice-button) { width: 100%; text-align: left; min-height: 44px; padding: 6px 0; color: #e1f4f6; background: none; font-size: 16px; font-weight: 600; }
-.panel :global(.station-text-button) { min-height: 44px; padding: 6px 0; background: none; color: #b0e7e0; text-decoration: underline; text-underline-offset: 4px; font-size: 13px; }
-.panel :global(.station-warning) { color: #f1cd91; }
-.panel :global(.station-person-heading) { display: flex; align-items: center; gap: 9px; }
-.panel :global(.station-person-heading) > button { margin-left: auto; }
-.panel :global(.station-role) { width: 27px; height: 27px; color: #aed5e5; flex-shrink: 0; }
-.panel :global(.station-ration-presets) { display: flex; flex-wrap: wrap; gap: 6px; margin: 15px 0; }
-.panel :global(.station-ration-presets) button { font-size: 11px; padding: 10px; min-height: 44px; }
-.panel :global(.station-ration-fields) { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
-.panel :global(.station-check) { flex-direction: row; align-items: center; min-height: 36px; }
-.panel :global(.station-check) input { width: 20px; height: 20px; }
-.panel :global(.station-continue) { margin-top: 20px; width: 100%; }
-.panel :global(.station-eyebrow) { font-size: 11px; color: #a9e3ca; letter-spacing: .16em; }
-.planFooter { padding: 14px 20px max(14px, env(safe-area-inset-bottom)); display: flex; align-items: center; justify-content: space-between; gap: 12px; background: #102133; border-top: 1px solid #344e63; flex-shrink: 0; }
-.planFooter span { color: #9cb6c7; font-size: 12px; }
-.planFooter button { min-height: 46px; font-size: 14px; }
-.inventory { margin: 18px 0; }
-.inventory > div { display: flex; justify-content: space-between; gap: 15px; padding: 10px; border-bottom: 1px solid #314a5e; }
-.inventory dt { text-transform: capitalize; }
-.inventory dd { font-family: var(--font-mono); color: #c1eee4; }
-.crewPicker { display: flex; flex-wrap: wrap; gap: 8px; margin: 12px 0; }
-.crewPicker button { border: 1px solid #496879; padding: 9px 13px; border-radius: 6px; color: #c4d7e4; background: #192e40; min-height: 44px; }
-.crewPicker button[aria-pressed=true] { border-color: #97dbbf; background: #254c4e; }
-@media (min-width: 1500px) { .workspace { grid-template-columns: minmax(0, 1.65fr) minmax(430px, 1fr); } }
-@media (max-width: 760px) {
-  .hud { padding: 8px 12px; flex-wrap: wrap; gap: 7px; }
-  .mission { flex-direction: row; align-items: center; justify-content: space-between; width: 100%; }
-  .mission strong { font-size: 14px; }
-  .eyebrow { font-size: 10px; }
-  .stocks { flex: 1; gap: 5px; }
-  .stocks button { flex: 1; padding: 4px 7px; min-height: 44px; }
-  .stocks span { font-size: 10px; }
-  .stocks strong { font-size: 14px; }
-  .lighting { padding: 4px 7px; min-height: 44px; }
-  .lighting small { display: none; }
-  .lighting span { font-size: 10px; }
-  .workspace { display: flex; flex-direction: column; }
-  .habitat { flex: 0 0 auto; padding: 0 8px 7px; }
-  .habitat > section { height: clamp(130px, 23dvh, 240px); flex: none; }
-  .goals { font-size: 10px; padding: 0 3px; }
-  .crewStrip { gap: 4px; padding: 0 0 6px; }
-  .crewStrip button { padding: 5px; gap: 4px; min-height: 40px; }
-  .crewStrip svg { width: 16px; height: 16px; }
-  .crewStrip span { font-size: 11px; }
-  .crewStrip small { font-size: 9px; }
-  .bookmarks { padding: 0; gap: 4px; }
-  .bookmarks button { min-height: 38px; font-size: 11px; }
-  .bookmarks span { margin-right: 4px; }
-  .planner { flex: 1; border-left: none; border-top: 1px solid #344b60; }
-  .steps button { min-height: 45px; font-size: 11px; padding: 4px; }
-  .steps span { display: inline; margin-right: 5px; font-size: 12px; }
-  .panel { padding: 14px 16px 22px; }
-  .panelTitle { margin-bottom: 10px; font-size: 10px; }
-  .planFooter { padding: 8px 12px max(8px, env(safe-area-inset-bottom)); }
-  .planFooter button { min-height: 44px; font-size: 12px; }
+.screen { position: relative; width: 100%; height: 100vh; height: 100dvh; overflow: hidden; background: radial-gradient(ellipse at 50% 28%, #294150 0, #142b3a 48%, #07131f 100%); color: #dceded; }
+.connection { height: 100dvh; display: grid; place-content: center; gap: 20px; padding: 32px; text-align: center; }
+.week { position: absolute; top: max(20px, env(safe-area-inset-top)); left: max(24px, env(safe-area-inset-left)); z-index: 8; display: flex; flex-direction: column; gap: 3px; text-shadow: 0 2px 9px #000; pointer-events: none; }
+.week strong { font-size: clamp(18px, 2vw, 27px); letter-spacing: .08em; }
+.week small { color: #b1cbd3; font-size: 11px; letter-spacing: .1em; text-transform: uppercase; max-width: 260px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.help { position: absolute; top: max(22px, env(safe-area-inset-top)); right: max(24px, env(safe-area-inset-right)); z-index: 8; width: 44px; height: 44px; border: 1px solid #739aaa; border-radius: 50%; color: #d2ebe7; background: #102d3bbf; font-size: 22px; }
+.guidance { position: absolute; z-index: 8; bottom: max(28px, env(safe-area-inset-bottom)); left: 24px; max-width: min(430px, calc(100vw - 230px)); color: #cae1db; font-size: 13px; line-height: 1.5; text-shadow: 0 2px 8px #000; pointer-events: none; }
+.nextWeek { position: absolute; z-index: 8; right: max(24px, env(safe-area-inset-right)); bottom: max(24px, env(safe-area-inset-bottom)); min-width: 160px; min-height: 52px; font-size: 16px; box-shadow: 0 5px 25px #0007; }
+.warning { position: absolute; top: 83px; left: 24px; z-index: 8; min-height: 44px; padding: 7px 12px; border: 1px solid #b69c73; border-radius: 7px; color: #f1d09a; background: #342b20dd; font-size: 12px; }
+.screen button:focus-visible { outline: 3px solid #b9f5d8; outline-offset: 3px; }
+@media (max-width: 600px) {
+  .week { top: max(14px, env(safe-area-inset-top)); left: 14px; }
+  .week small { font-size: 9px; max-width: 215px; }
+  .help { top: 14px; right: 14px; }
+  .guidance { left: 14px; bottom: 83px; max-width: calc(100vw - 28px); font-size: 11px; }
+  .nextWeek { bottom: max(16px, env(safe-area-inset-bottom)); right: 14px; min-height: 48px; min-width: 145px; font-size: 14px; }
+  .warning { top: 65px; left: 14px; }
 }
-@media (max-width: 760px) and (max-height: 720px) {
-  .habitat > section { height: 110px; }
-  .goals { display: none; }
-  .crewStrip small { display: none; }
-}
-@media (min-width: 761px) and (max-height: 560px) {
-  .hud { padding: 6px 16px; }
-  .goals { display: none; }
-  .steps button { min-height: 44px; }
-  .planFooter { padding: 6px 16px; }
+@media (max-height: 450px) {
+  .week { top: 10px; left: 14px; }
+  .week strong { font-size: 17px; }
+  .week small { font-size: 9px; }
+  .help { top: 10px; right: 14px; }
+  .guidance { bottom: 14px; left: 14px; max-width: calc(100vw - 210px); font-size: 11px; }
+  .nextWeek { bottom: 12px; right: 14px; min-height: 46px; font-size: 13px; }
+  .warning { top: 65px; left: 14px; }
 }
 @media (prefers-reduced-motion: reduce) { .screen *, .screen *::before, .screen *::after { animation: none !important; transition: none !important; scroll-behavior: auto !important; } }

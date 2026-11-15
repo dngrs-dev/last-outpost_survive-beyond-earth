@@ -1,16 +1,83 @@
-import { fireEvent, screen } from '@testing-library/react';
+import { fireEvent, screen, within } from '@testing-library/react';
+import type { GameResponse } from '../../types/game';
+import { game } from '../fixtures/backend';
 
-export async function planningStep(step: 'Incident' | 'Crew' | 'Food & water' | 'Review') {
-  const index = ['Incident', 'Crew', 'Food & water', 'Review'].indexOf(step) + 1;
-  fireEvent.click(await screen.findByRole('button', { name: `Step ${index}: ${step}` }));
+export function book() { return within(screen.getByRole('dialog')); }
+export function closeBook() {
+  const dialog = screen.queryByRole('dialog');
+  if (dialog) fireEvent.click(within(dialog).getByRole('button', { name: 'Close notebook' }));
 }
 
-export async function reviewWeek() {
-  await planningStep('Review');
-  return screen.getByRole('button', { name: /^End week \d+$/ });
+export function notebookPage(title: string) {
+  for (let count = 0; count < 120; count++) {
+    if (book().queryByRole('heading', { name: title, level: 2 })) return;
+    const next = book().getByRole('button', { name: 'Next page' });
+    if ((next as HTMLButtonElement).disabled) break;
+    fireEvent.click(next);
+  }
+  throw new Error(`Notebook page not found: ${title}`);
 }
 
-export async function fullReport(week = 1) {
-  await screen.findByText(`WEEK ${week} DEBRIEF`);
-  fireEvent.click(screen.getByText('Full weekly report'));
+export function notebookText(pattern: RegExp) {
+  for (let count = 0; count < 120; count++) {
+    if (book().queryByText(pattern)) return;
+    const next = book().getByRole('button', { name: 'Next page' });
+    if ((next as HTMLButtonElement).disabled) break;
+    fireEvent.click(next);
+  }
+  throw new Error(`Notebook text not found: ${pattern}`);
+}
+
+export async function confirmIncident(fixture: GameResponse = game, options: { choiceId?: string; leadId?: string; supportIds?: string[] } = {}) {
+  await screen.findByRole('button', { name: 'See responses' });
+  fireEvent.click(book().getByRole('button', { name: 'See responses' }));
+  const choice = fixture.state.current_event!.choices.find(choice => options.choiceId ? choice.id === options.choiceId : choice.available && !choice.requires_crew)
+    || fixture.state.current_event!.choices.find(choice => choice.available)!;
+  notebookPage(choice.text);
+  fireEvent.click(book().getByRole('button', { name: 'Choose this response' }));
+  if (choice.requires_crew) {
+    const lead = options.leadId || [...choice.eligible_crew].filter(candidate => candidate.available).sort((a, b) => b.success_probability - a.success_probability)[0].crew_id;
+    fireEvent.change(book().getByRole('combobox', { name: 'Response lead' }), { target: { value: lead } });
+    const supports = options.supportIds || choice.support_candidates.filter(candidate => candidate.available && candidate.crew_id !== lead).slice(0, Math.max(0, choice.minimum_crew - 1)).map(candidate => candidate.crew_id);
+    for (const [index, id] of supports.entries()) fireEvent.change(book().getByRole('combobox', { name: `Support astronaut ${index + 1}` }), { target: { value: id } });
+    fireEvent.click(book().getByRole('button', { name: 'See consequences' }));
+  }
+  fireEvent.click(book().getByRole('button', { name: 'Confirm response' }));
+  return choice;
+}
+
+export async function chooseCrewTask(fixture: GameResponse, id: string, activityId: string, patient?: string) {
+  const person = fixture.state.crew.find(person => person.id === id)!;
+  fireEvent.click(screen.getByRole('button', { name: new RegExp(`^Inspect ${person.name},`) }));
+  fireEvent.click(book().getByRole('button', { name: 'Choose assignment' }));
+  const option = fixture.state.assignment_options.find(option => option.id === activityId)!;
+  const category = option.action_type === 'medical' ? 'Care' : option.action_type === 'research' ? 'Science' : option.action_type === 'maintenance' ? 'Systems' : 'Rest';
+  fireEvent.click(book().getByRole('button', { name: category }));
+  notebookPage(option.text);
+  fireEvent.click(book().getByRole('button', { name: 'Choose this task' }));
+  if (option.action_type === 'medical') {
+    if (patient) fireEvent.change(book().getByRole('combobox', { name: `Patient and condition for ${person.name}` }), { target: { value: patient } });
+    fireEvent.click(book().getByRole('button', { name: 'Review care' }));
+  }
+  fireEvent.click(book().getByRole('button', { name: 'Confirm assignment' }));
+}
+
+export async function provisions() {
+  closeBook();
+  fireEvent.click(await screen.findByRole('button', { name: /^Next week/ }));
+  await screen.findByRole('dialog', { name: 'Weekly provisions' });
+}
+
+export async function reviewWeek(fixture: GameResponse = game) {
+  if (!screen.queryByRole('dialog', { name: new RegExp(`End week ${fixture.state.current_week}`) })) {
+    await provisions();
+    fireEvent.click(book().getByRole('button', { name: "Confirm week's rations" }));
+  }
+  return book().getByRole('button', { name: /^End week \d+$/ });
+}
+
+export async function openStatus(section: string) {
+  closeBook();
+  fireEvent.click(await screen.findByRole('button', { name: 'Station status' }));
+  fireEvent.click(book().getByRole('button', { name: section }));
 }

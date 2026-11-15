@@ -97,16 +97,17 @@
 > refresh and crew changes. Catalog/API/simulation values are unchanged; see
 > `supplies.md` for current presentation and validation behavior.
 
-> Station-screen update: active play now uses a fixed cutaway common room, shared
-> astronaut artwork, and four guided planning steps: Incident, Crew, Food & water,
-> Review. Crew/Stores/Systems/Science/Log bookmarks reveal optional details. End
-> Week retains the existing atomic backend operation and retry handling; confirmed
-> results separate survival and science before the next plan. See
-> `station-gameplay.md` for behavior, accessibility, and the boundary between this
-> playable screen and presentation rules.
+> Station-screen update: active play now fills the screen with a cutaway common
+> room. A paginated field notebook handles the opening incident, individual crew
+> jobs, provisions, station information, and confirmed reports. The former
+> dashboard header/footer, bottom crew directory, and four-step rail are removed.
+> Explicit confirmation locks choices for the week, including across refreshes;
+> End Week still resolves one atomic backend request. See `station-gameplay.md`
+> for research references, sequence, keyboard/touch access, and recovery behavior.
 
 > Visible-station update: the room now uses shared indoor clothing, activity poses,
-> paired care/recovery staging, and a surface-view inset for EVA work. Bounded
+> paired care/recovery staging. Incident duty and EVA crew leave the common-room
+> view; the airlock duty list supports inspection. Bounded
 > supply artwork and battery fill use confirmed stock; seismic indicators use
 > actual project phase/progress. Draft positions are explicitly previews, unknown
 > submissions remain pending, and confirmed receipts label completed/failed or

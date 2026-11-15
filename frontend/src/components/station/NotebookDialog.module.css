@@ -1,0 +1,56 @@
+.dialog { position: fixed; inset: 0; margin: auto; width: min(660px, calc(100vw - 28px)); height: min(650px, calc(100dvh - 28px)); max-width: none; max-height: none; padding: 20px 24px 16px 38px; border: 1px solid #7c9da6; border-radius: 12px; color: #e2e9e4; background: linear-gradient(100deg, #23373b, #14272e 9%, #19313a 90%, #213b43); box-shadow: 0 24px 100px #000c, inset 0 0 0 6px #41626c44; overflow: hidden; }
+.dialog[open] { display: grid; grid-template-rows: auto minmax(0, 1fr) auto; gap: 16px; }
+.dialog::backdrop { background: #020813b5; backdrop-filter: blur(4px); }
+.binding { position: absolute; left: 12px; top: 24px; bottom: 24px; width: 9px; background: repeating-linear-gradient(to bottom, #869d9a 0 4px, transparent 4px 25px); opacity: .7; pointer-events: none; }
+.header { display: flex; justify-content: space-between; gap: 12px; align-items: start; }
+.header small { font-size: 10px; color: #a8c7cc; letter-spacing: .15em; }
+.header h1 { outline: none; margin-top: 4px; font-size: 25px; line-height: 1.18; font-weight: 600; }
+.header > button { background: #0d2029; border: 1px solid #648a97; color: #d5ede7; border-radius: 7px; min-width: 44px; height: 44px; font-size: 28px; flex-shrink: 0; }
+.page { min-height: 0; display: flex; flex-direction: column; justify-content: center; gap: 12px; overflow: hidden; overflow-wrap: anywhere; }
+.page h2 { font-size: 22px; line-height: 1.2; color: #e6f3e9; }
+.page h3 { font-size: 17px; line-height: 1.2; }
+.page p { font-size: 16px; line-height: 1.5; color: #d0deda; }
+.page small { font-size: 12px; color: #b3c9c7; }
+.page label { display: flex; flex-direction: column; gap: 5px; font-size: 13px; }
+.page select { width: 100%; min-height: 44px; font: 14px var(--font-display); background: #10242d; border-color: #68848e; }
+.page a { color: #b6ece0; }
+.page progress, .page meter { width: 100%; height: 12px; accent-color: #8edbc0; }
+.page :global(.folio-card) { padding: 16px; border: 1px solid #547581; border-radius: 8px; background: #10242b88; display: flex; flex-direction: column; gap: 10px; }
+.page :global(.folio-grid) { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px; }
+.page :global(.folio-row) { display: flex; align-items: center; justify-content: space-between; gap: 12px; }
+.page :global(.folio-row) > span { color: #b3c9cb; }
+.page :global(.folio-warning) { color: #f0cc90; font-size: 14px; }
+.page :global(.folio-muted) { font-size: 13px; color: #a8c5ca; }
+.page :global(.folio-menu) { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+.page :global(.folio-menu) button { min-height: 54px; background: #25434b; border: 1px solid #658b94; color: #e0efea; border-radius: 7px; padding: 8px 12px; font-size: 15px; }
+.controls { display: flex; align-items: center; justify-content: space-between; gap: 12px; min-height: 48px; }
+.controls > button { margin-left: auto; min-height: 46px; font-size: 14px; }
+.turns { display: flex; align-items: center; gap: 8px; flex-shrink: 0; }
+.turns button { background: #0d232d; border: 1px solid #64838d; border-radius: 7px; min-width: 44px; height: 44px; color: #dcf4ed; font-size: 25px; }
+.turns span { min-width: 40px; text-align: center; font-size: 12px; color: #b5c9c8; }
+.dialog button:focus-visible, .dialog select:focus-visible, .dialog a:focus-visible { outline: 3px solid #b8f4d5; outline-offset: 2px; }
+.dialog :global(.btn-secondary) { border-color: #64838d; background: #18343e; color: #d9eae5; }
+@media (max-width: 600px), (max-height: 540px) {
+  .dialog { width: calc(100vw - 16px); height: calc(100dvh - 16px); padding: 12px 14px 12px 24px; border-radius: 9px; }
+  .dialog[open] { gap: 10px; }
+  .binding { left: 6px; width: 6px; }
+  .header h1 { font-size: 20px; }
+  .header small { font-size: 9px; }
+  .page { gap: 10px; }
+  .page h2 { font-size: 19px; }
+  .page p { font-size: 14px; line-height: 1.4; }
+  .page :global(.folio-card) { padding: 11px; gap: 8px; }
+  .page :global(.folio-menu) { gap: 7px; }
+  .page :global(.folio-menu) button { min-height: 44px; font-size: 13px; }
+  .controls { gap: 7px; }
+  .controls > button { font-size: 12px; padding: 8px 10px; min-height: 44px; }
+  .turns { gap: 4px; }
+  .turns span { min-width: 32px; }
+}
+@media (max-height: 430px) {
+  .dialog { max-width: 750px; }
+  .page { gap: 7px; }
+  .header small { display: none; }
+  .page :global(.folio-card) { padding: 8px 12px; gap: 6px; }
+}
+@media (prefers-reduced-motion: reduce) { .dialog *, .dialog::backdrop { animation: none !important; transition: none !important; } }

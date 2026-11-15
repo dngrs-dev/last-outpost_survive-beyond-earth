@@ -1,7 +1,7 @@
 import { beforeEach, describe, expect, it, vi } from 'vitest';
 import { fireEvent, render, screen, within } from '@testing-library/react';
 import { MemoryRouter, Route, Routes } from 'react-router-dom';
-import { reviewWeek } from './helpers/station';
+import { book, confirmIncident, openStatus, notebookPage, reviewWeek } from './helpers/station';
 import { EnergyPanel } from '../components/EnergyPanel';
 import { GamePage } from '../pages/GamePage';
 import * as api from '../api/game';
@@ -30,14 +30,14 @@ describe('Sourced sunlight and bounded energy', () => {
     render(<MemoryRouter initialEntries={['/game/fixture-game']}><Routes>
       <Route path="/game/:gameId" element={<GamePage />} />
     </Routes></MemoryRouter>);
-    await screen.findByRole('region', { name: 'Incident response' });
-    fireEvent.click(within(screen.getByRole('navigation', { name: 'Station bookmarks' })).getByRole('button', { name: 'Systems' }));
-    const priority = screen.getByRole('combobox', { name: 'Power priority' });
+    await confirmIncident(energyPriorityGame);
+    await openStatus('Energy'); notebookPage('Power priority');
+    const priority = book().getByRole('combobox', { name: 'Power priority' });
     fireEvent.change(priority, { target: { value: 'research' } });
-    expect(screen.getByText(/This can reduce oxygen production/)).toBeInTheDocument();
-    fireEvent.click(await reviewWeek());
+    fireEvent.click(book().getByRole('button', { name: 'Confirm power priority' }));
+    expect(priority).toBeDisabled();
+    fireEvent.click(await reviewWeek(energyPriorityGame));
     const retry = await screen.findByRole('button', { name: /Retry week 1/ });
-    expect(screen.getByRole('combobox', { name: 'Power priority' })).toBeDisabled();
     const original = structuredClone(send.mock.calls[0][1]);
     expect(original.power_priority).toBe('research');
     fireEvent.click(retry);

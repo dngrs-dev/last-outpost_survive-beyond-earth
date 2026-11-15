@@ -58,19 +58,20 @@ replay settings open on demand. Cargo/seed edits survive a preparation-page refr
 and crew changes; launch errors retain the loadout. Catalog and simulation rules
 remain authoritative in the backend.
 
-Active play at `/game/:gameId` now uses a full-screen station common room with
-two curved seating tiers and a central table. Inspect crew or open Crew, Stores,
-Systems, Science, and Log bookmarks. Four guided steps organize each week:
-Incident, Crew, Food & water, and Review. Only End Week submits the combined plan;
-known booking/budget conflicts block submission, and uncertain retries retain
-the original request. Confirmed results show survival, science, crew work, and
-next-discovery effects before continuing. Phone layouts keep navigation visible
-while the active panel scrolls internally. Shared cabin outfits and activity poses
-show planned indoor work, paired medical care, recovery, and suited surface crews.
-Food shelves, tank fills, consumable stacks, retained equipment, and the battery
-reflect confirmed supplies. Seismic indicators show actual phase progress and
-queued controls without reserving a worker during automatic recording. Plan,
-pending, and confirmed-recap labels keep previews distinct from resolved work.
+Active play at `/game/:gameId` fills the screen with the station, a floating week
+counter, and Next Week. An incident notebook opens each week; confirming locks
+the response and dispatches its crew from the common room. Click free astronauts
+to confirm one job each. Indoor work and paired medical care stay visible; booked
+people are inspection-only, and outside workers disappear until next week.
+The table computer, shelves, journal, and airlock open focused notebook pages.
+Next Week handles provisions and final submission; there is no dashboard header,
+footer, crew directory, step rail, or scrolling gameplay panel. Hover/focus hints,
+touch inspection, first-week guidance, native keyboard dialogs, and reduced motion
+support phones and laptops. Confirmed choices and exact pending requests survive
+browser refreshes; safe retries and explicit rejected-plan recovery retain atomic
+backend resolution. Shared cabin art, changing supplies, project progress, and
+separate survival/science reports use authoritative state. Server missions still
+live only in memory.
 
 ## Run locally
 
@@ -143,8 +144,8 @@ npm run build
   character profiles, cargo tradeoffs, and maintenance actions.
 - [Supplies screen](docs/supplies.md): item artwork, packing controls, capacity,
   mission information, draft preservation, and launch validation.
-- [Station gameplay](docs/station-gameplay.md): room layout, four-step weekly
-  planning, bookmarks, confirmed results, and retry behavior.
+- [Station gameplay](docs/station-gameplay.md): full-screen room, notebook flow,
+  research references, locked choices, accessibility, and submission recovery.
 - [Event library](docs/events.md): all fifteen scenarios, NASA references, equipment,
   research rewards, and gameplay boundaries.
 - [Connected life support](docs/life-support.md): the ISS-inspired water/oxygen/CO2

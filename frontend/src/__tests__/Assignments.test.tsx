@@ -1,61 +1,40 @@
 import { beforeEach, describe, expect, it, vi } from 'vitest';
-import { fireEvent, render, screen, within } from '@testing-library/react';
+import { fireEvent, render, screen } from '@testing-library/react';
 import { MemoryRouter, Route, Routes } from 'react-router-dom';
 import { GamePage } from '../pages/GamePage';
 import * as api from '../api/game';
-import { planningStep, reviewWeek } from './helpers/station';
-import { supportGame, parallelTurn } from './fixtures/backend';
+import { supportGame, parallelTurn, researchGame } from './fixtures/backend';
+import { book, confirmIncident, chooseCrewTask, notebookPage, reviewWeek } from './helpers/station';
+import { newWeekPlan, planIssues } from '../state/weeklyPlan';
 
-function openGame() {
-  render(<MemoryRouter initialEntries={['/game/fixture-game']}><Routes>
-    <Route path="/game/:gameId" element={<GamePage />} />
-  </Routes></MemoryRouter>);
-}
-
-describe('Independent weekly crew work', () => {
-  beforeEach(() => {
-    vi.restoreAllMocks();
-    vi.spyOn(api, 'fetchGameState').mockResolvedValue(structuredClone(supportGame));
+function openGame() { render(<MemoryRouter initialEntries={['/game/fixture-game']}><Routes><Route path="/game/:gameId" element={<GamePage />} /></Routes></MemoryRouter>); }
+describe('Incident crew and immutable assignments', () => {
+  beforeEach(() => { vi.restoreAllMocks(); vi.spyOn(api, 'fetchGameState').mockResolvedValue(structuredClone(supportGame)); });
+  it('requires explicit support before committing and submits free crew work in the same turn', async () => {
+    const send = vi.spyOn(api, 'submitTurn').mockResolvedValue(structuredClone(parallelTurn)); openGame();
+    await screen.findByRole('button', { name: 'See responses' }); fireEvent.click(book().getByRole('button', { name: 'See responses' }));
+    const choice = supportGame.state.current_event!.choices.find(choice => choice.minimum_crew === 2)!;
+    notebookPage(choice.text); fireEvent.click(book().getByRole('button', { name: 'Choose this response' }));
+    expect(book().getByRole('button', { name: 'See consequences' })).toBeDisabled();
+    const actor = (book().getByRole('combobox', { name: 'Response lead' }) as HTMLSelectElement).value;
+    const support = choice.support_candidates.find(candidate => candidate.available && candidate.crew_id !== actor)!.crew_id;
+    fireEvent.change(book().getByRole('combobox', { name: 'Support astronaut 1' }), { target: { value: support } });
+    fireEvent.click(book().getByRole('button', { name: 'See consequences' })); fireEvent.click(book().getByRole('button', { name: 'Confirm response' }));
+    const worker = supportGame.state.crew.find(person => person.id !== actor && person.id !== support)!;
+    await chooseCrewTask(supportGame, worker.id, 'research_geology'); fireEvent.click(await reviewWeek(supportGame)); await screen.findByText(/WEEK .* DEBRIEF/);
+    expect(send.mock.calls[0][1]).toMatchObject({ selected_crew_id: actor, support_crew_ids: [support], assignments: [{ crew_id: worker.id, activity_id: 'research_geology' }] });
   });
-
-  it('requires support crew and sends the response and free crew work together', async () => {
-    const send = vi.spyOn(api, 'submitTurn').mockResolvedValue(structuredClone(parallelTurn));
-    openGame();
-    const response = supportGame.state.current_event!.choices.find(c => c.minimum_crew === 2)!;
-    fireEvent.click(await screen.findByText(new RegExp(response.text)));
-    const actor = [...response.eligible_crew].filter(c => c.available).sort((a, b) => b.success_probability - a.success_probability)[0].crew_id;
-    const support = supportGame.state.crew.find(c => c.id !== actor)!;
-    const worker = supportGame.state.crew.find(c => c.id !== actor && c.id !== support.id)!;
-    expect(await reviewWeek()).toBeDisabled();
-    await planningStep('Incident');
-    fireEvent.click(screen.getByRole('checkbox', { name: support.name }));
-    await planningStep('Crew');
-    fireEvent.change(screen.getByRole('combobox', { name: `Assignment for ${worker.name}` }), { target: { value: 'research_geology' } });
-    const submit = await reviewWeek();
-    expect(submit).toBeEnabled();
-    fireEvent.click(submit);
-    await screen.findByText(/WEEK .* DEBRIEF/);
-    expect(send).toHaveBeenCalledWith('fixture-game', expect.objectContaining({
-      selected_crew_id: actor, support_crew_ids: [support.id],
-      event_choice_id: response.id, assignments: [{ crew_id: worker.id, activity_id: 'research_geology' }],
-    }));
+  it('rejects a response lead double-booked by an assignment before any submission', () => {
+    const choice = supportGame.state.current_event!.choices.find(choice => choice.available && choice.requires_crew)!;
+    const actor = choice.eligible_crew.find(candidate => candidate.available)!.crew_id;
+    const plan = { ...newWeekPlan(supportGame.state), incidentConfirmed: true, event_choice_id: choice.id, selected_crew_id: actor, support_crew_ids: choice.support_candidates.filter(candidate => candidate.available && candidate.crew_id !== actor).slice(0, choice.minimum_crew - 1).map(candidate => candidate.crew_id), assignments: [{ crew_id: actor, activity_id: 'research_geology' }] };
+    expect(planIssues(supportGame.state, plan, false)).toContain('Each astronaut can perform only one main job this week.');
   });
-
-  it('blocks a previously assigned worker from becoming incident crew as well', async () => {
-    openGame();
-    const response = supportGame.state.current_event!.choices.find(c => !c.requires_crew)!;
-    fireEvent.click(await screen.findByText(new RegExp(response.text)));
-    await planningStep('Crew');
-    fireEvent.change(screen.getByRole('combobox', { name: 'Assignment for Alex Vega' }), { target: { value: 'research_geology' } });
-    const repair = supportGame.state.current_event!.choices.find(c => c.requires_crew)!;
-    await planningStep('Incident');
-    fireEvent.click(screen.getByText(new RegExp(repair.text)));
-    fireEvent.change(screen.getByRole('combobox', { name: 'Response lead' }), { target: { value: 'alex' } });
-    await planningStep('Crew');
-    expect(screen.getByText('Each astronaut can perform only one main job this week.')).toBeInTheDocument();
-    expect(await reviewWeek()).toBeDisabled();
-    await planningStep('Crew');
-    const panel = screen.getByRole('region', { name: 'Crew assignments' });
-    expect(within(panel).getAllByRole('option', { name: 'Routine duties', selected: true })).toBeDefined();
+  it('prevents a second independently affordable job from overspending the combined budget', async () => {
+    const fixture = structuredClone(researchGame); fixture.state.resources.oxygen = 2;
+    vi.mocked(api.fetchGameState).mockResolvedValue(fixture); openGame(); await confirmIncident(fixture); await chooseCrewTask(fixture, 'lin', 'research_geology');
+    fireEvent.click(screen.getByRole('button', { name: /^Inspect Alex Vega,/ })); fireEvent.click(book().getByRole('button', { name: 'Choose assignment' })); fireEvent.click(book().getByRole('button', { name: 'Science' }));
+    notebookPage(fixture.state.assignment_options.find(option => option.id === 'research_geology')!.text);
+    expect(book().getByRole('button', { name: 'Choose this task' })).toBeDisabled(); expect(book().getByText('Combined plan exceeds available oxygen.')).toBeInTheDocument();
   });
 });

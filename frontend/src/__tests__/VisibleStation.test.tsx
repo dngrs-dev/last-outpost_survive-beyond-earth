@@ -10,14 +10,14 @@ import * as api from '../api/game';
 import { ApiError } from '../api/client';
 import type { GameResponse } from '../types/game';
 import { catalog, researchGame, researchTurn, medicalAssignmentGame, medicalAssignmentTurn, projectRecording, projectPauseTurn, supportGame, failed } from './fixtures/backend';
-import { planningStep, reviewWeek } from './helpers/station';
+import { confirmIncident, chooseCrewTask, reviewWeek } from './helpers/station';
 
 function plan(fixture: GameResponse): ScenePlan {
   return { event_choice_id: fixture.state.current_event!.choices.find(choice => choice.available && !choice.requires_crew)!.id, assignments: [] };
 }
 
 function room(fixture: GameResponse, orders: ScenePlan = plan(fixture)) {
-  return render(<StationRoom state={fixture.state} activities={plannedActivities(fixture.state, orders)} mode="planning" projectOrders={{}} selectedCrewId={null} onSelectCrew={vi.fn()} onOpen={vi.fn()} disabled={false} />);
+  return render(<StationRoom state={fixture.state} activities={plannedActivities(fixture.state, orders)} mode="planning" selectedCrewId={null} onSelectCrew={vi.fn()} onOpen={vi.fn()} disabled={false} />);
 }
 
 function openGame() {
@@ -77,9 +77,8 @@ describe('Visible station activities and confirmed supplies', () => {
     const activities = plannedActivities(researchGame.state, orders);
     expect(stationActors(researchGame.state.crew, activities).find(actor => actor.crew.id === 'lin')?.zone).toBe('surface');
     const { container, rerender } = room(researchGame, orders);
-    expect(container.querySelectorAll('[data-crew-id="lin"]')).toHaveLength(1);
-    expect(container.querySelector('[data-crew-id="lin"] svg')).toHaveAttribute('data-outfit', 'eva');
-    rerender(<StationRoom state={researchGame.state} activities={plannedActivities(researchGame.state, plan(researchGame))} mode="planning" projectOrders={{}} selectedCrewId={null} onSelectCrew={vi.fn()} onOpen={vi.fn()} disabled={false} />);
+    expect(container.querySelectorAll('[data-crew-id="lin"]')).toHaveLength(0);
+    rerender(<StationRoom state={researchGame.state} activities={plannedActivities(researchGame.state, plan(researchGame))} mode="planning" selectedCrewId={null} onSelectCrew={vi.fn()} onOpen={vi.fn()} disabled={false} />);
     expect(container.querySelector('[data-crew-id="lin"]')).toHaveAttribute('data-zone', 'seating');
     expect(container.querySelector('[data-crew-id="lin"] svg')).toHaveAttribute('data-outfit', 'cabin');
   });
@@ -150,8 +149,8 @@ describe('Visible station activities and confirmed supplies', () => {
   it('shows automatic recording progress without occupying its previous astronaut', () => {
     const { container } = room(projectRecording);
     const project = projectRecording.state.research_projects[0];
-    expect(screen.getByText('Automatic · crew free')).toBeInTheDocument();
-    expect(screen.getByRole('progressbar', { name: 'Station seismic phase progress' })).toHaveAttribute('value', String(project.phase_progress));
+    expect(project.crew_required).toBe(0);
+    expect(container.querySelector('[aria-label="Station common room"]')).toHaveAttribute('data-project-progress', String(project.phase_progress));
     expect(container.querySelectorAll('[data-zone="surface"], [data-zone="work"]')).toHaveLength(0);
   });
 
@@ -159,13 +158,11 @@ describe('Visible station activities and confirmed supplies', () => {
     vi.spyOn(api, 'fetchGameState').mockResolvedValueOnce(structuredClone(medicalAssignmentGame)).mockResolvedValueOnce({ game_id: medicalAssignmentTurn.game_id, state: structuredClone(medicalAssignmentTurn.state) });
     const send = vi.spyOn(api, 'submitTurn').mockRejectedValueOnce(new ApiError(503, 'Response lost')).mockResolvedValueOnce(structuredClone(medicalAssignmentTurn));
     openGame();
-    const free = medicalAssignmentGame.state.current_event!.choices.find(choice => choice.available && !choice.requires_crew)!;
-    fireEvent.click(await screen.findByRole('button', { name: free.text }));
-    await planningStep('Crew');
-    fireEvent.change(screen.getByRole('combobox', { name: 'Assignment for Maya Okafor' }), { target: { value: 'medical_care' } });
+    await confirmIncident(medicalAssignmentGame);
+    await chooseCrewTask(medicalAssignmentGame, 'maya', 'medical_care', 'alex:dust_irritation');
     const station = screen.getByRole('region', { name: 'Station common room' });
     expect(station.querySelector('[data-stock="medicine"]')).toHaveAttribute('data-quantity', '8');
-    fireEvent.click(await reviewWeek());
+    fireEvent.click(await reviewWeek(medicalAssignmentGame));
     await screen.findByRole('button', { name: 'Retry week 1 submission' });
     expect(station).toHaveAttribute('data-scene-mode', 'pending');
     expect(station.querySelector('[data-stock="medicine"]')).toHaveAttribute('data-quantity', '8');
@@ -182,8 +179,8 @@ describe('Visible station activities and confirmed supplies', () => {
   it('shows confirmed pauses without discarding project progress and omits deceased bodies', () => {
     const project = projectPauseTurn.state.research_projects[0];
     const { container } = room(projectPauseTurn);
-    expect(screen.getByText('Paused · progress retained')).toBeInTheDocument();
-    expect(screen.getByRole('progressbar', { name: 'Station seismic phase progress' })).toHaveAttribute('value', String(project.phase_progress));
+    expect(project.status).toBe('paused');
+    expect(container.querySelector('[aria-label="Station common room"]')).toHaveAttribute('data-project-progress', String(project.phase_progress));
     expect(stationActors(failed.state.crew, plannedActivities(failed.state, { event_choice_id: '' }))).toHaveLength(0);
     expect(container.querySelector('[data-stock="scientific_tools"]')).toHaveAttribute('data-quantity', '1');
   });
