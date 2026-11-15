@@ -14,19 +14,8 @@
 .page select { width: 100%; min-height: 44px; font: 14px var(--font-display); background: #10242d; border-color: #68848e; }
 .page a { color: #b6ece0; }
 .page progress, .page meter { width: 100%; height: 12px; accent-color: #8edbc0; }
-.page :global(.folio-card) { padding: 16px; border: 1px solid #547581; border-radius: 8px; background: #10242b88; display: flex; flex-direction: column; gap: 10px; }
-.page :global(.folio-grid) { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px; }
-.page :global(.folio-row) { display: flex; align-items: center; justify-content: space-between; gap: 12px; }
-.page :global(.folio-row) > span { color: #b3c9cb; }
-.page :global(.folio-warning) { color: #f0cc90; font-size: 14px; }
-.page :global(.folio-muted) { font-size: 13px; color: #a8c5ca; }
-.page :global(.folio-menu) { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
-.page :global(.folio-menu) button { min-height: 54px; background: #25434b; border: 1px solid #658b94; color: #e0efea; border-radius: 7px; padding: 8px 12px; font-size: 15px; }
 .controls { display: flex; align-items: center; justify-content: space-between; gap: 12px; min-height: 48px; }
 .controls > button { margin-left: auto; min-height: 46px; font-size: 14px; }
-.turns { display: flex; align-items: center; gap: 8px; flex-shrink: 0; }
-.turns button { background: #0d232d; border: 1px solid #64838d; border-radius: 7px; min-width: 44px; height: 44px; color: #dcf4ed; font-size: 25px; }
-.turns span { min-width: 40px; text-align: center; font-size: 12px; color: #b5c9c8; }
 .dialog button:focus-visible, .dialog select:focus-visible, .dialog a:focus-visible { outline: 3px solid #b8f4d5; outline-offset: 2px; }
 .dialog :global(.btn-secondary) { border-color: #64838d; background: #18343e; color: #d9eae5; }
 @media (max-width: 600px), (max-height: 540px) {
@@ -37,22 +26,68 @@
   .page { gap: 10px; }
   .page h2 { font-size: 19px; }
   .page p { font-size: 14px; line-height: 1.4; }
-  .page :global(.folio-card) { padding: 11px; gap: 8px; }
-  .page :global(.folio-menu) { gap: 7px; }
-  .page :global(.folio-menu) button { min-height: 44px; font-size: 13px; }
   .controls { gap: 7px; }
   .controls > button { font-size: 12px; padding: 8px 10px; min-height: 44px; }
-  .turns { gap: 4px; }
-  .turns span { min-width: 32px; }
 }
 @media (max-height: 430px) {
   .dialog { max-width: 750px; }
   .page { gap: 7px; }
   .header small { display: none; }
-  .page :global(.folio-card) { padding: 8px 12px; gap: 6px; }
 }
 @media (prefers-reduced-motion: reduce) { .dialog *, .dialog::backdrop { animation: none !important; transition: none !important; } }
 
 .small { width: min(500px, calc(100vw - 24px)); }
 .medium { width: min(1000px, calc(100vw - 24px)); }
 .large { width: calc(100vw - 32px); max-width: 1400px; height: calc(100dvh - 32px); }
+
+@media(max-width:600px) {
+  .large { width:calc(100vw - 16px);height:calc(100dvh - 16px); }
+}
+@media(max-width:400px) and (max-height:700px) {
+  .dialog { padding:10px; }
+  .dialog[open] { gap:8px; }
+  .header small { display:none; }
+  .page { gap:8px; }
+  .controls { min-height:44px; }
+}
+
+/* Short landscape screens use the available width, keeping controls beside data. */
+@media(max-height:450px) and (min-width:601px) {
+  .page:has(> :global(.forecast)) {display:grid;grid-template-columns:1fr 1fr;align-items:start;}
+  .page:has(> :global(.forecast)) > :global(.job-tabs), .page:has(> :global(.forecast)) > :global(.priority-controls) {grid-column:1/-1;}
+  .page:has(> :global(.forecast)) > :global(.station-metrics) {grid-column:1;}
+  .page:has(> :global(.forecast)) > :global(.forecast) {grid-column:2;}
+}
+
+@media(max-height:450px) and (min-width:601px) {
+  .page:has(> :global(.crew-summary)) {display:grid;grid-template-columns:minmax(260px,.8fr) minmax(0,1.2fr);grid-template-rows:auto auto minmax(0,1fr);align-content:start;align-items:start;}
+  .page > :global(.crew-summary) {grid-column:1;grid-row:1;}
+  .page:has(> :global(.crew-summary)) > :global(.meal-controls) {grid-column:1;grid-row:2;}
+  .page:has(> :global(.crew-summary)) > :global(.job-tabs) {grid-column:2;grid-row:1;}
+  .page > :global(.crew-jobs) {grid-column:2;grid-row:2/4;}
+  .page > :global(.selected-job) {grid-column:1;grid-row:3;}
+}
+
+@media(max-height:450px) and (min-width:601px) {
+  .page > :global(.priority-controls) label {flex-direction:row;align-items:center;}
+  .page:has(> :global(.station-metrics)):not(:has(> :global(.forecast))) {display:grid;grid-template-columns:1fr 1fr;align-items:start;}
+  .page:has(> :global(.station-metrics)):not(:has(> :global(.forecast))) > :global(.job-tabs) {grid-column:1/-1;}
+  .page:has(> :global(.station-metrics)):not(:has(> :global(.forecast))) > :global(.station-metrics) {grid-column:1;grid-row:2/4;}
+}
+
+.page > :global(.project-card) :global(.project-controls) label {flex-direction:row;align-items:center;}
+@media(max-height:450px) and (min-width:601px) {
+  .page:has(> :global(.project-card)) {display:grid;grid-template-columns:.7fr 1.3fr;align-items:start;}
+  .page:has(> :global(.project-card)) > :global(.job-tabs) {grid-column:1/-1;}
+  .page:has(> :global(.project-card)) > :global(.science-objectives) {grid-column:1;grid-row:2;grid-template-columns:1fr;gap:5px;}
+  .page:has(> :global(.project-card)) > :global(.project-card) {grid-column:2;grid-row:2;}
+  .page:has(> :global(.project-card)) :global(.science-objectives) > section {display:grid;grid-template-columns:1fr auto;align-items:center;}
+  .page:has(> :global(.project-card)) :global(.science-objectives) progress {grid-column:1/-1;}
+}
+
+@media(max-height:450px) and (min-width:601px) {
+  .page:has(> :global(.crew-jobs)>button:nth-child(3)) {grid-template-rows:auto auto auto;row-gap:5px;}
+  .page:has(> :global(.crew-jobs)>button:nth-child(3)) > :global(.meal-controls) {grid-column:2;grid-row:2;}
+  .page:has(> :global(.crew-jobs)>button:nth-child(3)) > :global(.crew-jobs) {grid-column:1/-1;grid-row:3;grid-template-columns:repeat(4,minmax(0,1fr));}
+  .page:has(> :global(.crew-jobs)>button:nth-child(3)) > :global(.selected-job) {grid-column:1;grid-row:2;}
+}

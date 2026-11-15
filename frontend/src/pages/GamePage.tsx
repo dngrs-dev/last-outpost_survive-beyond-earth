@@ -56,6 +56,7 @@ export const GamePage = () => {
     void send();
   };
   const send = async () => {
+    setLocalError('');
     setView('recovery');
     const result = await mission.send();
     if (result === 'refreshed') setView('recovery');
@@ -86,7 +87,7 @@ export const GamePage = () => {
     {(['status', 'stores', 'journal', 'away', 'help'] as View[]).includes(view) && view && <StationPanel key={`${view}-${state.current_week}`} book={view as StationBook} state={state} plan={plan} onUpdate={update} onCrew={openCrew} onClose={() => setView(null)} />}
     {view === 'recovery' && <RecoveryNotebook message={localError || mission.error || (mission.submitting ? 'Resolving the complete week. Your orders are locked.' : 'Your saved submission is waiting for confirmation. Retry the same request to recover safely.')}
       pendingWeek={plan.pending?.request.expected_week} rejected={mission.rejected} submitting={mission.submitting}
-      onRetry={send} onRebuild={async () => { try { await mission.rebuildRejected(); setView('incident'); } catch { setLocalError('Could not refresh the mission. Try recovery again.'); } }} onClose={() => setView(null)} />}
+      onRetry={send} onRebuild={async () => { setLocalError(''); try { await mission.rebuildRejected(); setView('incident'); } catch { setLocalError('Could not refresh the mission. Try recovery again.'); } }} onClose={() => setView(null)} />}
   </main>;
 };
 

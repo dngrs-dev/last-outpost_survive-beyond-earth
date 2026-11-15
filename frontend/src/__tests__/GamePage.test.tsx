@@ -3,10 +3,9 @@ import { act, render, screen, fireEvent } from '@testing-library/react';
 import { MemoryRouter, Route, Routes } from 'react-router-dom';
 import { GamePage } from '../pages/GamePage';
 import * as api from '../api/game';
-import { book, confirmIncident, reviewWeek, provisions, closeBook, notebookPage } from './helpers/station';
+import { book, confirmIncident, reviewWeek, provisions, closeBook } from './helpers/station';
 import { ApiError } from '../api/client';
 import { game, turn, treatment, completed, medicalGame } from './fixtures/backend';
-import { reportPages } from '../components/station/reportPages';
 
 function renderGame() {
   return render(<MemoryRouter initialEntries={['/game/fixture-game']}><Routes>
@@ -19,34 +18,30 @@ async function submit() { await confirmIncident(); fireEvent.click(await reviewW
 describe('Scene gameplay with real API fixtures', () => {
   beforeEach(() => { vi.restoreAllMocks(); vi.spyOn(api, 'fetchGameState').mockResolvedValue(structuredClone(game)); });
 
-  it('shows real ration costs one person at a time, with presets for the whole crew', async () => {
+  it('shows exact meal portions and keeps food and water decisions independent', async () => {
     renderGame(); await confirmIncident(); await provisions();
-    expect(book().getByRole('heading', { name: 'Alex Vega' })).toBeInTheDocument();
-    expect(book().getByRole('option', { name: 'emergency (0.44u)' })).toBeInTheDocument();
-    fireEvent.click(book().getByRole('button', { name: 'All reduced' }));
-    expect(book().getByRole('combobox', { name: 'Food for Alex Vega' })).toHaveValue('reduced');
-    fireEvent.click(book().getByRole('button', { name: 'Next page' }));
-    expect(book().getByRole('combobox', { name: 'Water for Maya Okafor' })).toHaveValue('reduced');
+    expect(book().getByRole('combobox', { name: 'food for Alex Vega' })).toHaveTextContent('Emergency 40% · 0.44');
+    fireEvent.change(book().getByRole('combobox', { name: 'food for Alex Vega' }), { target: { value: 'reduced' } });
+    expect(book().getByRole('combobox', { name: 'food for Alex Vega' })).toHaveValue('reduced');
+    expect(book().getByRole('combobox', { name: 'water for Maya Okafor' })).toHaveValue('');
   });
 
-  it('paginates confirmed consequences without hiding injury or next-discovery accounting', async () => {
+  it('shows incident losses and next discovery effects together in grouped details', async () => {
     vi.spyOn(api, 'submitTurn').mockResolvedValue(structuredClone(turn)); renderGame(); await submit();
-    await screen.findByText('WEEK 1 DEBRIEF');
-    notebookPage('Incident consequences');
-    const pages = reportPages(turn.turn_outcome, Object.fromEntries(turn.state.crew.map(person => [person.id, person.name]))).map(page => page.text).join(' ');
-    expect(pages).toMatch(/Alex Vega: 100.*75 HP/);
-    expect(pages).toMatch(/Alex Vega: 75.*75 HP/);
-    expect(pages).toContain('Health penalties: food 0, water 0, oxygen 0.');
-    expect(pages).toContain('already included in the station view');
+    await screen.findByText('WEEK 1 DEBRIEF'); fireEvent.click(book().getByRole('button', { name: 'Details' }));
+    expect(book().getByText('Alex Vega: 100 → 75')).toBeInTheDocument();
+    expect(book().getByRole('heading', { name: 'Next incident' })).toBeInTheDocument();
+    expect(book().getAllByText(/Oxygen loss 0 · CO2 loss 0/).length).toBeGreaterThan(0);
     expect(book().queryByText(/\[object Object\]/)).not.toBeInTheDocument();
   });
 
-  it('uses actual treatment gains in the confirmed report', async () => {
+  it('uses actual treatment and recovery gains in the confirmed report', async () => {
     vi.mocked(api.fetchGameState).mockResolvedValue(structuredClone(medicalGame));
     vi.spyOn(api, 'submitTurn').mockResolvedValue(structuredClone(treatment));
     renderGame(); await confirmIncident(medicalGame); fireEvent.click(await reviewWeek(medicalGame)); await screen.findByText('WEEK 1 DEBRIEF');
-    const pages = reportPages(treatment.turn_outcome, { alex: 'Alex Vega' }).map(page => page.text).join(' ');
-    expect(pages).toMatch(/Alex Vega: 92.*97 HP/); expect(pages).toMatch(/Alex Vega: 97.*100 HP/);
+    expect(book().getByText('♥ 92 → 100')).toBeInTheDocument();
+    fireEvent.click(book().getByRole('button', { name: 'Details' }));
+    expect(book().getByText('Alex Vega: 92 → 97')).toBeInTheDocument();
   });
 
   it.each([new TypeError('Connection lost'), new ApiError(503, 'Temporarily unavailable'), new ApiError(408, 'Request timed out')])('retries the exact locked request after an uncertain failure: %s', async error => {
@@ -62,7 +57,7 @@ describe('Scene gameplay with real API fixtures', () => {
     fireEvent.click(book().getByRole('button', { name: 'Retry week 1 submission' }));
     await screen.findByText('WEEK 1 DEBRIEF'); expect(send.mock.calls[1][1]).toEqual(original);
     fireEvent.click(book().getByRole('button', { name: 'PROCEED TO WEEK 2' }));
-    expect(await screen.findByRole('button', { name: 'See responses' })).toBeEnabled();
+    expect(await screen.findByRole('dialog', { name: turn.state.current_event!.title })).toBeInTheDocument();
   });
 
   it('restores an unresolved request after a refresh, even when GET already shows the advanced week', async () => {
@@ -78,9 +73,9 @@ describe('Scene gameplay with real API fixtures', () => {
     const send = vi.spyOn(api, 'submitTurn').mockRejectedValueOnce(new ApiError(422, 'Insufficient water for rations.')).mockResolvedValueOnce(structuredClone(turn));
     renderGame(); await submit();
     fireEvent.click(await screen.findByRole('button', { name: 'Rebuild rejected week' }));
-    await confirmIncident(); await provisions(); fireEvent.click(book().getByRole('button', { name: 'All reduced' }));
-    fireEvent.click(book().getByRole('button', { name: "Confirm week's rations" }));
-    fireEvent.click(book().getByRole('button', { name: 'End week 1' })); await screen.findByText('WEEK 1 DEBRIEF');
+    await confirmIncident(); await provisions(); fireEvent.click(book().getByRole('button', { name: 'Feed everyone' }));
+    fireEvent.change(book().getByRole('combobox', { name: 'water for Alex Vega' }), { target: { value: 'reduced' } }); closeBook();
+    fireEvent.click(screen.getByRole('button', { name: 'Next week' })); await screen.findByText('WEEK 1 DEBRIEF');
     expect(send.mock.calls[1][1].rations.alex.water).toBe('reduced');
     expect(send.mock.calls[1][1].request_id).not.toBe(send.mock.calls[0][1].request_id);
   });

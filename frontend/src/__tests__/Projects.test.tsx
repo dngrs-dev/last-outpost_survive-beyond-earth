@@ -1,7 +1,7 @@
 import { beforeEach, describe, expect, it, vi } from 'vitest';
 import { fireEvent, render, screen } from '@testing-library/react';
 import { MemoryRouter, Route, Routes } from 'react-router-dom';
-import { book, confirmIncident, openStatus, notebookPage, reviewWeek } from './helpers/station';
+import { book, confirmIncident, openStatus, reviewWeek } from './helpers/station';
 import { ResearchProjects } from '../components/ResearchProjects';
 import { GamePage } from '../pages/GamePage';
 import * as api from '../api/game';
@@ -29,14 +29,11 @@ describe('Phased seismic projects from real API fixtures', () => {
     </Routes></MemoryRouter>);
     await confirmIncident(projectRecording);
     await openStatus('Science');
-    const project = projectRecording.state.research_projects[0];
-    notebookPage(`Control ${project.id}`);
     fireEvent.change(book().getByRole('combobox', { name: 'Project control' }), { target: { value: 'pause' } });
     fireEvent.click(book().getByRole('button', { name: 'Confirm project order' }));
-    expect(book().getByRole('button', { name: 'pause locked for this week' })).toBeDisabled();
+    expect(book().getByRole('button', { name: 'pause saved' })).toBeDisabled();
     fireEvent.click(await reviewWeek(projectRecording));
     await screen.findByText(`WEEK ${projectPauseTurn.turn_outcome.week} DEBRIEF`);
-    notebookPage('Research project');
     expect(book().getByText(/Paused by command/)).toBeInTheDocument();
     expect(submit).toHaveBeenCalledWith('fixture-game', expect.objectContaining({
       project_orders: [{ project_id: projectRecording.state.research_projects[0].id, action: 'pause' }],

@@ -10,12 +10,12 @@ step rail, crew directory or persistent guidance sentence.
    cards. Cards show spending, retained tools, likely benefits and failure risks.
    Select a response, choose lead/helpers by portrait if required, then confirm.
    Selecting a card alone does not commit it.
-2. Click a free astronaut for meals and concrete job cards. Recommended actions
-   appear immediately; flat Explore/Fix/Care/Rest filters expose the rest. Select
+2. Click a free astronaut for meals and concrete job cards. Two affordable/eligible actions are prioritized immediately; flat Explore/Fix/Care/Rest filters expose the rest. Select
    a task and confirm. Medical targets appear inline, reserving worker and patient.
    Confirmed jobs are immutable; unassigned crew retain routine duties/recovery.
 3. Give food and water through each crew panel or Supplies. Feed everyone is a
-   shortcut. Normal, reduced and emergency allocate 100%, 70% and 40% of need.
+   shortcut. Food and water have compact independent selectors. Normal, reduced
+   and emergency allocate 100%, 70% and 40% of need.
    Every living astronaut needs explicit choices, including away crew and patients.
    Feeding does not close jobs. Known short-ration risks remain visible.
 4. Next Week validates incident, individual provisions, bookings and combined
@@ -92,3 +92,15 @@ and [understandable controls](https://www.w3.org/WAI/WCAG2/supplemental/objectiv
 The shelter/choices inspiration uses [Robot Gentleman's developer material](https://robotgentleman.com/presskit/60SecondsReatomized.htm).
 Art, wording and interaction implementation are original. Automated checks are not
 usability testing with children. No new simulation mechanics or dependencies are added.
+
+Final redesign verification: 171 frontend tests, 429 backend tests and production
+build passed. Seven viewport checks covered common week panels without routine
+scrolling, plus keyboard/reduced-motion checks and screenshot review. An eight-week
+real-backend campaign tested response loss, reload and exact replay with no duplicate
+resource spending or scientific credit. Optional detailed accounting and extreme
+content/zoom can scroll inside the modal so information remains reachable.
+
+Task filters keep concrete verbs, costs and chance badges visible. Unavailable
+cards use concise reasons; selecting them shows the relevant restrictions together.
+The smallest phone/landscape layouts keep all five filter groups usable without
+routine scrolling, including recovery-limited crew.

@@ -13,7 +13,9 @@ export function MealControls({ person, plan, onUpdate }: { person: CrewResponse;
   return <div className="meal-controls" aria-label={`Meals for ${person.name}`}>
     {(['food', 'water'] as const).map(resource => <div className="meal-line" role="group" aria-label={`${resource} for ${person.name}`} key={resource}>
       <span className="meal-symbol" title={resource}><ResourceIcon resource={resource} /></span>
-      {levels.map(level => <button type="button" key={level.id} disabled={Boolean(plan.pending)} aria-label={`${level.title} ${resource} for ${person.name}`} aria-pressed={Boolean(picked?.[resource] && ration[resource] === level.id)} title={`${level.fill} · ${person.ration_options[level.id]?.[resource] || 0} units`} onClick={() => onUpdate(chooseMeal(plan, person.id, resource, level.id))}><span className="portion" aria-hidden="true"><i style={{ width: level.fill }} /></span><span>{level.title}</span></button>)}
+      <select aria-label={`${resource} for ${person.name}`} disabled={Boolean(plan.pending)} value={picked?.[resource] ? ration[resource] : ''} onChange={event => onUpdate(chooseMeal(plan, person.id, resource, event.target.value as RationLevel))}>
+        <option value="" disabled>Choose {resource}</option>{levels.map(level => <option key={level.id} value={level.id}>{level.title} {level.fill} · {person.ration_options[level.id]?.[resource] || 0}</option>)}
+      </select>
       <span className="meal-check" aria-label={picked?.[resource] ? `${resource} chosen` : `${resource} not chosen`}>{picked?.[resource] ? '✓' : '?'}</span>
     </div>)}
     {picked?.food && picked.water && (ration.food !== 'normal' || ration.water !== 'normal') && <small className="meal-risk">{damage >= person.health ? '⚠ These rations could be fatal.' : damage > 0 ? `⚠ Short rations: −${damage} condition if funded.` : 'Smaller meals can build up hunger or thirst.'}</small>}

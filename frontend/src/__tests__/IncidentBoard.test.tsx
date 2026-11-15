@@ -2,15 +2,15 @@ import { fireEvent, render, screen } from '@testing-library/react';
 import { describe, expect, it, vi } from 'vitest';
 import { IncidentPanel } from '../components/station/IncidentPanel';
 import { newWeekPlan } from '../state/weeklyPlan';
-import { game, supportGame } from './fixtures/backend';
+import { game, medicalAssignmentGame, supportGame } from './fixtures/backend';
 
 describe('Incident board', () => {
-  it('shows every response immediately without committing a preview', () => {
+  it.each([game, medicalAssignmentGame])('shows every response immediately without committing a preview', fixture => {
     const commit = vi.fn();
-    render(<IncidentPanel state={game.state} plan={newWeekPlan(game.state)} onCommit={commit} onClose={() => {}} />);
-    for (const choice of game.state.current_event!.choices) expect(screen.getByRole('button', { name: choice.text })).toBeVisible();
+    render(<IncidentPanel state={fixture.state} plan={newWeekPlan(fixture.state)} onCommit={commit} onClose={() => {}} />);
+    for (const choice of fixture.state.current_event!.choices) expect(screen.getByRole('button', { name: choice.text })).toBeVisible();
     expect(screen.queryByRole('button', { name: 'Next page' })).not.toBeInTheDocument();
-    const free = game.state.current_event!.choices.find(choice => choice.available && !choice.requires_crew)!;
+    const free = fixture.state.current_event!.choices.find(choice => choice.available && !choice.requires_crew)!;
     fireEvent.click(screen.getByRole('button', { name: free.text }));
     expect(commit).not.toHaveBeenCalled();
     fireEvent.click(screen.getByRole('button', { name: 'Confirm response' }));

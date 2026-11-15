@@ -25,8 +25,8 @@ describe('Direct portrait-led crew actions', () => {
     fireEvent.click(screen.getByRole('button', { name: /^Inspect Alex Vega,/ }));
     expect(book().getByText('Receiving care')).toBeInTheDocument();
     expect(book().queryByRole('button', { name: 'Confirm assignment' })).not.toBeInTheDocument();
-    fireEvent.click(book().getByRole('button', { name: 'Full food for Alex Vega' }));
-    expect(book().getByRole('button', { name: 'Full food for Alex Vega' })).toHaveAttribute('aria-pressed', 'true');
+    fireEvent.change(book().getByRole('combobox', { name: 'food for Alex Vega' }), { target: { value: 'normal' } });
+    expect(book().getByRole('combobox', { name: 'food for Alex Vega' })).toHaveValue('normal');
     closeBook(); fireEvent.click(screen.getByRole('button', { name: /^Inspect Lin Park,/ }));
     fireEvent.click(book().getByRole('button', { name: 'Care' })); fireEvent.click(book().getByRole('button', { name: 'Treat a teammate' }));
     expect(book().queryByRole('button', { name: /Alex Vega:/ })).not.toBeInTheDocument();
@@ -37,6 +37,6 @@ describe('Direct portrait-led crew actions', () => {
     fireEvent.click(screen.getByRole('button', { name: /^Inspect Alex Vega,/ })); fireEvent.click(book().getByRole('button', { name: 'Explore' }));
     const task = book().getByRole('button', { name: 'Collect moon rocks' }); expect(task).toHaveAttribute('aria-disabled', 'true'); fireEvent.click(task);
     expect(book().getByRole('button', { name: 'Confirm assignment' })).toBeDisabled();
-    expect(book().getAllByText(/EVA unavailable until recovered/).length).toBeGreaterThan(0);
+    expect(book().getAllByText(/No outside work/).length).toBeGreaterThan(0);
   });
 });

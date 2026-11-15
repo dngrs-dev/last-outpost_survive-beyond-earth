@@ -1,7 +1,7 @@
 import { beforeEach, describe, expect, it, vi } from 'vitest';
 import { fireEvent, render, screen } from '@testing-library/react';
 import { MemoryRouter, Route, Routes } from 'react-router-dom';
-import { confirmIncident, reviewWeek, notebookPage } from './helpers/station';
+import { confirmIncident, reviewWeek, book } from './helpers/station';
 import { LifeSupportPanel } from '../components/LifeSupportPanel';
 import { GamePage } from '../pages/GamePage';
 import * as api from '../api/game';
@@ -27,9 +27,9 @@ describe('Distinct life-support systems', () => {
     </Routes></MemoryRouter>);
     await confirmIncident(); fireEvent.click(await reviewWeek());
     await screen.findByText('WEEK 1 DEBRIEF');
-    notebookPage('Life-support loop');
-    expect(await screen.findByRole('heading', { name: 'Life-support loop' })).toBeInTheDocument();
-    expect(screen.getByText(/Wastewater processed/)).toHaveTextContent(`clean water recovered ${turn.turn_outcome.survival.life_support.water_recovered}`);
+    fireEvent.click(book().getByRole('button', { name: 'Details' }));
+    expect(book().getByRole('heading', { name: 'Water & CO2' })).toBeInTheDocument();
+    expect(book().getByText(/Water recovered/)).toHaveTextContent(`Water recovered ${turn.turn_outcome.survival.life_support.water_recovered}`);
   });
 
   it('bases the cabin warning on reported CO2 burden rather than oxygen stock', () => {

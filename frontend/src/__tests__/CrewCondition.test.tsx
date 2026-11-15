@@ -2,7 +2,7 @@ import { beforeEach, describe, expect, it, vi } from 'vitest';
 import { fireEvent, render, screen } from '@testing-library/react';
 import { MemoryRouter, Route, Routes } from 'react-router-dom';
 import { GamePage } from '../pages/GamePage';
-import { book, closeBook, confirmIncident, chooseCrewTask, notebookPage, reviewWeek } from './helpers/station';
+import { book, confirmIncident, chooseCrewTask, reviewWeek } from './helpers/station';
 import { CrewCard } from '../components/CrewCard';
 import * as api from '../api/game';
 import { underfedGame, recuperationTurn, dehydratedGame } from './fixtures/backend';
@@ -21,17 +21,13 @@ describe('Nutrition, hydration, and recovery with real API fixtures', () => {
     openGame();
     await confirmIncident(underfedGame);
     fireEvent.click(screen.getByRole('button', { name: /^Inspect Alex Vega,/ }));
-    fireEvent.click(book().getByRole('button', { name: 'Choose assignment' }));
-    fireEvent.click(book().getByRole('button', { name: 'Science' }));
-    notebookPage(underfedGame.state.assignment_options.find(option => option.id === 'research_geology')!.text);
-    expect(book().getByRole('button', { name: 'Choose this task' })).toBeDisabled();
-    expect(book().getByText(/EVA unavailable until recovered/)).toBeInTheDocument();
-    notebookPage(underfedGame.state.assignment_options.find(option => option.id === 'research_instrument')!.text);
-    expect(book().getByText(/light duties only/)).toBeInTheDocument();
-    closeBook(); fireEvent.click(screen.getByRole('button', { name: /^Inspect Alex Vega,/ }));
-    fireEvent.click(book().getByRole('button', { name: 'Condition details' }));
-    expect(book().getByText(/EVA unavailable until recovered/)).toBeInTheDocument();
-    notebookPage('Deficits & recovery'); expect(book().getByText(/Nutrition deficit 1.20/)).toBeInTheDocument();
+    fireEvent.click(book().getByRole('button', { name: 'Explore' }));
+    const geology = book().getByRole('button', { name: 'Collect moon rocks' });
+    expect(geology).toHaveAttribute('aria-disabled', 'true'); fireEvent.click(geology);
+    expect(book().getByRole('button', { name: 'Confirm assignment' })).toBeDisabled();
+    expect(book().getAllByText(/No outside work/).length).toBeGreaterThan(0);
+    fireEvent.click(book().getByRole('button', { name: 'Restore science tools' }));
+    expect(book().getAllByText(/Light work only/).length).toBeGreaterThan(0);
   });
 
   it('submits a rest assignment alongside provisions and reports gradual recovery', async () => {
@@ -48,8 +44,8 @@ describe('Nutrition, hydration, and recovery with real API fixtures', () => {
       assignments: [{ crew_id: 'alex', activity_id: 'crew_rest' }],
       rations: { alex: { food: 'normal', water: 'normal' }, lin: { food: 'normal', water: 'normal' } },
     }));
-    notebookPage('Provisions received');
-    expect(book().getByText(/nutrition 1.2 to 0.8/)).toBeInTheDocument();
+    fireEvent.click(book().getByRole('button', { name: 'Details' }));
+    expect(book().getByText(/Hunger 1.2 → 0.8/)).toBeInTheDocument();
     expect(recuperationTurn.turn_outcome.survival.health_changes.find(change => change.crew_id === 'alex')!.rested).toBe(true);
   });
 

@@ -1,7 +1,7 @@
 import { beforeEach, describe, expect, it, vi } from 'vitest';
 import { fireEvent, render, screen, within } from '@testing-library/react';
 import { MemoryRouter, Route, Routes } from 'react-router-dom';
-import { book, confirmIncident, chooseCrewTask, openStatus, notebookPage, reviewWeek } from './helpers/station';
+import { book, confirmIncident, chooseCrewTask, openStatus, reviewWeek } from './helpers/station';
 import { GamePage } from '../pages/GamePage';
 import { ResultsPage } from '../pages/ResultsPage';
 import { SetupPage } from '../pages/SetupPage';
@@ -32,12 +32,12 @@ describe('Mission research with real API fixtures', () => {
     await confirmIncident(researchGame);
     await chooseCrewTask(researchGame, 'lin', 'research_geology');
     fireEvent.click(await reviewWeek(researchGame));
-    await screen.findByText('WEEK 1 DEBRIEF'); notebookPage('Scientific achievement');
-    expect(book().getByText(/Baseline sample collection: \+1/)).toBeInTheDocument();
+    await screen.findByText('WEEK 1 DEBRIEF');
+    expect(book().getByText(/Baseline sample collection \+1/)).toBeInTheDocument();
     expect(send).toHaveBeenCalledWith('fixture-game', expect.objectContaining({ assignments: [{ crew_id: 'lin', activity_id: 'research_geology' }], expected_week: 1 }));
     fireEvent.click(book().getByRole('button', { name: /PROCEED TO WEEK/ }));
-    await openStatus('Science'); notebookPage('Baseline sample collection');
-    expect(book().getByText(/Objective: 1\/2/)).toBeInTheDocument();
+    await openStatus('Science');
+    expect(book().getByRole('progressbar', { name: 'Baseline sample collection progress' })).toHaveAttribute('value', '1');
   });
 
   it.each([

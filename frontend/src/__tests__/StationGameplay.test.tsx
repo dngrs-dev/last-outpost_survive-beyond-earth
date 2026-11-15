@@ -4,22 +4,23 @@ import { MemoryRouter, Route, Routes } from 'react-router-dom';
 import { GamePage } from '../pages/GamePage';
 import * as api from '../api/game';
 import { completed, game, researchGame, researchTurn } from './fixtures/backend';
-import { book, closeBook, confirmIncident, chooseCrewTask, reviewWeek, openStatus, notebookPage } from './helpers/station';
+import { book, closeBook, confirmIncident, chooseCrewTask, reviewWeek, openStatus } from './helpers/station';
 
 function openGame() { return render(<MemoryRouter initialEntries={['/game/fixture-game']}><Routes><Route path="/game/:gameId" element={<GamePage />} /><Route path="/results/:gameId" element={<p>Final results route</p>} /></Routes></MemoryRouter>); }
 
-describe('Full-screen station and notebook flow', () => {
+describe('Full-screen station and direct panels', () => {
   beforeEach(() => { vi.restoreAllMocks(); vi.spyOn(api, 'fetchGameState').mockResolvedValue(structuredClone(researchGame)); });
 
   it('opens the weekly incident over the station and removes the header, footer, directory and step rail', async () => {
-    openGame(); await screen.findByRole('button', { name: 'See responses' });
+    openGame(); await screen.findByRole('dialog', { name: researchGame.state.current_event!.title });
     expect(screen.getByRole('region', { name: 'Station common room' })).toBeInTheDocument();
     expect(screen.getByRole('dialog')).toHaveAttribute('open');
     expect(document.querySelector('main > header')).not.toBeInTheDocument();
     expect(screen.queryByRole('contentinfo')).not.toBeInTheDocument();
     expect(screen.queryByRole('navigation', { name: 'Weekly planning steps' })).not.toBeInTheDocument();
     expect(screen.queryByRole('navigation', { name: 'Station bookmarks' })).not.toBeInTheDocument();
-    expect(book().getByText(/Choose a response, then click free astronauts/)).toBeInTheDocument();
+    expect(book().getByRole('button', { name: 'Confirm response' })).toBeDisabled();
+    expect(document.querySelector('main > p[role=status]')).not.toBeInTheDocument();
   });
 
   it('locks a confirmed incident across refreshes and hides its dispatched crew', async () => {
@@ -31,8 +32,8 @@ describe('Full-screen station and notebook flow', () => {
     expect(station.querySelector(`[data-crew-id="${saved.selected_crew_id}"]`)).not.toBeInTheDocument();
     first.unmount(); openGame(); await screen.findByRole('button', { name: 'Next week' });
     expect(screen.queryByRole('button', { name: 'See responses' })).not.toBeInTheDocument();
-    fireEvent.click(screen.getByRole('button', { name: 'Journal' })); fireEvent.click(book().getByRole('button', { name: 'This week' }));
-    expect(book().getByText(/Confirmed for this week; changes are locked/)).toBeInTheDocument();
+    fireEvent.click(screen.getByRole('button', { name: /Dispatched crew:/ })); fireEvent.click(book().getByRole('button', { name: `Inspect ${researchGame.state.crew.find(person => person.id === saved.selected_crew_id)!.name}` }));
+    expect(book().queryByRole('button', { name: 'Confirm assignment' })).not.toBeInTheDocument();
   });
 
   it('commits a crew task, removes an outside worker, and offers read-only inspection through the airlock', async () => {
@@ -42,18 +43,16 @@ describe('Full-screen station and notebook flow', () => {
     fireEvent.click(screen.getByRole('button', { name: 'Dispatched crew: 1' }));
     fireEvent.click(book().getByRole('button', { name: 'Inspect Lin Park' }));
     expect(book().queryByRole('button', { name: 'Choose assignment' })).not.toBeInTheDocument();
-    expect(book().getByText(/Booked for this week/)).toBeInTheDocument(); expect(send).not.toHaveBeenCalled();
+    expect(book().getByText('Already assigned this week.')).toBeInTheDocument(); expect(send).not.toHaveBeenCalled();
   });
 
-  it('closes remaining orders when provisions are confirmed and sends one complete plan', async () => {
+  it('keeps unassigned crew free after feeding and submits confirmed jobs together', async () => {
     const send = vi.spyOn(api, 'submitTurn').mockResolvedValue(structuredClone(researchTurn));
     openGame(); await confirmIncident(researchGame); await chooseCrewTask(researchGame, 'lin', 'research_geology');
-    const end = await reviewWeek(researchGame); closeBook();
+    await reviewWeek(researchGame);
     fireEvent.click(screen.getByRole('button', { name: /^Inspect Alex Vega,/ }));
-    expect(book().queryByRole('button', { name: 'Choose assignment' })).not.toBeInTheDocument();
-    expect(book().getByText('Orders are closed for this week.')).toBeInTheDocument(); closeBook();
+    expect(book().getByRole('button', { name: 'Confirm assignment' })).toBeDisabled(); closeBook();
     fireEvent.click(screen.getByRole('button', { name: 'Next week' }));
-    expect(end).not.toBeInTheDocument(); fireEvent.click(book().getByRole('button', { name: 'End week 1' }));
     await screen.findByText('WEEK 1 DEBRIEF'); expect(send).toHaveBeenCalledTimes(1);
     expect(send.mock.calls[0][1].assignments).toEqual([{ crew_id: 'lin', activity_id: 'research_geology' }]);
   });
@@ -64,7 +63,7 @@ describe('Full-screen station and notebook flow', () => {
     fireEvent.mouseEnter(actor); expect(screen.getByRole('tooltip')).toHaveTextContent('Food: adequate');
     expect(screen.getByRole('tooltip')).toHaveTextContent('Water: adequate');
     fireEvent.keyDown(actor, { key: 'Escape' }); expect(screen.queryByRole('tooltip')).not.toBeInTheDocument();
-    fireEvent.click(actor); expect(book().getByText(/Overall condition/)).toBeInTheDocument();
+    fireEvent.click(actor); expect(book().getByRole('group', { name: 'food for Alex Vega' })).toBeInTheDocument();
   });
 
   it('contains keyboard focus in the notebook and restores it to the invoking object', async () => {
@@ -84,10 +83,11 @@ describe('Full-screen station and notebook flow', () => {
     await openStatus('Air & water'); expect(book().getByText('Cabin CO2')).toBeInTheDocument();
   });
 
-  it('makes the full field guide available through notebook pages', async () => {
+  it('keeps short help available in one view', async () => {
     openGame(); await confirmIncident(researchGame); fireEvent.click(screen.getByRole('button', { name: 'Open field guide' }));
-    expect(book().getByRole('heading', { name: 'Your first week' })).toBeInTheDocument();
-    notebookPage('Keyboard & motion'); expect(book().getByText(/Escape closes a notebook/)).toBeInTheDocument();
+    expect(book().getByRole('heading', { name: '1 · Choose a response' })).toBeInTheDocument();
+    expect(book().getByRole('heading', { name: '4 · Next week' })).toBeInTheDocument();
+    expect(book().queryByRole('button', { name: 'Next page' })).not.toBeInTheDocument();
   });
 
   it('shows a final confirmed debrief before the mission results route', async () => {

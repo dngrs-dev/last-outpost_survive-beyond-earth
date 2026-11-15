@@ -68,7 +68,8 @@ describe('Visible station activities and confirmed supplies', () => {
     expect(activities[worker].kind).toBe('patient');
     expect(Object.values(activities).filter(activity => activity.origin === 'incident')).toHaveLength(1);
     expect(Object.values(activities).some(activity => activity.kind === 'care')).toBe(false);
-    expect(stationActors(medicalAssignmentGame.state.crew, activities).find(actor => actor.crew.id === worker)?.zone).toBe('medical');
+    const { container } = room(medicalAssignmentGame, { event_choice_id: choice.id, selected_crew_id: worker });
+    expect(container.querySelector(`[data-crew-id="${worker}"]`)).not.toBeInTheDocument();
   });
 
   it('moves sampling to the surface view in EVA clothing and returns crew when the plan is cleared', () => {

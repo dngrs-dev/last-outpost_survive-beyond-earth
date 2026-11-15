@@ -5,7 +5,7 @@ import type { CrewResponse, EffectsResponse } from '../../types/game';
 import './stationUI.css';
 
 const icons: Record<string, string> = { food: 'food_packs', water: 'water_containers', medicine: 'medicine_kits', oxygen: 'oxygen_tanks' };
-export const label = (id: string) => id.replace(/_/g, ' ');
+export const label = (id: string) => ({ dust_irritation: 'Sore lungs', gastrointestinal_illness: 'Stomach illness', bleeding_wound: 'Bleeding cut', sprain: 'Sprain' } as Record<string, string>)[id] || id.replace(/_/g, ' ');
 export function ResourceIcon({ resource }: { resource: string }) {
   return resource === 'electricity' ? <svg viewBox="0 0 80 80" aria-hidden="true"><path d="M44 5 15 44h22l-4 31 32-43H43Z" fill="#ffe09c" stroke="#b38c43" strokeWidth="3" /></svg> : <ItemIcon id={icons[resource] || resource} />;
 }
@@ -40,7 +40,7 @@ export function Outcome({ effects, rewards = 0 }: { effects: EffectsResponse; re
     {systems.filter(([, amount]) => amount).map(([name, amount]) => <span key={name}>{name} {amount > 0 ? '+' : ''}{Math.round(amount * 100)}%</span>)}
     {Boolean(effects.crew_health) && <span>♥ {effects.target === 'all' ? 'Everyone ' : ''}{effects.crew_health > 0 ? '+' : ''}{effects.crew_health}</span>}
     {effects.condition && <span>⚠ {label(effects.condition)}</span>}
-    {Boolean(effects.treatment) && <span>✚ Treat injury</span>}
+    {Boolean(effects.treatment) && <span>✚ Care</span>}
     {rewards > 0 && <span>✦ Science +{rewards}</span>}
   </span>;
 }

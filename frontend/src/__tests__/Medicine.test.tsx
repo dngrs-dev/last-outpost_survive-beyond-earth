@@ -21,9 +21,9 @@ describe('Paired care in the station scene', () => {
   it('does not offer another job for the patient and excludes occupied people from other care targets', async () => {
     openGame(); await care(); fireEvent.click(screen.getByRole('button', { name: /^Inspect Alex Vega,/ }));
     expect(book().queryByRole('button', { name: 'Choose assignment' })).not.toBeInTheDocument(); closeBook();
-    fireEvent.click(screen.getByRole('button', { name: /^Inspect Lin Park,/ })); fireEvent.click(book().getByRole('button', { name: 'Choose assignment' })); fireEvent.click(book().getByRole('button', { name: 'Care' }));
-    fireEvent.click(book().getByRole('button', { name: 'Choose this task' }));
-    expect(book().queryByRole('option', { name: /Alex Vega/ })).not.toBeInTheDocument(); expect(book().queryByRole('option', { name: /Maya Okafor/ })).not.toBeInTheDocument(); expect(book().getByRole('button', { name: 'Review care' })).toBeDisabled();
+    fireEvent.click(screen.getByRole('button', { name: /^Inspect Lin Park,/ })); fireEvent.click(book().getByRole('button', { name: 'Care' }));
+    fireEvent.click(book().getByRole('button', { name: 'Treat a teammate' }));
+    expect(book().queryByRole('button', { name: /^Alex Vega:/ })).not.toBeInTheDocument(); expect(book().queryByRole('button', { name: /^Maya Okafor:/ })).not.toBeInTheDocument(); expect(book().getByRole('button', { name: 'Confirm assignment' })).toBeDisabled();
   });
   it('retries the exact locked medical order after response loss', async () => {
     const send = vi.spyOn(api, 'submitTurn').mockRejectedValueOnce(new ApiError(503, 'Unavailable')).mockResolvedValueOnce(structuredClone(medicalAssignmentTurn));

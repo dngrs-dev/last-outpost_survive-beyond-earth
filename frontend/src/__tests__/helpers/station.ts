@@ -9,26 +9,6 @@ export function closeBook() {
   if (dialog) fireEvent.click(within(dialog).getByRole('button', { name: 'Close panel' }));
 }
 
-export function notebookPage(title: string) {
-  for (let count = 0; count < 120; count++) {
-    if (book().queryByRole('heading', { name: title, level: 2 })) return;
-    const next = book().getByRole('button', { name: 'Next page' });
-    if ((next as HTMLButtonElement).disabled) break;
-    fireEvent.click(next);
-  }
-  throw new Error(`Notebook page not found: ${title}`);
-}
-
-export function notebookText(pattern: RegExp) {
-  for (let count = 0; count < 120; count++) {
-    if (book().queryByText(pattern)) return;
-    const next = book().getByRole('button', { name: 'Next page' });
-    if ((next as HTMLButtonElement).disabled) break;
-    fireEvent.click(next);
-  }
-  throw new Error(`Notebook text not found: ${pattern}`);
-}
-
 export async function confirmIncident(fixture: GameResponse = game, options: { choiceId?: string; leadId?: string; supportIds?: string[] } = {}) {
   await screen.findByRole('dialog', { name: fixture.state.current_event!.title });
   const choice = fixture.state.current_event!.choices.find(choice => options.choiceId ? choice.id === options.choiceId : choice.available && !choice.requires_crew)
@@ -49,8 +29,8 @@ export async function chooseCrewTask(fixture: GameResponse, id: string, activity
   fireEvent.click(screen.getByRole('button', { name: new RegExp(`^Inspect ${person.name},`) }));
   const option = fixture.state.assignment_options.find(option => option.id === activityId)!;
   const category = option.action_type === 'medical' ? 'Care' : option.action_type === 'research' ? 'Explore' : option.action_type === 'maintenance' ? 'Fix' : 'Rest';
-  fireEvent.click(book().getByRole('button', { name: category }));
-  fireEvent.click(book().getByRole('button', { name: taskName(option.id, option.text) }));
+  fireEvent.click(within(book().getByRole('group', { name: 'Assignment types' })).getByRole('button', { name: category }));
+  fireEvent.click(within(book().getByRole('group', { name: 'Crew assignments' })).getByRole('button', { name: taskName(option.id, option.text) }));
   if (option.action_type === 'medical' && patient) {
     const id = patient.split(':')[0];
     const target = fixture.state.crew.find(person => person.id === id)!;

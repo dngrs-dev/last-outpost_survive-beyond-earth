@@ -36,15 +36,3 @@ export function GameDialog({ title, subtitle, onClose, children, controls, size 
   </dialog>;
 }
 
-export function textPages(text: string, max = 210): string[] {
-  const words = text.trim().split(/\s+/);
-  const pages: string[] = [];
-  let page = '';
-  for (const word of words) {
-    if (page && `${page} ${word}`.length > max) { pages.push(page); page = ''; }
-    page += `${page ? ' ' : ''}${word}`;
-  }
-  if (page) pages.push(page);
-  return pages.length ? pages : [''];
-}
-

@@ -3,7 +3,7 @@ import { beforeEach, describe, expect, it, vi } from 'vitest';
 import { MemoryRouter, Route, Routes } from 'react-router-dom';
 import { GamePage } from '../pages/GamePage';
 import * as api from '../api/game';
-import { researchGame, researchTurn } from './fixtures/backend';
+import { failed, researchGame, researchTurn } from './fixtures/backend';
 import { chooseMeal, feedAll, missingMeals, newWeekPlan, readWeekPlan, saveWeekPlan, turnRequest } from '../state/weeklyPlan';
 import { plannedActivities } from '../components/station/stationPresentation';
 import { book, closeBook, confirmIncident, provisions } from './helpers/station';
@@ -29,7 +29,7 @@ describe('Independent meals and direct week transition', () => {
   });
   it('shows who needs food or water and does not submit an incomplete week', async () => {
     const send = vi.spyOn(api, 'submitTurn'); openGame(); await confirmIncident(researchGame);
-    await provisions(); fireEvent.click(book().getByRole('button', { name: 'Full food for Alex Vega' })); closeBook();
+    await provisions(); fireEvent.change(book().getByRole('combobox', { name: 'food for Alex Vega' }), { target: { value: 'normal' } }); closeBook();
     fireEvent.click(screen.getByRole('button', { name: 'Next week' }));
     const alex = book().getByRole('button', { name: /Alex Vega Needs water/ });
     expect(within(alex).getByText('Needs water')).toBeInTheDocument();
@@ -53,5 +53,24 @@ describe('Independent meals and direct week transition', () => {
     const pending = { ...plan, pending: { request: turnRequest(plan), activities: plannedActivities(researchGame.state, plan) } };
     saveWeekPlan('fixture-game', pending);
     expect(chooseMeal(pending, 'alex', 'food', 'emergency')).toBe(pending);
+  });
+  it('keeps provisions accessible for dispatched astronauts without releasing their jobs', async () => {
+    openGame();
+    const response = researchGame.state.current_event!.choices.find(choice => choice.available && choice.requires_crew)!;
+    await confirmIncident(researchGame, { choiceId: response.id });
+    const saved = readWeekPlan('fixture-game')!, id = saved.selected_crew_id!;
+    const person = researchGame.state.crew.find(person => person.id === id)!;
+    expect(document.querySelector(`[data-crew-id="${id}"]`)).not.toBeInTheDocument();
+    await provisions();
+    for (const resource of ['food', 'water']) fireEvent.change(book().getByRole('combobox', { name: `${resource} for ${person.name}` }), { target: { value: 'normal' } });
+    expect(readWeekPlan('fixture-game')!.meal_choices[id]).toEqual({ food: true, water: true });
+    closeBook(); expect(document.querySelector(`[data-crew-id="${id}"]`)).not.toBeInTheDocument();
+    expect(readWeekPlan('fixture-game')!.selected_crew_id).toBe(id);
+  });
+  it('requires no meal decisions for dead astronauts', () => {
+    expect(failed.state.crew.some(person => !person.alive)).toBe(true);
+    const plan = feedAll(failed.state, newWeekPlan(failed.state), 'normal');
+    expect(missingMeals(failed.state, plan)).toEqual([]);
+    for (const person of failed.state.crew.filter(person => !person.alive)) expect(plan.rations[person.id]).toBeUndefined();
   });
 });

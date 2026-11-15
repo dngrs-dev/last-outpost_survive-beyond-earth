@@ -3,7 +3,7 @@
 ## Resume here
 
 User requested this plan first to preserve work across a usage-limit reset.
-Implementation is in progress. The user now authorizes one commit per numbered step.
+Implementation is complete. The seven numbered steps are recorded in sequential commits.
 
 - Baseline: `20a8785` (`feat(gameplay): add full-screen station and guided notebook flow`).
 - Working tree was clean before adding this plan.
@@ -99,13 +99,13 @@ children. Do not describe automated tests as child usability testing.
 ### 3. Independent meals and correct Next Week semantics
 
 - [x] Add per-person food/water decision tracking to `weeklyPlan.ts`; default ration
-  values must not count as an explicit player decision. Saving a meal confirms
-  both resources for that astronaut. Keep established emergency-ration rules.
+  values must not count as an explicit player decision. Confirm food and water
+  independently; Feed everyone confirms both. Keep emergency-ration rules.
 - [x] Replace global `rationsConfirmed` as the ordinary crew-order lock. Feeding
   somebody must not prevent them or other astronauts receiving work afterward.
 - [x] Put food/water controls on the crew panel and a shared meal board from
   Supplies (all portraits visible, including away crew). Include a clear Feed all
-  shortcut and full/half/emergency visual choices with short honest consequences.
+  shortcut and full/smaller/emergency visual choices with short honest consequences.
 - [x] Persist explicit meal decisions. Migrate saved v1 plans: previously confirmed
   rations count as chosen; unconfirmed defaults do not. Never drop or rewrite a
   saved pending request to migrate editable planning data.
@@ -164,19 +164,19 @@ children. Do not describe automated tests as child usability testing.
 
 ### 7. Verification and handoff
 
-- [ ] Adapt behavioral tests to user actions, not old notebook/page labels. Add cases
+- [x] Adapt behavioral tests to user actions, not old notebook/page labels. Add cases
   for missing meals by person, food vs water omissions, feeding then assigning work,
   away/patient feeding, meal persistence/migration and valid direct Next Week.
-- [ ] Retain assignment-conflict, medical-pair, budget, death, project, duplicate-click,
+- [x] Retain assignment-conflict, medical-pair, budget, death, project, duplicate-click,
   ambiguous retry, refresh-pending, stale-receipt and final-routing coverage.
-- [ ] Run frontend tests/build. Run backend tests if contracts/fixtures/simulation
+- [x] Run frontend tests/build. Run backend tests if contracts/fixtures/simulation
   change; regenerate fixtures only through the existing generator when needed.
-- [ ] Browser-check incident 3/4 cards, crew/actions, meals, warnings, medical pairs,
+- [x] Browser-check incident 3/4 cards, crew/actions, meals, warnings, medical pairs,
   workstations and results at 1440x900, 1280x720, 768x1024, 390x844, 375x667,
   320x568 and 844x390. Check touch, keyboard, focus restore and reduced motion.
-- [ ] Inspect screenshots for contact/occlusion/perspective, not only DOM overflow.
+- [x] Inspect screenshots for contact/occlusion/perspective, not only DOM overflow.
   Complete a real-backend campaign with no duplicate charges or science rewards.
-- [ ] Record actual checks, limitations and any unfinished work below. Commit the completed step as authorized.
+- [x] Record actual checks, limitations and any unfinished work below. Commit the completed step as authorized.
 
 ## Efficiency and boundaries
 
@@ -191,7 +191,7 @@ implemented behavior and layouts have actually passed validation.
 
 ## Progress / outstanding work
 
-- Implementation started; see step checkboxes and validation notes below.
+- All seven steps are complete. Final validation and limits are recorded below.
 - Files currently implicated: `GamePage.tsx`/CSS, `weeklyPlan.ts`,
   `useStationMission.ts`, existing `components/station/*`, shared portraits/icons,
   frontend tests and station documentation. API contracts can remain unchanged.
@@ -207,3 +207,41 @@ Step 4: portrait-led crew panels now show direct recommended tasks with flat fil
 Step 5: shared desktop/portrait furniture and actor anchors, player-facing curved seating, grounded desks/cots and shelf-mounted tools implemented. Five focused staging/care tests and production build passed. Desktop and phone room/care screenshots inspected; permanent overlapping name tags removed.
 
 Step 6: grouped station systems/projects, visual summary reports and optional grouped details replace notebook pages; panels renamed and obsolete ration/review components removed. Three panel tests, nine meal/crew tests and production build passed. Legacy report-page test helpers remain only until step 7 migration.
+
+Step 7 complete:
+
+- Migrated legacy notebook-navigation tests to the direct incident, assignment,
+  meal, warning, systems and report interactions. Deleted unused page helpers.
+- Independent meal tests cover omissions by person/resource, feeding after dispatch,
+  patients, dead crew, persistence/migration, and pending-request immutability.
+- Preserved conflict, medical-pair, combined-budget, death, project, duplicate-click,
+  lost-response, reload-pending, stale-receipt and final-routing coverage.
+- Frontend: **171 tests passed** across 28 files. After the final report layout
+  change, all 28 relevant report/meal/incident tests passed again; the final task
+  wording/layout changes also passed all nine restriction/conflict/care tests. Production build
+  passed (`tsc` and Vite). No dependencies or API contract/fixture changes.
+- Backend: **429 tests passed**. One existing Starlette/httpx deprecation warning;
+  no backend simulation changes were required.
+- Browser: 1440x900, 1280x720, 768x1024, 390x844, 375x667, 320x568 and 844x390.
+  Three/four-response boards, selected leads, crew/tasks, medical targets, meal
+  boards, supplies, power/air, projects and report summaries fit without routine
+  scrolling or clipped controls. Checked missing-meal warnings, native Tab focus
+  containment, Escape/focus restoration and reduced motion. Screenshots inspected.
+- Small-screen corrections use compact meal selectors, two budget-aware recommended
+  tasks (all others remain in flat filters), responsive medical targets, grouped
+  project data and landscape report layouts. Every flat assignment filter was
+  additionally checked at 320x568 and 844x390; concise restrictions replace repeated
+  backend paragraphs, with all relevant restrictions shown for the selected task.
+  Reports include incident health
+  changes in their summary, with event and next-discovery accounting in Details.
+- Real backend: an eight-week Oceanus campaign ended in successful handover with
+  all four astronauts alive. First week completed geological research. Deliberately
+  lost the successful POST response, reloaded after GET showed the advanced week,
+  and replayed the identical request. Resource/science state matched the original
+  receipt; nine POST attempts resolved exactly eight unique weeks.
+
+Limits: optional detailed accounting and unusually long content remain reachable
+through modal overflow at small sizes/zoom; no routine weekly step requires reading
+those details. These checks use automated browsers and screenshot review, not
+usability sessions with children. Missions still live in backend memory; this work
+adds no server persistence, balance changes or extra survival mechanics.

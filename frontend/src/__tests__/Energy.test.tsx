@@ -1,7 +1,7 @@
 import { beforeEach, describe, expect, it, vi } from 'vitest';
 import { fireEvent, render, screen, within } from '@testing-library/react';
 import { MemoryRouter, Route, Routes } from 'react-router-dom';
-import { book, confirmIncident, openStatus, notebookPage, reviewWeek } from './helpers/station';
+import { book, confirmIncident, openStatus, reviewWeek } from './helpers/station';
 import { EnergyPanel } from '../components/EnergyPanel';
 import { GamePage } from '../pages/GamePage';
 import * as api from '../api/game';
@@ -31,7 +31,7 @@ describe('Sourced sunlight and bounded energy', () => {
       <Route path="/game/:gameId" element={<GamePage />} />
     </Routes></MemoryRouter>);
     await confirmIncident(energyPriorityGame);
-    await openStatus('Energy'); notebookPage('Power priority');
+    await openStatus('Energy');
     const priority = book().getByRole('combobox', { name: 'Power priority' });
     fireEvent.change(priority, { target: { value: 'research' } });
     fireEvent.click(book().getByRole('button', { name: 'Confirm power priority' }));
