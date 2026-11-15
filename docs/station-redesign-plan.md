@@ -136,17 +136,17 @@ children. Do not describe automated tests as child usability testing.
 
 ### 5. Rebuild physical station staging
 
-- [ ] Replace independent portrait multipliers/translations with shared desktop and
+- [x] Replace independent portrait multipliers/translations with shared desktop and
   portrait layout anchors for architecture, furniture, actors and hit areas.
-- [ ] Draw two curved seating tiers facing the player; their implied circle center
+- [x] Draw two curved seating tiers facing the player; their implied circle center
   is below the scene. Put bodies behind appropriate seat/table foreground edges,
   with hips on cushions, feet supported and consistent perspective.
-- [ ] Attach monitors to desks/walls, put objects on real surfaces, ground table,
+- [x] Attach monitors to desks/walls, put objects on real surfaces, ground table,
   chairs/cots and shelves. Add restrained shadows/material detail in shared SVG.
-- [ ] Reuse the existing avatar/clothing rig. Fix pose placement and occlusion rather
+- [x] Reuse the existing avatar/clothing rig. Fix pose placement and occlusion rather
   than redrawing each astronaut. Ensure medical pairs and up to four indoor workers
   fit without unrelated overlaps; incident/EVA workers stay absent.
-- [ ] Keep scene labels minimal and clickable areas aligned to their objects at all
+- [x] Keep scene labels minimal and clickable areas aligned to their objects at all
   supported viewports. Prevent tooltip collisions and floating name labels.
 
 ### 6. Compact station information and results
@@ -203,3 +203,5 @@ Step 2: all incident responses, visual consequences, inline lead/support portrai
 Step 3: per-resource meal decisions, v1 migration, independent feeding and direct Next Week submission implemented; pending requests remain unchanged. Actual reduced/emergency rates are 70%/40%, not half portions. Twenty focused tests and production build passed.
 
 Step 4: portrait-led crew panels now show direct recommended tasks with flat filters, main-panel restrictions, meals, visual risks and inline medical targets. Eleven focused interaction tests and production build passed.
+
+Step 5: shared desktop/portrait furniture and actor anchors, player-facing curved seating, grounded desks/cots and shelf-mounted tools implemented. Five focused staging/care tests and production build passed. Desktop and phone room/care screenshots inspected; permanent overlapping name tags removed.

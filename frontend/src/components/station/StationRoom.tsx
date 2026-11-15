@@ -3,7 +3,7 @@ import { AstronautAvatar } from '../AstronautAvatar';
 import { RoleIcon } from '../RoleIcon';
 import type { GameStateResponse, RationRequest } from '../../types/game';
 import { StationInterior, StationFurniture } from './StationInterior';
-import { stationActors } from './stationLayout';
+import { roomLayout, stationActors } from './stationLayout';
 import { crewMood, type CrewActivities, type SceneMode } from './stationPresentation';
 import styles from './StationRoom.module.css';
 
@@ -25,13 +25,10 @@ export function StationRoom({ state, activities, mode, selectedCrewId, onSelectC
     window.addEventListener('resize', resize);
     return () => window.removeEventListener('resize', resize);
   }, []);
-  const stageHeight = portrait ? 1500 : 760;
-  const allActors = stationActors(state.crew, activities);
+  const layout = roomLayout(portrait), stageHeight = layout.height;
+  const allActors = stationActors(state.crew, activities, portrait);
   const dispatched = allActors.filter(actor => actor.activity.origin === 'incident' || actor.zone === 'surface');
-  const actors = allActors.filter(actor => !dispatched.includes(actor)).map(actor => portrait ? {
-    ...actor, left: actor.left + actor.width / 2 - actor.width * 1.35 / 2,
-    top: actor.top * 1.8 + 100, width: actor.width * 1.35, height: actor.height * 1.35,
-  } : actor);
+  const actors = allActors.filter(actor => !dispatched.includes(actor));
   const project = state.research_projects.find(project => project.status !== 'completed') || state.research_projects[state.research_projects.length - 1];
   return <section className={styles.room} aria-label="Station common room" data-scene-mode={mode} data-project-phase={project?.phase} data-project-progress={project?.phase_progress}>
     <div className={styles.scene} data-station-scene style={{ width: `min(100%, ${100000 / stageHeight}cqh)`, aspectRatio: `1000 / ${stageHeight}` }}>
@@ -61,10 +58,10 @@ export function StationRoom({ state, activities, mode, selectedCrewId, onSelectC
         </button>;
       })}
       <div className={styles.table}><StationFurniture actors={actors} portrait={portrait} stageHeight={stageHeight} /></div>
-      <button type="button" className={`${styles.object} ${styles.stores}`} style={{ top: `${145 / stageHeight * 100}%` }} disabled={disabled} onClick={() => onOpen('Stores')} aria-label="Inspect station supplies">Supplies</button>
-      <button type="button" className={`${styles.object} ${styles.computer}`} style={{ top: `${(520 + (portrait ? 500 : 0)) / stageHeight * 100}%` }} disabled={disabled} onClick={() => onOpen('Systems')} aria-label="Station status">Station status</button>
-      <button type="button" className={`${styles.object} ${styles.journal}`} data-open-journal style={{ top: `${(630 + (portrait ? 500 : 0)) / stageHeight * 100}%` }} disabled={disabled} onClick={() => onOpen('Log')}>Journal</button>
-      <button type="button" className={`${styles.object} ${styles.airlock}`} style={{ top: `${(425 + (portrait ? 250 : 0)) / stageHeight * 100}%` }} disabled={disabled} onClick={() => onOpen('Away')} aria-label={`Dispatched crew: ${dispatched.length}`}>Airlock <small>{dispatched.length ? `${dispatched.length} on duty` : 'All aboard'}</small></button>
+      <button type="button" className={`${styles.object} ${styles.stores}`} style={{ top: `${layout.supplies.y / stageHeight * 100}%`, left: `${layout.supplies.x/10}%` }} disabled={disabled} onClick={() => onOpen('Stores')} aria-label="Inspect station supplies">Supplies</button>
+      <button type="button" className={`${styles.object} ${styles.computer}`} style={{ top: `${(layout.table.y-45) / stageHeight * 100}%`, left: `${layout.table.x/10}%` }} disabled={disabled} onClick={() => onOpen('Systems')} aria-label="Station status">Station status</button>
+      <button type="button" className={`${styles.object} ${styles.journal}`} data-open-journal style={{ top: `${(layout.table.y+35) / stageHeight * 100}%`, left: `${(layout.table.x+85)/10}%` }} disabled={disabled} onClick={() => onOpen('Log')}>Crew log</button>
+      <button type="button" className={`${styles.object} ${styles.airlock}`} style={{ top: `${layout.airlock.y / stageHeight * 100}%`, left: `${layout.airlock.x/10}%` }} disabled={disabled} onClick={() => onOpen('Away')} aria-label={`Dispatched crew: ${dispatched.length}`}>Airlock <small>{dispatched.length ? `${dispatched.length} on duty` : 'All aboard'}</small></button>
     </div>
   </section>;
 }
