@@ -7,6 +7,9 @@ export interface CrewAppearance {
   style: 'sweep' | 'curls' | 'bob' | 'crop' | 'bun';
   glasses?: boolean;
   freckles?: boolean;
+  face?: 'oval' | 'square' | 'tapered';
+  beard?: boolean;
+  silver?: boolean;
 }
 
 const appearances: Record<string, CrewAppearance> = {
@@ -85,6 +88,60 @@ const appearances: Record<string, CrewAppearance> = {
     eyes: '#ab916d',
     style: 'crop',
     glasses: true,
+  },
+  rhea: {
+    skin: '#b88360',
+    shade: '#8d5d49',
+    hair: '#242834',
+    eyes: '#6b7058',
+    style: 'bun',
+    face: 'tapered',
+  },
+  priya: {
+    skin: '#a57150',
+    shade: '#79513e',
+    hair: '#302a2d',
+    eyes: '#a68b62',
+    style: 'bob',
+    face: 'oval',
+    glasses: true,
+  },
+  theo: {
+    skin: '#dcb696',
+    shade: '#ad846e',
+    hair: '#5d5148',
+    eyes: '#70949b',
+    style: 'sweep',
+    face: 'square',
+    beard: true,
+    silver: true,
+  },
+  hao: {
+    skin: '#d9b795',
+    shade: '#ae8a71',
+    hair: '#272d36',
+    eyes: '#695b51',
+    style: 'crop',
+    face: 'tapered',
+    glasses: true,
+  },
+  vera: {
+    skin: '#bd9274',
+    shade: '#946b55',
+    hair: '#66483a',
+    eyes: '#7a8b6b',
+    style: 'curls',
+    face: 'oval',
+    freckles: true,
+  },
+  nik: {
+    skin: '#dbc3af',
+    shade: '#b09580',
+    hair: '#675d53',
+    eyes: '#73929b',
+    style: 'crop',
+    face: 'square',
+    beard: true,
   },
 };
 

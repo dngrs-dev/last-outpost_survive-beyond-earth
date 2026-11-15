@@ -6,7 +6,7 @@ and manage a fictional research station until the next crew rotation.
 ## Current status
 
 Six fictional lunar outposts are playable, with missions lasting 8 to 18 weeks,
-ten selectable specialists in four crew slots, twelve cargo types, fifteen shared narrative events, individual rationing,
+sixteen selectable specialists in four crew slots, twelve cargo types, fifteen shared narrative events, individual rationing,
 oxygen and electricity simulation, crew health/death, and four mission endings.
 Each mission also has a separate research brief: collect samples, analyze seismic
 records, or restore research equipment. Science progress and the final assessment
@@ -36,9 +36,12 @@ or side directory.
 The root `/` is now a full-screen title menu, with a rotating NASA Blue Marble Earth
 above a real Apollo 17 panorama. Play opens Moon selection; Load resumes this
 browser's last server-held mission. `/crew/` is a dedicated visual roster: inspect
-ten original SVG astronauts, choose up to four unique teammates, then continue to
+sixteen original SVG astronauts, choose up to four unique teammates, then continue to
 supplies at `/prepare/`. Portraits have role icons and selected checks, with a
-full-body preview, traits, and ration costs. Four visible seats support swaps and
+full-body preview, traits, and ration costs. Wide screens use a 4-by-4 roster,
+grouped by profession (four of each); smaller screens scroll internally. A shared
+SVG rig supplies more adult proportions, detailed suits, contained hair/helmet
+layers, and reusable poses/expressions. Four visible seats support swaps and
 empty seats. Mission minimums still apply. Changing crew from supplies retains
 packed cargo and the seed. Older root station links now open crew selection.
 Direct preparation links still work (default Alpha). Load does not persist

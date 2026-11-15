@@ -1,3 +1,4 @@
+from collections import Counter
 from copy import deepcopy
 
 import pytest
@@ -10,14 +11,57 @@ def rations(state):
     return {crew.id: Ration("normal", "normal") for crew in state.crew if crew.alive}
 
 
-def test_ten_distinct_researched_profiles_and_individual_costs(engine):
+def test_sixteen_distinct_researched_profiles_and_individual_costs(engine):
     catalog = engine.catalog()
-    assert len(catalog["crew"]) == len({crew["id"] for crew in catalog["crew"]}) == 10
-    assert len({crew["specialty"] for crew in catalog["crew"]}) == 10
+    assert len(catalog["crew"]) == len({crew["id"] for crew in catalog["crew"]}) == 16
+    assert len({crew["specialty"] for crew in catalog["crew"]}) == 16
+    assert Counter(crew["role"] for crew in catalog["crew"]) == {
+        "engineer": 4,
+        "medic": 4,
+        "scientist": 4,
+        "technician": 4,
+    }
     for crew in catalog["crew"]:
         assert crew["training_source"].startswith("https://www.nasa.gov/")
         assert crew["normal_ration_cost"]["food"] == pytest.approx(crew["food_multiplier"])
         assert crew["normal_ration_cost"]["water"] == pytest.approx(2 * crew["water_multiplier"])
+
+
+@pytest.mark.parametrize("crew_id", ["rhea", "priya", "theo", "hao", "vera", "nik"])
+def test_added_profiles_can_launch_with_healthy_independent_state(quiet_engine, crew_id):
+    first = quiet_engine.create_game("alpha", [crew_id], {}, 42)
+    second = quiet_engine.create_game("alpha", [crew_id], {}, 42)
+    assert first.crew[0].id == crew_id
+    assert first.crew[0].health == 100
+    assert not first.crew[0].medical_conditions
+    first.crew[0].health = 1
+    assert second.crew[0].health == 100
+
+
+@pytest.mark.parametrize(
+    "crew_id,choice_id",
+    [
+        ("rhea", "repair_water"),
+        ("theo", "team_treatment"),
+        ("hao", "analyze_seismic"),
+        ("vera", "basic_sampling"),
+        ("nik", "align_antenna"),
+    ],
+)
+def test_added_specialties_improve_actual_incident_actions(engine, crew_id, choice_id):
+    state = engine.create_game("alpha", [crew_id], {}, 42)
+    choice = next(
+        choice
+        for event in engine.definitions.events.values()
+        for choice in event.choices
+        if choice.id == choice_id
+    )
+    actor = state.crew[0]
+    without_bonus = deepcopy(actor)
+    without_bonus.action_bonuses = {}
+    assert success_probability(state, choice, actor) > success_probability(
+        state, choice, without_bonus
+    )
 
 
 def test_specialist_bonus_applies_to_the_assigned_astronaut(engine):

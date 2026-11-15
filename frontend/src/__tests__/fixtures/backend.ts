@@ -1464,6 +1464,164 @@ export const catalog: CatalogResponse = {
         "food": 1.1,
         "water": 2.0
       }
+    },
+    {
+      "id": "rhea",
+      "name": "Rhea Das",
+      "role": "engineer",
+      "health": 100,
+      "positive_trait": "Loop specialist: +15 points for incident water repairs and +10 for scrubber servicing.",
+      "negative_trait": "High hydration demand: uses 15% more water.",
+      "food_multiplier": 1.0,
+      "water_multiplier": 1.15,
+      "event_bonus": 0.0,
+      "injury_multiplier": 1.0,
+      "food_shortage_weeks": 0,
+      "water_shortage_weeks": 0,
+      "nutrition_deficit": 0,
+      "hydration_deficit": 0,
+      "medical_conditions": [],
+      "specialty": "Water recovery and cabin systems",
+      "training_source": "https://www.nasa.gov/reference/jsc-crew-operations-training/",
+      "action_bonuses": {
+        "repair_water": 0.15,
+        "service_scrubber": 0.1
+      },
+      "normal_ration_cost": {
+        "food": 1.0,
+        "water": 2.3
+      }
+    },
+    {
+      "id": "priya",
+      "name": "Priya Shah",
+      "role": "medic",
+      "health": 100,
+      "positive_trait": "Careful operator: event injuries cause 15% less damage.",
+      "negative_trait": "Extra hydration: uses 10% more water.",
+      "food_multiplier": 1.0,
+      "water_multiplier": 1.1,
+      "event_bonus": 0.0,
+      "injury_multiplier": 0.85,
+      "food_shortage_weeks": 0,
+      "water_shortage_weeks": 0,
+      "nutrition_deficit": 0,
+      "hydration_deficit": 0,
+      "medical_conditions": [],
+      "specialty": "Field medicine and crew safety",
+      "training_source": "https://www.nasa.gov/reference/5-0-training/",
+      "action_bonuses": {},
+      "normal_ration_cost": {
+        "food": 1.0,
+        "water": 2.2
+      }
+    },
+    {
+      "id": "theo",
+      "name": "Theo Marin",
+      "role": "medic",
+      "health": 100,
+      "positive_trait": "Response specialist: +10 points for team treatment and medical recovery incident actions.",
+      "negative_trait": "Sensitive to injury: event damage is 10% greater.",
+      "food_multiplier": 1.0,
+      "water_multiplier": 1.0,
+      "event_bonus": 0.0,
+      "injury_multiplier": 1.1,
+      "food_shortage_weeks": 0,
+      "water_shortage_weeks": 0,
+      "nutrition_deficit": 0,
+      "hydration_deficit": 0,
+      "medical_conditions": [],
+      "specialty": "Clinical response and diagnostics",
+      "training_source": "https://www.nasa.gov/reference/5-0-training/",
+      "action_bonuses": {
+        "team_treatment": 0.1,
+        "medical_recovery": 0.1
+      },
+      "normal_ration_cost": {
+        "food": 1.0,
+        "water": 2.0
+      }
+    },
+    {
+      "id": "hao",
+      "name": "Hao Chen",
+      "role": "scientist",
+      "health": 100,
+      "positive_trait": "Signal specialist: +10 points for seismic-recording incident analysis.",
+      "negative_trait": "Field appetite: uses 10% more food.",
+      "food_multiplier": 1.1,
+      "water_multiplier": 1.0,
+      "event_bonus": 0.0,
+      "injury_multiplier": 1.0,
+      "food_shortage_weeks": 0,
+      "water_shortage_weeks": 0,
+      "nutrition_deficit": 0,
+      "hydration_deficit": 0,
+      "medical_conditions": [],
+      "specialty": "Seismic recordings and signal analysis",
+      "training_source": "https://www.nasa.gov/missions/artemis/nasa-field-geology-training-prepares-artemis-mission-support-teams/",
+      "action_bonuses": {
+        "analyze_seismic": 0.1
+      },
+      "normal_ration_cost": {
+        "food": 1.1,
+        "water": 2.0
+      }
+    },
+    {
+      "id": "vera",
+      "name": "Vera Silva",
+      "role": "scientist",
+      "health": 100,
+      "positive_trait": "Sample specialist: +10 points for kit-assisted and basic sampling incident actions.",
+      "negative_trait": "Extra hydration: uses 10% more water.",
+      "food_multiplier": 1.0,
+      "water_multiplier": 1.1,
+      "event_bonus": 0.0,
+      "injury_multiplier": 1.0,
+      "food_shortage_weeks": 0,
+      "water_shortage_weeks": 0,
+      "nutrition_deficit": 0,
+      "hydration_deficit": 0,
+      "medical_conditions": [],
+      "specialty": "Surface sampling and sample curation",
+      "training_source": "https://www.nasa.gov/missions/artemis/nasa-field-geology-training-prepares-artemis-mission-support-teams/",
+      "action_bonuses": {
+        "kit_sampling": 0.1,
+        "basic_sampling": 0.1
+      },
+      "normal_ration_cost": {
+        "food": 1.0,
+        "water": 2.2
+      }
+    },
+    {
+      "id": "nik",
+      "name": "Nik Volkov",
+      "role": "technician",
+      "health": 100,
+      "positive_trait": "Signal-path specialist: +15 points for antenna alignment and +10 for battery diagnosis.",
+      "negative_trait": "Large appetite: uses 10% more food.",
+      "food_multiplier": 1.1,
+      "water_multiplier": 1.0,
+      "event_bonus": 0.0,
+      "injury_multiplier": 1.0,
+      "food_shortage_weeks": 0,
+      "water_shortage_weeks": 0,
+      "nutrition_deficit": 0,
+      "hydration_deficit": 0,
+      "medical_conditions": [],
+      "specialty": "Communications and electrical diagnosis",
+      "training_source": "https://www.nasa.gov/reference/jsc-crew-operations-training/",
+      "action_bonuses": {
+        "align_antenna": 0.15,
+        "battery_diagnosis": 0.1
+      },
+      "normal_ration_cost": {
+        "food": 1.1,
+        "water": 2.0
+      }
     }
   ],
   "items": [

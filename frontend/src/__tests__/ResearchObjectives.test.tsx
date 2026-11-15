@@ -13,7 +13,8 @@ describe('Mission research with real API fixtures', () => {
   it('keeps research targets in the optional mission brief', async () => {
     vi.spyOn(gameApi, 'fetchCatalog').mockResolvedValue(structuredClone(catalog));
     render(<MemoryRouter><SetupPage /></MemoryRouter>);
-    fireEvent.click(await screen.findByRole('button', { name: 'Mission brief' }));
+    await screen.findByLabelText('Food packs quantity');
+    fireEvent.click(screen.getByRole('button', { name: 'Mission brief' }));
     const brief = screen.getByRole('region', { name: 'Research objectives' });
     expect(within(brief).getByText('Baseline sample collection')).toBeInTheDocument();
     expect(within(brief).getByText('Target: 2')).toBeInTheDocument();

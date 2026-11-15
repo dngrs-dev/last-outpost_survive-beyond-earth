@@ -13,6 +13,13 @@ import { readCrewSlots } from '../state/preparation';
 import type { CatalogResponse } from '../types/game';
 import styles from './CrewSelectionPage.module.css';
 
+const ROLE_ORDER: Record<string, number> = {
+  engineer: 0,
+  medic: 1,
+  scientist: 2,
+  technician: 3,
+};
+
 export function CrewSelectionPage() {
   const [params, setParams] = useSearchParams();
   const location = useLocation();
@@ -85,6 +92,9 @@ export function CrewSelectionPage() {
   const person =
     catalog?.crew.find((entry) => entry.id === focusedId) || catalog?.crew[0];
   const selectedIndex = person ? slots.indexOf(person.id) : -1;
+  const roster = [...(catalog?.crew || [])].sort(
+    (a, b) => (ROLE_ORDER[a.role] ?? 4) - (ROLE_ORDER[b.role] ?? 4)
+  );
   const seat = Math.min(activeSlot, maxCrew - 1);
   const replacing = catalog?.crew.find((entry) => entry.id === slots[seat]);
   const minCrew = mission?.minimum_survivors || 1;
@@ -190,7 +200,7 @@ export function CrewSelectionPage() {
                 teammate.
               </p>
               <div className={styles.rosterGrid}>
-                {catalog.crew.map((entry) => {
+                {roster.map((entry) => {
                   const aboard = slots.includes(entry.id);
                   return (
                     <button
@@ -272,7 +282,7 @@ export function CrewSelectionPage() {
               <div className={styles.dossier}>
                 <div className={styles.traits}>
                   <p>
-                    <b>Superpower</b>
+                    <b>Strength</b>
                     {person.positive_trait}
                   </p>
                   <p>

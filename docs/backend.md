@@ -245,3 +245,10 @@ The [supplies screen](supplies.md) now displays the same catalog as an illustrat
 cargo bay. Weight/volume, item maxima, stock yields, crew costs, and lighting data
 come from the existing catalog. Frontend launch-form drafts and validation do not
 change the API or replace backend launch validation. Generated fixtures are unchanged.
+
+
+The catalog now supplies sixteen fictional crew profiles, four per profession.
+Six additional specialists use existing modifiers and the four-seat launch
+contract. Regenerate fixtures after roster changes. The catalog is loaded at
+startup; a running backend must restart to load changed JSON definitions (which
+also clears its in-memory missions).

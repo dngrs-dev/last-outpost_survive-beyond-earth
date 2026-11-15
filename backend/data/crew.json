@@ -129,5 +129,91 @@
     },
     "health": 100,
     "training_source": "https://www.nasa.gov/reference/jsc-crew-operations-training/"
+  },
+  {
+    "id": "rhea",
+    "name": "Rhea Das",
+    "role": "engineer",
+    "specialty": "Water recovery and cabin systems",
+    "positive_trait": "Loop specialist: +15 points for incident water repairs and +10 for scrubber servicing.",
+    "negative_trait": "High hydration demand: uses 15% more water.",
+    "action_bonuses": {
+      "repair_water": 0.15,
+      "service_scrubber": 0.1
+    },
+    "water_multiplier": 1.15,
+    "training_source": "https://www.nasa.gov/reference/jsc-crew-operations-training/",
+    "health": 100
+  },
+  {
+    "id": "priya",
+    "name": "Priya Shah",
+    "role": "medic",
+    "specialty": "Field medicine and crew safety",
+    "positive_trait": "Careful operator: event injuries cause 15% less damage.",
+    "negative_trait": "Extra hydration: uses 10% more water.",
+    "injury_multiplier": 0.85,
+    "water_multiplier": 1.1,
+    "training_source": "https://www.nasa.gov/reference/5-0-training/",
+    "health": 100
+  },
+  {
+    "id": "theo",
+    "name": "Theo Marin",
+    "role": "medic",
+    "specialty": "Clinical response and diagnostics",
+    "positive_trait": "Response specialist: +10 points for team treatment and medical recovery incident actions.",
+    "negative_trait": "Sensitive to injury: event damage is 10% greater.",
+    "action_bonuses": {
+      "team_treatment": 0.1,
+      "medical_recovery": 0.1
+    },
+    "injury_multiplier": 1.1,
+    "training_source": "https://www.nasa.gov/reference/5-0-training/",
+    "health": 100
+  },
+  {
+    "id": "hao",
+    "name": "Hao Chen",
+    "role": "scientist",
+    "specialty": "Seismic recordings and signal analysis",
+    "positive_trait": "Signal specialist: +10 points for seismic-recording incident analysis.",
+    "negative_trait": "Field appetite: uses 10% more food.",
+    "action_bonuses": {
+      "analyze_seismic": 0.1
+    },
+    "food_multiplier": 1.1,
+    "training_source": "https://www.nasa.gov/missions/artemis/nasa-field-geology-training-prepares-artemis-mission-support-teams/",
+    "health": 100
+  },
+  {
+    "id": "vera",
+    "name": "Vera Silva",
+    "role": "scientist",
+    "specialty": "Surface sampling and sample curation",
+    "positive_trait": "Sample specialist: +10 points for kit-assisted and basic sampling incident actions.",
+    "negative_trait": "Extra hydration: uses 10% more water.",
+    "action_bonuses": {
+      "kit_sampling": 0.1,
+      "basic_sampling": 0.1
+    },
+    "water_multiplier": 1.1,
+    "training_source": "https://www.nasa.gov/missions/artemis/nasa-field-geology-training-prepares-artemis-mission-support-teams/",
+    "health": 100
+  },
+  {
+    "id": "nik",
+    "name": "Nik Volkov",
+    "role": "technician",
+    "specialty": "Communications and electrical diagnosis",
+    "positive_trait": "Signal-path specialist: +15 points for antenna alignment and +10 for battery diagnosis.",
+    "negative_trait": "Large appetite: uses 10% more food.",
+    "action_bonuses": {
+      "align_antenna": 0.15,
+      "battery_diagnosis": 0.1
+    },
+    "food_multiplier": 1.1,
+    "training_source": "https://www.nasa.gov/reference/jsc-crew-operations-training/",
+    "health": 100
   }
 ]

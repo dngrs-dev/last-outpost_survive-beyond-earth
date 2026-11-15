@@ -19,7 +19,7 @@
 > Taurus; older roadmap names are historical plans. No new station-specific
 > crafting or simulation subsystems are included.
 
-> Roster update: ten fictional specialists can now fill up to four explicit crew
+> Roster update: sixteen fictional specialists can now fill up to four explicit crew
 > slots. Four additional cargo types support power reserves, solar cleaning, oxygen
 > maintenance, and scanner-guided treatment. See `crew-and-equipment.md` for the
 > NASA training references and the distinction between inspiration and game values.
@@ -83,6 +83,12 @@
 > catalog traits, ration costs, crew limits, and mission minimums. Supplies receive
 > the selected IDs in slot order. See `crew-and-equipment.md` for routing, draft
 > preservation, SVG pose/expression inputs, and future gameplay integration.
+
+> Expanded-roster update: sixteen fictional profiles (four per profession) now
+> appear in a 4-by-4 desktop grid, with responsive internal scrolling. Six new
+> specialists use existing modifiers; the launch limit stays four. Adult-proportion
+> SVGs share one suit/head/limb rig with explicit clipping and pose layering. See
+> `crew-and-equipment.md`; existing crew IDs, default team, and mechanics remain.
 
 > Supplies-screen update: `/prepare/` now uses a game-style cargo bay, original
 > SVG item illustrations, category filters, a compact crew/manifest view, and

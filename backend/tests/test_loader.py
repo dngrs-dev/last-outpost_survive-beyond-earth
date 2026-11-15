@@ -23,7 +23,7 @@ def mutate(path, filename, change):
 def test_complete_content(definitions):
     assert len(definitions.stations) == 6
     assert len(definitions.missions) == 6
-    assert len(definitions.crew) == 10
+    assert len(definitions.crew) == 16
     assert len(definitions.items) == 12
     assert len(definitions.events) == 15
 

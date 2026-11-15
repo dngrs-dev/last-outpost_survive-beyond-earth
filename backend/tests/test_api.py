@@ -21,7 +21,7 @@ def test_catalog(client):
     catalog = response.json()
     assert len(catalog["stations"]) == 6
     assert len({station["lunar_site_id"] for station in catalog["stations"]}) == 6
-    assert len(catalog["crew"]) == 10
+    assert len(catalog["crew"]) == 16
     assert len(catalog["items"]) == 12
     assert catalog["limits"]["max_crew"] == 4
     assert catalog["missions"][0]["duration_weeks"] == 12
@@ -39,6 +39,14 @@ def test_creation_retrieval_and_turn(client):
     assert after.json()["state"]["current_week"] == 2
     assert after.json()["turn_outcome"]["week"] == 1
     assert client.get(url).json()["state"] == after.json()["state"]
+
+
+def test_expanded_roster_uses_the_existing_four_seat_launch_contract(client):
+    ids = ["rhea", "priya", "hao", "nik"]
+    response = create_game(client, crew_ids=ids)
+    assert response.status_code == 201
+    assert [crew["id"] for crew in response.json()["state"]["crew"]] == ids
+    assert create_game(client, crew_ids=ids + ["vera"]).status_code == 422
 
 
 @pytest.mark.parametrize(

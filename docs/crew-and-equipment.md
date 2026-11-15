@@ -1,6 +1,6 @@
 # Crew and equipment design
 
-All ten characters are fictional. Names, traits, consumption, injuries, success
+All sixteen characters are fictional. Names, traits, consumption, injuries, success
 bonuses, equipment dimensions, and resource yields are original game design.
 They are not measurements of real astronauts or specifications of flight hardware.
 No astronaut photographs, biographies, or NASA logos are copied into the game.
@@ -38,6 +38,20 @@ made for character or equipment data.
 | Daria Sokol | Scientist | Calibration bonus; extra food |
 | Inez Costa | Technician | General EVA repair bonus; extra water |
 | Jules Mensah | Technician | Regulator diagnosis bonus; extra food |
+| Rhea Das | Engineer | Incident water-repair/scrubber bonuses; extra water |
+| Priya Shah | Medic | Lower event injury damage; extra water |
+| Theo Marin | Medic | Team-treatment/medical-recovery incident bonuses; greater injury damage |
+| Hao Chen | Scientist | Seismic-analysis incident bonus; extra food |
+| Vera Silva | Scientist | Kit/basic-sampling incident bonuses; extra water |
+| Nik Volkov | Technician | Antenna-alignment/battery-diagnosis bonuses; extra food |
+
+There are four people in each profession. The six additions use the existing
+probability, ration, and injury modifiers, with one benefit and one cost. Named
+incident bonuses do not imply bonuses to similarly named project phases. Existing
+probability caps still apply. Health and biological balancing values are fictional;
+specialties are training-inspired rather than real biographies. The original ten
+IDs, traits, default crew, and four-seat launch limit are preserved.
+
 
 Players assign up to four unique people to explicit slots. Empty slots are allowed
 subject to the selected mission's minimum crew. Slot order determines the selected
@@ -51,6 +65,12 @@ Elena's bonus comes from a living medic rather than from selecting Elena as a pa
 Dead crew contribute no medical bonuses and cannot be assigned actions.
 
 ## Visual crew selection
+
+Sixteen profiles use a 4-by-4 grid on wide screens, grouped into one row per
+profession. A 3-by-5 grid would leave the sixteenth person on an incomplete sixth
+row. Narrower layouts use three or two columns and internal roster scrolling;
+selection and the Next button remain available. This affects browsing order only,
+not the order of crew seats or the API's launch payload.
 
 The player flow is `/moon/` (mission), `/crew/` (crew), `/prepare/` (supplies),
 then launch. The Moon selector and legacy root station queries open `/crew/`
@@ -77,7 +97,7 @@ state, not a saved game. Only occupied crew IDs are submitted; the backend still
 validates the entire launch. No API schemas or generated fixtures change.
 
 `AstronautAvatar` and `crewAppearance` contain original, fictional SVG artwork:
-shared face/suit shapes, ten stable hair/skin/eye variants, glasses/freckles, and
+shared face/suit shapes, sixteen stable appearance variants, glasses/freckles, and
 role accents. They use no external assets or rendering dependency. The avatar
 accepts `portrait`, `pose` (`standing` / `seated`), and `mood` (`well` / `tired` /
 `unwell`) presentation inputs. Standing, well characters appear in selection.
@@ -85,6 +105,28 @@ These inputs prepare reuse in station scenes; there is no new health, hunger,
 illness, or fatigue simulation, and this selector does not change their rules.
 Future gameplay views should derive expressions from authoritative crew state,
 while keeping textual condition indicators accessible.
+
+### Shared astronaut artwork
+
+The revised SVG rig uses adult proportions, smaller eyes, shaped jaws, subtle
+expressions, and detailed suit panels, folds, gloves, boots, connectors, and seals.
+Hair, face shapes, skin/eyes, glasses, beards, and grey strands vary by appearance
+configuration. Every person uses the same `AstronautSuit` and `AstronautHead`;
+left/right limbs are mirrored instances. Portraits crop this same figure. Shared
+components, not sixteen copied costume drawings, determine the artwork.
+
+The face and hair have explicit clipping envelopes. Helmets enclose the head;
+neck seals and chest controls have distinct locations. Seated forearms paint in
+front of the torso, while standing limbs sit behind its shoulder joins. Per-avatar
+IDs scope gradients and clip paths so one portrait cannot reference another
+person's resources. The outer SVG fits its container without stretching.
+
+[NASA's spacesuit basics](https://www.nasa.gov/centers-and-facilities/johnson/spacewalk-spacesuit-basics/)
+provides functional inspiration for the helmet, torso, limbs, gloves, and life
+support layout. These remain original, stylized fictional suits; no NASA artwork,
+logos, or flight-hardware dimensions are copied. Standing/seated and well/tired/
+unwell variants are presentation inputs. Connecting them to the existing gameplay
+crew condition and assignment state remains future work.
 
 ## Cargo changes
 
