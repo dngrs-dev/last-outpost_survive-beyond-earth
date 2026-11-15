@@ -3,6 +3,7 @@ import { render, screen, fireEvent, within } from '@testing-library/react';
 import { MemoryRouter, Routes, Route } from 'react-router-dom';
 import { MoonPage } from '../pages/MoonPage';
 import { SetupPage } from '../pages/SetupPage';
+import { CrewSelectionPage } from '../pages/CrewSelectionPage';
 import * as moonApi from '../api/moon';
 import * as gameApi from '../api/game';
 import { moonArchive, catalog, game } from './fixtures/backend';
@@ -13,6 +14,7 @@ function renderMoon(path = '/moon/') {
       <Routes>
         <Route path="/moon/" element={<MoonPage />} />
         <Route path="/prepare/" element={<SetupPage />} />
+        <Route path="/crew/" element={<CrewSelectionPage />} />
         <Route path="/game/:gameId" element={<p>Active mission</p>} />
       </Routes>
     </MemoryRouter>
@@ -59,7 +61,7 @@ describe('Moon mission selection', () => {
     expect(screen.queryByRole('tablist')).not.toBeInTheDocument();
     expect(
       screen.getByRole('link', { name: /Choose this mission/ })
-    ).toHaveAttribute('href', '/prepare/?station=oceanus&lunar_site=apollo-12');
+    ).toHaveAttribute('href', '/crew/?station=oceanus&lunar_site=apollo-12');
     expect(document.body.style.overflow).toBe('hidden');
   });
 
@@ -77,7 +79,7 @@ describe('Moon mission selection', () => {
     ).toHaveAttribute('aria-pressed', 'false');
     expect(
       screen.getByRole('link', { name: /Choose this mission/ })
-    ).toHaveAttribute('href', '/prepare/?station=alpha&lunar_site=apollo-11');
+    ).toHaveAttribute('href', '/crew/?station=alpha&lunar_site=apollo-11');
   });
 
   it('also selects an outpost by clicking its dot on the actual surface', async () => {
@@ -87,7 +89,7 @@ describe('Moon mission selection', () => {
     expect(screen.getByRole('heading', { name: 'Alpha' })).toBeInTheDocument();
     expect(
       screen.getByRole('link', { name: /Choose this mission/ })
-    ).toHaveAttribute('href', '/prepare/?station=alpha&lunar_site=apollo-11');
+    ).toHaveAttribute('href', '/crew/?station=alpha&lunar_site=apollo-11');
   });
 
   it('browses every mission with next and previous and wraps around', async () => {
@@ -160,6 +162,7 @@ describe('Moon mission selection', () => {
     renderMoon('/moon/?site=apollo-15');
     await screen.findByRole('heading', { name: 'Hadley Outpost' });
     fireEvent.click(screen.getByRole('link', { name: /Choose this mission/ }));
+    fireEvent.click(await screen.findByRole('button', { name: 'Next: supplies' }));
     expect(
       await screen.findByRole('region', { name: 'Selected lunar mission' })
     ).toHaveTextContent('Hadley Outpost selected');
@@ -176,23 +179,15 @@ describe('Moon mission selection', () => {
     );
   });
 
-  it('requires two crew for the long mission during preparation', async () => {
-    renderMoon('/prepare/?station=taurus&lunar_site=apollo-17');
-    await screen.findByRole('region', { name: 'Selected lunar mission' });
-    for (const index of [2, 3, 4])
-      fireEvent.change(
-        screen.getByRole('combobox', { name: `Crew slot ${index}` }),
-        { target: { value: '' } }
-      );
-    expect(
-      screen.getByRole('button', { name: /LAUNCH EXPEDITION TO MOON/ })
-    ).toBeDisabled();
-    fireEvent.change(screen.getByRole('combobox', { name: 'Crew slot 2' }), {
-      target: { value: 'maya' },
-    });
-    expect(
-      screen.getByRole('button', { name: /LAUNCH EXPEDITION TO MOON/ })
-    ).toBeEnabled();
+  it('requires two crew for the long mission on the crew screen', async () => {
+    renderMoon('/crew/?station=taurus&lunar_site=apollo-17');
+    await screen.findByRole('heading', { name: 'Alex Vega' });
+    for (const name of ['Maya Okafor', 'Lin Park', 'Sam Nowak'])
+      fireEvent.click(screen.getByRole('button', { name: `Remove ${name}` }));
+    expect(screen.getByRole('button', { name: 'Next: supplies' })).toBeDisabled();
+    fireEvent.click(screen.getByRole('button', { name: /^View Maya/ }));
+    fireEvent.click(screen.getByRole('button', { name: 'Add to crew' }));
+    expect(screen.getByRole('button', { name: 'Next: supplies' })).toBeEnabled();
   });
 
   it('falls back to the recommended mission for an unknown deep link', async () => {
@@ -243,7 +238,7 @@ describe('Moon mission selection', () => {
     ).toBeDisabled();
     expect(
       screen.getByRole('link', { name: /Choose this mission/ })
-    ).toHaveAttribute('href', '/prepare/?station=alpha&lunar_site=apollo-11');
+    ).toHaveAttribute('href', '/crew/?station=alpha&lunar_site=apollo-11');
   });
 
   it('lets keyboard users rotate the Moon and find their selected outpost again', async () => {

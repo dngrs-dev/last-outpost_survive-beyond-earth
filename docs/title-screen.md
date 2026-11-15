@@ -1,9 +1,10 @@
 # Title screen
 
 `/` is the full-screen game menu: **LAST OUTPOST**, **survive beyond earth**, Play,
-and Load. Play opens `/moon/`; a selected outpost opens `/prepare/` with its station
-and landing-site query parameters. Old root links with `station` or `lunar_site`
-redirect to preparation, preserving the query. Direct `/prepare/` still defaults
+and Load. Play opens `/moon/`; a selected outpost opens `/crew/` with its station
+and landing-site query parameters. Crew selection continues to supplies at
+`/prepare/`. Old root links with `station` or `lunar_site` redirect to crew
+selection, preserving the query. Direct `/prepare/` still defaults
 to Alpha. Active games and results retain their existing URLs and API contracts.
 
 ## Earth viewed from the Moon

@@ -131,7 +131,7 @@ export function MoonPage() {
           >
             Try again
           </button>
-          <Link to="/prepare/">Go to mission preparation</Link>
+          <Link to="/crew/">Go to crew selection</Link>
         </section>
       ) : !data || !selected ? (
         <p className={styles.loading} role="status">

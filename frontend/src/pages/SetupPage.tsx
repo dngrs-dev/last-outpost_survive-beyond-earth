@@ -1,17 +1,21 @@
 import React, { useEffect, useState } from 'react';
-import { Link, useNavigate, useSearchParams } from 'react-router-dom';
+import { Link, useLocation, useNavigate, useSearchParams } from 'react-router-dom';
 import { fetchCatalog, createGame } from '../api/game';
 import { EnergyPanel } from '../components/EnergyPanel';
 import { Header } from '../components/Header';
-import { CrewSlots } from '../components/CrewSlots';
+import { SelectedCrew } from '../components/SelectedCrew';
 import { CargoSelector } from '../components/CargoSelector';
 import { ResearchObjectives } from '../components/ResearchObjectives';
 import { rememberMission } from '../state/lastMission';
+import { crewSelectionPath, readCrewSlots, readSupplyDraft } from '../state/preparation';
 import type { CatalogResponse } from '../types/game';
 
 export const SetupPage: React.FC = () => {
   const navigate = useNavigate();
+  const location = useLocation();
+  const supplyDraft = readSupplyDraft(location.state);
   const [params] = useSearchParams();
+  const crewQuery = params.get('crew');
   const lunarSiteId = params.get('lunar_site');
   const requestedStationId = params.get('station');
   const [catalog, setCatalog] = useState<CatalogResponse | null>(null);
@@ -23,7 +27,7 @@ export const SetupPage: React.FC = () => {
   const [selectedStationId, setSelectedStationId] = useState<string>('alpha');
   const [crewSlots, setCrewSlots] = useState<string[]>(['alex', 'maya', 'lin', 'sam']);
   const selectedCrewIds = crewSlots.filter(Boolean);
-  const [cargo, setCargo] = useState<Record<string, number>>({
+  const [cargo, setCargo] = useState<Record<string, number>>(supplyDraft?.cargo || {
     food_packs: 8,
     water_containers: 16,
     medicine_kits: 7,
@@ -31,14 +35,18 @@ export const SetupPage: React.FC = () => {
     eva_batteries: 7,
     oxygen_tanks: 4,
   });
-  const [seed, setSeed] = useState<string>('42');
+  const [seed, setSeed] = useState<string>(supplyDraft?.seed ?? '42');
 
   useEffect(() => {
     let mounted = true;
+    setLoading(true);
     fetchCatalog()
       .then((data) => {
         if (mounted) {
           setCatalog(data);
+          const crewParams = new URLSearchParams();
+          if (crewQuery !== null) crewParams.set('crew', crewQuery);
+          setCrewSlots(readCrewSlots(crewParams, data.crew, data.limits.max_crew).slots);
           const selected = requestedStationId
             ? data.stations.find((entry) => entry.id === requestedStationId && (!lunarSiteId || entry.lunar_site_id === lunarSiteId))
             : data.stations.find((entry) => lunarSiteId ? entry.lunar_site_id === lunarSiteId : entry.id === 'alpha');
@@ -59,7 +67,7 @@ export const SetupPage: React.FC = () => {
     return () => {
       mounted = false;
     };
-  }, [lunarSiteId, requestedStationId]);
+  }, [lunarSiteId, requestedStationId, crewQuery]);
 
   const handleCargoChange = (itemId: string, qty: number) => {
     setCargo((prev) => ({
@@ -159,6 +167,7 @@ export const SetupPage: React.FC = () => {
     <div className="app-container">
       <Header />
 
+      <h1 style={{ fontSize: '1.8rem', marginBottom: '1rem' }}>Pack your supplies</h1>
       <form onSubmit={handleStartMission}>
         {(lunarSiteId || requestedStationId) && station && <section className="alert alert-info" aria-label="Selected lunar mission" style={{ display: 'block' }}>
           <strong>{station.name} selected</strong>
@@ -229,8 +238,8 @@ export const SetupPage: React.FC = () => {
 
         {mission && <ResearchObjectives objectives={mission.science_objectives} />}
 
-        {catalog && <CrewSlots crew={catalog.crew} slots={crewSlots} minCrew={minCrew}
-          maxCrew={maxCrew} onChange={setCrewSlots} disabled={submitting} />}
+        {catalog && <SelectedCrew crew={catalog.crew} slots={crewSlots} minCrew={minCrew}
+          onEdit={() => station && navigate(crewSelectionPath(station, crewSlots), { state: { supplies: { cargo, seed } } })} disabled={submitting} />}
 
         {/* Cargo Selection Component */}
         {catalog && (

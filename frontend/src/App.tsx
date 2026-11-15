@@ -5,11 +5,12 @@ import { GamePage } from './pages/GamePage';
 import { ResultsPage } from './pages/ResultsPage';
 import { MoonPage } from './pages/MoonPage';
 import { StartPage } from './pages/StartPage';
+import { CrewSelectionPage } from './pages/CrewSelectionPage';
 
 function HomeRoute() {
   const [params] = useSearchParams();
   if (params.has('station') || params.has('lunar_site')) {
-    return <Navigate to={`/prepare/?${params.toString()}`} replace />;
+    return <Navigate to={`/crew/?${params.toString()}`} replace />;
   }
   return <StartPage />;
 }
@@ -21,6 +22,7 @@ export const App: React.FC = () => {
         <Route path="/moon/" element={<MoonPage />} />
         <Route path="/" element={<HomeRoute />} />
         <Route path="/prepare/" element={<SetupPage />} />
+        <Route path="/crew/" element={<CrewSelectionPage />} />
         <Route path="/game/:gameId" element={<GamePage />} />
         <Route path="/results/:gameId" element={<ResultsPage />} />
         <Route path="*" element={<Navigate to="/" replace />} />

@@ -1,8 +1,8 @@
 # LAST OUTPOST - Game Design and Technical Specification
 
 > Title-screen update: `/` now shows an Earth-from-the-Moon title scene with Play
-> and Load. `/moon/` selects a mission; `/prepare/` configures crew and supplies.
-> Legacy root station links redirect to preparation. Load is a browser game-ID
+> and Load. `/moon/` selects a mission; `/crew/` selects the crew; `/prepare/`
+> configures supplies. Legacy root station links redirect to crew selection. Load is a browser game-ID
 > bookmark checked against the in-memory backend, not a durable save system.
 > See `title-screen.md` for NASA imagery, artistic limits, motion, and routes.
 
@@ -76,6 +76,13 @@
 > history and system values; previous/next controls support every mission and
 > the non-3D fallback. The easiest mission is recommended without changing its
 > backend rules. Phone and laptop layouts share the same selection flow.
+
+> Crew-screen update: a dedicated visual roster now follows mission selection.
+> Original SVG portraits, role badges, a full-body preview, explicit seat swaps,
+> and selected checks replace the preparation dropdowns. The roster retains
+> catalog traits, ration costs, crew limits, and mission minimums. Supplies receive
+> the selected IDs in slot order. See `crew-and-equipment.md` for routing, draft
+> preservation, SVG pose/expression inputs, and future gameplay integration.
 
 **Project name:** LAST OUTPOST  
 **Subtitle:** Lunar Survival  
@@ -1389,7 +1396,8 @@ Current routes:
 
 - `/` — Title menu: Play / Load.
 - `/moon/` — Lunar mission selection.
-- `/prepare/` — Mission preparation (legacy root station queries redirect here).
+- `/crew/` — Visual crew selection (legacy root station queries redirect here).
+- `/prepare/` — Supplies and launch, with the selected crew summary.
 - `/game/:gameId` — Active gameplay.
 - `/results/:gameId` — Mission results.
 

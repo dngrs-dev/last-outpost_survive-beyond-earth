@@ -1,5 +1,10 @@
 # Third-party data and assets
 
+The crew portraits, full-body astronaut SVGs, and profession icons are original
+fictional project artwork. They do not use astronaut photographs, NASA logos,
+or third-party character assets. NASA training links provide context for the
+existing professions, not the artwork or numerical character traits.
+
 ## Lunar surface map
 
 - Local file: `frontend/public/images/moon/lroc_color_2k.jpg`.

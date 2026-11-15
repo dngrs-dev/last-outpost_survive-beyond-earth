@@ -29,14 +29,19 @@ All balancing values are fictional gameplay units.
 
 The `/moon/` mission selector puts a large interactive Moon against a space backdrop.
 Choose named outpost markers or browse missions from easier to harder. One compact
-card shows the selected mission and opens crew preparation; Oceanus is recommended
+card shows the selected mission and opens crew selection; Oceanus is recommended
 for first-time players. Detailed supplies, systems, history, and sources are available
 on demand. The screen adapts to phones and laptops without a website header, footer,
 or side directory.
 The root `/` is now a full-screen title menu, with a rotating NASA Blue Marble Earth
 above a real Apollo 17 panorama. Play opens Moon selection; Load resumes this
-browser's last server-held mission. Crew preparation now lives at `/prepare/`
-(default Alpha); older root station links redirect there. Load does not persist
+browser's last server-held mission. `/crew/` is a dedicated visual roster: inspect
+ten original SVG astronauts, choose up to four unique teammates, then continue to
+supplies at `/prepare/`. Portraits have role icons and selected checks, with a
+full-body preview, traits, and ration costs. Four visible seats support swaps and
+empty seats. Mission minimums still apply. Changing crew from supplies retains
+packed cargo and the seed. Older root station links now open crew selection.
+Direct preparation links still work (default Alpha). Load does not persist
 games across backend restarts. Motion can be paused and respects reduced-motion
 preferences. Scene credits explain the real imagery and illustrative composition.
 Historical data and imagery remain sourced; outpost conditions are fictional game

@@ -15,8 +15,8 @@ The SVS map is optimized for visualization rather than scientific measurements.
 Leaders separate nearby site labels while the dots retain their actual coordinates.
 
 Every landing site now has a distinct fictional outpost and survival contract.
-The launch button opens, for example, `/prepare/?station=hadley&lunar_site=apollo-15`.
-Preparation selects that outpost and its actual mission duration; game creation
+The launch button opens, for example, `/crew/?station=hadley&lunar_site=apollo-15`.
+Crew selection preserves that outpost and its actual mission duration; game creation
 sends that station ID to the backend. Station IDs, difficulty, supplies, generation,
 and initial damage are authored gameplay configuration, not historical NASA data.
 The importer derives site-to-station links from `backend/data/stations.json` and
@@ -45,7 +45,8 @@ information can scroll inside an optional native modal. That modal retains Missi
 Systems, and History tabs, keyboard navigation, source links, and reuse notices.
 Escape/Close returns focus to its opener. No new imagery or rendering dependency
 is required. The [title/Play/Load screen](title-screen.md) now lives at `/`;
-preparation is at `/prepare/`. Old root station links redirect to preparation,
+crew selection is at `/crew/`, followed by supplies at `/prepare/`.
+Old root station links redirect to crew selection,
 and the active-game and results routes remain unchanged.
 
 ## Sources

@@ -20,7 +20,7 @@ describe('Title and preparation routes', () => {
     expect(api.fetchCatalog).not.toHaveBeenCalled();
   });
 
-  it('keeps old station links working by redirecting to preparation', async () => {
+  it('keeps old station links working by redirecting to crew selection', async () => {
     window.history.replaceState(
       null,
       '',
@@ -28,9 +28,9 @@ describe('Title and preparation routes', () => {
     );
     render(<App />);
     expect(
-      await screen.findByRole('region', { name: 'Selected lunar mission' })
-    ).toHaveTextContent('Hadley Outpost selected');
-    expect(window.location.pathname).toBe('/prepare/');
+      await screen.findByText('Hadley Outpost')
+    ).toBeInTheDocument();
+    expect(window.location.pathname).toBe('/crew/');
     expect(window.location.search).toBe('?station=hadley&lunar_site=apollo-15');
   });
 });

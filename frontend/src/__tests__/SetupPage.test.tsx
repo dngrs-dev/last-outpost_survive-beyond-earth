@@ -10,6 +10,7 @@ describe('SetupPage', () => {
   beforeEach(() => {
     vi.restoreAllMocks();
     localStorage.clear();
+    window.history.replaceState(null, '', '/prepare/');
     vi.spyOn(gameApi, 'fetchCatalog').mockResolvedValue(mockCatalog);
   });
 
@@ -32,23 +33,13 @@ describe('SetupPage', () => {
     expect(screen.getByText('Water containers')).toBeInTheDocument();
   });
 
-  it('allows selecting and deselecting astronauts', async () => {
-    render(
-      <BrowserRouter>
-        <SetupPage />
-      </BrowserRouter>
-    );
-
-    await waitFor(() => {
-      expect(screen.getByRole('heading', { name: 'Alex Vega' })).toBeInTheDocument();
-    });
-
-    const slot = screen.getByRole('combobox', { name: 'Crew slot 1' });
-    fireEvent.change(slot, { target: { value: '' } });
-    expect(slot).toHaveValue('');
-    fireEvent.change(slot, { target: { value: 'nora' } });
-    expect(screen.getByRole('heading', { name: 'Nora Haddad' })).toBeInTheDocument();
-
+  it('uses the crew selected on the visual roster screen', async () => {
+    window.history.replaceState(null, '', '/prepare/?station=alpha&crew=nora,maya,,sam');
+    render(<BrowserRouter><SetupPage /></BrowserRouter>);
+    expect(await screen.findByRole('heading', { name: 'Nora Haddad' })).toBeInTheDocument();
+    expect(screen.queryByRole('heading', { name: 'Alex Vega' })).not.toBeInTheDocument();
+    expect(screen.getByRole('region', { name: 'Selected crew' })).toHaveTextContent('3/4');
+    expect(screen.getByRole('button', { name: 'Change crew' })).toBeEnabled();
   });
 
   it('increments and decrements cargo quantities', async () => {

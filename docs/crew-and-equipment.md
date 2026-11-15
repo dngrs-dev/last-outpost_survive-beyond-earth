@@ -50,6 +50,42 @@ probability bounds. For individual treatment, the selected person is the patient
 Elena's bonus comes from a living medic rather than from selecting Elena as a patient.
 Dead crew contribute no medical bonuses and cannot be assigned actions.
 
+## Visual crew selection
+
+The player flow is `/moon/` (mission), `/crew/` (crew), `/prepare/` (supplies),
+then launch. The Moon selector and legacy root station queries open `/crew/`
+with station and landing-site identity preserved. Direct preparation URLs remain
+supported. The existing four starter astronauts are preselected; every choice is
+editable. Each mission's catalog minimum and the catalog crew limit gate Next.
+
+Portrait cards show head-and-shoulder SVG art, icon-only role badges, and green
+borders/checks for selected people. Clicking a portrait, including its role badge,
+only inspects that person. Their full-body preview, profession, specialty, traits,
+and backend-provided ration costs appear on the right. Add, Remove, and Replace
+are explicit actions. Select a bottom seat to choose which person to replace;
+new additions otherwise target an empty seat. Empty seats are allowed. A selected
+person cannot fill another seat. Keyboard focus and accessible names distinguish
+inspection from selection. Phones retain both panels and scroll the portrait
+roster or dossier internally as needed; Next and the seats stay on screen.
+
+Crew IDs and empty seats are encoded in the `crew` query in seat order, so refresh,
+back, and direct links retain the team. Duplicate/unknown/excess URL entries are
+removed with an explanation. The supplies screen displays the selected team and
+a Change crew action. That action carries the cargo/seed draft through router
+history, preserving it on return, including a blank seed. This is launch-form
+state, not a saved game. Only occupied crew IDs are submitted; the backend still
+validates the entire launch. No API schemas or generated fixtures change.
+
+`AstronautAvatar` and `crewAppearance` contain original, fictional SVG artwork:
+shared face/suit shapes, ten stable hair/skin/eye variants, glasses/freckles, and
+role accents. They use no external assets or rendering dependency. The avatar
+accepts `portrait`, `pose` (`standing` / `seated`), and `mood` (`well` / `tired` /
+`unwell`) presentation inputs. Standing, well characters appear in selection.
+These inputs prepare reuse in station scenes; there is no new health, hunger,
+illness, or fatigue simulation, and this selector does not change their rules.
+Future gameplay views should derive expressions from authoritative crew state,
+while keeping textual condition indicators accessible.
+
 ## Cargo changes
 
 The six existing cargo IDs remain compatible. Medicine descriptions now distinguish

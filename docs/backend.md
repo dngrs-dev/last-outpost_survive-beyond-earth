@@ -235,7 +235,8 @@ The viewport-sized Moon selector now emphasizes the globe, named surface markers
 and one selected mission card. Previous/next navigation also works without 3D.
 The easiest mission is recommended, while explicit site links are preserved.
 Mission / Systems / History details and source attribution live in an optional
-modal. Preparation now lives at `/prepare/`; legacy root station links redirect
-there. The root is the [title menu](title-screen.md). Game-creation and game-state
+modal. The visual roster at `/crew/` follows mission selection, then hands the
+chosen crew to supplies at `/prepare/`. Legacy root station links open the roster.
+The root is the [title menu](title-screen.md). Game-creation and game-state
 contracts remain unchanged. Load keeps only a game-ID bookmark in browser storage
 and fetches the authoritative state; it cannot recover games after server restarts.
