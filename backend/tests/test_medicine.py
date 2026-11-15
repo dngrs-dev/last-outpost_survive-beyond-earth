@@ -2,7 +2,7 @@ from copy import deepcopy
 from types import SimpleNamespace
 
 import pytest
-from conftest import normal_rations
+from conftest import launch_cargo, normal_rations
 
 from app.game.events import apply_effects, seeded_rng
 from app.game.health import capacity_reasons
@@ -23,14 +23,18 @@ def medical_state(quiet_engine, monkeypatch):
     return quiet_engine.create_game(
         "alpha",
         ["alex", "maya", "lin", "sam"],
-        {
-            "medicine_kits": 5,
-            "scientific_tools": 1,
-            "eva_batteries": 4,
-            "repair_kits": 4,
-            "food_packs": 8,
-            "water_containers": 16,
-        },
+        launch_cargo(
+            quiet_engine,
+            "alpha",
+            {
+                "medicine_kits": 5,
+                "scientific_tools": 1,
+                "eva_batteries": 4,
+                "repair_kits": 4,
+                "food_packs": 8,
+                "water_containers": 16,
+            },
+        ),
         42,
     )
 
@@ -163,7 +167,7 @@ def test_invalid_medical_targets_reject_atomically(quiet_engine, medical_state, 
 
 
 def test_critical_solo_crew_can_stabilize_and_recover_using_self_care(quiet_engine):
-    state = quiet_engine.create_game("alpha", ["alex"], {}, 42)
+    state = quiet_engine.create_game("alpha", ["alex"], launch_cargo(quiet_engine, "alpha", {}), 42)
     state.crew[0].health = 20
     add_condition(state.crew[0], "bleeding_wound", 0)
     assert capacity_reasons(state.crew[0], "light")
@@ -302,7 +306,7 @@ def test_medical_http_contract_and_retries_do_not_repeat_care(client):
         json={
             "station_id": "alpha",
             "crew_ids": ["alex", "maya", "lin"],
-            "cargo": {"medicine_kits": 2},
+            "cargo": {"medicine_kits": 2, "scientific_tools": 1, "eva_batteries": 2},
             "random_seed": 42,
         },
     ).json()

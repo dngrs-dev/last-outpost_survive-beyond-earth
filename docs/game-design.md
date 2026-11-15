@@ -2054,3 +2054,8 @@ The initial target is:
 The project should remain expandable to six stations and eight crew members without requiring a rewrite.
 
 **The ultimate goal is to create a polished, replayable lunar survival game where the player's preparation, resource management, and decisions determine whether the crew survives until the next rotation.**
+
+
+### Objective equipment at launch
+
+Launch requires enough retained tools and non-renewable consumables for one attempt at each planned objective unit, derived from the canonical research activities. Shared tools count once; EVA packs and repair kits are summed. Outpost stock counts toward the requirement. Renewable oxygen and electricity are excluded from this equipment check. Failures, maintenance and survival still need extra reserves. Incident science remains an alternative route during play. `GET /api/catalog` publishes each mission's `required_resources`; invalid direct launch requests return 422 before a game is created.

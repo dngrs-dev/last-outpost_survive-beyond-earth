@@ -5,6 +5,7 @@ import pytest
 from fastapi.testclient import TestClient
 
 from app.game.engine import GameEngine
+from app.game.launch import minimum_cargo
 from app.game.loader import load_definitions
 from app.game.models import Ration
 from app.main import create_app
@@ -30,7 +31,9 @@ def quiet_engine(definitions):
 
 @pytest.fixture
 def state(quiet_engine):
-    return quiet_engine.create_game("alpha", ["alex", "maya"], {}, random_seed=42)
+    return quiet_engine.create_game(
+        "alpha", ["alex", "maya"], launch_cargo(quiet_engine, "alpha", {}), random_seed=42
+    )
 
 
 @pytest.fixture
@@ -68,3 +71,10 @@ def with_event(state, event_id):
     result = deepcopy(state)
     result.current_event_id = event_id
     return result
+
+
+def launch_cargo(engine, station_id, cargo):
+    """Provision objective equipment explicitly in test setup (extras may override)."""
+    if station_id not in engine.definitions.stations:
+        return cargo
+    return {**minimum_cargo(engine.definitions, station_id), **cargo}

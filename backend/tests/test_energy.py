@@ -2,7 +2,7 @@ import json
 from copy import deepcopy
 
 import pytest
-from conftest import normal_rations
+from conftest import launch_cargo, normal_rations
 
 from app.game.energy import daylight_fraction
 from app.game.loader import DEFAULT_DATA
@@ -40,8 +40,8 @@ def test_longitude_changes_local_lighting_not_seed(definitions, engine):
     assert daylight_fraction(oceanus, definitions.lighting, 1) < daylight_fraction(
         alpha, definitions.lighting, 1
     )
-    first = engine.create_game("alpha", ["alex"], {}, 1)
-    second = engine.create_game("alpha", ["alex"], {}, 200)
+    first = engine.create_game("alpha", ["alex"], launch_cargo(engine, "alpha", {}), 1)
+    second = engine.create_game("alpha", ["alex"], launch_cargo(engine, "alpha", {}), 200)
     assert (
         engine.state_view(first)["energy"]["forecast"][3]["daylight_fraction"]
         == engine.state_view(second)["energy"]["forecast"][3]["daylight_fraction"]
@@ -102,7 +102,9 @@ def test_solar_generation_can_fund_recording_under_selected_priority(quiet_engin
 
 
 def test_starting_power_cells_and_event_gains_obey_capacity(quiet_engine):
-    state = quiet_engine.create_game("alpha", ["alex"], {"power_cells": 10}, 42)
+    state = quiet_engine.create_game(
+        "alpha", ["alex"], launch_cargo(quiet_engine, "alpha", {"power_cells": 10}), 42
+    )
     assert state.resources["electricity"] == state.battery_capacity
     from app.game.events import apply_effects
     from app.game.models import Effects
@@ -113,7 +115,7 @@ def test_starting_power_cells_and_event_gains_obey_capacity(quiet_engine):
 
 def test_priority_replay_is_exact_and_changed_priority_with_same_id_rejected(quiet_engine):
     store = GameStore(quiet_engine)
-    game = store.create("alpha", ["alex"], {}, 42)
+    game = store.create("alpha", ["alex"], launch_cargo(store.engine, "alpha", {}), 42)
     body = {
         "expected_week": 1,
         "request_id": "power",

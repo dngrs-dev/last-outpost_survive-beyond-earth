@@ -35,6 +35,7 @@ def main() -> None:
                 "repair_kits": 7,
                 "eva_batteries": 7,
                 "medicine_kits": 7,
+                "scientific_tools": 1,
             },
             "random_seed": seed,
         },

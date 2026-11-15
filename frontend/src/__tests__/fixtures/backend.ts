@@ -926,7 +926,12 @@ export const catalog: CatalogResponse = {
           ],
           "source_url": "https://www.nasa.gov/reference/9-0-hardware-and-equipment-vol-2/"
         }
-      ]
+      ],
+      "required_resources": {
+        "scientific_tools": 1,
+        "eva_batteries": 3,
+        "repair_kits": 1
+      }
     },
     {
       "id": "oceanus_relief",
@@ -976,7 +981,12 @@ export const catalog: CatalogResponse = {
           ],
           "source_url": "https://www.nasa.gov/reference/9-0-hardware-and-equipment-vol-2/"
         }
-      ]
+      ],
+      "required_resources": {
+        "scientific_tools": 1,
+        "eva_batteries": 1,
+        "repair_kits": 1
+      }
     },
     {
       "id": "fra_mauro_watch",
@@ -1026,7 +1036,12 @@ export const catalog: CatalogResponse = {
           ],
           "source_url": "https://www.nasa.gov/reference/9-0-hardware-and-equipment-vol-2/"
         }
-      ]
+      ],
+      "required_resources": {
+        "scientific_tools": 1,
+        "eva_batteries": 3,
+        "repair_kits": 1
+      }
     },
     {
       "id": "hadley_survey",
@@ -1087,7 +1102,12 @@ export const catalog: CatalogResponse = {
           ],
           "source_url": "https://www.nasa.gov/reference/9-0-hardware-and-equipment-vol-2/"
         }
-      ]
+      ],
+      "required_resources": {
+        "scientific_tools": 1,
+        "eva_batteries": 5,
+        "repair_kits": 1
+      }
     },
     {
       "id": "descartes_endurance",
@@ -1148,7 +1168,12 @@ export const catalog: CatalogResponse = {
           ],
           "source_url": "https://www.nasa.gov/reference/9-0-hardware-and-equipment-vol-2/"
         }
-      ]
+      ],
+      "required_resources": {
+        "scientific_tools": 1,
+        "eva_batteries": 5,
+        "repair_kits": 1
+      }
     },
     {
       "id": "taurus_longwatch",
@@ -1209,7 +1234,12 @@ export const catalog: CatalogResponse = {
           ],
           "source_url": "https://www.nasa.gov/reference/9-0-hardware-and-equipment-vol-2/"
         }
-      ]
+      ],
+      "required_resources": {
+        "scientific_tools": 1,
+        "eva_batteries": 6,
+        "repair_kits": 1
+      }
     }
   ],
   "crew": [
@@ -2279,7 +2309,7 @@ export const energyPriorityGame: GameResponse = {
       "oxygen_regulators": 0.0,
       "diagnostic_tools": 0.0,
       "sealant_packs": 0.0,
-      "scientific_tools": 0.0,
+      "scientific_tools": 1.0,
       "research_data": 0.0,
       "wastewater": 12.0,
       "co2": 0.0
@@ -3118,8 +3148,7 @@ export const energyPriorityGame: GameResponse = {
         "available": false,
         "unavailable_reasons": [
           "Requires at least 1 living astronauts fit for this workload.",
-          "Respiratory irritation: EVA unavailable until recovered; indoor work remains possible.",
-          "Requires 1 Field science kit (not consumed)."
+          "Respiratory irritation: EVA unavailable until recovered; indoor work remains possible."
         ],
         "eligible_crew": [
           {
@@ -3127,8 +3156,7 @@ export const energyPriorityGame: GameResponse = {
             "available": false,
             "unavailable_reasons": [
               "Requires at least 1 living astronauts fit for this workload.",
-              "Respiratory irritation: EVA unavailable until recovered; indoor work remains possible.",
-              "Requires 1 Field science kit (not consumed)."
+              "Respiratory irritation: EVA unavailable until recovered; indoor work remains possible."
             ],
             "success_probability": 0.75
           },
@@ -3137,8 +3165,7 @@ export const energyPriorityGame: GameResponse = {
             "available": false,
             "unavailable_reasons": [
               "Requires at least 1 living astronauts fit for this workload.",
-              "Respiratory irritation: EVA unavailable until recovered; indoor work remains possible.",
-              "Requires 1 Field science kit (not consumed)."
+              "Respiratory irritation: EVA unavailable until recovered; indoor work remains possible."
             ],
             "success_probability": 0.7
           }
@@ -3195,8 +3222,7 @@ export const energyPriorityGame: GameResponse = {
         "available": false,
         "unavailable_reasons": [
           "Requires at least 1 living astronauts fit for this workload.",
-          "Respiratory irritation: EVA unavailable until recovered; indoor work remains possible.",
-          "Requires 1 Field science kit (not consumed)."
+          "Respiratory irritation: EVA unavailable until recovered; indoor work remains possible."
         ],
         "eligible_crew": [
           {
@@ -3204,8 +3230,7 @@ export const energyPriorityGame: GameResponse = {
             "available": false,
             "unavailable_reasons": [
               "Requires at least 1 living astronauts fit for this workload.",
-              "Respiratory irritation: EVA unavailable until recovered; indoor work remains possible.",
-              "Requires 1 Field science kit (not consumed)."
+              "Respiratory irritation: EVA unavailable until recovered; indoor work remains possible."
             ],
             "success_probability": 0.75
           },
@@ -3214,8 +3239,7 @@ export const energyPriorityGame: GameResponse = {
             "available": false,
             "unavailable_reasons": [
               "Requires at least 1 living astronauts fit for this workload.",
-              "Respiratory irritation: EVA unavailable until recovered; indoor work remains possible.",
-              "Requires 1 Field science kit (not consumed)."
+              "Respiratory irritation: EVA unavailable until recovered; indoor work remains possible."
             ],
             "success_probability": 0.7
           }
@@ -3277,25 +3301,19 @@ export const energyPriorityGame: GameResponse = {
         },
         "required_role": null,
         "minimum_crew": 1,
-        "available": false,
-        "unavailable_reasons": [
-          "Requires 1 Field science kit (not consumed)."
-        ],
+        "available": true,
+        "unavailable_reasons": [],
         "eligible_crew": [
           {
             "crew_id": "alex",
-            "available": false,
-            "unavailable_reasons": [
-              "Requires 1 Field science kit (not consumed)."
-            ],
+            "available": true,
+            "unavailable_reasons": [],
             "success_probability": 0.9
           },
           {
             "crew_id": "maya",
-            "available": false,
-            "unavailable_reasons": [
-              "Requires 1 Field science kit (not consumed)."
-            ],
+            "available": true,
+            "unavailable_reasons": [],
             "success_probability": 0.65
           }
         ],
@@ -3610,7 +3628,7 @@ export const energyPriorityTurn: TurnResponse = {
       "oxygen_regulators": 0.0,
       "diagnostic_tools": 0.0,
       "sealant_packs": 0.0,
-      "scientific_tools": 0.0,
+      "scientific_tools": 1.0,
       "research_data": 0.0,
       "wastewater": 11.36,
       "co2": 0.0
@@ -4546,26 +4564,20 @@ export const energyPriorityTurn: TurnResponse = {
         },
         "required_role": null,
         "minimum_crew": 1,
-        "available": false,
-        "unavailable_reasons": [
-          "Requires 1 Field science kit (not consumed).",
-          "Respiratory irritation: EVA unavailable until recovered; indoor work remains possible."
-        ],
+        "available": true,
+        "unavailable_reasons": [],
         "eligible_crew": [
           {
             "crew_id": "alex",
-            "available": false,
-            "unavailable_reasons": [
-              "Requires 1 Field science kit (not consumed)."
-            ],
+            "available": true,
+            "unavailable_reasons": [],
             "success_probability": 0.8
           },
           {
             "crew_id": "maya",
             "available": false,
             "unavailable_reasons": [
-              "Respiratory irritation: EVA unavailable until recovered; indoor work remains possible.",
-              "Requires 1 Field science kit (not consumed)."
+              "Respiratory irritation: EVA unavailable until recovered; indoor work remains possible."
             ],
             "success_probability": 0.7
           }
@@ -4619,26 +4631,20 @@ export const energyPriorityTurn: TurnResponse = {
         },
         "required_role": null,
         "minimum_crew": 1,
-        "available": false,
-        "unavailable_reasons": [
-          "Requires 1 Field science kit (not consumed).",
-          "Respiratory irritation: EVA unavailable until recovered; indoor work remains possible."
-        ],
+        "available": true,
+        "unavailable_reasons": [],
         "eligible_crew": [
           {
             "crew_id": "alex",
-            "available": false,
-            "unavailable_reasons": [
-              "Requires 1 Field science kit (not consumed)."
-            ],
+            "available": true,
+            "unavailable_reasons": [],
             "success_probability": 0.8
           },
           {
             "crew_id": "maya",
             "available": false,
             "unavailable_reasons": [
-              "Respiratory irritation: EVA unavailable until recovered; indoor work remains possible.",
-              "Requires 1 Field science kit (not consumed)."
+              "Respiratory irritation: EVA unavailable until recovered; indoor work remains possible."
             ],
             "success_probability": 0.7
           }
@@ -4700,25 +4706,19 @@ export const energyPriorityTurn: TurnResponse = {
         },
         "required_role": null,
         "minimum_crew": 1,
-        "available": false,
-        "unavailable_reasons": [
-          "Requires 1 Field science kit (not consumed)."
-        ],
+        "available": true,
+        "unavailable_reasons": [],
         "eligible_crew": [
           {
             "crew_id": "alex",
-            "available": false,
-            "unavailable_reasons": [
-              "Requires 1 Field science kit (not consumed)."
-            ],
+            "available": true,
+            "unavailable_reasons": [],
             "success_probability": 0.95
           },
           {
             "crew_id": "maya",
-            "available": false,
-            "unavailable_reasons": [
-              "Requires 1 Field science kit (not consumed)."
-            ],
+            "available": true,
+            "unavailable_reasons": [],
             "success_probability": 0.65
           }
         ],
@@ -5222,7 +5222,7 @@ export const dehydratedGame: GameResponse = {
       "oxygen_regulators": 0.0,
       "diagnostic_tools": 0.0,
       "sealant_packs": 0.0,
-      "scientific_tools": 0.0,
+      "scientific_tools": 1.0,
       "research_data": 0.0,
       "wastewater": 9.344,
       "co2": 0.0
@@ -6047,8 +6047,7 @@ export const dehydratedGame: GameResponse = {
         "available": false,
         "unavailable_reasons": [
           "Requires at least 1 living astronauts fit for this workload.",
-          "Condition permits light duties only; EVA and strenuous work are unavailable.",
-          "Requires 1 Field science kit (not consumed)."
+          "Condition permits light duties only; EVA and strenuous work are unavailable."
         ],
         "eligible_crew": [
           {
@@ -6056,8 +6055,7 @@ export const dehydratedGame: GameResponse = {
             "available": false,
             "unavailable_reasons": [
               "Requires at least 1 living astronauts fit for this workload.",
-              "Condition permits light duties only; EVA and strenuous work are unavailable.",
-              "Requires 1 Field science kit (not consumed)."
+              "Condition permits light duties only; EVA and strenuous work are unavailable."
             ],
             "success_probability": 0.725
           },
@@ -6066,8 +6064,7 @@ export const dehydratedGame: GameResponse = {
             "available": false,
             "unavailable_reasons": [
               "Requires at least 1 living astronauts fit for this workload.",
-              "Condition permits light duties only; EVA and strenuous work are unavailable.",
-              "Requires 1 Field science kit (not consumed)."
+              "Condition permits light duties only; EVA and strenuous work are unavailable."
             ],
             "success_probability": 0.675
           }
@@ -6124,8 +6121,7 @@ export const dehydratedGame: GameResponse = {
         "available": false,
         "unavailable_reasons": [
           "Requires at least 1 living astronauts fit for this workload.",
-          "Condition permits light duties only; EVA and strenuous work are unavailable.",
-          "Requires 1 Field science kit (not consumed)."
+          "Condition permits light duties only; EVA and strenuous work are unavailable."
         ],
         "eligible_crew": [
           {
@@ -6133,8 +6129,7 @@ export const dehydratedGame: GameResponse = {
             "available": false,
             "unavailable_reasons": [
               "Requires at least 1 living astronauts fit for this workload.",
-              "Condition permits light duties only; EVA and strenuous work are unavailable.",
-              "Requires 1 Field science kit (not consumed)."
+              "Condition permits light duties only; EVA and strenuous work are unavailable."
             ],
             "success_probability": 0.725
           },
@@ -6143,8 +6138,7 @@ export const dehydratedGame: GameResponse = {
             "available": false,
             "unavailable_reasons": [
               "Requires at least 1 living astronauts fit for this workload.",
-              "Condition permits light duties only; EVA and strenuous work are unavailable.",
-              "Requires 1 Field science kit (not consumed)."
+              "Condition permits light duties only; EVA and strenuous work are unavailable."
             ],
             "success_probability": 0.675
           }
@@ -6209,8 +6203,7 @@ export const dehydratedGame: GameResponse = {
         "available": false,
         "unavailable_reasons": [
           "Requires at least 1 living astronauts fit for this workload.",
-          "Condition permits light duties only; EVA and strenuous work are unavailable.",
-          "Requires 1 Field science kit (not consumed)."
+          "Condition permits light duties only; EVA and strenuous work are unavailable."
         ],
         "eligible_crew": [
           {
@@ -6218,8 +6211,7 @@ export const dehydratedGame: GameResponse = {
             "available": false,
             "unavailable_reasons": [
               "Requires at least 1 living astronauts fit for this workload.",
-              "Condition permits light duties only; EVA and strenuous work are unavailable.",
-              "Requires 1 Field science kit (not consumed)."
+              "Condition permits light duties only; EVA and strenuous work are unavailable."
             ],
             "success_probability": 0.875
           },
@@ -6228,8 +6220,7 @@ export const dehydratedGame: GameResponse = {
             "available": false,
             "unavailable_reasons": [
               "Requires at least 1 living astronauts fit for this workload.",
-              "Condition permits light duties only; EVA and strenuous work are unavailable.",
-              "Requires 1 Field science kit (not consumed)."
+              "Condition permits light duties only; EVA and strenuous work are unavailable."
             ],
             "success_probability": 0.625
           }
@@ -10768,7 +10759,7 @@ export const game: GameResponse = {
       "oxygen_regulators": 0.0,
       "diagnostic_tools": 0.0,
       "sealant_packs": 0.0,
-      "scientific_tools": 0.0,
+      "scientific_tools": 1.0,
       "research_data": 0.0,
       "wastewater": 12.0,
       "co2": 0.0
@@ -11407,25 +11398,19 @@ export const game: GameResponse = {
         },
         "required_role": null,
         "minimum_crew": 1,
-        "available": false,
-        "unavailable_reasons": [
-          "Requires 1 Field science kit (not consumed)."
-        ],
+        "available": true,
+        "unavailable_reasons": [],
         "eligible_crew": [
           {
             "crew_id": "alex",
-            "available": false,
-            "unavailable_reasons": [
-              "Requires 1 Field science kit (not consumed)."
-            ],
+            "available": true,
+            "unavailable_reasons": [],
             "success_probability": 0.8
           },
           {
             "crew_id": "maya",
-            "available": false,
-            "unavailable_reasons": [
-              "Requires 1 Field science kit (not consumed)."
-            ],
+            "available": true,
+            "unavailable_reasons": [],
             "success_probability": 0.75
           }
         ],
@@ -11478,25 +11463,19 @@ export const game: GameResponse = {
         },
         "required_role": null,
         "minimum_crew": 1,
-        "available": false,
-        "unavailable_reasons": [
-          "Requires 1 Field science kit (not consumed)."
-        ],
+        "available": true,
+        "unavailable_reasons": [],
         "eligible_crew": [
           {
             "crew_id": "alex",
-            "available": false,
-            "unavailable_reasons": [
-              "Requires 1 Field science kit (not consumed)."
-            ],
+            "available": true,
+            "unavailable_reasons": [],
             "success_probability": 0.8
           },
           {
             "crew_id": "maya",
-            "available": false,
-            "unavailable_reasons": [
-              "Requires 1 Field science kit (not consumed)."
-            ],
+            "available": true,
+            "unavailable_reasons": [],
             "success_probability": 0.75
           }
         ],
@@ -11557,25 +11536,19 @@ export const game: GameResponse = {
         },
         "required_role": null,
         "minimum_crew": 1,
-        "available": false,
-        "unavailable_reasons": [
-          "Requires 1 Field science kit (not consumed)."
-        ],
+        "available": true,
+        "unavailable_reasons": [],
         "eligible_crew": [
           {
             "crew_id": "alex",
-            "available": false,
-            "unavailable_reasons": [
-              "Requires 1 Field science kit (not consumed)."
-            ],
+            "available": true,
+            "unavailable_reasons": [],
             "success_probability": 0.95
           },
           {
             "crew_id": "maya",
-            "available": false,
-            "unavailable_reasons": [
-              "Requires 1 Field science kit (not consumed)."
-            ],
+            "available": true,
+            "unavailable_reasons": [],
             "success_probability": 0.7
           }
         ],
@@ -11921,7 +11894,7 @@ export const turn: TurnResponse = {
       "oxygen_regulators": 0.0,
       "diagnostic_tools": 0.0,
       "sealant_packs": 0.0,
-      "scientific_tools": 0.0,
+      "scientific_tools": 1.0,
       "research_data": 0.0,
       "wastewater": 11.36,
       "co2": 0.0
@@ -12973,8 +12946,7 @@ export const turn: TurnResponse = {
         "available": false,
         "unavailable_reasons": [
           "Requires at least 1 living astronauts fit for this workload.",
-          "Respiratory irritation: EVA unavailable until recovered; indoor work remains possible.",
-          "Requires 1 Field science kit (not consumed)."
+          "Respiratory irritation: EVA unavailable until recovered; indoor work remains possible."
         ],
         "eligible_crew": [
           {
@@ -12982,8 +12954,7 @@ export const turn: TurnResponse = {
             "available": false,
             "unavailable_reasons": [
               "Requires at least 1 living astronauts fit for this workload.",
-              "Respiratory irritation: EVA unavailable until recovered; indoor work remains possible.",
-              "Requires 1 Field science kit (not consumed)."
+              "Respiratory irritation: EVA unavailable until recovered; indoor work remains possible."
             ],
             "success_probability": 0.6585
           },
@@ -12992,8 +12963,7 @@ export const turn: TurnResponse = {
             "available": false,
             "unavailable_reasons": [
               "Requires at least 1 living astronauts fit for this workload.",
-              "Respiratory irritation: EVA unavailable until recovered; indoor work remains possible.",
-              "Requires 1 Field science kit (not consumed)."
+              "Respiratory irritation: EVA unavailable until recovered; indoor work remains possible."
             ],
             "success_probability": 0.7
           }
@@ -13050,8 +13020,7 @@ export const turn: TurnResponse = {
         "available": false,
         "unavailable_reasons": [
           "Requires at least 1 living astronauts fit for this workload.",
-          "Respiratory irritation: EVA unavailable until recovered; indoor work remains possible.",
-          "Requires 1 Field science kit (not consumed)."
+          "Respiratory irritation: EVA unavailable until recovered; indoor work remains possible."
         ],
         "eligible_crew": [
           {
@@ -13059,8 +13028,7 @@ export const turn: TurnResponse = {
             "available": false,
             "unavailable_reasons": [
               "Requires at least 1 living astronauts fit for this workload.",
-              "Respiratory irritation: EVA unavailable until recovered; indoor work remains possible.",
-              "Requires 1 Field science kit (not consumed)."
+              "Respiratory irritation: EVA unavailable until recovered; indoor work remains possible."
             ],
             "success_probability": 0.6585
           },
@@ -13069,8 +13037,7 @@ export const turn: TurnResponse = {
             "available": false,
             "unavailable_reasons": [
               "Requires at least 1 living astronauts fit for this workload.",
-              "Respiratory irritation: EVA unavailable until recovered; indoor work remains possible.",
-              "Requires 1 Field science kit (not consumed)."
+              "Respiratory irritation: EVA unavailable until recovered; indoor work remains possible."
             ],
             "success_probability": 0.7
           }
@@ -13132,27 +13099,21 @@ export const turn: TurnResponse = {
         },
         "required_role": null,
         "minimum_crew": 1,
-        "available": false,
-        "unavailable_reasons": [
-          "Active injury or illness: light duties only until the condition resolves.",
-          "Requires 1 Field science kit (not consumed)."
-        ],
+        "available": true,
+        "unavailable_reasons": [],
         "eligible_crew": [
           {
             "crew_id": "alex",
             "available": false,
             "unavailable_reasons": [
-              "Active injury or illness: light duties only until the condition resolves.",
-              "Requires 1 Field science kit (not consumed)."
+              "Active injury or illness: light duties only until the condition resolves."
             ],
             "success_probability": 0.8085
           },
           {
             "crew_id": "maya",
-            "available": false,
-            "unavailable_reasons": [
-              "Requires 1 Field science kit (not consumed)."
-            ],
+            "available": true,
+            "unavailable_reasons": [],
             "success_probability": 0.65
           }
         ],
@@ -13715,7 +13676,7 @@ export const medicalGame: GameResponse = {
       "oxygen_regulators": 0.0,
       "diagnostic_tools": 0.0,
       "sealant_packs": 0.0,
-      "scientific_tools": 0.0,
+      "scientific_tools": 1.0,
       "research_data": 0.0,
       "wastewater": 12.0,
       "co2": 0.0
@@ -14554,8 +14515,7 @@ export const medicalGame: GameResponse = {
         "available": false,
         "unavailable_reasons": [
           "Requires at least 1 living astronauts fit for this workload.",
-          "Respiratory irritation: EVA unavailable until recovered; indoor work remains possible.",
-          "Requires 1 Field science kit (not consumed)."
+          "Respiratory irritation: EVA unavailable until recovered; indoor work remains possible."
         ],
         "eligible_crew": [
           {
@@ -14563,8 +14523,7 @@ export const medicalGame: GameResponse = {
             "available": false,
             "unavailable_reasons": [
               "Requires at least 1 living astronauts fit for this workload.",
-              "Respiratory irritation: EVA unavailable until recovered; indoor work remains possible.",
-              "Requires 1 Field science kit (not consumed)."
+              "Respiratory irritation: EVA unavailable until recovered; indoor work remains possible."
             ],
             "success_probability": 0.75
           },
@@ -14573,8 +14532,7 @@ export const medicalGame: GameResponse = {
             "available": false,
             "unavailable_reasons": [
               "Requires at least 1 living astronauts fit for this workload.",
-              "Respiratory irritation: EVA unavailable until recovered; indoor work remains possible.",
-              "Requires 1 Field science kit (not consumed)."
+              "Respiratory irritation: EVA unavailable until recovered; indoor work remains possible."
             ],
             "success_probability": 0.7
           }
@@ -14631,8 +14589,7 @@ export const medicalGame: GameResponse = {
         "available": false,
         "unavailable_reasons": [
           "Requires at least 1 living astronauts fit for this workload.",
-          "Respiratory irritation: EVA unavailable until recovered; indoor work remains possible.",
-          "Requires 1 Field science kit (not consumed)."
+          "Respiratory irritation: EVA unavailable until recovered; indoor work remains possible."
         ],
         "eligible_crew": [
           {
@@ -14640,8 +14597,7 @@ export const medicalGame: GameResponse = {
             "available": false,
             "unavailable_reasons": [
               "Requires at least 1 living astronauts fit for this workload.",
-              "Respiratory irritation: EVA unavailable until recovered; indoor work remains possible.",
-              "Requires 1 Field science kit (not consumed)."
+              "Respiratory irritation: EVA unavailable until recovered; indoor work remains possible."
             ],
             "success_probability": 0.75
           },
@@ -14650,8 +14606,7 @@ export const medicalGame: GameResponse = {
             "available": false,
             "unavailable_reasons": [
               "Requires at least 1 living astronauts fit for this workload.",
-              "Respiratory irritation: EVA unavailable until recovered; indoor work remains possible.",
-              "Requires 1 Field science kit (not consumed)."
+              "Respiratory irritation: EVA unavailable until recovered; indoor work remains possible."
             ],
             "success_probability": 0.7
           }
@@ -14713,25 +14668,19 @@ export const medicalGame: GameResponse = {
         },
         "required_role": null,
         "minimum_crew": 1,
-        "available": false,
-        "unavailable_reasons": [
-          "Requires 1 Field science kit (not consumed)."
-        ],
+        "available": true,
+        "unavailable_reasons": [],
         "eligible_crew": [
           {
             "crew_id": "alex",
-            "available": false,
-            "unavailable_reasons": [
-              "Requires 1 Field science kit (not consumed)."
-            ],
+            "available": true,
+            "unavailable_reasons": [],
             "success_probability": 0.9
           },
           {
             "crew_id": "maya",
-            "available": false,
-            "unavailable_reasons": [
-              "Requires 1 Field science kit (not consumed)."
-            ],
+            "available": true,
+            "unavailable_reasons": [],
             "success_probability": 0.65
           }
         ],
@@ -15046,7 +14995,7 @@ export const treatment: TurnResponse = {
       "oxygen_regulators": 0.0,
       "diagnostic_tools": 0.0,
       "sealant_packs": 0.0,
-      "scientific_tools": 0.0,
+      "scientific_tools": 1.0,
       "research_data": 0.0,
       "wastewater": 11.36,
       "co2": 0.0
@@ -15982,26 +15931,20 @@ export const treatment: TurnResponse = {
         },
         "required_role": null,
         "minimum_crew": 1,
-        "available": false,
-        "unavailable_reasons": [
-          "Requires 1 Field science kit (not consumed).",
-          "Respiratory irritation: EVA unavailable until recovered; indoor work remains possible."
-        ],
+        "available": true,
+        "unavailable_reasons": [],
         "eligible_crew": [
           {
             "crew_id": "alex",
-            "available": false,
-            "unavailable_reasons": [
-              "Requires 1 Field science kit (not consumed)."
-            ],
+            "available": true,
+            "unavailable_reasons": [],
             "success_probability": 0.8
           },
           {
             "crew_id": "maya",
             "available": false,
             "unavailable_reasons": [
-              "Respiratory irritation: EVA unavailable until recovered; indoor work remains possible.",
-              "Requires 1 Field science kit (not consumed)."
+              "Respiratory irritation: EVA unavailable until recovered; indoor work remains possible."
             ],
             "success_probability": 0.7
           }
@@ -16055,26 +15998,20 @@ export const treatment: TurnResponse = {
         },
         "required_role": null,
         "minimum_crew": 1,
-        "available": false,
-        "unavailable_reasons": [
-          "Requires 1 Field science kit (not consumed).",
-          "Respiratory irritation: EVA unavailable until recovered; indoor work remains possible."
-        ],
+        "available": true,
+        "unavailable_reasons": [],
         "eligible_crew": [
           {
             "crew_id": "alex",
-            "available": false,
-            "unavailable_reasons": [
-              "Requires 1 Field science kit (not consumed)."
-            ],
+            "available": true,
+            "unavailable_reasons": [],
             "success_probability": 0.8
           },
           {
             "crew_id": "maya",
             "available": false,
             "unavailable_reasons": [
-              "Respiratory irritation: EVA unavailable until recovered; indoor work remains possible.",
-              "Requires 1 Field science kit (not consumed)."
+              "Respiratory irritation: EVA unavailable until recovered; indoor work remains possible."
             ],
             "success_probability": 0.7
           }
@@ -16136,25 +16073,19 @@ export const treatment: TurnResponse = {
         },
         "required_role": null,
         "minimum_crew": 1,
-        "available": false,
-        "unavailable_reasons": [
-          "Requires 1 Field science kit (not consumed)."
-        ],
+        "available": true,
+        "unavailable_reasons": [],
         "eligible_crew": [
           {
             "crew_id": "alex",
-            "available": false,
-            "unavailable_reasons": [
-              "Requires 1 Field science kit (not consumed)."
-            ],
+            "available": true,
+            "unavailable_reasons": [],
             "success_probability": 0.95
           },
           {
             "crew_id": "maya",
-            "available": false,
-            "unavailable_reasons": [
-              "Requires 1 Field science kit (not consumed)."
-            ],
+            "available": true,
+            "unavailable_reasons": [],
             "success_probability": 0.65
           }
         ],
@@ -16780,7 +16711,7 @@ export const medicalAssignmentGame: GameResponse = {
       "oxygen_regulators": 0.0,
       "diagnostic_tools": 0.0,
       "sealant_packs": 0.0,
-      "scientific_tools": 0.0,
+      "scientific_tools": 1.0,
       "research_data": 0.0,
       "wastewater": 12.0,
       "co2": 0.0
@@ -17700,8 +17631,7 @@ export const medicalAssignmentGame: GameResponse = {
         "available": false,
         "unavailable_reasons": [
           "Requires at least 1 living astronauts fit for this workload.",
-          "Respiratory irritation: EVA unavailable until recovered; indoor work remains possible.",
-          "Requires 1 Field science kit (not consumed)."
+          "Respiratory irritation: EVA unavailable until recovered; indoor work remains possible."
         ],
         "eligible_crew": [
           {
@@ -17709,8 +17639,7 @@ export const medicalAssignmentGame: GameResponse = {
             "available": false,
             "unavailable_reasons": [
               "Requires at least 1 living astronauts fit for this workload.",
-              "Respiratory irritation: EVA unavailable until recovered; indoor work remains possible.",
-              "Requires 1 Field science kit (not consumed)."
+              "Respiratory irritation: EVA unavailable until recovered; indoor work remains possible."
             ],
             "success_probability": 0.75
           },
@@ -17719,8 +17648,7 @@ export const medicalAssignmentGame: GameResponse = {
             "available": false,
             "unavailable_reasons": [
               "Requires at least 1 living astronauts fit for this workload.",
-              "Respiratory irritation: EVA unavailable until recovered; indoor work remains possible.",
-              "Requires 1 Field science kit (not consumed)."
+              "Respiratory irritation: EVA unavailable until recovered; indoor work remains possible."
             ],
             "success_probability": 0.7
           },
@@ -17729,8 +17657,7 @@ export const medicalAssignmentGame: GameResponse = {
             "available": false,
             "unavailable_reasons": [
               "Requires at least 1 living astronauts fit for this workload.",
-              "Respiratory irritation: EVA unavailable until recovered; indoor work remains possible.",
-              "Requires 1 Field science kit (not consumed)."
+              "Respiratory irritation: EVA unavailable until recovered; indoor work remains possible."
             ],
             "success_probability": 0.9
           }
@@ -17787,8 +17714,7 @@ export const medicalAssignmentGame: GameResponse = {
         "available": false,
         "unavailable_reasons": [
           "Requires at least 1 living astronauts fit for this workload.",
-          "Respiratory irritation: EVA unavailable until recovered; indoor work remains possible.",
-          "Requires 1 Field science kit (not consumed)."
+          "Respiratory irritation: EVA unavailable until recovered; indoor work remains possible."
         ],
         "eligible_crew": [
           {
@@ -17796,8 +17722,7 @@ export const medicalAssignmentGame: GameResponse = {
             "available": false,
             "unavailable_reasons": [
               "Requires at least 1 living astronauts fit for this workload.",
-              "Respiratory irritation: EVA unavailable until recovered; indoor work remains possible.",
-              "Requires 1 Field science kit (not consumed)."
+              "Respiratory irritation: EVA unavailable until recovered; indoor work remains possible."
             ],
             "success_probability": 0.75
           },
@@ -17806,8 +17731,7 @@ export const medicalAssignmentGame: GameResponse = {
             "available": false,
             "unavailable_reasons": [
               "Requires at least 1 living astronauts fit for this workload.",
-              "Respiratory irritation: EVA unavailable until recovered; indoor work remains possible.",
-              "Requires 1 Field science kit (not consumed)."
+              "Respiratory irritation: EVA unavailable until recovered; indoor work remains possible."
             ],
             "success_probability": 0.7
           },
@@ -17816,8 +17740,7 @@ export const medicalAssignmentGame: GameResponse = {
             "available": false,
             "unavailable_reasons": [
               "Requires at least 1 living astronauts fit for this workload.",
-              "Respiratory irritation: EVA unavailable until recovered; indoor work remains possible.",
-              "Requires 1 Field science kit (not consumed)."
+              "Respiratory irritation: EVA unavailable until recovered; indoor work remains possible."
             ],
             "success_probability": 0.9
           }
@@ -17879,33 +17802,25 @@ export const medicalAssignmentGame: GameResponse = {
         },
         "required_role": null,
         "minimum_crew": 1,
-        "available": false,
-        "unavailable_reasons": [
-          "Requires 1 Field science kit (not consumed)."
-        ],
+        "available": true,
+        "unavailable_reasons": [],
         "eligible_crew": [
           {
             "crew_id": "alex",
-            "available": false,
-            "unavailable_reasons": [
-              "Requires 1 Field science kit (not consumed)."
-            ],
+            "available": true,
+            "unavailable_reasons": [],
             "success_probability": 0.9
           },
           {
             "crew_id": "maya",
-            "available": false,
-            "unavailable_reasons": [
-              "Requires 1 Field science kit (not consumed)."
-            ],
+            "available": true,
+            "unavailable_reasons": [],
             "success_probability": 0.65
           },
           {
             "crew_id": "lin",
-            "available": false,
-            "unavailable_reasons": [
-              "Requires 1 Field science kit (not consumed)."
-            ],
+            "available": true,
+            "unavailable_reasons": [],
             "success_probability": 0.75
           }
         ],
@@ -18304,7 +18219,7 @@ export const medicalAssignmentTurn: TurnResponse = {
       "oxygen_regulators": 0.0,
       "diagnostic_tools": 0.0,
       "sealant_packs": 0.0,
-      "scientific_tools": 0.0,
+      "scientific_tools": 1.0,
       "research_data": 0.0,
       "wastewater": 12.8,
       "co2": 0.0
@@ -19408,26 +19323,20 @@ export const medicalAssignmentTurn: TurnResponse = {
         },
         "required_role": null,
         "minimum_crew": 1,
-        "available": false,
-        "unavailable_reasons": [
-          "Requires 1 Field science kit (not consumed).",
-          "Respiratory irritation: EVA unavailable until recovered; indoor work remains possible."
-        ],
+        "available": true,
+        "unavailable_reasons": [],
         "eligible_crew": [
           {
             "crew_id": "alex",
-            "available": false,
-            "unavailable_reasons": [
-              "Requires 1 Field science kit (not consumed)."
-            ],
+            "available": true,
+            "unavailable_reasons": [],
             "success_probability": 0.8
           },
           {
             "crew_id": "maya",
             "available": false,
             "unavailable_reasons": [
-              "Respiratory irritation: EVA unavailable until recovered; indoor work remains possible.",
-              "Requires 1 Field science kit (not consumed)."
+              "Respiratory irritation: EVA unavailable until recovered; indoor work remains possible."
             ],
             "success_probability": 0.7
           },
@@ -19435,8 +19344,7 @@ export const medicalAssignmentTurn: TurnResponse = {
             "crew_id": "lin",
             "available": false,
             "unavailable_reasons": [
-              "Respiratory irritation: EVA unavailable until recovered; indoor work remains possible.",
-              "Requires 1 Field science kit (not consumed)."
+              "Respiratory irritation: EVA unavailable until recovered; indoor work remains possible."
             ],
             "success_probability": 0.9
           }
@@ -19490,26 +19398,20 @@ export const medicalAssignmentTurn: TurnResponse = {
         },
         "required_role": null,
         "minimum_crew": 1,
-        "available": false,
-        "unavailable_reasons": [
-          "Requires 1 Field science kit (not consumed).",
-          "Respiratory irritation: EVA unavailable until recovered; indoor work remains possible."
-        ],
+        "available": true,
+        "unavailable_reasons": [],
         "eligible_crew": [
           {
             "crew_id": "alex",
-            "available": false,
-            "unavailable_reasons": [
-              "Requires 1 Field science kit (not consumed)."
-            ],
+            "available": true,
+            "unavailable_reasons": [],
             "success_probability": 0.8
           },
           {
             "crew_id": "maya",
             "available": false,
             "unavailable_reasons": [
-              "Respiratory irritation: EVA unavailable until recovered; indoor work remains possible.",
-              "Requires 1 Field science kit (not consumed)."
+              "Respiratory irritation: EVA unavailable until recovered; indoor work remains possible."
             ],
             "success_probability": 0.7
           },
@@ -19517,8 +19419,7 @@ export const medicalAssignmentTurn: TurnResponse = {
             "crew_id": "lin",
             "available": false,
             "unavailable_reasons": [
-              "Respiratory irritation: EVA unavailable until recovered; indoor work remains possible.",
-              "Requires 1 Field science kit (not consumed)."
+              "Respiratory irritation: EVA unavailable until recovered; indoor work remains possible."
             ],
             "success_probability": 0.9
           }
@@ -19580,33 +19481,25 @@ export const medicalAssignmentTurn: TurnResponse = {
         },
         "required_role": null,
         "minimum_crew": 1,
-        "available": false,
-        "unavailable_reasons": [
-          "Requires 1 Field science kit (not consumed)."
-        ],
+        "available": true,
+        "unavailable_reasons": [],
         "eligible_crew": [
           {
             "crew_id": "alex",
-            "available": false,
-            "unavailable_reasons": [
-              "Requires 1 Field science kit (not consumed)."
-            ],
+            "available": true,
+            "unavailable_reasons": [],
             "success_probability": 0.95
           },
           {
             "crew_id": "maya",
-            "available": false,
-            "unavailable_reasons": [
-              "Requires 1 Field science kit (not consumed)."
-            ],
+            "available": true,
+            "unavailable_reasons": [],
             "success_probability": 0.65
           },
           {
             "crew_id": "lin",
-            "available": false,
-            "unavailable_reasons": [
-              "Requires 1 Field science kit (not consumed)."
-            ],
+            "available": true,
+            "unavailable_reasons": [],
             "success_probability": 0.75
           }
         ],
@@ -20255,7 +20148,7 @@ export const opportunityGame: GameResponse = {
       "oxygen_regulators": 0.0,
       "diagnostic_tools": 0.0,
       "sealant_packs": 0.0,
-      "scientific_tools": 0.0,
+      "scientific_tools": 1.0,
       "research_data": 0.0,
       "wastewater": 11.36,
       "co2": 0.0
@@ -20393,25 +20286,19 @@ export const opportunityGame: GameResponse = {
           },
           "required_role": null,
           "minimum_crew": 1,
-          "available": false,
-          "unavailable_reasons": [
-            "Requires 1 Field science kit (not consumed)."
-          ],
+          "available": true,
+          "unavailable_reasons": [],
           "eligible_crew": [
             {
               "crew_id": "alex",
-              "available": false,
-              "unavailable_reasons": [
-                "Requires 1 Field science kit (not consumed)."
-              ],
+              "available": true,
+              "unavailable_reasons": [],
               "success_probability": 1.0
             },
             {
               "crew_id": "maya",
-              "available": false,
-              "unavailable_reasons": [
-                "Requires 1 Field science kit (not consumed)."
-              ],
+              "available": true,
+              "unavailable_reasons": [],
               "success_probability": 1.0
             }
           ],
@@ -21185,8 +21072,7 @@ export const opportunityGame: GameResponse = {
         "available": false,
         "unavailable_reasons": [
           "Requires at least 1 living astronauts fit for this workload.",
-          "Respiratory irritation: EVA unavailable until recovered; indoor work remains possible.",
-          "Requires 1 Field science kit (not consumed)."
+          "Respiratory irritation: EVA unavailable until recovered; indoor work remains possible."
         ],
         "eligible_crew": [
           {
@@ -21194,8 +21080,7 @@ export const opportunityGame: GameResponse = {
             "available": false,
             "unavailable_reasons": [
               "Requires at least 1 living astronauts fit for this workload.",
-              "Respiratory irritation: EVA unavailable until recovered; indoor work remains possible.",
-              "Requires 1 Field science kit (not consumed)."
+              "Respiratory irritation: EVA unavailable until recovered; indoor work remains possible."
             ],
             "success_probability": 0.75
           },
@@ -21204,8 +21089,7 @@ export const opportunityGame: GameResponse = {
             "available": false,
             "unavailable_reasons": [
               "Requires at least 1 living astronauts fit for this workload.",
-              "Respiratory irritation: EVA unavailable until recovered; indoor work remains possible.",
-              "Requires 1 Field science kit (not consumed)."
+              "Respiratory irritation: EVA unavailable until recovered; indoor work remains possible."
             ],
             "success_probability": 0.7
           }
@@ -21262,8 +21146,7 @@ export const opportunityGame: GameResponse = {
         "available": false,
         "unavailable_reasons": [
           "Requires at least 1 living astronauts fit for this workload.",
-          "Respiratory irritation: EVA unavailable until recovered; indoor work remains possible.",
-          "Requires 1 Field science kit (not consumed)."
+          "Respiratory irritation: EVA unavailable until recovered; indoor work remains possible."
         ],
         "eligible_crew": [
           {
@@ -21271,8 +21154,7 @@ export const opportunityGame: GameResponse = {
             "available": false,
             "unavailable_reasons": [
               "Requires at least 1 living astronauts fit for this workload.",
-              "Respiratory irritation: EVA unavailable until recovered; indoor work remains possible.",
-              "Requires 1 Field science kit (not consumed)."
+              "Respiratory irritation: EVA unavailable until recovered; indoor work remains possible."
             ],
             "success_probability": 0.75
           },
@@ -21281,8 +21163,7 @@ export const opportunityGame: GameResponse = {
             "available": false,
             "unavailable_reasons": [
               "Requires at least 1 living astronauts fit for this workload.",
-              "Respiratory irritation: EVA unavailable until recovered; indoor work remains possible.",
-              "Requires 1 Field science kit (not consumed)."
+              "Respiratory irritation: EVA unavailable until recovered; indoor work remains possible."
             ],
             "success_probability": 0.7
           }
@@ -21344,25 +21225,19 @@ export const opportunityGame: GameResponse = {
         },
         "required_role": null,
         "minimum_crew": 1,
-        "available": false,
-        "unavailable_reasons": [
-          "Requires 1 Field science kit (not consumed)."
-        ],
+        "available": true,
+        "unavailable_reasons": [],
         "eligible_crew": [
           {
             "crew_id": "alex",
-            "available": false,
-            "unavailable_reasons": [
-              "Requires 1 Field science kit (not consumed)."
-            ],
+            "available": true,
+            "unavailable_reasons": [],
             "success_probability": 0.9
           },
           {
             "crew_id": "maya",
-            "available": false,
-            "unavailable_reasons": [
-              "Requires 1 Field science kit (not consumed)."
-            ],
+            "available": true,
+            "unavailable_reasons": [],
             "success_probability": 0.65
           }
         ],
@@ -40398,7 +40273,7 @@ export const completed: GameResponse = {
       "oxygen_regulators": 0.0,
       "diagnostic_tools": 0.0,
       "sealant_packs": 0.0,
-      "scientific_tools": 0.0,
+      "scientific_tools": 1.0,
       "research_data": 3.0,
       "wastewater": 9.6,
       "co2": 0.0
@@ -42842,12 +42717,12 @@ export const failed: GameResponse = {
       "electricity": 75.37614,
       "medicine": 1.0,
       "repair_kits": 1.0,
-      "eva_batteries": 1.0,
+      "eva_batteries": 3.0,
       "dust_kits": 0.0,
       "oxygen_regulators": 0.0,
       "diagnostic_tools": 0.0,
       "sealant_packs": 0.0,
-      "scientific_tools": 0.0,
+      "scientific_tools": 1.0,
       "research_data": 0.0,
       "wastewater": 19.128,
       "co2": 0.0

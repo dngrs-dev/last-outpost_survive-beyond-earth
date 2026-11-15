@@ -2,7 +2,7 @@ from copy import deepcopy
 from dataclasses import replace
 
 import pytest
-from conftest import normal_rations
+from conftest import launch_cargo, normal_rations
 
 from app.game.engine import GameEngine
 from app.game.models import GameError, Ration
@@ -21,7 +21,12 @@ def test_week_progression(quiet_engine, state, rations):
 
 def test_full_twelve_week_perfect_handover(quiet_engine):
     state = quiet_engine.create_game(
-        "alpha", ["alex", "maya"], {"food_packs": 5, "water_containers": 8, "repair_kits": 1}, 42
+        "alpha",
+        ["alex", "maya"],
+        launch_cargo(
+            quiet_engine, "alpha", {"food_packs": 5, "water_containers": 8, "repair_kits": 1}
+        ),
+        42,
     )
     for week in range(1, 13):
         state, _ = quiet_engine.advance_week(
@@ -151,13 +156,17 @@ def test_event_mission_reproducible_and_winnable(engine):
         state = engine.create_game(
             "alpha",
             list(engine.definitions.crew)[:4],
-            {
-                "food_packs": 8,
-                "water_containers": 16,
-                "repair_kits": 7,
-                "eva_batteries": 7,
-                "medicine_kits": 7,
-            },
+            launch_cargo(
+                engine,
+                "alpha",
+                {
+                    "food_packs": 8,
+                    "water_containers": 16,
+                    "repair_kits": 7,
+                    "eva_batteries": 7,
+                    "medicine_kits": 7,
+                },
+            ),
             42,
         )
         for _ in range(12):
@@ -173,7 +182,18 @@ def test_event_mission_reproducible_and_winnable(engine):
                     key=lambda c: c["success_probability"],
                 )["crew_id"]
             state, _ = engine.advance_week(
-                state, state.current_week, normal_rations(state), choice["id"], selected
+                state,
+                state.current_week,
+                normal_rations(state),
+                choice["id"],
+                selected,
+                support_crew_ids=[
+                    c["crew_id"]
+                    for c in choice["support_candidates"]
+                    if c["available"] and c["crew_id"] != selected
+                ][: max(0, choice["minimum_crew"] - 1)]
+                if choice["requires_crew"]
+                else [],
             )
         return state
 

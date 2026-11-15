@@ -1,7 +1,7 @@
 from copy import deepcopy
 
 import pytest
-from conftest import normal_rations
+from conftest import launch_cargo, normal_rations
 
 from app.game.events import choice_views, success_probability
 from app.game.health import REST, capacity_reasons, condition_view, resolve_provisions
@@ -148,7 +148,9 @@ def test_risky_work_loses_performance_but_patient_treatment_is_not_penalized(qui
 
 
 def test_unfit_support_rejects_entire_week_without_mutation(quiet_engine):
-    state = quiet_engine.create_game("alpha", ["alex", "lin", "maya", "sam"], {}, 42)
+    state = quiet_engine.create_game(
+        "alpha", ["alex", "lin", "maya", "sam"], launch_cargo(quiet_engine, "alpha", {}), 42
+    )
     state.current_event_id = "oxygen_fault"
     state.crew[1].nutrition_deficit = 1
     before = deepcopy(state)
@@ -213,7 +215,9 @@ def test_critical_crew_can_rest_but_cannot_work_or_double_book(quiet_engine, sta
 
 
 def test_incident_injury_cancels_newly_unfit_work_and_returns_supplies(quiet_engine):
-    state = quiet_engine.create_game("alpha", ["alex", "lin"], {"scientific_tools": 1}, 42)
+    state = quiet_engine.create_game(
+        "alpha", ["alex", "lin"], launch_cargo(quiet_engine, "alpha", {"scientific_tools": 1}), 42
+    )
     state.crew[1].health = 50
     state.current_event_id = "solar_particle_alert"
     batteries = state.resources["eva_batteries"]
@@ -249,7 +253,7 @@ def test_unfit_project_worker_released_without_losing_phase_progress(quiet_engin
 
 def test_idempotent_retries_and_reads_do_not_repeat_debt_or_recovery(quiet_engine):
     store = GameStore(quiet_engine)
-    game = store.create("alpha", ["alex", "maya"], {}, 42)
+    game = store.create("alpha", ["alex", "maya"], launch_cargo(store.engine, "alpha", {}), 42)
     body = {
         "expected_week": 1,
         "request_id": "debt",

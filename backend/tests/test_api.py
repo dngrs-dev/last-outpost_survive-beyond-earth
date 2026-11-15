@@ -10,8 +10,15 @@ from app.main import create_app
 
 
 def create_game(client, **changes):
-    body = {"station_id": "alpha", "crew_ids": ["alex", "maya"], "cargo": {}, "random_seed": 42}
+    body = {
+        "station_id": "alpha",
+        "crew_ids": ["alex", "maya"],
+        "cargo": {"scientific_tools": 1, "eva_batteries": 2},
+        "random_seed": 42,
+    }
     body.update(changes)
+    if "cargo" in changes:
+        body["cargo"] = {"scientific_tools": 1, "eva_batteries": 2, **changes["cargo"]}
     return client.post("/api/games", json=body)
 
 

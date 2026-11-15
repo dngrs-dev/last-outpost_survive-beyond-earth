@@ -1,6 +1,7 @@
 from copy import deepcopy
 
 import pytest
+from conftest import launch_cargo
 from fastapi.testclient import TestClient
 from test_loader import data_dir as data_dir
 from test_loader import mutate
@@ -16,8 +17,14 @@ OUTPOSTS = ["alpha", "oceanus", "fra_mauro", "hadley", "descartes", "taurus"]
 @pytest.mark.parametrize("station_id", OUTPOSTS)
 def test_station_parameters_initialize_the_real_simulation(quiet_engine, station_id):
     station = quiet_engine.definitions.stations[station_id]
-    state = quiet_engine.create_game(station_id, ["alex", "maya"], {}, 42)
-    assert state.resources == station.starting_resources
+    state = quiet_engine.create_game(
+        station_id, ["alex", "maya"], launch_cargo(quiet_engine, station_id, {}), 42
+    )
+    expected = station.starting_resources.copy()
+    for item_id, quantity in launch_cargo(quiet_engine, station_id, {}).items():
+        item = quiet_engine.definitions.items[item_id]
+        expected[item.resource] += item.resource_amount * quantity
+    assert state.resources == expected
     assert state.solar_efficiency == station.solar_efficiency
     assert state.oxygen_efficiency == station.oxygen_efficiency
     rations = {crew.id: Ration("normal", "normal") for crew in state.crew}
@@ -40,7 +47,10 @@ def test_every_mission_ends_at_its_own_deadline(quiet_engine, station_id):
     station = quiet_engine.definitions.stations[station_id]
     mission = quiet_engine.definitions.missions[station.mission_id]
     state = quiet_engine.create_game(
-        station_id, ["alex", "maya"], {"food_packs": 8, "water_containers": 16}, 42
+        station_id,
+        ["alex", "maya"],
+        launch_cargo(quiet_engine, station_id, {"food_packs": 8, "water_containers": 16}),
+        42,
     )
     for week in range(1, mission.duration_weeks + 1):
         assert state.status == "running"
@@ -67,20 +77,27 @@ def test_missions_have_distinct_deadlines_and_difficulty_is_backed_by_conditions
 
 def test_no_station_consumption_mutates_another_station(quiet_engine):
     before = deepcopy(quiet_engine.definitions.stations)
-    state = quiet_engine.create_game("taurus", ["alex", "maya"], {}, 42)
+    state = quiet_engine.create_game(
+        "taurus", ["alex", "maya"], launch_cargo(quiet_engine, "taurus", {}), 42
+    )
     state.resources["food"] = 0
     state.solar_efficiency = 0
     assert quiet_engine.definitions.stations == before
-    assert quiet_engine.create_game("oceanus", ["alex"], {}, 42).resources["food"] == 30
+    assert (
+        quiet_engine.create_game(
+            "oceanus", ["alex"], launch_cargo(quiet_engine, "oceanus", {}), 42
+        ).resources["food"]
+        == 30
+    )
 
 
 @pytest.mark.parametrize("station_id", ["hadley", "descartes", "taurus"])
 def test_survivor_requirement_prevents_an_impossible_initial_crew(engine, station_id):
     with pytest.raises(GameError, match="at least 2"):
-        engine.create_game(station_id, ["alex"], {})
+        engine.create_game(station_id, ["alex"], launch_cargo(engine, station_id, {}))
 
 
-def test_selected_site_creates_its_own_station_through_the_api(client):
+def test_selected_site_creates_its_own_station_through_the_api(client, engine):
     sites = client.get("/api/moon").json()["sites"]
     for site in sites:
         response = client.post(
@@ -88,7 +105,7 @@ def test_selected_site_creates_its_own_station_through_the_api(client):
             json={
                 "station_id": site["training_station_id"],
                 "crew_ids": ["alex", "maya"],
-                "cargo": {},
+                "cargo": launch_cargo(engine, site["training_station_id"], {}),
                 "random_seed": 42,
             },
         )

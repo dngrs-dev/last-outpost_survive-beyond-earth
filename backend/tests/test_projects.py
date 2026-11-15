@@ -2,7 +2,7 @@ from copy import deepcopy
 from types import SimpleNamespace
 
 import pytest
-from conftest import normal_rations
+from conftest import launch_cargo, normal_rations
 
 from app.game.events import seeded_rng
 from app.game.models import GameError
@@ -15,13 +15,17 @@ def project_state(quiet_engine, monkeypatch):
     return quiet_engine.create_game(
         "alpha",
         ["alex", "lin", "sam"],
-        {
-            "scientific_tools": 1,
-            "eva_batteries": 8,
-            "food_packs": 8,
-            "water_containers": 16,
-            "repair_kits": 5,
-        },
+        launch_cargo(
+            quiet_engine,
+            "alpha",
+            {
+                "scientific_tools": 1,
+                "eva_batteries": 8,
+                "food_packs": 8,
+                "water_containers": 16,
+                "repair_kits": 5,
+            },
+        ),
         42,
     )
 

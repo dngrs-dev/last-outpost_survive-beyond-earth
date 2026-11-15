@@ -2,7 +2,7 @@ from copy import deepcopy
 from types import SimpleNamespace
 
 import pytest
-from conftest import normal_rations
+from conftest import launch_cargo, normal_rations
 
 from app.game.events import seeded_rng
 from app.game.models import GameError
@@ -112,6 +112,7 @@ def test_points_and_archiving_do_not_substitute_for_objective_work(quiet_engine,
 
 
 def test_missing_equipment_is_unavailable_and_rejection_is_atomic(quiet_engine, state):
+    state.resources["scientific_tools"] = 0  # Lost after launch.
     view = {"choices": quiet_engine.state_view(state)["assignment_options"]}
     choice = next(choice for choice in view["choices"] if choice["id"] == "research_geology")
     assert not choice["available"]
@@ -211,7 +212,12 @@ def test_science_can_be_complete_even_when_survival_fails(
 
 def test_survival_can_be_perfect_without_scientific_progress(quiet_engine):
     state = quiet_engine.create_game(
-        "alpha", ["alex", "maya"], {"food_packs": 5, "water_containers": 8, "repair_kits": 1}, 42
+        "alpha",
+        ["alex", "maya"],
+        launch_cargo(
+            quiet_engine, "alpha", {"food_packs": 5, "water_containers": 8, "repair_kits": 1}
+        ),
+        42,
     )
     for _ in range(12):
         state, _ = quiet_engine.advance_week(

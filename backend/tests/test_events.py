@@ -2,7 +2,7 @@ from copy import deepcopy
 from dataclasses import replace
 
 import pytest
-from conftest import with_event
+from conftest import launch_cargo, with_event
 
 from app.game.events import (
     QUIET_WEEK,
@@ -32,11 +32,14 @@ def test_neutral_fallback(engine, state):
 
 
 def test_seeded_selection(engine):
-    first = engine.create_game("alpha", ["alex"], {}, 123)
-    second = engine.create_game("alpha", ["alex"], {}, 123)
+    first = engine.create_game("alpha", ["alex"], launch_cargo(engine, "alpha", {}), 123)
+    second = engine.create_game("alpha", ["alex"], launch_cargo(engine, "alpha", {}), 123)
     assert first == second
     assert {
-        engine.create_game("alpha", ["alex"], {}, seed).current_event_id for seed in range(30)
+        engine.create_game(
+            "alpha", ["alex"], launch_cargo(engine, "alpha", {}), seed
+        ).current_event_id
+        for seed in range(30)
     } == {"solar_failure", "medical_emergency"}
 
 
@@ -105,10 +108,11 @@ def test_guaranteed_outcomes_and_costs(engine, state, probability, succeeded):
     choice = replace(
         engine.definitions.events["solar_failure"].choices[0], success_chance=probability
     )
+    batteries = state.resources["eva_batteries"]
     report = resolve_choice(state, choice, state.crew[0])
     assert report["success"] is succeeded
     assert state.resources["repair_kits"] == 0
-    assert state.resources["eva_batteries"] == 0
+    assert state.resources["eva_batteries"] == batteries - 1
     assert state.resources["oxygen"] == 28
     assert state.solar_efficiency == (0.75 if succeeded else 0.5)
     assert state.crew[0].health == (100 if succeeded else 75)
@@ -149,7 +153,7 @@ def test_effects_clamp_health_and_resources(state):
 
 
 def test_injury_traits(engine):
-    state = engine.create_game("alpha", ["lin", "sam"], {}, 42)
+    state = engine.create_game("alpha", ["lin", "sam"], launch_cargo(engine, "alpha", {}), 42)
     for crew in state.crew:
         crew.health = 100
     apply_effects(state, Effects(crew_health=-10, target="all"), None)

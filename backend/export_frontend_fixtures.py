@@ -90,7 +90,11 @@ def generate(check: bool = False) -> None:
                     json={
                         "station_id": "alpha",
                         "crew_ids": crew or ["alex", "maya"],
-                        "cargo": CARGO if cargo is None else cargo,
+                        "cargo": {
+                            "scientific_tools": 1,
+                            "eva_batteries": 2,
+                            **(CARGO if cargo is None else cargo),
+                        },
                         "random_seed": seed,
                     },
                 )

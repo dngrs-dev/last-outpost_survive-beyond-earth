@@ -3,6 +3,7 @@ from copy import deepcopy
 from types import SimpleNamespace
 
 import pytest
+from conftest import launch_cargo
 
 from app.game.events import apply_effects, choice_reasons, get_event, seeded_rng
 from app.game.loader import load_definitions
@@ -42,7 +43,9 @@ def test_every_authored_choice_resolves_atomically_with_valid_supplies(
             else seeded_rng(state, purpose)
         ),
     )
-    state = engine.create_game("alpha", ["alex", "maya", "lin", "sam"], {}, 42)
+    state = engine.create_game(
+        "alpha", ["alex", "maya", "lin", "sam"], launch_cargo(engine, "alpha", {}), 42
+    )
     state.current_event_id = event_id
     state.resources = {name: 100.0 for name in state.resources}
     state.solar_efficiency = state.oxygen_efficiency = 0.5
@@ -90,7 +93,7 @@ def test_every_authored_choice_resolves_atomically_with_valid_supplies(
 
 
 def test_first_twelve_weeks_prioritize_distinct_eligible_events(engine):
-    state = engine.create_game("alpha", ["alex", "maya"], {}, 42)
+    state = engine.create_game("alpha", ["alex", "maya"], launch_cargo(engine, "alpha", {}), 42)
     seen = set()
     for week in range(1, 13):
         if week > 1:
@@ -102,7 +105,7 @@ def test_first_twelve_weeks_prioritize_distinct_eligible_events(engine):
 
 
 def test_missing_sealant_is_explained_without_spending_a_turn(engine):
-    state = engine.create_game("alpha", ["alex"], {}, 42)
+    state = engine.create_game("alpha", ["alex"], launch_cargo(engine, "alpha", {}), 42)
     state.current_event_id = "impact_puncture"
     original = deepcopy(state)
     with pytest.raises(GameError, match="sealant_packs"):

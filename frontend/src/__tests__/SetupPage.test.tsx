@@ -44,11 +44,11 @@ describe('Game-style supplies and launch', () => {
     ).toBeInTheDocument();
     expect(screen.getByRole('meter', { name: 'Cargo weight' })).toHaveAttribute(
       'value',
-      '154'
+      '157'
     );
     expect(screen.getByRole('meter', { name: 'Cargo space' })).toHaveAttribute(
       'value',
-      '223'
+      '228'
     );
     expect(screen.queryByRole('banner')).not.toBeInTheDocument();
     expect(screen.queryByRole('contentinfo')).not.toBeInTheDocument();
@@ -129,6 +129,9 @@ describe('Game-style supplies and launch', () => {
       fireEvent.change(screen.getByLabelText(`${item} quantity`), {
         target: { value: '1' },
       });
+      expect(screen.getByText('Objective equipment needed')).toBeInTheDocument();
+      fireEvent.change(screen.getByLabelText('Field science kit quantity'), { target: { value: '1' } });
+      fireEvent.change(screen.getByLabelText('EVA battery packs quantity'), { target: { value: '2' } });
       expect(
         screen.getByRole('button', { name: 'Launch mission' })
       ).toBeEnabled();

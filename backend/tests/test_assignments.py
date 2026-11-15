@@ -3,7 +3,7 @@ from dataclasses import replace
 from types import SimpleNamespace
 
 import pytest
-from conftest import normal_rations
+from conftest import launch_cargo, normal_rations
 
 from app.game.events import seeded_rng
 from app.game.models import Effects, GameError
@@ -23,13 +23,17 @@ def work_state(quiet_engine, monkeypatch):
     return quiet_engine.create_game(
         "alpha",
         ["alex", "lin", "sam", "maya"],
-        {
-            "scientific_tools": 1,
-            "eva_batteries": 8,
-            "repair_kits": 8,
-            "food_packs": 8,
-            "water_containers": 12,
-        },
+        launch_cargo(
+            quiet_engine,
+            "alpha",
+            {
+                "scientific_tools": 1,
+                "eva_batteries": 8,
+                "repair_kits": 8,
+                "food_packs": 8,
+                "water_containers": 12,
+            },
+        ),
         42,
     )
 
@@ -181,7 +185,7 @@ def test_assignment_list_order_does_not_change_rng_or_results(quiet_engine, work
 
 def test_parallel_week_replay_is_exact_and_does_not_award_again(quiet_engine, work_state):
     store = GameStore(quiet_engine)
-    game = store.create("alpha", ["alex", "lin"], {"scientific_tools": 1}, 42)
+    game = store.create("alpha", ["alex", "lin"], launch_cargo(store.engine, "alpha", {}), 42)
     body = {
         "expected_week": 1,
         "request_id": "parallel",

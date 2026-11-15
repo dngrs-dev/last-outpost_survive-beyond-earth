@@ -252,3 +252,8 @@ Six additional specialists use existing modifiers and the four-seat launch
 contract. Regenerate fixtures after roster changes. The catalog is loaded at
 startup; a running backend must restart to load changed JSON definitions (which
 also clears its in-memory missions).
+
+
+### Objective equipment at launch
+
+Launch requires enough retained tools and non-renewable consumables for one attempt at each planned objective unit, derived from the canonical research activities. Shared tools count once; EVA packs and repair kits are summed. Outpost stock counts toward the requirement. Renewable oxygen and electricity are excluded from this equipment check. Failures, maintenance and survival still need extra reserves. Incident science remains an alternative route during play. `GET /api/catalog` publishes each mission's `required_resources`; invalid direct launch requests return 422 before a game is created.

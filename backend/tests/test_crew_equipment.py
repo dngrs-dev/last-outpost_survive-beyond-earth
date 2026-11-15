@@ -2,6 +2,7 @@ from collections import Counter
 from copy import deepcopy
 
 import pytest
+from conftest import launch_cargo
 
 from app.game.events import get_event, success_probability
 from app.game.models import GameError, Ration
@@ -29,8 +30,12 @@ def test_sixteen_distinct_researched_profiles_and_individual_costs(engine):
 
 @pytest.mark.parametrize("crew_id", ["rhea", "priya", "theo", "hao", "vera", "nik"])
 def test_added_profiles_can_launch_with_healthy_independent_state(quiet_engine, crew_id):
-    first = quiet_engine.create_game("alpha", [crew_id], {}, 42)
-    second = quiet_engine.create_game("alpha", [crew_id], {}, 42)
+    first = quiet_engine.create_game(
+        "alpha", [crew_id], launch_cargo(quiet_engine, "alpha", {}), 42
+    )
+    second = quiet_engine.create_game(
+        "alpha", [crew_id], launch_cargo(quiet_engine, "alpha", {}), 42
+    )
     assert first.crew[0].id == crew_id
     assert first.crew[0].health == 100
     assert not first.crew[0].medical_conditions
@@ -49,7 +54,7 @@ def test_added_profiles_can_launch_with_healthy_independent_state(quiet_engine, 
     ],
 )
 def test_added_specialties_improve_actual_incident_actions(engine, crew_id, choice_id):
-    state = engine.create_game("alpha", [crew_id], {}, 42)
+    state = engine.create_game("alpha", [crew_id], launch_cargo(engine, "alpha", {}), 42)
     choice = next(
         choice
         for event in engine.definitions.events.values()
@@ -65,14 +70,14 @@ def test_added_specialties_improve_actual_incident_actions(engine, crew_id, choi
 
 
 def test_specialist_bonus_applies_to_the_assigned_astronaut(engine):
-    state = engine.create_game("alpha", ["inez", "sam"], {}, 0)
+    state = engine.create_game("alpha", ["inez", "sam"], launch_cargo(engine, "alpha", {}), 0)
     choice = engine.definitions.events["solar_failure"].choices[1]
     assert success_probability(state, choice, state.crew[0]) == 0.85
     assert success_probability(state, choice, state.crew[1]) == 0.6
 
 
 def test_medical_specialist_helps_other_patients_only_while_alive(engine):
-    state = engine.create_game("alpha", ["sam", "elena"], {}, 42)
+    state = engine.create_game("alpha", ["sam", "elena"], launch_cargo(engine, "alpha", {}), 42)
     choice = engine.definitions.events["medical_emergency"].choices[0]
     assert success_probability(state, choice, state.crew[0]) == 0.95
     state.crew[1].health = 0
@@ -80,7 +85,9 @@ def test_medical_specialist_helps_other_patients_only_while_alive(engine):
 
 
 def test_power_cells_add_energy_without_changing_generation(quiet_engine):
-    state = quiet_engine.create_game("alpha", ["nora"], {"power_cells": 2}, 42)
+    state = quiet_engine.create_game(
+        "alpha", ["nora"], launch_cargo(quiet_engine, "alpha", {"power_cells": 2}), 42
+    )
     assert state.resources["electricity"] == 54
     assert state.solar_efficiency == 1
 
@@ -95,7 +102,9 @@ def test_power_cells_add_energy_without_changing_generation(quiet_engine):
 def test_maintenance_consumes_equipment_once_and_persists(
     quiet_engine, choice_id, resource, system
 ):
-    state = quiet_engine.create_game("alpha", ["jules"], {resource: 1}, 42)
+    state = quiet_engine.create_game(
+        "alpha", ["jules"], launch_cargo(quiet_engine, "alpha", {resource: 1}), 42
+    )
     setattr(state, system, 0.5)
     after, outcome = quiet_engine.advance_week(
         state,
@@ -121,7 +130,9 @@ def test_maintenance_consumes_equipment_once_and_persists(
 
 
 def test_cannot_spend_maintenance_supplies_on_a_fully_working_system(quiet_engine):
-    state = quiet_engine.create_game("alpha", ["alex"], {"dust_kits": 1}, 42)
+    state = quiet_engine.create_game(
+        "alpha", ["alex"], launch_cargo(quiet_engine, "alpha", {"dust_kits": 1}), 42
+    )
     with pytest.raises(GameError, match="full condition"):
         quiet_engine.advance_week(
             state,
@@ -134,7 +145,9 @@ def test_cannot_spend_maintenance_supplies_on_a_fully_working_system(quiet_engin
 
 
 def test_scanner_is_retained_but_medicine_is_consumed(engine):
-    state = engine.create_game("alpha", ["alex"], {"diagnostic_tools": 1}, 42)
+    state = engine.create_game(
+        "alpha", ["alex"], launch_cargo(engine, "alpha", {"diagnostic_tools": 1}), 42
+    )
     state.crew[0].health = 40
     assert get_event(state, engine.definitions).id == "medical_emergency"
     medicine = state.resources["medicine"]
@@ -147,7 +160,9 @@ def test_scanner_is_retained_but_medicine_is_consumed(engine):
 
 def test_scanner_cargo_limit_and_missing_equipment_are_authoritative(engine):
     with pytest.raises(GameError, match="At most 1"):
-        engine.create_game("alpha", ["alex"], {"diagnostic_tools": 2})
-    state = engine.create_game("alpha", ["alex"], {}, 42)
+        engine.create_game(
+            "alpha", ["alex"], launch_cargo(engine, "alpha", {"diagnostic_tools": 2})
+        )
+    state = engine.create_game("alpha", ["alex"], launch_cargo(engine, "alpha", {}), 42)
     with pytest.raises(GameError, match="scanner"):
         engine.advance_week(state, 1, rations(state), "guided_treatment", "alex")

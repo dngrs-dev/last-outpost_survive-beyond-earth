@@ -17,6 +17,7 @@ from app.game.events import (
     select_event,
 )
 from app.game.health import REST, capacity_reasons, condition_view, ration_outlook
+from app.game.launch import objective_requirements
 from app.game.life_support import MAINTENANCE, life_support_view
 from app.game.medicine import MEDICAL_CHOICES, MEDICAL_IDS, medical_views, provide_care
 from app.game.models import Definitions, GameError, GameState, Ration
@@ -85,6 +86,16 @@ class GameEngine:
         for item_id, quantity in cargo.items():
             item = self.definitions.items[item_id]
             resources[item.resource] += item.resource_amount * quantity
+        missing = {
+            resource: amount - resources.get(resource, 0)
+            for resource, amount in objective_requirements(mission).items()
+            if resources.get(resource, 0) < amount
+        }
+        if missing:
+            details = ", ".join(
+                f"{name.replace('_', ' ')} x{amount:g}" for name, amount in missing.items()
+            )
+            raise GameError(f"Pack objective equipment: {details}.")
         resources["electricity"] = min(station.battery_capacity, resources["electricity"])
         state = GameState(
             station_id=station.id,
@@ -463,7 +474,10 @@ class GameEngine:
     def catalog(self) -> dict:
         return {
             "stations": [asdict(item) for item in self.definitions.stations.values()],
-            "missions": [asdict(item) for item in self.definitions.missions.values()],
+            "missions": [
+                {**asdict(item), "required_resources": objective_requirements(item)}
+                for item in self.definitions.missions.values()
+            ],
             "lighting": asdict(self.definitions.lighting),
             "sunlight_forecasts": {
                 station.id: [

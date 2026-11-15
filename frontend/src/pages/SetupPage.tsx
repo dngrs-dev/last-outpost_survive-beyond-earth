@@ -28,6 +28,7 @@ const STARTER_CARGO = {
   repair_kits: 7,
   eva_batteries: 7,
   oxygen_tanks: 4,
+  scientific_tools: 1,
 };
 const TABS = ['Mission', 'Power', 'Settings'] as const;
 type BriefTab = (typeof TABS)[number];
@@ -172,15 +173,6 @@ export function SetupPage() {
     (/^\d+$/.test(seed.trim()) && Number.isSafeInteger(Number(seed.trim())));
   const overweight = totalMass > massLimit;
   const overfilled = totalVolume > volumeLimit;
-  const canLaunch =
-    !!station &&
-    !!mission &&
-    crewValid &&
-    cargoValid &&
-    seedValid &&
-    !overweight &&
-    !overfilled &&
-    !submitting;
   const arrival = (resource: string) =>
     (station?.starting_resources[resource] || 0) +
     (catalog?.items || []).reduce(
@@ -191,6 +183,19 @@ export function SetupPage() {
           : 0),
       0
     );
+  const missingEquipment = Object.entries(mission?.required_resources || {})
+    .filter(([resource, amount]) => arrival(resource) < amount)
+    .map(([resource, amount]) => ({ resource, amount: amount - arrival(resource) }));
+  const canLaunch =
+    !!station &&
+    !!mission &&
+    crewValid &&
+    missingEquipment.length === 0 &&
+    cargoValid &&
+    seedValid &&
+    !overweight &&
+    !overfilled &&
+    !submitting;
   const powerOverflow =
     !!station && arrival('electricity') > station.battery_capacity;
 
@@ -415,24 +420,17 @@ export function SetupPage() {
                   </p>
                 </div>
               </section>
-              {!cargo.scientific_tools &&
-                catalog.items.some(
-                  (item) => item.id === 'scientific_tools'
-                ) && (
-                  <div className={styles.scienceHint}>
-                    <ItemIcon id="scientific_tools" />
-                    <p>A field kit unlocks planned research.</p>
-                    <button
-                      type="button"
-                      disabled={submitting}
-                      onClick={() =>
-                        updateDraft({ ...cargo, scientific_tools: 1 })
-                      }
-                    >
-                      Add kit
-                    </button>
-                  </div>
-                )}
+              {missingEquipment.length > 0 && (
+                <div className={styles.scienceHint} role="alert">
+                  <p>Objective equipment needed</p>
+                  {missingEquipment.map(({ resource, amount }) => {
+                    const item = catalog.items.find((entry) => entry.resource === resource);
+                    return <span key={resource}><ItemIcon id={item?.id || resource} />
+                      {item?.name || resource}: {amount}
+                    </span>;
+                  })}
+                </div>
+              )}
             </aside>
           </div>
           <div className={styles.launchbar}>

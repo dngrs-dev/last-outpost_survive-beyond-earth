@@ -57,6 +57,7 @@ export interface MissionDefinition {
   event_ids: string[];
   minimum_survivors: number;
   science_objectives: ResearchObjectiveDefinition[];
+  required_resources: Record<string, number>;
 }
 
 export interface CrewDefinition {
