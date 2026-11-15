@@ -1,9 +1,9 @@
 .panel {
   padding: 12px;
   margin: 0;
-  border: 1px solid #5a7e9b44;
+  border: 1px solid rgba(138, 160, 190, 0.267);
   border-radius: 16px;
-  background: #0d2032aa;
+  background: rgba(var(--surface-deep-rgb), 0.667);
   box-shadow: none;
 }
 .heading {
@@ -18,7 +18,7 @@
   font-weight: 500;
 }
 .heading span {
-  color: #8de6b9;
+  color: #f9dcab;
   font-size: 11px;
   margin-left: 6px;
 }
@@ -27,9 +27,9 @@
   min-height: 36px;
   padding: 6px 9px;
   border-radius: 8px;
-  background: #18354a;
+  background: var(--surface-panel);
   color: #c0dff0;
-  border: 1px solid #8cdbff33;
+  border: 1px solid #f9dcab33;
 }
 .slots {
   display: grid;
@@ -40,9 +40,9 @@
   min-width: 0;
   text-align: center;
   padding: 3px;
-  border: 1px solid #8de6b933;
+  border: 1px solid #f9dcab33;
   border-radius: 9px;
-  background: #071a2688;
+  background: rgba(var(--surface-deep-rgb), 0.533);
 }
 .person > svg {
   width: 40px;

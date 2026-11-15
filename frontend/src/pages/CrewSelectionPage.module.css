@@ -1,8 +1,8 @@
 .page {
-  --ink: #eff6ff;
-  --muted: #a4b9ce;
-  --cyan: #87dfff;
-  --green: #8de6b9;
+  --ink: var(--text-main);
+  --muted: var(--text-muted);
+  --cyan: var(--mission-gold);
+  --green: var(--mission-gold);
   position: relative;
   isolation: isolate;
   height: 100svh;
@@ -14,7 +14,7 @@
   padding: max(20px, env(safe-area-inset-top)) clamp(20px, 3.5vw, 64px)
     max(20px, env(safe-area-inset-bottom));
   color: var(--ink);
-  background: #060d1b;
+  background: var(--surface-deep);
 }
 .background {
   position: absolute;
@@ -22,8 +22,8 @@
   z-index: -1;
   pointer-events: none;
   background:
-    radial-gradient(ellipse at 78% 37%, #214e7640, transparent 50%),
-    radial-gradient(ellipse at 15% 80%, #23336140, transparent 60%),
+    radial-gradient(ellipse at 78% 37%, rgba(var(--surface-raised-rgb), 0.251), transparent 50%),
+    radial-gradient(ellipse at 15% 80%, rgba(var(--surface-raised-rgb), 0.251), transparent 60%),
     linear-gradient(#a9d3ff04 1px, transparent 1px),
     linear-gradient(90deg, #a9d3ff04 1px, transparent 1px);
   background-size:
@@ -39,7 +39,7 @@
 .page button:focus-visible,
 .page a:focus-visible,
 .page summary:focus-visible {
-  outline: 3px solid #ffe0a8;
+  outline: 3px solid var(--mission-gold);
   outline-offset: 3px;
 }
 .topbar {
@@ -80,8 +80,8 @@
 }
 .step b {
   color: var(--cyan);
-  border: 1px solid #87dfff55;
-  background: #87dfff0b;
+  border: 1px solid #f9dcab55;
+  background: #f9dcab0b;
   padding: 8px 16px;
   border-radius: 30px;
   font-weight: 500;
@@ -138,9 +138,9 @@
   position: relative;
   min-width: 0;
   padding: 0;
-  border: 1px solid #45658180;
+  border: 1px solid rgba(138, 160, 190, 0.502);
   border-radius: 14px;
-  background: linear-gradient(160deg, #1d354a, #0d1b2b);
+  background: linear-gradient(160deg, var(--surface-panel), var(--surface-deep));
   color: var(--ink);
   overflow: hidden;
   transition:
@@ -149,14 +149,14 @@
     background 0.2s;
 }
 .portrait:hover {
-  background: linear-gradient(160deg, #29465d, #12263c);
+  background: linear-gradient(160deg, var(--surface-raised), var(--surface-panel));
   border-color: var(--cyan);
 }
 .portrait[data-selected='true'] {
-  border-color: #8de6b9bb;
+  border-color: #f9dcabbb;
   box-shadow:
-    inset 0 0 15px #8de6b90e,
-    0 0 13px #8de6b91a;
+    inset 0 0 15px #f9dcab0e,
+    0 0 13px #f9dcab1a;
 }
 .portrait[data-inspected='true'] {
   outline: 2px solid var(--cyan);
@@ -177,7 +177,7 @@
 .portraitName {
   display: block;
   padding: 8px 3px;
-  background: #030b1699;
+  background: rgba(var(--surface-space-rgb), 0.600);
   font-size: clamp(10px, 1vw, 13px);
   font-weight: 500;
   white-space: nowrap;
@@ -192,7 +192,7 @@
   height: 28px;
   border: 1px solid currentColor;
   border-radius: 9px;
-  background: #061220ed;
+  background: rgba(var(--surface-deep-rgb), 0.929);
   box-shadow: 0 0 12px #0003;
 }
 .roleBadge svg {
@@ -204,7 +204,7 @@
   top: 6px;
   left: 6px;
   background: var(--green);
-  color: #0a2b21;
+  color: var(--surface-deep);
   width: 19px;
   height: 19px;
   border-radius: 50%;
@@ -224,7 +224,7 @@
   height: 7px;
   background: var(--green);
   border-radius: 50%;
-  box-shadow: 0 0 8px #8de6b966;
+  box-shadow: 0 0 8px #f9dcab66;
 }
 .legend small {
   margin-left: auto;
@@ -235,9 +235,9 @@
   min-height: 0;
   position: relative;
   padding: 16px 24px 8px;
-  border: 1px solid #5880a644;
+  border: 1px solid rgba(138, 160, 190, 0.267);
   border-radius: 24px;
-  background: linear-gradient(150deg, #14304b55, #0b17256b);
+  background: linear-gradient(150deg, rgba(var(--surface-panel-rgb), 0.333), rgba(var(--surface-deep-rgb), 0.420));
   display: grid;
   grid-template-rows: auto minmax(100px, 1fr) auto auto auto;
   box-shadow:
@@ -298,7 +298,7 @@
   bottom: 5%;
   width: 60%;
   height: 11%;
-  border: 1px solid #85d8ff50;
+  border: 1px solid rgba(138, 160, 190, 0.314);
   border-radius: 50%;
   box-shadow:
     0 0 20px #6bcdff16,
@@ -309,7 +309,7 @@
   position: absolute;
   inset: -5px 13%;
   border-radius: 50%;
-  border: 1px dashed #9edfff30;
+  border: 1px dashed rgba(138, 160, 190, 0.188);
 }
 .stageLabel {
   position: absolute;
@@ -338,8 +338,8 @@
 }
 .traits p {
   padding: 9px 11px;
-  border: 1px solid #83b1d51f;
-  background: #07142188;
+  border: 1px solid rgba(138, 160, 190, 0.122);
+  background: rgba(var(--surface-deep-rgb), 0.533);
   border-radius: 10px;
 }
 .traits b {
@@ -396,19 +396,19 @@
   width: 100%;
   min-height: 44px;
   font: 600 14px var(--font-display);
-  border: 1px solid #85dfff99;
+  border: 1px solid rgba(138, 160, 190, 0.600);
   border-radius: 9px;
   color: #d9f4ff;
-  background: #16415d;
+  background: var(--surface-raised);
 }
 .choose:hover {
-  background: #1d5276;
-  box-shadow: 0 0 16px #87dfff16;
+  background: var(--surface-raised);
+  box-shadow: 0 0 16px #f9dcab16;
 }
 .choose[data-remove='true'] {
-  color: #b9dccd;
-  border-color: #8de6b94d;
-  background: #12382d66;
+  color: var(--text-muted);
+  border-color: #f9dcab4d;
+  background: rgba(var(--surface-raised-rgb), .4);
 }
 .choose > span {
   font-size: 22px;
@@ -425,7 +425,7 @@
   display: grid;
   grid-template-columns: minmax(0, 1.15fr) minmax(0, 1fr);
   gap: clamp(24px, 4vw, 64px);
-  border-top: 1px solid #8bb8dd26;
+  border-top: 1px solid rgba(138, 160, 190, 0.149);
   padding-top: 16px;
 }
 .teamHeading {
@@ -454,13 +454,13 @@
 .seat {
   min-width: 0;
   position: relative;
-  border: 1px solid #4b6d8988;
-  background: #0b1b2c;
+  border: 1px solid rgba(138, 160, 190, 0.533);
+  background: var(--surface-deep);
   border-radius: 12px;
 }
 .seat[data-active='true'] {
   border-color: var(--cyan);
-  box-shadow: 0 0 15px #87dfff16;
+  box-shadow: 0 0 15px #f9dcab16;
 }
 .seat > button:first-child {
   display: flex;
@@ -499,7 +499,7 @@
 }
 .removeSeat:hover {
   color: #fff;
-  background: #45647a33;
+  background: rgba(var(--surface-raised-rgb), 0.200);
 }
 .emptySeat {
   font-size: 26px;
@@ -536,15 +536,15 @@
   display: flex;
   align-items: center;
   gap: 18px;
-  border: 1px solid #b8f6d6;
+  border: 1px solid var(--mission-gold-hover);
   border-radius: 10px;
   background: var(--green);
-  color: #123327;
+  color: var(--surface-panel);
   font: 600 15px var(--font-display);
-  box-shadow: 0 4px 30px #8de6b916;
+  box-shadow: 0 4px 30px #f9dcab16;
 }
 .proceed > button:hover:not(:disabled) {
-  background: #b1f5d0;
+  background: var(--mission-gold);
 }
 .status {
   grid-column: 1 / -1;
@@ -565,9 +565,9 @@
 .loading button,
 .loading a {
   color: var(--cyan);
-  background: #19334c;
+  background: var(--surface-panel);
   padding: 12px 20px;
-  border: 1px solid #87dfff77;
+  border: 1px solid #f9dcab77;
   border-radius: 10px;
 }
 

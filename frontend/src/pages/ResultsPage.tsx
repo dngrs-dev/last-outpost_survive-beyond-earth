@@ -1,329 +1,60 @@
-import React, { useEffect, useState } from 'react';
-import { useParams, useNavigate } from 'react-router-dom';
+import { useEffect, useState } from 'react';
+import { Link, useNavigate, useParams } from 'react-router-dom';
 import { fetchGameState } from '../api/game';
 import { rememberMission } from '../state/lastMission';
-import { ResearchProjects } from '../components/ResearchProjects';
-import { EnergyPanel } from '../components/EnergyPanel';
-import { LifeSupportPanel } from '../components/LifeSupportPanel';
-import { Header } from '../components/Header';
-import { ResearchObjectives } from '../components/ResearchObjectives';
-import { ResourceCard } from '../components/ResourceCard';
-import { StationOverview } from '../components/StationOverview';
-import { TurnDetails } from '../components/TurnDetails';
-import type { GameStateResponse } from '../types/game';
+import { Portrait } from '../components/station/Visuals';
+import type { GameStateResponse, ResultsResponse } from '../types/game';
+import styles from './ResultsPage.module.css';
 
-export const ResultsPage: React.FC = () => {
-  const { gameId } = useParams<{ gameId: string }>();
+/** Display awards from the authoritative final report; these do not change the mission. */
+export function missionRating(results: ResultsResponse) {
+  const survived = results.surviving_crew_ids.length > 0;
+  const fullCrew = survived && results.surviving_crew_ids.length === results.initial_crew_size;
+  const scienceComplete = survived && results.science.total_objectives > 0 && results.science.status === 'complete';
+  return { survived, fullCrew, scienceComplete, stars: Number(survived) + Number(fullCrew) + Number(scienceComplete) };
+}
+const endings: Record<string, string> = { perfect_handover: 'Great mission!', successful_handover: 'Mission complete', emergency_handover: 'Emergency handover', mission_failure: 'Mission ended' };
+export function ResultsPage() {
+  const { gameId = '' } = useParams<{ gameId: string }>();
   const navigate = useNavigate();
-
   const [state, setState] = useState<GameStateResponse | null>(null);
-  const [loading, setLoading] = useState<boolean>(true);
-  const [error, setError] = useState<string | null>(null);
-
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState('');
+  const [attempt, setAttempt] = useState(0);
   useEffect(() => {
-    if (!gameId) return;
     let mounted = true;
-    setLoading(true);
-    setState(null);
-    setError(null);
-
-    fetchGameState(gameId)
-      .then((game) => {
-        if (!mounted) return;
-        rememberMission(game.game_id);
-        if (game.state.status === 'running') {
-          navigate(`/game/${gameId}`, { replace: true });
-          return;
-        }
-        setState(game.state);
-        setLoading(false);
-      })
-      .catch((err) => {
-        if (!mounted) return;
-        setError(err.message || 'Failed to retrieve mission debrief.');
-        setLoading(false);
-      });
-
-    return () => {
-      mounted = false;
-    };
-  }, [gameId, navigate]);
-
-  if (loading) {
-    return (
-      <div className="app-container">
-        <Header />
-        <div style={{ textAlign: 'center', padding: '4rem', color: 'var(--color-cyan)' }}>
-          <div style={{ fontSize: '2rem', marginBottom: '1rem' }}>📋</div>
-          <div>TRANSMITTING FINAL ROTATION REPORT TO MISSION CONTROL...</div>
-        </div>
+    setLoading(true); setState(null); setError('');
+    fetchGameState(gameId).then(game => {
+      if (!mounted) return;
+      rememberMission(game.game_id);
+      if (game.state.status === 'running') { navigate(`/game/${gameId}`, { replace: true }); return; }
+      if (!game.state.results) throw new Error('Results are unavailable.');
+      setState(game.state); setLoading(false);
+    }).catch((reason: unknown) => {
+      if (!mounted) return;
+      setError(reason instanceof Error ? reason.message : 'Could not load results.'); setLoading(false);
+    });
+    return () => { mounted = false; };
+  }, [gameId, navigate, attempt]);
+  if (loading) return <main className={styles.page}><p role="status">Loading results…</p></main>;
+  if (!state?.results) return <main className={styles.page}><section className={styles.card}><p role="alert">{error}</p><button type="button" className="btn btn-primary" onClick={() => setAttempt(value => value + 1)}>Retry</button><Link to="/">Main menu</Link></section></main>;
+  const results = state.results, rating = missionRating(results);
+  const survivors = new Set(results.surviving_crew_ids);
+  return <main className={styles.page}>
+    <section className={styles.card} aria-label="Mission results">
+      <p className={styles.outpost}>{state.station_name}</p>
+      <h1>{endings[results.ending] || 'Mission ended'}</h1>
+      <div className={styles.stars} role="img" aria-label={`${rating.stars} out of 3 stars`}>
+        {[0, 1, 2].map(index => <svg key={index} viewBox="0 0 100 100" aria-hidden="true" data-earned={index < rating.stars}><path d="m50 7 13 27 30 4-22 22 5 30-26-14-26 14 5-30L7 38l30-4Z" /></svg>)}
       </div>
-    );
-  }
-
-  if (!state) {
-    return (
-      <div className="app-container">
-        <Header />
-        <div className="alert alert-danger">{error || 'Debrief telemetry unavailable.'}</div>
-        <button type="button" className="btn btn-secondary" onClick={() => navigate('/prepare/')}>
-          Return to mission preparation
-        </button>
-      </div>
-    );
-  }
-
-  const ending = state.ending;
-  const livingCrew = state.crew.filter((c) => c.alive);
-
-  const getEndingDetails = () => {
-    switch (ending) {
-      case 'perfect_handover':
-        return {
-          title: 'PERFECT HANDOVER',
-          subtitle: 'FLAWLESS LUNAR EXPEDITION',
-          badgeClass: 'badge-green',
-          borderClass: 'var(--color-green)',
-          desc: 'Outstanding performance! All crew members survived in robust health. Station Alpha systems remain at peak efficiency with abundant reserves for the incoming expedition crew.',
-        };
-      case 'successful_handover':
-        return {
-          title: 'SUCCESSFUL HANDOVER',
-          subtitle: 'MISSION OBJECTIVES ACHIEVED',
-          badgeClass: 'badge-green',
-          borderClass: 'var(--color-cyan)',
-          desc: 'Well done! The expedition crew maintained Station Alpha through hazardous lunar conditions until the replacement crew arrived.',
-        };
-      case 'emergency_handover':
-        return {
-          title: 'EMERGENCY HANDOVER',
-          subtitle: 'SURVIVAL AT GREAT COST',
-          badgeClass: 'badge-amber',
-          borderClass: 'var(--color-amber)',
-          desc: 'The rotation craft touched down in the nick of time. Severe equipment degradation and depleted reserves left the outpost on the brink of total collapse.',
-        };
-      case 'mission_failure':
-      default:
-        return {
-          title: 'MISSION FAILURE',
-          subtitle: 'STATION ALPHA LOST',
-          badgeClass: 'badge-red',
-          borderClass: 'var(--color-red)',
-          desc: state.results?.failure_reason || state.flags.failure_reason || 'Station Alpha life support or all expedition astronauts were lost on the lunar surface.',
-        };
-    }
-  };
-
-  const details = getEndingDetails();
-
-  return (
-    <div className="app-container">
-      <Header
-        stationName={state.station_name}
-        currentWeek={state.current_week}
-        durationWeeks={state.duration_weeks}
-      />
-
-      {error && <div className="alert alert-danger">{error}</div>}
-
-      {/* Outcome Banner */}
-      <div
-        className="card"
-        style={{
-          border: `2px solid ${details.borderClass}`,
-          marginBottom: '1.5rem',
-          padding: '2rem',
-          textAlign: 'center',
-          boxShadow: `0 0 30px ${details.borderClass}33`,
-        }}
-      >
-        <h2 style={{ fontSize: '1rem', color: 'var(--text-muted)' }}>Survival outcome</h2>
-        <span className={`badge ${details.badgeClass}`} style={{ fontSize: '0.9rem', marginBottom: '0.75rem' }}>
-          {details.subtitle}
-        </span>
-        <h1
-          style={{
-            fontSize: '2.4rem',
-            fontWeight: 700,
-            color: '#fff',
-            letterSpacing: '2px',
-            marginBottom: '0.5rem',
-          }}
-        >
-          {details.title}
-        </h1>
-        <p
-          style={{
-            fontSize: '1.05rem',
-            color: 'var(--text-main)',
-            maxWidth: '750px',
-            margin: '0 auto 1.5rem auto',
-            lineHeight: 1.6,
-          }}
-        >
-          {details.desc}
-        </p>
-
-        <div style={{ display: 'flex', justifyContent: 'center', gap: '2rem', flexWrap: 'wrap' }}>
-          <div>
-            <div style={{ fontSize: '0.8rem', color: 'var(--text-muted)' }}>WEEKS SURVIVED</div>
-            <div style={{ fontFamily: 'var(--font-mono)', fontSize: '1.8rem', fontWeight: 700, color: '#fff' }}>
-              {state.weeks_completed} / {state.duration_weeks}
-            </div>
-          </div>
-          <div>
-            <div style={{ fontSize: '0.8rem', color: 'var(--text-muted)' }}>CREW SURVIVAL</div>
-            <div style={{ fontFamily: 'var(--font-mono)', fontSize: '1.8rem', fontWeight: 700, color: '#34d399' }}>
-              {livingCrew.length} / {state.initial_crew_size}
-            </div>
-          </div>
-          <div>
-            <div style={{ fontSize: '0.8rem', color: 'var(--text-muted)' }}>STATION SOLAR ARRAY</div>
-            <div style={{ fontFamily: 'var(--font-mono)', fontSize: '1.8rem', fontWeight: 700, color: '#fff' }}>
-              {Math.round(state.solar_efficiency * 100)}%
-            </div>
-          </div>
-          <div>
-            <div style={{ fontSize: '0.8rem', color: 'var(--text-muted)' }}>LIFE SUPPORT EFFICIENCY</div>
-            <div style={{ fontFamily: 'var(--font-mono)', fontSize: '1.8rem', fontWeight: 700, color: '#fff' }}>
-              {Math.round(state.oxygen_efficiency * 100)}%
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <ResearchObjectives objectives={state.results!.science.objectives} science={state.results!.science} final />
-
-      <ResearchProjects projects={state.research_projects} />
-
-      <EnergyPanel forecast={[]} stored={state.energy.stored} capacity={state.energy.battery_capacity}
-        solarDay={state.energy.solar_day_earth_days} sourceUrl={state.energy.source_url} assumption={state.energy.assumption} />
-
-      <LifeSupportPanel systems={state.life_support} />
-
-      {/* Final Outpost Status */}
-      <StationOverview
-        solarEfficiency={state.solar_efficiency}
-        oxygenEfficiency={state.oxygen_efficiency}
-      />
-
-      {/* Remaining Resources */}
-      <div className="card" style={{ marginBottom: '1.5rem' }}>
-        <div className="card-title">
-          <span>📦 FINAL OUTPOST RESERVES</span>
-        </div>
-        <div className="resources-grid" style={{ marginBottom: 0 }}>
-          <ResourceCard id="research_data" name="Research data" value={state.resources.research_data || 0} unit="points" />
-          <ResourceCard id="food" name="Food" value={state.resources.food || 0} unit="u" />
-          <ResourceCard id="water" name="Water" value={state.resources.water || 0} unit="u" />
-          <ResourceCard id="oxygen" name="Oxygen" value={state.resources.oxygen || 0} unit="u" />
-          <ResourceCard id="electricity" name="Power" value={state.resources.electricity || 0} unit="u" />
-          <ResourceCard id="medicine" name="Medicine" value={state.resources.medicine || 0} unit="kits" />
-          <ResourceCard id="repair_kits" name="Repair Kits" value={state.resources.repair_kits || 0} unit="kits" />
-          <ResourceCard id="eva_batteries" name="EVA Packs" value={state.resources.eva_batteries || 0} unit="packs" />
-        </div>
-      </div>
-
-      {/* Crew Debriefing */}
-      <div className="card" style={{ marginBottom: '1.5rem' }}>
-        <div className="card-title">
-          <span>👨‍🚀 EXPEDITION CREW DEBRIEF</span>
-        </div>
-
-        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(240px, 1fr))', gap: '1rem' }}>
-          {state.crew.map((member) => (
-            <div
-              key={member.id}
-              style={{
-                background: 'var(--bg-secondary)',
-                padding: '1rem',
-                borderRadius: 'var(--border-radius)',
-                border: member.alive ? '1px solid rgba(255,255,255,0.08)' : '1px solid rgba(239,68,68,0.3)',
-                opacity: member.alive ? 1 : 0.6,
-              }}
-            >
-              <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '0.3rem' }}>
-                <span style={{ fontWeight: 700, color: '#fff' }}>{member.name}</span>
-                <span className={`badge ${member.alive ? 'badge-green' : 'badge-red'}`}>
-                  {member.alive ? `${member.health}% HP` : 'DECEASED'}
-                </span>
-              </div>
-              <div style={{ fontSize: '0.8rem', color: 'var(--color-cyan)', textTransform: 'uppercase' }}>
-                {member.role}
-              </div>
-              <div style={{ fontSize: '0.75rem', color: 'var(--text-muted)', marginTop: '0.4rem' }}>
-                <p>Condition: {member.condition.status}; nutrition {member.condition.nutrition_status}, hydration {member.condition.hydration_status}.</p>
-                {member.medical_conditions.map(condition => <p key={condition.kind}>{condition.title}: {condition.remaining} recovery points unresolved{condition.urgent && member.alive ? '; urgent stabilization needed' : ''}.</p>)}
-                {member.positive_trait}
-              </div>
-            </div>
-          ))}
-        </div>
-      </div>
-
-      {/* Mission Chronicle / Turn History */}
-      {state.history && state.history.length > 0 && (
-        <div className="card" style={{ marginBottom: '1.5rem' }}>
-          <div className="card-title">
-            <span>📜 MISSION CHRONICLE</span>
-            <span style={{ fontSize: '0.8rem', color: 'var(--text-muted)' }}>
-              Weekly Decision Log
-            </span>
-          </div>
-
-          <div style={{ display: 'flex', flexDirection: 'column', gap: '0.75rem' }}>
-            {state.history.map((entry) => {
-              const isSuccess = entry.event?.success;
-              return (
-                <div
-                  key={entry.week}
-                  style={{
-                    background: 'var(--bg-secondary)',
-                    borderRadius: 'var(--border-radius)',
-                    padding: '0.75rem 1rem',
-                    borderLeft: `4px solid ${isSuccess ? 'var(--color-green)' : 'var(--color-red)'}`,
-                  }}
-                >
-                  <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '0.25rem' }}>
-                    <span style={{ fontWeight: 700, color: '#fff' }}>
-                      WEEK {entry.week}: {entry.event?.choice_text || entry.event?.choice_id}
-                    </span>
-                    <span className={`badge ${isSuccess ? 'badge-green' : 'badge-red'}`}>
-                      {isSuccess ? 'SUCCESS' : 'FAILURE'}
-                    </span>
-                  </div>
-
-                  <details>
-                    <summary>View consequences</summary>
-                    <TurnDetails outcome={entry} crewNames={Object.fromEntries(state.crew.map((c) => [c.id, c.name]))} />
-                  </details>
-
-                  {entry.deaths && entry.deaths.length > 0 && (
-                    <div style={{ fontSize: '0.8rem', color: 'var(--color-red)' }}>
-                      ⚠️ Fatalities: {entry.deaths.join(', ').toUpperCase()}
-                    </div>
-                  )}
-                </div>
-              );
-            })}
-          </div>
-        </div>
-      )}
-
-      {/* Restart / Replay Controls */}
-      <div style={{ display: 'flex', justifyContent: 'center', margin: '2rem 0' }}>
-        <button
-          type="button"
-          className="btn btn-primary btn-lg"
-          onClick={() => navigate('/')}
-        >
-          START NEW EXPEDITION →
-        </button>
-      </div>
-
-      <footer className="app-footer">
-        NASA Space Apps Challenge 2026 — Station Alpha Mission Simulator
-      </footer>
-    </div>
-  );
-};
+      <div className={styles.awards}>{[[rating.survived, 'Survived'], [rating.fullCrew, 'Full crew'], [rating.scienceComplete, 'All science']].map(([earned, title]) => <span key={String(title)} data-earned={Boolean(earned)}><span aria-hidden="true">{earned ? '✓' : '○'}</span> {title}</span>)}</div>
+      <dl className={styles.stats}>
+        <div><dt>♥ Crew survived</dt><dd>{survivors.size} / {results.initial_crew_size}</dd></div>
+        <div><dt>◷ Weeks</dt><dd>{results.weeks_survived} / {state.duration_weeks}</dd></div>
+        <div><dt>✦ Science goals</dt><dd>{results.science.completed_objectives} / {results.science.total_objectives}</dd></div>
+      </dl>
+      <ul className={styles.crew} aria-label="Crew">{state.crew.map(person => <li key={person.id} data-survived={survivors.has(person.id)} aria-label={`${person.name}, ${survivors.has(person.id) ? 'survived' : 'lost'}`}><Portrait person={person} /><strong>{person.name.split(' ')[0]}</strong><small>{survivors.has(person.id) ? 'Survived' : 'Lost'}</small></li>)}</ul>
+      <div className={styles.actions}><Link to="/moon/" className="btn btn-primary">Play again</Link><Link to="/" className="btn btn-secondary">Main menu</Link></div>
+    </section>
+  </main>;
+}

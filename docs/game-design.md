@@ -24,6 +24,13 @@
 > maintenance, and scanner-guided treatment. See `crew-and-equipment.md` for the
 > NASA training references and the distinction between inspiration and game values.
 
+> Final-results update: a minimal outcome screen replaces the detailed dashboard
+> and mission chronicle. Presentation-only stars use authoritative final results:
+> nobody survives = 0; otherwise +1 survival, +1 full original crew, +1 all science
+> objectives completed. Zero objectives do not earn a science star. This does not
+> change survival endings or simulation rewards. Shared chrome uses the title/Moon
+> navy-and-gold palette.
+
 ## 1. Project Overview
 
 > Event expansion: fifteen authored events now replace the original three-event

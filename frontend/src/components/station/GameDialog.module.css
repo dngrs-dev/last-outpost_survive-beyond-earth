@@ -1,23 +1,23 @@
-.dialog { position: fixed; inset: 0; margin: auto; width: min(660px, calc(100vw - 28px)); max-height: calc(100dvh - 28px); max-width: none; padding: 20px; border: 1px solid #7c9da6; border-radius: 12px; color: #e2e9e4; background: linear-gradient(150deg, #203b4b, #0f202e); box-shadow: 0 24px 100px #000c, inset 0 0 0 6px #41626c44; overflow: auto; }
+.dialog { position: fixed; inset: 0; margin: auto; width: min(660px, calc(100vw - 28px)); max-height: calc(100dvh - 28px); max-width: none; padding: 20px; border: 1px solid var(--panel-border); border-radius: 12px; color: #eff5ff; background: var(--panel-surface); box-shadow: 0 24px 100px #000c, inset 0 0 0 6px #cfe0ff0a; overflow: auto; }
 .dialog[open] { display: grid; grid-template-rows: auto minmax(0, 1fr) auto; gap: 16px; }
-.dialog::backdrop { background: #020813b5; backdrop-filter: blur(4px); }
+.dialog::backdrop { background: rgba(var(--surface-space-rgb), 0.710); backdrop-filter: blur(4px); }
 .header { display: flex; justify-content: space-between; gap: 12px; align-items: start; }
-.header small { font-size: 10px; color: #a8c7cc; letter-spacing: .15em; }
+.header small { font-size: 10px; color: #b0bdcf; letter-spacing: .15em; }
 .header h1 { outline: none; margin-top: 4px; font-size: 25px; line-height: 1.18; font-weight: 600; }
-.header > button { background: #0d2029; border: 1px solid #648a97; color: #d5ede7; border-radius: 7px; min-width: 44px; height: 44px; font-size: 28px; flex-shrink: 0; }
+.header > button { background: var(--surface-deep); border: 1px solid var(--border-main); color: #d5ede7; border-radius: 7px; min-width: 44px; height: 44px; font-size: 28px; flex-shrink: 0; }
 .page { min-height: 0; display: flex; flex-direction: column; justify-content: start; gap: 12px; overflow: auto; overflow-wrap: anywhere; }
-.page h2 { font-size: 22px; line-height: 1.2; color: #e6f3e9; }
+.page h2 { font-size: 22px; line-height: 1.2; color: var(--text-main); }
 .page h3 { font-size: 17px; line-height: 1.2; }
-.page p { font-size: 16px; line-height: 1.5; color: #d0deda; }
-.page small { font-size: 12px; color: #b3c9c7; }
+.page p { font-size: 16px; line-height: 1.5; color: var(--text-main); }
+.page small { font-size: 12px; color: var(--text-muted); }
 .page label { display: flex; flex-direction: column; gap: 5px; font-size: 13px; }
-.page select { width: 100%; min-height: 44px; font: 14px var(--font-display); background: #10242d; border-color: #68848e; }
+.page select { width: 100%; min-height: 44px; font: 14px var(--font-display); background: var(--surface-deep); border-color: var(--border-main); }
 .page a { color: #b6ece0; }
 .page progress, .page meter { width: 100%; height: 12px; accent-color: #8edbc0; }
 .controls { display: flex; align-items: center; justify-content: space-between; gap: 12px; min-height: 48px; }
 .controls > button { margin-left: auto; min-height: 46px; font-size: 14px; }
-.dialog button:focus-visible, .dialog select:focus-visible, .dialog a:focus-visible { outline: 3px solid #b8f4d5; outline-offset: 2px; }
-.dialog :global(.btn-secondary) { border-color: #64838d; background: #18343e; color: #d9eae5; }
+.dialog button:focus-visible, .dialog select:focus-visible, .dialog a:focus-visible { outline: 3px solid var(--mission-gold); outline-offset: 2px; }
+.dialog :global(.btn-secondary) { border-color: var(--border-main); background: var(--surface-deep); color: #eff5ff; }
 @media (max-width: 600px), (max-height: 540px) {
   .dialog { width: calc(100vw - 16px); max-height: calc(100dvh - 16px); padding: 12px; border-radius: 9px; }
   .dialog[open] { gap: 10px; }

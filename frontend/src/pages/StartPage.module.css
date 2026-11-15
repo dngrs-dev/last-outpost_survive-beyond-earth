@@ -141,13 +141,13 @@
 }
 .play {
   color: #1b2330;
-  background: #f9dcab;
+  background: var(--mission-gold);
   border: 1px solid #ffe9c7;
   box-shadow: 0 6px 32px #ffdca51c;
 }
 .play:hover {
   color: #111b29;
-  background: #ffedcf;
+  background: var(--mission-gold-hover);
   box-shadow: 0 6px 40px #ffdca533;
   transform: translateY(-1px);
 }

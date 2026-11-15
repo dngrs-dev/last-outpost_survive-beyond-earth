@@ -94,7 +94,7 @@ describe('Full-screen station and direct panels', () => {
     const final = completed.state.history[completed.state.history.length - 1];
     vi.spyOn(api, 'submitTurn').mockResolvedValue({ ...structuredClone(completed), turn_outcome: structuredClone(final) });
     openGame(); await confirmIncident(researchGame); fireEvent.click(await reviewWeek(researchGame));
-    await screen.findByText(`WEEK ${final.week} DEBRIEF`); expect(screen.queryByText('Final results route')).not.toBeInTheDocument();
+    await screen.findByRole('dialog', { name: `WEEK ${final.week} DEBRIEF` }); expect(screen.queryByText('Final results route')).not.toBeInTheDocument();
     fireEvent.click(book().getByRole('button', { name: 'View final mission results' })); expect(await screen.findByText('Final results route')).toBeInTheDocument();
   });
 });

@@ -40,21 +40,12 @@ describe('Mission research with real API fixtures', () => {
     expect(book().getByRole('progressbar', { name: 'Baseline sample collection progress' })).toHaveAttribute('value', '1');
   });
 
-  it.each([
-    [completed, 'Research program partially completed'],
-    [researchCompleted, 'Research program complete'],
-  ] as const)('reports science separately from the actual survival ending', async (fixture, assessment) => {
+  it.each([completed, researchCompleted])('keeps science totals distinct from survival in final results', async fixture => {
     vi.spyOn(gameApi, 'fetchGameState').mockResolvedValue(structuredClone(fixture));
-    render(<MemoryRouter initialEntries={['/results/fixture-game']}><Routes>
-      <Route path="/results/:gameId" element={<ResultsPage />} />
-    </Routes></MemoryRouter>);
-    const science = await screen.findByRole('region', { name: 'Scientific achievement' });
-    expect(within(science).getByText(assessment)).toBeInTheDocument();
-    expect(screen.getByRole('heading', { name: 'Survival outcome' })).toBeInTheDocument();
-    expect(screen.getByText(fixture.state.ending!.replace(/_/g, ' ').toUpperCase())).toBeInTheDocument();
-    for (const objective of fixture.state.results!.science.objectives) {
-      expect(within(science).getByRole('progressbar', { name: `${objective.title} progress` }))
-        .toHaveAttribute('value', String(objective.progress));
-    }
+    render(<MemoryRouter initialEntries={['/results/fixture-game']}><Routes><Route path="/results/:gameId" element={<ResultsPage />} /></Routes></MemoryRouter>);
+    await screen.findByRole('region', { name: 'Mission results' });
+    const science = screen.getByText('✦ Science goals').parentElement!;
+    expect(science).toHaveTextContent(`${fixture.state.results!.science.completed_objectives} / ${fixture.state.results!.science.total_objectives}`);
+    expect(screen.getByText('♥ Crew survived')).toBeInTheDocument();
   });
 });

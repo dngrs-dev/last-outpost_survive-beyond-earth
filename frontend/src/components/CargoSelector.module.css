@@ -26,9 +26,9 @@
 .presets button {
   min-height: 44px;
   padding: 6px 12px;
-  background: #132a40;
+  background: var(--surface-panel);
   color: #b5d8eb;
-  border: 1px solid #7bb9de44;
+  border: 1px solid rgba(138, 160, 190, 0.267);
   border-radius: 10px;
   font-size: 11px;
   white-space: nowrap;
@@ -46,18 +46,18 @@
   align-items: center;
   gap: 10px;
   min-height: 40px;
-  border: 1px solid #526d8655;
+  border: 1px solid rgba(138, 160, 190, 0.333);
   border-radius: 24px;
   color: #a7bbd0;
-  background: #0e2032;
+  background: var(--surface-deep);
   padding: 6px 16px;
   font-size: 12px;
 }
 .filters button[aria-pressed='true'] {
-  background: #214258;
+  background: var(--surface-raised);
   color: #c8f0ff;
-  border-color: #8cdbff88;
-  box-shadow: 0 0 16px #8cdbff0a;
+  border-color: #f9dcab88;
+  box-shadow: 0 0 16px #f9dcab0a;
 }
 .filters span {
   color: #91adc3;
@@ -78,16 +78,16 @@
 .item {
   min-width: 0;
   position: relative;
-  border: 1px solid #46637c88;
+  border: 1px solid rgba(138, 160, 190, 0.533);
   border-radius: 16px;
-  background: linear-gradient(145deg, #183049aa, #0a192cc9);
+  background: linear-gradient(145deg, rgba(var(--surface-panel-rgb), 0.667), rgba(var(--surface-deep-rgb), 0.788));
   padding: 8px 10px 10px;
   box-shadow: inset 0 1px #c0e6ff05;
 }
 .item[data-packed='true'] {
-  border-color: #8de6b966;
-  background: linear-gradient(145deg, #1e3d48aa, #0b1b2bc9);
-  box-shadow: 0 0 14px #8de6b908;
+  border-color: #f9dcab66;
+  background: linear-gradient(145deg, rgba(var(--surface-panel-rgb), 0.667), rgba(var(--surface-deep-rgb), 0.788));
+  box-shadow: 0 0 14px #f9dcab08;
 }
 .inspect {
   display: grid;
@@ -134,7 +134,7 @@
   font-size: 10px;
   font-weight: 700;
   color: #123e2c;
-  background: #8de6b9;
+  background: #f9dcab;
   border-radius: 50%;
 }
 .single {
@@ -169,25 +169,25 @@
 .quantity button {
   width: 44px;
   height: 44px;
-  background: #213b52;
-  border: 1px solid #91c5e233;
+  background: var(--surface-panel);
+  border: 1px solid rgba(138, 160, 190, 0.200);
   border-radius: 8px;
   color: #cae9fa;
   font-size: 21px;
 }
 .quantity button:hover:not(:disabled) {
-  background: #2b516d;
-  border-color: #8fdfff88;
+  background: var(--surface-raised);
+  border-color: rgba(138, 160, 190, 0.533);
 }
 .quantity input {
   width: 48px;
   height: 44px;
   min-width: 0;
   font: 15px var(--font-mono);
-  border: 1px solid #48677e88;
+  border: 1px solid rgba(138, 160, 190, 0.533);
   border-radius: 8px;
   color: #f1f7fc;
-  background: #071321;
+  background: var(--surface-deep);
   text-align: center;
   padding: 3px;
   appearance: textfield;

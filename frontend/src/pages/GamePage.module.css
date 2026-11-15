@@ -1,13 +1,13 @@
-.screen { position: relative; width: 100%; height: 100vh; height: 100dvh; overflow: hidden; background: radial-gradient(ellipse at 50% 28%, #294150 0, #142b3a 48%, #07131f 100%); color: #dceded; }
+.screen { position: relative; width: 100%; height: 100vh; height: 100dvh; overflow: hidden; background: radial-gradient(ellipse at 50% 28%, var(--surface-panel) 0, var(--surface-deep) 48%, var(--surface-space) 100%); color: #dceded; }
 .connection { height: 100dvh; display: grid; place-content: center; gap: 20px; padding: 32px; text-align: center; }
 .week { position: absolute; top: max(20px, env(safe-area-inset-top)); left: max(24px, env(safe-area-inset-left)); z-index: 8; display: flex; flex-direction: column; gap: 3px; text-shadow: 0 2px 9px #000; pointer-events: none; }
 .week strong { font-size: clamp(18px, 2vw, 27px); letter-spacing: .08em; }
 .week small { color: #b1cbd3; font-size: 11px; letter-spacing: .1em; text-transform: uppercase; max-width: 260px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
-.help { position: absolute; top: max(22px, env(safe-area-inset-top)); right: max(24px, env(safe-area-inset-right)); z-index: 8; width: 44px; height: 44px; border: 1px solid #739aaa; border-radius: 50%; color: #d2ebe7; background: #102d3bbf; font-size: 22px; }
+.help { position: absolute; top: max(22px, env(safe-area-inset-top)); right: max(24px, env(safe-area-inset-right)); z-index: 8; width: 44px; height: 44px; border: 1px solid var(--border-main); border-radius: 50%; color: #d2ebe7; background: rgba(var(--surface-deep-rgb), 0.851); font-size: 22px; }
 .guidance { position: absolute; z-index: 8; bottom: max(28px, env(safe-area-inset-bottom)); left: 24px; max-width: min(430px, calc(100vw - 230px)); color: #cae1db; font-size: 13px; line-height: 1.5; text-shadow: 0 2px 8px #000; pointer-events: none; }
 .nextWeek { position: absolute; z-index: 8; right: max(24px, env(safe-area-inset-right)); bottom: max(24px, env(safe-area-inset-bottom)); min-width: 160px; min-height: 52px; font-size: 16px; box-shadow: 0 5px 25px #0007; }
 .warning { position: absolute; top: 83px; left: 24px; z-index: 8; min-height: 44px; padding: 7px 12px; border: 1px solid #b69c73; border-radius: 7px; color: #f1d09a; background: #342b20dd; font-size: 12px; }
-.screen button:focus-visible { outline: 3px solid #b9f5d8; outline-offset: 3px; }
+.screen button:focus-visible { outline: 3px solid var(--mission-gold); outline-offset: 3px; }
 @media (max-width: 600px) {
   .week { top: max(14px, env(safe-area-inset-top)); left: 14px; }
   .week small { font-size: 9px; max-width: 215px; }

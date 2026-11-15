@@ -104,3 +104,9 @@ Task filters keep concrete verbs, costs and chance badges visible. Unavailable
 cards use concise reasons; selecting them shows the relevant restrictions together.
 The smallest phone/landscape layouts keep all five filter groups usable without
 routine scrolling, including recovery-limited crew.
+
+The global palette lives in `index.css`: navy space/deep/panel/raised surfaces,
+shared borders, gold accents and station-material tokens. Crew selection, supplies,
+station artwork, dialogs and controls use it. Role colors, item illustrations,
+health, danger and success indicators keep their semantic colors. NASA imagery
+and character skin/hair colors are unchanged.

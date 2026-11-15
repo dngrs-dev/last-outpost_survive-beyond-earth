@@ -14,8 +14,8 @@ export function StationSupplies({ state }: { state: GameStateResponse }) {
   const water = supplyDisplay(state, 'water');
   const oxygen = supplyDisplay(state, 'oxygen');
   const battery = Math.max(0, Math.min(1, state.energy.stored / Math.max(1, state.energy.battery_capacity)));
-  return <g data-part="station-supplies" stroke="#456377" strokeWidth="2">
-    <rect x="68" y="150" width="164" height="325" rx="12" fill="#102535" />
+  return <g data-part="station-supplies" stroke="var(--border-soft)" strokeWidth="2">
+    <rect x="68" y="150" width="164" height="325" rx="12" fill="var(--surface-deep)" />
     <text x="82" y="172" fill="#a8c5d2" fontSize="12" letterSpacing="2" stroke="none">STORES</text>
     <path d="M77 216H223M77 255H223M77 343H223M77 384H223" />
     <g data-stock="food" data-quantity={food.amount} data-display-count={food.visible}>
@@ -43,9 +43,9 @@ export function StationSupplies({ state }: { state: GameStateResponse }) {
     <RackItem item="scientific_tools" amount={state.resources.scientific_tools || 0} x={83} y={432} />
     <RackItem item="diagnostic_tools" amount={state.resources.diagnostic_tools || 0} x={135} y={432} />
     <RackItem item="oxygen_regulators" amount={state.resources.oxygen_regulators || 0} x={187} y={432} />
-    <path d="M80 475v25m140-25v25M76 430h148" stroke="#587586" strokeWidth="5" />
+    <path d="M80 475v25m140-25v25M76 430h148" stroke="var(--station-trim)" strokeWidth="5" />
     <g data-stock="battery" data-quantity={state.energy.stored} data-fill={battery}>
-      <rect x="742" y="168" width="141" height="62" rx="8" fill="#142b39" />
+      <rect x="742" y="168" width="141" height="62" rx="8" fill="var(--surface-panel)" />
       <text x="752" y="187" fill="#c8dcdf" fontSize="11" letterSpacing="1" stroke="none">BATTERY</text>
       <rect x="752" y="198" width="120" height="15" rx="3" fill="#0a1823" />
       <rect x="752" y="198" width={120 * battery} height="15" rx="3" fill={battery > .25 ? '#88ccba' : '#d6ad70'} stroke="none" />

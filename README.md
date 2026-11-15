@@ -71,6 +71,13 @@ Native dialogs, keyboard focus, touch controls and reduced motion support phones
 and laptops. Exact saved requests preserve safe retries and atomic backend
 resolution. Server missions still live only in memory.
 
+Final results use a compact navy-and-gold screen with crew portraits, survival,
+weeks and science totals. The display awards 0 stars if nobody survives; otherwise
+one for survival, one for the full crew, and one for all science goals (maximum 3).
+Shared palette tokens cover every screen, including crew/cargo selection, station
+materials, dialogs and controls. Role colors and resource/health warnings retain
+their meaning.
+
 ## Run locally
 
 ### Backend
