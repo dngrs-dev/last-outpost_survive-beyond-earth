@@ -98,23 +98,23 @@ children. Do not describe automated tests as child usability testing.
 
 ### 3. Independent meals and correct Next Week semantics
 
-- [ ] Add per-person food/water decision tracking to `weeklyPlan.ts`; default ration
+- [x] Add per-person food/water decision tracking to `weeklyPlan.ts`; default ration
   values must not count as an explicit player decision. Saving a meal confirms
   both resources for that astronaut. Keep established emergency-ration rules.
-- [ ] Replace global `rationsConfirmed` as the ordinary crew-order lock. Feeding
+- [x] Replace global `rationsConfirmed` as the ordinary crew-order lock. Feeding
   somebody must not prevent them or other astronauts receiving work afterward.
-- [ ] Put food/water controls on the crew panel and a shared meal board from
+- [x] Put food/water controls on the crew panel and a shared meal board from
   Supplies (all portraits visible, including away crew). Include a clear Feed all
   shortcut and full/half/emergency visual choices with short honest consequences.
-- [ ] Persist explicit meal decisions. Migrate saved v1 plans: previously confirmed
+- [x] Persist explicit meal decisions. Migrate saved v1 plans: previously confirmed
   rations count as chosen; unconfirmed defaults do not. Never drop or rewrite a
   saved pending request to migrate editable planning data.
-- [ ] Next Week checks incident response, every living person's food/water, bookings
+- [x] Next Week checks incident response, every living person's food/water, bookings
   and combined costs. Missing meals show exact portraits/names and whether food,
   water or both are missing. Repair buttons open the relevant control directly.
-- [ ] If ready, submit once immediately via `useStationMission`; unassigned people
+- [x] If ready, submit once immediately via `useStationMission`; unassigned people
   retain routine duties. Do not require an assignment for every crew member.
-- [ ] Food controls select weekly allocations; backend stock/health changes still
+- [x] Food controls select weekly allocations; backend stock/health changes still
   happen atomically at week resolution. Pending submissions lock all edits.
 
 ### 4. One useful crew panel and direct action cards
@@ -199,3 +199,5 @@ implemented behavior and layouts have actually passed validation.
 Step 1: neutral modal sizes and shared visual controls implemented. Two resource-widget tests and production build passed. Existing panels retain a temporary compatibility export until their replacement.
 
 Step 2: all incident responses, visual consequences, inline lead/support portraits and explicit confirmation implemented. Four focused visual/incident tests and production build passed. Old notebook-navigation integration tests will move to the new flow in step 7.
+
+Step 3: per-resource meal decisions, v1 migration, independent feeding and direct Next Week submission implemented; pending requests remain unchanged. Actual reduced/emergency rates are 70%/40%, not half portions. Twenty focused tests and production build passed.

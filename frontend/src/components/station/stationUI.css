@@ -43,3 +43,18 @@
 .outcome > .resources:empty {display:none;}
 @media(max-width:600px) { .incident-options{gap:7px;} .incident-options .action-card{gap:5px;padding:8px;} .incident-options .action-card h2{font-size:13px;} .incident-brief{font-size:13px!important;} .incident-team{gap:6px;flex-direction:column;align-items:start;} .incident-team .crew-pick{padding:3px;min-width:56px;} .incident-team .crew-portrait{width:42px;height:45px;} .incident-team .crew-picks{gap:6px;} .incident-team strong{font-size:12px;} .response-outcomes{gap:4px;font-size:11px;} .outcome{font-size:11px;gap:3px;} }
 @media(max-height:450px) { .incident-options{grid-template-columns:repeat(4,minmax(0,1fr));gap:7px;} .incident-options .action-card{padding:6px;gap:5px;} .incident-options .action-card h2{font-size:13px;} .incident-brief{font-size:12px!important;} .incident-team .crew-portrait{width:32px;height:32px;} .incident-team .crew-pick{flex-direction:row;font-size:11px;min-height:44px;} .incident-team strong{font-size:12px;} .response-outcomes,.outcome{font-size:10px;} }
+
+.meal-grid { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:10px; }
+.meal-card { display:flex; gap:10px; border:1px solid #4f7286; border-radius:12px; background:#122b3a; padding:10px; min-width:0; }
+.meal-person { display:flex; flex-direction:column;align-items:center;gap:4px;font-size:13px; }
+.meal-controls { display:flex;flex:1;min-width:0;flex-direction:column;gap:6px; }
+.meal-line { display:flex;gap:5px;align-items:center; }
+.meal-symbol { width:27px;height:30px;flex-shrink:0; }.meal-symbol svg{width:100%;height:100%;}
+.meal-line button { display:flex;flex:1;flex-direction:column;align-items:center;gap:4px;min-width:0;min-height:44px;border:1px solid #647f8e;background:#1a3647;color:#d1e7e6;border-radius:6px;font-size:11px;padding:5px; }
+.meal-line button[aria-pressed=true] { border-color:#9be9bd;background:#2c5147; }
+.portion { width:100%;height:7px;max-width:38px;background:#0a1a27;border-radius:3px;overflow:hidden; }.portion i{display:block;height:100%;background:#a1d5c2;}
+.meal-check { color:#b6e9c7;font-size:14px; }.meal-risk{color:#ffce99!important;font-size:11px!important;}
+.missing-meal { display:flex;align-items:center;gap:14px;padding:6px;background:#193545;color:#f0e5cc;border:1px solid #7f856a;border-radius:9px;min-height:50px;text-align:left; }
+.missing-meal .crew-portrait { width:42px;height:46px; }.missing-meal span span,.missing-meal small{display:block;}
+@media(max-width:600px) { .meal-grid{grid-template-columns:1fr;gap:7px;} .meal-card{padding:6px;gap:6px;} .meal-person .crew-portrait{width:40px;height:44px;} .meal-person{font-size:11px;width:43px;flex-shrink:0;} .meal-line{gap:3px;} .meal-line button{font-size:10px;padding:3px;} .meal-symbol{width:21px;} .meal-presets{gap:5px;} .meal-presets button{padding:6px;font-size:12px;} }
+@media(max-height:450px) { .meal-card{padding:5px;} .meal-person .crew-portrait{width:30px;height:34px;} .meal-line{gap:3px;} .meal-controls{gap:3px;} }

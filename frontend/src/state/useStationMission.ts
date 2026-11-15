@@ -56,7 +56,7 @@ export function useStationMission(gameId: string) {
     if (!state || !currentPlan || inFlight.current || (state.status !== 'running' && !currentPlan.pending)) return 'error';
     if (!currentPlan.pending) {
       const issues = planIssues(state, currentPlan);
-      if (!currentPlan.rationsConfirmed || issues.length) { setError(issues[0] || 'Confirm weekly provisions first.'); return 'error'; }
+      if (issues.length) { setError(issues[0] || 'Choose food and water for your crew.'); return 'error'; }
     }
     const pending = currentPlan.pending || {
       request: turnRequest(currentPlan), activities: plannedActivities(state, currentPlan),

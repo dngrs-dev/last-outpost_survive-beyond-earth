@@ -61,16 +61,14 @@ export async function chooseCrewTask(fixture: GameResponse, id: string, activity
 
 export async function provisions() {
   closeBook();
-  fireEvent.click(await screen.findByRole('button', { name: /^Next week/ }));
-  await screen.findByRole('dialog', { name: 'Weekly provisions' });
+  fireEvent.click(await screen.findByRole('button', { name: 'Inspect station supplies' }));
+  await screen.findByRole('dialog', { name: 'Food & water' });
 }
-
-export async function reviewWeek(fixture: GameResponse = game) {
-  if (!screen.queryByRole('dialog', { name: new RegExp(`End week ${fixture.state.current_week}`) })) {
-    await provisions();
-    fireEvent.click(book().getByRole('button', { name: "Confirm week's rations" }));
-  }
-  return book().getByRole('button', { name: /^End week \d+$/ });
+export async function reviewWeek(_fixture: GameResponse = game) {
+  await provisions();
+  fireEvent.click(book().getByRole('button', { name: 'Feed everyone' }));
+  fireEvent.click(book().getByRole('button', { name: 'Done' }));
+  return screen.getByRole('button', { name: 'Next week' });
 }
 
 export async function openStatus(section: string) {

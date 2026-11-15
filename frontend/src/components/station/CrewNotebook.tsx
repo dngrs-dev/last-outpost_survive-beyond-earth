@@ -1,3 +1,4 @@
+import { MealControls } from './Meals';
 import { useState } from 'react';
 import type { CrewResponse, GameStateResponse, MedicalKind } from '../../types/game';
 import { bookedCrew, planIssues, type CrewOrder, type WeeklyPlan } from '../../state/weeklyPlan';
@@ -5,8 +6,8 @@ import { NotebookDialog, PageTurns } from './NotebookDialog';
 import { effectsText, paragraphs, supplies } from './notebookContent';
 
 type Category = 'Care' | 'Science' | 'Systems' | 'Rest';
-export function CrewNotebook({ person, state, plan, onCommit, onClose }: {
-  person: CrewResponse; state: GameStateResponse; plan: WeeklyPlan; onCommit: (next: WeeklyPlan) => void; onClose: () => void;
+export function CrewNotebook({ person, state, plan, onCommit, onClose, onUpdate }: {
+  person: CrewResponse; state: GameStateResponse; plan: WeeklyPlan; onCommit: (next: WeeklyPlan) => void; onClose: () => void; onUpdate: (next: WeeklyPlan) => void;
 }) {
   const [stage, setStage] = useState<'overview' | 'details' | 'menu' | 'job' | 'patient' | 'confirm'>('overview');
   const [category, setCategory] = useState<Category>('Rest');
@@ -15,13 +16,13 @@ export function CrewNotebook({ person, state, plan, onCommit, onClose }: {
   const [target, setTarget] = useState('');
   const [error, setError] = useState('');
   const occupied = bookedCrew(plan).includes(person.id);
-  const canOrder = person.alive && !occupied && !plan.rationsConfirmed && plan.incidentConfirmed && !plan.pending;
+  const canOrder = person.alive && !occupied && plan.incidentConfirmed && !plan.pending;
   const jobs = state.assignment_options.filter(option => category === 'Care' ? option.action_type === 'medical' : category === 'Science' ? option.action_type === 'research' : category === 'Systems' ? option.action_type === 'maintenance' : option.action_type === 'rest');
   const entries = category === 'Rest' ? [null, ...jobs] : jobs;
   const job = entries[index] || null;
   const candidate = job?.eligible_crew.find(candidate => candidate.crew_id === person.id);
   const existing = plan.assignments.find(order => order.crew_id === person.id || order.patient_id === person.id);
-  const assigned = plan.selected_crew_id === person.id || plan.support_crew_ids.includes(person.id) ? 'Incident duty — away from the common room' : existing?.patient_id === person.id && existing.crew_id !== person.id ? `Receiving care from ${state.crew.find(crew => crew.id === existing.crew_id)?.name}` : existing ? state.assignment_options.find(option => option.id === existing.activity_id)?.text : plan.routine_crew_ids.includes(person.id) || plan.rationsConfirmed ? 'Routine duties / recovery confirmed' : 'No main assignment yet';
+  const assigned = plan.selected_crew_id === person.id || plan.support_crew_ids.includes(person.id) ? 'Incident duty — away from the common room' : existing?.patient_id === person.id && existing.crew_id !== person.id ? `Receiving care from ${state.crew.find(crew => crew.id === existing.crew_id)?.name}` : existing ? state.assignment_options.find(option => option.id === existing.activity_id)?.text : plan.routine_crew_ids.includes(person.id) ? 'Routine duties / recovery confirmed' : 'No main assignment yet';
   const details = [
     ...paragraphs('Current condition', `Overall: ${person.condition.status}, ${person.health}/100. Nutrition: ${person.condition.nutrition_status}. Hydration: ${person.condition.hydration_status}. ${person.condition.restrictions.join(' ')}`),
     ...person.medical_conditions.flatMap(condition => paragraphs(condition.title, `${condition.urgent ? 'Urgent: needs stabilization. ' : ''}${condition.remaining} recovery points remain. Earliest medic-supported recovery: ${condition.medic_weeks} weeks with full provisions and safe air.`, condition.source_url)),
@@ -63,7 +64,7 @@ export function CrewNotebook({ person, state, plan, onCommit, onClose }: {
       : <button type="button" className="btn btn-primary" onClick={stage === 'details' ? () => go('overview') : onClose}>{stage === 'details' ? 'Crew overview' : 'Return to station'}</button>}
   </>}>
     {stage === 'overview' && <><div className="folio-card"><div className="folio-row"><span>Overall condition</span><strong>{person.health}/100 · {person.condition.status}</strong></div><div className="folio-row"><span>Food</span><strong>{person.condition.nutrition_status}</strong></div><div className="folio-row"><span>Water</span><strong>{person.condition.hydration_status}</strong></div><small>{assigned}</small></div>
-      <p className="folio-muted">{!person.alive ? 'This astronaut did not survive.' : occupied ? 'Booked for this week. Their assignment cannot be changed.' : !plan.incidentConfirmed ? 'Confirm the incident response before giving crew orders.' : plan.rationsConfirmed ? 'Orders are closed for this week.' : 'Choose one main job, or leave them on routine duties.'}</p></>}
+      {person.alive && <MealControls person={person} plan={plan} onUpdate={onUpdate} />}<p className="folio-muted">{!person.alive ? 'This astronaut did not survive.' : occupied ? 'Booked for this week. Their assignment cannot be changed.' : !plan.incidentConfirmed ? 'Confirm the incident response before giving crew orders.' : 'Choose one main job, or leave them on routine duties.'}</p></>}
     {stage === 'details' && <><h2>{details[page].title}</h2><p>{details[page].text}</p>{details[page].link && <a href={details[page].link} target="_blank" rel="noreferrer">Research context</a>}</>}
     {stage === 'menu' && <><h2>One main job this week</h2><div className="folio-menu">{(['Care', 'Science', 'Systems', 'Rest'] as Category[]).map(name => <button key={name} type="button" onClick={() => { setCategory(name); setIndex(0); go('job'); }}>{name}</button>)}</div><small>Medical care books the caregiver and patient together. Confirmed choices cannot be changed this week.</small></>}
     {stage === 'job' && <><div className="folio-card"><h2>{job?.text || (entries.length ? 'Routine duties' : 'No tasks in this category')}</h2><p>{confirmations[0].text}</p><small>Costs: {supplies(job?.costs || {})}{job ? ` · ${Math.round((candidate?.success_probability || 0) * 100)}% success` : ''}</small></div>

@@ -24,7 +24,7 @@ export function StationNotebook({ book, state, plan, onUpdate, onCrew, onClose }
   const [priority, setPriority] = useState(plan.power_priority);
   const [orders, setOrders] = useState<Record<string, 'pause' | 'resume' | 'interrupt'>>({});
   const [historyWeek, setHistoryWeek] = useState(state.history[state.history.length - 1]?.week || 0);
-  const locked = plan.rationsConfirmed || Boolean(plan.pending);
+  const locked = Boolean(plan.pending);
   const names = Object.fromEntries(state.crew.map(person => [person.id, person.name]));
   const living = state.crew.filter(person => person.alive);
   const away = living.filter(person => plan.selected_crew_id === person.id || plan.support_crew_ids.includes(person.id)

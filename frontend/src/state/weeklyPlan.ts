@@ -3,7 +3,7 @@ import type { CrewActivities } from '../components/station/stationPresentation';
 
 export type CrewOrder = NonNullable<SubmitTurnRequest['assignments']>[number];
 export interface WeeklyPlan {
-  version: 1;
+  version: 1 | 2;
   week: number;
   incidentConfirmed: boolean;
   rationsConfirmed: boolean;
@@ -13,6 +13,7 @@ export interface WeeklyPlan {
   assignments: CrewOrder[];
   routine_crew_ids: string[];
   rations: Record<string, RationRequest>;
+  meal_choices: Record<string, { food: boolean; water: boolean }>;
   power_priority: 'life_support' | 'research';
   powerConfirmed: boolean;
   project_orders: NonNullable<SubmitTurnRequest['project_orders']>;
@@ -24,8 +25,9 @@ const storageKey = (id: string) => `last-outpost.week-plan.v1.${id}`;
 
 export function newWeekPlan(state: GameStateResponse): WeeklyPlan {
   return {
-    version: 1, week: state.current_week, incidentConfirmed: false, rationsConfirmed: false,
+    version: 2, week: state.current_week, incidentConfirmed: false, rationsConfirmed: false,
     event_choice_id: '', selected_crew_id: null, support_crew_ids: [], assignments: [], routine_crew_ids: [],
+    meal_choices: {},
     rations: Object.fromEntries(state.crew.filter(person => person.alive).map(person => [person.id, {
       food: state.depleted_provisions.includes('food') ? 'emergency' : 'normal',
       water: state.depleted_provisions.includes('water') ? 'emergency' : 'normal',
@@ -36,7 +38,7 @@ export function newWeekPlan(state: GameStateResponse): WeeklyPlan {
 export function readWeekPlan(id: string): WeeklyPlan | null {
   try {
     const value = JSON.parse(localStorage.getItem(storageKey(id)) || 'null') as WeeklyPlan | null;
-    if (!value || value.version !== 1 || !Number.isInteger(value.week)
+    if (!value || ![1, 2].includes(value.version) || !Number.isInteger(value.week)
       || typeof value.incidentConfirmed !== 'boolean' || typeof value.rationsConfirmed !== 'boolean'
       || typeof value.powerConfirmed !== 'boolean'
       || typeof value.event_choice_id !== 'string' || !Array.isArray(value.assignments)
@@ -52,6 +54,12 @@ export function readWeekPlan(id: string): WeeklyPlan | null {
     if (value.rejection !== undefined && typeof value.rejection !== 'string') return null;
     if (Object.values(value.rations).some(ration => !ration || !['normal', 'reduced', 'emergency'].includes(ration.food) || !['normal', 'reduced', 'emergency'].includes(ration.water))) return null;
     if (value.pending && (!value.pending.request?.request_id || !Number.isInteger(value.pending.request.expected_week) || !value.pending.activities || typeof value.pending.activities !== 'object' || Array.isArray(value.pending.activities))) return null;
+    if (value.version === 1) {
+      value.meal_choices = Object.fromEntries(Object.keys(value.rations).map(id => [id, { food: value.rationsConfirmed, water: value.rationsConfirmed }]));
+      value.version = 2;
+    }
+    if (!value.meal_choices || typeof value.meal_choices !== 'object' || Array.isArray(value.meal_choices)
+      || Object.values(value.meal_choices).some(choice => !choice || typeof choice.food !== 'boolean' || typeof choice.water !== 'boolean')) return null;
     return value;
   } catch { return null; }
 }
@@ -110,7 +118,7 @@ export function planIssues(state: GameStateResponse, plan: WeeklyPlan, includeRa
     }
   }
   if (projectJobs.length !== new Set(projectJobs).size) issues.push('Only one worker may advance each project this week.');
-  if (includeRations && living.some(person => !plan.rations[person.id])) issues.push('Choose food and water for every living astronaut.');
+  if (includeRations) for (const missing of missingMeals(state, plan)) issues.push(`${missing.person.name} needs ${missing.resources.join(' and ')}.`);
   const actionCosts = weeklyCosts(state, plan, false);
   for (const [resource, amount] of Object.entries(weeklyCosts(state, plan, includeRations))) {
     const emergency = includeRations && (resource === 'food' || resource === 'water') && living.every(person => plan.rations[person.id]?.[resource] === 'emergency');
@@ -128,4 +136,15 @@ export function turnRequest(plan: WeeklyPlan): SubmitTurnRequest {
     rations: Object.fromEntries(Object.entries(plan.rations).map(([id, ration]) => [id, { ...ration }])),
     power_priority: plan.power_priority, project_orders: plan.project_orders.map(order => ({ ...order })),
   };
+}
+
+export function missingMeals(state: GameStateResponse, plan: WeeklyPlan) {
+  return state.crew.filter(person => person.alive).map(person => ({ person, resources: (['food', 'water'] as const).filter(resource => !plan.meal_choices[person.id]?.[resource]) })).filter(missing => missing.resources.length > 0);
+}
+export function chooseMeal(plan: WeeklyPlan, id: string, resource: keyof RationRequest, level: RationRequest['food']): WeeklyPlan {
+  if (plan.pending) return plan;
+  return { ...plan, rations: { ...plan.rations, [id]: { ...plan.rations[id], [resource]: level } }, meal_choices: { ...plan.meal_choices, [id]: { ...(plan.meal_choices[id] || { food: false, water: false }), [resource]: true } } };
+}
+export function feedAll(state: GameStateResponse, plan: WeeklyPlan, level: RationRequest['food']): WeeklyPlan {
+  return state.crew.filter(person => person.alive).reduce((next, person) => chooseMeal(chooseMeal(next, person.id, 'food', level), person.id, 'water', level), plan);
 }
