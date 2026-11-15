@@ -1,7 +1,6 @@
-.dialog { position: fixed; inset: 0; margin: auto; width: min(660px, calc(100vw - 28px)); max-height: calc(100dvh - 28px); max-width: none; max-height: none; padding: 20px; border: 1px solid #7c9da6; border-radius: 12px; color: #e2e9e4; background: linear-gradient(150deg, #203b4b, #0f202e); box-shadow: 0 24px 100px #000c, inset 0 0 0 6px #41626c44; overflow: auto; }
+.dialog { position: fixed; inset: 0; margin: auto; width: min(660px, calc(100vw - 28px)); max-height: calc(100dvh - 28px); max-width: none; padding: 20px; border: 1px solid #7c9da6; border-radius: 12px; color: #e2e9e4; background: linear-gradient(150deg, #203b4b, #0f202e); box-shadow: 0 24px 100px #000c, inset 0 0 0 6px #41626c44; overflow: auto; }
 .dialog[open] { display: grid; grid-template-rows: auto minmax(0, 1fr) auto; gap: 16px; }
 .dialog::backdrop { background: #020813b5; backdrop-filter: blur(4px); }
-.binding { position: absolute; left: 12px; top: 24px; bottom: 24px; width: 9px; background: repeating-linear-gradient(to bottom, #869d9a 0 4px, transparent 4px 25px); opacity: .7; pointer-events: none; }
 .header { display: flex; justify-content: space-between; gap: 12px; align-items: start; }
 .header small { font-size: 10px; color: #a8c7cc; letter-spacing: .15em; }
 .header h1 { outline: none; margin-top: 4px; font-size: 25px; line-height: 1.18; font-weight: 600; }
@@ -33,7 +32,6 @@
 @media (max-width: 600px), (max-height: 540px) {
   .dialog { width: calc(100vw - 16px); max-height: calc(100dvh - 16px); padding: 12px; border-radius: 9px; }
   .dialog[open] { gap: 10px; }
-  .binding { left: 6px; width: 6px; }
   .header h1 { font-size: 20px; }
   .header small { font-size: 9px; }
   .page { gap: 10px; }

@@ -97,13 +97,13 @@
 > refresh and crew changes. Catalog/API/simulation values are unchanged; see
 > `supplies.md` for current presentation and validation behavior.
 
-> Station-screen update: active play now fills the screen with a cutaway common
-> room. A paginated field notebook handles the opening incident, individual crew
-> jobs, provisions, station information, and confirmed reports. The former
-> dashboard header/footer, bottom crew directory, and four-step rail are removed.
-> Explicit confirmation locks choices for the week, including across refreshes;
-> End Week still resolves one atomic backend request. See `station-gameplay.md`
-> for research references, sequence, keyboard/touch access, and recovery behavior.
+> Station-screen update: the room is the game board. Large incidents show all
+> responses together; portrait-led crew panels expose concrete jobs and meals.
+> Feeding is independent of work. Next Week either names missing decisions or
+> submits one atomic request directly. Flexible panels replace notebook pages;
+> the computer groups systems/research and reports separate survival/science.
+> Confirmed jobs and exact pending requests persist across refreshes. See
+> `station-gameplay.md` for interaction, accessibility and recovery behavior.
 
 > Visible-station update: the room now uses shared indoor clothing, activity poses,
 > paired care/recovery staging. Incident duty and EVA crew leave the common-room

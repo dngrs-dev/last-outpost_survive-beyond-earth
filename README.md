@@ -58,20 +58,18 @@ replay settings open on demand. Cargo/seed edits survive a preparation-page refr
 and crew changes; launch errors retain the loadout. Catalog and simulation rules
 remain authoritative in the backend.
 
-Active play at `/game/:gameId` fills the screen with the station, a floating week
-counter, and Next Week. An incident notebook opens each week; confirming locks
-the response and dispatches its crew from the common room. Click free astronauts
-to confirm one job each. Indoor work and paired medical care stay visible; booked
-people are inspection-only, and outside workers disappear until next week.
-The table computer, shelves, journal, and airlock open focused notebook pages.
-Next Week handles provisions and final submission; there is no dashboard header,
-footer, crew directory, step rail, or scrolling gameplay panel. Hover/focus hints,
-touch inspection, first-week guidance, native keyboard dialogs, and reduced motion
-support phones and laptops. Confirmed choices and exact pending requests survive
-browser refreshes; safe retries and explicit rejected-plan recovery retain atomic
-backend resolution. Shared cabin art, changing supplies, project progress, and
-separate survival/science reports use authoritative state. Server missions still
-live only in memory.
+Active play at `/game/:gameId` fills the screen with the station. Each incident
+opens a large board with all responses, visual costs and inline crew portraits.
+Click a free astronaut for direct work cards and independent food/water choices.
+Supplies also opens a meal board for everyone, including away workers and patients.
+Next Week submits directly when the incident, provisions and budget are ready;
+otherwise a warning identifies missing choices by portrait/name. Confirmed jobs
+stay locked across refreshes. Incident/EVA workers leave the room; indoor work
+and medical pairs use shared furniture anchors. The computer groups power, air
+and science readings. Visual reports separate survival and scientific achievement.
+Native dialogs, keyboard focus, touch controls and reduced motion support phones
+and laptops. Exact saved requests preserve safe retries and atomic backend
+resolution. Server missions still live only in memory.
 
 ## Run locally
 
@@ -144,7 +142,7 @@ npm run build
   character profiles, cargo tradeoffs, and maintenance actions.
 - [Supplies screen](docs/supplies.md): item artwork, packing controls, capacity,
   mission information, draft preservation, and launch validation.
-- [Station gameplay](docs/station-gameplay.md): full-screen room, notebook flow,
+- [Station gameplay](docs/station-gameplay.md): full-screen room, visual decisions,
   research references, locked choices, accessibility, and submission recovery.
 - [Event library](docs/events.md): all fifteen scenarios, NASA references, equipment,
   research rewards, and gameplay boundaries.

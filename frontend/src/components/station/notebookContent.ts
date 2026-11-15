@@ -1,5 +1,5 @@
 import type { EffectsResponse } from '../../types/game';
-import { textPages } from './NotebookDialog';
+import { textPages } from './GameDialog';
 
 export const resourceName = (id: string) => id.replace(/_/g, ' ');
 export const number = (value: number) => Number(value.toFixed(2));

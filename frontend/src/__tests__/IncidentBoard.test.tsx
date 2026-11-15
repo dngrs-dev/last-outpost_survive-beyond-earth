@@ -1,13 +1,13 @@
 import { fireEvent, render, screen } from '@testing-library/react';
 import { describe, expect, it, vi } from 'vitest';
-import { IncidentNotebook } from '../components/station/IncidentNotebook';
+import { IncidentPanel } from '../components/station/IncidentPanel';
 import { newWeekPlan } from '../state/weeklyPlan';
 import { game, supportGame } from './fixtures/backend';
 
 describe('Incident board', () => {
   it('shows every response immediately without committing a preview', () => {
     const commit = vi.fn();
-    render(<IncidentNotebook state={game.state} plan={newWeekPlan(game.state)} onCommit={commit} onClose={() => {}} />);
+    render(<IncidentPanel state={game.state} plan={newWeekPlan(game.state)} onCommit={commit} onClose={() => {}} />);
     for (const choice of game.state.current_event!.choices) expect(screen.getByRole('button', { name: choice.text })).toBeVisible();
     expect(screen.queryByRole('button', { name: 'Next page' })).not.toBeInTheDocument();
     const free = game.state.current_event!.choices.find(choice => choice.available && !choice.requires_crew)!;
@@ -18,7 +18,7 @@ describe('Incident board', () => {
   });
   it('requires an explicit distinct lead and helper and shows their actual chance', () => {
     const commit = vi.fn(); const state = supportGame.state;
-    render(<IncidentNotebook state={state} plan={newWeekPlan(state)} onCommit={commit} onClose={() => {}} />);
+    render(<IncidentPanel state={state} plan={newWeekPlan(state)} onCommit={commit} onClose={() => {}} />);
     const choice = state.current_event!.choices.find(choice => choice.available && choice.minimum_crew === 2)!;
     fireEvent.click(screen.getByRole('button', { name: choice.text }));
     const confirm = screen.getByRole('button', { name: 'Confirm response' }); expect(confirm).toBeDisabled();

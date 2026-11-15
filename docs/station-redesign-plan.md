@@ -151,15 +151,15 @@ children. Do not describe automated tests as child usability testing.
 
 ### 6. Compact station information and results
 
-- [ ] Replace one-fact pages in `StationNotebook.tsx`, `ReportNotebook.tsx` and
+- [x] Replace one-fact pages in `StationNotebook.tsx`, `ReportNotebook.tsx` and
   `reportPages.ts` with clear visual groups: supplies, energy/air, science/projects.
   The computer opens useful grouped information directly, not a deep menu tree.
-- [ ] Show forecasts and project phases/progress together; preserve pause/resume/
+- [x] Show forecasts and project phases/progress together; preserve pause/resume/
   interrupt confirmation and costs without long technical/history explanations.
-- [ ] Weekly results show crew portraits, important resource changes, incident/work
+- [x] Weekly results show crew portraits, important resource changes, incident/work
   outcomes and separate science progress together. Retain access to relevant detail,
   but do not require many page turns to continue.
-- [ ] Remove obsolete notebook components/styles only after imports and tests move.
+- [x] Remove obsolete notebook components/styles only after imports and tests move.
   Update README and station gameplay documentation to supersede the prior flow.
 
 ### 7. Verification and handoff
@@ -205,3 +205,5 @@ Step 3: per-resource meal decisions, v1 migration, independent feeding and direc
 Step 4: portrait-led crew panels now show direct recommended tasks with flat filters, main-panel restrictions, meals, visual risks and inline medical targets. Eleven focused interaction tests and production build passed.
 
 Step 5: shared desktop/portrait furniture and actor anchors, player-facing curved seating, grounded desks/cots and shelf-mounted tools implemented. Five focused staging/care tests and production build passed. Desktop and phone room/care screenshots inspected; permanent overlapping name tags removed.
+
+Step 6: grouped station systems/projects, visual summary reports and optional grouped details replace notebook pages; panels renamed and obsolete ration/review components removed. Three panel tests, nine meal/crew tests and production build passed. Legacy report-page test helpers remain only until step 7 migration.

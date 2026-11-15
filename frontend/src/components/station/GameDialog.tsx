@@ -1,5 +1,5 @@
 import { useEffect, useId, useRef, type ReactNode } from 'react';
-import styles from './NotebookDialog.module.css';
+import styles from './GameDialog.module.css';
 
 export function GameDialog({ title, subtitle, onClose, children, controls, size = 'medium' }: {
   title: string; subtitle?: string; onClose: () => void; children: ReactNode; controls?: ReactNode; size?: 'small' | 'medium' | 'large';
@@ -36,14 +36,6 @@ export function GameDialog({ title, subtitle, onClose, children, controls, size 
   </dialog>;
 }
 
-export function PageTurns({ page, count, onChange }: { page: number; count: number; onChange: (page: number) => void }) {
-  return <div className={styles.turns} aria-label="Notebook pages">
-    <button type="button" aria-label="Previous page" disabled={page <= 0} onClick={() => onChange(page - 1)}>‹</button>
-    <span aria-live="polite">{page + 1} / {Math.max(1, count)}</span>
-    <button type="button" aria-label="Next page" disabled={page >= count - 1} onClick={() => onChange(page + 1)}>›</button>
-  </div>;
-}
-
 export function textPages(text: string, max = 210): string[] {
   const words = text.trim().split(/\s+/);
   const pages: string[] = [];
@@ -56,5 +48,3 @@ export function textPages(text: string, max = 210): string[] {
   return pages.length ? pages : [''];
 }
 
-// Compatibility for panels replaced in subsequent redesign steps.
-export const NotebookDialog = GameDialog;

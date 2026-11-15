@@ -1,10 +1,10 @@
 import { useState } from 'react';
 import type { GameStateResponse } from '../../types/game';
 import { planIssues, type WeeklyPlan } from '../../state/weeklyPlan';
-import { GameDialog } from './NotebookDialog';
+import { GameDialog } from './GameDialog';
 import { Chance, CrewPick, Outcome, Resources } from './Visuals';
 
-export function IncidentNotebook({ state, plan, onCommit, onClose }: {
+export function IncidentPanel({ state, plan, onCommit, onClose }: {
   state: GameStateResponse; plan: WeeklyPlan; onCommit: (next: WeeklyPlan) => void; onClose: () => void;
 }) {
   const [choiceId, setChoice] = useState('');

@@ -1,6 +1,6 @@
 import { fireEvent, screen, within } from '@testing-library/react';
 import type { GameResponse } from '../../types/game';
-import { taskName } from '../../components/station/CrewNotebook';
+import { taskName } from '../../components/station/CrewPanel';
 import { game } from '../fixtures/backend';
 
 export function book() { return within(screen.getByRole('dialog')); }

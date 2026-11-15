@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import type { CrewResponse, GameStateResponse, MedicalKind } from '../../types/game';
 import { bookedCrew, planIssues, type CrewOrder, type WeeklyPlan } from '../../state/weeklyPlan';
-import { GameDialog } from './NotebookDialog';
+import { GameDialog } from './GameDialog';
 import { Chance, CrewPick, Outcome, Portrait, Resources } from './Visuals';
 import { MealControls } from './Meals';
 
@@ -18,7 +18,7 @@ const names: Record<string, [string, string]> = {
   self_care: ['Treat yourself', 'Use medicine to support your recovery.'],
 };
 export function taskName(id: string, fallback: string) { return names[id]?.[0] || (id.startsWith('project:') ? fallback.replace('Seismic project: ', '') : fallback); }
-export function CrewNotebook({ person, state, plan, onCommit, onClose, onUpdate }: {
+export function CrewPanel({ person, state, plan, onCommit, onClose, onUpdate }: {
   person: CrewResponse; state: GameStateResponse; plan: WeeklyPlan; onCommit: (next: WeeklyPlan) => void; onClose: () => void; onUpdate: (next: WeeklyPlan) => void;
 }) {
   const [group, setGroup] = useState('For you');

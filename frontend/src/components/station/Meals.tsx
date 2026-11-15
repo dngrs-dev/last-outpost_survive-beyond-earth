@@ -1,6 +1,6 @@
 import type { CrewResponse, GameStateResponse, RationLevel } from '../../types/game';
 import { chooseMeal, feedAll, planIssues, weeklyCosts, type WeeklyPlan } from '../../state/weeklyPlan';
-import { GameDialog } from './NotebookDialog';
+import { GameDialog } from './GameDialog';
 import { Portrait, ResourceIcon, Resources } from './Visuals';
 
 const levels: { id: RationLevel; title: string; fill: string }[] = [{ id: 'normal', title: 'Full', fill: '100%' }, { id: 'reduced', title: 'Smaller', fill: '70%' }, { id: 'emergency', title: 'Emergency', fill: '40%' }];
