@@ -27,11 +27,12 @@ affect work availability while interrupted research retains completed progress.
 The game is playable through both the FastAPI REST backend and the React frontend.
 All balancing values are fictional gameplay units.
 
-The `/moon/` deployment console places a distinct fictional outpost at each real
-Apollo landing site. Compare difficulty, reserves, system condition, generation,
-and relief deadlines using Mission / Systems / History modules. The launch bar
-opens preparation for the selected outpost. The selector fits the viewport; small
-screens switch between the map and briefing. The root page still defaults to Alpha.
+The `/moon/` mission selector puts a large interactive Moon against a space backdrop.
+Choose named outpost markers or browse missions from easier to harder. One compact
+card shows the selected mission and opens crew preparation; Oceanus is recommended
+for first-time players. Detailed supplies, systems, history, and sources are available
+on demand. The screen adapts to phones and laptops without a website header, footer,
+or side directory. The root preparation page still defaults to Alpha.
 Historical data and imagery remain sourced; outpost conditions are fictional game
 values. No NASA API key or external request is needed during play.
 

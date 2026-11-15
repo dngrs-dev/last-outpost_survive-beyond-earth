@@ -231,7 +231,8 @@ handover. End conditions use the selected mission's duration rather than a
 hardcoded twelve weeks. Game responses include difficulty alongside station and
 mission identity.
 
-The viewport-sized deployment console uses independent roster, globe, briefing,
-and launch modules. Mission / Systems / History tabs keep details in place;
-constrained screens can scroll the active information module without moving the
-launch bar, and mobile users switch between map and briefing.
+The viewport-sized Moon selector now emphasizes the globe, named surface markers,
+and one selected mission card. Previous/next navigation also works without 3D.
+The easiest mission is recommended, while explicit site links are preserved.
+Mission / Systems / History details and source attribution live in an optional
+modal. The preparation URL and game-creation contracts remain unchanged.

@@ -29,8 +29,8 @@ export function surfaceLabels<T extends { latitude: number; longitude: number; i
     const column = points.filter((point) => (leftIds.has(point.site.id) ? -1 : 1) === side).sort((a, b) => a.y - b.y);
     let previous = 15;
     return column.map((point, index) => {
-      const maxY = size - 24 - (column.length - index - 1) * 44;
-      const labelY = clamp(Math.max(point.y, previous + 44), 24, maxY);
+      const maxY = size - 24 - (column.length - index - 1) * 56;
+      const labelY = clamp(Math.max(point.y, previous + 56), 24, maxY);
       previous = labelY;
       return { ...point, labelX: side < 0 ? size * 0.16 : size * 0.84, labelY };
     });

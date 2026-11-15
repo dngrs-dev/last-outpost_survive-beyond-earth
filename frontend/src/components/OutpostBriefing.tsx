@@ -1,100 +1,84 @@
-import { useState } from 'react';
-import type { MoonCatalog, OutpostOption } from '../types/moon';
+import { Link } from 'react-router-dom';
+import type { OutpostOption } from '../types/moon';
 import { OutpostDifficulty } from './OutpostDifficulty';
 import styles from '../pages/MoonPage.module.css';
 
-const TABS = ['Mission', 'Systems', 'History'] as const;
-type Tab = typeof TABS[number];
-
-function Condition({ label, value }: { label: string; value: number }) {
-  const percentage = Math.round(value * 100);
-  return <div className={styles.condition}>
-    <span>{label}<strong>{percentage}%</strong></span>
-    <meter min="0" max="1" value={value} aria-label={label}>{percentage}%</meter>
-  </div>;
-}
-
-export function OutpostBriefing({ option, archive }: { option: OutpostOption; archive: MoonCatalog }) {
-  const [tab, setTab] = useState<Tab>('Mission');
-  const { station, site, mission } = option;
-  const reserves = [
-    ['Food', station.starting_resources.food, 'u'], ['Water', station.starting_resources.water, 'u'],
-    ['Oxygen', station.starting_resources.oxygen, 'u'], ['Power', station.starting_resources.electricity, 'u'],
-    ['Medicine', station.starting_resources.medicine, 'kits'], ['Repair', station.starting_resources.repair_kits, 'kits'],
-    ['EVA', station.starting_resources.eva_batteries, 'packs'],
-  ];
-
-  return <aside className={styles.brief} aria-labelledby="selected-outpost">
-    <div className={styles.briefHeader}>
-      <OutpostDifficulty station={station} />
-      <h2 id="selected-outpost">{station.name.replace('Station ', '').replace(' — Research Base', '')}</h2>
-      <p>{site.name} · {site.region}</p>
-    </div>
-    <div className={styles.tabs} role="tablist" aria-label="Outpost information">
-      {TABS.map((name, index) => <button type="button" role="tab" key={name} id={`outpost-${name}`}
-        aria-selected={tab === name} aria-controls={`panel-${name}`} tabIndex={tab === name ? 0 : -1}
-        onClick={() => setTab(name)} onKeyDown={(event) => {
-          let next = index;
-          if (event.key === 'ArrowRight') next = (index + 1) % TABS.length;
-          else if (event.key === 'ArrowLeft') next = (index + TABS.length - 1) % TABS.length;
-          else if (event.key === 'Home') next = 0;
-          else if (event.key === 'End') next = TABS.length - 1;
-          else return;
-          event.preventDefault(); setTab(TABS[next]);
-          event.currentTarget.parentElement?.querySelectorAll<HTMLButtonElement>('[role="tab"]')[next].focus();
-        }}>{name}</button>)}
-    </div>
-    <div className={styles.moduleBody}>
-      <section role="tabpanel" id="panel-Mission" aria-labelledby="outpost-Mission" hidden={tab !== 'Mission'}>
-        <p className={styles.sectionLabel}>SURVIVAL CONTRACT</p>
-        <h3>{mission.name}</h3>
-        <div className={styles.missionNumbers}>
-          <div><strong>{mission.duration_weeks}<small>weeks</small></strong><span>{mission.duration_weeks * 7} Earth days</span></div>
-          <div><strong>{mission.minimum_survivors}<small>crew</small></strong><span>Required survivors</span></div>
+export function OutpostBriefing({
+  option,
+  recommended,
+  index,
+  count,
+  onPrevious,
+  onNext,
+  onDetails,
+}: {
+  option: OutpostOption;
+  recommended: boolean;
+  index: number;
+  count: number;
+  onPrevious: () => void;
+  onNext: () => void;
+  onDetails: () => void;
+}) {
+  const { station, mission } = option;
+  return (
+    <section className={styles.brief} aria-labelledby="selected-outpost">
+      <div className={styles.selectionRow}>
+        <span className={styles.eyebrow}>
+          YOUR OUTPOST{' '}
+          <span>
+            {index + 1} / {count}
+          </span>
+        </span>
+        <div
+          className={styles.missionNavigation}
+          aria-label="Browse Moon missions"
+        >
+          <button
+            type="button"
+            onClick={onPrevious}
+            aria-label="Previous mission"
+          >
+            ←
+          </button>
+          <button type="button" onClick={onNext} aria-label="Next mission">
+            →
+          </button>
         </div>
-        <p className={styles.challenge}>{station.challenge}</p>
-        <p className={styles.sectionLabel}>RESEARCH BRIEF</p>
-        <ul>{mission.science_objectives.map((objective) => <li key={objective.id}>{objective.title}: {objective.target}</li>)}</ul>
-        <p className={styles.moduleNote}>Science is assessed separately from survival. Pack research equipment during preparation.</p>
-        <p className={styles.sectionLabel}>PROVISIONS BEFORE CARGO</p>
-        <dl className={styles.reservePreview}><div><dt>Food</dt><dd>{station.starting_resources.food} u</dd></div><div><dt>Water</dt><dd>{station.starting_resources.water} u</dd></div></dl>
-        <p className={styles.moduleNote}>Relief arrives after Week {mission.duration_weeks}. Keep the crew alive and hand over working systems. Crew size and cargo change the risk.</p>
-      </section>
-      <section role="tabpanel" id="panel-Systems" aria-labelledby="outpost-Systems" hidden={tab !== 'Systems'}>
-        <p className={styles.sectionLabel}>STARTING RESERVES</p>
-        <dl className={styles.reserveGrid}>{reserves.map(([name, value, unit]) => <div key={name}><dt>{name}</dt><dd>{value}<small>{unit}</small></dd></div>)}</dl>
-        <p>Battery capacity: {station.battery_capacity} power units. Solar capacity applies during daylight; generation falls to zero in full darkness.</p>
-        <p className={styles.sectionLabel}>SYSTEM CONDITION</p>
-        <Condition label="Solar array" value={station.solar_efficiency} />
-        <Condition label="Water recovery" value={station.water_recovery_efficiency} />
-        <Condition label="CO2 scrubber" value={station.co2_efficiency} />
-        <Condition label="Oxygen generator" value={station.oxygen_efficiency} />
-        <dl className={styles.generation}>
-          <div><dt>Full-daylight solar capacity</dt><dd>{station.energy_per_week} u/week</dd></div>
-          <div><dt>Full-daylight output at current condition</dt><dd>{Number((station.energy_per_week * station.solar_efficiency).toFixed(2))} u/week</dd></div>
-          <div><dt>Oxygen capacity</dt><dd>{station.oxygen_per_week} u/week</dd></div>
-          <div><dt>Starting oxygen output</dt><dd>up to {Number((station.oxygen_per_week * station.oxygen_efficiency).toFixed(2))} u/week</dd></div>
-        </dl>
-        <p className={styles.moduleNote}>Before the first incident. Oxygen output also depends on available power. All outpost parameters are fictional game values.</p>
-      </section>
-      <section role="tabpanel" id="panel-History" aria-labelledby="outpost-History" hidden={tab !== 'History'}>
-        <p className={styles.sectionLabel}>HISTORICAL LOCATION</p>
-        <h3>{site.name} · {site.landing_date}</h3>
-        <p className={styles.challenge}>{site.mission.objective}</p>
-        <dl className={styles.generation}>
-          <div><dt>Latitude / longitude</dt><dd>{site.latitude.toFixed(4)}° / {site.longitude.toFixed(4)}°</dd></div>
-          <div><dt>Surface EVA time</dt><dd>{site.eva_hours} h</dd></div>
-          <div><dt>Samples returned</dt><dd>{site.sample_return_kg} kg</dd></div>
-        </dl>
-        <a href={site.mission.source_url} target="_blank" rel="noreferrer">Historical mission record ↗</a>
-        <details className={styles.sources}><summary>Sources & reuse</summary>
-          <p>Snapshot: {archive.retrieved_at}. Served locally; no NASA API requests during play.</p>
-          {archive.sources.map((source) => <p key={source.id}><a href={source.url} target="_blank" rel="noreferrer">{source.title}</a> — {source.credit}. {source.usage}</p>)}
-          <p>{archive.coordinate_frame}</p><p>{archive.texture.note}</p>
-          <p>NASA source material does not imply NASA endorsement. Outpost conditions are original game configuration.</p>
-          <a href="https://svs.gsfc.nasa.gov/help/" target="_blank" rel="noreferrer">SVS reuse terms</a>
-        </details>
-      </section>
-    </div>
-  </aside>;
+      </div>
+      <h2 id="selected-outpost">
+        {station.name
+          .replace('Station ', '')
+          .replace(' \u2014 Research Base', '')}
+      </h2>
+      <p className={styles.missionName}>{mission.name}</p>
+      <div className={styles.missionMeta}>
+        <OutpostDifficulty station={station} />
+        <span>{mission.duration_weeks} weeks</span>
+        {recommended && (
+          <span className={styles.recommended}>Good first mission</span>
+        )}
+      </div>
+      <p className={styles.challenge}>{station.challenge}</p>
+      <div className={styles.missionActions}>
+        <Link
+          className={styles.launch}
+          to={`/?station=${encodeURIComponent(station.id)}&lunar_site=${encodeURIComponent(option.site.id)}`}
+        >
+          Choose this mission <span aria-hidden="true">→</span>
+        </Link>
+        <button
+          type="button"
+          className={styles.detailsButton}
+          onClick={onDetails}
+          aria-label="Mission details and Moon facts"
+        >
+          i
+        </button>
+      </div>
+      <p className={styles.nextStep}>
+        Next: choose your crew and pack your supplies.
+      </p>
+    </section>
+  );
 }

@@ -23,6 +23,30 @@ The importer derives site-to-station links from `backend/data/stations.json` and
 startup verifies those references. Archive schema version 2 uses a versioned client
 URL to avoid the earlier cached Alpha-only links.
 
+## Game selection screen
+
+The Moon is the main visual on `/moon/`, with a space backdrop, named outpost
+markers, and a single selected-mission card. The website header, footer, and left
+directory have been removed. Selection is available by marker, keyboard, or
+previous/next mission buttons; the latter remain usable even after rotating away
+from the near side or losing 3D support. A lightweight illustrated fallback retains
+mission selection when the surface texture or WebGL cannot load.
+
+Missions browse in ascending authored difficulty. Without a valid `site` query,
+the selector recommends the easiest outpost, currently Oceanus. Explicit deep links
+still select their requested site. This is a presentation change; starting stocks,
+mission durations, difficulty ranks, and simulation rules are unchanged. Friendly
+labels map ranks 1-5 to Easy, Balanced, Challenging, Hard, and Extreme.
+
+Phones keep the Moon above a compact selection card; wide screens place the card
+beside it. Small-phone unselected markers use icons with accessible mission names.
+Controls have touch-sized targets. The document stays within the viewport; detailed
+information can scroll inside an optional native modal. That modal retains Mission,
+Systems, and History tabs, keyboard navigation, source links, and reuse notices.
+Escape/Close returns focus to its opener. No new imagery or rendering dependency
+is required. The title/Play/Load screen remains a separate future milestone; the
+existing root preparation and game routes continue to work.
+
 ## Sources
 
 | Material | Primary source |

@@ -64,6 +64,13 @@
 > See `medicine.md`. The older exclusions of illnesses and medical assignments
 > below are superseded; fatigue and daily emergency timing remain future work.
 
+> Moon-screen update: mission selection now uses a large interactive Moon,
+> a space backdrop, named markers, and one compact selected-mission card. The
+> header/footer and left directory are removed. Optional details retain factual
+> history and system values; previous/next controls support every mission and
+> the non-3D fallback. The easiest mission is recommended without changing its
+> backend rules. Phone and laptop layouts share the same selection flow.
+
 **Project name:** LAST OUTPOST  
 **Subtitle:** Lunar Survival  
 **Genre:** Turn-based survival, strategy, resource management, decision-making  
