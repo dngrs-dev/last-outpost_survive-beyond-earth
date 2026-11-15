@@ -191,50 +191,51 @@ def generate(check: bool = False) -> None:
             result = turn(
                 initial, decision(initial["state"], "fixture-science", choice_id="research_geology")
             )
-            if result["turn_outcome"]["assignments"][0]["outcome"]["success"]:
+            if not result["turn_outcome"]["assignments"][0]["outcome"]["success"]:
+                continue
+            first_turn = result
+            while result["state"]["status"] == "running":
+                state = result["state"]
+                work = next(
+                    (
+                        c
+                        for c in state["assignment_options"]
+                        if c["available"]
+                        and (
+                            c["objective_rewards"]
+                            or c["id"] == "research_seismic"
+                            or c["id"].startswith("project:")
+                        )
+                    ),
+                    None,
+                )
+                body = decision(
+                    state,
+                    f"fixture-science-{state['current_week']}",
+                    choice_id=work["id"] if work else None,
+                    ignore=not work,
+                )
+                occupied = {
+                    body["selected_crew_id"],
+                    *body["support_crew_ids"],
+                    *(a["crew_id"] for a in body["assignments"]),
+                }
+                body["assignments"].extend(
+                    {"crew_id": c["id"], "activity_id": "crew_rest"}
+                    for c in state["crew"]
+                    if c["alive"] and c["medical_conditions"] and c["id"] not in occupied
+                )
+                result = turn(result, body)
+            if result["state"]["science"]["status"] == "complete":
                 fixtures["researchGame"] = ("GameResponse", initial)
-                fixtures["researchTurn"] = ("TurnResponse", result)
+                fixtures["researchTurn"] = ("TurnResponse", first_turn)
+                fixtures["researchCompleted"] = (
+                    "GameResponse",
+                    {"game_id": result["game_id"], "state": result["state"]},
+                )
                 break
         else:
-            raise RuntimeError("No successful research fixture found")
-        while result["state"]["status"] == "running":
-            state = result["state"]
-            choices = state["assignment_options"]
-            work = next(
-                (
-                    c
-                    for c in choices
-                    if c["available"]
-                    and (
-                        c["objective_rewards"]
-                        or c["id"] == "research_seismic"
-                        or c["id"].startswith("project:")
-                    )
-                ),
-                None,
-            )
-            body = decision(
-                state,
-                f"fixture-science-{state['current_week']}",
-                choice_id=work["id"] if work else None,
-                ignore=not work,
-            )
-            occupied = {
-                body["selected_crew_id"],
-                *body["support_crew_ids"],
-                *(a["crew_id"] for a in body["assignments"]),
-            }
-            body["assignments"].extend(
-                {"crew_id": c["id"], "activity_id": "crew_rest"}
-                for c in state["crew"]
-                if c["alive"] and c["medical_conditions"] and c["id"] not in occupied
-            )
-            result = turn(result, body)
-        assert result["state"]["science"]["status"] == "complete"
-        fixtures["researchCompleted"] = (
-            "GameResponse",
-            {"game_id": result["game_id"], "state": result["state"]},
-        )
+            raise RuntimeError("No complete research mission fixture found")
 
         for seed in range(100):
             initial = create(seed, ["alex", "lin", "sam", "maya"], research_cargo)

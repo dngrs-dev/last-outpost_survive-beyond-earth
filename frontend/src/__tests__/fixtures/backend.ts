@@ -18,7 +18,7 @@ export const catalog: CatalogResponse = {
         "daylight_days": 7.0,
         "darkness_days": 0.0,
         "phase": "daylight",
-        "electricity_generated": 48.0
+        "electricity_generated": 31.0
       },
       {
         "week": 2,
@@ -26,7 +26,7 @@ export const catalog: CatalogResponse = {
         "daylight_days": 7.0,
         "darkness_days": 0.0,
         "phase": "daylight",
-        "electricity_generated": 48.0
+        "electricity_generated": 31.0
       },
       {
         "week": 3,
@@ -34,7 +34,7 @@ export const catalog: CatalogResponse = {
         "daylight_days": 0.7653,
         "darkness_days": 6.2347,
         "phase": "mixed",
-        "electricity_generated": 5.247792
+        "electricity_generated": 3.389199
       },
       {
         "week": 4,
@@ -50,7 +50,7 @@ export const catalog: CatalogResponse = {
         "daylight_days": 5.4694,
         "darkness_days": 1.5306,
         "phase": "mixed",
-        "electricity_generated": 37.504464
+        "electricity_generated": 24.221633
       },
       {
         "week": 6,
@@ -58,7 +58,7 @@ export const catalog: CatalogResponse = {
         "daylight_days": 7.0,
         "darkness_days": 0.0,
         "phase": "daylight",
-        "electricity_generated": 48.0
+        "electricity_generated": 31.0
       },
       {
         "week": 7,
@@ -66,7 +66,7 @@ export const catalog: CatalogResponse = {
         "daylight_days": 2.2959,
         "darkness_days": 4.7041,
         "phase": "mixed",
-        "electricity_generated": 15.743328
+        "electricity_generated": 10.167566
       },
       {
         "week": 8,
@@ -82,7 +82,7 @@ export const catalog: CatalogResponse = {
         "daylight_days": 3.9388,
         "darkness_days": 3.0612,
         "phase": "mixed",
-        "electricity_generated": 27.008928
+        "electricity_generated": 17.443266
       },
       {
         "week": 10,
@@ -90,7 +90,7 @@ export const catalog: CatalogResponse = {
         "daylight_days": 7.0,
         "darkness_days": 0.0,
         "phase": "daylight",
-        "electricity_generated": 48.0
+        "electricity_generated": 31.0
       },
       {
         "week": 11,
@@ -98,7 +98,7 @@ export const catalog: CatalogResponse = {
         "daylight_days": 3.8265,
         "darkness_days": 3.1735,
         "phase": "mixed",
-        "electricity_generated": 26.238864
+        "electricity_generated": 16.945933
       },
       {
         "week": 12,
@@ -182,7 +182,7 @@ export const catalog: CatalogResponse = {
         "daylight_days": 3.6413,
         "darkness_days": 3.3587,
         "phase": "mixed",
-        "electricity_generated": 21.223548
+        "electricity_generated": 14.149032
       },
       {
         "week": 2,
@@ -190,7 +190,7 @@ export const catalog: CatalogResponse = {
         "daylight_days": 7.0,
         "darkness_days": 0.0,
         "phase": "daylight",
-        "electricity_generated": 40.8
+        "electricity_generated": 27.2
       },
       {
         "week": 3,
@@ -198,7 +198,7 @@ export const catalog: CatalogResponse = {
         "daylight_days": 4.124,
         "darkness_days": 2.876,
         "phase": "mixed",
-        "electricity_generated": 24.037034
+        "electricity_generated": 16.02469
       },
       {
         "week": 4,
@@ -214,7 +214,7 @@ export const catalog: CatalogResponse = {
         "daylight_days": 2.1107,
         "darkness_days": 4.8893,
         "phase": "mixed",
-        "electricity_generated": 12.302342
+        "electricity_generated": 8.201562
       },
       {
         "week": 6,
@@ -222,7 +222,7 @@ export const catalog: CatalogResponse = {
         "daylight_days": 7.0,
         "darkness_days": 0.0,
         "phase": "daylight",
-        "electricity_generated": 40.8
+        "electricity_generated": 27.2
       },
       {
         "week": 7,
@@ -230,7 +230,7 @@ export const catalog: CatalogResponse = {
         "daylight_days": 5.6546,
         "darkness_days": 1.3454,
         "phase": "mixed",
-        "electricity_generated": 32.95824
+        "electricity_generated": 21.97216
       },
       {
         "week": 8,
@@ -246,7 +246,7 @@ export const catalog: CatalogResponse = {
         "daylight_days": 0.5801,
         "darkness_days": 6.4199,
         "phase": "mixed",
-        "electricity_generated": 3.381137
+        "electricity_generated": 2.254091
       },
       {
         "week": 10,
@@ -254,7 +254,7 @@ export const catalog: CatalogResponse = {
         "daylight_days": 7.0,
         "darkness_days": 0.0,
         "phase": "daylight",
-        "electricity_generated": 40.8
+        "electricity_generated": 27.2
       }
     ],
     "hadley": [
@@ -508,7 +508,7 @@ export const catalog: CatalogResponse = {
         "daylight_days": 7.0,
         "darkness_days": 0.0,
         "phase": "daylight",
-        "electricity_generated": 32.5
+        "electricity_generated": 35.1
       },
       {
         "week": 2,
@@ -516,7 +516,7 @@ export const catalog: CatalogResponse = {
         "daylight_days": 7.0,
         "darkness_days": 0.0,
         "phase": "daylight",
-        "electricity_generated": 32.5
+        "electricity_generated": 35.1
       },
       {
         "week": 3,
@@ -524,7 +524,7 @@ export const catalog: CatalogResponse = {
         "daylight_days": 0.1666,
         "darkness_days": 6.8334,
         "phase": "mixed",
-        "electricity_generated": 0.773273
+        "electricity_generated": 0.835134
       },
       {
         "week": 4,
@@ -540,7 +540,7 @@ export const catalog: CatalogResponse = {
         "daylight_days": 6.0681,
         "darkness_days": 0.9319,
         "phase": "mixed",
-        "electricity_generated": 28.173535
+        "electricity_generated": 30.427418
       },
       {
         "week": 6,
@@ -548,7 +548,7 @@ export const catalog: CatalogResponse = {
         "daylight_days": 7.0,
         "darkness_days": 0.0,
         "phase": "daylight",
-        "electricity_generated": 32.5
+        "electricity_generated": 35.1
       },
       {
         "week": 7,
@@ -556,7 +556,7 @@ export const catalog: CatalogResponse = {
         "daylight_days": 1.6972,
         "darkness_days": 5.3028,
         "phase": "mixed",
-        "electricity_generated": 7.879658
+        "electricity_generated": 8.51003
       },
       {
         "week": 8,
@@ -572,7 +572,7 @@ export const catalog: CatalogResponse = {
         "daylight_days": 4.5375,
         "darkness_days": 2.4625,
         "phase": "mixed",
-        "electricity_generated": 21.067183
+        "electricity_generated": 22.752557
       },
       {
         "week": 10,
@@ -580,7 +580,7 @@ export const catalog: CatalogResponse = {
         "daylight_days": 7.0,
         "darkness_days": 0.0,
         "phase": "daylight",
-        "electricity_generated": 32.5
+        "electricity_generated": 35.1
       },
       {
         "week": 11,
@@ -588,7 +588,7 @@ export const catalog: CatalogResponse = {
         "daylight_days": 3.2278,
         "darkness_days": 3.7722,
         "phase": "mixed",
-        "electricity_generated": 14.98601
+        "electricity_generated": 16.184891
       },
       {
         "week": 12,
@@ -604,7 +604,7 @@ export const catalog: CatalogResponse = {
         "daylight_days": 3.0069,
         "darkness_days": 3.9931,
         "phase": "mixed",
-        "electricity_generated": 13.96083
+        "electricity_generated": 15.077696
       },
       {
         "week": 14,
@@ -612,7 +612,7 @@ export const catalog: CatalogResponse = {
         "daylight_days": 7.0,
         "darkness_days": 0.0,
         "phase": "daylight",
-        "electricity_generated": 32.5
+        "electricity_generated": 35.1
       },
       {
         "week": 15,
@@ -620,7 +620,7 @@ export const catalog: CatalogResponse = {
         "daylight_days": 4.7584,
         "darkness_days": 2.2416,
         "phase": "mixed",
-        "electricity_generated": 22.092363
+        "electricity_generated": 23.859751
       },
       {
         "week": 16,
@@ -636,7 +636,7 @@ export const catalog: CatalogResponse = {
         "daylight_days": 1.4763,
         "darkness_days": 5.5237,
         "phase": "mixed",
-        "electricity_generated": 6.854478
+        "electricity_generated": 7.402836
       },
       {
         "week": 18,
@@ -644,7 +644,7 @@ export const catalog: CatalogResponse = {
         "daylight_days": 7.0,
         "darkness_days": 0.0,
         "phase": "daylight",
-        "electricity_generated": 32.5
+        "electricity_generated": 35.1
       }
     ]
   },
@@ -671,19 +671,33 @@ export const catalog: CatalogResponse = {
         "wastewater": 12.0,
         "co2": 0.0
       },
-      "energy_per_week": 48.0,
+      "energy_per_week": 31.0,
       "oxygen_per_week": 14.0,
       "solar_efficiency": 1.0,
       "oxygen_efficiency": 1.0,
       "difficulty": "standard",
       "difficulty_rank": 2,
-      "challenge": "A balanced 12-week rotation. Bring enough provisions without neglecting repairs.",
+      "challenge": "Limited solar output makes power planning and repairs important. Complete the research before relief.",
       "lunar_site_id": "apollo-11",
       "longitude_deg": 23.47314,
       "battery_capacity": 100.0,
       "water_recovery_efficiency": 1.0,
-      "co2_efficiency": 1.0,
-      "co2_removal_per_week": 6.0
+      "co2_efficiency": 0.85,
+      "co2_removal_per_week": 6.0,
+      "recommended_cargo": {
+        "scientific_tools": 1,
+        "eva_batteries": 5,
+        "food_packs": 10,
+        "water_containers": 11,
+        "medicine_kits": 4,
+        "repair_kits": 6,
+        "dust_kits": 3,
+        "oxygen_regulators": 2,
+        "diagnostic_tools": 1,
+        "sealant_packs": 4,
+        "oxygen_tanks": 2,
+        "power_cells": 2
+      }
     },
     {
       "id": "oceanus",
@@ -719,7 +733,21 @@ export const catalog: CatalogResponse = {
       "battery_capacity": 110.0,
       "water_recovery_efficiency": 1.0,
       "co2_efficiency": 1.0,
-      "co2_removal_per_week": 6.0
+      "co2_removal_per_week": 6.0,
+      "recommended_cargo": {
+        "scientific_tools": 1,
+        "food_packs": 3,
+        "water_containers": 2,
+        "medicine_kits": 4,
+        "repair_kits": 6,
+        "eva_batteries": 5,
+        "dust_kits": 3,
+        "oxygen_regulators": 2,
+        "diagnostic_tools": 1,
+        "sealant_packs": 4,
+        "oxygen_tanks": 2,
+        "power_cells": 2
+      }
     },
     {
       "id": "fra_mauro",
@@ -743,19 +771,33 @@ export const catalog: CatalogResponse = {
         "wastewater": 12.0,
         "co2": 0.0
       },
-      "energy_per_week": 48.0,
+      "energy_per_week": 32.0,
       "oxygen_per_week": 15.0,
       "solar_efficiency": 0.85,
       "oxygen_efficiency": 0.9,
       "difficulty": "standard",
       "difficulty_rank": 2,
-      "challenge": "A worn solar array and limited water. Pack for ten weeks of careful maintenance.",
+      "challenge": "Limited solar output makes power planning and repairs important. Complete the research before relief.",
       "lunar_site_id": "apollo-14",
       "longitude_deg": -17.47194,
       "battery_capacity": 90.0,
       "water_recovery_efficiency": 0.95,
-      "co2_efficiency": 0.95,
-      "co2_removal_per_week": 6.0
+      "co2_efficiency": 0.85,
+      "co2_removal_per_week": 6.0,
+      "recommended_cargo": {
+        "scientific_tools": 1,
+        "eva_batteries": 5,
+        "food_packs": 6,
+        "water_containers": 8,
+        "medicine_kits": 4,
+        "repair_kits": 6,
+        "dust_kits": 3,
+        "oxygen_regulators": 2,
+        "diagnostic_tools": 1,
+        "sealant_packs": 4,
+        "oxygen_tanks": 2,
+        "power_cells": 2
+      }
     },
     {
       "id": "hadley",
@@ -791,7 +833,21 @@ export const catalog: CatalogResponse = {
       "battery_capacity": 100.0,
       "water_recovery_efficiency": 0.9,
       "co2_efficiency": 0.9,
-      "co2_removal_per_week": 6.0
+      "co2_removal_per_week": 6.0,
+      "recommended_cargo": {
+        "scientific_tools": 1,
+        "eva_batteries": 7,
+        "food_packs": 9,
+        "water_containers": 10,
+        "medicine_kits": 4,
+        "repair_kits": 6,
+        "dust_kits": 3,
+        "oxygen_regulators": 2,
+        "diagnostic_tools": 1,
+        "sealant_packs": 4,
+        "oxygen_tanks": 2,
+        "power_cells": 2
+      }
     },
     {
       "id": "descartes",
@@ -800,7 +856,7 @@ export const catalog: CatalogResponse = {
       "mission_id": "descartes_endurance",
       "starting_resources": {
         "food": 38.0,
-        "water": 54.0,
+        "water": 56.0,
         "oxygen": 40.0,
         "electricity": 20.0,
         "medicine": 1.0,
@@ -827,7 +883,21 @@ export const catalog: CatalogResponse = {
       "battery_capacity": 85.0,
       "water_recovery_efficiency": 0.85,
       "co2_efficiency": 0.85,
-      "co2_removal_per_week": 6.0
+      "co2_removal_per_week": 6.0,
+      "recommended_cargo": {
+        "scientific_tools": 1,
+        "eva_batteries": 7,
+        "food_packs": 9,
+        "water_containers": 11,
+        "medicine_kits": 4,
+        "repair_kits": 6,
+        "dust_kits": 3,
+        "oxygen_regulators": 2,
+        "diagnostic_tools": 1,
+        "sealant_packs": 4,
+        "oxygen_tanks": 2,
+        "power_cells": 2
+      }
     },
     {
       "id": "taurus",
@@ -851,8 +921,8 @@ export const catalog: CatalogResponse = {
         "wastewater": 12.0,
         "co2": 0.0
       },
-      "energy_per_week": 50.0,
-      "oxygen_per_week": 15.0,
+      "energy_per_week": 54.0,
+      "oxygen_per_week": 17.0,
       "solar_efficiency": 0.65,
       "oxygen_efficiency": 0.75,
       "difficulty": "extreme",
@@ -863,7 +933,21 @@ export const catalog: CatalogResponse = {
       "battery_capacity": 80.0,
       "water_recovery_efficiency": 0.8,
       "co2_efficiency": 0.8,
-      "co2_removal_per_week": 6.0
+      "co2_removal_per_week": 6.0,
+      "recommended_cargo": {
+        "scientific_tools": 1,
+        "eva_batteries": 9,
+        "food_packs": 10,
+        "water_containers": 12,
+        "medicine_kits": 4,
+        "repair_kits": 6,
+        "dust_kits": 3,
+        "oxygen_regulators": 2,
+        "diagnostic_tools": 1,
+        "sealant_packs": 4,
+        "oxygen_tanks": 2,
+        "power_cells": 2
+      }
     }
   ],
   "missions": [
@@ -1215,7 +1299,7 @@ export const catalog: CatalogResponse = {
           "id": "seismology",
           "title": "Valley seismic comparison",
           "description": "Complete detailed analyses of separate seismic records. Simply archiving a signal does not count.",
-          "target": 2,
+          "target": 3,
           "qualifying_choices": [
             "analyze_seismic",
             "research_seismic"
@@ -1237,7 +1321,7 @@ export const catalog: CatalogResponse = {
       ],
       "required_resources": {
         "scientific_tools": 1,
-        "eva_batteries": 6,
+        "eva_batteries": 7,
         "repair_kits": 1
       }
     }
@@ -1985,7 +2069,7 @@ export const energyPriorityGame: GameResponse = {
     "life_support": {
       "source_url": "https://www.nasa.gov/reference/environmental-control-and-life-support-systems-eclss/",
       "water_recovery_condition": 1.0,
-      "co2_condition": 1.0,
+      "co2_condition": 0.85,
       "wastewater": 12.0,
       "co2_burden": 0.0,
       "co2_warning_level": 4.0,
@@ -2018,7 +2102,7 @@ export const energyPriorityGame: GameResponse = {
           "daylight_days": 7.0,
           "darkness_days": 0.0,
           "phase": "daylight",
-          "electricity_generated": 48.0
+          "electricity_generated": 31.0
         },
         {
           "week": 2,
@@ -2026,7 +2110,7 @@ export const energyPriorityGame: GameResponse = {
           "daylight_days": 7.0,
           "darkness_days": 0.0,
           "phase": "daylight",
-          "electricity_generated": 48.0
+          "electricity_generated": 31.0
         },
         {
           "week": 3,
@@ -2034,7 +2118,7 @@ export const energyPriorityGame: GameResponse = {
           "daylight_days": 0.7653,
           "darkness_days": 6.2347,
           "phase": "mixed",
-          "electricity_generated": 5.247792
+          "electricity_generated": 3.389199
         },
         {
           "week": 4,
@@ -2050,7 +2134,7 @@ export const energyPriorityGame: GameResponse = {
           "daylight_days": 5.4694,
           "darkness_days": 1.5306,
           "phase": "mixed",
-          "electricity_generated": 37.504464
+          "electricity_generated": 24.221633
         },
         {
           "week": 6,
@@ -2058,7 +2142,7 @@ export const energyPriorityGame: GameResponse = {
           "daylight_days": 7.0,
           "darkness_days": 0.0,
           "phase": "daylight",
-          "electricity_generated": 48.0
+          "electricity_generated": 31.0
         },
         {
           "week": 7,
@@ -2066,7 +2150,7 @@ export const energyPriorityGame: GameResponse = {
           "daylight_days": 2.2959,
           "darkness_days": 4.7041,
           "phase": "mixed",
-          "electricity_generated": 15.743328
+          "electricity_generated": 10.167566
         },
         {
           "week": 8,
@@ -2082,7 +2166,7 @@ export const energyPriorityGame: GameResponse = {
           "daylight_days": 3.9388,
           "darkness_days": 3.0612,
           "phase": "mixed",
-          "electricity_generated": 27.008928
+          "electricity_generated": 17.443266
         },
         {
           "week": 10,
@@ -2090,7 +2174,7 @@ export const energyPriorityGame: GameResponse = {
           "daylight_days": 7.0,
           "darkness_days": 0.0,
           "phase": "daylight",
-          "electricity_generated": 48.0
+          "electricity_generated": 31.0
         },
         {
           "week": 11,
@@ -2098,7 +2182,7 @@ export const energyPriorityGame: GameResponse = {
           "daylight_days": 3.8265,
           "darkness_days": 3.1735,
           "phase": "mixed",
-          "electricity_generated": 26.238864
+          "electricity_generated": 16.945933
         },
         {
           "week": 12,
@@ -2317,7 +2401,7 @@ export const energyPriorityGame: GameResponse = {
     "solar_efficiency": 1.0,
     "oxygen_efficiency": 1.0,
     "water_recovery_efficiency": 1.0,
-    "co2_efficiency": 1.0,
+    "co2_efficiency": 0.85,
     "current_event_id": "medical_emergency",
     "current_event": {
       "id": "medical_emergency",
@@ -3067,25 +3151,19 @@ export const energyPriorityGame: GameResponse = {
         },
         "required_role": null,
         "minimum_crew": 1,
-        "available": false,
-        "unavailable_reasons": [
-          "This processor is already at full condition."
-        ],
+        "available": true,
+        "unavailable_reasons": [],
         "eligible_crew": [
           {
             "crew_id": "alex",
-            "available": false,
-            "unavailable_reasons": [
-              "This processor is already at full condition."
-            ],
+            "available": true,
+            "unavailable_reasons": [],
             "success_probability": 1.0
           },
           {
             "crew_id": "maya",
-            "available": false,
-            "unavailable_reasons": [
-              "This processor is already at full condition."
-            ],
+            "available": true,
+            "unavailable_reasons": [],
             "success_probability": 1.0
           }
         ],
@@ -3329,7 +3407,7 @@ export const energyPriorityTurn: TurnResponse = {
     "life_support": {
       "source_url": "https://www.nasa.gov/reference/environmental-control-and-life-support-systems-eclss/",
       "water_recovery_condition": 0.98,
-      "co2_condition": 0.985,
+      "co2_condition": 0.835,
       "wastewater": 11.36,
       "co2_burden": 0.0,
       "co2_warning_level": 4.0,
@@ -3349,7 +3427,7 @@ export const energyPriorityTurn: TurnResponse = {
     },
     "energy": {
       "battery_capacity": 100.0,
-      "stored": 66.0,
+      "stored": 49.0,
       "priority": "research",
       "life_support_required": 12.0,
       "solar_day_earth_days": 29.5306,
@@ -3362,7 +3440,7 @@ export const energyPriorityTurn: TurnResponse = {
           "daylight_days": 7.0,
           "darkness_days": 0.0,
           "phase": "daylight",
-          "electricity_generated": 48.0
+          "electricity_generated": 31.0
         },
         {
           "week": 3,
@@ -3370,7 +3448,7 @@ export const energyPriorityTurn: TurnResponse = {
           "daylight_days": 0.7653,
           "darkness_days": 6.2347,
           "phase": "mixed",
-          "electricity_generated": 5.247792
+          "electricity_generated": 3.389199
         },
         {
           "week": 4,
@@ -3386,7 +3464,7 @@ export const energyPriorityTurn: TurnResponse = {
           "daylight_days": 5.4694,
           "darkness_days": 1.5306,
           "phase": "mixed",
-          "electricity_generated": 37.504464
+          "electricity_generated": 24.221633
         },
         {
           "week": 6,
@@ -3394,7 +3472,7 @@ export const energyPriorityTurn: TurnResponse = {
           "daylight_days": 7.0,
           "darkness_days": 0.0,
           "phase": "daylight",
-          "electricity_generated": 48.0
+          "electricity_generated": 31.0
         },
         {
           "week": 7,
@@ -3402,7 +3480,7 @@ export const energyPriorityTurn: TurnResponse = {
           "daylight_days": 2.2959,
           "darkness_days": 4.7041,
           "phase": "mixed",
-          "electricity_generated": 15.743328
+          "electricity_generated": 10.167566
         },
         {
           "week": 8,
@@ -3418,7 +3496,7 @@ export const energyPriorityTurn: TurnResponse = {
           "daylight_days": 3.9388,
           "darkness_days": 3.0612,
           "phase": "mixed",
-          "electricity_generated": 27.008928
+          "electricity_generated": 17.443266
         },
         {
           "week": 10,
@@ -3426,7 +3504,7 @@ export const energyPriorityTurn: TurnResponse = {
           "daylight_days": 7.0,
           "darkness_days": 0.0,
           "phase": "daylight",
-          "electricity_generated": 48.0
+          "electricity_generated": 31.0
         },
         {
           "week": 11,
@@ -3434,7 +3512,7 @@ export const energyPriorityTurn: TurnResponse = {
           "daylight_days": 3.8265,
           "darkness_days": 3.1735,
           "phase": "mixed",
-          "electricity_generated": 26.238864
+          "electricity_generated": 16.945933
         },
         {
           "week": 12,
@@ -3620,7 +3698,7 @@ export const energyPriorityTurn: TurnResponse = {
       "food": 50.0,
       "water": 111.0,
       "oxygen": 24.0,
-      "electricity": 66.0,
+      "electricity": 49.0,
       "medicine": 7.0,
       "repair_kits": 8.0,
       "eva_batteries": 8.0,
@@ -3636,7 +3714,7 @@ export const energyPriorityTurn: TurnResponse = {
     "solar_efficiency": 1.0,
     "oxygen_efficiency": 1.0,
     "water_recovery_efficiency": 0.98,
-    "co2_efficiency": 0.985,
+    "co2_efficiency": 0.835,
     "current_event_id": "crew_recovery",
     "current_event": {
       "id": "crew_recovery",
@@ -3918,7 +3996,7 @@ export const energyPriorityTurn: TurnResponse = {
             "food": 0.0,
             "water": 0.0
           },
-          "electricity_generated": 48.0,
+          "electricity_generated": 31.0,
           "electricity_required": 12.0,
           "electricity_used": 12.0,
           "life_support_power_fraction": 1.0,
@@ -3991,7 +4069,7 @@ export const energyPriorityTurn: TurnResponse = {
           "food": -2.0,
           "water": -1.0,
           "oxygen": -6.0,
-          "electricity": 36.0,
+          "electricity": 19.0,
           "medicine": -1.0,
           "repair_kits": 0.0,
           "eva_batteries": 0.0,
@@ -4826,7 +4904,7 @@ export const energyPriorityTurn: TurnResponse = {
         "food": 0.0,
         "water": 0.0
       },
-      "electricity_generated": 48.0,
+      "electricity_generated": 31.0,
       "electricity_required": 12.0,
       "electricity_used": 12.0,
       "life_support_power_fraction": 1.0,
@@ -4899,7 +4977,7 @@ export const energyPriorityTurn: TurnResponse = {
       "food": -2.0,
       "water": -1.0,
       "oxygen": -6.0,
-      "electricity": 36.0,
+      "electricity": 19.0,
       "medicine": -1.0,
       "repair_kits": 0.0,
       "eva_batteries": 0.0,
@@ -4936,7 +5014,7 @@ export const dehydratedGame: GameResponse = {
     "life_support": {
       "source_url": "https://www.nasa.gov/reference/environmental-control-and-life-support-systems-eclss/",
       "water_recovery_condition": 0.98,
-      "co2_condition": 0.985,
+      "co2_condition": 0.835,
       "wastewater": 9.344,
       "co2_burden": 0.0,
       "co2_warning_level": 4.0,
@@ -4956,7 +5034,7 @@ export const dehydratedGame: GameResponse = {
     },
     "energy": {
       "battery_capacity": 100.0,
-      "stored": 54.0,
+      "stored": 41.25,
       "priority": "life_support",
       "life_support_required": 12.0,
       "solar_day_earth_days": 29.5306,
@@ -4969,7 +5047,7 @@ export const dehydratedGame: GameResponse = {
           "daylight_days": 7.0,
           "darkness_days": 0.0,
           "phase": "daylight",
-          "electricity_generated": 36.0
+          "electricity_generated": 23.25
         },
         {
           "week": 3,
@@ -4977,7 +5055,7 @@ export const dehydratedGame: GameResponse = {
           "daylight_days": 0.7653,
           "darkness_days": 6.2347,
           "phase": "mixed",
-          "electricity_generated": 3.935844
+          "electricity_generated": 2.541899
         },
         {
           "week": 4,
@@ -4993,7 +5071,7 @@ export const dehydratedGame: GameResponse = {
           "daylight_days": 5.4694,
           "darkness_days": 1.5306,
           "phase": "mixed",
-          "electricity_generated": 28.128348
+          "electricity_generated": 18.166225
         },
         {
           "week": 6,
@@ -5001,7 +5079,7 @@ export const dehydratedGame: GameResponse = {
           "daylight_days": 7.0,
           "darkness_days": 0.0,
           "phase": "daylight",
-          "electricity_generated": 36.0
+          "electricity_generated": 23.25
         },
         {
           "week": 7,
@@ -5009,7 +5087,7 @@ export const dehydratedGame: GameResponse = {
           "daylight_days": 2.2959,
           "darkness_days": 4.7041,
           "phase": "mixed",
-          "electricity_generated": 11.807496
+          "electricity_generated": 7.625674
         },
         {
           "week": 8,
@@ -5025,7 +5103,7 @@ export const dehydratedGame: GameResponse = {
           "daylight_days": 3.9388,
           "darkness_days": 3.0612,
           "phase": "mixed",
-          "electricity_generated": 20.256696
+          "electricity_generated": 13.08245
         },
         {
           "week": 10,
@@ -5033,7 +5111,7 @@ export const dehydratedGame: GameResponse = {
           "daylight_days": 7.0,
           "darkness_days": 0.0,
           "phase": "daylight",
-          "electricity_generated": 36.0
+          "electricity_generated": 23.25
         },
         {
           "week": 11,
@@ -5041,7 +5119,7 @@ export const dehydratedGame: GameResponse = {
           "daylight_days": 3.8265,
           "darkness_days": 3.1735,
           "phase": "mixed",
-          "electricity_generated": 19.679148
+          "electricity_generated": 12.70945
         },
         {
           "week": 12,
@@ -5214,7 +5292,7 @@ export const dehydratedGame: GameResponse = {
       "food": 50.0,
       "water": 113.52,
       "oxygen": 24.0,
-      "electricity": 54.0,
+      "electricity": 41.25,
       "medicine": 8.0,
       "repair_kits": 8.0,
       "eva_batteries": 8.0,
@@ -5230,7 +5308,7 @@ export const dehydratedGame: GameResponse = {
     "solar_efficiency": 0.75,
     "oxygen_efficiency": 0.75,
     "water_recovery_efficiency": 0.98,
-    "co2_efficiency": 0.985,
+    "co2_efficiency": 0.835,
     "current_event_id": "oxygen_fault",
     "current_event": {
       "id": "oxygen_fault",
@@ -5530,7 +5608,7 @@ export const dehydratedGame: GameResponse = {
             "food": 0.0,
             "water": 0.0
           },
-          "electricity_generated": 36.0,
+          "electricity_generated": 23.25,
           "electricity_required": 12.0,
           "electricity_used": 12.0,
           "life_support_power_fraction": 1.0,
@@ -5587,7 +5665,7 @@ export const dehydratedGame: GameResponse = {
           "food": -2.0,
           "water": 1.52,
           "oxygen": -6.0,
-          "electricity": 24.0,
+          "electricity": 11.25,
           "medicine": 0.0,
           "repair_kits": 0.0,
           "eva_batteries": 0.0,
@@ -6237,7 +6315,7 @@ export const underfedGame: GameResponse = {
     "life_support": {
       "source_url": "https://www.nasa.gov/reference/environmental-control-and-life-support-systems-eclss/",
       "water_recovery_condition": 0.92,
-      "co2_condition": 0.94,
+      "co2_condition": 0.79,
       "wastewater": 8.64,
       "co2_burden": 0.0,
       "co2_warning_level": 4.0,
@@ -6257,7 +6335,7 @@ export const underfedGame: GameResponse = {
     },
     "energy": {
       "battery_capacity": 100.0,
-      "stored": 53.935844,
+      "stored": 27.041899,
       "priority": "life_support",
       "life_support_required": 16.0,
       "solar_day_earth_days": 29.5306,
@@ -6270,7 +6348,7 @@ export const underfedGame: GameResponse = {
           "daylight_days": 5.4694,
           "darkness_days": 1.5306,
           "phase": "mixed",
-          "electricity_generated": 28.128348
+          "electricity_generated": 18.166225
         },
         {
           "week": 6,
@@ -6278,7 +6356,7 @@ export const underfedGame: GameResponse = {
           "daylight_days": 7.0,
           "darkness_days": 0.0,
           "phase": "daylight",
-          "electricity_generated": 36.0
+          "electricity_generated": 23.25
         },
         {
           "week": 7,
@@ -6286,7 +6364,7 @@ export const underfedGame: GameResponse = {
           "daylight_days": 2.2959,
           "darkness_days": 4.7041,
           "phase": "mixed",
-          "electricity_generated": 11.807496
+          "electricity_generated": 7.625674
         },
         {
           "week": 8,
@@ -6302,7 +6380,7 @@ export const underfedGame: GameResponse = {
           "daylight_days": 3.9388,
           "darkness_days": 3.0612,
           "phase": "mixed",
-          "electricity_generated": 20.256696
+          "electricity_generated": 13.08245
         },
         {
           "week": 10,
@@ -6310,7 +6388,7 @@ export const underfedGame: GameResponse = {
           "daylight_days": 7.0,
           "darkness_days": 0.0,
           "phase": "daylight",
-          "electricity_generated": 36.0
+          "electricity_generated": 23.25
         },
         {
           "week": 11,
@@ -6318,7 +6396,7 @@ export const underfedGame: GameResponse = {
           "daylight_days": 3.8265,
           "darkness_days": 3.1735,
           "phase": "mixed",
-          "electricity_generated": 19.679148
+          "electricity_generated": 12.70945
         },
         {
           "week": 12,
@@ -6521,7 +6599,7 @@ export const underfedGame: GameResponse = {
       "food": 46.12,
       "water": 108.616,
       "oxygen": 12.0,
-      "electricity": 53.935844,
+      "electricity": 27.041899,
       "medicine": 8.0,
       "repair_kits": 8.0,
       "eva_batteries": 8.0,
@@ -6537,7 +6615,7 @@ export const underfedGame: GameResponse = {
     "solar_efficiency": 0.75,
     "oxygen_efficiency": 0.75,
     "water_recovery_efficiency": 0.92,
-    "co2_efficiency": 0.94,
+    "co2_efficiency": 0.79,
     "current_event_id": "crew_recovery",
     "current_event": {
       "id": "crew_recovery",
@@ -6791,7 +6869,7 @@ export const underfedGame: GameResponse = {
             "food": 0.0,
             "water": 0.0
           },
-          "electricity_generated": 36.0,
+          "electricity_generated": 23.25,
           "electricity_required": 12.0,
           "electricity_used": 12.0,
           "life_support_power_fraction": 1.0,
@@ -6848,7 +6926,7 @@ export const underfedGame: GameResponse = {
           "food": -1.47,
           "water": -0.6,
           "oxygen": -6.0,
-          "electricity": 24.0,
+          "electricity": 11.25,
           "medicine": 0.0,
           "repair_kits": 0.0,
           "eva_batteries": 0.0,
@@ -6946,7 +7024,7 @@ export const underfedGame: GameResponse = {
             "food": 0.0,
             "water": 0.0
           },
-          "electricity_generated": 36.0,
+          "electricity_generated": 23.25,
           "electricity_required": 12.0,
           "electricity_used": 12.0,
           "life_support_power_fraction": 1.0,
@@ -7003,7 +7081,7 @@ export const underfedGame: GameResponse = {
           "food": -1.47,
           "water": -0.664,
           "oxygen": -6.0,
-          "electricity": 24.0,
+          "electricity": 11.25,
           "medicine": 0.0,
           "repair_kits": 0.0,
           "eva_batteries": 0.0,
@@ -7154,7 +7232,7 @@ export const underfedGame: GameResponse = {
             "food": 0.0,
             "water": 0.0
           },
-          "electricity_generated": 3.935844,
+          "electricity_generated": 2.541899,
           "electricity_required": 12.0,
           "electricity_used": 12.0,
           "life_support_power_fraction": 1.0,
@@ -7211,7 +7289,7 @@ export const underfedGame: GameResponse = {
           "food": -1.47,
           "water": -0.728,
           "oxygen": -6.0,
-          "electricity": -8.064156,
+          "electricity": -9.458101,
           "medicine": 0.0,
           "repair_kits": 0.0,
           "eva_batteries": 0.0,
@@ -8132,7 +8210,7 @@ export const recuperationTurn: TurnResponse = {
     "life_support": {
       "source_url": "https://www.nasa.gov/reference/environmental-control-and-life-support-systems-eclss/",
       "water_recovery_condition": 0.9,
-      "co2_condition": 0.925,
+      "co2_condition": 0.775,
       "wastewater": 8.0,
       "co2_burden": 0.0,
       "co2_warning_level": 4.0,
@@ -8152,7 +8230,7 @@ export const recuperationTurn: TurnResponse = {
     },
     "energy": {
       "battery_capacity": 100.0,
-      "stored": 66.064192,
+      "stored": 29.208124,
       "priority": "life_support",
       "life_support_required": 16.0,
       "solar_day_earth_days": 29.5306,
@@ -8165,7 +8243,7 @@ export const recuperationTurn: TurnResponse = {
           "daylight_days": 7.0,
           "darkness_days": 0.0,
           "phase": "daylight",
-          "electricity_generated": 36.0
+          "electricity_generated": 23.25
         },
         {
           "week": 7,
@@ -8173,7 +8251,7 @@ export const recuperationTurn: TurnResponse = {
           "daylight_days": 2.2959,
           "darkness_days": 4.7041,
           "phase": "mixed",
-          "electricity_generated": 11.807496
+          "electricity_generated": 7.625674
         },
         {
           "week": 8,
@@ -8189,7 +8267,7 @@ export const recuperationTurn: TurnResponse = {
           "daylight_days": 3.9388,
           "darkness_days": 3.0612,
           "phase": "mixed",
-          "electricity_generated": 20.256696
+          "electricity_generated": 13.08245
         },
         {
           "week": 10,
@@ -8197,7 +8275,7 @@ export const recuperationTurn: TurnResponse = {
           "daylight_days": 7.0,
           "darkness_days": 0.0,
           "phase": "daylight",
-          "electricity_generated": 36.0
+          "electricity_generated": 23.25
         },
         {
           "week": 11,
@@ -8205,7 +8283,7 @@ export const recuperationTurn: TurnResponse = {
           "daylight_days": 3.8265,
           "darkness_days": 3.1735,
           "phase": "mixed",
-          "electricity_generated": 19.679148
+          "electricity_generated": 12.70945
         },
         {
           "week": 12,
@@ -8408,7 +8486,7 @@ export const recuperationTurn: TurnResponse = {
       "food": 43.02,
       "water": 106.16,
       "oxygen": 12.0,
-      "electricity": 66.064192,
+      "electricity": 29.208124,
       "medicine": 8.0,
       "repair_kits": 8.0,
       "eva_batteries": 8.0,
@@ -8424,7 +8502,7 @@ export const recuperationTurn: TurnResponse = {
     "solar_efficiency": 0.75,
     "oxygen_efficiency": 0.75,
     "water_recovery_efficiency": 0.9,
-    "co2_efficiency": 0.925,
+    "co2_efficiency": 0.775,
     "current_event_id": "seismic_signal",
     "current_event": {
       "id": "seismic_signal",
@@ -8701,7 +8779,7 @@ export const recuperationTurn: TurnResponse = {
             "food": 0.0,
             "water": 0.0
           },
-          "electricity_generated": 36.0,
+          "electricity_generated": 23.25,
           "electricity_required": 12.0,
           "electricity_used": 12.0,
           "life_support_power_fraction": 1.0,
@@ -8758,7 +8836,7 @@ export const recuperationTurn: TurnResponse = {
           "food": -1.47,
           "water": -0.6,
           "oxygen": -6.0,
-          "electricity": 24.0,
+          "electricity": 11.25,
           "medicine": 0.0,
           "repair_kits": 0.0,
           "eva_batteries": 0.0,
@@ -8856,7 +8934,7 @@ export const recuperationTurn: TurnResponse = {
             "food": 0.0,
             "water": 0.0
           },
-          "electricity_generated": 36.0,
+          "electricity_generated": 23.25,
           "electricity_required": 12.0,
           "electricity_used": 12.0,
           "life_support_power_fraction": 1.0,
@@ -8913,7 +8991,7 @@ export const recuperationTurn: TurnResponse = {
           "food": -1.47,
           "water": -0.664,
           "oxygen": -6.0,
-          "electricity": 24.0,
+          "electricity": 11.25,
           "medicine": 0.0,
           "repair_kits": 0.0,
           "eva_batteries": 0.0,
@@ -9064,7 +9142,7 @@ export const recuperationTurn: TurnResponse = {
             "food": 0.0,
             "water": 0.0
           },
-          "electricity_generated": 3.935844,
+          "electricity_generated": 2.541899,
           "electricity_required": 12.0,
           "electricity_used": 12.0,
           "life_support_power_fraction": 1.0,
@@ -9121,7 +9199,7 @@ export const recuperationTurn: TurnResponse = {
           "food": -1.47,
           "water": -0.728,
           "oxygen": -6.0,
-          "electricity": -8.064156,
+          "electricity": -9.458101,
           "medicine": 0.0,
           "repair_kits": 0.0,
           "eva_batteries": 0.0,
@@ -9417,7 +9495,7 @@ export const recuperationTurn: TurnResponse = {
             "food": 0.0,
             "water": 0.0
           },
-          "electricity_generated": 28.128348,
+          "electricity_generated": 18.166225,
           "electricity_required": 16.0,
           "electricity_used": 16.0,
           "life_support_power_fraction": 1.0,
@@ -9497,7 +9575,7 @@ export const recuperationTurn: TurnResponse = {
           "food": -3.1,
           "water": -2.456,
           "oxygen": 0.0,
-          "electricity": 12.128348,
+          "electricity": 2.166225,
           "medicine": 0.0,
           "repair_kits": 0.0,
           "eva_batteries": 0.0,
@@ -10352,7 +10430,7 @@ export const recuperationTurn: TurnResponse = {
         "food": 0.0,
         "water": 0.0
       },
-      "electricity_generated": 28.128348,
+      "electricity_generated": 18.166225,
       "electricity_required": 16.0,
       "electricity_used": 16.0,
       "life_support_power_fraction": 1.0,
@@ -10432,7 +10510,7 @@ export const recuperationTurn: TurnResponse = {
       "food": -3.1,
       "water": -2.456,
       "oxygen": 0.0,
-      "electricity": 12.128348,
+      "electricity": 2.166225,
       "medicine": 0.0,
       "repair_kits": 0.0,
       "eva_batteries": 0.0,
@@ -10469,7 +10547,7 @@ export const game: GameResponse = {
     "life_support": {
       "source_url": "https://www.nasa.gov/reference/environmental-control-and-life-support-systems-eclss/",
       "water_recovery_condition": 1.0,
-      "co2_condition": 1.0,
+      "co2_condition": 0.85,
       "wastewater": 12.0,
       "co2_burden": 0.0,
       "co2_warning_level": 4.0,
@@ -10502,7 +10580,7 @@ export const game: GameResponse = {
           "daylight_days": 7.0,
           "darkness_days": 0.0,
           "phase": "daylight",
-          "electricity_generated": 36.0
+          "electricity_generated": 23.25
         },
         {
           "week": 2,
@@ -10510,7 +10588,7 @@ export const game: GameResponse = {
           "daylight_days": 7.0,
           "darkness_days": 0.0,
           "phase": "daylight",
-          "electricity_generated": 36.0
+          "electricity_generated": 23.25
         },
         {
           "week": 3,
@@ -10518,7 +10596,7 @@ export const game: GameResponse = {
           "daylight_days": 0.7653,
           "darkness_days": 6.2347,
           "phase": "mixed",
-          "electricity_generated": 3.935844
+          "electricity_generated": 2.541899
         },
         {
           "week": 4,
@@ -10534,7 +10612,7 @@ export const game: GameResponse = {
           "daylight_days": 5.4694,
           "darkness_days": 1.5306,
           "phase": "mixed",
-          "electricity_generated": 28.128348
+          "electricity_generated": 18.166225
         },
         {
           "week": 6,
@@ -10542,7 +10620,7 @@ export const game: GameResponse = {
           "daylight_days": 7.0,
           "darkness_days": 0.0,
           "phase": "daylight",
-          "electricity_generated": 36.0
+          "electricity_generated": 23.25
         },
         {
           "week": 7,
@@ -10550,7 +10628,7 @@ export const game: GameResponse = {
           "daylight_days": 2.2959,
           "darkness_days": 4.7041,
           "phase": "mixed",
-          "electricity_generated": 11.807496
+          "electricity_generated": 7.625674
         },
         {
           "week": 8,
@@ -10566,7 +10644,7 @@ export const game: GameResponse = {
           "daylight_days": 3.9388,
           "darkness_days": 3.0612,
           "phase": "mixed",
-          "electricity_generated": 20.256696
+          "electricity_generated": 13.08245
         },
         {
           "week": 10,
@@ -10574,7 +10652,7 @@ export const game: GameResponse = {
           "daylight_days": 7.0,
           "darkness_days": 0.0,
           "phase": "daylight",
-          "electricity_generated": 36.0
+          "electricity_generated": 23.25
         },
         {
           "week": 11,
@@ -10582,7 +10660,7 @@ export const game: GameResponse = {
           "daylight_days": 3.8265,
           "darkness_days": 3.1735,
           "phase": "mixed",
-          "electricity_generated": 19.679148
+          "electricity_generated": 12.70945
         },
         {
           "week": 12,
@@ -10767,7 +10845,7 @@ export const game: GameResponse = {
     "solar_efficiency": 0.75,
     "oxygen_efficiency": 1.0,
     "water_recovery_efficiency": 1.0,
-    "co2_efficiency": 1.0,
+    "co2_efficiency": 0.85,
     "current_event_id": "solar_failure",
     "current_event": {
       "id": "solar_failure",
@@ -11320,25 +11398,19 @@ export const game: GameResponse = {
         },
         "required_role": null,
         "minimum_crew": 1,
-        "available": false,
-        "unavailable_reasons": [
-          "This processor is already at full condition."
-        ],
+        "available": true,
+        "unavailable_reasons": [],
         "eligible_crew": [
           {
             "crew_id": "alex",
-            "available": false,
-            "unavailable_reasons": [
-              "This processor is already at full condition."
-            ],
+            "available": true,
+            "unavailable_reasons": [],
             "success_probability": 1.0
           },
           {
             "crew_id": "maya",
-            "available": false,
-            "unavailable_reasons": [
-              "This processor is already at full condition."
-            ],
+            "available": true,
+            "unavailable_reasons": [],
             "success_probability": 1.0
           }
         ],
@@ -11564,7 +11636,7 @@ export const turn: TurnResponse = {
     "life_support": {
       "source_url": "https://www.nasa.gov/reference/environmental-control-and-life-support-systems-eclss/",
       "water_recovery_condition": 0.98,
-      "co2_condition": 0.985,
+      "co2_condition": 0.835,
       "wastewater": 11.36,
       "co2_burden": 0.0,
       "co2_warning_level": 4.0,
@@ -11584,7 +11656,7 @@ export const turn: TurnResponse = {
     },
     "energy": {
       "battery_capacity": 100.0,
-      "stored": 54.0,
+      "stored": 41.25,
       "priority": "life_support",
       "life_support_required": 12.0,
       "solar_day_earth_days": 29.5306,
@@ -11597,7 +11669,7 @@ export const turn: TurnResponse = {
           "daylight_days": 7.0,
           "darkness_days": 0.0,
           "phase": "daylight",
-          "electricity_generated": 36.0
+          "electricity_generated": 23.25
         },
         {
           "week": 3,
@@ -11605,7 +11677,7 @@ export const turn: TurnResponse = {
           "daylight_days": 0.7653,
           "darkness_days": 6.2347,
           "phase": "mixed",
-          "electricity_generated": 3.935844
+          "electricity_generated": 2.541899
         },
         {
           "week": 4,
@@ -11621,7 +11693,7 @@ export const turn: TurnResponse = {
           "daylight_days": 5.4694,
           "darkness_days": 1.5306,
           "phase": "mixed",
-          "electricity_generated": 28.128348
+          "electricity_generated": 18.166225
         },
         {
           "week": 6,
@@ -11629,7 +11701,7 @@ export const turn: TurnResponse = {
           "daylight_days": 7.0,
           "darkness_days": 0.0,
           "phase": "daylight",
-          "electricity_generated": 36.0
+          "electricity_generated": 23.25
         },
         {
           "week": 7,
@@ -11637,7 +11709,7 @@ export const turn: TurnResponse = {
           "daylight_days": 2.2959,
           "darkness_days": 4.7041,
           "phase": "mixed",
-          "electricity_generated": 11.807496
+          "electricity_generated": 7.625674
         },
         {
           "week": 8,
@@ -11653,7 +11725,7 @@ export const turn: TurnResponse = {
           "daylight_days": 3.9388,
           "darkness_days": 3.0612,
           "phase": "mixed",
-          "electricity_generated": 20.256696
+          "electricity_generated": 13.08245
         },
         {
           "week": 10,
@@ -11661,7 +11733,7 @@ export const turn: TurnResponse = {
           "daylight_days": 7.0,
           "darkness_days": 0.0,
           "phase": "daylight",
-          "electricity_generated": 36.0
+          "electricity_generated": 23.25
         },
         {
           "week": 11,
@@ -11669,7 +11741,7 @@ export const turn: TurnResponse = {
           "daylight_days": 3.8265,
           "darkness_days": 3.1735,
           "phase": "mixed",
-          "electricity_generated": 19.679148
+          "electricity_generated": 12.70945
         },
         {
           "week": 12,
@@ -11886,7 +11958,7 @@ export const turn: TurnResponse = {
       "food": 50.33,
       "water": 111.0,
       "oxygen": 22.0,
-      "electricity": 54.0,
+      "electricity": 41.25,
       "medicine": 8.0,
       "repair_kits": 7.0,
       "eva_batteries": 7.0,
@@ -11902,7 +11974,7 @@ export const turn: TurnResponse = {
     "solar_efficiency": 0.75,
     "oxygen_efficiency": 1.0,
     "water_recovery_efficiency": 0.98,
-    "co2_efficiency": 0.985,
+    "co2_efficiency": 0.835,
     "current_event_id": "medical_emergency",
     "current_event": {
       "id": "medical_emergency",
@@ -12272,7 +12344,7 @@ export const turn: TurnResponse = {
             "food": 0.0,
             "water": 0.0
           },
-          "electricity_generated": 36.0,
+          "electricity_generated": 23.25,
           "electricity_required": 12.0,
           "electricity_used": 12.0,
           "life_support_power_fraction": 1.0,
@@ -12329,7 +12401,7 @@ export const turn: TurnResponse = {
           "food": -1.67,
           "water": -1.0,
           "oxygen": -8.0,
-          "electricity": 24.0,
+          "electricity": 11.25,
           "medicine": 0.0,
           "repair_kits": -1.0,
           "eva_batteries": -1.0,
@@ -13216,7 +13288,7 @@ export const turn: TurnResponse = {
         "food": 0.0,
         "water": 0.0
       },
-      "electricity_generated": 36.0,
+      "electricity_generated": 23.25,
       "electricity_required": 12.0,
       "electricity_used": 12.0,
       "life_support_power_fraction": 1.0,
@@ -13273,7 +13345,7 @@ export const turn: TurnResponse = {
       "food": -1.67,
       "water": -1.0,
       "oxygen": -8.0,
-      "electricity": 24.0,
+      "electricity": 11.25,
       "medicine": 0.0,
       "repair_kits": -1.0,
       "eva_batteries": -1.0,
@@ -13352,7 +13424,7 @@ export const medicalGame: GameResponse = {
     "life_support": {
       "source_url": "https://www.nasa.gov/reference/environmental-control-and-life-support-systems-eclss/",
       "water_recovery_condition": 1.0,
-      "co2_condition": 1.0,
+      "co2_condition": 0.85,
       "wastewater": 12.0,
       "co2_burden": 0.0,
       "co2_warning_level": 4.0,
@@ -13385,7 +13457,7 @@ export const medicalGame: GameResponse = {
           "daylight_days": 7.0,
           "darkness_days": 0.0,
           "phase": "daylight",
-          "electricity_generated": 48.0
+          "electricity_generated": 31.0
         },
         {
           "week": 2,
@@ -13393,7 +13465,7 @@ export const medicalGame: GameResponse = {
           "daylight_days": 7.0,
           "darkness_days": 0.0,
           "phase": "daylight",
-          "electricity_generated": 48.0
+          "electricity_generated": 31.0
         },
         {
           "week": 3,
@@ -13401,7 +13473,7 @@ export const medicalGame: GameResponse = {
           "daylight_days": 0.7653,
           "darkness_days": 6.2347,
           "phase": "mixed",
-          "electricity_generated": 5.247792
+          "electricity_generated": 3.389199
         },
         {
           "week": 4,
@@ -13417,7 +13489,7 @@ export const medicalGame: GameResponse = {
           "daylight_days": 5.4694,
           "darkness_days": 1.5306,
           "phase": "mixed",
-          "electricity_generated": 37.504464
+          "electricity_generated": 24.221633
         },
         {
           "week": 6,
@@ -13425,7 +13497,7 @@ export const medicalGame: GameResponse = {
           "daylight_days": 7.0,
           "darkness_days": 0.0,
           "phase": "daylight",
-          "electricity_generated": 48.0
+          "electricity_generated": 31.0
         },
         {
           "week": 7,
@@ -13433,7 +13505,7 @@ export const medicalGame: GameResponse = {
           "daylight_days": 2.2959,
           "darkness_days": 4.7041,
           "phase": "mixed",
-          "electricity_generated": 15.743328
+          "electricity_generated": 10.167566
         },
         {
           "week": 8,
@@ -13449,7 +13521,7 @@ export const medicalGame: GameResponse = {
           "daylight_days": 3.9388,
           "darkness_days": 3.0612,
           "phase": "mixed",
-          "electricity_generated": 27.008928
+          "electricity_generated": 17.443266
         },
         {
           "week": 10,
@@ -13457,7 +13529,7 @@ export const medicalGame: GameResponse = {
           "daylight_days": 7.0,
           "darkness_days": 0.0,
           "phase": "daylight",
-          "electricity_generated": 48.0
+          "electricity_generated": 31.0
         },
         {
           "week": 11,
@@ -13465,7 +13537,7 @@ export const medicalGame: GameResponse = {
           "daylight_days": 3.8265,
           "darkness_days": 3.1735,
           "phase": "mixed",
-          "electricity_generated": 26.238864
+          "electricity_generated": 16.945933
         },
         {
           "week": 12,
@@ -13684,7 +13756,7 @@ export const medicalGame: GameResponse = {
     "solar_efficiency": 1.0,
     "oxygen_efficiency": 1.0,
     "water_recovery_efficiency": 1.0,
-    "co2_efficiency": 1.0,
+    "co2_efficiency": 0.85,
     "current_event_id": "medical_emergency",
     "current_event": {
       "id": "medical_emergency",
@@ -14434,25 +14506,19 @@ export const medicalGame: GameResponse = {
         },
         "required_role": null,
         "minimum_crew": 1,
-        "available": false,
-        "unavailable_reasons": [
-          "This processor is already at full condition."
-        ],
+        "available": true,
+        "unavailable_reasons": [],
         "eligible_crew": [
           {
             "crew_id": "alex",
-            "available": false,
-            "unavailable_reasons": [
-              "This processor is already at full condition."
-            ],
+            "available": true,
+            "unavailable_reasons": [],
             "success_probability": 1.0
           },
           {
             "crew_id": "maya",
-            "available": false,
-            "unavailable_reasons": [
-              "This processor is already at full condition."
-            ],
+            "available": true,
+            "unavailable_reasons": [],
             "success_probability": 1.0
           }
         ],
@@ -14696,7 +14762,7 @@ export const treatment: TurnResponse = {
     "life_support": {
       "source_url": "https://www.nasa.gov/reference/environmental-control-and-life-support-systems-eclss/",
       "water_recovery_condition": 0.98,
-      "co2_condition": 0.985,
+      "co2_condition": 0.835,
       "wastewater": 11.36,
       "co2_burden": 0.0,
       "co2_warning_level": 4.0,
@@ -14716,7 +14782,7 @@ export const treatment: TurnResponse = {
     },
     "energy": {
       "battery_capacity": 100.0,
-      "stored": 66.0,
+      "stored": 49.0,
       "priority": "life_support",
       "life_support_required": 12.0,
       "solar_day_earth_days": 29.5306,
@@ -14729,7 +14795,7 @@ export const treatment: TurnResponse = {
           "daylight_days": 7.0,
           "darkness_days": 0.0,
           "phase": "daylight",
-          "electricity_generated": 48.0
+          "electricity_generated": 31.0
         },
         {
           "week": 3,
@@ -14737,7 +14803,7 @@ export const treatment: TurnResponse = {
           "daylight_days": 0.7653,
           "darkness_days": 6.2347,
           "phase": "mixed",
-          "electricity_generated": 5.247792
+          "electricity_generated": 3.389199
         },
         {
           "week": 4,
@@ -14753,7 +14819,7 @@ export const treatment: TurnResponse = {
           "daylight_days": 5.4694,
           "darkness_days": 1.5306,
           "phase": "mixed",
-          "electricity_generated": 37.504464
+          "electricity_generated": 24.221633
         },
         {
           "week": 6,
@@ -14761,7 +14827,7 @@ export const treatment: TurnResponse = {
           "daylight_days": 7.0,
           "darkness_days": 0.0,
           "phase": "daylight",
-          "electricity_generated": 48.0
+          "electricity_generated": 31.0
         },
         {
           "week": 7,
@@ -14769,7 +14835,7 @@ export const treatment: TurnResponse = {
           "daylight_days": 2.2959,
           "darkness_days": 4.7041,
           "phase": "mixed",
-          "electricity_generated": 15.743328
+          "electricity_generated": 10.167566
         },
         {
           "week": 8,
@@ -14785,7 +14851,7 @@ export const treatment: TurnResponse = {
           "daylight_days": 3.9388,
           "darkness_days": 3.0612,
           "phase": "mixed",
-          "electricity_generated": 27.008928
+          "electricity_generated": 17.443266
         },
         {
           "week": 10,
@@ -14793,7 +14859,7 @@ export const treatment: TurnResponse = {
           "daylight_days": 7.0,
           "darkness_days": 0.0,
           "phase": "daylight",
-          "electricity_generated": 48.0
+          "electricity_generated": 31.0
         },
         {
           "week": 11,
@@ -14801,7 +14867,7 @@ export const treatment: TurnResponse = {
           "daylight_days": 3.8265,
           "darkness_days": 3.1735,
           "phase": "mixed",
-          "electricity_generated": 26.238864
+          "electricity_generated": 16.945933
         },
         {
           "week": 12,
@@ -14987,7 +15053,7 @@ export const treatment: TurnResponse = {
       "food": 50.0,
       "water": 111.0,
       "oxygen": 24.0,
-      "electricity": 66.0,
+      "electricity": 49.0,
       "medicine": 7.0,
       "repair_kits": 8.0,
       "eva_batteries": 8.0,
@@ -15003,7 +15069,7 @@ export const treatment: TurnResponse = {
     "solar_efficiency": 1.0,
     "oxygen_efficiency": 1.0,
     "water_recovery_efficiency": 0.98,
-    "co2_efficiency": 0.985,
+    "co2_efficiency": 0.835,
     "current_event_id": "crew_recovery",
     "current_event": {
       "id": "crew_recovery",
@@ -15285,7 +15351,7 @@ export const treatment: TurnResponse = {
             "food": 0.0,
             "water": 0.0
           },
-          "electricity_generated": 48.0,
+          "electricity_generated": 31.0,
           "electricity_required": 12.0,
           "electricity_used": 12.0,
           "life_support_power_fraction": 1.0,
@@ -15358,7 +15424,7 @@ export const treatment: TurnResponse = {
           "food": -2.0,
           "water": -1.0,
           "oxygen": -6.0,
-          "electricity": 36.0,
+          "electricity": 19.0,
           "medicine": -1.0,
           "repair_kits": 0.0,
           "eva_batteries": 0.0,
@@ -16193,7 +16259,7 @@ export const treatment: TurnResponse = {
         "food": 0.0,
         "water": 0.0
       },
-      "electricity_generated": 48.0,
+      "electricity_generated": 31.0,
       "electricity_required": 12.0,
       "electricity_used": 12.0,
       "life_support_power_fraction": 1.0,
@@ -16266,7 +16332,7 @@ export const treatment: TurnResponse = {
       "food": -2.0,
       "water": -1.0,
       "oxygen": -6.0,
-      "electricity": 36.0,
+      "electricity": 19.0,
       "medicine": -1.0,
       "repair_kits": 0.0,
       "eva_batteries": 0.0,
@@ -16303,7 +16369,7 @@ export const medicalAssignmentGame: GameResponse = {
     "life_support": {
       "source_url": "https://www.nasa.gov/reference/environmental-control-and-life-support-systems-eclss/",
       "water_recovery_condition": 1.0,
-      "co2_condition": 1.0,
+      "co2_condition": 0.85,
       "wastewater": 12.0,
       "co2_burden": 0.0,
       "co2_warning_level": 4.0,
@@ -16336,7 +16402,7 @@ export const medicalAssignmentGame: GameResponse = {
           "daylight_days": 7.0,
           "darkness_days": 0.0,
           "phase": "daylight",
-          "electricity_generated": 48.0
+          "electricity_generated": 31.0
         },
         {
           "week": 2,
@@ -16344,7 +16410,7 @@ export const medicalAssignmentGame: GameResponse = {
           "daylight_days": 7.0,
           "darkness_days": 0.0,
           "phase": "daylight",
-          "electricity_generated": 48.0
+          "electricity_generated": 31.0
         },
         {
           "week": 3,
@@ -16352,7 +16418,7 @@ export const medicalAssignmentGame: GameResponse = {
           "daylight_days": 0.7653,
           "darkness_days": 6.2347,
           "phase": "mixed",
-          "electricity_generated": 5.247792
+          "electricity_generated": 3.389199
         },
         {
           "week": 4,
@@ -16368,7 +16434,7 @@ export const medicalAssignmentGame: GameResponse = {
           "daylight_days": 5.4694,
           "darkness_days": 1.5306,
           "phase": "mixed",
-          "electricity_generated": 37.504464
+          "electricity_generated": 24.221633
         },
         {
           "week": 6,
@@ -16376,7 +16442,7 @@ export const medicalAssignmentGame: GameResponse = {
           "daylight_days": 7.0,
           "darkness_days": 0.0,
           "phase": "daylight",
-          "electricity_generated": 48.0
+          "electricity_generated": 31.0
         },
         {
           "week": 7,
@@ -16384,7 +16450,7 @@ export const medicalAssignmentGame: GameResponse = {
           "daylight_days": 2.2959,
           "darkness_days": 4.7041,
           "phase": "mixed",
-          "electricity_generated": 15.743328
+          "electricity_generated": 10.167566
         },
         {
           "week": 8,
@@ -16400,7 +16466,7 @@ export const medicalAssignmentGame: GameResponse = {
           "daylight_days": 3.9388,
           "darkness_days": 3.0612,
           "phase": "mixed",
-          "electricity_generated": 27.008928
+          "electricity_generated": 17.443266
         },
         {
           "week": 10,
@@ -16408,7 +16474,7 @@ export const medicalAssignmentGame: GameResponse = {
           "daylight_days": 7.0,
           "darkness_days": 0.0,
           "phase": "daylight",
-          "electricity_generated": 48.0
+          "electricity_generated": 31.0
         },
         {
           "week": 11,
@@ -16416,7 +16482,7 @@ export const medicalAssignmentGame: GameResponse = {
           "daylight_days": 3.8265,
           "darkness_days": 3.1735,
           "phase": "mixed",
-          "electricity_generated": 26.238864
+          "electricity_generated": 16.945933
         },
         {
           "week": 12,
@@ -16719,7 +16785,7 @@ export const medicalAssignmentGame: GameResponse = {
     "solar_efficiency": 1.0,
     "oxygen_efficiency": 1.0,
     "water_recovery_efficiency": 1.0,
-    "co2_efficiency": 1.0,
+    "co2_efficiency": 0.85,
     "current_event_id": "medical_emergency",
     "current_event": {
       "id": "medical_emergency",
@@ -17542,33 +17608,25 @@ export const medicalAssignmentGame: GameResponse = {
         },
         "required_role": null,
         "minimum_crew": 1,
-        "available": false,
-        "unavailable_reasons": [
-          "This processor is already at full condition."
-        ],
+        "available": true,
+        "unavailable_reasons": [],
         "eligible_crew": [
           {
             "crew_id": "alex",
-            "available": false,
-            "unavailable_reasons": [
-              "This processor is already at full condition."
-            ],
+            "available": true,
+            "unavailable_reasons": [],
             "success_probability": 1.0
           },
           {
             "crew_id": "maya",
-            "available": false,
-            "unavailable_reasons": [
-              "This processor is already at full condition."
-            ],
+            "available": true,
+            "unavailable_reasons": [],
             "success_probability": 1.0
           },
           {
             "crew_id": "lin",
-            "available": false,
-            "unavailable_reasons": [
-              "This processor is already at full condition."
-            ],
+            "available": true,
+            "unavailable_reasons": [],
             "success_probability": 1.0
           }
         ],
@@ -17836,7 +17894,7 @@ export const medicalAssignmentTurn: TurnResponse = {
     "life_support": {
       "source_url": "https://www.nasa.gov/reference/environmental-control-and-life-support-systems-eclss/",
       "water_recovery_condition": 0.98,
-      "co2_condition": 0.985,
+      "co2_condition": 0.835,
       "wastewater": 12.8,
       "co2_burden": 0.0,
       "co2_warning_level": 4.0,
@@ -17856,7 +17914,7 @@ export const medicalAssignmentTurn: TurnResponse = {
     },
     "energy": {
       "battery_capacity": 100.0,
-      "stored": 64.0,
+      "stored": 47.0,
       "priority": "life_support",
       "life_support_required": 18.0,
       "solar_day_earth_days": 29.5306,
@@ -17869,7 +17927,7 @@ export const medicalAssignmentTurn: TurnResponse = {
           "daylight_days": 7.0,
           "darkness_days": 0.0,
           "phase": "daylight",
-          "electricity_generated": 48.0
+          "electricity_generated": 31.0
         },
         {
           "week": 3,
@@ -17877,7 +17935,7 @@ export const medicalAssignmentTurn: TurnResponse = {
           "daylight_days": 0.7653,
           "darkness_days": 6.2347,
           "phase": "mixed",
-          "electricity_generated": 5.247792
+          "electricity_generated": 3.389199
         },
         {
           "week": 4,
@@ -17893,7 +17951,7 @@ export const medicalAssignmentTurn: TurnResponse = {
           "daylight_days": 5.4694,
           "darkness_days": 1.5306,
           "phase": "mixed",
-          "electricity_generated": 37.504464
+          "electricity_generated": 24.221633
         },
         {
           "week": 6,
@@ -17901,7 +17959,7 @@ export const medicalAssignmentTurn: TurnResponse = {
           "daylight_days": 7.0,
           "darkness_days": 0.0,
           "phase": "daylight",
-          "electricity_generated": 48.0
+          "electricity_generated": 31.0
         },
         {
           "week": 7,
@@ -17909,7 +17967,7 @@ export const medicalAssignmentTurn: TurnResponse = {
           "daylight_days": 2.2959,
           "darkness_days": 4.7041,
           "phase": "mixed",
-          "electricity_generated": 15.743328
+          "electricity_generated": 10.167566
         },
         {
           "week": 8,
@@ -17925,7 +17983,7 @@ export const medicalAssignmentTurn: TurnResponse = {
           "daylight_days": 3.9388,
           "darkness_days": 3.0612,
           "phase": "mixed",
-          "electricity_generated": 27.008928
+          "electricity_generated": 17.443266
         },
         {
           "week": 10,
@@ -17933,7 +17991,7 @@ export const medicalAssignmentTurn: TurnResponse = {
           "daylight_days": 7.0,
           "darkness_days": 0.0,
           "phase": "daylight",
-          "electricity_generated": 48.0
+          "electricity_generated": 31.0
         },
         {
           "week": 11,
@@ -17941,7 +17999,7 @@ export const medicalAssignmentTurn: TurnResponse = {
           "daylight_days": 3.8265,
           "darkness_days": 3.1735,
           "phase": "mixed",
-          "electricity_generated": 26.238864
+          "electricity_generated": 16.945933
         },
         {
           "week": 12,
@@ -18211,7 +18269,7 @@ export const medicalAssignmentTurn: TurnResponse = {
       "food": 49.0,
       "water": 109.2,
       "oxygen": 21.0,
-      "electricity": 64.0,
+      "electricity": 47.0,
       "medicine": 7.0,
       "repair_kits": 8.0,
       "eva_batteries": 8.0,
@@ -18227,7 +18285,7 @@ export const medicalAssignmentTurn: TurnResponse = {
     "solar_efficiency": 1.0,
     "oxygen_efficiency": 1.0,
     "water_recovery_efficiency": 0.98,
-    "co2_efficiency": 0.985,
+    "co2_efficiency": 0.835,
     "current_event_id": "crew_recovery",
     "current_event": {
       "id": "crew_recovery",
@@ -18586,7 +18644,7 @@ export const medicalAssignmentTurn: TurnResponse = {
             "food": 0.0,
             "water": 0.0
           },
-          "electricity_generated": 48.0,
+          "electricity_generated": 31.0,
           "electricity_required": 14.0,
           "electricity_used": 14.0,
           "life_support_power_fraction": 1.0,
@@ -18703,7 +18761,7 @@ export const medicalAssignmentTurn: TurnResponse = {
           "food": -3.0,
           "water": -2.8,
           "oxygen": -9.0,
-          "electricity": 34.0,
+          "electricity": 17.0,
           "medicine": -1.0,
           "repair_kits": 0.0,
           "eva_batteries": 0.0,
@@ -19678,7 +19736,7 @@ export const medicalAssignmentTurn: TurnResponse = {
         "food": 0.0,
         "water": 0.0
       },
-      "electricity_generated": 48.0,
+      "electricity_generated": 31.0,
       "electricity_required": 14.0,
       "electricity_used": 14.0,
       "life_support_power_fraction": 1.0,
@@ -19795,7 +19853,7 @@ export const medicalAssignmentTurn: TurnResponse = {
       "food": -3.0,
       "water": -2.8,
       "oxygen": -9.0,
-      "electricity": 34.0,
+      "electricity": 17.0,
       "medicine": -1.0,
       "repair_kits": 0.0,
       "eva_batteries": 0.0,
@@ -19832,7 +19890,7 @@ export const opportunityGame: GameResponse = {
     "life_support": {
       "source_url": "https://www.nasa.gov/reference/environmental-control-and-life-support-systems-eclss/",
       "water_recovery_condition": 0.98,
-      "co2_condition": 0.985,
+      "co2_condition": 0.835,
       "wastewater": 11.36,
       "co2_burden": 0.0,
       "co2_warning_level": 4.0,
@@ -19852,7 +19910,7 @@ export const opportunityGame: GameResponse = {
     },
     "energy": {
       "battery_capacity": 100.0,
-      "stored": 66.0,
+      "stored": 49.0,
       "priority": "life_support",
       "life_support_required": 12.0,
       "solar_day_earth_days": 29.5306,
@@ -19865,7 +19923,7 @@ export const opportunityGame: GameResponse = {
           "daylight_days": 7.0,
           "darkness_days": 0.0,
           "phase": "daylight",
-          "electricity_generated": 48.0
+          "electricity_generated": 31.0
         },
         {
           "week": 3,
@@ -19873,7 +19931,7 @@ export const opportunityGame: GameResponse = {
           "daylight_days": 0.7653,
           "darkness_days": 6.2347,
           "phase": "mixed",
-          "electricity_generated": 5.247792
+          "electricity_generated": 3.389199
         },
         {
           "week": 4,
@@ -19889,7 +19947,7 @@ export const opportunityGame: GameResponse = {
           "daylight_days": 5.4694,
           "darkness_days": 1.5306,
           "phase": "mixed",
-          "electricity_generated": 37.504464
+          "electricity_generated": 24.221633
         },
         {
           "week": 6,
@@ -19897,7 +19955,7 @@ export const opportunityGame: GameResponse = {
           "daylight_days": 7.0,
           "darkness_days": 0.0,
           "phase": "daylight",
-          "electricity_generated": 48.0
+          "electricity_generated": 31.0
         },
         {
           "week": 7,
@@ -19905,7 +19963,7 @@ export const opportunityGame: GameResponse = {
           "daylight_days": 2.2959,
           "darkness_days": 4.7041,
           "phase": "mixed",
-          "electricity_generated": 15.743328
+          "electricity_generated": 10.167566
         },
         {
           "week": 8,
@@ -19921,7 +19979,7 @@ export const opportunityGame: GameResponse = {
           "daylight_days": 3.9388,
           "darkness_days": 3.0612,
           "phase": "mixed",
-          "electricity_generated": 27.008928
+          "electricity_generated": 17.443266
         },
         {
           "week": 10,
@@ -19929,7 +19987,7 @@ export const opportunityGame: GameResponse = {
           "daylight_days": 7.0,
           "darkness_days": 0.0,
           "phase": "daylight",
-          "electricity_generated": 48.0
+          "electricity_generated": 31.0
         },
         {
           "week": 11,
@@ -19937,7 +19995,7 @@ export const opportunityGame: GameResponse = {
           "daylight_days": 3.8265,
           "darkness_days": 3.1735,
           "phase": "mixed",
-          "electricity_generated": 26.238864
+          "electricity_generated": 16.945933
         },
         {
           "week": 12,
@@ -20140,7 +20198,7 @@ export const opportunityGame: GameResponse = {
       "food": 50.0,
       "water": 111.0,
       "oxygen": 24.0,
-      "electricity": 66.0,
+      "electricity": 49.0,
       "medicine": 8.0,
       "repair_kits": 8.0,
       "eva_batteries": 8.0,
@@ -20156,7 +20214,7 @@ export const opportunityGame: GameResponse = {
     "solar_efficiency": 1.0,
     "oxygen_efficiency": 1.0,
     "water_recovery_efficiency": 0.98,
-    "co2_efficiency": 0.985,
+    "co2_efficiency": 0.835,
     "current_event_id": "inventory_audit",
     "current_event": {
       "id": "inventory_audit",
@@ -20439,7 +20497,7 @@ export const opportunityGame: GameResponse = {
             "food": 0.0,
             "water": 0.0
           },
-          "electricity_generated": 48.0,
+          "electricity_generated": 31.0,
           "electricity_required": 12.0,
           "electricity_used": 12.0,
           "life_support_power_fraction": 1.0,
@@ -20496,7 +20554,7 @@ export const opportunityGame: GameResponse = {
           "food": -2.0,
           "water": -1.0,
           "oxygen": -6.0,
-          "electricity": 36.0,
+          "electricity": 19.0,
           "medicine": 0.0,
           "repair_kits": 0.0,
           "eva_batteries": 0.0,
@@ -21253,7 +21311,7 @@ export const researchGame: GameResponse = {
     "life_support": {
       "source_url": "https://www.nasa.gov/reference/environmental-control-and-life-support-systems-eclss/",
       "water_recovery_condition": 1.0,
-      "co2_condition": 1.0,
+      "co2_condition": 0.85,
       "wastewater": 12.0,
       "co2_burden": 0.0,
       "co2_warning_level": 4.0,
@@ -21286,7 +21344,7 @@ export const researchGame: GameResponse = {
           "daylight_days": 7.0,
           "darkness_days": 0.0,
           "phase": "daylight",
-          "electricity_generated": 36.0
+          "electricity_generated": 23.25
         },
         {
           "week": 2,
@@ -21294,7 +21352,7 @@ export const researchGame: GameResponse = {
           "daylight_days": 7.0,
           "darkness_days": 0.0,
           "phase": "daylight",
-          "electricity_generated": 36.0
+          "electricity_generated": 23.25
         },
         {
           "week": 3,
@@ -21302,7 +21360,7 @@ export const researchGame: GameResponse = {
           "daylight_days": 0.7653,
           "darkness_days": 6.2347,
           "phase": "mixed",
-          "electricity_generated": 3.935844
+          "electricity_generated": 2.541899
         },
         {
           "week": 4,
@@ -21318,7 +21376,7 @@ export const researchGame: GameResponse = {
           "daylight_days": 5.4694,
           "darkness_days": 1.5306,
           "phase": "mixed",
-          "electricity_generated": 28.128348
+          "electricity_generated": 18.166225
         },
         {
           "week": 6,
@@ -21326,7 +21384,7 @@ export const researchGame: GameResponse = {
           "daylight_days": 7.0,
           "darkness_days": 0.0,
           "phase": "daylight",
-          "electricity_generated": 36.0
+          "electricity_generated": 23.25
         },
         {
           "week": 7,
@@ -21334,7 +21392,7 @@ export const researchGame: GameResponse = {
           "daylight_days": 2.2959,
           "darkness_days": 4.7041,
           "phase": "mixed",
-          "electricity_generated": 11.807496
+          "electricity_generated": 7.625674
         },
         {
           "week": 8,
@@ -21350,7 +21408,7 @@ export const researchGame: GameResponse = {
           "daylight_days": 3.9388,
           "darkness_days": 3.0612,
           "phase": "mixed",
-          "electricity_generated": 20.256696
+          "electricity_generated": 13.08245
         },
         {
           "week": 10,
@@ -21358,7 +21416,7 @@ export const researchGame: GameResponse = {
           "daylight_days": 7.0,
           "darkness_days": 0.0,
           "phase": "daylight",
-          "electricity_generated": 36.0
+          "electricity_generated": 23.25
         },
         {
           "week": 11,
@@ -21366,7 +21424,7 @@ export const researchGame: GameResponse = {
           "daylight_days": 3.8265,
           "darkness_days": 3.1735,
           "phase": "mixed",
-          "electricity_generated": 19.679148
+          "electricity_generated": 12.70945
         },
         {
           "week": 12,
@@ -21551,7 +21609,7 @@ export const researchGame: GameResponse = {
     "solar_efficiency": 0.75,
     "oxygen_efficiency": 1.0,
     "water_recovery_efficiency": 1.0,
-    "co2_efficiency": 1.0,
+    "co2_efficiency": 0.85,
     "current_event_id": "solar_failure",
     "current_event": {
       "id": "solar_failure",
@@ -21753,7 +21811,7 @@ export const researchGame: GameResponse = {
     "flags": {},
     "history": [],
     "status": "running",
-    "random_seed": 0,
+    "random_seed": 1,
     "initial_crew_size": 2,
     "weeks_completed": 0,
     "ending": null,
@@ -22104,25 +22162,19 @@ export const researchGame: GameResponse = {
         },
         "required_role": null,
         "minimum_crew": 1,
-        "available": false,
-        "unavailable_reasons": [
-          "This processor is already at full condition."
-        ],
+        "available": true,
+        "unavailable_reasons": [],
         "eligible_crew": [
           {
             "crew_id": "alex",
-            "available": false,
-            "unavailable_reasons": [
-              "This processor is already at full condition."
-            ],
+            "available": true,
+            "unavailable_reasons": [],
             "success_probability": 1.0
           },
           {
             "crew_id": "lin",
-            "available": false,
-            "unavailable_reasons": [
-              "This processor is already at full condition."
-            ],
+            "available": true,
+            "unavailable_reasons": [],
             "success_probability": 1.0
           }
         ],
@@ -22348,7 +22400,7 @@ export const researchTurn: TurnResponse = {
     "life_support": {
       "source_url": "https://www.nasa.gov/reference/environmental-control-and-life-support-systems-eclss/",
       "water_recovery_condition": 0.98,
-      "co2_condition": 0.985,
+      "co2_condition": 0.835,
       "wastewater": 11.04,
       "co2_burden": 0.0,
       "co2_warning_level": 4.0,
@@ -22368,7 +22420,7 @@ export const researchTurn: TurnResponse = {
     },
     "energy": {
       "battery_capacity": 100.0,
-      "stored": 54.0,
+      "stored": 41.25,
       "priority": "life_support",
       "life_support_required": 12.0,
       "solar_day_earth_days": 29.5306,
@@ -22381,7 +22433,7 @@ export const researchTurn: TurnResponse = {
           "daylight_days": 7.0,
           "darkness_days": 0.0,
           "phase": "daylight",
-          "electricity_generated": 36.0
+          "electricity_generated": 23.25
         },
         {
           "week": 3,
@@ -22389,7 +22441,7 @@ export const researchTurn: TurnResponse = {
           "daylight_days": 0.7653,
           "darkness_days": 6.2347,
           "phase": "mixed",
-          "electricity_generated": 3.935844
+          "electricity_generated": 2.541899
         },
         {
           "week": 4,
@@ -22405,7 +22457,7 @@ export const researchTurn: TurnResponse = {
           "daylight_days": 5.4694,
           "darkness_days": 1.5306,
           "phase": "mixed",
-          "electricity_generated": 28.128348
+          "electricity_generated": 18.166225
         },
         {
           "week": 6,
@@ -22413,7 +22465,7 @@ export const researchTurn: TurnResponse = {
           "daylight_days": 7.0,
           "darkness_days": 0.0,
           "phase": "daylight",
-          "electricity_generated": 36.0
+          "electricity_generated": 23.25
         },
         {
           "week": 7,
@@ -22421,7 +22473,7 @@ export const researchTurn: TurnResponse = {
           "daylight_days": 2.2959,
           "darkness_days": 4.7041,
           "phase": "mixed",
-          "electricity_generated": 11.807496
+          "electricity_generated": 7.625674
         },
         {
           "week": 8,
@@ -22437,7 +22489,7 @@ export const researchTurn: TurnResponse = {
           "daylight_days": 3.9388,
           "darkness_days": 3.0612,
           "phase": "mixed",
-          "electricity_generated": 20.256696
+          "electricity_generated": 13.08245
         },
         {
           "week": 10,
@@ -22445,7 +22497,7 @@ export const researchTurn: TurnResponse = {
           "daylight_days": 7.0,
           "darkness_days": 0.0,
           "phase": "daylight",
-          "electricity_generated": 36.0
+          "electricity_generated": 23.25
         },
         {
           "week": 11,
@@ -22453,7 +22505,7 @@ export const researchTurn: TurnResponse = {
           "daylight_days": 3.8265,
           "darkness_days": 3.1735,
           "phase": "mixed",
-          "electricity_generated": 19.679148
+          "electricity_generated": 12.70945
         },
         {
           "week": 12,
@@ -22484,17 +22536,34 @@ export const researchTurn: TurnResponse = {
     },
     "crew": [
       {
-        "medical_conditions": [],
+        "medical_conditions": [
+          {
+            "kind": "dust_irritation",
+            "remaining": 2,
+            "acquired_week": 2,
+            "stabilized": false,
+            "care_week": 0,
+            "care_points": 0,
+            "title": "Dust-related respiratory irritation",
+            "urgent": false,
+            "rest_weeks": 2,
+            "medic_weeks": 1,
+            "untreated_damage": 1,
+            "source_url": "https://www.nasa.gov/reference/jsc-dust/"
+          }
+        ],
         "nutrition_deficit": 0.0,
         "hydration_deficit": 0.0,
         "condition": {
-          "status": "fit",
+          "status": "serious",
           "nutrition_status": "adequate",
           "hydration_status": "adequate",
           "can_work": true,
-          "can_do_eva": true,
-          "performance_penalty": 0.0,
-          "restrictions": [],
+          "can_do_eva": false,
+          "performance_penalty": 0.05,
+          "restrictions": [
+            "Respiratory irritation: EVA unavailable until recovered; indoor work remains possible."
+          ],
           "nutrition_recovery_weeks": 0,
           "hydration_recovery_weeks": 0,
           "source_url": "https://www.nasa.gov/reference/risk-of-inadequate-food-and-nutrition/"
@@ -22522,7 +22591,7 @@ export const researchTurn: TurnResponse = {
         "id": "alex",
         "name": "Alex Vega",
         "role": "engineer",
-        "health": 100,
+        "health": 92,
         "positive_trait": "Steady hands: +5 percentage points on assigned event actions.",
         "negative_trait": "Large appetite: consumes 10% more food.",
         "food_multiplier": 1.1,
@@ -22551,17 +22620,34 @@ export const researchTurn: TurnResponse = {
         }
       },
       {
-        "medical_conditions": [],
+        "medical_conditions": [
+          {
+            "kind": "dust_irritation",
+            "remaining": 2,
+            "acquired_week": 2,
+            "stabilized": false,
+            "care_week": 0,
+            "care_points": 0,
+            "title": "Dust-related respiratory irritation",
+            "urgent": false,
+            "rest_weeks": 2,
+            "medic_weeks": 1,
+            "untreated_damage": 1,
+            "source_url": "https://www.nasa.gov/reference/jsc-dust/"
+          }
+        ],
         "nutrition_deficit": 0.0,
         "hydration_deficit": 0.0,
         "condition": {
-          "status": "fit",
+          "status": "serious",
           "nutrition_status": "adequate",
           "hydration_status": "adequate",
           "can_work": true,
-          "can_do_eva": true,
-          "performance_penalty": 0.0,
-          "restrictions": [],
+          "can_do_eva": false,
+          "performance_penalty": 0.05,
+          "restrictions": [
+            "Respiratory irritation: EVA unavailable until recovered; indoor work remains possible."
+          ],
           "nutrition_recovery_weeks": 0,
           "hydration_recovery_weeks": 0,
           "source_url": "https://www.nasa.gov/reference/risk-of-inadequate-food-and-nutrition/"
@@ -22589,7 +22675,7 @@ export const researchTurn: TurnResponse = {
         "id": "lin",
         "name": "Lin Park",
         "role": "scientist",
-        "health": 100,
+        "health": 90,
         "positive_trait": "Water conscious: consumes 10% less water.",
         "negative_trait": "Fragile: event injuries cause 20% more damage.",
         "food_multiplier": 1.0,
@@ -22622,7 +22708,7 @@ export const researchTurn: TurnResponse = {
       "food": 49.9,
       "water": 111.4,
       "oxygen": 22.0,
-      "electricity": 54.0,
+      "electricity": 41.25,
       "medicine": 8.0,
       "repair_kits": 10.0,
       "eva_batteries": 9.0,
@@ -22636,57 +22722,56 @@ export const researchTurn: TurnResponse = {
       "co2": 0.0
     },
     "solar_efficiency": 0.75,
-    "oxygen_efficiency": 0.75,
+    "oxygen_efficiency": 1.0,
     "water_recovery_efficiency": 0.98,
-    "co2_efficiency": 0.985,
-    "current_event_id": "oxygen_fault",
+    "co2_efficiency": 0.835,
+    "current_event_id": "medical_emergency",
     "current_event": {
-      "id": "oxygen_fault",
-      "title": "Life Support Alarm",
-      "description": "A pressure regulator sticks. Oxygen system efficiency falls by 25 percentage points.",
+      "id": "medical_emergency",
+      "title": "Contaminated Air Filter",
+      "description": "An irritant escapes a filter. Every living astronaut loses 8 health on discovery. All living crew develop dust-related respiratory irritation; named conditions need recovery as well as symptom relief.",
       "category": "hazard",
-      "science_context": "Spacecraft life-support equipment needs maintenance. This regulator failure is a fictional training scenario.",
-      "source_url": "https://www.nasa.gov/reference/9-0-hardware-and-equipment-vol-2/",
+      "science_context": "Dust management matters for cabin cleanliness. The irritant incident and health changes here are fictional.",
+      "source_url": "https://www.nasa.gov/reference/jsc-dust/",
       "on_start": {
-        "condition": null,
+        "condition": "dust_irritation",
         "treatment": 0,
         "resources": {},
         "solar_efficiency": 0.0,
-        "oxygen_efficiency": -0.25,
+        "oxygen_efficiency": 0.0,
         "water_recovery_efficiency": 0.0,
         "co2_efficiency": 0.0,
-        "crew_health": 0,
-        "target": "selected"
+        "crew_health": -8,
+        "target": "all"
       },
       "choices": [
         {
-          "workload": "strenuous",
+          "workload": "care",
           "support_candidates": [],
-          "id": "replace_regulator",
+          "id": "treat",
           "action_type": "event",
           "objective_rewards": [],
-          "text": "Replace the regulator",
-          "description": "Requires a repair kit. Technical professions improve the odds; failure injures the worker.",
+          "text": "Treat an affected astronaut",
+          "description": "Select a patient. A living medic improves success. Costs 1 medicine; success gives 5 health, stabilizes one active condition (urgent first), and supplies up to 2 recovery points at survival with full provisions and safe air. Failure costs 5 health.",
           "costs": {
-            "repair_kits": 1.0
+            "medicine": 1.0
           },
           "required_items": {},
           "requires_crew": true,
-          "role_bonus": {
-            "engineer": 0.25,
-            "technician": 0.25
+          "role_bonus": {},
+          "crew_role_bonus": {
+            "medic": 0.2
           },
-          "crew_role_bonus": {},
-          "success_chance": 0.65,
+          "success_chance": 0.7,
           "success_effects": {
             "condition": null,
-            "treatment": 0,
+            "treatment": 2,
             "resources": {},
             "solar_efficiency": 0.0,
-            "oxygen_efficiency": 0.25,
+            "oxygen_efficiency": 0.0,
             "water_recovery_efficiency": 0.0,
             "co2_efficiency": 0.0,
-            "crew_health": 0,
+            "crew_health": 5,
             "target": "selected"
           },
           "failure_effects": {
@@ -22697,7 +22782,7 @@ export const researchTurn: TurnResponse = {
             "oxygen_efficiency": 0.0,
             "water_recovery_efficiency": 0.0,
             "co2_efficiency": 0.0,
-            "crew_health": -15,
+            "crew_health": -5,
             "target": "selected"
           },
           "required_role": null,
@@ -22709,19 +22794,19 @@ export const researchTurn: TurnResponse = {
               "crew_id": "alex",
               "available": true,
               "unavailable_reasons": [],
-              "success_probability": 0.95
+              "success_probability": 0.75
             },
             {
               "crew_id": "lin",
               "available": true,
               "unavailable_reasons": [],
-              "success_probability": 0.65
+              "success_probability": 0.7
             }
           ],
           "success_probability": null
         },
         {
-          "workload": "strenuous",
+          "workload": "light",
           "support_candidates": [
             {
               "crew_id": "alex",
@@ -22734,31 +22819,96 @@ export const researchTurn: TurnResponse = {
               "unavailable_reasons": []
             }
           ],
-          "id": "recalibrate",
+          "id": "team_treatment",
           "action_type": "event",
           "objective_rewards": [],
-          "text": "Recalibrate with a second crew member",
-          "description": "Requires two living astronauts. A scientist improves the odds. Failure causes further damage.",
+          "text": "Let the medic coordinate treatment",
+          "description": "Requires a medic, at least two living crew, and two medicine units. Helps the whole crew.",
           "costs": {
-            "electricity": 3.0
+            "medicine": 2.0
           },
           "required_items": {},
           "requires_crew": true,
           "role_bonus": {
-            "scientist": 0.3,
-            "technician": 0.15
+            "medic": 0.2
           },
           "crew_role_bonus": {},
-          "success_chance": 0.55,
+          "success_chance": 0.75,
           "success_effects": {
             "condition": null,
             "treatment": 0,
             "resources": {},
             "solar_efficiency": 0.0,
-            "oxygen_efficiency": 0.2,
+            "oxygen_efficiency": 0.0,
             "water_recovery_efficiency": 0.0,
             "co2_efficiency": 0.0,
-            "crew_health": 0,
+            "crew_health": 15,
+            "target": "all"
+          },
+          "failure_effects": {
+            "condition": null,
+            "treatment": 0,
+            "resources": {},
+            "solar_efficiency": 0.0,
+            "oxygen_efficiency": 0.0,
+            "water_recovery_efficiency": 0.0,
+            "co2_efficiency": 0.0,
+            "crew_health": -5,
+            "target": "all"
+          },
+          "required_role": "medic",
+          "minimum_crew": 2,
+          "available": false,
+          "unavailable_reasons": [
+            "Requires a living medic."
+          ],
+          "eligible_crew": [
+            {
+              "crew_id": "alex",
+              "available": false,
+              "unavailable_reasons": [
+                "Requires a living medic."
+              ],
+              "success_probability": 0.75
+            },
+            {
+              "crew_id": "lin",
+              "available": false,
+              "unavailable_reasons": [
+                "Requires a living medic."
+              ],
+              "success_probability": 0.7
+            }
+          ],
+          "success_probability": null
+        },
+        {
+          "workload": "care",
+          "support_candidates": [],
+          "id": "guided_treatment",
+          "action_type": "event",
+          "objective_rewards": [],
+          "text": "Use scanner-guided treatment",
+          "description": "Use the retained scanner and 1 medicine for guaranteed 5-health symptom relief and stabilization of one active condition (urgent first). Up to 2 recovery points apply during survival with full provisions and safe air.",
+          "costs": {
+            "medicine": 1.0
+          },
+          "required_items": {
+            "diagnostic_tools": 1
+          },
+          "requires_crew": true,
+          "role_bonus": {},
+          "crew_role_bonus": {},
+          "success_chance": 1.0,
+          "success_effects": {
+            "condition": null,
+            "treatment": 2,
+            "resources": {},
+            "solar_efficiency": 0.0,
+            "oxygen_efficiency": 0.0,
+            "water_recovery_efficiency": 0.0,
+            "co2_efficiency": 0.0,
+            "crew_health": 5,
             "target": "selected"
           },
           "failure_effects": {
@@ -22766,28 +22916,34 @@ export const researchTurn: TurnResponse = {
             "treatment": 0,
             "resources": {},
             "solar_efficiency": 0.0,
-            "oxygen_efficiency": -0.1,
+            "oxygen_efficiency": 0.0,
             "water_recovery_efficiency": 0.0,
             "co2_efficiency": 0.0,
             "crew_health": 0,
             "target": "selected"
           },
           "required_role": null,
-          "minimum_crew": 2,
-          "available": true,
-          "unavailable_reasons": [],
+          "minimum_crew": 1,
+          "available": false,
+          "unavailable_reasons": [
+            "Requires 1 Medical diagnostic scanner (not consumed)."
+          ],
           "eligible_crew": [
             {
               "crew_id": "alex",
-              "available": true,
-              "unavailable_reasons": [],
-              "success_probability": 0.6
+              "available": false,
+              "unavailable_reasons": [
+                "Requires 1 Medical diagnostic scanner (not consumed)."
+              ],
+              "success_probability": 1.0
             },
             {
               "crew_id": "lin",
-              "available": true,
-              "unavailable_reasons": [],
-              "success_probability": 0.85
+              "available": false,
+              "unavailable_reasons": [
+                "Requires 1 Medical diagnostic scanner (not consumed)."
+              ],
+              "success_probability": 1.0
             }
           ],
           "success_probability": null
@@ -22795,11 +22951,11 @@ export const researchTurn: TurnResponse = {
         {
           "workload": "light",
           "support_candidates": [],
-          "id": "ignore",
+          "id": "rest",
           "action_type": "event",
           "objective_rewards": [],
-          "text": "Rely on oxygen reserves",
-          "description": "No immediate cost, but oxygen production stays reduced.",
+          "text": "Isolate the filter and rest",
+          "description": "No supplies spent. The crew takes another 5 health damage.",
           "costs": {},
           "required_items": {},
           "requires_crew": false,
@@ -22814,8 +22970,8 @@ export const researchTurn: TurnResponse = {
             "oxygen_efficiency": 0.0,
             "water_recovery_efficiency": 0.0,
             "co2_efficiency": 0.0,
-            "crew_health": 0,
-            "target": "selected"
+            "crew_health": -5,
+            "target": "all"
           },
           "failure_effects": {
             "condition": null,
@@ -22962,7 +23118,7 @@ export const researchTurn: TurnResponse = {
             "food": 0.0,
             "water": 0.0
           },
-          "electricity_generated": 36.0,
+          "electricity_generated": 23.25,
           "electricity_required": 12.0,
           "electricity_used": 12.0,
           "life_support_power_fraction": 1.0,
@@ -23019,7 +23175,7 @@ export const researchTurn: TurnResponse = {
           "food": -2.1,
           "water": -0.6,
           "oxygen": -8.0,
-          "electricity": 24.0,
+          "electricity": 11.25,
           "medicine": 0.0,
           "repair_kits": 0.0,
           "eva_batteries": -1.0,
@@ -23034,23 +23190,65 @@ export const researchTurn: TurnResponse = {
         },
         "deaths": [],
         "next_event": {
-          "event_id": "oxygen_fault",
-          "title": "Life Support Alarm",
+          "event_id": "medical_emergency",
+          "title": "Contaminated Air Filter",
           "effects": {
-            "medical_changes": [],
+            "medical_changes": [
+              {
+                "crew_id": "alex",
+                "kind": "dust_irritation",
+                "action": "acquired",
+                "reason": null,
+                "before": null,
+                "after": {
+                  "kind": "dust_irritation",
+                  "remaining": 2,
+                  "acquired_week": 2,
+                  "stabilized": false,
+                  "care_week": 0,
+                  "care_points": 0
+                }
+              },
+              {
+                "crew_id": "lin",
+                "kind": "dust_irritation",
+                "action": "acquired",
+                "reason": null,
+                "before": null,
+                "after": {
+                  "kind": "dust_irritation",
+                  "remaining": 2,
+                  "acquired_week": 2,
+                  "stabilized": false,
+                  "care_week": 0,
+                  "care_points": 0
+                }
+              }
+            ],
             "resources": {},
             "solar_efficiency": 0.0,
-            "oxygen_efficiency": -0.25,
+            "oxygen_efficiency": 0.0,
             "water_recovery_efficiency": 0.0,
             "co2_efficiency": 0.0,
-            "health_changes": []
+            "health_changes": [
+              {
+                "crew_id": "alex",
+                "before": 100,
+                "after": 92
+              },
+              {
+                "crew_id": "lin",
+                "before": 100,
+                "after": 90
+              }
+            ]
           }
         },
         "ending": null
       }
     ],
     "status": "running",
-    "random_seed": 0,
+    "random_seed": 1,
     "initial_crew_size": 2,
     "weeks_completed": 1,
     "ending": null,
@@ -23162,6 +23360,122 @@ export const researchTurn: TurnResponse = {
         "success_probability": null
       },
       {
+        "workload": "light",
+        "support_candidates": [],
+        "id": "medical_care",
+        "action_type": "medical",
+        "objective_rewards": [],
+        "text": "Provide medical care",
+        "description": "Reserve caregiver and patient for one week, plus 1 medicine. Stabilizes the chosen condition immediately. A fit medic earns 2 recovery points; another fit caregiver earns 1 (2 with a retained diagnostic scanner). Progress needs full actual provisions and safe air. Both crew are occupied, even if recovery stalls.",
+        "costs": {
+          "medicine": 1.0
+        },
+        "required_items": {},
+        "requires_crew": true,
+        "role_bonus": {},
+        "crew_role_bonus": {},
+        "success_chance": 1.0,
+        "success_effects": {
+          "condition": null,
+          "treatment": 0,
+          "resources": {},
+          "solar_efficiency": 0.0,
+          "oxygen_efficiency": 0.0,
+          "water_recovery_efficiency": 0.0,
+          "co2_efficiency": 0.0,
+          "crew_health": 0,
+          "target": "selected"
+        },
+        "failure_effects": {
+          "condition": null,
+          "treatment": 0,
+          "resources": {},
+          "solar_efficiency": 0.0,
+          "oxygen_efficiency": 0.0,
+          "water_recovery_efficiency": 0.0,
+          "co2_efficiency": 0.0,
+          "crew_health": 0,
+          "target": "selected"
+        },
+        "required_role": null,
+        "minimum_crew": 1,
+        "available": true,
+        "unavailable_reasons": [],
+        "eligible_crew": [
+          {
+            "crew_id": "alex",
+            "available": true,
+            "unavailable_reasons": [],
+            "success_probability": 1.0
+          },
+          {
+            "crew_id": "lin",
+            "available": true,
+            "unavailable_reasons": [],
+            "success_probability": 1.0
+          }
+        ],
+        "success_probability": null
+      },
+      {
+        "workload": "rest",
+        "support_candidates": [],
+        "id": "self_care",
+        "action_type": "medical",
+        "objective_rewards": [],
+        "text": "Self-care and stabilization",
+        "description": "One astronaut and 1 medicine. Available even when critically unfit; treats only their own chosen condition. Stabilizes immediately and earns 1 recovery point with full actual provisions and safe air. No work or incident duty that week.",
+        "costs": {
+          "medicine": 1.0
+        },
+        "required_items": {},
+        "requires_crew": true,
+        "role_bonus": {},
+        "crew_role_bonus": {},
+        "success_chance": 1.0,
+        "success_effects": {
+          "condition": null,
+          "treatment": 0,
+          "resources": {},
+          "solar_efficiency": 0.0,
+          "oxygen_efficiency": 0.0,
+          "water_recovery_efficiency": 0.0,
+          "co2_efficiency": 0.0,
+          "crew_health": 0,
+          "target": "selected"
+        },
+        "failure_effects": {
+          "condition": null,
+          "treatment": 0,
+          "resources": {},
+          "solar_efficiency": 0.0,
+          "oxygen_efficiency": 0.0,
+          "water_recovery_efficiency": 0.0,
+          "co2_efficiency": 0.0,
+          "crew_health": 0,
+          "target": "selected"
+        },
+        "required_role": null,
+        "minimum_crew": 1,
+        "available": true,
+        "unavailable_reasons": [],
+        "eligible_crew": [
+          {
+            "crew_id": "alex",
+            "available": true,
+            "unavailable_reasons": [],
+            "success_probability": 1.0
+          },
+          {
+            "crew_id": "lin",
+            "available": true,
+            "unavailable_reasons": [],
+            "success_probability": 1.0
+          }
+        ],
+        "success_probability": null
+      },
+      {
         "workload": "eva",
         "support_candidates": [],
         "id": "clean_array",
@@ -23205,6 +23519,8 @@ export const researchTurn: TurnResponse = {
         "minimum_crew": 1,
         "available": false,
         "unavailable_reasons": [
+          "Requires at least 1 living astronauts fit for this workload.",
+          "Respiratory irritation: EVA unavailable until recovered; indoor work remains possible.",
           "Requires 1 dust_kits; available 0."
         ],
         "eligible_crew": [
@@ -23212,6 +23528,8 @@ export const researchTurn: TurnResponse = {
             "crew_id": "alex",
             "available": false,
             "unavailable_reasons": [
+              "Requires at least 1 living astronauts fit for this workload.",
+              "Respiratory irritation: EVA unavailable until recovered; indoor work remains possible.",
               "Requires 1 dust_kits; available 0."
             ],
             "success_probability": 1.0
@@ -23220,6 +23538,8 @@ export const researchTurn: TurnResponse = {
             "crew_id": "lin",
             "available": false,
             "unavailable_reasons": [
+              "Requires at least 1 living astronauts fit for this workload.",
+              "Respiratory irritation: EVA unavailable until recovered; indoor work remains possible.",
               "Requires 1 dust_kits; available 0."
             ],
             "success_probability": 1.0
@@ -23270,14 +23590,16 @@ export const researchTurn: TurnResponse = {
         "minimum_crew": 1,
         "available": false,
         "unavailable_reasons": [
-          "Requires 1 oxygen_regulators; available 0."
+          "Requires 1 oxygen_regulators; available 0.",
+          "The oxygen system is already at full condition."
         ],
         "eligible_crew": [
           {
             "crew_id": "alex",
             "available": false,
             "unavailable_reasons": [
-              "Requires 1 oxygen_regulators; available 0."
+              "Requires 1 oxygen_regulators; available 0.",
+              "The oxygen system is already at full condition."
             ],
             "success_probability": 1.0
           },
@@ -23285,7 +23607,8 @@ export const researchTurn: TurnResponse = {
             "crew_id": "lin",
             "available": false,
             "unavailable_reasons": [
-              "Requires 1 oxygen_regulators; available 0."
+              "Requires 1 oxygen_regulators; available 0.",
+              "The oxygen system is already at full condition."
             ],
             "success_probability": 1.0
           }
@@ -23464,20 +23787,29 @@ export const researchTurn: TurnResponse = {
         },
         "required_role": null,
         "minimum_crew": 1,
-        "available": true,
-        "unavailable_reasons": [],
+        "available": false,
+        "unavailable_reasons": [
+          "Requires at least 1 living astronauts fit for this workload.",
+          "Respiratory irritation: EVA unavailable until recovered; indoor work remains possible."
+        ],
         "eligible_crew": [
           {
             "crew_id": "alex",
-            "available": true,
-            "unavailable_reasons": [],
-            "success_probability": 0.8
+            "available": false,
+            "unavailable_reasons": [
+              "Requires at least 1 living astronauts fit for this workload.",
+              "Respiratory irritation: EVA unavailable until recovered; indoor work remains possible."
+            ],
+            "success_probability": 0.75
           },
           {
             "crew_id": "lin",
-            "available": true,
-            "unavailable_reasons": [],
-            "success_probability": 0.95
+            "available": false,
+            "unavailable_reasons": [
+              "Requires at least 1 living astronauts fit for this workload.",
+              "Respiratory irritation: EVA unavailable until recovered; indoor work remains possible."
+            ],
+            "success_probability": 0.9
           }
         ],
         "success_probability": null
@@ -23529,20 +23861,29 @@ export const researchTurn: TurnResponse = {
         },
         "required_role": null,
         "minimum_crew": 1,
-        "available": true,
-        "unavailable_reasons": [],
+        "available": false,
+        "unavailable_reasons": [
+          "Requires at least 1 living astronauts fit for this workload.",
+          "Respiratory irritation: EVA unavailable until recovered; indoor work remains possible."
+        ],
         "eligible_crew": [
           {
             "crew_id": "alex",
-            "available": true,
-            "unavailable_reasons": [],
-            "success_probability": 0.8
+            "available": false,
+            "unavailable_reasons": [
+              "Requires at least 1 living astronauts fit for this workload.",
+              "Respiratory irritation: EVA unavailable until recovered; indoor work remains possible."
+            ],
+            "success_probability": 0.75
           },
           {
             "crew_id": "lin",
-            "available": true,
-            "unavailable_reasons": [],
-            "success_probability": 0.95
+            "available": false,
+            "unavailable_reasons": [
+              "Requires at least 1 living astronauts fit for this workload.",
+              "Respiratory irritation: EVA unavailable until recovered; indoor work remains possible."
+            ],
+            "success_probability": 0.9
           }
         ],
         "success_probability": null
@@ -23609,13 +23950,13 @@ export const researchTurn: TurnResponse = {
             "crew_id": "alex",
             "available": true,
             "unavailable_reasons": [],
-            "success_probability": 0.95
+            "success_probability": 0.9
           },
           {
             "crew_id": "lin",
             "available": true,
             "unavailable_reasons": [],
-            "success_probability": 0.8
+            "success_probability": 0.75
           }
         ],
         "success_probability": null
@@ -23737,7 +24078,7 @@ export const researchTurn: TurnResponse = {
         "food": 0.0,
         "water": 0.0
       },
-      "electricity_generated": 36.0,
+      "electricity_generated": 23.25,
       "electricity_required": 12.0,
       "electricity_used": 12.0,
       "life_support_power_fraction": 1.0,
@@ -23794,7 +24135,7 @@ export const researchTurn: TurnResponse = {
       "food": -2.1,
       "water": -0.6,
       "oxygen": -8.0,
-      "electricity": 24.0,
+      "electricity": 11.25,
       "medicine": 0.0,
       "repair_kits": 0.0,
       "eva_batteries": -1.0,
@@ -23809,16 +24150,58 @@ export const researchTurn: TurnResponse = {
     },
     "deaths": [],
     "next_event": {
-      "event_id": "oxygen_fault",
-      "title": "Life Support Alarm",
+      "event_id": "medical_emergency",
+      "title": "Contaminated Air Filter",
       "effects": {
-        "medical_changes": [],
+        "medical_changes": [
+          {
+            "crew_id": "alex",
+            "kind": "dust_irritation",
+            "action": "acquired",
+            "reason": null,
+            "before": null,
+            "after": {
+              "kind": "dust_irritation",
+              "remaining": 2,
+              "acquired_week": 2,
+              "stabilized": false,
+              "care_week": 0,
+              "care_points": 0
+            }
+          },
+          {
+            "crew_id": "lin",
+            "kind": "dust_irritation",
+            "action": "acquired",
+            "reason": null,
+            "before": null,
+            "after": {
+              "kind": "dust_irritation",
+              "remaining": 2,
+              "acquired_week": 2,
+              "stabilized": false,
+              "care_week": 0,
+              "care_points": 0
+            }
+          }
+        ],
         "resources": {},
         "solar_efficiency": 0.0,
-        "oxygen_efficiency": -0.25,
+        "oxygen_efficiency": 0.0,
         "water_recovery_efficiency": 0.0,
         "co2_efficiency": 0.0,
-        "health_changes": []
+        "health_changes": [
+          {
+            "crew_id": "alex",
+            "before": 100,
+            "after": 92
+          },
+          {
+            "crew_id": "lin",
+            "before": 100,
+            "after": 90
+          }
+        ]
       }
     },
     "ending": null
@@ -23830,10 +24213,10 @@ export const researchCompleted: GameResponse = {
   "state": {
     "life_support": {
       "source_url": "https://www.nasa.gov/reference/environmental-control-and-life-support-systems-eclss/",
-      "water_recovery_condition": 0.76,
-      "co2_condition": 0.42,
-      "wastewater": 5.76,
-      "co2_burden": 0.0,
+      "water_recovery_condition": 0.78,
+      "co2_condition": 0.485,
+      "wastewater": 12.213874,
+      "co2_burden": 2.0,
       "co2_warning_level": 4.0,
       "recovery_capacity": 4.0,
       "recovery_yield": 0.8,
@@ -23851,7 +24234,7 @@ export const researchCompleted: GameResponse = {
     },
     "energy": {
       "battery_capacity": 100.0,
-      "stored": 48.807532,
+      "stored": 0.0,
       "priority": "life_support",
       "life_support_required": 16.0,
       "solar_day_earth_days": 29.5306,
@@ -24010,7 +24393,7 @@ export const researchCompleted: GameResponse = {
         "id": "lin",
         "name": "Lin Park",
         "role": "scientist",
-        "health": 96,
+        "health": 93,
         "positive_trait": "Water conscious: consumes 10% less water.",
         "negative_trait": "Fragile: event injuries cause 20% more damage.",
         "food_multiplier": 1.0,
@@ -24041,25 +24424,25 @@ export const researchCompleted: GameResponse = {
     ],
     "resources": {
       "food": 25.8,
-      "water": 86.476,
-      "oxygen": 11.0,
-      "electricity": 48.807532,
+      "water": 83.009759,
+      "oxygen": 0.0,
+      "electricity": 0.0,
       "medicine": 8.0,
       "repair_kits": 9.0,
-      "eva_batteries": 6.0,
+      "eva_batteries": 7.0,
       "dust_kits": 0.0,
       "oxygen_regulators": 0.0,
       "diagnostic_tools": 0.0,
       "sealant_packs": 0.0,
       "scientific_tools": 1.0,
-      "research_data": 9.0,
-      "wastewater": 5.76,
-      "co2": 0.0
+      "research_data": 8.0,
+      "wastewater": 12.213874,
+      "co2": 2.0
     },
-    "solar_efficiency": 0.75,
+    "solar_efficiency": 0.65,
     "oxygen_efficiency": 0.75,
-    "water_recovery_efficiency": 0.76,
-    "co2_efficiency": 0.42,
+    "water_recovery_efficiency": 0.78,
+    "co2_efficiency": 0.485,
     "current_event_id": null,
     "current_event": null,
     "emergency_ration_requirements": {
@@ -24069,17 +24452,17 @@ export const researchCompleted: GameResponse = {
     "depleted_provisions": [],
     "used_event_ids": [
       "solar_failure",
-      "oxygen_fault",
       "medical_emergency",
-      "inventory_audit",
-      "crew_recovery",
-      "seismic_signal",
-      "battery_isolation",
-      "thermal_control",
+      "oxygen_fault",
+      "scrubber_load",
+      "improvised_shield",
       "water_line_leak",
-      "solar_particle_alert",
       "impact_puncture",
-      "scrubber_load"
+      "inventory_audit",
+      "solar_particle_alert",
+      "thermal_control",
+      "crew_recovery",
+      "geology_window"
     ],
     "flags": {},
     "history": [
@@ -24198,7 +24581,7 @@ export const researchCompleted: GameResponse = {
             "food": 0.0,
             "water": 0.0
           },
-          "electricity_generated": 36.0,
+          "electricity_generated": 23.25,
           "electricity_required": 12.0,
           "electricity_used": 12.0,
           "life_support_power_fraction": 1.0,
@@ -24255,7 +24638,7 @@ export const researchCompleted: GameResponse = {
           "food": -2.1,
           "water": -0.6,
           "oxygen": -8.0,
-          "electricity": 24.0,
+          "electricity": 11.25,
           "medicine": 0.0,
           "repair_kits": 0.0,
           "eva_batteries": -1.0,
@@ -24266,215 +24649,6 @@ export const researchCompleted: GameResponse = {
           "scientific_tools": 0.0,
           "research_data": 2.0,
           "wastewater": -0.96,
-          "co2": 0.0
-        },
-        "deaths": [],
-        "next_event": {
-          "event_id": "oxygen_fault",
-          "title": "Life Support Alarm",
-          "effects": {
-            "medical_changes": [],
-            "resources": {},
-            "solar_efficiency": 0.0,
-            "oxygen_efficiency": -0.25,
-            "water_recovery_efficiency": 0.0,
-            "co2_efficiency": 0.0,
-            "health_changes": []
-          }
-        },
-        "ending": null
-      },
-      {
-        "project_updates": [],
-        "assignments": [
-          {
-            "patient_id": null,
-            "condition_id": null,
-            "crew_id": "lin",
-            "activity_id": "research_geology",
-            "status": "completed",
-            "outcome": {
-              "support_crew_ids": [],
-              "event_id": "oxygen_fault",
-              "choice_id": "research_geology",
-              "choice_text": "Survey a geological sample",
-              "selected_crew_id": "lin",
-              "success": false,
-              "success_probability": 0.95,
-              "costs": {
-                "eva_batteries": 1.0,
-                "oxygen": 2.0
-              },
-              "effects": {
-                "medical_changes": [
-                  {
-                    "crew_id": "lin",
-                    "kind": "sprain",
-                    "action": "acquired",
-                    "reason": null,
-                    "before": null,
-                    "after": {
-                      "kind": "sprain",
-                      "remaining": 3,
-                      "acquired_week": 2,
-                      "stabilized": false,
-                      "care_week": 0,
-                      "care_points": 0
-                    }
-                  }
-                ],
-                "resources": {},
-                "solar_efficiency": 0.0,
-                "oxygen_efficiency": 0.0,
-                "water_recovery_efficiency": 0.0,
-                "co2_efficiency": 0.0,
-                "health_changes": [
-                  {
-                    "crew_id": "lin",
-                    "before": 100,
-                    "after": 90
-                  }
-                ]
-              },
-              "objective_progress": []
-            },
-            "reason": null
-          }
-        ],
-        "science_gains": [],
-        "week": 2,
-        "event": {
-          "support_crew_ids": [],
-          "event_id": "oxygen_fault",
-          "choice_id": "ignore",
-          "choice_text": "Rely on oxygen reserves",
-          "selected_crew_id": null,
-          "success": true,
-          "success_probability": 1.0,
-          "costs": {},
-          "effects": {
-            "medical_changes": [],
-            "resources": {},
-            "solar_efficiency": 0.0,
-            "oxygen_efficiency": 0.0,
-            "water_recovery_efficiency": 0.0,
-            "co2_efficiency": 0.0,
-            "health_changes": []
-          },
-          "objective_progress": []
-        },
-        "rations": {
-          "alex": {
-            "food": "normal",
-            "water": "normal"
-          },
-          "lin": {
-            "food": "normal",
-            "water": "normal"
-          }
-        },
-        "survival": {
-          "life_support": {
-            "wastewater_processed": 3.92,
-            "water_recovered": 3.136,
-            "water_for_oxygen": 0.0,
-            "wastewater_captured": 3.04,
-            "oxygen_generated": 0.0,
-            "co2_produced": 2.0,
-            "co2_removed": 2.0,
-            "co2_remaining": 0.0,
-            "power_components": {
-              "habitat": 8.0,
-              "water_recovery": 2.0,
-              "oxygen_generation": 0.0,
-              "co2_removal": 2.0
-            }
-          },
-          "daylight_fraction": 1.0,
-          "battery_capacity": 100.0,
-          "electricity_curtailed": 0.0,
-          "project_electricity_used": 0.0,
-          "power_priority": "life_support",
-          "ration_requirements": {
-            "food": 2.1,
-            "water": 3.8
-          },
-          "ration_costs": {
-            "food": 2.1,
-            "water": 3.8
-          },
-          "ration_depletion_fractions": {
-            "food": 0.0,
-            "water": 0.0
-          },
-          "electricity_generated": 36.0,
-          "electricity_required": 12.0,
-          "electricity_used": 12.0,
-          "life_support_power_fraction": 1.0,
-          "oxygen_generated": 0.0,
-          "oxygen_required": 6.0,
-          "oxygen_used": 6.0,
-          "oxygen_shortage": 0.0,
-          "health_changes": [
-            {
-              "crew_id": "alex",
-              "before": 100,
-              "after": 100,
-              "medical_penalty": 0,
-              "medical_changes": [],
-              "food_received_fraction": 1.0,
-              "water_received_fraction": 1.0,
-              "nutrition_before": 0.0,
-              "nutrition_after": 0.0,
-              "hydration_before": 0.0,
-              "hydration_after": 0.0,
-              "recovery": 0,
-              "worked": false,
-              "rested": false,
-              "food_penalty": 0,
-              "water_penalty": 0,
-              "oxygen_penalty": 0,
-              "co2_penalty": 0,
-              "died": false
-            },
-            {
-              "crew_id": "lin",
-              "before": 90,
-              "after": 90,
-              "medical_penalty": 0,
-              "medical_changes": [],
-              "food_received_fraction": 1.0,
-              "water_received_fraction": 1.0,
-              "nutrition_before": 0.0,
-              "nutrition_after": 0.0,
-              "hydration_before": 0.0,
-              "hydration_after": 0.0,
-              "recovery": 0,
-              "worked": true,
-              "rested": false,
-              "food_penalty": 0,
-              "water_penalty": 0,
-              "oxygen_penalty": 0,
-              "co2_penalty": 0,
-              "died": false
-            }
-          ]
-        },
-        "resource_changes": {
-          "food": -2.1,
-          "water": -0.664,
-          "oxygen": -8.0,
-          "electricity": 24.0,
-          "medicine": 0.0,
-          "repair_kits": 0.0,
-          "eva_batteries": -1.0,
-          "dust_kits": 0.0,
-          "oxygen_regulators": 0.0,
-          "diagnostic_tools": 0.0,
-          "sealant_packs": 0.0,
-          "scientific_tools": 0.0,
-          "research_data": 0.0,
-          "wastewater": -0.88,
           "co2": 0.0
         },
         "deaths": [],
@@ -24492,7 +24666,7 @@ export const researchCompleted: GameResponse = {
                 "after": {
                   "kind": "dust_irritation",
                   "remaining": 2,
-                  "acquired_week": 3,
+                  "acquired_week": 2,
                   "stabilized": false,
                   "care_week": 0,
                   "care_points": 0
@@ -24507,7 +24681,7 @@ export const researchCompleted: GameResponse = {
                 "after": {
                   "kind": "dust_irritation",
                   "remaining": 2,
-                  "acquired_week": 3,
+                  "acquired_week": 2,
                   "stabilized": false,
                   "care_week": 0,
                   "care_points": 0
@@ -24527,8 +24701,8 @@ export const researchCompleted: GameResponse = {
               },
               {
                 "crew_id": "lin",
-                "before": 90,
-                "after": 80
+                "before": 100,
+                "after": 90
               }
             ]
           }
@@ -24613,7 +24787,7 @@ export const researchCompleted: GameResponse = {
             "amount": 1
           }
         ],
-        "week": 3,
+        "week": 2,
         "event": {
           "support_crew_ids": [],
           "event_id": "medical_emergency",
@@ -24638,8 +24812,8 @@ export const researchCompleted: GameResponse = {
               },
               {
                 "crew_id": "lin",
-                "before": 80,
-                "after": 74
+                "before": 90,
+                "after": 84
               }
             ]
           },
@@ -24657,22 +24831,22 @@ export const researchCompleted: GameResponse = {
         },
         "survival": {
           "life_support": {
-            "wastewater_processed": 3.84,
-            "water_recovered": 3.072,
-            "water_for_oxygen": 0.4,
+            "wastewater_processed": 3.92,
+            "water_recovered": 3.136,
+            "water_for_oxygen": 0.0,
             "wastewater_captured": 3.04,
-            "oxygen_generated": 4.0,
+            "oxygen_generated": 0.0,
             "co2_produced": 2.0,
             "co2_removed": 2.0,
             "co2_remaining": 0.0,
             "power_components": {
               "habitat": 8.0,
               "water_recovery": 2.0,
-              "oxygen_generation": 4.0,
+              "oxygen_generation": 0.0,
               "co2_removal": 2.0
             }
           },
-          "daylight_fraction": 0.109329,
+          "daylight_fraction": 1.0,
           "battery_capacity": 100.0,
           "electricity_curtailed": 0.0,
           "project_electricity_used": 0.0,
@@ -24689,11 +24863,11 @@ export const researchCompleted: GameResponse = {
             "food": 0.0,
             "water": 0.0
           },
-          "electricity_generated": 3.935844,
-          "electricity_required": 16.0,
-          "electricity_used": 16.0,
+          "electricity_generated": 23.25,
+          "electricity_required": 12.0,
+          "electricity_used": 12.0,
           "life_support_power_fraction": 1.0,
-          "oxygen_generated": 4.0,
+          "oxygen_generated": 0.0,
           "oxygen_required": 6.0,
           "oxygen_used": 6.0,
           "oxygen_shortage": 0.0,
@@ -24721,32 +24895,10 @@ export const researchCompleted: GameResponse = {
             },
             {
               "crew_id": "lin",
-              "before": 74,
-              "after": 79,
+              "before": 84,
+              "after": 89,
               "medical_penalty": 0,
               "medical_changes": [
-                {
-                  "crew_id": "lin",
-                  "kind": "sprain",
-                  "action": "recovering",
-                  "reason": null,
-                  "before": {
-                    "kind": "sprain",
-                    "remaining": 3,
-                    "acquired_week": 2,
-                    "stabilized": false,
-                    "care_week": 0,
-                    "care_points": 0
-                  },
-                  "after": {
-                    "kind": "sprain",
-                    "remaining": 2,
-                    "acquired_week": 2,
-                    "stabilized": false,
-                    "care_week": 0,
-                    "care_points": 0
-                  }
-                },
                 {
                   "crew_id": "lin",
                   "kind": "dust_irritation",
@@ -24755,7 +24907,7 @@ export const researchCompleted: GameResponse = {
                   "before": {
                     "kind": "dust_irritation",
                     "remaining": 2,
-                    "acquired_week": 3,
+                    "acquired_week": 2,
                     "stabilized": false,
                     "care_week": 0,
                     "care_points": 0
@@ -24763,7 +24915,7 @@ export const researchCompleted: GameResponse = {
                   "after": {
                     "kind": "dust_irritation",
                     "remaining": 1,
-                    "acquired_week": 3,
+                    "acquired_week": 2,
                     "stabilized": false,
                     "care_week": 0,
                     "care_points": 0
@@ -24789,9 +24941,9 @@ export const researchCompleted: GameResponse = {
         },
         "resource_changes": {
           "food": -2.1,
-          "water": -1.128,
-          "oxygen": -2.0,
-          "electricity": -14.064156,
+          "water": -0.664,
+          "oxygen": -6.0,
+          "electricity": 9.25,
           "medicine": 0.0,
           "repair_kits": -1.0,
           "eva_batteries": 0.0,
@@ -24801,18 +24953,18 @@ export const researchCompleted: GameResponse = {
           "sealant_packs": 0.0,
           "scientific_tools": 0.0,
           "research_data": 2.0,
-          "wastewater": -0.8,
+          "wastewater": -0.88,
           "co2": 0.0
         },
         "deaths": [],
         "next_event": {
-          "event_id": "inventory_audit",
-          "title": "A Crate in the Ledger",
+          "event_id": "oxygen_fault",
+          "title": "Life Support Alarm",
           "effects": {
             "medical_changes": [],
             "resources": {},
             "solar_efficiency": 0.0,
-            "oxygen_efficiency": 0.0,
+            "oxygen_efficiency": -0.25,
             "water_recovery_efficiency": 0.0,
             "co2_efficiency": 0.0,
             "health_changes": []
@@ -24831,7 +24983,7 @@ export const researchCompleted: GameResponse = {
             "status": "completed",
             "outcome": {
               "support_crew_ids": [],
-              "event_id": "inventory_audit",
+              "event_id": "oxygen_fault",
               "choice_id": "crew_rest",
               "choice_text": "Rest and recuperate",
               "selected_crew_id": "alex",
@@ -24859,7 +25011,7 @@ export const researchCompleted: GameResponse = {
             "status": "completed",
             "outcome": {
               "support_crew_ids": [],
-              "event_id": "inventory_audit",
+              "event_id": "oxygen_fault",
               "choice_id": "crew_rest",
               "choice_text": "Rest and recuperate",
               "selected_crew_id": "lin",
@@ -24881,12 +25033,12 @@ export const researchCompleted: GameResponse = {
           }
         ],
         "science_gains": [],
-        "week": 4,
+        "week": 3,
         "event": {
           "support_crew_ids": [],
-          "event_id": "inventory_audit",
-          "choice_id": "quarantine_crate",
-          "choice_text": "Leave the unverified crate quarantined",
+          "event_id": "oxygen_fault",
+          "choice_id": "ignore",
+          "choice_text": "Rely on oxygen reserves",
           "selected_crew_id": null,
           "success": true,
           "success_probability": 1.0,
@@ -24914,11 +25066,11 @@ export const researchCompleted: GameResponse = {
         },
         "survival": {
           "life_support": {
-            "wastewater_processed": 3.76,
-            "water_recovered": 3.008,
-            "water_for_oxygen": 0.6,
+            "wastewater_processed": 3.84,
+            "water_recovered": 3.072,
+            "water_for_oxygen": 0.2,
             "wastewater_captured": 3.04,
-            "oxygen_generated": 6.0,
+            "oxygen_generated": 2.0,
             "co2_produced": 2.0,
             "co2_removed": 2.0,
             "co2_remaining": 0.0,
@@ -24929,7 +25081,7 @@ export const researchCompleted: GameResponse = {
               "co2_removal": 2.0
             }
           },
-          "daylight_fraction": 0.0,
+          "daylight_fraction": 0.109329,
           "battery_capacity": 100.0,
           "electricity_curtailed": 0.0,
           "project_electricity_used": 0.0,
@@ -24946,11 +25098,11 @@ export const researchCompleted: GameResponse = {
             "food": 0.0,
             "water": 0.0
           },
-          "electricity_generated": 0.0,
+          "electricity_generated": 2.541899,
           "electricity_required": 16.0,
           "electricity_used": 16.0,
           "life_support_power_fraction": 1.0,
-          "oxygen_generated": 6.0,
+          "oxygen_generated": 2.0,
           "oxygen_required": 6.0,
           "oxygen_used": 6.0,
           "oxygen_shortage": 0.0,
@@ -24969,7 +25121,7 @@ export const researchCompleted: GameResponse = {
                   "before": {
                     "kind": "dust_irritation",
                     "remaining": 2,
-                    "acquired_week": 3,
+                    "acquired_week": 2,
                     "stabilized": false,
                     "care_week": 0,
                     "care_points": 0
@@ -24977,7 +25129,7 @@ export const researchCompleted: GameResponse = {
                   "after": {
                     "kind": "dust_irritation",
                     "remaining": 1,
-                    "acquired_week": 3,
+                    "acquired_week": 2,
                     "stabilized": false,
                     "care_week": 0,
                     "care_points": 0
@@ -25001,32 +25153,10 @@ export const researchCompleted: GameResponse = {
             },
             {
               "crew_id": "lin",
-              "before": 79,
-              "after": 84,
+              "before": 89,
+              "after": 94,
               "medical_penalty": 0,
               "medical_changes": [
-                {
-                  "crew_id": "lin",
-                  "kind": "sprain",
-                  "action": "recovering",
-                  "reason": null,
-                  "before": {
-                    "kind": "sprain",
-                    "remaining": 2,
-                    "acquired_week": 2,
-                    "stabilized": false,
-                    "care_week": 0,
-                    "care_points": 0
-                  },
-                  "after": {
-                    "kind": "sprain",
-                    "remaining": 1,
-                    "acquired_week": 2,
-                    "stabilized": false,
-                    "care_week": 0,
-                    "care_points": 0
-                  }
-                },
                 {
                   "crew_id": "lin",
                   "kind": "dust_irritation",
@@ -25035,7 +25165,7 @@ export const researchCompleted: GameResponse = {
                   "before": {
                     "kind": "dust_irritation",
                     "remaining": 1,
-                    "acquired_week": 3,
+                    "acquired_week": 2,
                     "stabilized": false,
                     "care_week": 0,
                     "care_points": 0
@@ -25062,9 +25192,9 @@ export const researchCompleted: GameResponse = {
         },
         "resource_changes": {
           "food": -2.1,
-          "water": -1.392,
-          "oxygen": 0.0,
-          "electricity": -16.0,
+          "water": -0.928,
+          "oxygen": -4.0,
+          "electricity": -13.458101,
           "medicine": 0.0,
           "repair_kits": 0.0,
           "eva_batteries": 0.0,
@@ -25074,20 +25204,20 @@ export const researchCompleted: GameResponse = {
           "sealant_packs": 0.0,
           "scientific_tools": 0.0,
           "research_data": 0.0,
-          "wastewater": -0.72,
+          "wastewater": -0.8,
           "co2": 0.0
         },
         "deaths": [],
         "next_event": {
-          "event_id": "crew_recovery",
-          "title": "A Week for Recovery",
+          "event_id": "scrubber_load",
+          "title": "Carbon Dioxide Scrubber Load",
           "effects": {
             "medical_changes": [],
             "resources": {},
             "solar_efficiency": 0.0,
             "oxygen_efficiency": 0.0,
             "water_recovery_efficiency": 0.0,
-            "co2_efficiency": 0.0,
+            "co2_efficiency": -0.2,
             "health_changes": []
           }
         },
@@ -25104,7 +25234,7 @@ export const researchCompleted: GameResponse = {
             "status": "completed",
             "outcome": {
               "support_crew_ids": [],
-              "event_id": "crew_recovery",
+              "event_id": "scrubber_load",
               "choice_id": "crew_rest",
               "choice_text": "Rest and recuperate",
               "selected_crew_id": "alex",
@@ -25128,241 +25258,11 @@ export const researchCompleted: GameResponse = {
             "patient_id": null,
             "condition_id": null,
             "crew_id": "lin",
-            "activity_id": "crew_rest",
-            "status": "completed",
-            "outcome": {
-              "support_crew_ids": [],
-              "event_id": "crew_recovery",
-              "choice_id": "crew_rest",
-              "choice_text": "Rest and recuperate",
-              "selected_crew_id": "lin",
-              "success": true,
-              "success_probability": 1.0,
-              "costs": {},
-              "effects": {
-                "medical_changes": [],
-                "resources": {},
-                "solar_efficiency": 0.0,
-                "oxygen_efficiency": 0.0,
-                "water_recovery_efficiency": 0.0,
-                "co2_efficiency": 0.0,
-                "health_changes": []
-              },
-              "objective_progress": []
-            },
-            "reason": null
-          }
-        ],
-        "science_gains": [],
-        "week": 5,
-        "event": {
-          "support_crew_ids": [],
-          "event_id": "crew_recovery",
-          "choice_id": "structured_recovery",
-          "choice_text": "Follow a structured recovery schedule",
-          "selected_crew_id": null,
-          "success": true,
-          "success_probability": 1.0,
-          "costs": {
-            "food": 1.0,
-            "water": 1.0
-          },
-          "effects": {
-            "medical_changes": [],
-            "resources": {},
-            "solar_efficiency": 0.0,
-            "oxygen_efficiency": 0.0,
-            "water_recovery_efficiency": 0.0,
-            "co2_efficiency": 0.0,
-            "health_changes": [
-              {
-                "crew_id": "alex",
-                "before": 86,
-                "after": 92
-              },
-              {
-                "crew_id": "lin",
-                "before": 84,
-                "after": 90
-              }
-            ]
-          },
-          "objective_progress": []
-        },
-        "rations": {
-          "alex": {
-            "food": "normal",
-            "water": "normal"
-          },
-          "lin": {
-            "food": "normal",
-            "water": "normal"
-          }
-        },
-        "survival": {
-          "life_support": {
-            "wastewater_processed": 3.68,
-            "water_recovered": 2.944,
-            "water_for_oxygen": 0.6,
-            "wastewater_captured": 3.04,
-            "oxygen_generated": 6.0,
-            "co2_produced": 2.0,
-            "co2_removed": 2.0,
-            "co2_remaining": 0.0,
-            "power_components": {
-              "habitat": 8.0,
-              "water_recovery": 2.0,
-              "oxygen_generation": 4.0,
-              "co2_removal": 2.0
-            }
-          },
-          "daylight_fraction": 0.781343,
-          "battery_capacity": 100.0,
-          "electricity_curtailed": 0.0,
-          "project_electricity_used": 0.0,
-          "power_priority": "life_support",
-          "ration_requirements": {
-            "food": 2.1,
-            "water": 3.8
-          },
-          "ration_costs": {
-            "food": 2.1,
-            "water": 3.8
-          },
-          "ration_depletion_fractions": {
-            "food": 0.0,
-            "water": 0.0
-          },
-          "electricity_generated": 28.128348,
-          "electricity_required": 16.0,
-          "electricity_used": 16.0,
-          "life_support_power_fraction": 1.0,
-          "oxygen_generated": 6.0,
-          "oxygen_required": 6.0,
-          "oxygen_used": 6.0,
-          "oxygen_shortage": 0.0,
-          "health_changes": [
-            {
-              "crew_id": "alex",
-              "before": 92,
-              "after": 97,
-              "medical_penalty": 0,
-              "medical_changes": [
-                {
-                  "crew_id": "alex",
-                  "kind": "dust_irritation",
-                  "action": "resolved",
-                  "reason": null,
-                  "before": {
-                    "kind": "dust_irritation",
-                    "remaining": 1,
-                    "acquired_week": 3,
-                    "stabilized": false,
-                    "care_week": 0,
-                    "care_points": 0
-                  },
-                  "after": null
-                }
-              ],
-              "food_received_fraction": 1.0,
-              "water_received_fraction": 1.0,
-              "nutrition_before": 0.0,
-              "nutrition_after": 0.0,
-              "hydration_before": 0.0,
-              "hydration_after": 0.0,
-              "recovery": 5,
-              "worked": false,
-              "rested": true,
-              "food_penalty": 0,
-              "water_penalty": 0,
-              "oxygen_penalty": 0,
-              "co2_penalty": 0,
-              "died": false
-            },
-            {
-              "crew_id": "lin",
-              "before": 90,
-              "after": 95,
-              "medical_penalty": 0,
-              "medical_changes": [
-                {
-                  "crew_id": "lin",
-                  "kind": "sprain",
-                  "action": "resolved",
-                  "reason": null,
-                  "before": {
-                    "kind": "sprain",
-                    "remaining": 1,
-                    "acquired_week": 2,
-                    "stabilized": false,
-                    "care_week": 0,
-                    "care_points": 0
-                  },
-                  "after": null
-                }
-              ],
-              "food_received_fraction": 1.0,
-              "water_received_fraction": 1.0,
-              "nutrition_before": 0.0,
-              "nutrition_after": 0.0,
-              "hydration_before": 0.0,
-              "hydration_after": 0.0,
-              "recovery": 5,
-              "worked": false,
-              "rested": true,
-              "food_penalty": 0,
-              "water_penalty": 0,
-              "oxygen_penalty": 0,
-              "co2_penalty": 0,
-              "died": false
-            }
-          ]
-        },
-        "resource_changes": {
-          "food": -3.1,
-          "water": -2.456,
-          "oxygen": 0.0,
-          "electricity": 12.128348,
-          "medicine": 0.0,
-          "repair_kits": 0.0,
-          "eva_batteries": 0.0,
-          "dust_kits": 0.0,
-          "oxygen_regulators": 0.0,
-          "diagnostic_tools": 0.0,
-          "sealant_packs": 0.0,
-          "scientific_tools": 0.0,
-          "research_data": 0.0,
-          "wastewater": -0.64,
-          "co2": 0.0
-        },
-        "deaths": [],
-        "next_event": {
-          "event_id": "seismic_signal",
-          "title": "A Signal in the Seismometer",
-          "effects": {
-            "medical_changes": [],
-            "resources": {},
-            "solar_efficiency": 0.0,
-            "oxygen_efficiency": 0.0,
-            "water_recovery_efficiency": 0.0,
-            "co2_efficiency": 0.0,
-            "health_changes": []
-          }
-        },
-        "ending": null
-      },
-      {
-        "project_updates": [],
-        "assignments": [
-          {
-            "patient_id": null,
-            "condition_id": null,
-            "crew_id": "lin",
             "activity_id": "research_geology",
             "status": "completed",
             "outcome": {
               "support_crew_ids": [],
-              "event_id": "seismic_signal",
+              "event_id": "scrubber_load",
               "choice_id": "research_geology",
               "choice_text": "Survey a geological sample",
               "selected_crew_id": "lin",
@@ -25401,21 +25301,21 @@ export const researchCompleted: GameResponse = {
             "amount": 1
           }
         ],
-        "week": 6,
+        "week": 4,
         "event": {
           "support_crew_ids": [],
-          "event_id": "seismic_signal",
-          "choice_id": "archive_seismic",
-          "choice_text": "Archive the raw signal",
+          "event_id": "scrubber_load",
+          "choice_id": "vent_scrubber",
+          "choice_text": "Vent and purge the cabin loop",
           "selected_crew_id": null,
           "success": true,
           "success_probability": 1.0,
-          "costs": {},
+          "costs": {
+            "oxygen": 8.0
+          },
           "effects": {
             "medical_changes": [],
-            "resources": {
-              "research_data": 1.0
-            },
+            "resources": {},
             "solar_efficiency": 0.0,
             "oxygen_efficiency": 0.0,
             "water_recovery_efficiency": 0.0,
@@ -25436,11 +25336,11 @@ export const researchCompleted: GameResponse = {
         },
         "survival": {
           "life_support": {
-            "wastewater_processed": 3.6,
-            "water_recovered": 2.88,
-            "water_for_oxygen": 0.8,
+            "wastewater_processed": 3.76,
+            "water_recovered": 3.008,
+            "water_for_oxygen": 1.05,
             "wastewater_captured": 3.04,
-            "oxygen_generated": 8.0,
+            "oxygen_generated": 10.5,
             "co2_produced": 2.0,
             "co2_removed": 2.0,
             "co2_remaining": 0.0,
@@ -25451,7 +25351,7 @@ export const researchCompleted: GameResponse = {
               "co2_removal": 2.0
             }
           },
-          "daylight_fraction": 1.0,
+          "daylight_fraction": 0.0,
           "battery_capacity": 100.0,
           "electricity_curtailed": 0.0,
           "project_electricity_used": 0.0,
@@ -25468,30 +25368,46 @@ export const researchCompleted: GameResponse = {
             "food": 0.0,
             "water": 0.0
           },
-          "electricity_generated": 36.0,
+          "electricity_generated": 0.0,
           "electricity_required": 16.0,
           "electricity_used": 16.0,
           "life_support_power_fraction": 1.0,
-          "oxygen_generated": 8.0,
+          "oxygen_generated": 10.5,
           "oxygen_required": 6.0,
           "oxygen_used": 6.0,
           "oxygen_shortage": 0.0,
           "health_changes": [
             {
               "crew_id": "alex",
-              "before": 97,
-              "after": 99,
+              "before": 86,
+              "after": 91,
               "medical_penalty": 0,
-              "medical_changes": [],
+              "medical_changes": [
+                {
+                  "crew_id": "alex",
+                  "kind": "dust_irritation",
+                  "action": "resolved",
+                  "reason": null,
+                  "before": {
+                    "kind": "dust_irritation",
+                    "remaining": 1,
+                    "acquired_week": 2,
+                    "stabilized": false,
+                    "care_week": 0,
+                    "care_points": 0
+                  },
+                  "after": null
+                }
+              ],
               "food_received_fraction": 1.0,
               "water_received_fraction": 1.0,
               "nutrition_before": 0.0,
               "nutrition_after": 0.0,
               "hydration_before": 0.0,
               "hydration_after": 0.0,
-              "recovery": 2,
+              "recovery": 5,
               "worked": false,
-              "rested": false,
+              "rested": true,
               "food_penalty": 0,
               "water_penalty": 0,
               "oxygen_penalty": 0,
@@ -25500,8 +25416,8 @@ export const researchCompleted: GameResponse = {
             },
             {
               "crew_id": "lin",
-              "before": 95,
-              "after": 95,
+              "before": 94,
+              "after": 94,
               "medical_penalty": 0,
               "medical_changes": [],
               "food_received_fraction": 1.0,
@@ -25523,9 +25439,9 @@ export const researchCompleted: GameResponse = {
         },
         "resource_changes": {
           "food": -2.1,
-          "water": -1.72,
-          "oxygen": 0.0,
-          "electricity": 20.0,
+          "water": -1.842,
+          "oxygen": -5.5,
+          "electricity": -16.0,
           "medicine": 0.0,
           "repair_kits": 0.0,
           "eva_batteries": -1.0,
@@ -25534,20 +25450,18 @@ export const researchCompleted: GameResponse = {
           "diagnostic_tools": 0.0,
           "sealant_packs": 0.0,
           "scientific_tools": 0.0,
-          "research_data": 3.0,
-          "wastewater": -0.56,
+          "research_data": 2.0,
+          "wastewater": -0.72,
           "co2": 0.0
         },
         "deaths": [],
         "next_event": {
-          "event_id": "battery_isolation",
-          "title": "Battery String Offline",
+          "event_id": "improvised_shield",
+          "title": "The Makeshift Dust Shield",
           "effects": {
             "medical_changes": [],
-            "resources": {
-              "electricity": -5.0
-            },
-            "solar_efficiency": 0.0,
+            "resources": {},
+            "solar_efficiency": -0.1,
             "oxygen_efficiency": 0.0,
             "water_recovery_efficiency": 0.0,
             "co2_efficiency": 0.0,
@@ -25573,7 +25487,7 @@ export const researchCompleted: GameResponse = {
             "status": "completed",
             "outcome": {
               "support_crew_ids": [],
-              "event_id": "battery_isolation",
+              "event_id": "improvised_shield",
               "choice_id": "research_seismic",
               "choice_text": "Deploy seismic sensors",
               "selected_crew_id": "lin",
@@ -25599,12 +25513,12 @@ export const researchCompleted: GameResponse = {
           }
         ],
         "science_gains": [],
-        "week": 7,
+        "week": 5,
         "event": {
           "support_crew_ids": [],
-          "event_id": "battery_isolation",
-          "choice_id": "battery_accept",
-          "choice_text": "Keep the string isolated",
+          "event_id": "improvised_shield",
+          "choice_id": "shield_accept",
+          "choice_text": "Accept the exposed cable",
           "selected_crew_id": null,
           "success": true,
           "success_probability": 1.0,
@@ -25632,11 +25546,11 @@ export const researchCompleted: GameResponse = {
         },
         "survival": {
           "life_support": {
-            "wastewater_processed": 3.52,
-            "water_recovered": 2.816,
-            "water_for_oxygen": 0.8,
+            "wastewater_processed": 3.68,
+            "water_recovered": 2.944,
+            "water_for_oxygen": 1.05,
             "wastewater_captured": 3.04,
-            "oxygen_generated": 8.0,
+            "oxygen_generated": 10.5,
             "co2_produced": 2.0,
             "co2_removed": 2.0,
             "co2_remaining": 0.0,
@@ -25647,7 +25561,7 @@ export const researchCompleted: GameResponse = {
               "co2_removal": 2.0
             }
           },
-          "daylight_fraction": 0.327986,
+          "daylight_fraction": 0.781343,
           "battery_capacity": 100.0,
           "electricity_curtailed": 0.0,
           "project_electricity_used": 0.0,
@@ -25664,19 +25578,19 @@ export const researchCompleted: GameResponse = {
             "food": 0.0,
             "water": 0.0
           },
-          "electricity_generated": 11.807496,
+          "electricity_generated": 15.744061,
           "electricity_required": 16.0,
           "electricity_used": 16.0,
           "life_support_power_fraction": 1.0,
-          "oxygen_generated": 8.0,
+          "oxygen_generated": 10.5,
           "oxygen_required": 6.0,
           "oxygen_used": 6.0,
           "oxygen_shortage": 0.0,
           "health_changes": [
             {
               "crew_id": "alex",
-              "before": 99,
-              "after": 100,
+              "before": 91,
+              "after": 93,
               "medical_penalty": 0,
               "medical_changes": [],
               "food_received_fraction": 1.0,
@@ -25685,7 +25599,7 @@ export const researchCompleted: GameResponse = {
               "nutrition_after": 0.0,
               "hydration_before": 0.0,
               "hydration_after": 0.0,
-              "recovery": 1,
+              "recovery": 2,
               "worked": false,
               "rested": false,
               "food_penalty": 0,
@@ -25696,8 +25610,8 @@ export const researchCompleted: GameResponse = {
             },
             {
               "crew_id": "lin",
-              "before": 95,
-              "after": 95,
+              "before": 94,
+              "after": 94,
               "medical_penalty": 0,
               "medical_changes": [],
               "food_received_fraction": 1.0,
@@ -25719,9 +25633,9 @@ export const researchCompleted: GameResponse = {
         },
         "resource_changes": {
           "food": -2.1,
-          "water": -1.784,
-          "oxygen": 0.0,
-          "electricity": -6.192504,
+          "water": -1.906,
+          "oxygen": 2.5,
+          "electricity": -2.255939,
           "medicine": 0.0,
           "repair_kits": 0.0,
           "eva_batteries": -1.0,
@@ -25731,172 +25645,7 @@ export const researchCompleted: GameResponse = {
           "sealant_packs": 0.0,
           "scientific_tools": 0.0,
           "research_data": 0.0,
-          "wastewater": -0.48,
-          "co2": 0.0
-        },
-        "deaths": [],
-        "next_event": {
-          "event_id": "thermal_control",
-          "title": "Thermal Control Warning",
-          "effects": {
-            "medical_changes": [],
-            "resources": {
-              "electricity": -4.0
-            },
-            "solar_efficiency": 0.0,
-            "oxygen_efficiency": 0.0,
-            "water_recovery_efficiency": 0.0,
-            "co2_efficiency": 0.0,
-            "health_changes": []
-          }
-        },
-        "ending": null
-      },
-      {
-        "project_updates": [
-          {
-            "project_id": "seismic-1",
-            "message": "Recorded one week of seismic activity; no crew occupied.",
-            "electricity_used": 2.0
-          }
-        ],
-        "assignments": [],
-        "science_gains": [],
-        "week": 8,
-        "event": {
-          "support_crew_ids": [],
-          "event_id": "thermal_control",
-          "choice_id": "thermal_shutdown",
-          "choice_text": "Reduce equipment activity",
-          "selected_crew_id": null,
-          "success": true,
-          "success_probability": 1.0,
-          "costs": {},
-          "effects": {
-            "medical_changes": [],
-            "resources": {
-              "oxygen": -10.0
-            },
-            "solar_efficiency": 0.0,
-            "oxygen_efficiency": 0.0,
-            "water_recovery_efficiency": 0.0,
-            "co2_efficiency": 0.0,
-            "health_changes": []
-          },
-          "objective_progress": []
-        },
-        "rations": {
-          "alex": {
-            "food": "normal",
-            "water": "normal"
-          },
-          "lin": {
-            "food": "normal",
-            "water": "normal"
-          }
-        },
-        "survival": {
-          "life_support": {
-            "wastewater_processed": 3.44,
-            "water_recovered": 2.752,
-            "water_for_oxygen": 1.05,
-            "wastewater_captured": 3.04,
-            "oxygen_generated": 10.5,
-            "co2_produced": 2.0,
-            "co2_removed": 2.0,
-            "co2_remaining": 0.0,
-            "power_components": {
-              "habitat": 8.0,
-              "water_recovery": 2.0,
-              "oxygen_generation": 4.0,
-              "co2_removal": 2.0
-            }
-          },
-          "daylight_fraction": 0.0,
-          "battery_capacity": 100.0,
-          "electricity_curtailed": 0.0,
-          "project_electricity_used": 2.0,
-          "power_priority": "life_support",
-          "ration_requirements": {
-            "food": 2.1,
-            "water": 3.8
-          },
-          "ration_costs": {
-            "food": 2.1,
-            "water": 3.8
-          },
-          "ration_depletion_fractions": {
-            "food": 0.0,
-            "water": 0.0
-          },
-          "electricity_generated": 0.0,
-          "electricity_required": 16.0,
-          "electricity_used": 16.0,
-          "life_support_power_fraction": 1.0,
-          "oxygen_generated": 10.5,
-          "oxygen_required": 6.0,
-          "oxygen_used": 6.0,
-          "oxygen_shortage": 0.0,
-          "health_changes": [
-            {
-              "crew_id": "alex",
-              "before": 100,
-              "after": 100,
-              "medical_penalty": 0,
-              "medical_changes": [],
-              "food_received_fraction": 1.0,
-              "water_received_fraction": 1.0,
-              "nutrition_before": 0.0,
-              "nutrition_after": 0.0,
-              "hydration_before": 0.0,
-              "hydration_after": 0.0,
-              "recovery": 0,
-              "worked": false,
-              "rested": false,
-              "food_penalty": 0,
-              "water_penalty": 0,
-              "oxygen_penalty": 0,
-              "co2_penalty": 0,
-              "died": false
-            },
-            {
-              "crew_id": "lin",
-              "before": 95,
-              "after": 97,
-              "medical_penalty": 0,
-              "medical_changes": [],
-              "food_received_fraction": 1.0,
-              "water_received_fraction": 1.0,
-              "nutrition_before": 0.0,
-              "nutrition_after": 0.0,
-              "hydration_before": 0.0,
-              "hydration_after": 0.0,
-              "recovery": 2,
-              "worked": false,
-              "rested": false,
-              "food_penalty": 0,
-              "water_penalty": 0,
-              "oxygen_penalty": 0,
-              "co2_penalty": 0,
-              "died": false
-            }
-          ]
-        },
-        "resource_changes": {
-          "food": -2.1,
-          "water": -2.098,
-          "oxygen": -5.5,
-          "electricity": -18.0,
-          "medicine": 0.0,
-          "repair_kits": 0.0,
-          "eva_batteries": 0.0,
-          "dust_kits": 0.0,
-          "oxygen_regulators": 0.0,
-          "diagnostic_tools": 0.0,
-          "sealant_packs": 0.0,
-          "scientific_tools": 0.0,
-          "research_data": 0.0,
-          "wastewater": -0.4,
+          "wastewater": -0.64,
           "co2": 0.0
         },
         "deaths": [],
@@ -25927,7 +25676,7 @@ export const researchCompleted: GameResponse = {
         ],
         "assignments": [],
         "science_gains": [],
-        "week": 9,
+        "week": 6,
         "event": {
           "support_crew_ids": [],
           "event_id": "water_line_leak",
@@ -25960,175 +25709,11 @@ export const researchCompleted: GameResponse = {
         },
         "survival": {
           "life_support": {
-            "wastewater_processed": 3.36,
-            "water_recovered": 2.688,
-            "water_for_oxygen": 1.05,
+            "wastewater_processed": 3.6,
+            "water_recovered": 2.88,
+            "water_for_oxygen": 0.9,
             "wastewater_captured": 3.04,
-            "oxygen_generated": 10.5,
-            "co2_produced": 2.0,
-            "co2_removed": 2.0,
-            "co2_remaining": 0.0,
-            "power_components": {
-              "habitat": 8.0,
-              "water_recovery": 2.0,
-              "oxygen_generation": 4.0,
-              "co2_removal": 2.0
-            }
-          },
-          "daylight_fraction": 0.562686,
-          "battery_capacity": 100.0,
-          "electricity_curtailed": 0.0,
-          "project_electricity_used": 2.0,
-          "power_priority": "life_support",
-          "ration_requirements": {
-            "food": 2.1,
-            "water": 3.8
-          },
-          "ration_costs": {
-            "food": 2.1,
-            "water": 3.8
-          },
-          "ration_depletion_fractions": {
-            "food": 0.0,
-            "water": 0.0
-          },
-          "electricity_generated": 20.256696,
-          "electricity_required": 16.0,
-          "electricity_used": 16.0,
-          "life_support_power_fraction": 1.0,
-          "oxygen_generated": 10.5,
-          "oxygen_required": 6.0,
-          "oxygen_used": 6.0,
-          "oxygen_shortage": 0.0,
-          "health_changes": [
-            {
-              "crew_id": "alex",
-              "before": 100,
-              "after": 100,
-              "medical_penalty": 0,
-              "medical_changes": [],
-              "food_received_fraction": 1.0,
-              "water_received_fraction": 1.0,
-              "nutrition_before": 0.0,
-              "nutrition_after": 0.0,
-              "hydration_before": 0.0,
-              "hydration_after": 0.0,
-              "recovery": 0,
-              "worked": false,
-              "rested": false,
-              "food_penalty": 0,
-              "water_penalty": 0,
-              "oxygen_penalty": 0,
-              "co2_penalty": 0,
-              "died": false
-            },
-            {
-              "crew_id": "lin",
-              "before": 97,
-              "after": 99,
-              "medical_penalty": 0,
-              "medical_changes": [],
-              "food_received_fraction": 1.0,
-              "water_received_fraction": 1.0,
-              "nutrition_before": 0.0,
-              "nutrition_after": 0.0,
-              "hydration_before": 0.0,
-              "hydration_after": 0.0,
-              "recovery": 2,
-              "worked": false,
-              "rested": false,
-              "food_penalty": 0,
-              "water_penalty": 0,
-              "oxygen_penalty": 0,
-              "co2_penalty": 0,
-              "died": false
-            }
-          ]
-        },
-        "resource_changes": {
-          "food": -2.1,
-          "water": -2.162,
-          "oxygen": 4.5,
-          "electricity": 2.256696,
-          "medicine": 0.0,
-          "repair_kits": 0.0,
-          "eva_batteries": 0.0,
-          "dust_kits": 0.0,
-          "oxygen_regulators": 0.0,
-          "diagnostic_tools": 0.0,
-          "sealant_packs": 0.0,
-          "scientific_tools": 0.0,
-          "research_data": 0.0,
-          "wastewater": -0.32,
-          "co2": 0.0
-        },
-        "deaths": [],
-        "next_event": {
-          "event_id": "solar_particle_alert",
-          "title": "Shelter Before the Storm",
-          "effects": {
-            "medical_changes": [],
-            "resources": {},
-            "solar_efficiency": 0.0,
-            "oxygen_efficiency": 0.0,
-            "water_recovery_efficiency": 0.0,
-            "co2_efficiency": 0.0,
-            "health_changes": []
-          }
-        },
-        "ending": null
-      },
-      {
-        "project_updates": [
-          {
-            "project_id": "seismic-1",
-            "message": "Recorded one week of seismic activity; no crew occupied.",
-            "electricity_used": 2.0
-          }
-        ],
-        "assignments": [],
-        "science_gains": [],
-        "week": 10,
-        "event": {
-          "support_crew_ids": [],
-          "event_id": "solar_particle_alert",
-          "choice_id": "shelter",
-          "choice_text": "Move into the shielded compartment",
-          "selected_crew_id": null,
-          "success": true,
-          "success_probability": 1.0,
-          "costs": {
-            "electricity": 4.0,
-            "water": 1.0
-          },
-          "effects": {
-            "medical_changes": [],
-            "resources": {},
-            "solar_efficiency": 0.0,
-            "oxygen_efficiency": 0.0,
-            "water_recovery_efficiency": 0.0,
-            "co2_efficiency": 0.0,
-            "health_changes": []
-          },
-          "objective_progress": []
-        },
-        "rations": {
-          "alex": {
-            "food": "normal",
-            "water": "normal"
-          },
-          "lin": {
-            "food": "normal",
-            "water": "normal"
-          }
-        },
-        "survival": {
-          "life_support": {
-            "wastewater_processed": 3.28,
-            "water_recovered": 2.624,
-            "water_for_oxygen": 0.7,
-            "wastewater_captured": 3.04,
-            "oxygen_generated": 7.0,
+            "oxygen_generated": 9.0,
             "co2_produced": 2.0,
             "co2_removed": 2.0,
             "co2_remaining": 0.0,
@@ -26156,395 +25741,19 @@ export const researchCompleted: GameResponse = {
             "food": 0.0,
             "water": 0.0
           },
-          "electricity_generated": 36.0,
+          "electricity_generated": 20.15,
           "electricity_required": 16.0,
           "electricity_used": 16.0,
           "life_support_power_fraction": 1.0,
-          "oxygen_generated": 7.0,
+          "oxygen_generated": 9.0,
           "oxygen_required": 6.0,
           "oxygen_used": 6.0,
           "oxygen_shortage": 0.0,
           "health_changes": [
             {
               "crew_id": "alex",
-              "before": 100,
-              "after": 100,
-              "medical_penalty": 0,
-              "medical_changes": [],
-              "food_received_fraction": 1.0,
-              "water_received_fraction": 1.0,
-              "nutrition_before": 0.0,
-              "nutrition_after": 0.0,
-              "hydration_before": 0.0,
-              "hydration_after": 0.0,
-              "recovery": 0,
-              "worked": false,
-              "rested": false,
-              "food_penalty": 0,
-              "water_penalty": 0,
-              "oxygen_penalty": 0,
-              "co2_penalty": 0,
-              "died": false
-            },
-            {
-              "crew_id": "lin",
-              "before": 99,
-              "after": 100,
-              "medical_penalty": 0,
-              "medical_changes": [],
-              "food_received_fraction": 1.0,
-              "water_received_fraction": 1.0,
-              "nutrition_before": 0.0,
-              "nutrition_after": 0.0,
-              "hydration_before": 0.0,
-              "hydration_after": 0.0,
-              "recovery": 1,
-              "worked": false,
-              "rested": false,
-              "food_penalty": 0,
-              "water_penalty": 0,
-              "oxygen_penalty": 0,
-              "co2_penalty": 0,
-              "died": false
-            }
-          ]
-        },
-        "resource_changes": {
-          "food": -2.1,
-          "water": -2.876,
-          "oxygen": 1.0,
-          "electricity": 14.0,
-          "medicine": 0.0,
-          "repair_kits": 0.0,
-          "eva_batteries": 0.0,
-          "dust_kits": 0.0,
-          "oxygen_regulators": 0.0,
-          "diagnostic_tools": 0.0,
-          "sealant_packs": 0.0,
-          "scientific_tools": 0.0,
-          "research_data": 0.0,
-          "wastewater": -0.24,
-          "co2": 0.0
-        },
-        "deaths": [],
-        "next_event": {
-          "event_id": "impact_puncture",
-          "title": "Pinprick in the Pressure Line",
-          "effects": {
-            "medical_changes": [],
-            "resources": {
-              "oxygen": -4.0
-            },
-            "solar_efficiency": 0.0,
-            "oxygen_efficiency": 0.0,
-            "water_recovery_efficiency": 0.0,
-            "co2_efficiency": 0.0,
-            "health_changes": []
-          }
-        },
-        "ending": null
-      },
-      {
-        "project_updates": [
-          {
-            "project_id": "seismic-1",
-            "message": "Project complete; science recorded.",
-            "electricity_used": 0.0
-          }
-        ],
-        "assignments": [
-          {
-            "patient_id": null,
-            "condition_id": null,
-            "crew_id": "lin",
-            "activity_id": "project:seismic-1",
-            "status": "completed",
-            "outcome": {
-              "support_crew_ids": [],
-              "event_id": "impact_puncture",
-              "choice_id": "project:seismic-1",
-              "choice_text": "Analyze recordings (seismic-1)",
-              "selected_crew_id": "lin",
-              "success": true,
-              "success_probability": 0.95,
-              "costs": {
-                "electricity": 2.0
-              },
-              "effects": {
-                "medical_changes": [],
-                "resources": {
-                  "research_data": 2.0
-                },
-                "solar_efficiency": 0.0,
-                "oxygen_efficiency": 0.0,
-                "water_recovery_efficiency": 0.0,
-                "co2_efficiency": 0.0,
-                "health_changes": []
-              },
-              "objective_progress": [
-                {
-                  "objective_id": "seismology",
-                  "title": "Seismic baseline",
-                  "amount": 1
-                }
-              ]
-            },
-            "reason": null
-          }
-        ],
-        "science_gains": [
-          {
-            "objective_id": "seismology",
-            "title": "Seismic baseline",
-            "amount": 1
-          }
-        ],
-        "week": 11,
-        "event": {
-          "support_crew_ids": [],
-          "event_id": "impact_puncture",
-          "choice_id": "isolate_pressure",
-          "choice_text": "Isolate the line",
-          "selected_crew_id": null,
-          "success": true,
-          "success_probability": 1.0,
-          "costs": {},
-          "effects": {
-            "medical_changes": [],
-            "resources": {
-              "oxygen": -6.0
-            },
-            "solar_efficiency": 0.0,
-            "oxygen_efficiency": 0.0,
-            "water_recovery_efficiency": 0.0,
-            "co2_efficiency": 0.0,
-            "health_changes": []
-          },
-          "objective_progress": []
-        },
-        "rations": {
-          "alex": {
-            "food": "normal",
-            "water": "normal"
-          },
-          "lin": {
-            "food": "normal",
-            "water": "normal"
-          }
-        },
-        "survival": {
-          "life_support": {
-            "wastewater_processed": 3.2,
-            "water_recovered": 2.56,
-            "water_for_oxygen": 1.05,
-            "wastewater_captured": 3.04,
-            "oxygen_generated": 10.5,
-            "co2_produced": 2.0,
-            "co2_removed": 2.0,
-            "co2_remaining": 0.0,
-            "power_components": {
-              "habitat": 8.0,
-              "water_recovery": 2.0,
-              "oxygen_generation": 4.0,
-              "co2_removal": 2.0
-            }
-          },
-          "daylight_fraction": 0.546643,
-          "battery_capacity": 100.0,
-          "electricity_curtailed": 0.0,
-          "project_electricity_used": 0.0,
-          "power_priority": "life_support",
-          "ration_requirements": {
-            "food": 2.1,
-            "water": 3.8
-          },
-          "ration_costs": {
-            "food": 2.1,
-            "water": 3.8
-          },
-          "ration_depletion_fractions": {
-            "food": 0.0,
-            "water": 0.0
-          },
-          "electricity_generated": 19.679148,
-          "electricity_required": 16.0,
-          "electricity_used": 16.0,
-          "life_support_power_fraction": 1.0,
-          "oxygen_generated": 10.5,
-          "oxygen_required": 6.0,
-          "oxygen_used": 6.0,
-          "oxygen_shortage": 0.0,
-          "health_changes": [
-            {
-              "crew_id": "alex",
-              "before": 100,
-              "after": 100,
-              "medical_penalty": 0,
-              "medical_changes": [],
-              "food_received_fraction": 1.0,
-              "water_received_fraction": 1.0,
-              "nutrition_before": 0.0,
-              "nutrition_after": 0.0,
-              "hydration_before": 0.0,
-              "hydration_after": 0.0,
-              "recovery": 0,
-              "worked": false,
-              "rested": false,
-              "food_penalty": 0,
-              "water_penalty": 0,
-              "oxygen_penalty": 0,
-              "co2_penalty": 0,
-              "died": false
-            },
-            {
-              "crew_id": "lin",
-              "before": 100,
-              "after": 100,
-              "medical_penalty": 0,
-              "medical_changes": [],
-              "food_received_fraction": 1.0,
-              "water_received_fraction": 1.0,
-              "nutrition_before": 0.0,
-              "nutrition_after": 0.0,
-              "hydration_before": 0.0,
-              "hydration_after": 0.0,
-              "recovery": 0,
-              "worked": true,
-              "rested": false,
-              "food_penalty": 0,
-              "water_penalty": 0,
-              "oxygen_penalty": 0,
-              "co2_penalty": 0,
-              "died": false
-            }
-          ]
-        },
-        "resource_changes": {
-          "food": -2.1,
-          "water": -2.29,
-          "oxygen": -1.5,
-          "electricity": 1.679148,
-          "medicine": 0.0,
-          "repair_kits": 0.0,
-          "eva_batteries": 0.0,
-          "dust_kits": 0.0,
-          "oxygen_regulators": 0.0,
-          "diagnostic_tools": 0.0,
-          "sealant_packs": 0.0,
-          "scientific_tools": 0.0,
-          "research_data": 2.0,
-          "wastewater": -0.16,
-          "co2": 0.0
-        },
-        "deaths": [],
-        "next_event": {
-          "event_id": "scrubber_load",
-          "title": "Carbon Dioxide Scrubber Load",
-          "effects": {
-            "medical_changes": [],
-            "resources": {},
-            "solar_efficiency": 0.0,
-            "oxygen_efficiency": 0.0,
-            "water_recovery_efficiency": 0.0,
-            "co2_efficiency": -0.2,
-            "health_changes": []
-          }
-        },
-        "ending": null
-      },
-      {
-        "project_updates": [],
-        "assignments": [],
-        "science_gains": [],
-        "week": 12,
-        "event": {
-          "support_crew_ids": [],
-          "event_id": "scrubber_load",
-          "choice_id": "scrubber_risk",
-          "choice_text": "Run at reduced air-processing capacity",
-          "selected_crew_id": null,
-          "success": true,
-          "success_probability": 1.0,
-          "costs": {},
-          "effects": {
-            "medical_changes": [],
-            "resources": {},
-            "solar_efficiency": 0.0,
-            "oxygen_efficiency": 0.0,
-            "water_recovery_efficiency": 0.0,
-            "co2_efficiency": -0.2,
-            "health_changes": [
-              {
-                "crew_id": "alex",
-                "before": 100,
-                "after": 95
-              },
-              {
-                "crew_id": "lin",
-                "before": 100,
-                "after": 94
-              }
-            ]
-          },
-          "objective_progress": []
-        },
-        "rations": {
-          "alex": {
-            "food": "normal",
-            "water": "normal"
-          },
-          "lin": {
-            "food": "normal",
-            "water": "normal"
-          }
-        },
-        "survival": {
-          "life_support": {
-            "wastewater_processed": 3.12,
-            "water_recovered": 2.496,
-            "water_for_oxygen": 1.05,
-            "wastewater_captured": 3.04,
-            "oxygen_generated": 10.5,
-            "co2_produced": 2.0,
-            "co2_removed": 2.0,
-            "co2_remaining": 0.0,
-            "power_components": {
-              "habitat": 8.0,
-              "water_recovery": 2.0,
-              "oxygen_generation": 4.0,
-              "co2_removal": 2.0
-            }
-          },
-          "daylight_fraction": 0.0,
-          "battery_capacity": 100.0,
-          "electricity_curtailed": 0.0,
-          "project_electricity_used": 0.0,
-          "power_priority": "life_support",
-          "ration_requirements": {
-            "food": 2.1,
-            "water": 3.8
-          },
-          "ration_costs": {
-            "food": 2.1,
-            "water": 3.8
-          },
-          "ration_depletion_fractions": {
-            "food": 0.0,
-            "water": 0.0
-          },
-          "electricity_generated": 0.0,
-          "electricity_required": 16.0,
-          "electricity_used": 16.0,
-          "life_support_power_fraction": 1.0,
-          "oxygen_generated": 10.5,
-          "oxygen_required": 6.0,
-          "oxygen_used": 6.0,
-          "oxygen_shortage": 0.0,
-          "health_changes": [
-            {
-              "crew_id": "alex",
-              "before": 95,
-              "after": 97,
+              "before": 93,
+              "after": 95,
               "medical_penalty": 0,
               "medical_changes": [],
               "food_received_fraction": 1.0,
@@ -26587,9 +25796,9 @@ export const researchCompleted: GameResponse = {
         },
         "resource_changes": {
           "food": -2.1,
-          "water": -2.354,
-          "oxygen": 4.5,
-          "electricity": -16.0,
+          "water": -1.82,
+          "oxygen": 3.0,
+          "electricity": 2.15,
           "medicine": 0.0,
           "repair_kits": 0.0,
           "eva_batteries": 0.0,
@@ -26599,21 +25808,1057 @@ export const researchCompleted: GameResponse = {
           "sealant_packs": 0.0,
           "scientific_tools": 0.0,
           "research_data": 0.0,
-          "wastewater": -0.08,
+          "wastewater": -0.56,
           "co2": 0.0
         },
         "deaths": [],
+        "next_event": {
+          "event_id": "impact_puncture",
+          "title": "Pinprick in the Pressure Line",
+          "effects": {
+            "medical_changes": [],
+            "resources": {
+              "oxygen": -4.0
+            },
+            "solar_efficiency": 0.0,
+            "oxygen_efficiency": 0.0,
+            "water_recovery_efficiency": 0.0,
+            "co2_efficiency": 0.0,
+            "health_changes": []
+          }
+        },
+        "ending": null
+      },
+      {
+        "project_updates": [
+          {
+            "project_id": "seismic-1",
+            "message": "Recorded one week of seismic activity; no crew occupied.",
+            "electricity_used": 2.0
+          }
+        ],
+        "assignments": [],
+        "science_gains": [],
+        "week": 7,
+        "event": {
+          "support_crew_ids": [],
+          "event_id": "impact_puncture",
+          "choice_id": "isolate_pressure",
+          "choice_text": "Isolate the line",
+          "selected_crew_id": null,
+          "success": true,
+          "success_probability": 1.0,
+          "costs": {},
+          "effects": {
+            "medical_changes": [],
+            "resources": {
+              "oxygen": -6.0
+            },
+            "solar_efficiency": 0.0,
+            "oxygen_efficiency": 0.0,
+            "water_recovery_efficiency": 0.0,
+            "co2_efficiency": 0.0,
+            "health_changes": []
+          },
+          "objective_progress": []
+        },
+        "rations": {
+          "alex": {
+            "food": "normal",
+            "water": "normal"
+          },
+          "lin": {
+            "food": "normal",
+            "water": "normal"
+          }
+        },
+        "survival": {
+          "life_support": {
+            "wastewater_processed": 3.52,
+            "water_recovered": 2.816,
+            "water_for_oxygen": 1.05,
+            "wastewater_captured": 3.04,
+            "oxygen_generated": 10.5,
+            "co2_produced": 2.0,
+            "co2_removed": 2.0,
+            "co2_remaining": 0.0,
+            "power_components": {
+              "habitat": 8.0,
+              "water_recovery": 2.0,
+              "oxygen_generation": 4.0,
+              "co2_removal": 2.0
+            }
+          },
+          "daylight_fraction": 0.327986,
+          "battery_capacity": 100.0,
+          "electricity_curtailed": 0.0,
+          "project_electricity_used": 2.0,
+          "power_priority": "life_support",
+          "ration_requirements": {
+            "food": 2.1,
+            "water": 3.8
+          },
+          "ration_costs": {
+            "food": 2.1,
+            "water": 3.8
+          },
+          "ration_depletion_fractions": {
+            "food": 0.0,
+            "water": 0.0
+          },
+          "electricity_generated": 6.608918,
+          "electricity_required": 16.0,
+          "electricity_used": 16.0,
+          "life_support_power_fraction": 1.0,
+          "oxygen_generated": 10.5,
+          "oxygen_required": 6.0,
+          "oxygen_used": 6.0,
+          "oxygen_shortage": 0.0,
+          "health_changes": [
+            {
+              "crew_id": "alex",
+              "before": 95,
+              "after": 97,
+              "medical_penalty": 0,
+              "medical_changes": [],
+              "food_received_fraction": 1.0,
+              "water_received_fraction": 1.0,
+              "nutrition_before": 0.0,
+              "nutrition_after": 0.0,
+              "hydration_before": 0.0,
+              "hydration_after": 0.0,
+              "recovery": 2,
+              "worked": false,
+              "rested": false,
+              "food_penalty": 0,
+              "water_penalty": 0,
+              "oxygen_penalty": 0,
+              "co2_penalty": 0,
+              "died": false
+            },
+            {
+              "crew_id": "lin",
+              "before": 96,
+              "after": 98,
+              "medical_penalty": 0,
+              "medical_changes": [],
+              "food_received_fraction": 1.0,
+              "water_received_fraction": 1.0,
+              "nutrition_before": 0.0,
+              "nutrition_after": 0.0,
+              "hydration_before": 0.0,
+              "hydration_after": 0.0,
+              "recovery": 2,
+              "worked": false,
+              "rested": false,
+              "food_penalty": 0,
+              "water_penalty": 0,
+              "oxygen_penalty": 0,
+              "co2_penalty": 0,
+              "died": false
+            }
+          ]
+        },
+        "resource_changes": {
+          "food": -2.1,
+          "water": -2.034,
+          "oxygen": -1.5,
+          "electricity": -11.391082,
+          "medicine": 0.0,
+          "repair_kits": 0.0,
+          "eva_batteries": 0.0,
+          "dust_kits": 0.0,
+          "oxygen_regulators": 0.0,
+          "diagnostic_tools": 0.0,
+          "sealant_packs": 0.0,
+          "scientific_tools": 0.0,
+          "research_data": 0.0,
+          "wastewater": -0.48,
+          "co2": 0.0
+        },
+        "deaths": [],
+        "next_event": {
+          "event_id": "inventory_audit",
+          "title": "A Crate in the Ledger",
+          "effects": {
+            "medical_changes": [],
+            "resources": {},
+            "solar_efficiency": 0.0,
+            "oxygen_efficiency": 0.0,
+            "water_recovery_efficiency": 0.0,
+            "co2_efficiency": 0.0,
+            "health_changes": []
+          }
+        },
+        "ending": null
+      },
+      {
+        "project_updates": [
+          {
+            "project_id": "seismic-1",
+            "message": "Waiting for allocated power; no charge or recording progress.",
+            "electricity_used": 0.0
+          }
+        ],
+        "assignments": [],
+        "science_gains": [],
+        "week": 8,
+        "event": {
+          "support_crew_ids": [],
+          "event_id": "inventory_audit",
+          "choice_id": "quarantine_crate",
+          "choice_text": "Leave the unverified crate quarantined",
+          "selected_crew_id": null,
+          "success": true,
+          "success_probability": 1.0,
+          "costs": {},
+          "effects": {
+            "medical_changes": [],
+            "resources": {},
+            "solar_efficiency": 0.0,
+            "oxygen_efficiency": 0.0,
+            "water_recovery_efficiency": 0.0,
+            "co2_efficiency": 0.0,
+            "health_changes": []
+          },
+          "objective_progress": []
+        },
+        "rations": {
+          "alex": {
+            "food": "normal",
+            "water": "normal"
+          },
+          "lin": {
+            "food": "normal",
+            "water": "normal"
+          }
+        },
+        "survival": {
+          "life_support": {
+            "wastewater_processed": 2.052149,
+            "water_recovered": 1.641719,
+            "water_for_oxygen": 0.626383,
+            "wastewater_captured": 3.04,
+            "oxygen_generated": 6.263826,
+            "co2_produced": 2.0,
+            "co2_removed": 1.950734,
+            "co2_remaining": 0.049266,
+            "power_components": {
+              "habitat": 8.0,
+              "water_recovery": 2.0,
+              "oxygen_generation": 4.0,
+              "co2_removal": 2.0
+            }
+          },
+          "daylight_fraction": 0.0,
+          "battery_capacity": 100.0,
+          "electricity_curtailed": 0.0,
+          "project_electricity_used": 0.0,
+          "power_priority": "life_support",
+          "ration_requirements": {
+            "food": 2.1,
+            "water": 3.8
+          },
+          "ration_costs": {
+            "food": 2.1,
+            "water": 3.8
+          },
+          "ration_depletion_fractions": {
+            "food": 0.0,
+            "water": 0.0
+          },
+          "electricity_generated": 0.0,
+          "electricity_required": 16.0,
+          "electricity_used": 9.544878,
+          "life_support_power_fraction": 0.596555,
+          "oxygen_generated": 6.263826,
+          "oxygen_required": 6.0,
+          "oxygen_used": 6.0,
+          "oxygen_shortage": 0.0,
+          "health_changes": [
+            {
+              "crew_id": "alex",
+              "before": 97,
+              "after": 99,
+              "medical_penalty": 0,
+              "medical_changes": [],
+              "food_received_fraction": 1.0,
+              "water_received_fraction": 1.0,
+              "nutrition_before": 0.0,
+              "nutrition_after": 0.0,
+              "hydration_before": 0.0,
+              "hydration_after": 0.0,
+              "recovery": 2,
+              "worked": false,
+              "rested": false,
+              "food_penalty": 0,
+              "water_penalty": 0,
+              "oxygen_penalty": 0,
+              "co2_penalty": 0,
+              "died": false
+            },
+            {
+              "crew_id": "lin",
+              "before": 98,
+              "after": 100,
+              "medical_penalty": 0,
+              "medical_changes": [],
+              "food_received_fraction": 1.0,
+              "water_received_fraction": 1.0,
+              "nutrition_before": 0.0,
+              "nutrition_after": 0.0,
+              "hydration_before": 0.0,
+              "hydration_after": 0.0,
+              "recovery": 2,
+              "worked": false,
+              "rested": false,
+              "food_penalty": 0,
+              "water_penalty": 0,
+              "oxygen_penalty": 0,
+              "co2_penalty": 0,
+              "died": false
+            }
+          ]
+        },
+        "resource_changes": {
+          "food": -2.1,
+          "water": -2.784664,
+          "oxygen": 0.263826,
+          "electricity": -9.544878,
+          "medicine": 0.0,
+          "repair_kits": 0.0,
+          "eva_batteries": 0.0,
+          "dust_kits": 0.0,
+          "oxygen_regulators": 0.0,
+          "diagnostic_tools": 0.0,
+          "sealant_packs": 0.0,
+          "scientific_tools": 0.0,
+          "research_data": 0.0,
+          "wastewater": 0.987851,
+          "co2": 0.049266
+        },
+        "deaths": [],
+        "next_event": {
+          "event_id": "solar_particle_alert",
+          "title": "Shelter Before the Storm",
+          "effects": {
+            "medical_changes": [],
+            "resources": {},
+            "solar_efficiency": 0.0,
+            "oxygen_efficiency": 0.0,
+            "water_recovery_efficiency": 0.0,
+            "co2_efficiency": 0.0,
+            "health_changes": []
+          }
+        },
+        "ending": null
+      },
+      {
+        "project_updates": [
+          {
+            "project_id": "seismic-1",
+            "message": "Waiting for allocated power; no charge or recording progress.",
+            "electricity_used": 0.0
+          }
+        ],
+        "assignments": [],
+        "science_gains": [],
+        "week": 9,
+        "event": {
+          "support_crew_ids": [],
+          "event_id": "solar_particle_alert",
+          "choice_id": "storm_wait",
+          "choice_text": "Use existing shielding",
+          "selected_crew_id": null,
+          "success": true,
+          "success_probability": 1.0,
+          "costs": {},
+          "effects": {
+            "medical_changes": [],
+            "resources": {},
+            "solar_efficiency": 0.0,
+            "oxygen_efficiency": 0.0,
+            "water_recovery_efficiency": 0.0,
+            "co2_efficiency": 0.0,
+            "health_changes": [
+              {
+                "crew_id": "alex",
+                "before": 99,
+                "after": 87
+              },
+              {
+                "crew_id": "lin",
+                "before": 100,
+                "after": 85
+              }
+            ]
+          },
+          "objective_progress": []
+        },
+        "rations": {
+          "alex": {
+            "food": "normal",
+            "water": "normal"
+          },
+          "lin": {
+            "food": "normal",
+            "water": "normal"
+          }
+        },
+        "survival": {
+          "life_support": {
+            "wastewater_processed": 2.381006,
+            "water_recovered": 1.904805,
+            "water_for_oxygen": 0.744064,
+            "wastewater_captured": 3.04,
+            "oxygen_generated": 7.440643,
+            "co2_produced": 2.0,
+            "co2_removed": 2.049266,
+            "co2_remaining": 0.0,
+            "power_components": {
+              "habitat": 8.0,
+              "water_recovery": 2.0,
+              "oxygen_generation": 4.0,
+              "co2_removal": 2.0
+            }
+          },
+          "daylight_fraction": 0.562686,
+          "battery_capacity": 100.0,
+          "electricity_curtailed": 0.0,
+          "project_electricity_used": 0.0,
+          "power_priority": "life_support",
+          "ration_requirements": {
+            "food": 2.1,
+            "water": 3.8
+          },
+          "ration_costs": {
+            "food": 2.1,
+            "water": 3.8
+          },
+          "ration_depletion_fractions": {
+            "food": 0.0,
+            "water": 0.0
+          },
+          "electricity_generated": 11.338123,
+          "electricity_required": 16.0,
+          "electricity_used": 11.338123,
+          "life_support_power_fraction": 0.708633,
+          "oxygen_generated": 7.440643,
+          "oxygen_required": 6.0,
+          "oxygen_used": 6.0,
+          "oxygen_shortage": 0.0,
+          "health_changes": [
+            {
+              "crew_id": "alex",
+              "before": 87,
+              "after": 89,
+              "medical_penalty": 0,
+              "medical_changes": [],
+              "food_received_fraction": 1.0,
+              "water_received_fraction": 1.0,
+              "nutrition_before": 0.0,
+              "nutrition_after": 0.0,
+              "hydration_before": 0.0,
+              "hydration_after": 0.0,
+              "recovery": 2,
+              "worked": false,
+              "rested": false,
+              "food_penalty": 0,
+              "water_penalty": 0,
+              "oxygen_penalty": 0,
+              "co2_penalty": 0,
+              "died": false
+            },
+            {
+              "crew_id": "lin",
+              "before": 85,
+              "after": 87,
+              "medical_penalty": 0,
+              "medical_changes": [],
+              "food_received_fraction": 1.0,
+              "water_received_fraction": 1.0,
+              "nutrition_before": 0.0,
+              "nutrition_after": 0.0,
+              "hydration_before": 0.0,
+              "hydration_after": 0.0,
+              "recovery": 2,
+              "worked": false,
+              "rested": false,
+              "food_penalty": 0,
+              "water_penalty": 0,
+              "oxygen_penalty": 0,
+              "co2_penalty": 0,
+              "died": false
+            }
+          ]
+        },
+        "resource_changes": {
+          "food": -2.1,
+          "water": -2.63926,
+          "oxygen": 1.440643,
+          "electricity": 0.0,
+          "medicine": 0.0,
+          "repair_kits": 0.0,
+          "eva_batteries": 0.0,
+          "dust_kits": 0.0,
+          "oxygen_regulators": 0.0,
+          "diagnostic_tools": 0.0,
+          "sealant_packs": 0.0,
+          "scientific_tools": 0.0,
+          "research_data": 0.0,
+          "wastewater": 0.658994,
+          "co2": -0.049266
+        },
+        "deaths": [],
+        "next_event": {
+          "event_id": "thermal_control",
+          "title": "Thermal Control Warning",
+          "effects": {
+            "medical_changes": [],
+            "resources": {},
+            "solar_efficiency": 0.0,
+            "oxygen_efficiency": 0.0,
+            "water_recovery_efficiency": 0.0,
+            "co2_efficiency": 0.0,
+            "health_changes": []
+          }
+        },
+        "ending": null
+      },
+      {
+        "project_updates": [
+          {
+            "project_id": "seismic-1",
+            "message": "Recorded one week of seismic activity; no crew occupied.",
+            "electricity_used": 2.0
+          }
+        ],
+        "assignments": [],
+        "science_gains": [],
+        "week": 10,
+        "event": {
+          "support_crew_ids": [],
+          "event_id": "thermal_control",
+          "choice_id": "thermal_shutdown",
+          "choice_text": "Reduce equipment activity",
+          "selected_crew_id": null,
+          "success": true,
+          "success_probability": 1.0,
+          "costs": {},
+          "effects": {
+            "medical_changes": [],
+            "resources": {
+              "oxygen": -8.204469
+            },
+            "solar_efficiency": 0.0,
+            "oxygen_efficiency": 0.0,
+            "water_recovery_efficiency": 0.0,
+            "co2_efficiency": 0.0,
+            "health_changes": []
+          },
+          "objective_progress": []
+        },
+        "rations": {
+          "alex": {
+            "food": "normal",
+            "water": "normal"
+          },
+          "lin": {
+            "food": "normal",
+            "water": "normal"
+          }
+        },
+        "survival": {
+          "life_support": {
+            "wastewater_processed": 3.28,
+            "water_recovered": 2.624,
+            "water_for_oxygen": 1.05,
+            "wastewater_captured": 3.04,
+            "oxygen_generated": 10.5,
+            "co2_produced": 2.0,
+            "co2_removed": 2.0,
+            "co2_remaining": 0.0,
+            "power_components": {
+              "habitat": 8.0,
+              "water_recovery": 2.0,
+              "oxygen_generation": 4.0,
+              "co2_removal": 2.0
+            }
+          },
+          "daylight_fraction": 1.0,
+          "battery_capacity": 100.0,
+          "electricity_curtailed": 0.0,
+          "project_electricity_used": 2.0,
+          "power_priority": "life_support",
+          "ration_requirements": {
+            "food": 2.1,
+            "water": 3.8
+          },
+          "ration_costs": {
+            "food": 2.1,
+            "water": 3.8
+          },
+          "ration_depletion_fractions": {
+            "food": 0.0,
+            "water": 0.0
+          },
+          "electricity_generated": 20.15,
+          "electricity_required": 16.0,
+          "electricity_used": 16.0,
+          "life_support_power_fraction": 1.0,
+          "oxygen_generated": 10.5,
+          "oxygen_required": 6.0,
+          "oxygen_used": 6.0,
+          "oxygen_shortage": 0.0,
+          "health_changes": [
+            {
+              "crew_id": "alex",
+              "before": 89,
+              "after": 91,
+              "medical_penalty": 0,
+              "medical_changes": [],
+              "food_received_fraction": 1.0,
+              "water_received_fraction": 1.0,
+              "nutrition_before": 0.0,
+              "nutrition_after": 0.0,
+              "hydration_before": 0.0,
+              "hydration_after": 0.0,
+              "recovery": 2,
+              "worked": false,
+              "rested": false,
+              "food_penalty": 0,
+              "water_penalty": 0,
+              "oxygen_penalty": 0,
+              "co2_penalty": 0,
+              "died": false
+            },
+            {
+              "crew_id": "lin",
+              "before": 87,
+              "after": 89,
+              "medical_penalty": 0,
+              "medical_changes": [],
+              "food_received_fraction": 1.0,
+              "water_received_fraction": 1.0,
+              "nutrition_before": 0.0,
+              "nutrition_after": 0.0,
+              "hydration_before": 0.0,
+              "hydration_after": 0.0,
+              "recovery": 2,
+              "worked": false,
+              "rested": false,
+              "food_penalty": 0,
+              "water_penalty": 0,
+              "oxygen_penalty": 0,
+              "co2_penalty": 0,
+              "died": false
+            }
+          ]
+        },
+        "resource_changes": {
+          "food": -2.1,
+          "water": -2.226,
+          "oxygen": -3.704469,
+          "electricity": 2.15,
+          "medicine": 0.0,
+          "repair_kits": 0.0,
+          "eva_batteries": 0.0,
+          "dust_kits": 0.0,
+          "oxygen_regulators": 0.0,
+          "diagnostic_tools": 0.0,
+          "sealant_packs": 0.0,
+          "scientific_tools": 0.0,
+          "research_data": 0.0,
+          "wastewater": -0.24,
+          "co2": 0.0
+        },
+        "deaths": [],
+        "next_event": {
+          "event_id": "crew_recovery",
+          "title": "A Week for Recovery",
+          "effects": {
+            "medical_changes": [],
+            "resources": {},
+            "solar_efficiency": 0.0,
+            "oxygen_efficiency": 0.0,
+            "water_recovery_efficiency": 0.0,
+            "co2_efficiency": 0.0,
+            "health_changes": []
+          }
+        },
+        "ending": null
+      },
+      {
+        "project_updates": [
+          {
+            "project_id": "seismic-1",
+            "message": "Project complete; science recorded.",
+            "electricity_used": 0.0
+          }
+        ],
+        "assignments": [
+          {
+            "patient_id": null,
+            "condition_id": null,
+            "crew_id": "lin",
+            "activity_id": "project:seismic-1",
+            "status": "completed",
+            "outcome": {
+              "support_crew_ids": [],
+              "event_id": "crew_recovery",
+              "choice_id": "project:seismic-1",
+              "choice_text": "Analyze recordings (seismic-1)",
+              "selected_crew_id": "lin",
+              "success": true,
+              "success_probability": 0.95,
+              "costs": {
+                "electricity": 2.0
+              },
+              "effects": {
+                "medical_changes": [],
+                "resources": {
+                  "research_data": 2.0
+                },
+                "solar_efficiency": 0.0,
+                "oxygen_efficiency": 0.0,
+                "water_recovery_efficiency": 0.0,
+                "co2_efficiency": 0.0,
+                "health_changes": []
+              },
+              "objective_progress": [
+                {
+                  "objective_id": "seismology",
+                  "title": "Seismic baseline",
+                  "amount": 1
+                }
+              ]
+            },
+            "reason": null
+          }
+        ],
+        "science_gains": [
+          {
+            "objective_id": "seismology",
+            "title": "Seismic baseline",
+            "amount": 1
+          }
+        ],
+        "week": 11,
+        "event": {
+          "support_crew_ids": [],
+          "event_id": "crew_recovery",
+          "choice_id": "structured_recovery",
+          "choice_text": "Follow a structured recovery schedule",
+          "selected_crew_id": null,
+          "success": true,
+          "success_probability": 1.0,
+          "costs": {
+            "food": 1.0,
+            "water": 1.0
+          },
+          "effects": {
+            "medical_changes": [],
+            "resources": {},
+            "solar_efficiency": 0.0,
+            "oxygen_efficiency": 0.0,
+            "water_recovery_efficiency": 0.0,
+            "co2_efficiency": 0.0,
+            "health_changes": [
+              {
+                "crew_id": "alex",
+                "before": 91,
+                "after": 97
+              },
+              {
+                "crew_id": "lin",
+                "before": 89,
+                "after": 95
+              }
+            ]
+          },
+          "objective_progress": []
+        },
+        "rations": {
+          "alex": {
+            "food": "normal",
+            "water": "normal"
+          },
+          "lin": {
+            "food": "normal",
+            "water": "normal"
+          }
+        },
+        "survival": {
+          "life_support": {
+            "wastewater_processed": 2.232971,
+            "water_recovered": 1.786377,
+            "water_for_oxygen": 0.732694,
+            "wastewater_captured": 3.04,
+            "oxygen_generated": 7.326937,
+            "co2_produced": 2.0,
+            "co2_removed": 2.0,
+            "co2_remaining": 0.0,
+            "power_components": {
+              "habitat": 8.0,
+              "water_recovery": 2.0,
+              "oxygen_generation": 4.0,
+              "co2_removal": 2.0
+            }
+          },
+          "daylight_fraction": 0.546643,
+          "battery_capacity": 100.0,
+          "electricity_curtailed": 0.0,
+          "project_electricity_used": 0.0,
+          "power_priority": "life_support",
+          "ration_requirements": {
+            "food": 2.1,
+            "water": 3.8
+          },
+          "ration_costs": {
+            "food": 2.1,
+            "water": 3.8
+          },
+          "ration_depletion_fractions": {
+            "food": 0.0,
+            "water": 0.0
+          },
+          "electricity_generated": 11.014856,
+          "electricity_required": 16.0,
+          "electricity_used": 11.164856,
+          "life_support_power_fraction": 0.697804,
+          "oxygen_generated": 7.326937,
+          "oxygen_required": 6.0,
+          "oxygen_used": 6.0,
+          "oxygen_shortage": 0.0,
+          "health_changes": [
+            {
+              "crew_id": "alex",
+              "before": 97,
+              "after": 99,
+              "medical_penalty": 0,
+              "medical_changes": [],
+              "food_received_fraction": 1.0,
+              "water_received_fraction": 1.0,
+              "nutrition_before": 0.0,
+              "nutrition_after": 0.0,
+              "hydration_before": 0.0,
+              "hydration_after": 0.0,
+              "recovery": 2,
+              "worked": false,
+              "rested": false,
+              "food_penalty": 0,
+              "water_penalty": 0,
+              "oxygen_penalty": 0,
+              "co2_penalty": 0,
+              "died": false
+            },
+            {
+              "crew_id": "lin",
+              "before": 95,
+              "after": 95,
+              "medical_penalty": 0,
+              "medical_changes": [],
+              "food_received_fraction": 1.0,
+              "water_received_fraction": 1.0,
+              "nutrition_before": 0.0,
+              "nutrition_after": 0.0,
+              "hydration_before": 0.0,
+              "hydration_after": 0.0,
+              "recovery": 0,
+              "worked": true,
+              "rested": false,
+              "food_penalty": 0,
+              "water_penalty": 0,
+              "oxygen_penalty": 0,
+              "co2_penalty": 0,
+              "died": false
+            }
+          ]
+        },
+        "resource_changes": {
+          "food": -3.1,
+          "water": -3.746317,
+          "oxygen": 1.326937,
+          "electricity": -2.15,
+          "medicine": 0.0,
+          "repair_kits": 0.0,
+          "eva_batteries": 0.0,
+          "dust_kits": 0.0,
+          "oxygen_regulators": 0.0,
+          "diagnostic_tools": 0.0,
+          "sealant_packs": 0.0,
+          "scientific_tools": 0.0,
+          "research_data": 2.0,
+          "wastewater": 0.807029,
+          "co2": 0.0
+        },
+        "deaths": [],
+        "next_event": {
+          "event_id": "geology_window",
+          "title": "Fresh Geological Exposure",
+          "effects": {
+            "medical_changes": [],
+            "resources": {},
+            "solar_efficiency": 0.0,
+            "oxygen_efficiency": 0.0,
+            "water_recovery_efficiency": 0.0,
+            "co2_efficiency": 0.0,
+            "health_changes": []
+          }
+        },
+        "ending": null
+      },
+      {
+        "project_updates": [],
+        "assignments": [],
+        "science_gains": [],
+        "week": 12,
+        "event": {
+          "support_crew_ids": [],
+          "event_id": "geology_window",
+          "choice_id": "defer_geology",
+          "choice_text": "Defer the survey",
+          "selected_crew_id": null,
+          "success": true,
+          "success_probability": 1.0,
+          "costs": {},
+          "effects": {
+            "medical_changes": [],
+            "resources": {},
+            "solar_efficiency": 0.0,
+            "oxygen_efficiency": 0.0,
+            "water_recovery_efficiency": 0.0,
+            "co2_efficiency": 0.0,
+            "health_changes": []
+          },
+          "objective_progress": []
+        },
+        "rations": {
+          "alex": {
+            "food": "normal",
+            "water": "normal"
+          },
+          "lin": {
+            "food": "normal",
+            "water": "normal"
+          }
+        },
+        "survival": {
+          "life_support": {
+            "wastewater_processed": 0.0,
+            "water_recovered": 0.0,
+            "water_for_oxygen": 0.0,
+            "wastewater_captured": 3.04,
+            "oxygen_generated": 0.0,
+            "co2_produced": 2.0,
+            "co2_removed": 0.0,
+            "co2_remaining": 2.0,
+            "power_components": {
+              "habitat": 8.0,
+              "water_recovery": 2.0,
+              "oxygen_generation": 4.0,
+              "co2_removal": 2.0
+            }
+          },
+          "daylight_fraction": 0.0,
+          "battery_capacity": 100.0,
+          "electricity_curtailed": 0.0,
+          "project_electricity_used": 0.0,
+          "power_priority": "life_support",
+          "ration_requirements": {
+            "food": 2.1,
+            "water": 3.8
+          },
+          "ration_costs": {
+            "food": 2.1,
+            "water": 3.8
+          },
+          "ration_depletion_fractions": {
+            "food": 0.0,
+            "water": 0.0
+          },
+          "electricity_generated": 0.0,
+          "electricity_required": 16.0,
+          "electricity_used": 0.0,
+          "life_support_power_fraction": 0.0,
+          "oxygen_generated": 0.0,
+          "oxygen_required": 6.0,
+          "oxygen_used": 5.826937,
+          "oxygen_shortage": 0.173063,
+          "health_changes": [
+            {
+              "crew_id": "alex",
+              "before": 99,
+              "after": 97,
+              "medical_penalty": 0,
+              "medical_changes": [],
+              "food_received_fraction": 1.0,
+              "water_received_fraction": 1.0,
+              "nutrition_before": 0.0,
+              "nutrition_after": 0.0,
+              "hydration_before": 0.0,
+              "hydration_after": 0.0,
+              "recovery": 0,
+              "worked": false,
+              "rested": false,
+              "food_penalty": 0,
+              "water_penalty": 0,
+              "oxygen_penalty": 2,
+              "co2_penalty": 0,
+              "died": false
+            },
+            {
+              "crew_id": "lin",
+              "before": 95,
+              "after": 93,
+              "medical_penalty": 0,
+              "medical_changes": [],
+              "food_received_fraction": 1.0,
+              "water_received_fraction": 1.0,
+              "nutrition_before": 0.0,
+              "nutrition_after": 0.0,
+              "hydration_before": 0.0,
+              "hydration_after": 0.0,
+              "recovery": 0,
+              "worked": false,
+              "rested": false,
+              "food_penalty": 0,
+              "water_penalty": 0,
+              "oxygen_penalty": 2,
+              "co2_penalty": 0,
+              "died": false
+            }
+          ]
+        },
+        "resource_changes": {
+          "food": -2.1,
+          "water": -3.8,
+          "oxygen": -5.826937,
+          "electricity": 0.0,
+          "medicine": 0.0,
+          "repair_kits": 0.0,
+          "eva_batteries": 0.0,
+          "dust_kits": 0.0,
+          "oxygen_regulators": 0.0,
+          "diagnostic_tools": 0.0,
+          "sealant_packs": 0.0,
+          "scientific_tools": 0.0,
+          "research_data": 0.0,
+          "wastewater": 3.04,
+          "co2": 2.0
+        },
+        "deaths": [],
         "next_event": null,
-        "ending": "successful_handover"
+        "ending": "emergency_handover"
       }
     ],
     "status": "completed",
-    "random_seed": 0,
+    "random_seed": 1,
     "initial_crew_size": 2,
     "weeks_completed": 12,
-    "ending": "successful_handover",
+    "ending": "emergency_handover",
     "results": {
-      "ending": "successful_handover",
+      "ending": "emergency_handover",
       "weeks_survived": 12,
       "initial_crew_size": 2,
       "surviving_crew_ids": [
@@ -26626,7 +26871,7 @@ export const researchCompleted: GameResponse = {
         "status": "complete",
         "completed_objectives": 3,
         "total_objectives": 3,
-        "research_data": 9.0,
+        "research_data": 8.0,
         "objectives": [
           {
             "id": "geology",
@@ -26676,7 +26921,7 @@ export const researchCompleted: GameResponse = {
       "status": "complete",
       "completed_objectives": 3,
       "total_objectives": 3,
-      "research_data": 9.0,
+      "research_data": 8.0,
       "objectives": [
         {
           "id": "geology",
@@ -26731,7 +26976,7 @@ export const supportGame: GameResponse = {
     "life_support": {
       "source_url": "https://www.nasa.gov/reference/environmental-control-and-life-support-systems-eclss/",
       "water_recovery_condition": 0.98,
-      "co2_condition": 0.985,
+      "co2_condition": 0.835,
       "wastewater": 14.4,
       "co2_burden": 0.0,
       "co2_warning_level": 4.0,
@@ -26751,7 +26996,7 @@ export const supportGame: GameResponse = {
     },
     "energy": {
       "battery_capacity": 100.0,
-      "stored": 46.0,
+      "stored": 33.25,
       "priority": "life_support",
       "life_support_required": 20.0,
       "solar_day_earth_days": 29.5306,
@@ -26764,7 +27009,7 @@ export const supportGame: GameResponse = {
           "daylight_days": 7.0,
           "darkness_days": 0.0,
           "phase": "daylight",
-          "electricity_generated": 36.0
+          "electricity_generated": 23.25
         },
         {
           "week": 3,
@@ -26772,7 +27017,7 @@ export const supportGame: GameResponse = {
           "daylight_days": 0.7653,
           "darkness_days": 6.2347,
           "phase": "mixed",
-          "electricity_generated": 3.935844
+          "electricity_generated": 2.541899
         },
         {
           "week": 4,
@@ -26788,7 +27033,7 @@ export const supportGame: GameResponse = {
           "daylight_days": 5.4694,
           "darkness_days": 1.5306,
           "phase": "mixed",
-          "electricity_generated": 28.128348
+          "electricity_generated": 18.166225
         },
         {
           "week": 6,
@@ -26796,7 +27041,7 @@ export const supportGame: GameResponse = {
           "daylight_days": 7.0,
           "darkness_days": 0.0,
           "phase": "daylight",
-          "electricity_generated": 36.0
+          "electricity_generated": 23.25
         },
         {
           "week": 7,
@@ -26804,7 +27049,7 @@ export const supportGame: GameResponse = {
           "daylight_days": 2.2959,
           "darkness_days": 4.7041,
           "phase": "mixed",
-          "electricity_generated": 11.807496
+          "electricity_generated": 7.625674
         },
         {
           "week": 8,
@@ -26820,7 +27065,7 @@ export const supportGame: GameResponse = {
           "daylight_days": 3.9388,
           "darkness_days": 3.0612,
           "phase": "mixed",
-          "electricity_generated": 20.256696
+          "electricity_generated": 13.08245
         },
         {
           "week": 10,
@@ -26828,7 +27073,7 @@ export const supportGame: GameResponse = {
           "daylight_days": 7.0,
           "darkness_days": 0.0,
           "phase": "daylight",
-          "electricity_generated": 36.0
+          "electricity_generated": 23.25
         },
         {
           "week": 11,
@@ -26836,7 +27081,7 @@ export const supportGame: GameResponse = {
           "daylight_days": 3.8265,
           "darkness_days": 3.1735,
           "phase": "mixed",
-          "electricity_generated": 19.679148
+          "electricity_generated": 12.70945
         },
         {
           "week": 12,
@@ -27139,7 +27384,7 @@ export const supportGame: GameResponse = {
       "food": 48.0,
       "water": 106.6,
       "oxygen": 24.0,
-      "electricity": 46.0,
+      "electricity": 33.25,
       "medicine": 8.0,
       "repair_kits": 10.0,
       "eva_batteries": 10.0,
@@ -27155,7 +27400,7 @@ export const supportGame: GameResponse = {
     "solar_efficiency": 0.75,
     "oxygen_efficiency": 0.75,
     "water_recovery_efficiency": 0.98,
-    "co2_efficiency": 0.985,
+    "co2_efficiency": 0.835,
     "current_event_id": "oxygen_fault",
     "current_event": {
       "id": "oxygen_fault",
@@ -27475,7 +27720,7 @@ export const supportGame: GameResponse = {
             "food": 0.0,
             "water": 0.0
           },
-          "electricity_generated": 36.0,
+          "electricity_generated": 23.25,
           "electricity_required": 20.0,
           "electricity_used": 20.0,
           "life_support_power_fraction": 1.0,
@@ -27574,7 +27819,7 @@ export const supportGame: GameResponse = {
           "food": -4.0,
           "water": -5.4,
           "oxygen": -6.0,
-          "electricity": 16.0,
+          "electricity": 3.25,
           "medicine": 0.0,
           "repair_kits": 0.0,
           "eva_batteries": 0.0,
@@ -28289,7 +28534,7 @@ export const parallelTurn: TurnResponse = {
     "life_support": {
       "source_url": "https://www.nasa.gov/reference/environmental-control-and-life-support-systems-eclss/",
       "water_recovery_condition": 0.96,
-      "co2_condition": 0.97,
+      "co2_condition": 0.82,
       "wastewater": 16.88,
       "co2_burden": 0.0,
       "co2_warning_level": 4.0,
@@ -28309,7 +28554,7 @@ export const parallelTurn: TurnResponse = {
     },
     "energy": {
       "battery_capacity": 100.0,
-      "stored": 57.0,
+      "stored": 31.5,
       "priority": "life_support",
       "life_support_required": 20.0,
       "solar_day_earth_days": 29.5306,
@@ -28322,7 +28567,7 @@ export const parallelTurn: TurnResponse = {
           "daylight_days": 0.7653,
           "darkness_days": 6.2347,
           "phase": "mixed",
-          "electricity_generated": 3.935844
+          "electricity_generated": 2.541899
         },
         {
           "week": 4,
@@ -28338,7 +28583,7 @@ export const parallelTurn: TurnResponse = {
           "daylight_days": 5.4694,
           "darkness_days": 1.5306,
           "phase": "mixed",
-          "electricity_generated": 28.128348
+          "electricity_generated": 18.166225
         },
         {
           "week": 6,
@@ -28346,7 +28591,7 @@ export const parallelTurn: TurnResponse = {
           "daylight_days": 7.0,
           "darkness_days": 0.0,
           "phase": "daylight",
-          "electricity_generated": 36.0
+          "electricity_generated": 23.25
         },
         {
           "week": 7,
@@ -28354,7 +28599,7 @@ export const parallelTurn: TurnResponse = {
           "daylight_days": 2.2959,
           "darkness_days": 4.7041,
           "phase": "mixed",
-          "electricity_generated": 11.807496
+          "electricity_generated": 7.625674
         },
         {
           "week": 8,
@@ -28370,7 +28615,7 @@ export const parallelTurn: TurnResponse = {
           "daylight_days": 3.9388,
           "darkness_days": 3.0612,
           "phase": "mixed",
-          "electricity_generated": 20.256696
+          "electricity_generated": 13.08245
         },
         {
           "week": 10,
@@ -28378,7 +28623,7 @@ export const parallelTurn: TurnResponse = {
           "daylight_days": 7.0,
           "darkness_days": 0.0,
           "phase": "daylight",
-          "electricity_generated": 36.0
+          "electricity_generated": 23.25
         },
         {
           "week": 11,
@@ -28386,7 +28631,7 @@ export const parallelTurn: TurnResponse = {
           "daylight_days": 3.8265,
           "darkness_days": 3.1735,
           "phase": "mixed",
-          "electricity_generated": 19.679148
+          "electricity_generated": 12.70945
         },
         {
           "week": 12,
@@ -28757,7 +29002,7 @@ export const parallelTurn: TurnResponse = {
       "food": 44.0,
       "water": 100.406,
       "oxygen": 23.3,
-      "electricity": 57.0,
+      "electricity": 31.5,
       "medicine": 8.0,
       "repair_kits": 9.0,
       "eva_batteries": 9.0,
@@ -28773,7 +29018,7 @@ export const parallelTurn: TurnResponse = {
     "solar_efficiency": 0.75,
     "oxygen_efficiency": 0.95,
     "water_recovery_efficiency": 0.96,
-    "co2_efficiency": 0.97,
+    "co2_efficiency": 0.82,
     "current_event_id": "medical_emergency",
     "current_event": {
       "id": "medical_emergency",
@@ -29180,7 +29425,7 @@ export const parallelTurn: TurnResponse = {
             "food": 0.0,
             "water": 0.0
           },
-          "electricity_generated": 36.0,
+          "electricity_generated": 23.25,
           "electricity_required": 20.0,
           "electricity_used": 20.0,
           "life_support_power_fraction": 1.0,
@@ -29279,7 +29524,7 @@ export const parallelTurn: TurnResponse = {
           "food": -4.0,
           "water": -5.4,
           "oxygen": -6.0,
-          "electricity": 16.0,
+          "electricity": 3.25,
           "medicine": 0.0,
           "repair_kits": 0.0,
           "eva_batteries": 0.0,
@@ -29479,7 +29724,7 @@ export const parallelTurn: TurnResponse = {
             "food": 0.0,
             "water": 0.0
           },
-          "electricity_generated": 36.0,
+          "electricity_generated": 23.25,
           "electricity_required": 20.0,
           "electricity_used": 20.0,
           "life_support_power_fraction": 1.0,
@@ -29578,7 +29823,7 @@ export const parallelTurn: TurnResponse = {
           "food": -4.0,
           "water": -6.194,
           "oxygen": -0.7,
-          "electricity": 11.0,
+          "electricity": -1.75,
           "medicine": 0.0,
           "repair_kits": -1.0,
           "eva_batteries": -1.0,
@@ -30633,7 +30878,7 @@ export const parallelTurn: TurnResponse = {
         "food": 0.0,
         "water": 0.0
       },
-      "electricity_generated": 36.0,
+      "electricity_generated": 23.25,
       "electricity_required": 20.0,
       "electricity_used": 20.0,
       "life_support_power_fraction": 1.0,
@@ -30732,7 +30977,7 @@ export const parallelTurn: TurnResponse = {
       "food": -4.0,
       "water": -6.194,
       "oxygen": -0.7,
-      "electricity": 11.0,
+      "electricity": -1.75,
       "medicine": 0.0,
       "repair_kits": -1.0,
       "eva_batteries": -1.0,
@@ -30851,7 +31096,7 @@ export const projectRecording: GameResponse = {
     "life_support": {
       "source_url": "https://www.nasa.gov/reference/environmental-control-and-life-support-systems-eclss/",
       "water_recovery_condition": 0.98,
-      "co2_condition": 0.985,
+      "co2_condition": 0.835,
       "wastewater": 11.04,
       "co2_burden": 0.0,
       "co2_warning_level": 4.0,
@@ -30871,7 +31116,7 @@ export const projectRecording: GameResponse = {
     },
     "energy": {
       "battery_capacity": 100.0,
-      "stored": 52.0,
+      "stored": 39.25,
       "priority": "life_support",
       "life_support_required": 12.0,
       "solar_day_earth_days": 29.5306,
@@ -30884,7 +31129,7 @@ export const projectRecording: GameResponse = {
           "daylight_days": 7.0,
           "darkness_days": 0.0,
           "phase": "daylight",
-          "electricity_generated": 36.0
+          "electricity_generated": 23.25
         },
         {
           "week": 3,
@@ -30892,7 +31137,7 @@ export const projectRecording: GameResponse = {
           "daylight_days": 0.7653,
           "darkness_days": 6.2347,
           "phase": "mixed",
-          "electricity_generated": 3.935844
+          "electricity_generated": 2.541899
         },
         {
           "week": 4,
@@ -30908,7 +31153,7 @@ export const projectRecording: GameResponse = {
           "daylight_days": 5.4694,
           "darkness_days": 1.5306,
           "phase": "mixed",
-          "electricity_generated": 28.128348
+          "electricity_generated": 18.166225
         },
         {
           "week": 6,
@@ -30916,7 +31161,7 @@ export const projectRecording: GameResponse = {
           "daylight_days": 7.0,
           "darkness_days": 0.0,
           "phase": "daylight",
-          "electricity_generated": 36.0
+          "electricity_generated": 23.25
         },
         {
           "week": 7,
@@ -30924,7 +31169,7 @@ export const projectRecording: GameResponse = {
           "daylight_days": 2.2959,
           "darkness_days": 4.7041,
           "phase": "mixed",
-          "electricity_generated": 11.807496
+          "electricity_generated": 7.625674
         },
         {
           "week": 8,
@@ -30940,7 +31185,7 @@ export const projectRecording: GameResponse = {
           "daylight_days": 3.9388,
           "darkness_days": 3.0612,
           "phase": "mixed",
-          "electricity_generated": 20.256696
+          "electricity_generated": 13.08245
         },
         {
           "week": 10,
@@ -30948,7 +31193,7 @@ export const projectRecording: GameResponse = {
           "daylight_days": 7.0,
           "darkness_days": 0.0,
           "phase": "daylight",
-          "electricity_generated": 36.0
+          "electricity_generated": 23.25
         },
         {
           "week": 11,
@@ -30956,7 +31201,7 @@ export const projectRecording: GameResponse = {
           "daylight_days": 3.8265,
           "darkness_days": 3.1735,
           "phase": "mixed",
-          "electricity_generated": 19.679148
+          "electricity_generated": 12.70945
         },
         {
           "week": 12,
@@ -31145,7 +31390,7 @@ export const projectRecording: GameResponse = {
       "food": 49.9,
       "water": 111.4,
       "oxygen": 22.0,
-      "electricity": 52.0,
+      "electricity": 39.25,
       "medicine": 8.0,
       "repair_kits": 10.0,
       "eva_batteries": 9.0,
@@ -31161,7 +31406,7 @@ export const projectRecording: GameResponse = {
     "solar_efficiency": 0.75,
     "oxygen_efficiency": 0.75,
     "water_recovery_efficiency": 0.98,
-    "co2_efficiency": 0.985,
+    "co2_efficiency": 0.835,
     "current_event_id": "oxygen_fault",
     "current_event": {
       "id": "oxygen_fault",
@@ -31478,7 +31723,7 @@ export const projectRecording: GameResponse = {
             "food": 0.0,
             "water": 0.0
           },
-          "electricity_generated": 36.0,
+          "electricity_generated": 23.25,
           "electricity_required": 12.0,
           "electricity_used": 12.0,
           "life_support_power_fraction": 1.0,
@@ -31535,7 +31780,7 @@ export const projectRecording: GameResponse = {
           "food": -2.1,
           "water": -0.6,
           "oxygen": -8.0,
-          "electricity": 22.0,
+          "electricity": 9.25,
           "medicine": 0.0,
           "repair_kits": 0.0,
           "eva_batteries": -1.0,
@@ -32081,7 +32326,7 @@ export const projectPaused: GameResponse = {
     "life_support": {
       "source_url": "https://www.nasa.gov/reference/environmental-control-and-life-support-systems-eclss/",
       "water_recovery_condition": 0.96,
-      "co2_condition": 0.97,
+      "co2_condition": 0.82,
       "wastewater": 10.16,
       "co2_burden": 0.0,
       "co2_warning_level": 4.0,
@@ -32101,7 +32346,7 @@ export const projectPaused: GameResponse = {
     },
     "energy": {
       "battery_capacity": 100.0,
-      "stored": 76.0,
+      "stored": 50.5,
       "priority": "life_support",
       "life_support_required": 16.0,
       "solar_day_earth_days": 29.5306,
@@ -32114,7 +32359,7 @@ export const projectPaused: GameResponse = {
           "daylight_days": 0.7653,
           "darkness_days": 6.2347,
           "phase": "mixed",
-          "electricity_generated": 3.935844
+          "electricity_generated": 2.541899
         },
         {
           "week": 4,
@@ -32130,7 +32375,7 @@ export const projectPaused: GameResponse = {
           "daylight_days": 5.4694,
           "darkness_days": 1.5306,
           "phase": "mixed",
-          "electricity_generated": 28.128348
+          "electricity_generated": 18.166225
         },
         {
           "week": 6,
@@ -32138,7 +32383,7 @@ export const projectPaused: GameResponse = {
           "daylight_days": 7.0,
           "darkness_days": 0.0,
           "phase": "daylight",
-          "electricity_generated": 36.0
+          "electricity_generated": 23.25
         },
         {
           "week": 7,
@@ -32146,7 +32391,7 @@ export const projectPaused: GameResponse = {
           "daylight_days": 2.2959,
           "darkness_days": 4.7041,
           "phase": "mixed",
-          "electricity_generated": 11.807496
+          "electricity_generated": 7.625674
         },
         {
           "week": 8,
@@ -32162,7 +32407,7 @@ export const projectPaused: GameResponse = {
           "daylight_days": 3.9388,
           "darkness_days": 3.0612,
           "phase": "mixed",
-          "electricity_generated": 20.256696
+          "electricity_generated": 13.08245
         },
         {
           "week": 10,
@@ -32170,7 +32415,7 @@ export const projectPaused: GameResponse = {
           "daylight_days": 7.0,
           "darkness_days": 0.0,
           "phase": "daylight",
-          "electricity_generated": 36.0
+          "electricity_generated": 23.25
         },
         {
           "week": 11,
@@ -32178,7 +32423,7 @@ export const projectPaused: GameResponse = {
           "daylight_days": 3.8265,
           "darkness_days": 3.1735,
           "phase": "mixed",
-          "electricity_generated": 19.679148
+          "electricity_generated": 12.70945
         },
         {
           "week": 12,
@@ -32401,7 +32646,7 @@ export const projectPaused: GameResponse = {
       "food": 47.8,
       "water": 110.736,
       "oxygen": 16.0,
-      "electricity": 76.0,
+      "electricity": 50.5,
       "medicine": 8.0,
       "repair_kits": 10.0,
       "eva_batteries": 9.0,
@@ -32417,7 +32662,7 @@ export const projectPaused: GameResponse = {
     "solar_efficiency": 0.75,
     "oxygen_efficiency": 0.75,
     "water_recovery_efficiency": 0.96,
-    "co2_efficiency": 0.97,
+    "co2_efficiency": 0.82,
     "current_event_id": "medical_emergency",
     "current_event": {
       "id": "medical_emergency",
@@ -32805,7 +33050,7 @@ export const projectPaused: GameResponse = {
             "food": 0.0,
             "water": 0.0
           },
-          "electricity_generated": 36.0,
+          "electricity_generated": 23.25,
           "electricity_required": 12.0,
           "electricity_used": 12.0,
           "life_support_power_fraction": 1.0,
@@ -32862,7 +33107,7 @@ export const projectPaused: GameResponse = {
           "food": -2.1,
           "water": -0.6,
           "oxygen": -8.0,
-          "electricity": 22.0,
+          "electricity": 9.25,
           "medicine": 0.0,
           "repair_kits": 0.0,
           "eva_batteries": -1.0,
@@ -32966,7 +33211,7 @@ export const projectPaused: GameResponse = {
             "food": 0.0,
             "water": 0.0
           },
-          "electricity_generated": 36.0,
+          "electricity_generated": 23.25,
           "electricity_required": 12.0,
           "electricity_used": 12.0,
           "life_support_power_fraction": 1.0,
@@ -33023,7 +33268,7 @@ export const projectPaused: GameResponse = {
           "food": -2.1,
           "water": -0.664,
           "oxygen": -6.0,
-          "electricity": 24.0,
+          "electricity": 11.25,
           "medicine": 0.0,
           "repair_kits": 0.0,
           "eva_batteries": 0.0,
@@ -33742,7 +33987,7 @@ export const projectAnalysis: GameResponse = {
     "life_support": {
       "source_url": "https://www.nasa.gov/reference/environmental-control-and-life-support-systems-eclss/",
       "water_recovery_condition": 0.9,
-      "co2_condition": 0.925,
+      "co2_condition": 0.775,
       "wastewater": 8.0,
       "co2_burden": 0.0,
       "co2_warning_level": 4.0,
@@ -33762,7 +34007,7 @@ export const projectAnalysis: GameResponse = {
     },
     "energy": {
       "battery_capacity": 100.0,
-      "stored": 54.064192,
+      "stored": 17.208124,
       "priority": "life_support",
       "life_support_required": 16.0,
       "solar_day_earth_days": 29.5306,
@@ -33775,7 +34020,7 @@ export const projectAnalysis: GameResponse = {
           "daylight_days": 7.0,
           "darkness_days": 0.0,
           "phase": "daylight",
-          "electricity_generated": 36.0
+          "electricity_generated": 23.25
         },
         {
           "week": 7,
@@ -33783,7 +34028,7 @@ export const projectAnalysis: GameResponse = {
           "daylight_days": 2.2959,
           "darkness_days": 4.7041,
           "phase": "mixed",
-          "electricity_generated": 11.807496
+          "electricity_generated": 7.625674
         },
         {
           "week": 8,
@@ -33799,7 +34044,7 @@ export const projectAnalysis: GameResponse = {
           "daylight_days": 3.9388,
           "darkness_days": 3.0612,
           "phase": "mixed",
-          "electricity_generated": 20.256696
+          "electricity_generated": 13.08245
         },
         {
           "week": 10,
@@ -33807,7 +34052,7 @@ export const projectAnalysis: GameResponse = {
           "daylight_days": 7.0,
           "darkness_days": 0.0,
           "phase": "daylight",
-          "electricity_generated": 36.0
+          "electricity_generated": 23.25
         },
         {
           "week": 11,
@@ -33815,7 +34060,7 @@ export const projectAnalysis: GameResponse = {
           "daylight_days": 3.8265,
           "darkness_days": 3.1735,
           "phase": "mixed",
-          "electricity_generated": 19.679148
+          "electricity_generated": 12.70945
         },
         {
           "week": 12,
@@ -34040,7 +34285,7 @@ export const projectAnalysis: GameResponse = {
       "food": 40.5,
       "water": 105.96,
       "oxygen": 12.0,
-      "electricity": 54.064192,
+      "electricity": 17.208124,
       "medicine": 8.0,
       "repair_kits": 10.0,
       "eva_batteries": 9.0,
@@ -34056,7 +34301,7 @@ export const projectAnalysis: GameResponse = {
     "solar_efficiency": 0.75,
     "oxygen_efficiency": 0.75,
     "water_recovery_efficiency": 0.9,
-    "co2_efficiency": 0.925,
+    "co2_efficiency": 0.775,
     "current_event_id": "seismic_signal",
     "current_event": {
       "id": "seismic_signal",
@@ -34372,7 +34617,7 @@ export const projectAnalysis: GameResponse = {
             "food": 0.0,
             "water": 0.0
           },
-          "electricity_generated": 36.0,
+          "electricity_generated": 23.25,
           "electricity_required": 12.0,
           "electricity_used": 12.0,
           "life_support_power_fraction": 1.0,
@@ -34429,7 +34674,7 @@ export const projectAnalysis: GameResponse = {
           "food": -2.1,
           "water": -0.6,
           "oxygen": -8.0,
-          "electricity": 22.0,
+          "electricity": 9.25,
           "medicine": 0.0,
           "repair_kits": 0.0,
           "eva_batteries": -1.0,
@@ -34533,7 +34778,7 @@ export const projectAnalysis: GameResponse = {
             "food": 0.0,
             "water": 0.0
           },
-          "electricity_generated": 36.0,
+          "electricity_generated": 23.25,
           "electricity_required": 12.0,
           "electricity_used": 12.0,
           "life_support_power_fraction": 1.0,
@@ -34590,7 +34835,7 @@ export const projectAnalysis: GameResponse = {
           "food": -2.1,
           "water": -0.664,
           "oxygen": -6.0,
-          "electricity": 24.0,
+          "electricity": 11.25,
           "medicine": 0.0,
           "repair_kits": 0.0,
           "eva_batteries": 0.0,
@@ -34752,7 +34997,7 @@ export const projectAnalysis: GameResponse = {
             "food": 0.0,
             "water": 0.0
           },
-          "electricity_generated": 3.935844,
+          "electricity_generated": 2.541899,
           "electricity_required": 16.0,
           "electricity_used": 16.0,
           "life_support_power_fraction": 1.0,
@@ -34809,7 +35054,7 @@ export const projectAnalysis: GameResponse = {
           "food": -2.1,
           "water": -0.928,
           "oxygen": -4.0,
-          "electricity": -14.064156,
+          "electricity": -15.458101,
           "medicine": 0.0,
           "repair_kits": 0.0,
           "eva_batteries": 0.0,
@@ -35088,7 +35333,7 @@ export const projectAnalysis: GameResponse = {
             "food": 0.0,
             "water": 0.0
           },
-          "electricity_generated": 28.128348,
+          "electricity_generated": 18.166225,
           "electricity_required": 16.0,
           "electricity_used": 16.0,
           "life_support_power_fraction": 1.0,
@@ -35145,7 +35390,7 @@ export const projectAnalysis: GameResponse = {
           "food": -3.1,
           "water": -2.456,
           "oxygen": 0.0,
-          "electricity": 10.128348,
+          "electricity": 0.166225,
           "medicine": 0.0,
           "repair_kits": 0.0,
           "eva_batteries": 0.0,
@@ -35895,7 +36140,7 @@ export const projectCompleted: GameResponse = {
     "life_support": {
       "source_url": "https://www.nasa.gov/reference/environmental-control-and-life-support-systems-eclss/",
       "water_recovery_condition": 0.88,
-      "co2_condition": 0.91,
+      "co2_condition": 0.76,
       "wastewater": 7.44,
       "co2_burden": 0.0,
       "co2_warning_level": 4.0,
@@ -35915,7 +36160,7 @@ export const projectCompleted: GameResponse = {
     },
     "energy": {
       "battery_capacity": 100.0,
-      "stored": 67.064192,
+      "stored": 17.458124,
       "priority": "life_support",
       "life_support_required": 16.0,
       "solar_day_earth_days": 29.5306,
@@ -35928,7 +36173,7 @@ export const projectCompleted: GameResponse = {
           "daylight_days": 2.2959,
           "darkness_days": 4.7041,
           "phase": "mixed",
-          "electricity_generated": 11.807496
+          "electricity_generated": 7.625674
         },
         {
           "week": 8,
@@ -35944,7 +36189,7 @@ export const projectCompleted: GameResponse = {
           "daylight_days": 3.9388,
           "darkness_days": 3.0612,
           "phase": "mixed",
-          "electricity_generated": 20.256696
+          "electricity_generated": 13.08245
         },
         {
           "week": 10,
@@ -35952,7 +36197,7 @@ export const projectCompleted: GameResponse = {
           "daylight_days": 7.0,
           "darkness_days": 0.0,
           "phase": "daylight",
-          "electricity_generated": 36.0
+          "electricity_generated": 23.25
         },
         {
           "week": 11,
@@ -35960,7 +36205,7 @@ export const projectCompleted: GameResponse = {
           "daylight_days": 3.8265,
           "darkness_days": 3.1735,
           "phase": "mixed",
-          "electricity_generated": 19.679148
+          "electricity_generated": 12.70945
         },
         {
           "week": 12,
@@ -36181,7 +36426,7 @@ export const projectCompleted: GameResponse = {
       "food": 38.4,
       "water": 104.44,
       "oxygen": 12.0,
-      "electricity": 67.064192,
+      "electricity": 17.458124,
       "medicine": 8.0,
       "repair_kits": 10.0,
       "eva_batteries": 9.0,
@@ -36197,7 +36442,7 @@ export const projectCompleted: GameResponse = {
     "solar_efficiency": 0.75,
     "oxygen_efficiency": 0.75,
     "water_recovery_efficiency": 0.88,
-    "co2_efficiency": 0.91,
+    "co2_efficiency": 0.76,
     "current_event_id": "battery_isolation",
     "current_event": {
       "id": "battery_isolation",
@@ -36513,7 +36758,7 @@ export const projectCompleted: GameResponse = {
             "food": 0.0,
             "water": 0.0
           },
-          "electricity_generated": 36.0,
+          "electricity_generated": 23.25,
           "electricity_required": 12.0,
           "electricity_used": 12.0,
           "life_support_power_fraction": 1.0,
@@ -36570,7 +36815,7 @@ export const projectCompleted: GameResponse = {
           "food": -2.1,
           "water": -0.6,
           "oxygen": -8.0,
-          "electricity": 22.0,
+          "electricity": 9.25,
           "medicine": 0.0,
           "repair_kits": 0.0,
           "eva_batteries": -1.0,
@@ -36674,7 +36919,7 @@ export const projectCompleted: GameResponse = {
             "food": 0.0,
             "water": 0.0
           },
-          "electricity_generated": 36.0,
+          "electricity_generated": 23.25,
           "electricity_required": 12.0,
           "electricity_used": 12.0,
           "life_support_power_fraction": 1.0,
@@ -36731,7 +36976,7 @@ export const projectCompleted: GameResponse = {
           "food": -2.1,
           "water": -0.664,
           "oxygen": -6.0,
-          "electricity": 24.0,
+          "electricity": 11.25,
           "medicine": 0.0,
           "repair_kits": 0.0,
           "eva_batteries": 0.0,
@@ -36893,7 +37138,7 @@ export const projectCompleted: GameResponse = {
             "food": 0.0,
             "water": 0.0
           },
-          "electricity_generated": 3.935844,
+          "electricity_generated": 2.541899,
           "electricity_required": 16.0,
           "electricity_used": 16.0,
           "life_support_power_fraction": 1.0,
@@ -36950,7 +37195,7 @@ export const projectCompleted: GameResponse = {
           "food": -2.1,
           "water": -0.928,
           "oxygen": -4.0,
-          "electricity": -14.064156,
+          "electricity": -15.458101,
           "medicine": 0.0,
           "repair_kits": 0.0,
           "eva_batteries": 0.0,
@@ -37229,7 +37474,7 @@ export const projectCompleted: GameResponse = {
             "food": 0.0,
             "water": 0.0
           },
-          "electricity_generated": 28.128348,
+          "electricity_generated": 18.166225,
           "electricity_required": 16.0,
           "electricity_used": 16.0,
           "life_support_power_fraction": 1.0,
@@ -37286,7 +37531,7 @@ export const projectCompleted: GameResponse = {
           "food": -3.1,
           "water": -2.456,
           "oxygen": 0.0,
-          "electricity": 10.128348,
+          "electricity": 0.166225,
           "medicine": 0.0,
           "repair_kits": 0.0,
           "eva_batteries": 0.0,
@@ -37437,7 +37682,7 @@ export const projectCompleted: GameResponse = {
             "food": 0.0,
             "water": 0.0
           },
-          "electricity_generated": 36.0,
+          "electricity_generated": 23.25,
           "electricity_required": 16.0,
           "electricity_used": 16.0,
           "life_support_power_fraction": 1.0,
@@ -37494,7 +37739,7 @@ export const projectCompleted: GameResponse = {
           "food": -2.1,
           "water": -1.52,
           "oxygen": 0.0,
-          "electricity": 18.0,
+          "electricity": 5.25,
           "medicine": 0.0,
           "repair_kits": 0.0,
           "eva_batteries": 0.0,
@@ -38173,7 +38418,7 @@ export const projectPauseTurn: TurnResponse = {
     "life_support": {
       "source_url": "https://www.nasa.gov/reference/environmental-control-and-life-support-systems-eclss/",
       "water_recovery_condition": 0.96,
-      "co2_condition": 0.97,
+      "co2_condition": 0.82,
       "wastewater": 10.16,
       "co2_burden": 0.0,
       "co2_warning_level": 4.0,
@@ -38193,7 +38438,7 @@ export const projectPauseTurn: TurnResponse = {
     },
     "energy": {
       "battery_capacity": 100.0,
-      "stored": 76.0,
+      "stored": 50.5,
       "priority": "life_support",
       "life_support_required": 16.0,
       "solar_day_earth_days": 29.5306,
@@ -38206,7 +38451,7 @@ export const projectPauseTurn: TurnResponse = {
           "daylight_days": 0.7653,
           "darkness_days": 6.2347,
           "phase": "mixed",
-          "electricity_generated": 3.935844
+          "electricity_generated": 2.541899
         },
         {
           "week": 4,
@@ -38222,7 +38467,7 @@ export const projectPauseTurn: TurnResponse = {
           "daylight_days": 5.4694,
           "darkness_days": 1.5306,
           "phase": "mixed",
-          "electricity_generated": 28.128348
+          "electricity_generated": 18.166225
         },
         {
           "week": 6,
@@ -38230,7 +38475,7 @@ export const projectPauseTurn: TurnResponse = {
           "daylight_days": 7.0,
           "darkness_days": 0.0,
           "phase": "daylight",
-          "electricity_generated": 36.0
+          "electricity_generated": 23.25
         },
         {
           "week": 7,
@@ -38238,7 +38483,7 @@ export const projectPauseTurn: TurnResponse = {
           "daylight_days": 2.2959,
           "darkness_days": 4.7041,
           "phase": "mixed",
-          "electricity_generated": 11.807496
+          "electricity_generated": 7.625674
         },
         {
           "week": 8,
@@ -38254,7 +38499,7 @@ export const projectPauseTurn: TurnResponse = {
           "daylight_days": 3.9388,
           "darkness_days": 3.0612,
           "phase": "mixed",
-          "electricity_generated": 20.256696
+          "electricity_generated": 13.08245
         },
         {
           "week": 10,
@@ -38262,7 +38507,7 @@ export const projectPauseTurn: TurnResponse = {
           "daylight_days": 7.0,
           "darkness_days": 0.0,
           "phase": "daylight",
-          "electricity_generated": 36.0
+          "electricity_generated": 23.25
         },
         {
           "week": 11,
@@ -38270,7 +38515,7 @@ export const projectPauseTurn: TurnResponse = {
           "daylight_days": 3.8265,
           "darkness_days": 3.1735,
           "phase": "mixed",
-          "electricity_generated": 19.679148
+          "electricity_generated": 12.70945
         },
         {
           "week": 12,
@@ -38493,7 +38738,7 @@ export const projectPauseTurn: TurnResponse = {
       "food": 47.8,
       "water": 110.736,
       "oxygen": 16.0,
-      "electricity": 76.0,
+      "electricity": 50.5,
       "medicine": 8.0,
       "repair_kits": 10.0,
       "eva_batteries": 9.0,
@@ -38509,7 +38754,7 @@ export const projectPauseTurn: TurnResponse = {
     "solar_efficiency": 0.75,
     "oxygen_efficiency": 0.75,
     "water_recovery_efficiency": 0.96,
-    "co2_efficiency": 0.97,
+    "co2_efficiency": 0.82,
     "current_event_id": "medical_emergency",
     "current_event": {
       "id": "medical_emergency",
@@ -38897,7 +39142,7 @@ export const projectPauseTurn: TurnResponse = {
             "food": 0.0,
             "water": 0.0
           },
-          "electricity_generated": 36.0,
+          "electricity_generated": 23.25,
           "electricity_required": 12.0,
           "electricity_used": 12.0,
           "life_support_power_fraction": 1.0,
@@ -38954,7 +39199,7 @@ export const projectPauseTurn: TurnResponse = {
           "food": -2.1,
           "water": -0.6,
           "oxygen": -8.0,
-          "electricity": 22.0,
+          "electricity": 9.25,
           "medicine": 0.0,
           "repair_kits": 0.0,
           "eva_batteries": -1.0,
@@ -39058,7 +39303,7 @@ export const projectPauseTurn: TurnResponse = {
             "food": 0.0,
             "water": 0.0
           },
-          "electricity_generated": 36.0,
+          "electricity_generated": 23.25,
           "electricity_required": 12.0,
           "electricity_used": 12.0,
           "life_support_power_fraction": 1.0,
@@ -39115,7 +39360,7 @@ export const projectPauseTurn: TurnResponse = {
           "food": -2.1,
           "water": -0.664,
           "oxygen": -6.0,
-          "electricity": 24.0,
+          "electricity": 11.25,
           "medicine": 0.0,
           "repair_kits": 0.0,
           "eva_batteries": 0.0,
@@ -39901,7 +40146,7 @@ export const projectPauseTurn: TurnResponse = {
         "food": 0.0,
         "water": 0.0
       },
-      "electricity_generated": 36.0,
+      "electricity_generated": 23.25,
       "electricity_required": 12.0,
       "electricity_used": 12.0,
       "life_support_power_fraction": 1.0,
@@ -39958,7 +40203,7 @@ export const projectPauseTurn: TurnResponse = {
       "food": -2.1,
       "water": -0.664,
       "oxygen": -6.0,
-      "electricity": 24.0,
+      "electricity": 11.25,
       "medicine": 0.0,
       "repair_kits": 0.0,
       "eva_batteries": 0.0,
@@ -40037,7 +40282,7 @@ export const completed: GameResponse = {
     "life_support": {
       "source_url": "https://www.nasa.gov/reference/environmental-control-and-life-support-systems-eclss/",
       "water_recovery_condition": 0.76,
-      "co2_condition": 0.92,
+      "co2_condition": 0.77,
       "wastewater": 9.6,
       "co2_burden": 0.0,
       "co2_warning_level": 4.0,
@@ -40057,7 +40302,7 @@ export const completed: GameResponse = {
     },
     "energy": {
       "battery_capacity": 100.0,
-      "stored": 84.0,
+      "stored": 44.167597,
       "priority": "life_support",
       "life_support_required": 16.0,
       "solar_day_earth_days": 29.5306,
@@ -40265,7 +40510,7 @@ export const completed: GameResponse = {
       "food": 27.0,
       "water": 85.576,
       "oxygen": 12.0,
-      "electricity": 84.0,
+      "electricity": 44.167597,
       "medicine": 7.0,
       "repair_kits": 2.0,
       "eva_batteries": 6.0,
@@ -40281,7 +40526,7 @@ export const completed: GameResponse = {
     "solar_efficiency": 1.0,
     "oxygen_efficiency": 1.0,
     "water_recovery_efficiency": 0.76,
-    "co2_efficiency": 0.92,
+    "co2_efficiency": 0.77,
     "current_event_id": null,
     "current_event": null,
     "emergency_ration_requirements": {
@@ -40405,7 +40650,7 @@ export const completed: GameResponse = {
             "food": 0.0,
             "water": 0.0
           },
-          "electricity_generated": 48.0,
+          "electricity_generated": 31.0,
           "electricity_required": 12.0,
           "electricity_used": 12.0,
           "life_support_power_fraction": 1.0,
@@ -40478,7 +40723,7 @@ export const completed: GameResponse = {
           "food": -2.0,
           "water": -1.0,
           "oxygen": -6.0,
-          "electricity": 36.0,
+          "electricity": 19.0,
           "medicine": -1.0,
           "repair_kits": 0.0,
           "eva_batteries": 0.0,
@@ -40570,7 +40815,7 @@ export const completed: GameResponse = {
           },
           "daylight_fraction": 1.0,
           "battery_capacity": 100.0,
-          "electricity_curtailed": 2.0,
+          "electricity_curtailed": 0.0,
           "project_electricity_used": 0.0,
           "power_priority": "life_support",
           "ration_requirements": {
@@ -40585,7 +40830,7 @@ export const completed: GameResponse = {
             "food": 0.0,
             "water": 0.0
           },
-          "electricity_generated": 48.0,
+          "electricity_generated": 31.0,
           "electricity_required": 12.0,
           "electricity_used": 12.0,
           "life_support_power_fraction": 1.0,
@@ -40642,7 +40887,7 @@ export const completed: GameResponse = {
           "food": -3.0,
           "water": -2.064,
           "oxygen": -6.0,
-          "electricity": 34.0,
+          "electricity": 19.0,
           "medicine": 0.0,
           "repair_kits": 0.0,
           "eva_batteries": 0.0,
@@ -40742,7 +40987,7 @@ export const completed: GameResponse = {
             "food": 0.0,
             "water": 0.0
           },
-          "electricity_generated": 5.247792,
+          "electricity_generated": 3.389199,
           "electricity_required": 12.0,
           "electricity_used": 12.0,
           "life_support_power_fraction": 1.0,
@@ -40799,7 +41044,7 @@ export const completed: GameResponse = {
           "food": -2.0,
           "water": -1.128,
           "oxygen": -6.0,
-          "electricity": -6.752208,
+          "electricity": -8.610801,
           "medicine": 0.0,
           "repair_kits": -1.0,
           "eva_batteries": 0.0,
@@ -41073,7 +41318,7 @@ export const completed: GameResponse = {
             "food": 0.0,
             "water": 0.0
           },
-          "electricity_generated": 37.504464,
+          "electricity_generated": 24.221633,
           "electricity_required": 16.0,
           "electricity_used": 16.0,
           "life_support_power_fraction": 1.0,
@@ -41130,7 +41375,7 @@ export const completed: GameResponse = {
           "food": -2.0,
           "water": -2.056,
           "oxygen": 0.0,
-          "electricity": 21.504464,
+          "electricity": 8.221633,
           "medicine": 0.0,
           "repair_kits": -1.0,
           "eva_batteries": -1.0,
@@ -41219,7 +41464,7 @@ export const completed: GameResponse = {
           },
           "daylight_fraction": 1.0,
           "battery_capacity": 100.0,
-          "electricity_curtailed": 30.752256,
+          "electricity_curtailed": 0.0,
           "project_electricity_used": 0.0,
           "power_priority": "life_support",
           "ration_requirements": {
@@ -41234,7 +41479,7 @@ export const completed: GameResponse = {
             "food": 0.0,
             "water": 0.0
           },
-          "electricity_generated": 48.0,
+          "electricity_generated": 31.0,
           "electricity_required": 16.0,
           "electricity_used": 16.0,
           "life_support_power_fraction": 1.0,
@@ -41291,7 +41536,7 @@ export const completed: GameResponse = {
           "food": -2.0,
           "water": 0.08,
           "oxygen": 0.0,
-          "electricity": 1.247744,
+          "electricity": 15.0,
           "medicine": 0.0,
           "repair_kits": -1.0,
           "eva_batteries": 0.0,
@@ -41392,7 +41637,7 @@ export const completed: GameResponse = {
             "food": 0.0,
             "water": 0.0
           },
-          "electricity_generated": 15.743328,
+          "electricity_generated": 10.167566,
           "electricity_required": 16.0,
           "electricity_used": 16.0,
           "life_support_power_fraction": 1.0,
@@ -41449,7 +41694,7 @@ export const completed: GameResponse = {
           "food": -2.0,
           "water": -2.984,
           "oxygen": 0.0,
-          "electricity": -4.256672,
+          "electricity": -9.832434,
           "medicine": 0.0,
           "repair_kits": 0.0,
           "eva_batteries": 0.0,
@@ -41724,7 +41969,7 @@ export const completed: GameResponse = {
             "food": 0.0,
             "water": 0.0
           },
-          "electricity_generated": 27.008928,
+          "electricity_generated": 17.443266,
           "electricity_required": 16.0,
           "electricity_used": 16.0,
           "life_support_power_fraction": 1.0,
@@ -41781,7 +42026,7 @@ export const completed: GameResponse = {
           "food": -2.0,
           "water": -2.112,
           "oxygen": 0.0,
-          "electricity": 10.008928,
+          "electricity": 0.443266,
           "medicine": 0.0,
           "repair_kits": 0.0,
           "eva_batteries": 0.0,
@@ -41866,7 +42111,7 @@ export const completed: GameResponse = {
           },
           "daylight_fraction": 1.0,
           "battery_capacity": 100.0,
-          "electricity_curtailed": 21.752256,
+          "electricity_curtailed": 0.0,
           "project_electricity_used": 0.0,
           "power_priority": "life_support",
           "ration_requirements": {
@@ -41881,7 +42126,7 @@ export const completed: GameResponse = {
             "food": 0.0,
             "water": 0.0
           },
-          "electricity_generated": 48.0,
+          "electricity_generated": 31.0,
           "electricity_required": 16.0,
           "electricity_used": 16.0,
           "life_support_power_fraction": 1.0,
@@ -41938,7 +42183,7 @@ export const completed: GameResponse = {
           "food": -2.0,
           "water": -2.176,
           "oxygen": 0.0,
-          "electricity": 10.247744,
+          "electricity": 15.0,
           "medicine": 0.0,
           "repair_kits": -1.0,
           "eva_batteries": 0.0,
@@ -42023,7 +42268,7 @@ export const completed: GameResponse = {
           },
           "daylight_fraction": 0.546643,
           "battery_capacity": 100.0,
-          "electricity_curtailed": 10.238864,
+          "electricity_curtailed": 0.0,
           "project_electricity_used": 0.0,
           "power_priority": "life_support",
           "ration_requirements": {
@@ -42038,7 +42283,7 @@ export const completed: GameResponse = {
             "food": 0.0,
             "water": 0.0
           },
-          "electricity_generated": 26.238864,
+          "electricity_generated": 16.945933,
           "electricity_required": 16.0,
           "electricity_used": 16.0,
           "life_support_power_fraction": 1.0,
@@ -42095,7 +42340,7 @@ export const completed: GameResponse = {
           "food": -2.0,
           "water": -2.24,
           "oxygen": 0.0,
-          "electricity": 0.0,
+          "electricity": 0.945933,
           "medicine": 0.0,
           "repair_kits": 0.0,
           "eva_batteries": 0.0,
@@ -42145,7 +42390,7 @@ export const completed: GameResponse = {
           "effects": {
             "medical_changes": [],
             "resources": {
-              "electricity": 5.0
+              "electricity": 8.0
             },
             "solar_efficiency": 0.0,
             "oxygen_efficiency": 0.0,
@@ -42256,7 +42501,7 @@ export const completed: GameResponse = {
           "food": -2.0,
           "water": -2.304,
           "oxygen": 0.0,
-          "electricity": -11.0,
+          "electricity": -8.0,
           "medicine": 0.0,
           "repair_kits": -1.0,
           "eva_batteries": 0.0,
@@ -42398,7 +42643,7 @@ export const failed: GameResponse = {
     "life_support": {
       "source_url": "https://www.nasa.gov/reference/environmental-control-and-life-support-systems-eclss/",
       "water_recovery_condition": 0.88,
-      "co2_condition": 0.91,
+      "co2_condition": 0.76,
       "wastewater": 19.128,
       "co2_burden": 0.0,
       "co2_warning_level": 4.0,
@@ -42418,7 +42663,7 @@ export const failed: GameResponse = {
     },
     "energy": {
       "battery_capacity": 100.0,
-      "stored": 75.37614,
+      "stored": 16.805424,
       "priority": "life_support",
       "life_support_required": 6.0,
       "solar_day_earth_days": 29.5306,
@@ -42431,7 +42676,7 @@ export const failed: GameResponse = {
           "daylight_days": 7.0,
           "darkness_days": 0.0,
           "phase": "daylight",
-          "electricity_generated": 36.0
+          "electricity_generated": 23.25
         },
         {
           "week": 7,
@@ -42439,7 +42684,7 @@ export const failed: GameResponse = {
           "daylight_days": 2.2959,
           "darkness_days": 4.7041,
           "phase": "mixed",
-          "electricity_generated": 11.807496
+          "electricity_generated": 7.625674
         },
         {
           "week": 8,
@@ -42455,7 +42700,7 @@ export const failed: GameResponse = {
           "daylight_days": 3.9388,
           "darkness_days": 3.0612,
           "phase": "mixed",
-          "electricity_generated": 20.256696
+          "electricity_generated": 13.08245
         },
         {
           "week": 10,
@@ -42463,7 +42708,7 @@ export const failed: GameResponse = {
           "daylight_days": 7.0,
           "darkness_days": 0.0,
           "phase": "daylight",
-          "electricity_generated": 36.0
+          "electricity_generated": 23.25
         },
         {
           "week": 11,
@@ -42471,7 +42716,7 @@ export const failed: GameResponse = {
           "daylight_days": 3.8265,
           "darkness_days": 3.1735,
           "phase": "mixed",
-          "electricity_generated": 19.679148
+          "electricity_generated": 12.70945
         },
         {
           "week": 12,
@@ -42714,7 +42959,7 @@ export const failed: GameResponse = {
       "food": 0.0,
       "water": 1.83,
       "oxygen": 18.0,
-      "electricity": 75.37614,
+      "electricity": 16.805424,
       "medicine": 1.0,
       "repair_kits": 1.0,
       "eva_batteries": 3.0,
@@ -42730,7 +42975,7 @@ export const failed: GameResponse = {
     "solar_efficiency": 0.75,
     "oxygen_efficiency": 0.75,
     "water_recovery_efficiency": 0.88,
-    "co2_efficiency": 0.91,
+    "co2_efficiency": 0.76,
     "current_event_id": null,
     "current_event": null,
     "emergency_ration_requirements": {
@@ -42848,7 +43093,7 @@ export const failed: GameResponse = {
             "food": 0.0,
             "water": 0.0
           },
-          "electricity_generated": 48.0,
+          "electricity_generated": 31.0,
           "electricity_required": 20.0,
           "electricity_used": 20.0,
           "life_support_power_fraction": 1.0,
@@ -42947,7 +43192,7 @@ export const failed: GameResponse = {
           "food": -4.0,
           "water": -5.4,
           "oxygen": -6.0,
-          "electricity": 28.0,
+          "electricity": 11.0,
           "medicine": 0.0,
           "repair_kits": 0.0,
           "eva_batteries": 0.0,
@@ -43077,7 +43322,7 @@ export const failed: GameResponse = {
             "food": 0.0,
             "water": 0.0
           },
-          "electricity_generated": 48.0,
+          "electricity_generated": 31.0,
           "electricity_required": 20.0,
           "electricity_used": 20.0,
           "life_support_power_fraction": 1.0,
@@ -43176,7 +43421,7 @@ export const failed: GameResponse = {
           "food": -5.0,
           "water": -7.064,
           "oxygen": 0.0,
-          "electricity": 28.0,
+          "electricity": 11.0,
           "medicine": 0.0,
           "repair_kits": 0.0,
           "eva_batteries": 0.0,
@@ -43282,7 +43527,7 @@ export const failed: GameResponse = {
             "food": 0.0,
             "water": 0.0
           },
-          "electricity_generated": 5.247792,
+          "electricity_generated": 3.389199,
           "electricity_required": 20.0,
           "electricity_used": 20.0,
           "life_support_power_fraction": 1.0,
@@ -43381,7 +43626,7 @@ export const failed: GameResponse = {
           "food": -4.0,
           "water": -5.978,
           "oxygen": -1.5,
-          "electricity": -14.752208,
+          "electricity": -16.610801,
           "medicine": 0.0,
           "repair_kits": 0.0,
           "eva_batteries": 0.0,
@@ -43692,7 +43937,7 @@ export const failed: GameResponse = {
             "food": 0.0,
             "water": 0.0
           },
-          "electricity_generated": 28.128348,
+          "electricity_generated": 18.166225,
           "electricity_required": 20.0,
           "electricity_used": 20.0,
           "life_support_power_fraction": 1.0,
@@ -43791,7 +44036,7 @@ export const failed: GameResponse = {
           "food": -1.6,
           "water": -1.306,
           "oxygen": -1.5,
-          "electricity": 8.128348,
+          "electricity": -1.833775,
           "medicine": 0.0,
           "repair_kits": 0.0,
           "eva_batteries": 0.0,
@@ -43899,7 +44144,7 @@ export const failed: GameResponse = {
             "food": 0.1250000000000001,
             "water": 0.30937500000000007
           },
-          "electricity_generated": 36.0,
+          "electricity_generated": 23.25,
           "electricity_required": 20.0,
           "electricity_used": 20.0,
           "life_support_power_fraction": 1.0,
@@ -43998,7 +44243,7 @@ export const failed: GameResponse = {
           "food": -1.4,
           "water": -0.38,
           "oxygen": -1.5,
-          "electricity": 16.0,
+          "electricity": 3.25,
           "medicine": 0.0,
           "repair_kits": 0.0,
           "eva_batteries": 0.0,

@@ -1,7 +1,7 @@
 [
   {
     "id": "alpha",
-    "name": "Station Alpha \u2014 Research Base",
+    "name": "Station Alpha — Research Base",
     "description": "A fictional lunar research outpost. Keep its crew alive until rotation.",
     "mission_id": "alpha_rotation",
     "starting_resources": {
@@ -21,18 +21,18 @@
       "wastewater": 12,
       "co2": 0
     },
-    "energy_per_week": 48,
+    "energy_per_week": 31,
     "oxygen_per_week": 14,
     "lunar_site_id": "apollo-11",
     "solar_efficiency": 1.0,
     "oxygen_efficiency": 1.0,
     "difficulty": "standard",
     "difficulty_rank": 2,
-    "challenge": "A balanced 12-week rotation. Bring enough provisions without neglecting repairs.",
+    "challenge": "Limited solar output makes power planning and repairs important. Complete the research before relief.",
     "longitude_deg": 23.47314,
     "battery_capacity": 100,
     "water_recovery_efficiency": 1,
-    "co2_efficiency": 1,
+    "co2_efficiency": 0.85,
     "co2_removal_per_week": 6
   },
   {
@@ -93,18 +93,18 @@
       "wastewater": 12,
       "co2": 0
     },
-    "energy_per_week": 48,
+    "energy_per_week": 32,
     "oxygen_per_week": 15,
     "solar_efficiency": 0.85,
     "oxygen_efficiency": 0.9,
     "difficulty": "standard",
     "difficulty_rank": 2,
-    "challenge": "A worn solar array and limited water. Pack for ten weeks of careful maintenance.",
+    "challenge": "Limited solar output makes power planning and repairs important. Complete the research before relief.",
     "lunar_site_id": "apollo-14",
     "longitude_deg": -17.47194,
     "battery_capacity": 90,
     "water_recovery_efficiency": 0.95,
-    "co2_efficiency": 0.95,
+    "co2_efficiency": 0.85,
     "co2_removal_per_week": 6
   },
   {
@@ -150,7 +150,7 @@
     "mission_id": "descartes_endurance",
     "starting_resources": {
       "food": 38,
-      "water": 54,
+      "water": 56,
       "oxygen": 40,
       "electricity": 20,
       "medicine": 1,
@@ -201,8 +201,8 @@
       "wastewater": 12,
       "co2": 0
     },
-    "energy_per_week": 50,
-    "oxygen_per_week": 15,
+    "energy_per_week": 54,
+    "oxygen_per_week": 17,
     "solar_efficiency": 0.65,
     "oxygen_efficiency": 0.75,
     "difficulty": "extreme",

@@ -301,6 +301,7 @@ def test_unsafe_air_blocks_condition_recovery_even_while_resting(quiet_engine, s
 
 
 def test_large_debt_prevents_perfect_handover_despite_high_health(quiet_engine, state):
+    state.co2_efficiency = 1
     for key in ("food", "water", "oxygen", "electricity", "medicine", "repair_kits"):
         state.resources[key] = 100
     state.weeks_completed = quiet_engine.definitions.missions[state.mission_id].duration_weeks

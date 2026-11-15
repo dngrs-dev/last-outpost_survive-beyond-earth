@@ -40,3 +40,44 @@ def minimum_cargo(definitions: Definitions, station_id: str) -> dict[str, int]:
             item = next(i for i in definitions.items.values() if i.resource == resource)
             cargo[item.id] = ceil(deficit / item.resource_amount)
     return cargo
+
+
+def recommended_cargo(definitions: Definitions, station_id: str) -> dict[str, int]:
+    """A capacity-safe starting suggestion for four default crew, not a winning solution."""
+    station = definitions.stations[station_id]
+    mission = definitions.missions[station.mission_id]
+    cargo = {
+        **minimum_cargo(definitions, station_id),
+        "scientific_tools": 1,
+        "food_packs": max(
+            2, ceil((mission.duration_weeks * 4.1 + 8 - station.starting_resources["food"]) / 4)
+        ),
+        "water_containers": max(
+            2, ceil((mission.duration_weeks * 6 + 12 - station.starting_resources["water"]) / 5)
+        ),
+        "medicine_kits": 4,
+        "repair_kits": 6,
+        "eva_batteries": max(5, minimum_cargo(definitions, station_id).get("eva_batteries", 0) + 3),
+        "dust_kits": 3,
+        "oxygen_regulators": 2,
+        "diagnostic_tools": 1,
+        "sealant_packs": 4,
+        "oxygen_tanks": 2,
+        "power_cells": 2,
+    }
+    # Keep the complete tool selection; trim provisions if cargo is tight.
+    for item_id, quantity in cargo.items():
+        cargo[item_id] = min(quantity, definitions.items[item_id].max_quantity)
+
+    def within_limits():
+        return all(
+            sum(getattr(definitions.items[i], field) * n for i, n in cargo.items()) <= limit
+            for field, limit in (("weight_kg", 180), ("volume_l", 240))
+        )
+
+    while not within_limits():
+        candidates = [i for i in ("water_containers", "food_packs") if cargo[i] > 2]
+        if not candidates:
+            raise ValueError("Recommended equipment does not fit cargo limits")
+        cargo[max(candidates, key=lambda i: cargo[i] * definitions.items[i].weight_kg)] -= 1
+    return cargo

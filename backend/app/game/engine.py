@@ -17,7 +17,7 @@ from app.game.events import (
     select_event,
 )
 from app.game.health import REST, capacity_reasons, condition_view, ration_outlook
-from app.game.launch import objective_requirements
+from app.game.launch import objective_requirements, recommended_cargo
 from app.game.life_support import MAINTENANCE, life_support_view
 from app.game.medicine import MEDICAL_CHOICES, MEDICAL_IDS, medical_views, provide_care
 from app.game.models import Definitions, GameError, GameState, Ration
@@ -473,7 +473,10 @@ class GameEngine:
 
     def catalog(self) -> dict:
         return {
-            "stations": [asdict(item) for item in self.definitions.stations.values()],
+            "stations": [
+                {**asdict(item), "recommended_cargo": recommended_cargo(self.definitions, item.id)}
+                for item in self.definitions.stations.values()
+            ],
             "missions": [
                 {**asdict(item), "required_resources": objective_requirements(item)}
                 for item in self.definitions.missions.values()

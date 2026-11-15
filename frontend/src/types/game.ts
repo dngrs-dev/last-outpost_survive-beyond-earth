@@ -6,6 +6,7 @@ export interface StationDefinition {
   description: string;
   mission_id: string;
   starting_resources: Record<string, number>;
+  recommended_cargo: Record<string, number>;
   energy_per_week: number;
   oxygen_per_week: number;
   solar_efficiency: number;

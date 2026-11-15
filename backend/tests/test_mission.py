@@ -24,7 +24,7 @@ def test_full_twelve_week_perfect_handover(quiet_engine):
         "alpha",
         ["alex", "maya"],
         launch_cargo(
-            quiet_engine, "alpha", {"food_packs": 5, "water_containers": 8, "repair_kits": 1}
+            quiet_engine, "alpha", {"food_packs": 5, "water_containers": 8, "repair_kits": 2}
         ),
         42,
     )
@@ -36,6 +36,8 @@ def test_full_twelve_week_perfect_handover(quiet_engine):
             "continue",
             assignments=[{"crew_id": "alex", "activity_id": "service_water_recovery"}]
             if week == 8
+            else [{"crew_id": "alex", "activity_id": "service_co2_scrubber"}]
+            if week == 7
             else [],
         )
     assert state.status == "completed"

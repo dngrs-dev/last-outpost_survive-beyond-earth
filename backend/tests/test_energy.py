@@ -54,7 +54,7 @@ def test_battery_overflow_conserves_energy_and_cannot_be_stored(quiet_engine, st
     after, report = quiet_engine.advance_week(state, 1, normal_rations(state), "continue")
     power = report["survival"]
     assert after.resources["electricity"] == state.battery_capacity == 100
-    assert power["electricity_curtailed"] == 35
+    assert power["electricity_curtailed"] == 18
     assert (
         99 + power["electricity_generated"]
         == power["electricity_used"]

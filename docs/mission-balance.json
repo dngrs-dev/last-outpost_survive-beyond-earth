@@ -1,0 +1,366 @@
+{
+  "version": 1,
+  "seed_start": 30000,
+  "runs_per_policy": 200,
+  "crew": [
+    "alex",
+    "maya",
+    "lin",
+    "sam"
+  ],
+  "model_digest": "c6ec4bad1705a7442115aa648b4ff747bc31d54f1d890225eadae463c834d80d",
+  "equipment": {
+    "alpha": {
+      "scientific_tools": 1,
+      "eva_batteries": 5,
+      "food_packs": 10,
+      "water_containers": 11,
+      "medicine_kits": 4,
+      "repair_kits": 6,
+      "dust_kits": 3,
+      "oxygen_regulators": 2,
+      "diagnostic_tools": 1,
+      "sealant_packs": 4,
+      "oxygen_tanks": 2,
+      "power_cells": 2
+    },
+    "oceanus": {
+      "scientific_tools": 1,
+      "food_packs": 3,
+      "water_containers": 2,
+      "medicine_kits": 4,
+      "repair_kits": 6,
+      "eva_batteries": 5,
+      "dust_kits": 3,
+      "oxygen_regulators": 2,
+      "diagnostic_tools": 1,
+      "sealant_packs": 4,
+      "oxygen_tanks": 2,
+      "power_cells": 2
+    },
+    "fra_mauro": {
+      "scientific_tools": 1,
+      "eva_batteries": 5,
+      "food_packs": 6,
+      "water_containers": 8,
+      "medicine_kits": 4,
+      "repair_kits": 6,
+      "dust_kits": 3,
+      "oxygen_regulators": 2,
+      "diagnostic_tools": 1,
+      "sealant_packs": 4,
+      "oxygen_tanks": 2,
+      "power_cells": 2
+    },
+    "hadley": {
+      "scientific_tools": 1,
+      "eva_batteries": 7,
+      "food_packs": 9,
+      "water_containers": 10,
+      "medicine_kits": 4,
+      "repair_kits": 6,
+      "dust_kits": 3,
+      "oxygen_regulators": 2,
+      "diagnostic_tools": 1,
+      "sealant_packs": 4,
+      "oxygen_tanks": 2,
+      "power_cells": 2
+    },
+    "descartes": {
+      "scientific_tools": 1,
+      "eva_batteries": 7,
+      "food_packs": 9,
+      "water_containers": 11,
+      "medicine_kits": 4,
+      "repair_kits": 6,
+      "dust_kits": 3,
+      "oxygen_regulators": 2,
+      "diagnostic_tools": 1,
+      "sealant_packs": 4,
+      "oxygen_tanks": 2,
+      "power_cells": 2
+    },
+    "taurus": {
+      "scientific_tools": 1,
+      "eva_batteries": 9,
+      "food_packs": 10,
+      "water_containers": 12,
+      "medicine_kits": 4,
+      "repair_kits": 6,
+      "dust_kits": 3,
+      "oxygen_regulators": 2,
+      "diagnostic_tools": 1,
+      "sealant_packs": 4,
+      "oxygen_tanks": 2,
+      "power_cells": 2
+    }
+  },
+  "results": [
+    {
+      "station": "alpha",
+      "difficulty": "standard",
+      "policy": "basic",
+      "runs": 200,
+      "operational_success": 0.915,
+      "success_interval_95": [
+        0.8681,
+        0.9463
+      ],
+      "survival": 1.0,
+      "full_crew": 1.0,
+      "science": 0.0,
+      "stars": {
+        "2": 200
+      },
+      "endings": {
+        "emergency_handover": 17,
+        "successful_handover": 183
+      }
+    },
+    {
+      "station": "alpha",
+      "difficulty": "standard",
+      "policy": "careful",
+      "runs": 200,
+      "operational_success": 0.95,
+      "success_interval_95": [
+        0.9104,
+        0.9726
+      ],
+      "survival": 1.0,
+      "full_crew": 1.0,
+      "science": 0.805,
+      "stars": {
+        "2": 39,
+        "3": 161
+      },
+      "endings": {
+        "emergency_handover": 10,
+        "successful_handover": 190
+      }
+    },
+    {
+      "station": "oceanus",
+      "difficulty": "easy",
+      "policy": "basic",
+      "runs": 200,
+      "operational_success": 1.0,
+      "success_interval_95": [
+        0.9812,
+        1
+      ],
+      "survival": 1.0,
+      "full_crew": 1.0,
+      "science": 0.155,
+      "stars": {
+        "2": 169,
+        "3": 31
+      },
+      "endings": {
+        "perfect_handover": 13,
+        "successful_handover": 187
+      }
+    },
+    {
+      "station": "oceanus",
+      "difficulty": "easy",
+      "policy": "careful",
+      "runs": 200,
+      "operational_success": 1.0,
+      "success_interval_95": [
+        0.9812,
+        1
+      ],
+      "survival": 1.0,
+      "full_crew": 1.0,
+      "science": 1.0,
+      "stars": {
+        "3": 200
+      },
+      "endings": {
+        "perfect_handover": 5,
+        "successful_handover": 195
+      }
+    },
+    {
+      "station": "fra_mauro",
+      "difficulty": "standard",
+      "policy": "basic",
+      "runs": 200,
+      "operational_success": 0.89,
+      "success_interval_95": [
+        0.8391,
+        0.9262
+      ],
+      "survival": 1.0,
+      "full_crew": 0.995,
+      "science": 0.0,
+      "stars": {
+        "1": 1,
+        "2": 199
+      },
+      "endings": {
+        "emergency_handover": 22,
+        "successful_handover": 178
+      }
+    },
+    {
+      "station": "fra_mauro",
+      "difficulty": "standard",
+      "policy": "careful",
+      "runs": 200,
+      "operational_success": 0.985,
+      "success_interval_95": [
+        0.9568,
+        0.9949
+      ],
+      "survival": 1.0,
+      "full_crew": 1.0,
+      "science": 0.87,
+      "stars": {
+        "2": 26,
+        "3": 174
+      },
+      "endings": {
+        "emergency_handover": 3,
+        "successful_handover": 197
+      }
+    },
+    {
+      "station": "hadley",
+      "difficulty": "hard",
+      "policy": "basic",
+      "runs": 200,
+      "operational_success": 0.7,
+      "success_interval_95": [
+        0.6332,
+        0.7593
+      ],
+      "survival": 0.995,
+      "full_crew": 0.985,
+      "science": 0.0,
+      "stars": {
+        "0": 1,
+        "1": 2,
+        "2": 197
+      },
+      "endings": {
+        "emergency_handover": 59,
+        "mission_failure": 1,
+        "successful_handover": 140
+      }
+    },
+    {
+      "station": "hadley",
+      "difficulty": "hard",
+      "policy": "careful",
+      "runs": 200,
+      "operational_success": 1.0,
+      "success_interval_95": [
+        0.9812,
+        1
+      ],
+      "survival": 1.0,
+      "full_crew": 1.0,
+      "science": 0.58,
+      "stars": {
+        "2": 84,
+        "3": 116
+      },
+      "endings": {
+        "successful_handover": 200
+      }
+    },
+    {
+      "station": "descartes",
+      "difficulty": "severe",
+      "policy": "basic",
+      "runs": 200,
+      "operational_success": 0.19,
+      "success_interval_95": [
+        0.1417,
+        0.25
+      ],
+      "survival": 0.93,
+      "full_crew": 0.93,
+      "science": 0.0,
+      "stars": {
+        "0": 14,
+        "2": 186
+      },
+      "endings": {
+        "emergency_handover": 148,
+        "mission_failure": 14,
+        "successful_handover": 38
+      }
+    },
+    {
+      "station": "descartes",
+      "difficulty": "severe",
+      "policy": "careful",
+      "runs": 200,
+      "operational_success": 0.995,
+      "success_interval_95": [
+        0.9722,
+        0.9991
+      ],
+      "survival": 1.0,
+      "full_crew": 1.0,
+      "science": 0.195,
+      "stars": {
+        "2": 161,
+        "3": 39
+      },
+      "endings": {
+        "emergency_handover": 1,
+        "successful_handover": 199
+      }
+    },
+    {
+      "station": "taurus",
+      "difficulty": "extreme",
+      "policy": "basic",
+      "runs": 200,
+      "operational_success": 0.03,
+      "success_interval_95": [
+        0.0138,
+        0.0639
+      ],
+      "survival": 0.815,
+      "full_crew": 0.77,
+      "science": 0.0,
+      "stars": {
+        "0": 37,
+        "1": 9,
+        "2": 154
+      },
+      "endings": {
+        "emergency_handover": 157,
+        "mission_failure": 37,
+        "successful_handover": 6
+      }
+    },
+    {
+      "station": "taurus",
+      "difficulty": "extreme",
+      "policy": "careful",
+      "runs": 200,
+      "operational_success": 0.84,
+      "success_interval_95": [
+        0.7829,
+        0.8843
+      ],
+      "survival": 1.0,
+      "full_crew": 1.0,
+      "science": 0.165,
+      "stars": {
+        "2": 167,
+        "3": 33
+      },
+      "endings": {
+        "emergency_handover": 32,
+        "successful_handover": 168
+      }
+    }
+  ]
+}

@@ -174,3 +174,6 @@ npm run build
 The backend uses Python and FastAPI. The frontend uses React, TypeScript,
 and Vite. See the game specification for future work; planned features are not
 necessarily implemented.
+
+
+Mission equipment requirements, recommended cargo and backend-only balance validation are documented in [mission balance](docs/mission-balance.md). Catalog missions expose `required_resources`; stations expose `recommended_cargo`.

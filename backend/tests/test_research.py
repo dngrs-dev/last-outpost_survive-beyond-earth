@@ -215,7 +215,7 @@ def test_survival_can_be_perfect_without_scientific_progress(quiet_engine):
         "alpha",
         ["alex", "maya"],
         launch_cargo(
-            quiet_engine, "alpha", {"food_packs": 5, "water_containers": 8, "repair_kits": 1}
+            quiet_engine, "alpha", {"food_packs": 5, "water_containers": 8, "repair_kits": 2}
         ),
         42,
     )
@@ -227,6 +227,8 @@ def test_survival_can_be_perfect_without_scientific_progress(quiet_engine):
             "continue",
             assignments=[{"crew_id": "alex", "activity_id": "service_water_recovery"}]
             if state.current_week == 8
+            else [{"crew_id": "alex", "activity_id": "service_co2_scrubber"}]
+            if state.current_week == 7
             else [],
         )
     result = quiet_engine.state_view(state)["results"]

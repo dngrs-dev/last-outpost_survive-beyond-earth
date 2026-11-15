@@ -215,12 +215,14 @@ def test_cors_and_openapi(client):
 def test_complete_api_mission_terminal_rejection_and_final_retry(quiet_engine):
     with TestClient(create_app(quiet_engine.definitions)) as client:
         game = create_game(
-            client, cargo={"food_packs": 5, "water_containers": 8, "repair_kits": 1}
+            client, cargo={"food_packs": 5, "water_containers": 8, "repair_kits": 2}
         ).json()
         game_url = f"/api/games/{game['game_id']}"
         state = game["state"]
         for week in range(1, 13):
             body = turn_body(state, f"week-{week}")
+            if week == 7:
+                body["assignments"] = [{"crew_id": "alex", "activity_id": "service_co2_scrubber"}]
             if week == 8:
                 body["assignments"] = [{"crew_id": "alex", "activity_id": "service_water_recovery"}]
             response = client.post(f"{game_url}/turn", json=body)

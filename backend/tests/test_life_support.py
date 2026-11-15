@@ -101,6 +101,7 @@ def test_servicing_repairs_and_then_normal_use_wears_the_system(
 
 
 def test_maintenance_rejection_is_atomic_and_full_condition_is_explained(quiet_engine, state):
+    state.co2_efficiency = 1
     before = deepcopy(state)
     with pytest.raises(GameError, match="full condition"):
         step(
@@ -124,8 +125,9 @@ def test_maintenance_rejection_is_atomic_and_full_condition_is_explained(quiet_e
 def test_scrubber_incident_affects_its_own_condition(quiet_engine, state):
     event = quiet_engine.definitions.events["scrubber_load"]
     effects = next(c for c in event.choices if c.id == "scrubber_risk").success_effects
+    before = state.co2_efficiency
     apply_effects(state, effects, None)
-    assert state.co2_efficiency == 0.8
+    assert state.co2_efficiency == pytest.approx(before - 0.2)
     assert state.oxygen_efficiency == 1
     apply_effects(state, Effects(co2_efficiency=10, water_recovery_efficiency=-10), None)
     assert state.co2_efficiency == 1

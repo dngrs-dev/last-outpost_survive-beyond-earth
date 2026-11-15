@@ -322,7 +322,7 @@
         "id": "seismology",
         "title": "Valley seismic comparison",
         "description": "Complete detailed analyses of separate seismic records. Simply archiving a signal does not count.",
-        "target": 2,
+        "target": 3,
         "qualifying_choices": [
           "analyze_seismic",
           "research_seismic"
