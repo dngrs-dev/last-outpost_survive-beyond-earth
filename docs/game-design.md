@@ -103,7 +103,15 @@
 > Week retains the existing atomic backend operation and retry handling; confirmed
 > results separate survival and science before the next plan. See
 > `station-gameplay.md` for behavior, accessibility, and the boundary between this
-> playable screen and future dynamic supplies/assignment animations.
+> playable screen and presentation rules.
+
+> Visible-station update: the room now uses shared indoor clothing, activity poses,
+> paired care/recovery staging, and a surface-view inset for EVA work. Bounded
+> supply artwork and battery fill use confirmed stock; seismic indicators use
+> actual project phase/progress. Draft positions are explicitly previews, unknown
+> submissions remain pending, and confirmed receipts label completed/failed or
+> interrupted work. This does not introduce real-time work, extra occupancy limits,
+> resource calculations, or new medical mechanics. See `station-gameplay.md`.
 
 **Project name:** LAST OUTPOST  
 **Subtitle:** Lunar Survival  

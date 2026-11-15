@@ -65,8 +65,12 @@ Incident, Crew, Food & water, and Review. Only End Week submits the combined pla
 known booking/budget conflicts block submission, and uncertain retries retain
 the original request. Confirmed results show survival, science, crew work, and
 next-discovery effects before continuing. Phone layouts keep navigation visible
-while the active panel scrolls internally. Room props are illustrative; dynamic
-stock artwork and activity-specific poses remain future work.
+while the active panel scrolls internally. Shared cabin outfits and activity poses
+show planned indoor work, paired medical care, recovery, and suited surface crews.
+Food shelves, tank fills, consumable stacks, retained equipment, and the battery
+reflect confirmed supplies. Seismic indicators show actual phase progress and
+queued controls without reserving a worker during automatic recording. Plan,
+pending, and confirmed-recap labels keep previews distinct from resolved work.
 
 ## Run locally
 

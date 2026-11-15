@@ -17,6 +17,7 @@ import { WeeklyRations } from '../components/station/WeeklyRations';
 import { WeekDebrief } from '../components/station/WeekDebrief';
 import { TurnDetails } from '../components/TurnDetails';
 import { RoleIcon } from '../components/RoleIcon';
+import { plannedActivities, confirmedActivities, type CrewActivities } from '../components/station/stationPresentation';
 import styles from './GamePage.module.css';
 import type {
   GameStateResponse,
@@ -55,6 +56,7 @@ export const GamePage: React.FC = () => {
   // Confirmed debrief state
   const [latestOutcome, setLatestOutcome] = useState<TurnOutcome | null>(null);
   const [showDebrief, setShowDebrief] = useState<boolean>(false);
+  const [resolvedActivities, setResolvedActivities] = useState<CrewActivities | null>(null);
 
   useEffect(() => { panelTitle.current?.focus(); }, [step, bookmark, showDebrief, loading]);
 
@@ -198,6 +200,7 @@ export const GamePage: React.FC = () => {
       project_orders: Object.entries(projectOrders).map(([project_id, action]) => ({project_id, action})),
       assignments: Object.entries(assignments).filter(([, activity]) => activity).map(([crew_id, activity_id]) => ({crew_id, activity_id, ...(['medical_care', 'self_care'].includes(activity_id) ? medicalTargets[crew_id] : {})})),
     };
+    const activitySnapshot = plannedActivities(state, decision);
     submissionInFlight.current = true;
     setPendingTurn(decision);
     setSubmitting(true);
@@ -222,6 +225,7 @@ export const GamePage: React.FC = () => {
       }
       setPendingTurn(null);
       setLatestOutcome(response.turn_outcome);
+      setResolvedActivities(confirmedActivities(activitySnapshot, response.turn_outcome, response.state.crew));
       setShowDebrief(true);
       setState(response.state);
       initializeTurnForm(response.state);
@@ -344,6 +348,19 @@ export const GamePage: React.FC = () => {
   const inspectedCrew = state.crew.find(person => person.id === inspectedCrewId) || livingCrew[0] || state.crew[0];
   const crewNames = Object.fromEntries(state.crew.map(person => [person.id, person.name]));
   const currentLighting = state.energy.forecast[0];
+  const previewActivities = plannedActivities(state, {
+    event_choice_id: selectedChoiceId,
+    selected_crew_id: selectedCrewId,
+    support_crew_ids: supportCrew,
+    assignments: Object.entries(assignments).filter(([, activity]) => activity).map(([crew_id, activity_id]) => ({ crew_id, activity_id, ...medicalTargets[crew_id] })),
+  });
+  const roomActivities = showDebrief && resolvedActivities ? resolvedActivities : previewActivities;
+  const sceneMode = showDebrief ? 'report' : pendingTurn ? 'pending' : 'planning';
+  const activityLabel = (id: string) => {
+    const activity = roomActivities[id];
+    if (!activity) return 'Deceased';
+    return activity.result ? `${activity.result}: ${activity.label}` : activity.origin === 'routine' ? activity.label : `Planned: ${activity.label}`;
+  };
   const openCrew = (id: string) => { setInspectedCrewId(id); setBookmark('Crew'); };
   const showStep = (index: number) => { setBookmark(null); setStep(index); };
   const canSubmit = Boolean(activeChoice?.available)
@@ -373,11 +390,12 @@ export const GamePage: React.FC = () => {
           <span>Survival <strong>{livingCrew.length} / {state.initial_crew_size} crew alive</strong></span>
           <button type="button" disabled={showDebrief} onClick={() => setBookmark('Science')}>Science <strong>{state.science.completed_objectives} / {state.science.total_objectives} objectives</strong></button>
         </div>
-        <StationRoom crew={state.crew} selectedCrewId={inspectedCrewId} onSelectCrew={openCrew} onOpen={setBookmark} disabled={showDebrief} />
+        <StationRoom state={state} activities={roomActivities} mode={sceneMode} reportWeek={latestOutcome?.week} projectOrders={projectOrders}
+          selectedCrewId={inspectedCrewId} onSelectCrew={openCrew} onOpen={setBookmark} disabled={showDebrief} />
         <div className={styles.crewStrip} aria-label="Station crew">
           {state.crew.map(person => <button type="button" key={person.id} disabled={showDebrief} onClick={() => openCrew(person.id)}
             aria-pressed={bookmark === 'Crew' && inspectedCrewId === person.id}>
-            <RoleIcon role={person.role} /><span>{person.name.split(' ')[0]}<small>{!person.alive ? 'Deceased' : incidentCrew.includes(person.id) ? 'Incident response planned' : medicalTargets[person.id] && assignments[person.id] ? 'Care planned' : orderedActivities.some(order => order.activity?.action_type === 'medical' && medicalTargets[order.crewId]?.patient_id === person.id) ? 'Patient in plan' : assignments[person.id] ? 'Work planned' : person.condition.status}</small></span>
+            <RoleIcon role={person.role} /><span>{person.name.split(' ')[0]}<small>{activityLabel(person.id)}</small></span>
           </button>)}
         </div>
         <nav className={styles.bookmarks} aria-label="Station bookmarks">
@@ -409,11 +427,13 @@ export const GamePage: React.FC = () => {
             {bookmark === 'Crew' && inspectedCrew && <>
               <div className={styles.crewPicker}>{state.crew.map(person => <button type="button" key={person.id} aria-pressed={person.id === inspectedCrew.id} onClick={() => setInspectedCrewId(person.id)}>{person.name.split(' ')[0]}</button>)}</div>
               <CrewCard crew={inspectedCrew} />
+              <p>{activityLabel(inspectedCrew.id)}{roomActivities[inspectedCrew.id]?.reason ? `: ${roomActivities[inspectedCrew.id].reason}` : ''}</p>
               {inspectedCrew.alive && <button type="button" className="btn btn-secondary" onClick={() => showStep(1)}>Plan crew assignments</button>}
             </>}
             {bookmark === 'Stores' && <>
               <h2>Station stores</h2><p>Confirmed stock. Planning reserves supplies without consuming them.</p>
               <dl className={styles.inventory}>{Object.entries(state.resources).map(([id, amount]) => <div key={id}><dt>{id.replace(/_/g, ' ')}</dt><dd>{Number(amount.toFixed(2))}</dd></div>)}</dl>
+              <details><summary>How to read the room supplies</summary><p>Food pouches and water/oxygen fills show stock relative to arrival supplies, with a fixed number of display slots. They are illustrations, not individual ration packets. Kit stacks are capped at three visible packs; counters show the full stock. Battery fill uses the actual capacity. Reusable equipment stays on its rack while available.</p></details>
               <p>Planned rations and action costs: {formatSupplies(weeklyCosts)}.</p>
               <button type="button" className="btn btn-secondary" onClick={() => showStep(2)}>Plan food & water</button>
             </>}

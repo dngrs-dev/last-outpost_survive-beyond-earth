@@ -78,13 +78,72 @@ use pressed states; the current step uses `aria-current`. Step/panel navigation
 focuses its heading. Critical alerts use text, and reduced-motion preferences are
 respected. Essential information does not depend on hover.
 
+## Visible station state
+
+`stationPresentation.ts` maps the current response, explicit support, assignments,
+medical targets, and server-reported eligibility to presentation descriptors.
+`stationLayout.ts` places each living person once using fixed scene anchors.
+These modules do not simulate spending, success, healing, or project advancement.
+
+- Routine and rest use the benches. Shared cabin clothing reuses the same heads,
+  appearance configuration, role accents, limbs, and equipment props. Existing
+  selection-page portraits retain their EVA suit by default.
+- Indoor maintenance and research use working poses at desks, with tools or a
+  tablet. Furniture is presentation, not a new simultaneous-equipment limit.
+- Medical care places caregiver and patient together. Serious/critical or urgent
+  patients recline on a cot; lighter cases receive seated care. Self-care uses one
+  person at their seat. Other recovering crew can recline on the benches, so the
+  scene can show four resting people without inventing a medical-bed requirement.
+  Existing patient-targeted incident responses use a patient pose without adding
+  an unbooked caregiver or changing that response's crew requirements.
+- EVA leads, support crew, and assignments appear in a labelled surface-view
+  inset wearing the shared EVA suit. They have no second body inside the cabin.
+- Work restrictions, named conditions, and deficits choose well/tired/unwell
+  expressions. These are illustrative signals, not diagnoses or new game rules.
+- Conflicting or unavailable orders show a warning label and do not depict valid
+  work or a medical pair. Existing weekly validation still blocks submission.
+
+The scene explicitly says **Plan preview**, **Awaiting confirmation**, or **Week
+N recap**. A confirmed recap uses the submitted activity metadata plus the returned
+receipt: failed work is labelled, cancellations release participants to recovery/
+routine, and dead crew are omitted. Surviving medical partners never retain a
+dead body. Recap positions illustrate the resolved week's activities, rather than
+claiming that jobs persist into the next week. Continue restores a fresh preview.
+No pose or stock change is driven by a timer. Position changes are immediate,
+avoiding stretch/clipping while switching between upright and reclining artwork.
+
+### Supplies
+
+Food uses at most eight fixed-size pouches. Water and oxygen use fixed tank
+silhouettes with changing fills. Their reference is arrival stock, reconstructed
+from current resources minus the complete history of net resource changes; later
+replenishment can fill the display. Illustrations remain stable after a refresh
+and exact quantities remain in Stores/HUD. They do not equate a pouch with one
+resource unit. Very small positive food stock retains one pouch; zero removes all.
+
+Medicine and repair stacks show at most three packs with exact counters; other
+consumables use shared item icons and counters. The scanner, science kit, and
+oxygen regulator remain on their racks while owned. Battery fill uses the actual
+reported capacity. Costs are never deducted locally: planning and retries keep
+the old stock; only the authoritative response updates it. The Stores bookmark
+explains the pictorial limits.
+
+### Research indicators
+
+The room footer opens Science and shows the current seismic phase, discrete phase
+weeks, paused/completed status, and queued orders. Its accessible label includes
+the server's latest project message, including power-shortage explanations; the
+Science panel shows that message in full. Paused progress stays visible. Automatic
+recording has a **crew free** label and never uses `assigned_crew_id` as an ongoing
+reservation. A phase progress bar is not elapsed real-world time. Only the backend
+can advance phases or award objective credit.
+
 ## Scope
 
 This milestone changes presentation and planning, with no new dependencies, API
-fields, survival calculations, or balance changes. The room's shelf props are
-illustrative scenery; exact stock is in the HUD/Stores. Dynamic shelf quantities,
-indoor uniforms, assignment-specific poses/movement, and richer onboarding remain
-later milestones. The fictional room composition is not a NASA habitat blueprint.
+fields, survival calculations, or balance changes. Walking/pathfinding, real-time
+jobs, and richer onboarding remain future work. The fictional room composition,
+clothing, and treatment poses are not NASA habitat or medical specifications.
 
 Validation covers fixture-based gameplay and retry tests, plus local headless
 browser checks at 1440×900, 1280×720, 768×1024, 390×844, 375×667, 320×568, and

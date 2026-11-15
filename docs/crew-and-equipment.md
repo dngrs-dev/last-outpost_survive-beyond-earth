@@ -99,12 +99,13 @@ validates the entire launch. No API schemas or generated fixtures change.
 `AstronautAvatar` and `crewAppearance` contain original, fictional SVG artwork:
 shared face/suit shapes, sixteen stable appearance variants, glasses/freckles, and
 role accents. They use no external assets or rendering dependency. The avatar
-accepts `portrait`, `pose` (`standing` / `seated`), and `mood` (`well` / `tired` /
+accepts `portrait`, `pose` (`standing` / `seated` / `working` / `treating` /
+`reclining`), `outfit` (`eva` by default, or `cabin`), and `mood` (`well` / `tired` /
 `unwell`) presentation inputs. Standing, well characters appear in selection.
 These inputs prepare reuse in station scenes; there is no new health, hunger,
 illness, or fatigue simulation, and this selector does not change their rules.
-Future gameplay views should derive expressions from authoritative crew state,
-while keeping textual condition indicators accessible.
+Station gameplay derives expressions from authoritative crew state and keeps
+textual condition indicators accessible alongside the artwork.
 
 ### Shared astronaut artwork
 
@@ -125,8 +126,15 @@ person's resources. The outer SVG fits its container without stretching.
 provides functional inspiration for the helmet, torso, limbs, gloves, and life
 support layout. These remain original, stylized fictional suits; no NASA artwork,
 logos, or flight-hardware dimensions are copied. Standing/seated and well/tired/
-unwell variants are presentation inputs. Connecting them to the existing gameplay
-crew condition and assignment state remains future work.
+unwell variants are presentation inputs. The station screen now binds them to
+reported crew condition and assignment previews/receipts; see
+[station gameplay](station-gameplay.md).
+
+`CabinOutfit` supplies one shared indoor garment and mirrored limbs, with tablet,
+medical-kit, and tool props. It reuses `AstronautHead`, the skin gradient, and role
+colors. Cabin figures omit the helmet; EVA figures retain the original suit. A
+reclining figure rotates the same rig inside a horizontal view box. Clothing,
+equipment, and poses are original illustrations, not copied agency assets.
 
 ## Cargo changes
 

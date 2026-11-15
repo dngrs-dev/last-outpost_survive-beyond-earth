@@ -7,6 +7,7 @@ import {
   type AstronautMood,
 } from './astronaut/AstronautHead';
 import { AstronautSuit, type AstronautPose } from './astronaut/AstronautSuit';
+import { CabinOutfit, type CabinPose, type CabinEquipment } from './astronaut/CabinOutfit';
 
 export type { AstronautMood } from './astronaut/AstronautHead';
 
@@ -17,12 +18,16 @@ export function AstronautAvatar({
   portrait = false,
   pose = 'standing',
   mood = 'well',
+  outfit = 'eva',
+  equipment,
 }: {
   id: string;
   role: string;
   portrait?: boolean;
-  pose?: AstronautPose;
+  pose?: AstronautPose | CabinPose;
   mood?: AstronautMood;
+  outfit?: 'eva' | 'cabin';
+  equipment?: CabinEquipment;
 }) {
   const person = crewAppearance(id);
   const prefix = `astronaut-${useId().replace(/:/g, '')}`;
@@ -31,14 +36,18 @@ export function AstronautAvatar({
       width="100%"
       height="100%"
       preserveAspectRatio="xMidYMid meet"
-      viewBox={portrait ? '64 28 112 140' : '0 0 240 520'}
+      viewBox={portrait ? '64 28 112 140' : pose === 'reclining' ? '0 0 520 240' : '0 0 240 520'}
       fill="none"
       aria-hidden="true"
       focusable="false"
       data-pose={pose}
       data-mood={mood}
+      data-outfit={outfit}
     >
       <defs>
+        <linearGradient id={`${prefix}-cabin`} x1="65" y1="140" x2="160" y2="280" gradientUnits="userSpaceOnUse">
+          <stop stopColor="#5e8198" /><stop offset=".5" stopColor="#436479" /><stop offset="1" stopColor="#304c62" />
+        </linearGradient>
         <linearGradient
           id={`${prefix}-cloth`}
           x1="55"
@@ -82,14 +91,16 @@ export function AstronautAvatar({
           <path d={FACE_PATHS[person.face || 'oval']} />
         </clipPath>
       </defs>
+      <g transform={!portrait && pose === 'reclining' ? 'translate(0 240) rotate(-90)' : undefined}>
       <AstronautHead person={person} mood={mood} prefix={prefix} />
-      <AstronautSuit
+      {outfit === 'cabin' ? <CabinOutfit prefix={prefix} accent={roleColor(role)} role={role} pose={pose} equipment={equipment} /> : <AstronautSuit
         prefix={prefix}
         accent={roleColor(role)}
         role={role}
-        pose={pose}
-      />
-      {!portrait && <AstronautHelmet prefix={prefix} />}
+        pose={pose === 'seated' || pose === 'working' ? 'seated' : 'standing'}
+      />}
+      {outfit === 'eva' && !portrait && <AstronautHelmet prefix={prefix} />}
+      </g>
     </svg>
   );
 }

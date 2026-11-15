@@ -93,7 +93,6 @@
   .workspace { display: flex; flex-direction: column; }
   .habitat { flex: 0 0 auto; padding: 0 8px 7px; }
   .habitat > section { height: clamp(130px, 23dvh, 240px); flex: none; }
-  .habitat > section > div { width: auto; height: 100%; }
   .goals { font-size: 10px; padding: 0 3px; }
   .crewStrip { gap: 4px; padding: 0 0 6px; }
   .crewStrip button { padding: 5px; gap: 4px; min-height: 40px; }
