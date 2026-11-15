@@ -1,7 +1,7 @@
 import { AstronautAvatar } from '../AstronautAvatar';
 import { ItemIcon } from '../ItemIcon';
 import { RoleIcon } from '../RoleIcon';
-import type { CrewResponse } from '../../types/game';
+import type { CrewResponse, EffectsResponse } from '../../types/game';
 import './stationUI.css';
 
 const icons: Record<string, string> = { food: 'food_packs', water: 'water_containers', medicine: 'medicine_kits', oxygen: 'oxygen_tanks' };
@@ -32,4 +32,15 @@ export function Portrait({ person }: { person: CrewResponse }) {
 }
 export function CrewPick({ person, selected, disabled, onClick, detail }: { person: CrewResponse; selected: boolean; disabled?: boolean; onClick: () => void; detail?: string }) {
   return <button type="button" className="crew-pick" aria-label={person.name} aria-pressed={selected} disabled={disabled} onClick={onClick}><Portrait person={person} /><strong>{person.name.split(' ')[0]}</strong>{detail && <small>{detail}</small>}</button>;
+}
+
+export function Outcome({ effects, rewards = 0 }: { effects: EffectsResponse; rewards?: number }) {
+  const systems = [['Solar', effects.solar_efficiency], ['Oxygen maker', effects.oxygen_efficiency], ['Water recycler', effects.water_recovery_efficiency], ['Air filter', effects.co2_efficiency]] as const;
+  return <span className="outcome"><Resources values={effects.resources} signed />
+    {systems.filter(([, amount]) => amount).map(([name, amount]) => <span key={name}>{name} {amount > 0 ? '+' : ''}{Math.round(amount * 100)}%</span>)}
+    {Boolean(effects.crew_health) && <span>♥ {effects.target === 'all' ? 'Everyone ' : ''}{effects.crew_health > 0 ? '+' : ''}{effects.crew_health}</span>}
+    {effects.condition && <span>⚠ {label(effects.condition)}</span>}
+    {Boolean(effects.treatment) && <span>✚ Treat injury</span>}
+    {rewards > 0 && <span>✦ Science +{rewards}</span>}
+  </span>;
 }

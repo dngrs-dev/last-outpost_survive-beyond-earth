@@ -28,3 +28,18 @@
 .panel-warning { color:#ffdaa0; background:#533c2580; border:1px solid #96734b; border-radius:9px; padding:8px; font-size:13px; }
 @media(max-width:600px) { .action-grid{gap:7px;} .action-card{padding:8px;gap:6px;} .action-card h3,.action-card h2{font-size:14px;} .action-card p{font-size:12px;} .resource{font-size:12px;padding:2px 4px;} .resource-icon{width:22px;height:22px;} }
 @media(prefers-reduced-motion:reduce) { .crew-pick,.action-card { transition:none!important;animation:none!important; } }
+
+.incident-options { display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px;flex:1;min-height:0; }
+.incident-options .action-card { cursor:pointer;justify-content:center; }
+.incident-brief { max-width:950px; }
+.incident-team { display:flex;align-items:center;gap:18px; }
+.incident-controls { width:100%;display:flex;justify-content:space-between;align-items:center;gap:10px; }
+.incident-controls > span { font-size:13px;color:#e0cc9d; }
+.response-outcomes { display:flex;flex-wrap:wrap;gap:5px 14px;font-size:12px; }
+.response-outcomes > span { display:flex;gap:4px;align-items:center; }
+.good-result { color:#b2ebc6; }.bad-result { color:#f4c9a4; }
+.response-outcomes > span:has(.outcome:empty) { display:none; }
+.outcome { display:inline-flex;flex-wrap:wrap;align-items:center;gap:4px 8px;font-size:12px; }
+.outcome > .resources:empty {display:none;}
+@media(max-width:600px) { .incident-options{gap:7px;} .incident-options .action-card{gap:5px;padding:8px;} .incident-options .action-card h2{font-size:13px;} .incident-brief{font-size:13px!important;} .incident-team{gap:6px;flex-direction:column;align-items:start;} .incident-team .crew-pick{padding:3px;min-width:56px;} .incident-team .crew-portrait{width:42px;height:45px;} .incident-team .crew-picks{gap:6px;} .incident-team strong{font-size:12px;} .response-outcomes{gap:4px;font-size:11px;} .outcome{font-size:11px;gap:3px;} }
+@media(max-height:450px) { .incident-options{grid-template-columns:repeat(4,minmax(0,1fr));gap:7px;} .incident-options .action-card{padding:6px;gap:5px;} .incident-options .action-card h2{font-size:13px;} .incident-brief{font-size:12px!important;} .incident-team .crew-portrait{width:32px;height:32px;} .incident-team .crew-pick{flex-direction:row;font-size:11px;min-height:44px;} .incident-team strong{font-size:12px;} .response-outcomes,.outcome{font-size:10px;} }

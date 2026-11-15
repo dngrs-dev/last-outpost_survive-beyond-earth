@@ -29,18 +29,15 @@ export function notebookText(pattern: RegExp) {
 }
 
 export async function confirmIncident(fixture: GameResponse = game, options: { choiceId?: string; leadId?: string; supportIds?: string[] } = {}) {
-  await screen.findByRole('button', { name: 'See responses' });
-  fireEvent.click(book().getByRole('button', { name: 'See responses' }));
+  await screen.findByRole('dialog', { name: fixture.state.current_event!.title });
   const choice = fixture.state.current_event!.choices.find(choice => options.choiceId ? choice.id === options.choiceId : choice.available && !choice.requires_crew)
     || fixture.state.current_event!.choices.find(choice => choice.available)!;
-  notebookPage(choice.text);
-  fireEvent.click(book().getByRole('button', { name: 'Choose this response' }));
+  fireEvent.click(book().getByRole('button', { name: choice.text }));
   if (choice.requires_crew) {
     const lead = options.leadId || [...choice.eligible_crew].filter(candidate => candidate.available).sort((a, b) => b.success_probability - a.success_probability)[0].crew_id;
-    fireEvent.change(book().getByRole('combobox', { name: 'Response lead' }), { target: { value: lead } });
+    fireEvent.click(book().getByRole('button', { name: fixture.state.crew.find(person => person.id === lead)!.name }));
     const supports = options.supportIds || choice.support_candidates.filter(candidate => candidate.available && candidate.crew_id !== lead).slice(0, Math.max(0, choice.minimum_crew - 1)).map(candidate => candidate.crew_id);
-    for (const [index, id] of supports.entries()) fireEvent.change(book().getByRole('combobox', { name: `Support astronaut ${index + 1}` }), { target: { value: id } });
-    fireEvent.click(book().getByRole('button', { name: 'See consequences' }));
+    for (const id of supports) fireEvent.click(book().getByRole('button', { name: fixture.state.crew.find(person => person.id === id)!.name }));
   }
   fireEvent.click(book().getByRole('button', { name: 'Confirm response' }));
   return choice;

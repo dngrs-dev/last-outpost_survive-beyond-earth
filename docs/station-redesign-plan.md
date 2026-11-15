@@ -85,15 +85,15 @@ children. Do not describe automated tests as child usability testing.
 
 ### 2. Incident board: all options together
 
-- [ ] Replace `IncidentNotebook.tsx` with a large incident panel. All 15 authored
+- [x] Replace `IncidentNotebook.tsx` with a large incident panel. All 15 authored
   events currently have 3 or 4 choices; test both counts across screen sizes.
-- [ ] Put the incident title and a short, faithful description above response cards.
+- [x] Put the incident title and a short, faithful description above response cards.
   Show each action, core benefit/risk, costs, required crew/equipment and chance.
-- [ ] Selecting a card reveals an inline portrait picker for lead/support and one
+- [x] Selecting a card reveals an inline portrait picker for lead/support and one
   clear confirm button. Show candidate-specific chance; do not auto-commit a lead.
-- [ ] Unavailable choices remain recognizable with a concise reason. Preserve
+- [x] Unavailable choices remain recognizable with a concise reason. Preserve
   support distinctness, budgets, injuries and incident occupancy validation.
-- [ ] Remove historical references, timing boilerplate, empty requirements and
+- [x] Remove historical references, timing boilerplate, empty requirements and
   separate consequence pages. Retain meaningful failure risks before confirmation.
 
 ### 3. Independent meals and correct Next Week semantics
@@ -197,3 +197,5 @@ implemented behavior and layouts have actually passed validation.
   frontend tests and station documentation. API contracts can remain unchanged.
 
 Step 1: neutral modal sizes and shared visual controls implemented. Two resource-widget tests and production build passed. Existing panels retain a temporary compatibility export until their replacement.
+
+Step 2: all incident responses, visual consequences, inline lead/support portraits and explicit confirmation implemented. Four focused visual/incident tests and production build passed. Old notebook-navigation integration tests will move to the new flow in step 7.
