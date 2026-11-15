@@ -1,6 +1,7 @@
 import { beforeEach, describe, expect, it, vi } from 'vitest';
 import { fireEvent, render, screen, within } from '@testing-library/react';
 import { MemoryRouter, Route, Routes } from 'react-router-dom';
+import { planningStep, reviewWeek, fullReport } from './helpers/station';
 import { GamePage } from '../pages/GamePage';
 import { ResultsPage } from '../pages/ResultsPage';
 import { SetupPage } from '../pages/SetupPage';
@@ -28,14 +29,19 @@ describe('Mission research with real API fixtures', () => {
     render(<MemoryRouter initialEntries={['/game/fixture-game']}><Routes>
       <Route path="/game/:gameId" element={<GamePage />} />
     </Routes></MemoryRouter>);
-    fireEvent.change(await screen.findByRole('combobox', { name: 'Assignment for Lin Park' }), { target: { value: 'research_geology' } });
+    await screen.findByRole('region', { name: 'Incident response' });
     const response = researchGame.state.current_event!.choices.find(c => !c.requires_crew)!;
     fireEvent.click(screen.getByText(new RegExp(response.text)));
-    fireEvent.click(screen.getByRole('button', { name: /SUBMIT WEEK 1 DECISIONS/ }));
+    await planningStep('Crew');
+    fireEvent.change(screen.getByRole('combobox', { name: 'Assignment for Lin Park' }), { target: { value: 'research_geology' } });
+    fireEvent.click(await reviewWeek());
+    await fullReport();
     expect(await screen.findByText('Research objective: Baseline sample collection +1.')).toBeInTheDocument();
     expect(send).toHaveBeenCalledWith('fixture-game', expect.objectContaining({
       assignments: [{ crew_id: 'lin', activity_id: 'research_geology' }], expected_week: 1,
     }));
+    fireEvent.click(screen.getByRole('button', { name: /PROCEED TO WEEK/ }));
+    fireEvent.click(screen.getByRole('button', { name: /^Science$/ }));
     expect(screen.getByRole('progressbar', { name: 'Baseline sample collection progress' })).toHaveAttribute('value', '1');
   });
 

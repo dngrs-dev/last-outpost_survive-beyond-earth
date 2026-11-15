@@ -97,6 +97,14 @@
 > refresh and crew changes. Catalog/API/simulation values are unchanged; see
 > `supplies.md` for current presentation and validation behavior.
 
+> Station-screen update: active play now uses a fixed cutaway common room, shared
+> astronaut artwork, and four guided planning steps: Incident, Crew, Food & water,
+> Review. Crew/Stores/Systems/Science/Log bookmarks reveal optional details. End
+> Week retains the existing atomic backend operation and retry handling; confirmed
+> results separate survival and science before the next plan. See
+> `station-gameplay.md` for behavior, accessibility, and the boundary between this
+> playable screen and future dynamic supplies/assignment animations.
+
 **Project name:** LAST OUTPOST  
 **Subtitle:** Lunar Survival  
 **Genre:** Turn-based survival, strategy, resource management, decision-making  

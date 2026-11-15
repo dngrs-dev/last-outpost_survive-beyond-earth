@@ -3,6 +3,7 @@ import { act, render, screen, fireEvent } from '@testing-library/react';
 import { MemoryRouter, Route, Routes } from 'react-router-dom';
 import { GamePage } from '../pages/GamePage';
 import * as gameApi from '../api/game';
+import { planningStep, reviewWeek, fullReport } from './helpers/station';
 import { ApiError } from '../api/client';
 import { game, turn, treatment, completed, medicalGame } from './fixtures/backend';
 
@@ -14,7 +15,7 @@ function renderGame() {
 }
 
 async function submit() {
-  const button = await screen.findByRole('button', { name: /SUBMIT WEEK 1 DECISIONS/ });
+  const button = await reviewWeek();
   await act(async () => { fireEvent.click(button); });
 }
 
@@ -27,6 +28,7 @@ describe('GamePage with real API fixtures', () => {
   it('renders actual ration costs and applies ration changes', async () => {
     renderGame();
     expect(await screen.findByText('WEEK 1 / 12')).toBeInTheDocument();
+    await planningStep('Food & water');
     expect(screen.getByText('Alex Vega')).toBeInTheDocument();
     expect(screen.getAllByRole('option', { name: 'Emergency (0.44u)' })).toHaveLength(1);
     fireEvent.click(screen.getByRole('button', { name: 'ALL REDUCED' }));
@@ -37,11 +39,11 @@ describe('GamePage with real API fixtures', () => {
     vi.spyOn(gameApi, 'submitTurn').mockResolvedValue(structuredClone(turn));
     renderGame();
     await submit();
-    expect(await screen.findByText('WEEK 1 DEBRIEF')).toBeInTheDocument();
+    await fullReport();
     expect(screen.getByText(/Alex Vega: 100.*75 HP/)).toBeInTheDocument();
     expect(screen.getByText(/Alex Vega: 75.*75 HP/)).toBeInTheDocument();
     expect(screen.getAllByText('Health penalties: food 0, water 0, oxygen 0.')).toHaveLength(2);
-    expect(screen.getByText(/Next week's discovery:/)).toBeInTheDocument();
+    expect(screen.getAllByText(/Next week's discovery:/).length).toBeGreaterThan(0);
     expect(screen.queryByText(/\[object Object\]/)).not.toBeInTheDocument();
   });
 
@@ -50,7 +52,8 @@ describe('GamePage with real API fixtures', () => {
     vi.spyOn(gameApi, 'submitTurn').mockResolvedValue(structuredClone(treatment));
     renderGame();
     await submit();
-    expect(await screen.findByText(/Alex Vega: 92.*97 HP/)).toBeInTheDocument();
+    await fullReport();
+    expect(screen.getByText(/Alex Vega: 92.*97 HP/)).toBeInTheDocument();
     expect(screen.getByText(/Alex Vega: 97.*100 HP/)).toBeInTheDocument();
   });
 
@@ -63,6 +66,7 @@ describe('GamePage with real API fixtures', () => {
       renderGame();
       await submit();
       const retry = await screen.findByRole('button', { name: /Retry week 1 submission/ });
+      await planningStep('Food & water');
       expect(screen.getByRole('button', { name: 'ALL EMERGENCY' })).toBeDisabled();
       expect(screen.getAllByRole('combobox').filter(select => Array.from((select as HTMLSelectElement).options).some(option => option.value === 'normal')).every((select) => (select as HTMLSelectElement).disabled)).toBe(true);
       const original = structuredClone(send.mock.calls[0][1]);
@@ -70,6 +74,7 @@ describe('GamePage with real API fixtures', () => {
       await screen.findByText('WEEK 1 DEBRIEF');
       expect(send.mock.calls[1][1]).toEqual(original);
       fireEvent.click(screen.getByRole('button', { name: /PROCEED TO WEEK 2/ }));
+      await planningStep('Food & water');
       expect(screen.getByRole('button', { name: 'ALL NORMAL' })).not.toBeDisabled();
     }
   );
@@ -81,6 +86,7 @@ describe('GamePage with real API fixtures', () => {
     renderGame();
     await submit();
     await screen.findByText('Insufficient water for rations.');
+    await planningStep('Food & water');
     fireEvent.click(screen.getByRole('button', { name: 'ALL REDUCED' }));
     await submit();
     await screen.findByText('WEEK 1 DEBRIEF');
@@ -97,7 +103,8 @@ describe('GamePage with real API fixtures', () => {
     expect(await screen.findByText('WEEK 2 / 12')).toBeInTheDocument();
     expect(screen.getByText(/current mission state has been refreshed/)).toBeInTheDocument();
     expect(send).toHaveBeenCalledTimes(1);
-    expect(screen.getByRole('button', { name: 'ALL NORMAL' })).not.toBeDisabled();
+    await planningStep('Food & water');
+      expect(screen.getByRole('button', { name: 'ALL NORMAL' })).not.toBeDisabled();
   });
 
   it('preserves the saved decision if conflict recovery also fails', async () => {
@@ -139,7 +146,7 @@ describe('GamePage with real API fixtures', () => {
     let resolve!: (value: typeof turn) => void;
     const send = vi.spyOn(gameApi, 'submitTurn').mockImplementation(() => new Promise((done) => { resolve = done; }));
     renderGame();
-    const button = await screen.findByRole('button', { name: /SUBMIT WEEK 1 DECISIONS/ });
+    const button = await reviewWeek();
     fireEvent.click(button);
     fireEvent.click(button);
     expect(send).toHaveBeenCalledTimes(1);

@@ -58,6 +58,16 @@ replay settings open on demand. Cargo/seed edits survive a preparation-page refr
 and crew changes; launch errors retain the loadout. Catalog and simulation rules
 remain authoritative in the backend.
 
+Active play at `/game/:gameId` now uses a full-screen station common room with
+two curved seating tiers and a central table. Inspect crew or open Crew, Stores,
+Systems, Science, and Log bookmarks. Four guided steps organize each week:
+Incident, Crew, Food & water, and Review. Only End Week submits the combined plan;
+known booking/budget conflicts block submission, and uncertain retries retain
+the original request. Confirmed results show survival, science, crew work, and
+next-discovery effects before continuing. Phone layouts keep navigation visible
+while the active panel scrolls internally. Room props are illustrative; dynamic
+stock artwork and activity-specific poses remain future work.
+
 ## Run locally
 
 ### Backend
@@ -129,6 +139,8 @@ npm run build
   character profiles, cargo tradeoffs, and maintenance actions.
 - [Supplies screen](docs/supplies.md): item artwork, packing controls, capacity,
   mission information, draft preservation, and launch validation.
+- [Station gameplay](docs/station-gameplay.md): room layout, four-step weekly
+  planning, bookmarks, confirmed results, and retry behavior.
 - [Event library](docs/events.md): all fifteen scenarios, NASA references, equipment,
   research rewards, and gameplay boundaries.
 - [Connected life support](docs/life-support.md): the ISS-inspired water/oxygen/CO2

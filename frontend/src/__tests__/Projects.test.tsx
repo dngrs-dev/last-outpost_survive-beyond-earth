@@ -1,6 +1,7 @@
 import { beforeEach, describe, expect, it, vi } from 'vitest';
 import { fireEvent, render, screen, within } from '@testing-library/react';
 import { MemoryRouter, Route, Routes } from 'react-router-dom';
+import { planningStep, reviewWeek } from './helpers/station';
 import { ResearchProjects } from '../components/ResearchProjects';
 import { GamePage } from '../pages/GamePage';
 import * as api from '../api/game';
@@ -26,12 +27,15 @@ describe('Phased seismic projects from real API fixtures', () => {
     render(<MemoryRouter initialEntries={['/game/fixture-game']}><Routes>
       <Route path="/game/:gameId" element={<GamePage />} />
     </Routes></MemoryRouter>);
-    const panel = await screen.findByRole('region', { name: 'Research projects' });
+    await screen.findByRole('region', { name: 'Incident response' });
+    fireEvent.click(screen.getByRole('button', { name: /^Science$/ }));
+    const panel = screen.getByRole('region', { name: 'Research projects' });
     const select = within(panel).getByRole('combobox', { name: /Project control/ });
     fireEvent.change(select, { target: { value: 'pause' } });
     const response = projectRecording.state.current_event!.choices.find(c => !c.requires_crew)!;
+    await planningStep('Incident');
     fireEvent.click(screen.getByText(new RegExp(response.text)));
-    fireEvent.click(screen.getByRole('button', { name: /SUBMIT WEEK/ }));
+    fireEvent.click(await reviewWeek());
     expect((await screen.findAllByText(/Paused by command/)).length).toBeGreaterThan(0);
     expect(submit).toHaveBeenCalledWith('fixture-game', expect.objectContaining({
       project_orders: [{ project_id: projectRecording.state.research_projects[0].id, action: 'pause' }],

@@ -3,6 +3,7 @@ import { fireEvent, render, screen, within } from '@testing-library/react';
 import { MemoryRouter, Route, Routes } from 'react-router-dom';
 import { GamePage } from '../pages/GamePage';
 import * as api from '../api/game';
+import { planningStep, reviewWeek } from './helpers/station';
 import { supportGame, parallelTurn } from './fixtures/backend';
 
 function openGame() {
@@ -25,10 +26,12 @@ describe('Independent weekly crew work', () => {
     const actor = [...response.eligible_crew].filter(c => c.available).sort((a, b) => b.success_probability - a.success_probability)[0].crew_id;
     const support = supportGame.state.crew.find(c => c.id !== actor)!;
     const worker = supportGame.state.crew.find(c => c.id !== actor && c.id !== support.id)!;
-    const submit = screen.getByRole('button', { name: /SUBMIT WEEK/ });
-    expect(submit).toBeDisabled();
+    expect(await reviewWeek()).toBeDisabled();
+    await planningStep('Incident');
     fireEvent.click(screen.getByRole('checkbox', { name: support.name }));
+    await planningStep('Crew');
     fireEvent.change(screen.getByRole('combobox', { name: `Assignment for ${worker.name}` }), { target: { value: 'research_geology' } });
+    const submit = await reviewWeek();
     expect(submit).toBeEnabled();
     fireEvent.click(submit);
     await screen.findByText(/WEEK .* DEBRIEF/);
@@ -42,12 +45,16 @@ describe('Independent weekly crew work', () => {
     openGame();
     const response = supportGame.state.current_event!.choices.find(c => !c.requires_crew)!;
     fireEvent.click(await screen.findByText(new RegExp(response.text)));
+    await planningStep('Crew');
     fireEvent.change(screen.getByRole('combobox', { name: 'Assignment for Alex Vega' }), { target: { value: 'research_geology' } });
     const repair = supportGame.state.current_event!.choices.find(c => c.requires_crew)!;
+    await planningStep('Incident');
     fireEvent.click(screen.getByText(new RegExp(repair.text)));
-    fireEvent.click(screen.getByRole('button', { name: /Astronaut ALEX/ }));
+    fireEvent.change(screen.getByRole('combobox', { name: 'Response lead' }), { target: { value: 'alex' } });
+    await planningStep('Crew');
     expect(screen.getByText('Each astronaut can perform only one main job this week.')).toBeInTheDocument();
-    expect(screen.getByRole('button', { name: /SUBMIT WEEK/ })).toBeDisabled();
+    expect(await reviewWeek()).toBeDisabled();
+    await planningStep('Crew');
     const panel = screen.getByRole('region', { name: 'Crew assignments' });
     expect(within(panel).getAllByRole('option', { name: 'Routine duties', selected: true })).toBeDefined();
   });

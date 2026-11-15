@@ -1,6 +1,7 @@
 import { beforeEach, describe, expect, it, vi } from 'vitest';
 import { fireEvent, render, screen } from '@testing-library/react';
 import { MemoryRouter, Route, Routes } from 'react-router-dom';
+import { reviewWeek, fullReport } from './helpers/station';
 import { LifeSupportPanel } from '../components/LifeSupportPanel';
 import { GamePage } from '../pages/GamePage';
 import * as api from '../api/game';
@@ -24,7 +25,8 @@ describe('Distinct life-support systems', () => {
     render(<MemoryRouter initialEntries={['/game/fixture-game']}><Routes>
       <Route path="/game/:gameId" element={<GamePage />} />
     </Routes></MemoryRouter>);
-    fireEvent.click(await screen.findByRole('button', { name: /SUBMIT WEEK 1/ }));
+    fireEvent.click(await reviewWeek());
+    await fullReport();
     expect(await screen.findByRole('heading', { name: 'Life-support resource loop' })).toBeInTheDocument();
     expect(screen.getByText(/Wastewater processed/)).toHaveTextContent(`clean water recovered ${turn.turn_outcome.survival.life_support.water_recovered}`);
   });

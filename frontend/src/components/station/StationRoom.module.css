@@ -1,0 +1,34 @@
+.room { min-height: 0; display: flex; flex-direction: column; justify-content: center; overflow: hidden; container-type: size; }
+.scene { position: relative; width: min(100%, calc(131.5789cqh - 44px)); max-width: 1000px; aspect-ratio: 1000 / 760; margin: auto; flex-shrink: 0; }
+.interior, .table { position: absolute; inset: 0; width: 100%; height: 100%; pointer-events: none; }
+.table { z-index: 4; }
+.astronaut { position: absolute; width: 17%; height: 39%; padding: 0; background: none; color: #e7f3fb; z-index: 2; border-radius: 40%; }
+.astronaut > svg { filter: drop-shadow(0 8px 7px #0008); }
+.astronaut:hover > svg, .astronaut:focus-visible > svg, .selected > svg { filter: drop-shadow(0 0 7px #8ee9e5aa); }
+.astronaut:focus-visible { outline: 2px solid #a3f3e2; outline-offset: 3px; }
+.seat0 { left: 28%; top: 20%; }
+.seat1 { left: 55%; top: 20%; }
+.seat2 { left: 17%; top: 40%; z-index: 3; }
+.seat3 { left: 66%; top: 40%; z-index: 3; }
+.name { position: absolute; top: -18%; left: 50%; transform: translateX(-50%); padding: 4px 8px; min-width: 80px; white-space: nowrap; border: 1px solid #617f92; border-radius: 6px; background: #0a1828f2; font-size: clamp(11px, 1.1vw, 15px); line-height: 1.2; }
+.name svg { display: inline-block; width: 14px; height: 14px; vertical-align: middle; margin-right: 5px; color: #95d1e3; }
+.name small { display: block; color: #aac3d2; font-size: .75em; text-transform: capitalize; margin-top: 3px; }
+.selected .name { border-color: #9ce3cc; }
+.hotspots { position: absolute; top: 17%; left: 11%; right: 11%; display: flex; justify-content: space-between; z-index: 5; }
+.hotspots button { border: 1px solid #5a7f96; border-radius: 6px; padding: 9px 13px; color: #b8dce9; background: #102033ec; min-height: 44px; font-size: 13px; }
+.hotspots button:hover, .hotspots button:focus-visible { color: #fff; border-color: #8ce5db; outline: 2px solid #8ce5db; }
+.caption { color: #9fbece; letter-spacing: .16em; font-size: 11px; padding: 6px 16px 10px; }
+.caption span { letter-spacing: 0; color: #8ca4b5; float: right; }
+@container (max-height: 300px) {
+  .scene { width: min(100%, 131.5789cqh); }
+  .caption, .name, .hotspots { display: none; }
+}
+@media (max-width: 760px) {
+  .scene { max-width: 450px; }
+  .caption { display: none; }
+  .hotspots { display: none; }
+  .hotspots button { font-size: 11px; padding: 5px 9px; }
+  .name { display: none; }
+  .name svg { width: 11px; height: 11px; margin-right: 3px; }
+  .name small { display: none; }
+}

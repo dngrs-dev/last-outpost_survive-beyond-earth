@@ -6,14 +6,18 @@ import { rememberMission } from '../state/lastMission';
 import { ResearchProjects } from '../components/ResearchProjects';
 import { EnergyPanel } from '../components/EnergyPanel';
 import { LifeSupportPanel } from '../components/LifeSupportPanel';
-import { MedicalAssignmentFields, type MedicalTarget } from '../components/MedicalAssignmentFields';
-import { Header } from '../components/Header';
+import type { MedicalTarget } from '../components/MedicalAssignmentFields';
 import { ResearchObjectives } from '../components/ResearchObjectives';
-import { ResourceCard } from '../components/ResourceCard';
 import { StationOverview } from '../components/StationOverview';
 import { CrewCard } from '../components/CrewCard';
-import { EventCard } from '../components/EventCard';
-import { TurnOutcomeModal } from '../components/TurnOutcomeModal';
+import { StationRoom, type StationBookmark } from '../components/station/StationRoom';
+import { IncidentPlanner, formatSupplies } from '../components/station/IncidentPlanner';
+import { CrewPlanner } from '../components/station/CrewPlanner';
+import { WeeklyRations } from '../components/station/WeeklyRations';
+import { WeekDebrief } from '../components/station/WeekDebrief';
+import { TurnDetails } from '../components/TurnDetails';
+import { RoleIcon } from '../components/RoleIcon';
+import styles from './GamePage.module.css';
 import type {
   GameStateResponse,
   RationLevel,
@@ -43,10 +47,16 @@ export const GamePage: React.FC = () => {
   const [projectOrders, setProjectOrders] = useState<Record<string, "pause" | "resume" | "interrupt">>({});
   const [assignments, setAssignments] = useState<Record<string, string>>({});
   const [medicalTargets, setMedicalTargets] = useState<Record<string, MedicalTarget>>({});
+  const [step, setStep] = useState(0);
+  const [bookmark, setBookmark] = useState<StationBookmark | null>(null);
+  const [inspectedCrewId, setInspectedCrewId] = useState<string | null>(null);
+  const panelTitle = useRef<HTMLHeadingElement>(null);
 
-  // Modal debrief state
+  // Confirmed debrief state
   const [latestOutcome, setLatestOutcome] = useState<TurnOutcome | null>(null);
-  const [showOutcomeModal, setShowOutcomeModal] = useState<boolean>(false);
+  const [showDebrief, setShowDebrief] = useState<boolean>(false);
+
+  useEffect(() => { panelTitle.current?.focus(); }, [step, bookmark, showDebrief, loading]);
 
   // Load game state
   useEffect(() => {
@@ -105,6 +115,9 @@ export const GamePage: React.FC = () => {
     setPowerPriority(gameState.energy.priority);
     setSelectedChoiceId('');
     setSelectedCrewId(null);
+    setStep(0);
+    setBookmark(null);
+    setInspectedCrewId(living[0]?.id || gameState.crew[0]?.id || null);
 
     // Default select the first available choice
     if (gameState.current_event) {
@@ -209,7 +222,7 @@ export const GamePage: React.FC = () => {
       }
       setPendingTurn(null);
       setLatestOutcome(response.turn_outcome);
-      setShowOutcomeModal(true);
+      setShowDebrief(true);
       setState(response.state);
       initializeTurnForm(response.state);
     } catch (err: unknown) {
@@ -241,25 +254,23 @@ export const GamePage: React.FC = () => {
 
   if (loading) {
     return (
-      <div className="app-container">
-        <Header />
+      <main className={styles.connection}>
         <div style={{ textAlign: 'center', padding: '4rem', color: 'var(--color-cyan)' }}>
           <div style={{ fontSize: '2rem', marginBottom: '1rem' }}>📡</div>
-          <div>ESTABLISHING DIRECT TELEMETRY WITH STATION ALPHA...</div>
+          <div role="status">Connecting to your outpost...</div>
         </div>
-      </div>
+      </main>
     );
   }
 
   if (!state) {
     return (
-      <div className="app-container">
-        <Header />
+      <main className={styles.connection}>
         <div className="alert alert-danger">{error || 'Mission telemetry unavailable.'}</div>
         <button type="button" className="btn btn-secondary" onClick={() => setLoadAttempt((attempt) => attempt + 1)}>
           Retry connection
         </button>
-      </div>
+      </main>
     );
   }
 
@@ -295,6 +306,7 @@ export const GamePage: React.FC = () => {
     }
   }
   const planIssues: string[] = [];
+  if (activeChoice?.requires_crew && !activeChoice.eligible_crew.some(candidate => candidate.crew_id === selectedCrewId && candidate.available)) planIssues.push('Select an eligible incident lead.');
   const projectWork = orderedActivities.filter(o => o.activity?.id === 'research_seismic' || o.activity?.id.startsWith('project:'));
   if (new Set(projectWork.map(o => o.activity.id)).size !== projectWork.length) planIssues.push('Only one worker may advance each project this week.');
   if (projectWork.some(o => ['pause', 'interrupt'].includes(projectOrders[o.activity.id.replace('project:', '')]))) planIssues.push('Remove the assignment before pausing or interrupting its project.');
@@ -328,245 +340,131 @@ export const GamePage: React.FC = () => {
     });
   };
 
-  return (
-    <div className="app-container">
-      <Header
-        stationName={state.station_name}
-        currentWeek={state.current_week}
-        durationWeeks={state.duration_weeks}
-        missionDays={state.mission_days}
-        difficulty={state.difficulty}
-      />
+  const steps = ['Incident', 'Crew', 'Food & water', 'Review'];
+  const inspectedCrew = state.crew.find(person => person.id === inspectedCrewId) || livingCrew[0] || state.crew[0];
+  const crewNames = Object.fromEntries(state.crew.map(person => [person.id, person.name]));
+  const currentLighting = state.energy.forecast[0];
+  const openCrew = (id: string) => { setInspectedCrewId(id); setBookmark('Crew'); };
+  const showStep = (index: number) => { setBookmark(null); setStep(index); };
+  const canSubmit = Boolean(activeChoice?.available)
+    && (!activeChoice?.requires_crew || Boolean(selectedCrewId)) && !planIssues.length;
+  const projects = <ResearchProjects projects={state.research_projects} orders={projectOrders} disabled={decisionLocked} onChange={setProjectOrders} />;
+  const energy = <EnergyPanel forecast={state.energy.forecast} stored={state.energy.stored} capacity={state.energy.battery_capacity}
+    demand={state.energy.life_support_required} priority={powerPriority} onPriorityChange={setPowerPriority}
+    disabled={decisionLocked} solarDay={state.energy.solar_day_earth_days} sourceUrl={state.energy.source_url} assumption={state.energy.assumption} />;
 
-      {error && <div className="alert alert-danger">{error}</div>}
-      {pendingTurn && !submitting && <div className="alert alert-warning">
-        Week {pendingTurn.expected_week} has an unresolved submission. Your original decisions are saved and locked until retry resolves it.
-      </div>}
+  return <main className={styles.screen}>
+    <header className={styles.hud}>
+      <div className={styles.mission}><span className={styles.eyebrow}>{state.station_name}</span><strong>WEEK {state.current_week} / {state.duration_weeks}</strong></div>
+      <div className={styles.stocks} role="group" aria-label="Confirmed station resources">
+        {(['food', 'water', 'oxygen', 'electricity'] as const).map(resource => <button key={resource} type="button" disabled={showDebrief}
+          onClick={() => setBookmark(resource === 'electricity' ? 'Systems' : 'Stores')}>
+          <span>{resource === 'electricity' ? 'Battery' : resource}</span><strong>{Number((state.resources[resource] || 0).toFixed(1))}{resource === 'electricity' ? ` / ${state.energy.battery_capacity}` : ''}</strong>
+        </button>)}
+      </div>
+      <button type="button" className={styles.lighting} disabled={showDebrief} onClick={() => setBookmark('Systems')}>
+        <span>{currentLighting?.phase || 'Forecast'}</span><small>{currentLighting ? `${currentLighting.daylight_days.toFixed(1)} days of light` : 'Open energy forecast'}</small>
+      </button>
+    </header>
 
-      {/* Depletion or Emergency Alerts */}
-      {state.depleted_provisions.length > 0 && (
-        <div className="alert alert-danger">
-          <strong>PROVISION DEPLETION:</strong> Station {state.depleted_provisions.join(' and ')} reserves are empty!
-          Emergency rations must be enforced. Starvation/dehydration damage will occur.
+    <div className={styles.workspace}>
+      <div className={styles.habitat}>
+        <div className={styles.goals}>
+          <span>Survival <strong>{livingCrew.length} / {state.initial_crew_size} crew alive</strong></span>
+          <button type="button" disabled={showDebrief} onClick={() => setBookmark('Science')}>Science <strong>{state.science.completed_objectives} / {state.science.total_objectives} objectives</strong></button>
         </div>
-      )}
-
-      <EnergyPanel forecast={state.energy.forecast} stored={state.energy.stored} capacity={state.energy.battery_capacity}
-        demand={state.energy.life_support_required} priority={powerPriority} onPriorityChange={setPowerPriority}
-        disabled={decisionLocked} solarDay={state.energy.solar_day_earth_days} sourceUrl={state.energy.source_url} assumption={state.energy.assumption} />
-
-      <LifeSupportPanel systems={state.life_support} />
-
-      {/* Station Systems & Efficiencies */}
-      <ResearchObjectives objectives={state.science.objectives} science={state.science} />
-      <StationOverview
-        solarEfficiency={state.solar_efficiency}
-        oxygenEfficiency={state.oxygen_efficiency}
-      />
-
-      {/* Resources Telemetry Bar */}
-      <div className="resources-grid">
-        <ResourceCard
-          id="food"
-          name="Food"
-          value={state.resources.food || 0}
-          unit="u"
-          isWarning={state.resources.food < totalFoodNeeded}
-          subtext={`Takes ~${totalFoodNeeded.toFixed(1)}u/wk`}
-        />
-        <ResourceCard
-          id="water"
-          name="Water"
-          value={state.resources.water || 0}
-          unit="u"
-          isWarning={state.resources.water < totalWaterNeeded}
-          subtext={`Takes ~${totalWaterNeeded.toFixed(1)}u/wk`}
-        />
-        <ResourceCard
-          id="oxygen"
-          name="Oxygen"
-          value={state.resources.oxygen || 0}
-          unit="u"
-          isWarning={state.resources.oxygen < 10}
-        />
-        <ResourceCard
-          id="electricity"
-          name="Power"
-          value={state.resources.electricity || 0}
-          unit="u"
-          isWarning={state.resources.electricity < 10}
-        />
-        <ResourceCard
-          id="medicine"
-          name="Medicine"
-          value={state.resources.medicine || 0}
-          unit="kits"
-        />
-        <ResourceCard
-          id="repair_kits"
-          name="Repair Kits"
-          value={state.resources.repair_kits || 0}
-          unit="kits"
-        />
-        <ResourceCard
-          id="eva_batteries"
-          name="EVA Packs"
-          value={state.resources.eva_batteries || 0}
-          unit="packs"
-        />
+        <StationRoom crew={state.crew} selectedCrewId={inspectedCrewId} onSelectCrew={openCrew} onOpen={setBookmark} disabled={showDebrief} />
+        <div className={styles.crewStrip} aria-label="Station crew">
+          {state.crew.map(person => <button type="button" key={person.id} disabled={showDebrief} onClick={() => openCrew(person.id)}
+            aria-pressed={bookmark === 'Crew' && inspectedCrewId === person.id}>
+            <RoleIcon role={person.role} /><span>{person.name.split(' ')[0]}<small>{!person.alive ? 'Deceased' : incidentCrew.includes(person.id) ? 'Incident response planned' : medicalTargets[person.id] && assignments[person.id] ? 'Care planned' : orderedActivities.some(order => order.activity?.action_type === 'medical' && medicalTargets[order.crewId]?.patient_id === person.id) ? 'Patient in plan' : assignments[person.id] ? 'Work planned' : person.condition.status}</small></span>
+          </button>)}
+        </div>
+        <nav className={styles.bookmarks} aria-label="Station bookmarks">
+          {(['Crew', 'Stores', 'Systems', 'Science', 'Log'] as StationBookmark[]).map((name, index) => <button key={name} type="button" disabled={showDebrief}
+            aria-pressed={bookmark === name} onClick={() => setBookmark(bookmark === name ? null : name)}><span aria-hidden="true">{['◉', '▤', '⚙', '⌁', '≡'][index]}</span>{name}</button>)}
+        </nav>
       </div>
 
-      {/* Weekly Narrative Event Dilemma */}
-      <div className="resources-grid" aria-label="Equipment and research">
-        {[['dust_kits', 'Dust kits'], ['oxygen_regulators', 'Oxygen regulators'], ['diagnostic_tools', 'Diagnostic scanners'], ['sealant_packs', 'Sealant packs'], ['scientific_tools', 'Science kits'], ['research_data', 'Research data']].map(([id, name]) =>
-          <ResourceCard key={id} id={id} name={name} value={state.resources[id] || 0} unit={id === 'research_data' ? 'points' : 'units'} />)}
-      </div>
-      {state.current_event ? (
-        <EventCard
-          event={state.current_event}
-          selectedChoiceId={selectedChoiceId}
-          selectedCrewId={selectedCrewId}
-          onSelectChoice={handleSelectChoice}
-          onSelectCrew={(crewId) => { setSelectedCrewId(crewId); setSupportCrew([]); }}
-          disabled={decisionLocked}
-        />
-      ) : (
-        <div className="card" style={{ marginBottom: '1.5rem', textAlign: 'center', padding: '2rem' }}>
-          <div style={{ color: 'var(--color-green)', fontSize: '1.1rem', fontWeight: 700 }}>
-            ✓ ALL CRITICAL SYSTEMS REPORT STABLE THIS WEEK
-          </div>
-          <p style={{ color: 'var(--text-muted)', fontSize: '0.9rem', marginTop: '0.5rem' }}>
-            No unexpected equipment failures or anomalies detected.
-          </p>
+      <section className={styles.planner} aria-label="Weekly planner">
+        <nav className={styles.steps} aria-label="Weekly planning steps">
+          {steps.map((name, index) => <button key={name} type="button" disabled={showDebrief}
+            aria-label={`Step ${index + 1}: ${name}`}
+            aria-current={!bookmark && !showDebrief && step === index ? 'step' : undefined} onClick={() => showStep(index)}><span>{index + 1}</span>{name}</button>)}
+        </nav>
+        <div className={styles.messages} aria-live="polite">
+          {error && <p role="alert" className={styles.warning}>{error}</p>}
+          {pendingTurn && !submitting && <p className={styles.warning}>Week {pendingTurn.expected_week} has an unresolved submission. Your original decisions are saved and locked until retry resolves it.</p>}
+          {state.depleted_provisions.length > 0 && <p role="alert" className={styles.warning}>Empty reserves: {state.depleted_provisions.join(' and ')}. Review emergency rations.</p>}
+          {state.life_support.co2_burden > state.life_support.co2_warning_level && <p role="alert" className={styles.warning}>Cabin CO2 is above the safe game limit. Check Systems and scrubber maintenance.</p>}
+          {livingCrew.some(person => person.medical_conditions.some(condition => condition.urgent)) && <p className={styles.warning}>A teammate needs urgent medical attention. Review crew care before ending the week.</p>}
         </div>
-      )}
-
-      <ResearchProjects projects={state.research_projects} orders={projectOrders} disabled={decisionLocked} onChange={setProjectOrders} />
-
-      <section className="card" aria-label="Crew assignments" style={{ marginBottom: '1.5rem' }}>
-        <h2>Crew assignments</h2>
-        <p>One main job per astronaut. Manual assignments take one week; unassigned crew perform routine duties. Incident crew cannot take another assignment.</p>
-        {activeChoice?.requires_crew && requiredSupport > 0 && <fieldset disabled={decisionLocked}>
-          <legend>Incident support crew: {supportCrew.length} / {requiredSupport}</legend>
-          {livingCrew.filter(c => c.id !== selectedCrewId).map(c => <label key={c.id} style={{ marginRight: '1rem' }}>
-            <input type="checkbox" disabled={!activeChoice.support_candidates.some(candidate => candidate.crew_id === c.id && candidate.available)} checked={supportCrew.includes(c.id)} onChange={e => setSupportCrew(prev => e.target.checked ? [...prev, c.id] : prev.filter(id => id !== c.id))} /> {c.name}
-          </label>)}
-        </fieldset>}
-        {livingCrew.map(crew => <div key={crew.id} style={{ margin: '0.75rem 0' }}>
-          <label htmlFor={`work-${crew.id}`}>{crew.name} - {incidentCrew.includes(crew.id) ? 'Incident response' : crew.condition.can_work ? 'Available for work' : 'Rest or care only'}</label>{' '}
-          <select id={`work-${crew.id}`} aria-label={`Assignment for ${crew.name}`} disabled={decisionLocked} value={assignments[crew.id] || ''} onChange={e => changeAssignment(crew.id, e.target.value)}>
-            <option value="">{crew.condition.can_work ? 'Routine duties' : 'Unassigned recovery'}</option>
-            {state.assignment_options.map(activity => {
-              const candidate = activity.eligible_crew.find(c => c.crew_id === crew.id);
-              return <option key={activity.id} value={activity.id} disabled={!candidate?.available || incidentCrew.includes(crew.id)}>
-                {activity.text} - {Math.round((candidate?.success_probability || 0) * 100)}%{!candidate?.available ? ` (${candidate?.unavailable_reasons.join(' ')})` : ''}
-              </option>;
-            })}
-          </select>
-          {['medical_care', 'self_care'].includes(assignments[crew.id]) && <MedicalAssignmentFields worker={crew} self={assignments[crew.id] === 'self_care'} crew={livingCrew} value={medicalTargets[crew.id]} disabled={decisionLocked} onChange={target => setMedicalTargets(prev => ({ ...prev, [crew.id]: target }))} />}
-        </div>)}
-        <details><summary>Assignment requirements and costs</summary>
-          {state.assignment_options.map(activity => <div key={activity.id}><h3>{activity.text}</h3><p>{activity.description}</p><p>Costs: {Object.entries(activity.costs).map(([id, value]) => `${value} ${id.replace(/_/g, ' ')}`).join(', ')}. Equipment retained: {Object.entries(activity.required_items).map(([id, value]) => `${value} ${id.replace(/_/g, ' ')}`).join(', ') || 'none'}.</p>{activity.objective_rewards.map(g => <p key={g.objective_id}>On success: +{g.amount} toward {g.title} (capped at target).</p>)}</div>)}
-        </details>
-        <p>Automatic recording may additionally use {automaticProjectPower} power after action effects and solar generation, under your selected priority. Shortages skip recording without charging.</p>
-        <p>Projected spending (rations and all actions): {Object.entries(weeklyCosts).map(([id, amount]) => `${amount.toFixed(1)} ${id.replace(/_/g, ' ')}`).join(' | ')}. Generation and outcome effects apply afterward.</p>
-        {planIssues.map(issue => <p key={issue} role="alert">{issue}</p>)}
+        <div className={styles.panel}>
+          <h1 ref={panelTitle} tabIndex={-1} className={styles.panelTitle}>{showDebrief ? 'Weekly results' : bookmark || `Step ${step + 1} · ${steps[step]}`}</h1>
+          {showDebrief && latestOutcome ? <WeekDebrief outcome={latestOutcome} crewNames={crewNames} ended={state.status !== 'running'} onContinue={() => {
+            if (state.status !== 'running') navigate(`/results/${gameId}`);
+            else { setShowDebrief(false); showStep(0); }
+          }} /> : bookmark ? <>
+            <button type="button" className="station-text-button" onClick={() => setBookmark(null)}>Return to weekly plan</button>
+            {bookmark === 'Crew' && inspectedCrew && <>
+              <div className={styles.crewPicker}>{state.crew.map(person => <button type="button" key={person.id} aria-pressed={person.id === inspectedCrew.id} onClick={() => setInspectedCrewId(person.id)}>{person.name.split(' ')[0]}</button>)}</div>
+              <CrewCard crew={inspectedCrew} />
+              {inspectedCrew.alive && <button type="button" className="btn btn-secondary" onClick={() => showStep(1)}>Plan crew assignments</button>}
+            </>}
+            {bookmark === 'Stores' && <>
+              <h2>Station stores</h2><p>Confirmed stock. Planning reserves supplies without consuming them.</p>
+              <dl className={styles.inventory}>{Object.entries(state.resources).map(([id, amount]) => <div key={id}><dt>{id.replace(/_/g, ' ')}</dt><dd>{Number(amount.toFixed(2))}</dd></div>)}</dl>
+              <p>Planned rations and action costs: {formatSupplies(weeklyCosts)}.</p>
+              <button type="button" className="btn btn-secondary" onClick={() => showStep(2)}>Plan food & water</button>
+            </>}
+            {bookmark === 'Systems' && <>{energy}<LifeSupportPanel systems={state.life_support} /><StationOverview solarEfficiency={state.solar_efficiency} oxygenEfficiency={state.oxygen_efficiency} /></>}
+            {bookmark === 'Science' && <><ResearchObjectives objectives={state.science.objectives} science={state.science} />{projects}<button type="button" className="btn btn-secondary" onClick={() => showStep(1)}>Assign research work</button></>}
+            {bookmark === 'Log' && <><h2>Mission log</h2>{!state.history.length && <p>Your first weekly report will appear after End Week.</p>}{[...state.history].reverse().map(entry => <details key={entry.week}><summary>Week {entry.week} · {entry.event.choice_text}</summary><TurnDetails outcome={entry} crewNames={crewNames} /></details>)}</>}
+          </> : <>
+            {step === 0 && <IncidentPlanner event={state.current_event} crew={state.crew} choiceId={selectedChoiceId} leadId={selectedCrewId} supportIds={supportCrew} disabled={decisionLocked}
+              onChoice={handleSelectChoice} onLead={id => { setSelectedCrewId(id); setSupportCrew([]); }} onSupport={setSupportCrew} />}
+            {step === 1 && <>
+              <CrewPlanner crew={state.crew} options={state.assignment_options} assignments={assignments} medicalTargets={medicalTargets} incidentCrew={incidentCrew} disabled={decisionLocked}
+                onAssignment={changeAssignment} onTarget={(id, target) => setMedicalTargets(prev => ({ ...prev, [id]: target }))} onInspect={openCrew} />
+              {planIssues.filter(issue => !issue.startsWith('Combined plan')).map(issue => <p className={styles.warning} role="alert" key={issue}>{issue}</p>)}
+              <details><summary>Research project controls</summary>{projects}</details>
+            </>}
+            {step === 2 && <WeeklyRations crew={state.crew} rations={rations} disabled={decisionLocked} onChange={handleRationChange} onAll={setAllRations} food={totalFoodNeeded} water={totalWaterNeeded} />}
+            {step === 3 && <section aria-label="Review weekly plan">
+              <h2>Ready for week {state.current_week}?</h2><p>Check the whole plan. Nothing advances until you choose End Week.</p>
+              <div className="station-inset"><h3>Incident</h3><p>{activeChoice?.text || 'Choose a response'}</p>
+                {incidentCrew.length > 0 && <p>{incidentCrew.map(id => crewNames[id]).join(' + ')}</p>}
+                <button type="button" className="station-text-button" onClick={() => showStep(0)}>Edit incident response</button>
+              </div>
+              <div className="station-inset"><h3>Crew plan</h3>{livingCrew.map(person => <p key={person.id}><strong>{person.name}:</strong> {incidentCrew.includes(person.id) ? 'Incident response' : orderedActivities.some(order => order.activity?.action_type === 'medical' && order.crewId !== person.id && medicalTargets[order.crewId]?.patient_id === person.id) ? 'Receiving medical care' : state.assignment_options.find(activity => activity.id === assignments[person.id])?.text || (person.condition.can_work ? 'Routine duties' : 'Unassigned recovery')}{medicalTargets[person.id] && assignments[person.id] ? ` - ${crewNames[medicalTargets[person.id].patient_id]}, ${medicalTargets[person.id].condition_id.replace(/_/g, ' ')}` : ''}</p>)}
+                <button type="button" className="station-text-button" onClick={() => showStep(1)}>Edit crew work</button>
+              </div>
+              <div className="station-inset"><h3>Food & water</h3>{livingCrew.map(person => <p key={person.id}>{person.name}: {rations[person.id]?.food} food / {rations[person.id]?.water} water</p>)}
+                <button type="button" className="station-text-button" onClick={() => showStep(2)}>Edit rations</button>
+              </div>
+              <div className="station-inset"><h3>Projected spending</h3><p>{formatSupplies(weeklyCosts)}</p>
+                <p>Known rations and action costs only. Success, losses, generation, and recovery are resolved afterward.</p>
+                <p>Automatic recording may additionally use {automaticProjectPower} power after action effects and solar generation, under your selected priority. Shortages skip recording without charging.</p>
+                {Object.entries(projectOrders).map(([id, action]) => <p key={id}>{id}: {action} scheduled for this turn.</p>)}
+                <label>Power priority<select disabled={decisionLocked} value={powerPriority} onChange={e => setPowerPriority(e.target.value as typeof powerPriority)}><option value="life_support">Life support first</option><option value="research">Research recording first</option></select></label>
+                {powerPriority === 'research' && <p className={styles.warning}>Recording takes power before life support. This can reduce oxygen production.</p>}
+                <button type="button" className="station-text-button" onClick={() => setBookmark('Systems')}>Inspect sunlight & systems</button>
+              </div>
+              {planIssues.map(issue => <p role="alert" className={styles.warning} key={issue}>{issue}</p>)}
+              {!activeChoice?.available && <p role="alert" className={styles.warning}>Choose an available incident response.</p>}
+            </section>}
+          </>}
+        </div>
+        {!showDebrief && <footer className={styles.planFooter}>
+          {pendingTurn ? <button type="button" className="btn btn-primary" disabled={submitting} onClick={handleSubmitTurn}>{submitting ? 'Resolving week...' : `Retry week ${pendingTurn.expected_week} submission`}</button>
+            : bookmark ? <button type="button" className="btn btn-primary" onClick={() => setBookmark(null)}>Return to plan</button>
+            : <><button type="button" className="btn btn-secondary" disabled={step === 0 || decisionLocked} onClick={() => showStep(step - 1)}>Back</button>
+              <span>{step + 1} / 4</span>
+              {step < 3 ? <button type="button" className="btn btn-primary" disabled={decisionLocked} onClick={() => showStep(step + 1)}>Next: {steps[step + 1]}</button>
+                : <button type="button" className="btn btn-primary" disabled={decisionLocked || !canSubmit} onClick={handleSubmitTurn}>End week {state.current_week}</button>}
+            </>}
+        </footer>}
       </section>
-
-      {/* Crew Health & Rationing Section */}
-      <div className="card" style={{ marginBottom: '1.5rem' }}>
-        <div className="card-title">
-          <span>👨‍🚀 EXPEDITION CREW STATUS & WEEKLY RATIONS</span>
-          <div style={{ display: 'flex', gap: '0.5rem' }}>
-            <button
-              type="button"
-              className="btn btn-secondary btn-sm"
-              onClick={() => setAllRations('normal')}
-              disabled={decisionLocked}
-            >
-              ALL NORMAL
-            </button>
-            <button
-              type="button"
-              className="btn btn-secondary btn-sm"
-              onClick={() => setAllRations('reduced')}
-              disabled={decisionLocked}
-            >
-              ALL REDUCED
-            </button>
-            <button
-              type="button"
-              className="btn btn-secondary btn-sm"
-              onClick={() => setAllRations('emergency')}
-              disabled={decisionLocked}
-            >
-              ALL EMERGENCY
-            </button>
-          </div>
-        </div>
-
-        <div className="crew-grid">
-          {state.crew.map((crew) => (
-            <CrewCard
-              key={crew.id}
-              crew={crew}
-              rations={rations[crew.id]}
-              onRationChange={handleRationChange}
-              disabled={decisionLocked}
-            />
-          ))}
-        </div>
-      </div>
-
-      {/* End Turn Authorization Panel */}
-      <div className="card" style={{ marginBottom: '2rem' }}>
-        <div className="card-title">
-          <span>📋 WEEK {state.current_week} DECISION SUMMARY</span>
-          <span style={{ fontSize: '0.85rem', color: 'var(--text-muted)' }}>
-            Authoritative Turn Commit
-          </span>
-        </div>
-
-        <div style={{ display: 'flex', flexWrap: 'wrap', justifyContent: 'space-between', alignItems: 'center', gap: '1rem' }}>
-          <div style={{ fontSize: '0.85rem', fontFamily: 'var(--font-mono)' }}>
-            <div>
-              <strong>Action:</strong> {activeChoice?.text || 'Standard Operations'}{' '}
-              {activeChoice?.requires_crew && (
-                <span style={{ color: 'var(--color-cyan)' }}>
-                  (Assigned: {selectedCrewId ? selectedCrewId.toUpperCase() : 'None'})
-                </span>
-              )}
-            </div>
-            <div>
-              <strong>Weekly Consumption:</strong> Food ~{totalFoodNeeded.toFixed(1)}u | Water ~{totalWaterNeeded.toFixed(1)}u
-            </div>
-          </div>
-
-          <button
-            type="button"
-            className="btn btn-primary btn-lg"
-            onClick={handleSubmitTurn}
-            disabled={submitting || state.status !== 'running' || (!pendingTurn && (planIssues.length > 0 || !activeChoice?.available || (activeChoice.requires_crew && !selectedCrewId)))}
-          >
-            {submitting ? 'PROCESSING WEEK...' : pendingTurn ? `Retry week ${pendingTurn.expected_week} submission` : `SUBMIT WEEK ${state.current_week} DECISIONS →`}
-          </button>
-        </div>
-      </div>
-
-      {/* Modal for Turn Outcome debrief */}
-      {showOutcomeModal && latestOutcome && (
-        <TurnOutcomeModal
-          outcome={latestOutcome}
-          onClose={() => setShowOutcomeModal(false)}
-          isMissionEnded={state.status !== 'running'}
-          onNavigateToResults={() => navigate(`/results/${gameId}`)}
-          crewNames={Object.fromEntries(state.crew.map((crew) => [crew.id, crew.name]))}
-        />
-      )}
-
-      <footer className="app-footer">
-        NASA Space Apps Challenge 2026 — Station Alpha Mission Simulator
-      </footer>
     </div>
-  );
+  </main>;
 };
