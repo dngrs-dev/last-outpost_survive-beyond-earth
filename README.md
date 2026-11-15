@@ -32,7 +32,13 @@ Choose named outpost markers or browse missions from easier to harder. One compa
 card shows the selected mission and opens crew preparation; Oceanus is recommended
 for first-time players. Detailed supplies, systems, history, and sources are available
 on demand. The screen adapts to phones and laptops without a website header, footer,
-or side directory. The root preparation page still defaults to Alpha.
+or side directory.
+The root `/` is now a full-screen title menu, with a rotating NASA Blue Marble Earth
+above a real Apollo 17 panorama. Play opens Moon selection; Load resumes this
+browser's last server-held mission. Crew preparation now lives at `/prepare/`
+(default Alpha); older root station links redirect there. Load does not persist
+games across backend restarts. Motion can be paused and respects reduced-motion
+preferences. Scene credits explain the real imagery and illustrative composition.
 Historical data and imagery remain sourced; outpost conditions are fictional game
 values. No NASA API key or external request is needed during play.
 
@@ -101,6 +107,8 @@ npm run build
   configuration, and prototype limitations.
 - [Lunar data guide](docs/lunar-data.md): sources, cached downloads, coordinate
   conventions, and manual refresh instructions.
+- [Title screen](docs/title-screen.md): Earth and Apollo imagery, motion, routes,
+  and Load's resume behavior and storage limits.
 - [Crew and equipment](docs/crew-and-equipment.md): research inspiration, fictional
   character profiles, cargo tradeoffs, and maintenance actions.
 - [Event library](docs/events.md): all fifteen scenarios, NASA references, equipment,
@@ -120,7 +128,7 @@ npm run build
 - [Research objectives](docs/research.md): mission targets, planned research work,
   progress rules, and the separate scientific assessment.
 - [Third-party notices](THIRD_PARTY_NOTICES.md): attribution and reuse terms for the
-  committed NASA texture and factual data.
+  committed NASA imagery and factual data.
 - [Agent instructions](AGENTS.md): workflow for coding agents working in this repository.
 
 The backend uses Python and FastAPI. The frontend uses React, TypeScript,

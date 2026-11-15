@@ -113,7 +113,7 @@ export function MoonPage() {
       <Link
         to="/"
         className={styles.back}
-        aria-label="Back to mission preparation"
+        aria-label="Back to main menu"
       >
         ← <span>Back</span>
       </Link>
@@ -131,7 +131,7 @@ export function MoonPage() {
           >
             Try again
           </button>
-          <Link to="/">Go to mission preparation</Link>
+          <Link to="/prepare/">Go to mission preparation</Link>
         </section>
       ) : !data || !selected ? (
         <p className={styles.loading} role="status">

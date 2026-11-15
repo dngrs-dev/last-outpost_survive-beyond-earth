@@ -1,0 +1,397 @@
+.page {
+  position: relative;
+  isolation: isolate;
+  width: 100%;
+  height: 100svh;
+  height: 100dvh;
+  overflow: hidden;
+  background: #020304;
+  color: #f4f5f4;
+}
+
+.scene,
+.stars,
+.shade {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+}
+
+.scene {
+  z-index: -1;
+}
+.stars {
+  background: radial-gradient(ellipse at 50% 16%, #18253533, transparent 48%);
+}
+.stars i {
+  position: absolute;
+  width: 1.5px;
+  height: 1.5px;
+  border-radius: 50%;
+  background: #d6e1ed;
+}
+.stars i:nth-child(9n) {
+  width: 2px;
+  height: 2px;
+  box-shadow: 0 0 4px #cde5ff66;
+}
+
+.earth {
+  position: absolute;
+  top: 3.5%;
+  left: 50%;
+  transform: translateX(-50%) rotate(-12deg);
+  width: clamp(120px, 18vh, 180px);
+  aspect-ratio: 1;
+}
+.earthCanvas {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  filter: brightness(1.15) saturate(1.15);
+}
+.atmosphere {
+  position: absolute;
+  inset: 5%;
+  border-radius: 50%;
+  box-shadow:
+    0 0 10px 1px #8bc5ff44,
+    0 0 45px 8px #3980d51f;
+  background: #1e4e7915;
+}
+.earthFallback {
+  position: absolute;
+  inset: 5%;
+  border-radius: 50%;
+  background: #163b63 url('/images/title/earth-blue-marble.png') 48% 50% / 210%
+    100%;
+  box-shadow:
+    inset -20px -5px 25px #000b,
+    inset 4px 2px 6px #c1e3ff66;
+}
+.terrain {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  height: 62%;
+  background: #000 url('/images/title/apollo17-surface.jpg') center bottom /
+    cover no-repeat;
+  filter: brightness(0.76) contrast(1.08);
+}
+.shade {
+  background:
+    radial-gradient(ellipse at 50% 45%, #0008, transparent 44%),
+    linear-gradient(0deg, #020408bb, transparent 32%, transparent 85%, #0003);
+}
+
+.title {
+  position: absolute;
+  top: 32%;
+  left: 50%;
+  width: min(94%, 1400px);
+  transform: translate(-50%, -50%);
+  text-align: center;
+  text-shadow: 0 3px 30px #000;
+}
+.title h1 {
+  margin: 0;
+  font-size: clamp(52px, 8.2vw, 126px);
+  font-weight: 700;
+  line-height: 1;
+  letter-spacing: 0.055em;
+  color: #f0f3f1;
+}
+.title p {
+  margin: 17px 0 0;
+  color: #bac8d7;
+  font-size: clamp(13px, 1.4vw, 18px);
+  letter-spacing: 0.26em;
+  font-weight: 400;
+}
+
+.actions {
+  position: absolute;
+  top: 53%;
+  left: 50%;
+  width: min(280px, calc(100% - 80px));
+  transform: translate(-50%, -50%);
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+.play,
+.load {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  min-height: 60px;
+  border-radius: 10px;
+  text-decoration: none;
+  font: 600 20px/1 var(--font-display);
+  letter-spacing: 0.11em;
+  text-transform: uppercase;
+  transition:
+    background 0.2s,
+    border-color 0.2s,
+    box-shadow 0.2s,
+    transform 0.2s;
+}
+.play {
+  color: #1b2330;
+  background: #f9dcab;
+  border: 1px solid #ffe9c7;
+  box-shadow: 0 6px 32px #ffdca51c;
+}
+.play:hover {
+  color: #111b29;
+  background: #ffedcf;
+  box-shadow: 0 6px 40px #ffdca533;
+  transform: translateY(-1px);
+}
+.load {
+  color: #e7ebee;
+  background: #080e18c9;
+  border: 1px solid #bdcad34d;
+  backdrop-filter: blur(12px);
+}
+.load:hover:not(:disabled) {
+  background: #1b293be6;
+  border-color: #e7f0f7aa;
+}
+.load:disabled {
+  color: #a0a5ac;
+  background: #060b12b8;
+  opacity: 0.6;
+}
+.actions svg {
+  position: absolute;
+  left: 22px;
+  width: 20px;
+  height: 20px;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 1.4;
+  stroke-linejoin: round;
+}
+.play svg {
+  fill: currentColor;
+  stroke-width: 0;
+}
+.loadMessage {
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+  width: min(340px, 88vw);
+  text-align: center;
+}
+.loadMessage p {
+  margin: 15px 0 0;
+  font-size: 12px;
+  line-height: 1.6;
+  color: #abb6c5;
+  text-shadow: 0 2px 9px #000;
+}
+.loadMessage [role='alert'] {
+  color: #ffe2b7;
+  background: #040911b8;
+  border-radius: 8px;
+  padding: 10px;
+}
+
+.motion,
+.credits > summary {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  min-height: 44px;
+  padding: 8px 14px;
+  color: #bac4d1;
+  border: 1px solid #bdcad320;
+  background: #03081190;
+  border-radius: 24px;
+  font-size: 12px;
+  cursor: pointer;
+  backdrop-filter: blur(10px);
+}
+.motion {
+  position: absolute;
+  left: max(24px, env(safe-area-inset-left));
+  bottom: max(20px, env(safe-area-inset-bottom));
+}
+.motion > span {
+  font-size: 17px;
+  min-width: 14px;
+}
+.credits {
+  position: absolute;
+  right: max(24px, env(safe-area-inset-right));
+  bottom: max(20px, env(safe-area-inset-bottom));
+}
+.credits > summary {
+  list-style: none;
+  justify-content: center;
+}
+.credits > summary::-webkit-details-marker {
+  display: none;
+}
+.credits > div {
+  position: absolute;
+  bottom: 56px;
+  right: 0;
+  width: min(380px, calc(100vw - 32px));
+  max-height: min(70dvh, 520px);
+  overflow-y: auto;
+  padding: 22px;
+  border: 1px solid #bdcad338;
+  border-radius: 18px;
+  color: #b8c7db;
+  background: #0a1321f5;
+  box-shadow: 0 10px 50px #0008;
+  font-size: 13px;
+}
+.credits h2 {
+  color: #edf5ff;
+  font-size: 20px;
+  margin: 0 0 12px;
+}
+.credits p {
+  margin: 10px 0;
+  line-height: 1.6;
+}
+.credits a {
+  color: #b4d8fb;
+  text-underline-offset: 3px;
+}
+.page button:focus-visible,
+.page a:focus-visible,
+.credits > summary:focus-visible {
+  outline: 3px solid #ffe0a8;
+  outline-offset: 5px;
+}
+
+@media (max-width: 600px) and (orientation: portrait) {
+  .earth {
+    top: 3%;
+    width: 124px;
+  }
+  .title {
+    top: 29%;
+    width: 92%;
+  }
+  .title h1 {
+    font-size: clamp(50px, 14vw, 76px);
+    line-height: 0.98;
+    letter-spacing: 0.06em;
+  }
+  .title h1 span {
+    display: block;
+  }
+  .title p {
+    font-size: 12px;
+    letter-spacing: 0.2em;
+    margin-top: 16px;
+  }
+  .actions {
+    top: 53%;
+    width: min(260px, calc(100% - 76px));
+  }
+  .terrain {
+    height: 62%;
+    background-position: 52% bottom;
+  }
+  .motion {
+    left: 14px;
+    bottom: max(14px, env(safe-area-inset-bottom));
+  }
+  .credits {
+    right: 14px;
+    bottom: max(14px, env(safe-area-inset-bottom));
+  }
+  .motion,
+  .credits > summary {
+    font-size: 11px;
+    padding: 7px 12px;
+  }
+}
+@media (max-height: 700px) and (orientation: portrait) {
+  .earth {
+    top: 2.5%;
+    width: 84px;
+  }
+  .title {
+    top: 28%;
+  }
+  .title h1 {
+    font-size: 48px;
+  }
+  .title p {
+    margin-top: 12px;
+    font-size: 11px;
+  }
+  .actions {
+    top: 54%;
+    gap: 12px;
+  }
+  .play,
+  .load {
+    min-height: 52px;
+    font-size: 18px;
+  }
+  .loadMessage p {
+    margin-top: 10px;
+    font-size: 11px;
+  }
+}
+@media (max-height: 600px) and (orientation: landscape) {
+  .earth {
+    top: 5%;
+    left: auto;
+    right: 6%;
+    width: 100px;
+    transform: rotate(-12deg);
+  }
+  .title {
+    top: 26%;
+    width: 83%;
+  }
+  .title h1 {
+    font-size: clamp(38px, 6.6vw, 64px);
+  }
+  .title p {
+    margin-top: 9px;
+    font-size: 12px;
+  }
+  .actions {
+    top: 61%;
+    width: 240px;
+    gap: 10px;
+  }
+  .play,
+  .load {
+    min-height: 46px;
+    font-size: 17px;
+  }
+  .loadMessage p {
+    margin-top: 8px;
+    font-size: 10px;
+  }
+  .motion,
+  .credits > summary {
+    font-size: 11px;
+    min-height: 44px;
+  }
+  .motion,
+  .credits {
+    bottom: 10px;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .page * {
+    transition: none !important;
+    animation: none !important;
+  }
+}

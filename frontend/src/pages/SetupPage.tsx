@@ -6,6 +6,7 @@ import { Header } from '../components/Header';
 import { CrewSlots } from '../components/CrewSlots';
 import { CargoSelector } from '../components/CargoSelector';
 import { ResearchObjectives } from '../components/ResearchObjectives';
+import { rememberMission } from '../state/lastMission';
 import type { CatalogResponse } from '../types/game';
 
 export const SetupPage: React.FC = () => {
@@ -97,6 +98,7 @@ export const SetupPage: React.FC = () => {
         random_seed: isNaN(parsedSeed as number) ? undefined : parsedSeed,
       });
 
+      rememberMission(game.game_id);
       navigate(`/game/${game.game_id}`);
     } catch (err: any) {
       setError(err.message || 'Failed to initiate mission. Check payload limits.');

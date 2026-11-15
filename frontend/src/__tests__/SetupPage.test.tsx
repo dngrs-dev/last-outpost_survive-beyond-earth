@@ -4,10 +4,12 @@ import { BrowserRouter } from 'react-router-dom';
 import { SetupPage } from '../pages/SetupPage';
 import * as gameApi from '../api/game';
 import { catalog as mockCatalog, game } from './fixtures/backend';
+import { readLastMission } from '../state/lastMission';
 
 describe('SetupPage', () => {
   beforeEach(() => {
     vi.restoreAllMocks();
+    localStorage.clear();
     vi.spyOn(gameApi, 'fetchCatalog').mockResolvedValue(mockCatalog);
   });
 
@@ -101,6 +103,7 @@ describe('SetupPage', () => {
           station_id: 'alpha',
         })
       );
+      expect(readLastMission()).toBe('test-game-xyz');
     });
   });
 });

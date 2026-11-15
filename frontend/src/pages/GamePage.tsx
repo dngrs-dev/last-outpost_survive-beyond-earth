@@ -2,6 +2,7 @@ import React, { useEffect, useRef, useState } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
 import { fetchGameState, submitTurn } from '../api/game';
 import { ApiError } from '../api/client';
+import { rememberMission } from '../state/lastMission';
 import { ResearchProjects } from '../components/ResearchProjects';
 import { EnergyPanel } from '../components/EnergyPanel';
 import { LifeSupportPanel } from '../components/LifeSupportPanel';
@@ -59,6 +60,7 @@ export const GamePage: React.FC = () => {
     fetchGameState(gameId)
       .then((game) => {
         if (!mounted) return;
+        rememberMission(game.game_id);
         const current = game.state;
         setState(current);
         initializeTurnForm(current);

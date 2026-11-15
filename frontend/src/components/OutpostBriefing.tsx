@@ -63,7 +63,7 @@ export function OutpostBriefing({
       <div className={styles.missionActions}>
         <Link
           className={styles.launch}
-          to={`/?station=${encodeURIComponent(station.id)}&lunar_site=${encodeURIComponent(option.site.id)}`}
+          to={`/prepare/?station=${encodeURIComponent(station.id)}&lunar_site=${encodeURIComponent(option.site.id)}`}
         >
           Choose this mission <span aria-hidden="true">→</span>
         </Link>

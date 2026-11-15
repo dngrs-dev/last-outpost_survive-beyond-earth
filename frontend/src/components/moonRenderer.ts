@@ -60,7 +60,7 @@ export function createMoonRenderer(canvas: HTMLCanvasElement, image: HTMLImageEl
   const zoom = gl.getUniformLocation(program, 'zoom');
   return {
     draw(view: MoonView, pixels: number) {
-      canvas.width = canvas.height = pixels;
+      if (canvas.width !== pixels || canvas.height !== pixels) canvas.width = canvas.height = pixels;
       gl.viewport(0, 0, pixels, pixels);
       gl.clearColor(0, 0, 0, 0); gl.clear(gl.COLOR_BUFFER_BIT);
       gl.useProgram(program);

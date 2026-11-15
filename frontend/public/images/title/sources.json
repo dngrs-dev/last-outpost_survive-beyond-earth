@@ -1,0 +1,28 @@
+{
+  "retrieved_at": "2026-11-15",
+  "description": "Independent NASA assets composited for an illustrative title scene. No live data calls.",
+  "assets": [
+    {
+      "file": "earth-blue-marble.png",
+      "source_url": "https://svs.gsfc.nasa.gov/2915/",
+      "download_url": "https://svs.gsfc.nasa.gov/vis/a000000/a002900/a002915/bluemarble-2048.png",
+      "credit": "NASA/Goddard Space Flight Center Scientific Visualization Studio. Data courtesy Reto Stockli, NASA GSFC / Earth Observatory.",
+      "bytes": 1511379,
+      "sha256": "ae6214b078ed0864c96f74bcb10ae3021f6eb116f8059797efe0fa9ea8b89d35",
+      "modified": false,
+      "reuse_basis": "NASA SVS public domain unless otherwise noted; no separate restriction stated for this selected image.",
+      "reuse_url": "https://svs.gsfc.nasa.gov/help/"
+    },
+    {
+      "file": "apollo17-surface.jpg",
+      "source_url": "https://images.nasa.gov/details/jsc2004e52775",
+      "download_url": "https://images-assets.nasa.gov/image/jsc2004e52775/jsc2004e52775~orig.jpg",
+      "credit": "NASA/JSC. Apollo 17 Station 7, EVA 3 panorama, frames AS17-146-22339 through AS17-146-22363.",
+      "bytes": 7858345,
+      "sha256": "24b531254a729a0c1e0f8e1b1c82a0676b5fbd0243b6e0a2a6aad6f767ff176a",
+      "modified": false,
+      "reuse_basis": "NASA/JSC imagery under NASA media usage guidelines; no third-party restriction stated in the selected catalog record.",
+      "reuse_url": "https://www.nasa.gov/nasa-brand-center/images-and-media/"
+    }
+  ]
+}

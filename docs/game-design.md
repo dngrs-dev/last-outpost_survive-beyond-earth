@@ -1,5 +1,11 @@
 # LAST OUTPOST - Game Design and Technical Specification
 
+> Title-screen update: `/` now shows an Earth-from-the-Moon title scene with Play
+> and Load. `/moon/` selects a mission; `/prepare/` configures crew and supplies.
+> Legacy root station links redirect to preparation. Load is a browser game-ID
+> bookmark checked against the in-memory backend, not a durable save system.
+> See `title-screen.md` for NASA imagery, artistic limits, motion, and routes.
+
 > Scope update: the separate `/moon/` archive now uses sourced historical Apollo
 > locations and a NASA color map. It is an exploration and mission-selection layer;
 > six distinct fictional outposts now share the survival engine, with separate
@@ -1379,9 +1385,11 @@ Mounts the application.
 
 Defines the application routes.
 
-Suggested routes:
+Current routes:
 
-- `/` — Mission preparation.
+- `/` — Title menu: Play / Load.
+- `/moon/` — Lunar mission selection.
+- `/prepare/` — Mission preparation (legacy root station queries redirect here).
 - `/game/:gameId` — Active gameplay.
 - `/results/:gameId` — Mission results.
 

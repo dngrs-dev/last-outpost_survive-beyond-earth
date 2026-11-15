@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
 import { fetchGameState } from '../api/game';
+import { rememberMission } from '../state/lastMission';
 import { ResearchProjects } from '../components/ResearchProjects';
 import { EnergyPanel } from '../components/EnergyPanel';
 import { LifeSupportPanel } from '../components/LifeSupportPanel';
@@ -29,6 +30,7 @@ export const ResultsPage: React.FC = () => {
     fetchGameState(gameId)
       .then((game) => {
         if (!mounted) return;
+        rememberMission(game.game_id);
         if (game.state.status === 'running') {
           navigate(`/game/${gameId}`, { replace: true });
           return;
@@ -64,7 +66,7 @@ export const ResultsPage: React.FC = () => {
       <div className="app-container">
         <Header />
         <div className="alert alert-danger">{error || 'Debrief telemetry unavailable.'}</div>
-        <button type="button" className="btn btn-secondary" onClick={() => navigate('/')}>
+        <button type="button" className="btn btn-secondary" onClick={() => navigate('/prepare/')}>
           Return to mission preparation
         </button>
       </div>

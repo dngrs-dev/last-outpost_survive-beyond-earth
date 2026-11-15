@@ -12,6 +12,31 @@
 - The JPEG is stored unchanged. Its SHA-256 and original size are recorded in
   `backend/data/moon.json`. The rendered lighting and interface are project work.
 
+## Title-screen Earth and lunar panorama
+
+- Earth: `frontend/public/images/title/earth-blue-marble.png`, the unchanged
+  [2048 by 1024 Blue Marble mosaic](https://svs.gsfc.nasa.gov/vis/a000000/a002900/a002915/bluemarble-2048.png)
+  from [NASA SVS, visualization 2915](https://svs.gsfc.nasa.gov/2915/).
+  Credit: NASA/Goddard Space Flight Center Scientific Visualization Studio;
+  data courtesy Reto Stockli, NASA GSFC / Earth Observatory. Reuse basis:
+  [SVS public-domain guidance](https://svs.gsfc.nasa.gov/help/), with no separate
+  restriction stated for this selected image.
+- Foreground: `frontend/public/images/title/apollo17-surface.jpg`, the unchanged
+  [original NASA/JSC image jsc2004e52775](https://images-assets.nasa.gov/image/jsc2004e52775/jsc2004e52775~orig.jpg),
+  an Apollo 17 Station 7, EVA 3 panorama assembled from frames AS17-146-22339
+  through AS17-146-22363. [Catalog record](https://images.nasa.gov/details/jsc2004e52775).
+  Credit: NASA/JSC. Reuse basis: [NASA media usage guidelines](https://www.nasa.gov/nasa-brand-center/images-and-media/);
+  no third-party restriction is stated in the selected catalog record.
+- Source URLs, byte counts, and SHA-256 hashes are recorded in
+  `frontend/public/images/title/sources.json`. Both selected assets may be
+  committed and redistributed with these notices and source credits. They are
+  not covered by a license for the project's original code.
+
+The screen combines independent images. Cropping, scene lighting, Earth scale,
+decorative stars, and accelerated rotation are project presentation choices,
+not a historical photograph, live sky, or NASA-endorsed simulation. No logos,
+insignia, or mission patches are included. See [the title-screen guide](docs/title-screen.md).
+
 ## Historical facts
 
 `backend/data/moon.json` includes factual coordinates and numerical mission records
