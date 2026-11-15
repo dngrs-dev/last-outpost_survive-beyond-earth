@@ -30,8 +30,8 @@ export function Chance({ value }: { value: number }) {
 export function Portrait({ person }: { person: CrewResponse }) {
   return <span className="crew-portrait" aria-hidden="true"><AstronautAvatar id={person.id} role={person.role} portrait outfit="cabin" /><span><RoleIcon role={person.role} /></span></span>;
 }
-export function CrewPick({ person, selected, disabled, onClick, detail }: { person: CrewResponse; selected: boolean; disabled?: boolean; onClick: () => void; detail?: string }) {
-  return <button type="button" className="crew-pick" aria-label={person.name} aria-pressed={selected} disabled={disabled} onClick={onClick}><Portrait person={person} /><strong>{person.name.split(' ')[0]}</strong>{detail && <small>{detail}</small>}</button>;
+export function CrewPick({ person, selected, disabled, onClick, detail, accessibleName }: { person: CrewResponse; selected: boolean; disabled?: boolean; onClick: () => void; detail?: string; accessibleName?: string }) {
+  return <button type="button" className="crew-pick" aria-label={accessibleName || person.name} aria-pressed={selected} disabled={disabled} onClick={onClick}><Portrait person={person} /><strong>{person.name.split(' ')[0]}</strong>{detail && <small>{detail}</small>}</button>;
 }
 
 export function Outcome({ effects, rewards = 0 }: { effects: EffectsResponse; rewards?: number }) {

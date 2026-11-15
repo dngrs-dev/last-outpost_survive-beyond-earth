@@ -1,5 +1,6 @@
 import { fireEvent, screen, within } from '@testing-library/react';
 import type { GameResponse } from '../../types/game';
+import { taskName } from '../../components/station/CrewNotebook';
 import { game } from '../fixtures/backend';
 
 export function book() { return within(screen.getByRole('dialog')); }
@@ -46,15 +47,15 @@ export async function confirmIncident(fixture: GameResponse = game, options: { c
 export async function chooseCrewTask(fixture: GameResponse, id: string, activityId: string, patient?: string) {
   const person = fixture.state.crew.find(person => person.id === id)!;
   fireEvent.click(screen.getByRole('button', { name: new RegExp(`^Inspect ${person.name},`) }));
-  fireEvent.click(book().getByRole('button', { name: 'Choose assignment' }));
   const option = fixture.state.assignment_options.find(option => option.id === activityId)!;
-  const category = option.action_type === 'medical' ? 'Care' : option.action_type === 'research' ? 'Science' : option.action_type === 'maintenance' ? 'Systems' : 'Rest';
+  const category = option.action_type === 'medical' ? 'Care' : option.action_type === 'research' ? 'Explore' : option.action_type === 'maintenance' ? 'Fix' : 'Rest';
   fireEvent.click(book().getByRole('button', { name: category }));
-  notebookPage(option.text);
-  fireEvent.click(book().getByRole('button', { name: 'Choose this task' }));
-  if (option.action_type === 'medical') {
-    if (patient) fireEvent.change(book().getByRole('combobox', { name: `Patient and condition for ${person.name}` }), { target: { value: patient } });
-    fireEvent.click(book().getByRole('button', { name: 'Review care' }));
+  fireEvent.click(book().getByRole('button', { name: taskName(option.id, option.text) }));
+  if (option.action_type === 'medical' && patient) {
+    const id = patient.split(':')[0];
+    const target = fixture.state.crew.find(person => person.id === id)!;
+    const condition = target.medical_conditions.find(condition => condition.kind === patient.split(':')[1])!;
+    fireEvent.click(book().getByRole('button', { name: `${target.name}: ${condition.title}` }));
   }
   fireEvent.click(book().getByRole('button', { name: 'Confirm assignment' }));
 }

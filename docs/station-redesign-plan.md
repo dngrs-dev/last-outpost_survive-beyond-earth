@@ -119,18 +119,18 @@ children. Do not describe automated tests as child usability testing.
 
 ### 4. One useful crew panel and direct action cards
 
-- [ ] Replace `CrewNotebook.tsx` with a portrait-led crew panel. Brief condition,
+- [x] Replace `CrewNotebook.tsx` with a portrait-led crew panel. Brief condition,
   actual illness/restrictions and meaningful traits share the main panel; remove
   four-page details and repeated hover information. Tap users still get the key
   health/food/water facts without relying on hover.
-- [ ] Show understandable task cards together: concrete verbs such as Repair air
+- [x] Show understandable task cards together: concrete verbs such as Repair air
   filter, Collect samples, Treat injury, Rest. Use short descriptions, resource
   icons and candidate-specific success badges. No category-only navigation gate.
-- [ ] Make the initial layout prioritize eligible/relevant actions; other tasks
+- [x] Make the initial layout prioritize eligible/relevant actions; other tasks
   remain directly discoverable through a flat compact section, not nested pages.
-- [ ] Selecting treatment shows eligible patient portraits/conditions inline.
+- [x] Selecting treatment shows eligible patient portraits/conditions inline.
   Commit books caregiver and patient; no duplicate assignment or dead patient.
-- [ ] Booked/away/deceased crew are inspectable; no reassignment through the panel.
+- [x] Booked/away/deceased crew are inspectable; no reassignment through the panel.
   Pending/request-recovery mode is read-only. Meal access works for living patients
   and absent workers without requiring their scene body.
 
@@ -201,3 +201,5 @@ Step 1: neutral modal sizes and shared visual controls implemented. Two resource
 Step 2: all incident responses, visual consequences, inline lead/support portraits and explicit confirmation implemented. Four focused visual/incident tests and production build passed. Old notebook-navigation integration tests will move to the new flow in step 7.
 
 Step 3: per-resource meal decisions, v1 migration, independent feeding and direct Next Week submission implemented; pending requests remain unchanged. Actual reduced/emergency rates are 70%/40%, not half portions. Twenty focused tests and production build passed.
+
+Step 4: portrait-led crew panels now show direct recommended tasks with flat filters, main-panel restrictions, meals, visual risks and inline medical targets. Eleven focused interaction tests and production build passed.

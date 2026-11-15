@@ -42,7 +42,7 @@ describe('Independent meals and direct week transition', () => {
     const first = openGame(); await confirmIncident(researchGame); await provisions();
     fireEvent.click(book().getByRole('button', { name: 'Feed everyone' })); closeBook();
     fireEvent.click(screen.getByRole('button', { name: /^Inspect Alex Vega,/ }));
-    expect(book().getByRole('button', { name: 'Choose assignment' })).toBeEnabled(); closeBook();
+    expect(book().getByRole('button', { name: 'Confirm assignment' })).toBeDisabled(); closeBook();
     first.unmount(); openGame(); await screen.findByRole('button', { name: 'Next week' });
     fireEvent.click(screen.getByRole('button', { name: 'Next week' }));
     await screen.findByText('WEEK 1 DEBRIEF'); expect(send).toHaveBeenCalledTimes(1);

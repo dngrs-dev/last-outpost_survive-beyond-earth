@@ -1,78 +1,70 @@
-import { MealControls } from './Meals';
 import { useState } from 'react';
 import type { CrewResponse, GameStateResponse, MedicalKind } from '../../types/game';
 import { bookedCrew, planIssues, type CrewOrder, type WeeklyPlan } from '../../state/weeklyPlan';
-import { NotebookDialog, PageTurns } from './NotebookDialog';
-import { effectsText, paragraphs, supplies } from './notebookContent';
+import { GameDialog } from './NotebookDialog';
+import { Chance, CrewPick, Outcome, Portrait, Resources } from './Visuals';
+import { MealControls } from './Meals';
 
-type Category = 'Care' | 'Science' | 'Systems' | 'Rest';
+const names: Record<string, [string, string]> = {
+  crew_rest: ['Rest', 'Recover with food, water and clean air.'],
+  clean_array: ['Clean solar panels', 'Remove dust to make more power.'],
+  install_regulator: ['Repair oxygen maker', 'Help the station make oxygen.'],
+  service_water_recovery: ['Repair water recycler', 'Recover more clean water.'],
+  service_co2_scrubber: ['Clean air filter', 'Remove harmful carbon dioxide.'],
+  research_geology: ['Collect moon rocks', 'Go outside to study a sample.'],
+  research_seismic: ['Set up quake sensors', 'Start a moonquake research project.'],
+  research_instrument: ['Restore science tools', 'Repair an instrument for science.'],
+  medical_care: ['Treat a teammate', 'Help an injured or ill teammate recover.'],
+  self_care: ['Treat yourself', 'Use medicine to support your recovery.'],
+};
+export function taskName(id: string, fallback: string) { return names[id]?.[0] || (id.startsWith('project:') ? fallback.replace('Seismic project: ', '') : fallback); }
 export function CrewNotebook({ person, state, plan, onCommit, onClose, onUpdate }: {
   person: CrewResponse; state: GameStateResponse; plan: WeeklyPlan; onCommit: (next: WeeklyPlan) => void; onClose: () => void; onUpdate: (next: WeeklyPlan) => void;
 }) {
-  const [stage, setStage] = useState<'overview' | 'details' | 'menu' | 'job' | 'patient' | 'confirm'>('overview');
-  const [category, setCategory] = useState<Category>('Rest');
-  const [index, setIndex] = useState(0);
-  const [page, setPage] = useState(0);
+  const [group, setGroup] = useState('For you');
+  const [jobId, setJob] = useState('');
   const [target, setTarget] = useState('');
-  const [error, setError] = useState('');
   const occupied = bookedCrew(plan).includes(person.id);
   const canOrder = person.alive && !occupied && plan.incidentConfirmed && !plan.pending;
-  const jobs = state.assignment_options.filter(option => category === 'Care' ? option.action_type === 'medical' : category === 'Science' ? option.action_type === 'research' : category === 'Systems' ? option.action_type === 'maintenance' : option.action_type === 'rest');
-  const entries = category === 'Rest' ? [null, ...jobs] : jobs;
-  const job = entries[index] || null;
-  const candidate = job?.eligible_crew.find(candidate => candidate.crew_id === person.id);
+  const selected = state.assignment_options.find(option => option.id === jobId);
+  const groups: Record<string, string> = { Explore: 'research', Fix: 'maintenance', Care: 'medical', Rest: 'rest' };
+  const recommended = [...state.assignment_options].sort((a, b) => {
+    const score = (option: typeof a) => {
+      const candidate = option.eligible_crew.find(candidate => candidate.crew_id === person.id);
+      return (candidate?.available ? 10 : 0) + (option.action_type === (person.role === 'medic' ? 'medical' : person.role === 'scientist' ? 'research' : 'maintenance') ? 3 : 0) + (candidate?.success_probability || 0);
+    }; return score(b) - score(a);
+  }).slice(0, 4);
+  const jobs = group === 'For you' ? recommended : state.assignment_options.filter(option => option.action_type === groups[group]);
+  const patients = state.crew.filter(crew => crew.alive && (selected?.id === 'self_care' ? crew.id === person.id : crew.id !== person.id && !bookedCrew(plan).includes(crew.id)))
+    .flatMap(crew => crew.medical_conditions.map(condition => ({ crew, condition, value: `${crew.id}:${condition.kind}` })));
+  const patient = patients.find(patient => patient.value === target);
+  const order: CrewOrder | undefined = selected ? { crew_id: person.id, activity_id: selected.id, ...(selected.action_type === 'medical' && patient ? { patient_id: patient.crew.id, condition_id: patient.condition.kind as MedicalKind } : {}) } : undefined;
+  const next = { ...plan, assignments: order ? [...plan.assignments, order] : plan.assignments };
+  const issues = selected ? planIssues(state, next, false) : [];
   const existing = plan.assignments.find(order => order.crew_id === person.id || order.patient_id === person.id);
-  const assigned = plan.selected_crew_id === person.id || plan.support_crew_ids.includes(person.id) ? 'Incident duty — away from the common room' : existing?.patient_id === person.id && existing.crew_id !== person.id ? `Receiving care from ${state.crew.find(crew => crew.id === existing.crew_id)?.name}` : existing ? state.assignment_options.find(option => option.id === existing.activity_id)?.text : plan.routine_crew_ids.includes(person.id) ? 'Routine duties / recovery confirmed' : 'No main assignment yet';
-  const details = [
-    ...paragraphs('Current condition', `Overall: ${person.condition.status}, ${person.health}/100. Nutrition: ${person.condition.nutrition_status}. Hydration: ${person.condition.hydration_status}. ${person.condition.restrictions.join(' ')}`),
-    ...person.medical_conditions.flatMap(condition => paragraphs(condition.title, `${condition.urgent ? 'Urgent: needs stabilization. ' : ''}${condition.remaining} recovery points remain. Earliest medic-supported recovery: ${condition.medic_weeks} weeks with full provisions and safe air.`, condition.source_url)),
-    ...paragraphs('Strengths & tradeoffs', `${person.specialty}. ${person.positive_trait}. ${person.negative_trait}.`),
-    ...paragraphs('Deficits & recovery', `Nutrition deficit ${person.nutrition_deficit.toFixed(2)}. Hydration deficit ${person.hydration_deficit.toFixed(2)}. Full actual provisions and safe air support gradual recovery; current restrictions still apply this week.`),
-  ];
-  const patients = state.crew.filter(crew => crew.alive && (job?.id === 'self_care' ? crew.id === person.id : crew.id !== person.id && !bookedCrew(plan).includes(crew.id)))
-    .flatMap(crew => crew.medical_conditions.map(condition => ({ value: `${crew.id}:${condition.kind}`, label: `${crew.name}: ${condition.title}`, patient_id: crew.id, condition_id: condition.kind })));
-  const selectedTarget = patients.find(patient => patient.value === target);
-  const nextPlan = (): WeeklyPlan => {
-    if (!job) return { ...plan, routine_crew_ids: [...plan.routine_crew_ids, person.id] };
-    const order: CrewOrder = { crew_id: person.id, activity_id: job.id };
-    if (job.action_type === 'medical' && selectedTarget) { order.patient_id = selectedTarget.patient_id; order.condition_id = selectedTarget.condition_id as MedicalKind; }
-    return { ...plan, assignments: [...plan.assignments, order] };
-  };
-  const issues = stage === 'job' || stage === 'patient' || stage === 'confirm' ? planIssues(state, nextPlan(), false) : [];
-  const available = canOrder && entries.length > 0 && (!job || Boolean(candidate?.available));
-  const confirmations = [
-    ...paragraphs(job?.text || 'Routine duties', job?.description || 'This astronaut will help with ordinary station duties. No additional action costs or science rewards.'),
-    ...paragraphs('Costs and chances', `Costs: ${supplies(job?.costs || {})}. ${job ? `Success: ${Math.round((candidate?.success_probability || 0) * 100)}%. Equipment retained: ${supplies(job.required_items)}.` : 'No supplies charged.'}`),
-    ...(job ? [...paragraphs('If it succeeds', effectsText(job.success_effects)), ...paragraphs('If it fails', effectsText(job.failure_effects))] : []),
-    ...(job?.objective_rewards || []).flatMap(reward => paragraphs('Possible science credit', `${reward.title}: +${reward.amount} on success, capped at target. Seismic credit is awarded only after final analysis.`)),
-  ];
-  const go = (next: typeof stage) => { setStage(next); setPage(0); setError(''); };
-  const commit = () => {
-    if (!available || issues.length) { setError(issues[0] || 'This astronaut is not available.'); return; }
-    onCommit(nextPlan());
-  };
-  return <NotebookDialog title={person.name} subtitle={`${person.role.toUpperCase()} · WEEK ${plan.week}`} onClose={onClose} controls={<>
-    {stage === 'overview' ? <button type="button" className="btn btn-secondary" onClick={() => go('details')}>Condition details</button>
-      : stage === 'details' ? <PageTurns page={page} count={details.length} onChange={setPage} />
-      : stage === 'job' ? <PageTurns page={index} count={entries.length} onChange={value => { setIndex(value); setTarget(''); }} />
-      : stage === 'confirm' ? <PageTurns page={page} count={confirmations.length} onChange={setPage} />
-      : <button type="button" className="btn btn-secondary" onClick={() => go(stage === 'patient' ? 'job' : 'overview')}>Back</button>}
-    {stage === 'overview' && canOrder ? <button type="button" className="btn btn-primary" onClick={() => go('menu')}>Choose assignment</button>
-      : stage === 'job' ? <button type="button" className="btn btn-primary" disabled={!available || (job?.action_type !== 'medical' && issues.length > 0)} onClick={() => { setTarget(patients[0]?.value || ''); go(job?.action_type === 'medical' ? 'patient' : 'confirm'); }}>Choose this task</button>
-      : stage === 'patient' ? <button type="button" className="btn btn-primary" disabled={!selectedTarget || issues.length > 0} onClick={() => go('confirm')}>Review care</button>
-      : stage === 'confirm' ? <button type="button" className="btn btn-primary" disabled={!available || issues.length > 0} onClick={commit}>Confirm assignment</button>
-      : <button type="button" className="btn btn-primary" onClick={stage === 'details' ? () => go('overview') : onClose}>{stage === 'details' ? 'Crew overview' : 'Return to station'}</button>}
-  </>}>
-    {stage === 'overview' && <><div className="folio-card"><div className="folio-row"><span>Overall condition</span><strong>{person.health}/100 · {person.condition.status}</strong></div><div className="folio-row"><span>Food</span><strong>{person.condition.nutrition_status}</strong></div><div className="folio-row"><span>Water</span><strong>{person.condition.hydration_status}</strong></div><small>{assigned}</small></div>
-      {person.alive && <MealControls person={person} plan={plan} onUpdate={onUpdate} />}<p className="folio-muted">{!person.alive ? 'This astronaut did not survive.' : occupied ? 'Booked for this week. Their assignment cannot be changed.' : !plan.incidentConfirmed ? 'Confirm the incident response before giving crew orders.' : 'Choose one main job, or leave them on routine duties.'}</p></>}
-    {stage === 'details' && <><h2>{details[page].title}</h2><p>{details[page].text}</p>{details[page].link && <a href={details[page].link} target="_blank" rel="noreferrer">Research context</a>}</>}
-    {stage === 'menu' && <><h2>One main job this week</h2><div className="folio-menu">{(['Care', 'Science', 'Systems', 'Rest'] as Category[]).map(name => <button key={name} type="button" onClick={() => { setCategory(name); setIndex(0); go('job'); }}>{name}</button>)}</div><small>Medical care books the caregiver and patient together. Confirmed choices cannot be changed this week.</small></>}
-    {stage === 'job' && <><div className="folio-card"><h2>{job?.text || (entries.length ? 'Routine duties' : 'No tasks in this category')}</h2><p>{confirmations[0].text}</p><small>Costs: {supplies(job?.costs || {})}{job ? ` · ${Math.round((candidate?.success_probability || 0) * 100)}% success` : ''}</small></div>
-      {job && !candidate?.available && <p className="folio-warning">{candidate?.unavailable_reasons.join(' ') || 'This task is unavailable.'}</p>}
-      {issues.length > 0 && job?.action_type !== 'medical' && candidate?.available && <p className="folio-warning">{issues[0]}</p>}
-      <button type="button" className="btn btn-secondary" onClick={() => go('menu')}>Other task types</button></>}
-    {stage === 'patient' && <><h2>Select a patient</h2><label>Patient and condition<select aria-label={`Patient and condition for ${person.name}`} value={target} onChange={event => setTarget(event.target.value)}><option value="">Choose a condition</option>{patients.map(patient => <option key={patient.value} value={patient.value}>{patient.label}</option>)}</select></label><p>Both people are booked for the week. Care uses medicine; supported recovery needs full food, water, and safe air.</p>{!patients.length ? <p className="folio-warning">No unbooked patient has an active condition.</p> : selectedTarget && issues.length > 0 && <p role="alert" className="folio-warning">{issues[0]}</p>}</>}
-    {stage === 'confirm' && <><h2>{confirmations[page].title}</h2><p>{confirmations[page].text}</p><small>{selectedTarget ? `Patient: ${selectedTarget.label}. ` : ''}Confirming locks this job for the week. It resolves at End Week.</small></>}
-    {error && <p role="alert" className="folio-warning">{error}</p>}
-  </NotebookDialog>;
+  const bookedLabel = plan.selected_crew_id === person.id || plan.support_crew_ids.includes(person.id) ? 'On incident duty' : existing?.patient_id === person.id && existing.crew_id !== person.id ? 'Receiving care' : existing ? taskName(existing.activity_id, state.assignment_options.find(option => option.id === existing.activity_id)?.text || 'Working') : 'Routine duties';
+  return <GameDialog title={person.name} subtitle={person.role.toUpperCase()} onClose={onClose} controls={canOrder ? <><span className="crew-confirm-note">{selected ? issues[0] || 'One job for this week' : 'Pick a job, or keep routine duties'}</span><button type="button" className="btn btn-primary" disabled={!selected || issues.length > 0} onClick={() => { if (selected && !planIssues(state, next, false).length) onCommit(next); }}>Confirm assignment</button></> : undefined}>
+    <div className="crew-summary"><Portrait person={person} /><div><strong>{!person.alive ? 'Lost during the mission' : occupied ? bookedLabel : person.specialty}</strong><p>{person.medical_conditions.map(condition => `${condition.urgent ? '⚠ ' : ''}${condition.title}`).join(' · ') || (person.condition.status === 'fit' ? 'Ready for work' : person.condition.status)}</p>{person.condition.restrictions.length > 0 && <small>{person.condition.restrictions.join(' ')}</small>}</div></div>
+    {person.alive && <MealControls person={person} plan={plan} onUpdate={onUpdate} />}
+    {canOrder ? <>
+      <div className="job-tabs" aria-label="Assignment types">{['For you', 'Explore', 'Fix', 'Care', 'Rest'].map(name => <button key={name} type="button" aria-pressed={group === name} onClick={() => { setGroup(name); setJob(''); setTarget(''); }}>{name}</button>)}</div>
+      <div className="action-grid crew-jobs">{jobs.map(job => {
+        const candidate = job.eligible_crew.find(candidate => candidate.crew_id === person.id);
+        const proposed = { ...plan, assignments: [...plan.assignments, { crew_id: person.id, activity_id: job.id }] };
+        const budgetIssue = planIssues(state, proposed, false).find(issue => issue.startsWith('Combined plan') || issue.includes('project'));
+        const available = candidate?.available && !budgetIssue;
+        return <button type="button" key={job.id} aria-label={taskName(job.id, job.text)} aria-pressed={jobId === job.id} aria-disabled={!available} className={`action-card ${jobId === job.id ? 'selected' : ''} ${!available ? 'unavailable' : ''}`} onClick={() => { setJob(job.id); setTarget(''); }}>
+          <h2>{taskName(job.id, job.text)}</h2><p>{names[job.id]?.[1] || job.description}</p>
+          <div className="panel-row"><Resources values={job.costs} /><Chance value={candidate?.success_probability || 0} /></div>
+          {!available && <small className="job-reason">{budgetIssue || candidate?.unavailable_reasons.join(' ') || 'Unavailable'}</small>}
+        </button>;
+      })}</div>
+      {!jobs.length && <p>No work of this type this week.</p>}
+      {selected && <div className="selected-job">
+        <Resources values={selected.required_items} retained />
+        <div className="response-outcomes"><span className="good-result">✓ <Outcome effects={selected.success_effects} rewards={selected.objective_rewards.reduce((sum, reward) => sum + reward.amount, 0)} /></span><span className="bad-result">⚠ <Outcome effects={selected.failure_effects} /></span></div>
+        {selected.action_type === 'medical' && <div className="crew-picks" aria-label="Choose patient">{patients.map(entry => <CrewPick key={entry.value} person={entry.crew} accessibleName={`${entry.crew.name}: ${entry.condition.title}`} selected={target === entry.value} detail={entry.condition.title} onClick={() => setTarget(entry.value)} />)}{!patients.length && <small>No free teammate needs this treatment.</small>}</div>}
+      </div>}
+    </> : <small>{!person.alive ? 'This astronaut cannot work.' : plan.pending ? 'Waiting for the week result.' : occupied ? 'Already assigned this week.' : 'Choose the incident response first.'}</small>}
+  </GameDialog>;
 }
