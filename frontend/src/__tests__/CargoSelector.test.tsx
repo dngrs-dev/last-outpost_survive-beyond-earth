@@ -11,13 +11,15 @@ it('enforces the scanner limit for both buttons and direct entry', () => {
       cargo={{ diagnostic_tools: 1 }}
       onChangeCargo={change}
       onInspectItem={vi.fn()}
-      onStarter={vi.fn()}
-      onClear={vi.fn()}
+      recommended={{ diagnostic_tools: 1 }}
     />
   );
   expect(
     screen.getByRole('button', { name: 'Increase Medical diagnostic scanner' })
   ).toBeDisabled();
+  expect(screen.getByRole('button', { name: 'Increase Medical diagnostic scanner' })).toHaveTextContent('MAX');
+  expect(screen.getByText('Recommended: 1')).toBeVisible();
+  expect(screen.queryByText('MAX 1')).not.toBeInTheDocument();
   fireEvent.change(
     screen.getByLabelText('Medical diagnostic scanner quantity'),
     { target: { value: '8' } }

@@ -1,5 +1,6 @@
 import { fireEvent, screen, within } from '@testing-library/react';
 import type { GameResponse } from '../../types/game';
+import { responseName } from '../../components/station/IncidentPanel';
 import { taskName } from '../../components/station/CrewPanel';
 import { game } from '../fixtures/backend';
 
@@ -13,7 +14,7 @@ export async function confirmIncident(fixture: GameResponse = game, options: { c
   await screen.findByRole('dialog', { name: fixture.state.current_event!.title });
   const choice = fixture.state.current_event!.choices.find(choice => options.choiceId ? choice.id === options.choiceId : choice.available && !choice.requires_crew)
     || fixture.state.current_event!.choices.find(choice => choice.available)!;
-  fireEvent.click(book().getByRole('button', { name: choice.text }));
+  fireEvent.click(book().getByRole('button', { name: responseName(choice.id, choice.text) }));
   if (choice.requires_crew) {
     const lead = options.leadId || [...choice.eligible_crew].filter(candidate => candidate.available).sort((a, b) => b.success_probability - a.success_probability)[0].crew_id;
     fireEvent.click(book().getByRole('button', { name: fixture.state.crew.find(person => person.id === lead)!.name }));

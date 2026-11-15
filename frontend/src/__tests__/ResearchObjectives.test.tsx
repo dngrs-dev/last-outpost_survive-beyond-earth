@@ -36,6 +36,7 @@ describe('Mission research with real API fixtures', () => {
     expect(book().getByText(/Baseline sample collection \+1/)).toBeInTheDocument();
     expect(send).toHaveBeenCalledWith('fixture-game', expect.objectContaining({ assignments: [{ crew_id: 'lin', activity_id: 'research_geology' }], expected_week: 1 }));
     fireEvent.click(book().getByRole('button', { name: /PROCEED TO WEEK/ }));
+    await confirmIncident({ game_id: researchTurn.game_id, state: researchTurn.state });
     await openStatus('Science');
     expect(book().getByRole('progressbar', { name: 'Baseline sample collection progress' })).toHaveAttribute('value', '1');
   });

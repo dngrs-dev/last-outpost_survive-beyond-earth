@@ -9,14 +9,14 @@ export const label = (id: string) => ({ dust_irritation: 'Sore lungs', gastroint
 export function ResourceIcon({ resource }: { resource: string }) {
   return resource === 'electricity' ? <svg viewBox="0 0 80 80" aria-hidden="true"><path d="M44 5 15 44h22l-4 31 32-43H43Z" fill="#ffe09c" stroke="#b38c43" strokeWidth="3" /></svg> : <ItemIcon id={icons[resource] || resource} />;
 }
-export function Resources({ values, retained = false, signed = false }: { values: Record<string, number>; retained?: boolean; signed?: boolean }) {
-  const entries = Object.entries(values).filter(([, value]) => value !== 0);
+export function Resources({ values, retained = false, signed = false, stock = false }: { values: Record<string, number>; retained?: boolean; signed?: boolean; stock?: boolean }) {
+  const entries = Object.entries(values).filter(([, value]) => stock || value !== 0);
   if (!entries.length) return null;
-  return <div className={`resources ${retained ? 'retained' : signed ? 'changes' : 'spending'}`} aria-label={retained ? 'Equipment needed, kept after use' : signed ? 'Resource changes' : 'Resources spent'}>
+  return <div className={`resources ${stock ? 'available-stock' : retained ? 'retained' : signed ? 'changes' : 'spending'}`} aria-label={stock ? 'Available supplies' : retained ? 'Equipment needed, kept after use' : signed ? 'Resource changes' : 'Resources spent'}>
     {entries.map(([id, value]) => {
-      const repeats = !signed && !retained && Number.isInteger(value) && value > 0 && value <= 4 && !['food', 'water', 'oxygen', 'electricity'].includes(id);
+      const repeats = !stock && !signed && !retained && Number.isInteger(value) && value > 0 && value <= 4 && !['food', 'water', 'oxygen', 'electricity'].includes(id);
       return <span className="resource" key={id} role="img" aria-label={`${signed && value > 0 ? '+' : ''}${value} ${label(id)}${retained ? ', kept' : ''}`} title={`${label(id)}: ${value}${retained ? ' (kept)' : ''}`}>
-        <b aria-hidden="true">{retained ? '✓' : signed ? value > 0 ? '+' : '−' : '−'}</b>
+        {!stock && <b aria-hidden="true">{retained ? '✓' : signed ? value > 0 ? '+' : '−' : '−'}</b>}
         {Array.from({ length: repeats ? value : 1 }, (_, index) => <span key={index} className="resource-icon" aria-hidden="true"><ResourceIcon resource={id} /></span>)}
         {!repeats && <strong aria-hidden="true">{Math.abs(Number(value.toFixed(2)))}</strong>}
       </span>;

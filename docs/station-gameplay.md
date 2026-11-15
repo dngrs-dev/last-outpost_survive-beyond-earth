@@ -7,9 +7,12 @@ step rail, crew directory or persistent guidance sentence.
 ## Play a week
 
 1. The incident board opens with the title, description and all 3-4 response
-   cards. Cards show spending, retained tools, likely benefits and failure risks.
+   cards with short action captions. Cards show spending, retained tools, likely benefits and failure risks.
    Select a response, choose lead/helpers by portrait if required, then confirm.
-   Selecting a card alone does not commit it.
+   Selecting a card alone does not commit it. Current relevant supplies, including
+   zero stock, appear below the description. The incident has no close button and
+   cannot be dismissed with Escape or native cancel; confirmation is required.
+   Unavailable responses show a lock, retain an accessible reason, and cannot be selected.
 2. Click a free astronaut for meals and concrete job cards. Two affordable/eligible actions are prioritized immediately; flat Explore/Fix/Care/Rest filters expose the rest. Select
    a task and confirm. Medical targets appear inline, reserving worker and patient.
    Confirmed jobs are immutable; unassigned crew retain routine duties/recovery.
@@ -79,7 +82,8 @@ and resolves everything atomically, with existing idempotency and deterministic 
 
 ## Access and validation
 
-Flexible native modal dialogs keep focus inside, support Escape and return focus to
+Flexible native modal dialogs keep focus inside, support Escape (except the
+mandatory incident board) and return focus to
 the invoker or crew log if that actor disappeared. Controls use native buttons,
 visible focus, accessible icon names and reduced motion. Responsive grids replace
 one-fact pages. Content must stay reachable at zoom/extreme sizes; overflow must
@@ -110,3 +114,10 @@ shared borders, gold accents and station-material tokens. Crew selection, suppli
 station artwork, dialogs and controls use it. Role colors, item illustrations,
 health, danger and success indicators keep their semantic colors. NASA imagery
 and character skin/hair colors are unchanged.
+
+
+## Preparation recommendations
+
+The cargo grid shows each backend-recommended quantity beneath its name, above mass and volume. Fresh visits use this mission-specific suggestion for four default crew; edited and intentionally empty saved drafts remain unchanged. There are no preset or empty buttons. The plus button reads MAX only at the item's quantity limit. Missing objective equipment is shown as an icon/count warning beside the launch controls at every layout size; frontend gating supplements authoritative backend validation. Healthy packing has no filler status sentence. Detailed engineering and source information remains available on demand.
+
+Fresh missions use a backend-generated random seed by default. Replay settings can supply an explicit seed; once created, the same game retains deterministic outcomes and exact weekly retry receipts.

@@ -21,17 +21,22 @@ import {
 import type { CatalogResponse, ItemDefinition } from '../types/game';
 import styles from './SetupPage.module.css';
 
-const STARTER_CARGO = {
-  food_packs: 8,
-  water_containers: 16,
-  medicine_kits: 7,
-  repair_kits: 7,
-  eva_batteries: 7,
-  oxygen_tanks: 4,
-  scientific_tools: 1,
-};
 const TABS = ['Mission', 'Power', 'Settings'] as const;
 type BriefTab = (typeof TABS)[number];
+
+function selectedStation(catalog: CatalogResponse, params: URLSearchParams) {
+  const stationId = params.get('station');
+  const siteId = params.get('lunar_site');
+  return catalog.stations.find(
+    (entry) =>
+      (stationId
+        ? entry.id === stationId
+        : siteId
+          ? entry.lunar_site_id === siteId
+          : entry.id === 'alpha') &&
+      (!siteId || entry.lunar_site_id === siteId)
+  );
+}
 
 function Capacity({
   label,
@@ -85,9 +90,10 @@ export function SetupPage() {
   const busy = useRef(false);
   const mounted = useRef(true);
   const [cargo, setCargo] = useState<Record<string, number>>(
-    () => draft?.cargo || { ...STARTER_CARGO }
+    () => draft?.cargo || {}
   );
-  const [seed, setSeed] = useState(() => draft?.seed ?? '42');
+  const useRecommendations = useRef(!draft);
+  const [seed, setSeed] = useState(() => draft?.seed ?? '');
   const [inspectedItem, setInspectedItem] = useState<ItemDefinition | null>(
     null
   );
@@ -99,7 +105,14 @@ export function SetupPage() {
     setLoadError('');
     fetchCatalog()
       .then((data) => {
-        if (active) setCatalog(data);
+        if (active) {
+          const selected = selectedStation(data, params);
+          if (selected && useRecommendations.current) {
+            useRecommendations.current = false;
+            setCargo({ ...selected.recommended_cargo });
+          }
+          setCatalog(data);
+        }
       })
       .catch((reason) => {
         if (active)
@@ -124,17 +137,7 @@ export function SetupPage() {
     };
   }, []);
 
-  const stationId = params.get('station');
-  const siteId = params.get('lunar_site');
-  const station = catalog?.stations.find(
-    (entry) =>
-      (stationId
-        ? entry.id === stationId
-        : siteId
-          ? entry.lunar_site_id === siteId
-          : entry.id === 'alpha') &&
-      (!siteId || entry.lunar_site_id === siteId)
-  );
+  const station = catalog ? selectedStation(catalog, params) : undefined;
   const mission = catalog?.missions.find(
     (entry) => entry.id === station?.mission_id
   );
@@ -250,14 +253,14 @@ export function SetupPage() {
   const status = !crewValid
     ? `Choose at least ${mission?.minimum_survivors || 1} astronauts before launch.`
     : !cargoValid
-      ? 'Some cargo choices are unavailable. Use the starter pack or correct the quantities.'
+      ? 'Check unavailable cargo quantities.'
       : !seedValid
         ? 'Check the replay seed in Flight settings.'
         : overweight || overfilled
           ? `Remove cargo to fit the ${overweight && overfilled ? 'weight and space' : overweight ? 'weight' : 'space'} limit.`
           : adjusted
             ? 'Unavailable crew choices were removed. Review your team.'
-            : 'Within cargo limits. Ready when you are.';
+            : '';
 
   return (
     <main className={styles.page} aria-label="Supplies and launch">
@@ -352,8 +355,7 @@ export function SetupPage() {
                 updateDraft({ ...cargo, [id]: quantity })
               }
               onInspectItem={setInspectedItem}
-              onStarter={() => updateDraft({ ...STARTER_CARGO })}
-              onClear={() => updateDraft({})}
+              recommended={station.recommended_cargo}
             />
             <aside className={styles.sidebar} aria-label="Launch overview">
               <SelectedCrew
@@ -414,26 +416,29 @@ export function SetupPage() {
                       </p>
                     ))}
                   </div>
-                  <p>
-                    Outpost reserves + cargo, before incidents. Power is capped
-                    at battery capacity; generation and use happen during play.
-                  </p>
                 </div>
               </section>
-              {missingEquipment.length > 0 && (
-                <div className={styles.scienceHint} role="alert">
-                  <p>Objective equipment needed</p>
-                  {missingEquipment.map(({ resource, amount }) => {
-                    const item = catalog.items.find((entry) => entry.resource === resource);
-                    return <span key={resource}><ItemIcon id={item?.id || resource} />
-                      {item?.name || resource}: {amount}
-                    </span>;
-                  })}
-                </div>
-              )}
             </aside>
           </div>
           <div className={styles.launchbar}>
+            {missingEquipment.length > 0 && (
+              <div className={styles.scienceHint} role="alert">
+                <p>Objective equipment needed</p>
+                {missingEquipment.map(({ resource, amount }) => {
+                  const item = catalog.items.find((entry) => entry.resource === resource);
+                  return (
+                    <span
+                      key={resource}
+                      role="img"
+                      aria-label={`${amount} ${item?.name || resource}`}
+                      title={item?.name || resource}
+                    >
+                      <ItemIcon id={item?.id || resource} /><strong>×{amount}</strong>
+                    </span>
+                  );
+                })}
+              </div>
+            )}
             <div className={styles.capacities}>
               <Capacity
                 label="Weight"
@@ -462,22 +467,18 @@ export function SetupPage() {
                   <circle cx="16" cy="8" r="2" />
                 </svg>
               </button>
-              <p>Next stop: the Moon</p>
             </div>
             {error ? (
               <p className={styles.error} role="alert">
                 {error}
               </p>
-            ) : (
+            ) : status || powerOverflow ? (
               <p className={styles.status} role="status">
                 {status}
                 {powerOverflow &&
                   ' Packed power exceeds battery capacity; excess starting charge cannot be stored.'}
               </p>
-            )}
-            <span className={styles.balanceNote}>
-              Fictional gameplay cargo limits
-            </span>
+            ) : null}
           </div>
 
           {inspectedItem && (

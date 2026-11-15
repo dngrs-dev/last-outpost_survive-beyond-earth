@@ -21,6 +21,9 @@ function openSupplies(url = '/prepare/?station=alpha', state: unknown = null) {
 async function ready() {
   await screen.findByLabelText('Food packs quantity');
 }
+function clearCargo() {
+  for (const item of catalog.items) fireEvent.change(screen.getByLabelText(`${item.name} quantity`), { target: { value: '0' } });
+}
 const launch = () =>
   fireEvent.click(screen.getByRole('button', { name: 'Launch mission' }));
 
@@ -44,11 +47,11 @@ describe('Game-style supplies and launch', () => {
     ).toBeInTheDocument();
     expect(screen.getByRole('meter', { name: 'Cargo weight' })).toHaveAttribute(
       'value',
-      '157'
+      '146.7'
     );
     expect(screen.getByRole('meter', { name: 'Cargo space' })).toHaveAttribute(
       'value',
-      '228'
+      '209'
     );
     expect(screen.queryByRole('banner')).not.toBeInTheDocument();
     expect(screen.queryByRole('contentinfo')).not.toBeInTheDocument();
@@ -75,33 +78,38 @@ describe('Game-style supplies and launch', () => {
       expect.objectContaining({
         station_id: 'hadley',
         crew_ids: ['nora', 'maya', 'sam'],
+        random_seed: undefined,
       })
     );
     expect(readLastMission()).toBe(game.game_id);
     expect(document.body.style.overflow).not.toBe('hidden');
   });
 
-  it('keeps quantities across filters, emptying, and the starter preset', async () => {
-    openSupplies();
-    await ready();
-    fireEvent.click(
-      screen.getByRole('button', { name: 'Increase Food packs' })
-    );
-    expect(screen.getByLabelText('Food packs quantity')).toHaveValue(9);
+  it('shows recommendations on cards and preserves quantities across filters', async () => {
+    openSupplies(); await ready();
+    expect(screen.queryByRole('button', { name: 'Starter pack' })).not.toBeInTheDocument();
+    expect(screen.queryByRole('button', { name: 'Empty cargo' })).not.toBeInTheDocument();
+    expect(screen.getAllByText(/^Recommended:/)).toHaveLength(12);
+    fireEvent.click(screen.getByRole('button', { name: 'Increase Food packs' }));
+    expect(screen.getByLabelText('Food packs quantity')).toHaveValue(11);
     fireEvent.click(screen.getByRole('button', { name: /^Tools/ }));
-    expect(
-      screen.queryByLabelText('Food packs quantity')
-    ).not.toBeInTheDocument();
+    expect(screen.queryByLabelText('Food packs quantity')).not.toBeInTheDocument();
     fireEvent.click(screen.getByRole('button', { name: /^All cargo/ }));
-    expect(screen.getByLabelText('Food packs quantity')).toHaveValue(9);
-    fireEvent.click(screen.getByRole('button', { name: 'Empty cargo' }));
-    expect(screen.getByRole('meter', { name: 'Cargo weight' })).toHaveAttribute(
-      'value',
-      '0'
-    );
-    fireEvent.click(screen.getByRole('button', { name: 'Starter pack' }));
-    expect(screen.getByLabelText('Food packs quantity')).toHaveValue(8);
-    expect(screen.getByLabelText('Water containers quantity')).toHaveValue(16);
+    expect(screen.getByLabelText('Food packs quantity')).toHaveValue(11);
+    expect(screen.queryByText('Within cargo limits. Ready when you are.')).not.toBeInTheDocument();
+  });
+
+  it('preserves an intentionally empty saved draft and gates missing equipment', async () => {
+    openSupplies('/prepare/?station=alpha', { supplies: { cargo: {}, seed: '42' } });
+    await ready();
+    expect(screen.getByLabelText('Food packs quantity')).toHaveValue(0);
+    expect(screen.getByText('Objective equipment needed')).toBeVisible();
+    expect(screen.getByRole('button', { name: 'Launch mission' })).toBeDisabled();
+    fireEvent.change(screen.getByLabelText('Field science kit quantity'), { target: { value: '1' } });
+    expect(screen.getByRole('button', { name: 'Launch mission' })).toBeDisabled();
+    fireEvent.change(screen.getByLabelText('EVA battery packs quantity'), { target: { value: '2' } });
+    expect(screen.getByRole('button', { name: 'Launch mission' })).toBeEnabled();
+    expect(screen.queryByText('Objective equipment needed')).not.toBeInTheDocument();
   });
 
   it.each([
@@ -116,7 +124,7 @@ describe('Game-style supplies and launch', () => {
     async ({ item, quantity, message }) => {
       openSupplies();
       await ready();
-      fireEvent.click(screen.getByRole('button', { name: 'Empty cargo' }));
+      clearCargo();
       fireEvent.change(screen.getByLabelText(`${item} quantity`), {
         target: { value: quantity },
       });
@@ -187,7 +195,7 @@ describe('Game-style supplies and launch', () => {
   it('clamps arrival power to battery capacity and explains overflow', async () => {
     openSupplies();
     await ready();
-    fireEvent.click(screen.getByRole('button', { name: 'Empty cargo' }));
+    clearCargo();
     fireEvent.change(screen.getByLabelText('Emergency power cells quantity'), {
       target: { value: '10' },
     });
@@ -283,7 +291,7 @@ describe('Game-style supplies and launch', () => {
     expect(await screen.findByRole('alert')).toHaveTextContent(
       'Launch service unavailable'
     );
-    expect(screen.getByLabelText('Food packs quantity')).toHaveValue(9);
+    expect(screen.getByLabelText('Food packs quantity')).toHaveValue(11);
     launch();
     await screen.findByText('Launched mission');
     expect(vi.mocked(api.createGame).mock.calls[1][0]).toEqual(

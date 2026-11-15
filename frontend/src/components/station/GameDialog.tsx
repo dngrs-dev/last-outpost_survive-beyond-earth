@@ -1,8 +1,8 @@
 import { useEffect, useId, useRef, type ReactNode } from 'react';
 import styles from './GameDialog.module.css';
 
-export function GameDialog({ title, subtitle, onClose, children, controls, size = 'medium' }: {
-  title: string; subtitle?: string; onClose: () => void; children: ReactNode; controls?: ReactNode; size?: 'small' | 'medium' | 'large';
+export function GameDialog({ title, subtitle, onClose, children, controls, size = 'medium', dismissible = true }: {
+  title: string; subtitle?: string; onClose: () => void; children: ReactNode; controls?: ReactNode; size?: 'small' | 'medium' | 'large'; dismissible?: boolean;
 }) {
   const dialog = useRef<HTMLDialogElement>(null);
   const heading = useRef<HTMLHeadingElement>(null);
@@ -20,9 +20,9 @@ export function GameDialog({ title, subtitle, onClose, children, controls, size 
     };
   }, []);
   useEffect(() => { heading.current?.focus(); }, [title]);
-  return <dialog className={`${styles.dialog} ${styles[size]}`} ref={dialog} aria-labelledby={titleId} onCancel={event => { event.preventDefault(); close.current(); }}
+  return <dialog className={`${styles.dialog} ${styles[size]}`} ref={dialog} aria-labelledby={titleId} onCancel={event => { event.preventDefault(); if (dismissible) close.current(); }}
     onKeyDown={event => {
-      if (event.key === 'Escape') { event.preventDefault(); close.current(); return; }
+      if (event.key === 'Escape') { event.preventDefault(); if (dismissible) close.current(); return; }
       if (event.key !== 'Tab') return;
       const elements = [...event.currentTarget.querySelectorAll<HTMLElement>('button:not(:disabled), select:not(:disabled), a[href], input:not(:disabled), [tabindex="0"]')].filter(element => !element.hidden && !element.closest('[hidden]'));
       const first = elements[0], last = elements[elements.length - 1];
@@ -30,7 +30,7 @@ export function GameDialog({ title, subtitle, onClose, children, controls, size 
       else if (!event.shiftKey && document.activeElement === last) { event.preventDefault(); first?.focus(); }
     }}>
     <header className={styles.header}><div><small>{subtitle || 'MISSION CONTROL'}</small><h1 id={titleId} ref={heading} tabIndex={-1}>{title}</h1></div>
-      <button type="button" aria-label="Close panel" onClick={onClose}>×</button></header>
+      {dismissible && <button type="button" aria-label="Close panel" onClick={onClose}>×</button>}</header>
     <div className={styles.page} aria-live="polite">{children}</div>
     <div className={styles.controls}>{controls || <button type="button" className="btn btn-primary" onClick={onClose}>Return to station</button>}</div>
   </dialog>;

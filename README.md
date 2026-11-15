@@ -52,14 +52,20 @@ values. No NASA API key or external request is needed during play.
 
 Supplies now use a full-screen cargo bay with twelve matching original SVG item
 illustrations, category filters, quantity controls, packed checks, and a cargo
-manifest. Weight, space, and Launch stay visible while the inventory scrolls
+manifest. Backend recommendations appear under item names and initialize fresh
+loadouts; saved edits (including empty cargo) are preserved. Fresh missions use
+random seeds unless a replay seed is entered in settings. Full item quantities
+show MAX on their disabled plus control. Objective equipment shortages remain
+visible beside Launch on phones and desktops. Weight, space, and Launch stay visible while the inventory scrolls
 internally. Item facts, research goals, outpost systems, sunlight forecasts, and
 replay settings open on demand. Cargo/seed edits survive a preparation-page refresh
 and crew changes; launch errors retain the loadout. Catalog and simulation rules
 remain authoritative in the backend.
 
 Active play at `/game/:gameId` fills the screen with the station. Each incident
-opens a large board with all responses, visual costs and inline crew portraits.
+opens a mandatory large board with all responses, current relevant supplies,
+visual costs and inline crew portraits. Confirming a response closes it; Escape
+and close controls remain available for other panels.
 Click a free astronaut for direct work cards and independent food/water choices.
 Supplies also opens a meal board for everyone, including away workers and patients.
 Next Week submits directly when the incident, provisions and budget are ready;

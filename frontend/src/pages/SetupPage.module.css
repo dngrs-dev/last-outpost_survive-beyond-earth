@@ -276,33 +276,19 @@
 }
 .scienceHint {
   display: flex;
+  flex-wrap: wrap;
   align-items: center;
   gap: 9px;
-  padding: 7px 10px;
-  border: 1px solid #c6b1f344;
+  grid-column: 1 / -1;
+  padding: 5px 8px;
+  border: 1px solid var(--mission-gold);
   border-radius: 12px;
-  background: #3b315020;
+  background: var(--surface-deep);
 }
-.scienceHint > svg {
-  width: 38px;
-  height: 38px;
-  flex-shrink: 0;
-}
-.scienceHint p {
-  font-size: 10px;
-  line-height: 1.4;
-  color: #c4c5df;
-}
-.scienceHint button {
-  background: var(--surface-panel);
-  color: #dbd0fb;
-  min-height: 38px;
-  padding: 5px 9px;
-  border: 1px solid #bca7e355;
-  border-radius: 8px;
-  font-size: 10px;
-  white-space: nowrap;
-}
+.scienceHint > p { font-size:12px; color:var(--mission-gold); }
+.scienceHint > span { display:inline-flex; align-items:center; gap:4px; }
+.scienceHint > span > svg { width:24px; height:24px; flex-shrink:0; }
+.scienceHint strong { font:12px var(--font-mono); }
 .launchbar {
   border-top: 1px solid rgba(138, 160, 190, 0.200);
   padding-top: 14px;

@@ -15,16 +15,14 @@ export function CargoSelector({
   cargo,
   onChangeCargo,
   onInspectItem,
-  onStarter,
-  onClear,
+  recommended = {},
   disabled = false,
 }: {
   items: ItemDefinition[];
   cargo: Record<string, number>;
   onChangeCargo: (id: string, quantity: number) => void;
   onInspectItem: (item: ItemDefinition) => void;
-  onStarter: () => void;
-  onClear: () => void;
+  recommended?: Record<string, number>;
   disabled?: boolean;
 }) {
   const [filter, setFilter] = useState('all');
@@ -34,23 +32,7 @@ export function CargoSelector({
   return (
     <section className={styles.panel} aria-label="Cargo selection">
       <div className={styles.toolbar}>
-        <div>
-          <h2>Choose your cargo</h2>
-          <p>Pack what your crew needs. Tap an item to learn more.</p>
-        </div>
-        <div className={styles.presets}>
-          <button type="button" disabled={disabled} onClick={onStarter}>
-            Starter pack
-          </button>
-          <button
-            type="button"
-            disabled={disabled}
-            onClick={onClear}
-            aria-label="Empty cargo"
-          >
-            Empty
-          </button>
-        </div>
+        <h2>Choose your cargo</h2>
       </div>
       <div className={styles.filters} role="group" aria-label="Filter cargo">
         {FILTERS.map((entry) => (
@@ -95,8 +77,8 @@ export function CargoSelector({
                     &#10003;
                   </span>
                 )}
-                {item.max_quantity === 1 && (
-                  <span className={styles.single}>MAX 1</span>
+                {(recommended[item.id] || 0) > 0 && (
+                  <span className={styles.recommended}>Recommended: {recommended[item.id]}</span>
                 )}
               </button>
               <p className={styles.cost}>
@@ -146,7 +128,7 @@ export function CargoSelector({
                     )
                   }
                 >
-                  +
+                  {quantity >= item.max_quantity ? 'MAX' : '+'}
                 </button>
               </div>
             </article>
