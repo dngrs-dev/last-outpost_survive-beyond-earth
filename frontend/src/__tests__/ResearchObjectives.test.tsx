@@ -10,16 +10,15 @@ import { catalog, completed, researchGame, researchTurn, researchCompleted } fro
 describe('Mission research with real API fixtures', () => {
   beforeEach(() => vi.restoreAllMocks());
 
-  it('briefs the selected outpost and updates targets when switching missions', async () => {
+  it('keeps research targets in the optional mission brief', async () => {
     vi.spyOn(gameApi, 'fetchCatalog').mockResolvedValue(structuredClone(catalog));
     render(<MemoryRouter><SetupPage /></MemoryRouter>);
-    const brief = await screen.findByRole('region', { name: 'Research objectives' });
+    fireEvent.click(await screen.findByRole('button', { name: 'Mission brief' }));
+    const brief = screen.getByRole('region', { name: 'Research objectives' });
     expect(within(brief).getByText('Baseline sample collection')).toBeInTheDocument();
     expect(within(brief).getByText('Target: 2')).toBeInTheDocument();
     expect(within(brief).getByText(/Pack a field science kit/)).toBeInTheDocument();
-    fireEvent.change(screen.getByRole('combobox', { name: 'Outpost' }), { target: { value: 'oceanus' } });
-    expect(within(brief).getByText('First field sample')).toBeInTheDocument();
-    expect(within(brief).queryByText('Seismic baseline')).not.toBeInTheDocument();
+    expect(screen.getByRole('link', { name: 'Change mission' })).toHaveAttribute('href', '/moon/?site=apollo-11');
   });
 
   it('submits a planned research task and shows earned objective progress', async () => {

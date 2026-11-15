@@ -28,7 +28,7 @@ export function SelectedCrew({
     0
   );
   return (
-    <section className={`card ${styles.panel}`} aria-label="Selected crew">
+    <section className={styles.panel} aria-label="Selected crew">
       <div className={styles.heading}>
         <h2>
           Your crew{' '}

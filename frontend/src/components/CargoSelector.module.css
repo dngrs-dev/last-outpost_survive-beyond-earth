@@ -1,0 +1,336 @@
+.panel {
+  display: grid;
+  grid-template-rows: auto auto minmax(0, 1fr);
+  gap: 12px;
+  min-height: 0;
+}
+.toolbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+}
+.toolbar h2 {
+  font-size: 19px;
+  font-weight: 500;
+}
+.toolbar p {
+  font-size: 11px;
+  color: #a5b9cf;
+  margin-top: 4px;
+}
+.presets {
+  display: flex;
+  gap: 8px;
+}
+.presets button {
+  min-height: 44px;
+  padding: 6px 12px;
+  background: #132a40;
+  color: #b5d8eb;
+  border: 1px solid #7bb9de44;
+  border-radius: 10px;
+  font-size: 11px;
+  white-space: nowrap;
+}
+.presets button:last-child {
+  background: transparent;
+  color: #a6b8cb;
+}
+.filters {
+  display: flex;
+  gap: 8px;
+}
+.filters button {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  min-height: 40px;
+  border: 1px solid #526d8655;
+  border-radius: 24px;
+  color: #a7bbd0;
+  background: #0e2032;
+  padding: 6px 16px;
+  font-size: 12px;
+}
+.filters button[aria-pressed='true'] {
+  background: #214258;
+  color: #c8f0ff;
+  border-color: #8cdbff88;
+  box-shadow: 0 0 16px #8cdbff0a;
+}
+.filters span {
+  color: #91adc3;
+  font-size: 10px;
+}
+.grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  grid-auto-rows: max-content;
+  gap: 12px;
+  padding: 5px;
+  margin: -5px;
+  overflow-y: auto;
+  scrollbar-width: thin;
+  scrollbar-color: #3e627d transparent;
+  align-content: start;
+}
+.item {
+  min-width: 0;
+  position: relative;
+  border: 1px solid #46637c88;
+  border-radius: 16px;
+  background: linear-gradient(145deg, #183049aa, #0a192cc9);
+  padding: 8px 10px 10px;
+  box-shadow: inset 0 1px #c0e6ff05;
+}
+.item[data-packed='true'] {
+  border-color: #8de6b966;
+  background: linear-gradient(145deg, #1e3d48aa, #0b1b2bc9);
+  box-shadow: 0 0 14px #8de6b908;
+}
+.inspect {
+  display: grid;
+  grid-template-columns: 64px minmax(0, 1fr);
+  grid-template-rows: 1fr auto;
+  min-height: 64px;
+  gap: 0 8px;
+  align-items: center;
+  width: 100%;
+  color: #e1eefb;
+  background: transparent;
+  text-align: left;
+  border-radius: 10px;
+}
+.inspect > svg {
+  grid-column: 1;
+  grid-row: 1 / 3;
+  width: 64px;
+  height: 64px;
+  transition: transform 0.2s;
+}
+.inspect:hover > svg {
+  transform: translateY(-3px);
+}
+.inspect h3 {
+  grid-column: 2;
+  grid-row: 1;
+  font-size: 12px;
+  font-weight: 500;
+  line-height: 1.25;
+  min-height: 0;
+  max-width: 100%;
+  display: flex;
+  align-items: center;
+}
+.packed {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  display: grid;
+  place-items: center;
+  width: 17px;
+  height: 17px;
+  font-size: 10px;
+  font-weight: 700;
+  color: #123e2c;
+  background: #8de6b9;
+  border-radius: 50%;
+}
+.single {
+  grid-column: 2;
+  grid-row: 2;
+  color: #a4bacf;
+  font: 8px var(--font-mono);
+  letter-spacing: 0.03em;
+  align-self: start;
+}
+.cost {
+  font-size: 10px;
+  color: #9fb5ca;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  margin: 4px 0 8px;
+}
+.cost > span {
+  width: 2px;
+  height: 2px;
+  background: #6a8ba5;
+  border-radius: 50%;
+}
+.quantity {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 4px;
+}
+.quantity button {
+  width: 44px;
+  height: 44px;
+  background: #213b52;
+  border: 1px solid #91c5e233;
+  border-radius: 8px;
+  color: #cae9fa;
+  font-size: 21px;
+}
+.quantity button:hover:not(:disabled) {
+  background: #2b516d;
+  border-color: #8fdfff88;
+}
+.quantity input {
+  width: 48px;
+  height: 44px;
+  min-width: 0;
+  font: 15px var(--font-mono);
+  border: 1px solid #48677e88;
+  border-radius: 8px;
+  color: #f1f7fc;
+  background: #071321;
+  text-align: center;
+  padding: 3px;
+  appearance: textfield;
+  -moz-appearance: textfield;
+}
+.quantity input::-webkit-inner-spin-button,
+.quantity input::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+@media (max-width: 1200px) {
+  .grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+}
+@media (max-width: 900px) {
+  .grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+  .toolbar p {
+    display: none;
+  }
+}
+@media (max-width: 600px) {
+  .panel {
+    gap: 10px;
+  }
+  .toolbar h2 {
+    font-size: 14px;
+  }
+  .presets {
+    gap: 6px;
+  }
+  .presets button {
+    font-size: 10px;
+    min-height: 36px;
+    padding: 5px 9px;
+  }
+  .filters {
+    gap: 6px;
+  }
+  .filters button {
+    flex: 1;
+    padding: 6px 8px;
+    justify-content: center;
+    font-size: 11px;
+    gap: 6px;
+  }
+  .filters span {
+    font-size: 9px;
+  }
+  .grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 10px;
+  }
+  .item {
+    border-radius: 13px;
+    padding: 7px 8px 9px;
+  }
+  .inspect > svg {
+    width: 64px;
+    height: 64px;
+  }
+  .quantity button,
+  .quantity input {
+    height: 44px;
+  }
+}
+@media (max-width: 360px) {
+  .inspect {
+    grid-template-columns: 50px minmax(0, 1fr);
+    gap: 0 4px;
+    min-height: 60px;
+  }
+  .inspect > svg {
+    width: 50px;
+    height: 50px;
+  }
+  .inspect h3 {
+    font-size: 10px;
+  }
+  .quantity {
+    gap: 3px;
+  }
+  .quantity button {
+    width: 36px;
+  }
+  .quantity input {
+    width: 38px;
+  }
+  .toolbar h2 {
+    font-size: 12px;
+  }
+  .filters button {
+    font-size: 10px;
+    gap: 4px;
+  }
+}
+@media (max-height: 600px) and (orientation: landscape) {
+  .inspect {
+    grid-template-columns: 54px minmax(0, 1fr);
+    min-height: 54px;
+    gap: 0 6px;
+  }
+  .toolbar {
+    display: none;
+  }
+  .filters button {
+    min-height: 34px;
+    padding: 4px 12px;
+  }
+  .panel {
+    gap: 8px;
+  }
+  .grid {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+  }
+  .inspect > svg {
+    width: 54px;
+    height: 54px;
+  }
+  .inspect h3 {
+    font-size: 10px;
+    min-height: 25px;
+  }
+  .quantity {
+    gap: 3px;
+  }
+  .quantity button {
+    width: 34px;
+  }
+  .quantity input {
+    width: 38px;
+  }
+  .cost {
+    font-size: 9px;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .inspect > svg {
+    transition: none;
+  }
+  .inspect:hover > svg {
+    transform: none;
+  }
+}

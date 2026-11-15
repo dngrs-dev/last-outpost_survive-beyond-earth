@@ -240,3 +240,8 @@ chosen crew to supplies at `/prepare/`. Legacy root station links open the roste
 The root is the [title menu](title-screen.md). Game-creation and game-state
 contracts remain unchanged. Load keeps only a game-ID bookmark in browser storage
 and fetches the authoritative state; it cannot recover games after server restarts.
+
+The [supplies screen](supplies.md) now displays the same catalog as an illustrated
+cargo bay. Weight/volume, item maxima, stock yields, crew costs, and lighting data
+come from the existing catalog. Frontend launch-form drafts and validation do not
+change the API or replace backend launch validation. Generated fixtures are unchanged.

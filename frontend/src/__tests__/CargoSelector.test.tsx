@@ -8,9 +8,11 @@ it('enforces the scanner limit for both buttons and direct entry', () => {
   render(
     <CargoSelector
       items={catalog.items}
-      limits={catalog.limits}
       cargo={{ diagnostic_tools: 1 }}
       onChangeCargo={change}
+      onInspectItem={vi.fn()}
+      onStarter={vi.fn()}
+      onClear={vi.fn()}
     />
   );
   expect(
@@ -21,7 +23,4 @@ it('enforces the scanner limit for both buttons and direct entry', () => {
     { target: { value: '8' } }
   );
   expect(change).toHaveBeenCalledWith('diagnostic_tools', 1);
-  expect(
-    screen.getByText(/Fictional gameplay cargo limits/)
-  ).toBeInTheDocument();
 });

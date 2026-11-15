@@ -88,6 +88,13 @@ while keeping textual condition indicators accessible.
 
 ## Cargo changes
 
+The [supplies screen](supplies.md) now presents this catalog as a game-style cargo
+bay, with matching original SVG item illustrations, filters, quantity controls,
+and persistent capacity/launch controls. Descriptions and NASA inspiration links
+open in item dialogs. Research, power forecasts, and systems remain in the optional
+mission brief. The same cargo/seed draft is preserved on refresh and crew changes.
+No item definitions or balancing values change with this presentation update.
+
 The six existing cargo IDs remain compatible. Medicine descriptions now distinguish
 consumable supply from equipment. Cargo limits are clearly labeled fictional.
 

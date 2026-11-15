@@ -1,7 +1,8 @@
 # Third-party data and assets
 
-The crew portraits, full-body astronaut SVGs, and profession icons are original
-fictional project artwork. They do not use astronaut photographs, NASA logos,
+The crew portraits, full-body astronaut SVGs, profession icons, and twelve cargo
+item illustrations are original fictional project artwork. They do not use
+astronaut photographs, NASA logos,
 or third-party character assets. NASA training links provide context for the
 existing professions, not the artwork or numerical character traits.
 

@@ -47,6 +47,14 @@ preferences. Scene credits explain the real imagery and illustrative composition
 Historical data and imagery remain sourced; outpost conditions are fictional game
 values. No NASA API key or external request is needed during play.
 
+Supplies now use a full-screen cargo bay with twelve matching original SVG item
+illustrations, category filters, quantity controls, packed checks, and a cargo
+manifest. Weight, space, and Launch stay visible while the inventory scrolls
+internally. Item facts, research goals, outpost systems, sunlight forecasts, and
+replay settings open on demand. Cargo/seed edits survive a preparation-page refresh
+and crew changes; launch errors retain the loadout. Catalog and simulation rules
+remain authoritative in the backend.
+
 ## Run locally
 
 ### Backend
@@ -116,6 +124,8 @@ npm run build
   and Load's resume behavior and storage limits.
 - [Crew and equipment](docs/crew-and-equipment.md): research inspiration, fictional
   character profiles, cargo tradeoffs, and maintenance actions.
+- [Supplies screen](docs/supplies.md): item artwork, packing controls, capacity,
+  mission information, draft preservation, and launch validation.
 - [Event library](docs/events.md): all fifteen scenarios, NASA references, equipment,
   research rewards, and gameplay boundaries.
 - [Connected life support](docs/life-support.md): the ISS-inspired water/oxygen/CO2

@@ -84,6 +84,13 @@
 > the selected IDs in slot order. See `crew-and-equipment.md` for routing, draft
 > preservation, SVG pose/expression inputs, and future gameplay integration.
 
+> Supplies-screen update: `/prepare/` now uses a game-style cargo bay, original
+> SVG item illustrations, category filters, a compact crew/manifest view, and
+> persistent weight/space/launch controls. Item facts, mission objectives, outpost
+> systems, power forecasts, and replay settings open on demand. Drafts survive
+> refresh and crew changes. Catalog/API/simulation values are unchanged; see
+> `supplies.md` for current presentation and validation behavior.
+
 **Project name:** LAST OUTPOST  
 **Subtitle:** Lunar Survival  
 **Genre:** Turn-based survival, strategy, resource management, decision-making  

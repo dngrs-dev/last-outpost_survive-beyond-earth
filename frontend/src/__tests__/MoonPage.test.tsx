@@ -166,12 +166,10 @@ describe('Moon mission selection', () => {
     expect(
       await screen.findByRole('region', { name: 'Selected lunar mission' })
     ).toHaveTextContent('Hadley Outpost selected');
-    expect(document.body.style.overflow).not.toBe('hidden');
-    expect(screen.getByRole('combobox', { name: 'Outpost' })).toHaveValue(
-      'hadley'
-    );
+    expect(document.body.style.overflow).toBe('hidden');
+    expect(screen.getByRole('region', { name: 'Selected lunar mission' })).toHaveTextContent('14 weeks');
     fireEvent.click(
-      screen.getByRole('button', { name: /LAUNCH EXPEDITION TO MOON/ })
+      screen.getByRole('button', { name: /Launch mission/ })
     );
     await screen.findByText('Active mission');
     expect(send).toHaveBeenCalledWith(

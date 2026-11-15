@@ -134,9 +134,9 @@ describe('Visual crew selection with backend catalog data', () => {
     expect(
       screen.getByRole('region', { name: 'Selected lunar mission' })
     ).toHaveTextContent('Hadley Outpost selected');
-    expect(document.body.style.overflow).not.toBe('hidden');
+    expect(document.body.style.overflow).toBe('hidden');
     fireEvent.click(
-      screen.getByRole('button', { name: /LAUNCH EXPEDITION TO MOON/ })
+      screen.getByRole('button', { name: /Launch mission/ })
     );
     await screen.findByText('Launched mission');
     expect(api.createGame).toHaveBeenCalledWith(
@@ -153,18 +153,22 @@ describe('Visual crew selection with backend catalog data', () => {
     fireEvent.click(screen.getByRole('button', { name: 'Next: supplies' }));
     const food = await screen.findByLabelText('Food packs quantity');
     fireEvent.change(food, { target: { value: '9' } });
+    fireEvent.click(screen.getByRole('button', { name: 'Flight settings' }));
     fireEvent.change(screen.getByPlaceholderText('42'), {
       target: { value: '123' },
     });
+    fireEvent.click(screen.getByRole('button', { name: 'Close Mission brief' }));
     fireEvent.click(screen.getByRole('button', { name: 'Change crew' }));
     await ready();
     inspect('Nora Haddad');
     fireEvent.click(screen.getByRole('button', { name: 'Replace Alex' }));
     fireEvent.click(screen.getByRole('button', { name: 'Next: supplies' }));
     expect(await screen.findByLabelText('Food packs quantity')).toHaveValue(9);
+    fireEvent.click(screen.getByRole('button', { name: 'Flight settings' }));
     expect(screen.getByPlaceholderText('42')).toHaveValue('123');
+    fireEvent.click(screen.getByRole('button', { name: 'Close Mission brief' }));
     fireEvent.click(
-      screen.getByRole('button', { name: /LAUNCH EXPEDITION TO MOON/ })
+      screen.getByRole('button', { name: /Launch mission/ })
     );
     await screen.findByText('Launched mission');
     expect(api.createGame).toHaveBeenCalledWith(
@@ -194,7 +198,7 @@ describe('Visual crew selection with backend catalog data', () => {
       await screen.findByRole('region', { name: 'Selected crew' })
     ).toHaveTextContent('1/4');
     fireEvent.click(
-      screen.getByRole('button', { name: /LAUNCH EXPEDITION TO MOON/ })
+      screen.getByRole('button', { name: /Launch mission/ })
     );
     await screen.findByText('Launched mission');
     expect(api.createGame).toHaveBeenCalledWith(
@@ -217,7 +221,7 @@ describe('Visual crew selection with backend catalog data', () => {
     fireEvent.click(screen.getByRole('button', { name: 'Next: supplies' }));
     await screen.findByRole('region', { name: 'Selected crew' });
     fireEvent.click(
-      screen.getByRole('button', { name: /LAUNCH EXPEDITION TO MOON/ })
+      screen.getByRole('button', { name: /Launch mission/ })
     );
     await screen.findByText('Launched mission');
     expect(api.createGame).toHaveBeenCalledWith(
