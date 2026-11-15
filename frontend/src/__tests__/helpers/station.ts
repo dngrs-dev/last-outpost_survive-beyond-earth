@@ -5,7 +5,7 @@ import { game } from '../fixtures/backend';
 export function book() { return within(screen.getByRole('dialog')); }
 export function closeBook() {
   const dialog = screen.queryByRole('dialog');
-  if (dialog) fireEvent.click(within(dialog).getByRole('button', { name: 'Close notebook' }));
+  if (dialog) fireEvent.click(within(dialog).getByRole('button', { name: 'Close panel' }));
 }
 
 export function notebookPage(title: string) {

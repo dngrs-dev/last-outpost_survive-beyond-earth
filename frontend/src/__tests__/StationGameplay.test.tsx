@@ -72,7 +72,7 @@ describe('Full-screen station and notebook flow', () => {
     const computer = screen.getByRole('button', { name: 'Station status' }); computer.focus(); fireEvent.click(computer);
     expect(document.activeElement).toBe(book().getByRole('heading', { level: 1 }));
     const last = book().getByRole('button', { name: 'Return to station' }); last.focus(); fireEvent.keyDown(last, { key: 'Tab' });
-    expect(document.activeElement).toBe(book().getByRole('button', { name: 'Close notebook' }));
+    expect(document.activeElement).toBe(book().getByRole('button', { name: 'Close panel' }));
     fireEvent.keyDown(screen.getByRole('dialog'), { key: 'Escape' });
     expect(screen.queryByRole('dialog')).not.toBeInTheDocument(); expect(document.activeElement).toBe(computer);
   });

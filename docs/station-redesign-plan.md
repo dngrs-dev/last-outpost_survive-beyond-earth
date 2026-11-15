@@ -3,21 +3,22 @@
 ## Resume here
 
 User requested this plan first to preserve work across a usage-limit reset.
-This turn changes documentation only. Implementation has not started.
+Implementation is in progress. The user now authorizes one commit per numbered step.
 
 - Baseline: `20a8785` (`feat(gameplay): add full-screen station and guided notebook flow`).
 - Working tree was clean before adding this plan.
 - Read `AGENTS.md`, this plan, and current files before implementing. Follow current
   user instructions if they change anything below. Do not roll back the baseline.
 - Keep this checklist updated with completed work, checks, and remaining issues.
-- Do not commit automatically. Do not add dependencies or manually edit fixtures.
+- Commit each numbered step in sequence, as authorized by the latest user request.
+- Do not add dependencies or manually edit fixtures.
 - Previous baseline validation: 150 frontend tests, 429 backend tests, production
   build, seven viewport checks and an eight-week mission. These are previous
   results, not validation of the redesign described below.
 
 Resume prompt: **Implement docs/station-redesign-plan.md in order. Update its
 checklist as you go, preserve deterministic atomic turns and exact retries, and
-run relevant checks. Do not commit.**
+run relevant checks. Commit each numbered step in sequence.**
 
 ## Design decisions
 
@@ -68,18 +69,18 @@ children. Do not describe automated tests as child usability testing.
 
 ### 1. Reusable visual controls and flexible modals
 
-- [ ] Replace the notebook-specific shell with a neutral accessible modal supporting
+- [x] Replace the notebook-specific shell with a neutral accessible modal supporting
   large incident, medium crew, and compact warning/result sizes. Keep native dialog,
   focus containment/restoration, Escape, touch targets and reduced motion.
-- [ ] Add small shared resource/chance/crew widgets in the existing component
+- [x] Add small shared resource/chance/crew widgets in the existing component
   directories. Reuse `ItemIcon`, `RoleIcon` and `AstronautAvatar portrait`.
-- [ ] Map resource IDs explicitly: medicine -> medicine_kits, food -> food_packs,
+- [x] Map resource IDs explicitly: medicine -> medicine_kits, food -> food_packs,
   water -> water_containers, oxygen -> oxygen_tanks, plus existing matching items.
   Electricity needs a matching power glyph, not an unrelated consumable icon.
-- [ ] Show repeated icons for small whole-unit consumables (2 medicine = 2 kits).
+- [x] Show repeated icons for small whole-unit consumables (2 medicine = 2 kits).
   Use exact numeric quantities for fractional/large continuous resources; bound
   repetitions. Do not equate one packed cargo unit with one simulation unit.
-- [ ] Hide zero/empty costs. Distinguish consumables spent from equipment required
+- [x] Hide zero/empty costs. Distinguish consumables spent from equipment required
   but retained (e.g. tool/check badge). Keep exact screen-reader labels.
 
 ### 2. Incident board: all options together
@@ -175,7 +176,7 @@ children. Do not describe automated tests as child usability testing.
   320x568 and 844x390. Check touch, keyboard, focus restore and reduced motion.
 - [ ] Inspect screenshots for contact/occlusion/perspective, not only DOM overflow.
   Complete a real-backend campaign with no duplicate charges or science rewards.
-- [ ] Record actual checks, limitations and any unfinished work below. No auto-commit.
+- [ ] Record actual checks, limitations and any unfinished work below. Commit the completed step as authorized.
 
 ## Efficiency and boundaries
 
@@ -190,7 +191,9 @@ implemented behavior and layouts have actually passed validation.
 
 ## Progress / outstanding work
 
-- Planning complete; implementation steps 1-7 remain open.
+- Implementation started; see step checkboxes and validation notes below.
 - Files currently implicated: `GamePage.tsx`/CSS, `weeklyPlan.ts`,
   `useStationMission.ts`, existing `components/station/*`, shared portraits/icons,
   frontend tests and station documentation. API contracts can remain unchanged.
+
+Step 1: neutral modal sizes and shared visual controls implemented. Two resource-widget tests and production build passed. Existing panels retain a temporary compatibility export until their replacement.

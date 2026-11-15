@@ -1,8 +1,8 @@
 import { useEffect, useId, useRef, type ReactNode } from 'react';
 import styles from './NotebookDialog.module.css';
 
-export function NotebookDialog({ title, subtitle, onClose, children, controls }: {
-  title: string; subtitle?: string; onClose: () => void; children: ReactNode; controls?: ReactNode;
+export function GameDialog({ title, subtitle, onClose, children, controls, size = 'medium' }: {
+  title: string; subtitle?: string; onClose: () => void; children: ReactNode; controls?: ReactNode; size?: 'small' | 'medium' | 'large';
 }) {
   const dialog = useRef<HTMLDialogElement>(null);
   const heading = useRef<HTMLHeadingElement>(null);
@@ -20,7 +20,7 @@ export function NotebookDialog({ title, subtitle, onClose, children, controls }:
     };
   }, []);
   useEffect(() => { heading.current?.focus(); }, [title]);
-  return <dialog className={styles.dialog} ref={dialog} aria-labelledby={titleId} onCancel={event => { event.preventDefault(); close.current(); }}
+  return <dialog className={`${styles.dialog} ${styles[size]}`} ref={dialog} aria-labelledby={titleId} onCancel={event => { event.preventDefault(); close.current(); }}
     onKeyDown={event => {
       if (event.key === 'Escape') { event.preventDefault(); close.current(); return; }
       if (event.key !== 'Tab') return;
@@ -29,9 +29,8 @@ export function NotebookDialog({ title, subtitle, onClose, children, controls }:
       if (event.shiftKey && (document.activeElement === first || document.activeElement === heading.current)) { event.preventDefault(); last?.focus(); }
       else if (!event.shiftKey && document.activeElement === last) { event.preventDefault(); first?.focus(); }
     }}>
-    <div className={styles.binding} aria-hidden="true" />
-    <header className={styles.header}><div><small>{subtitle || 'OUTPOST FIELD JOURNAL'}</small><h1 id={titleId} ref={heading} tabIndex={-1}>{title}</h1></div>
-      <button type="button" aria-label="Close notebook" onClick={onClose}>×</button></header>
+    <header className={styles.header}><div><small>{subtitle || 'MISSION CONTROL'}</small><h1 id={titleId} ref={heading} tabIndex={-1}>{title}</h1></div>
+      <button type="button" aria-label="Close panel" onClick={onClose}>×</button></header>
     <div className={styles.page} aria-live="polite">{children}</div>
     <div className={styles.controls}>{controls || <button type="button" className="btn btn-primary" onClick={onClose}>Return to station</button>}</div>
   </dialog>;
@@ -56,3 +55,6 @@ export function textPages(text: string, max = 210): string[] {
   if (page) pages.push(page);
   return pages.length ? pages : [''];
 }
+
+// Compatibility for panels replaced in subsequent redesign steps.
+export const NotebookDialog = GameDialog;
